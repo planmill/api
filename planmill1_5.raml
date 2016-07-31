@@ -1,0 +1,1867 @@
+#%RAML 0.8
+#IMPORTANT NOTE: Do not remove the mock service URL from the baseUri.
+#baseUri: http://mocksvc.mulesoft.com/mocks/c837a2fb-4326-4ff1-a1ab-bb0f37297be2/api/{version}
+baseUri: http://mocksvc.mulesoft.com/mocks/46e3a0a3-2e0c-4979-92f1-20ea1586fbb6/mocks/c837a2fb-4326-4ff1-a1ab-bb0f37297be2/api/{version}
+title: PlanMill
+version: 1.5
+protocols: [HTTPS]
+mediaType: application/json
+securitySchemes:
+   - oauth_2.0:
+       description: |
+           PlanMill supports OAuth 2.0 for authenticating all API requests. More information about it in the security part of the documentation.
+       type: OAuth 2.0
+       describedBy:
+           headers:
+               Authorization:
+                   description: |
+                      Used to send a valid OAuth 2 access token.
+                   type: string
+       settings:
+        authorizationUri: https://online.planmill.com/{instance}/api/oauth2/authorize
+        accessTokenUri: https://online.planmill.com/{instance}/api/oauth2/token
+        authorizationGrants: [code]
+securedBy: [oauth_2.0]
+documentation:
+  - title: Introduction to PlanMill API 1.5
+    content: |
+      PlanMill REST API 1.5 enables developers to access some of the core functionality of PlanMill CRM, project management, and ERP products. 
+   
+  - title: Recent changes
+    content: |  
+      **Upcoming changes** 
+      
+      * Zapier integration on invite bases coming soon (now in private launch -phase). Contact us at info@planmill.com if you are interested in Zapier integration and tell us more. 
+  
+      **June 10th, 2016**
+      * The API now supports the OAuth2 and OpenId connect standards for authentication. More information under the Authentication chapter
+
+      ** March 16th, 2016** 
+      * API documentation improved: authentication information more specific, meta -endpoints highlighted more so users get more knowledge of available filters and columns and effortunit-formatted fields explained to be minutes.
+      * /invoices and /expenses endpoints (GET) added. Generating invoices and creating and updating expenses will come later this year (not commonly used and depend on other changes in the system).
+      * Export -endpoint depricated, see Accept -header support in /reports -endpoint for PDF, XSL and CSV formats
+      
+      **Jan 13th and 20th, 2016**
+
+      * Most endpoints have their own meta endpoints.
+      * New endpoints: /purchases, /teams/id/unitcosts, /users/id/unitcosts
+      * Improved endpoints: /users/id/reportableassignments
+      * Fixes to GET-calls: datatype formats and filters. There might be more cases despite our best efforts, please inform us if you find some.
+      * /projects/projectId/tasks API endpoint has been split into 3 separate endpoints to fix the problem: /projects/projectId/tasks only lists tasks for a project, /projects/projectId/milestones only lists milestones for a project, /projects/projectId/requests only lists requests for a project
+      * Also the /tasks/id -endpoint has been resurrected put back into documentation. Note that it only suppors single tasks. URL parameter ?project=projectId is mandatory for this endpoint.
+
+  - title: Security
+    content: |   
+      ####  OAuth 2.0 and OpenID Connect Authentication
+
+      OAuth 2.0 protocol introduces the HTTP header **"Authorization"** for authentication and authorization to PlanMill API endpoints. The header value is a randomised string token.
+      Current implementation only supports the authorization flow and the access token lifetime is configured to be 6 minutes. Refresh tokens do not expire and only one refresh token can exist per client and per user.
+      To read more about the standard follow this link : http://oauth.net/2/ .
+  
+      **Standard Endpoints**
+  
+      Standard Authorization URI for PlanMill is located in the https://online.planmill.com/{instance}/api/oauth2/authorize endpoint.
+      Required parameters **"client_id"**, **"redirect_uri"** and **"response_type"**.
+      Optional parameters **"scope"** and **"state"**.
+      Standard Token URI for PlanMill is located in the https://online.planmill.com/{instance}/api/oauth2/token endpoint.
+      Required parameters **"client_id"**, **"client_secret"** and **"grant_type"**.
+      Optional parameter **"state"**.
+
+      **Registration**
+  
+      OAuth 2.0 usage requires the clients to be registered to the server, which provides the client with a client identifying string and a client secret. The registration also requires a redirect URI or multiple URIs in comma separated string format.
+      The registration process can be done under the **https://online.planmill.com/{instance}/api/registrations.jsp** page.
+
+      The page will also provide the public RSA key to verify OpenID Connect extension specified signed JSON Web Token "id_token" . 
+      More information about the OpenID Connect and JWTs can be found under these urls: http://openid.net/connect/ , https://jwt.io/ .
+      
+      **Non-standard endpoints**
+  
+      Refresh and access tokens can be revoked through the **/api/oauth2/revoke** endpoint that requires query parameters **"client_id"**, **"client_secret"** and **"token"**.
+
+      To support verification and inspection of access tokens, a non-standard token info endpoint was implemented. It can be accessed through HTTP GET protocol to **/api/oauth2/tokeninfo** endpoint.
+      The request requires query parameters **"client_id"**, **"client_secret"** and **"access_token"**. Response is in JSON format that includes the user, the scope and the audience and expiration in seconds bound to the token.
+
+      Also a userinfo endpoint was added. It can be accessed through HTTP GET request to **/api/oauth2/userinfo** endpoint and requires a Authorization header with the access token. It will provide information about the user, who is bound to the token
+      and all scopes available to the user. 
+
+      **Scopes**
+
+      Scopes are currently implemented as the PlanMill system's access rights and the scope parameter, that is provided during an OAuth 2.0 authorization request or during a refresh token grant, is checked against the user's current access rights.
+
+      ####  HMAC Authentication
+      
+      **Authentication changes coming! See Recent changes -section**  
+      API is secured with secure information in a HTTP-header in each request. Information is similar to data used in OAuth 1.0 or digest. 
+      
+      The authentication header contains the API user's id, a client generated nonce, timestamp and a signature. **Note that the Authentication header is base-64 encoded (SHA256)**
+
+      More information and an example about the authentication header can be found here: [Authentication example](authexample.html)
+      
+      Real service checks authentication data, e.g. uniqueness of nonce. For more details see each endpoints documentation for authentication header values. 
+
+      #### Trying out API with Postman, SoapUi or other tool and need authentication?
+
+      For quick prototyping you can use the https://online.planmill.com/yourinstancename/api/keytest.jsp -page (requires authentication) which generates a ready-made authentication header which you can copy paste to your API client.
+      
+      #### Authorization
+      
+      All API resources respect role, user and data visibility (customer account, project, team, manager, employee) based restrictions defined by the each company's PlanMill Power users for the back-end service and any user interface maintained by PlanMill. 
+      
+      These restrictions may cause the responses to be different for same resource based on whose userid and API key are used to sign the requests. 
+      
+      If some user doesn't have right to see for example project 123 at all, API will return an error with response code 401 (Unauthorized). 
+      
+      If user has right to see the project, but not all information for it, he will get a JSON response containing those attributes he is allowed to see, but those attributes he isn't allowed to see are not contained at all.
+  
+      #### Special issues with authorization (viewing other users' timereports, absences, expenses etc.)
+ 
+      If you need to handle other users private information like timereports absences, expenses etc. you must have enough access rights in your API user account. 
+ 
+      For example handling time reports for other users requires so called "secretary" rights and viewing absences requires HR -access to absences. Expenses requires your user account to see/edit all projects and to have project space expenses view -access.
+      
+      Authorization based restrictions are valid also for creating, updating and deleting resources.
+  - title: Rate limits
+    content: |
+      #### Request limit
+      
+      The purpose of supplying a randomly generated nonce in each request is to limit client's request amount. Currently, it is configured to be 1000 requests/minute.
+# Network usage limit
+# File and database size 
+  - title: Headers
+    content: |
+      #### x-PLANMILL HTTP-headers
+      
+      All http-headers starting with x-PLANMILL- are specific to PlanMill's API only. Other headers are standard HTTP 1.1 specification or user agent specific headers.
+      
+      See required headers from each resource's documentation. Using the headers is required to keep the data consistent and correct.
+      
+      #### Metadata: Media-type, content, filtering and schemas
+      
+      The API consumes and produces data only in JSON format (excluding exports). Always supply the Content-Type header in requests which have JSON content and provide the character encoding of the request entity (UTF-8). 
+      
+      Each API resource's documentation includes JSON schemas and sample files for validating request bodies in client side.
+      
+      Schemas do not include all possible properties, only the essentially required and common ones.
+
+      **To see all available fields, filter parameters, list values and data formats of fieldss for a specific customer instance, make a GET request to both a single resource's metadata end point (/timereports/123/meta) and a collection's metadata enpoint (/timereports/meta).**
+ 
+      Filtering **can** be done using **any of the columns as filters**, even if they are not documented as filters in the /meta -endpoints.
+ 
+      Metadata -enpoints return the format of the fields handled by the endpoint. Note that format **effortunit** means the data is returned always in minutes (regardless of the name of the field). To get hours, divide the number with 60.
+  
+      If you still find that data is returned in incorrect format from some endpoint it's usually because some individual text field contains numbers and is missing datatype information in our system. Please contact our support so we can fix it.
+  
+  - title: HTTP-verbs
+    content: |       
+      #### GET -requests
+      
+      GET verb in requests is used to query results from a collection of resources, i.e. a list of timereports containing different attributes for different timereports. A collection of items is always returned as a JSON array. It can be filtered using query parameters like /timereports?project=123&rowcount=10 (returns 10 timereports from project 123).  
+
+      GET is also used to return all available information about a single item (e.g. GET /timereports/123 will return all attributes of a single timereport with id 123). The same information can also be used for creating an updating the item. Query parameters can't be used with single items.
+      
+      Information returned for multiple items (collection like /timereports) and single items (like /timereports/123) can include different data. For example long text information is only returned for a single item. **See section Metadata for further information on how to get information about available data and formats** 
+      
+      #### POST -requests
+
+      POST -requests are used for creating, updating and partially updating data. For back-end reasons we don't currently provide support with PATCH -verb and delta (change) instructions with it, but partial updates are allowed with POST.
+      
+      #### PATCH -requests (partial update with change instructions)
+      
+      Not supported, see POST.
+      
+      #### PUT -requests
+      
+      PUT requests are used for replacing single resources. For example, you can set capacity for a day in a capacity calendar with PUT /capacitycalendars/1/capacity/2014-01-01T00:00:00.000+0200. The new capacity will replace the old one set for the same day.
+      
+      #### DELETE -requests
+      
+      Delete single resources. Not supported for deleting collections, e.g. DELETE /timereports/123 will delete (remove permanently) the timereport with id 123.
+      
+      #### Mass operations (batch)
+      
+      Multiple different API requests can be combined to one JSON array and posted at the same time. See more information from [/batch](#_batch)
+  - title: Error responses
+    content: |
+      When a client made an API request which the server could not process successfully, an error response is returned. The error response contains an error code, a short message describing the error and sometimes a map containing a set of resource's fields what the error(s) are related to. The response also contains an appropriate 4xx or 5xx HTTP response code.
+      
+      An example error response:
+      
+      <pre>
+      Response code 400 (Bad request)
+      {
+        "message": "Validation failed",
+        "code": "00018",
+        "fields": {
+          "finish": "Please enter a valid date.",
+          "accepterPerson": "Please enter a valid number.",
+          "person": "Please enter a valid number."
+        }
+      }
+      </pre>
+      
+      The error code can be used to query for a user friendly error message in user's default language via the enumerations and languages resources. 
+      
+      All possible error codes and their corresponding language strings can be found under <pre>/enumerations?section=System.API.Errors</pre>
+            
+      More information about enumerations and languages can be found in their corresponding documentations.
+  
+  - title: Getting started with PlanMill API 1.5
+    content: |
+      #### URL of the service
+      
+      The API endpoint can be found in your PlanMill instance behind an URL like shown here:
+      
+      https://{server}/{customerInstance}/api/{version}
+      
+      Where 'server' and 'customerInstance' are replaced by the server address and customer instance name. For example if your instance name is "acme" and it is hosted on online.planmill.com the API 1.5 endpoint would be:
+      
+      https://online.planmill.com/acme/api/1.5
+      
+      
+      #### Protocols 
+      
+      The API only supports TLS/SSL secured **https** protocol.
+      
+traits:
+  - all:
+      securedBy: [oauth_2.0]
+      usage: default settings for all requests
+      headers:
+        x-PlanMill-Currency:
+          description: Recommended to be given. If currency not given in request header, user's current currency set in user settings is used. ISO code of currency in which money values should be shown or saved. Applies to all money attributes of the object, but may be converted by backend to the object specific currency. Some objects and their attributes may not care about the given currency but use the object's own currency
+          type: string
+          minLength: 3
+          maxLength: 3
+          required: false
+          example: |
+            EUR
+  - secured:
+      usage: Apply this to any method that needs to be secured
+      headers:
+        x-PlanMill-Auth:
+          description: |
+           **See section Authentication for examples and changes**
+           user: user's PlanMill id number (see "My page")
+           
+           nonce: unique string value for each request sent to same resource for same timestamp (60s tolerance) and same user's id and authkey. Its length should be 4-8 characters
+           
+           timestamp: time when request was sent (must match API servers time within 60s accuracy), in epoc format
+           
+           signature: hmac-SHA256 encrypted secret, calculated for every request based on base-64 encryption of user's id, timestamp and nonce
+          type: string
+          example: user:1234567;nonce:8usfNOfr;timestamp:1407834635;signature:1JR2KeTuJGNMdZr+Piys3PXoMnRW9AsTjcAaFo/MF9A=
+          required: true
+      responses:
+        400:
+          headers:
+            Content-type:
+              type: string
+              required: true
+              default: |
+                application/json;charset=UTF-8
+          body:
+              application/json: 
+                example: |
+                 {
+                   "message": "ID in GET request URI was malformed",
+                   "code": "00003"
+                 }
+        401:
+          headers:
+            Content-type:
+              type: string
+              required: true
+              default: |
+                application/json;charset=UTF-8
+          body:
+            application/json: 
+              example: |
+                {
+                  "message": "Nonce too old",
+                  "code": "00401"
+                }
+        403:
+          headers:
+            Content-type:
+              type: string
+              required: true
+              default: |
+                application/json;charset=UTF-8
+          body:
+            application/json: 
+              example: |
+                {
+                  "message": "Timer is not allowed to go over 24h! Rounding it down.",
+                  "code": "00403"
+                }
+        404:
+          headers:
+            Content-type:
+              type: string
+              required: true
+              default: |
+                application/json;charset=UTF-8
+          body:
+            application/json:
+              example: |
+                {
+                  "message": "Item not found",
+                  "code": "00404"
+                }
+        429:
+          headers:
+            Content-type:
+              type: string
+              required: true
+              default: |
+                application/json;charset=UTF-8
+          body:
+            application/json: 
+        500:
+          headers:
+            Content-type:
+              type: string
+              required: true
+              default: |
+                application/json;charset=UTF-8
+          body:
+            application/json:
+              example: |
+                {
+                  "message": "Invalid date pattern",
+                  "code": "00500"
+                }
+schemas:
+ - absence: !include absence1_5.schema
+ - account: !include account1_5.schema
+ - action: !include action1_5.schema
+ - batch: !include batch1_5.schema
+ - contact: !include contact1_5.schema
+ - hook: !include hook1_5.schema
+ - mail: !include request_mail1_5.schema 
+ - opportunity: !include opportunity1_5.schema
+ - project: !include project1_5.schema
+ - salesorder: !include sales_order1_5.schema
+ - team: !include team1_5.schema
+ - tempfile: ! include tempfile1_5.schema 
+ - timereport: !include timereport1_5.schema
+ - user: !include user1_5.schema
+
+# write name of the resource before the include and schema always in SINGULAR, i.e. hook not hooks - otherwise the automatic includes won't work
+resourceTypes:
+  - readOnlyCollection:
+      is: [all, secured]
+      description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. This is a read-only collection
+      get:
+        description: Get a list of <<resourcePathName>>
+        queryParameters:
+          rowcount?:
+            type: integer
+            minimum: 1
+            required: false
+            description: It limits the result set amount to the specified limit to avoid API call to return too many records. Default row count is 100
+          nextrows?:
+            type: integer
+            required: false
+            description: The number of the next starting row. It is dependent on rowcount. For example, for total 250 items, if rowcount is 100 and nextrows is 101, it return items 101-201
+          order?:
+            type: integer
+            required: false
+            description: Orders the results in ascending or descending order. 0=Ascending and 1=Descending. It is used in combination with sort
+          sort?:
+            type: integer
+            required: false
+            description: Sorts the results using number that is associated with each column
+        responses:
+            200:
+              body:
+                application/json:
+                  schema: <<schemaName>>
+                  example: |
+                    <<exampleCollectionItemArray>>
+  - readOnlyCollectionItem:
+      is: [all,secured]
+      description: A single <<resourcePathName|!singularize>> in PlanMill. This is a read-only item
+      get:
+        description: View details of single <<resourcePathName|!singularize>>
+        responses:
+          200:
+            body:
+              application/json:
+                example: |
+                  <<exampleCollectionItem>>
+  - collection:
+      is: [all, secured]
+      description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats 
+      get:
+        description: Get a list of <<resourcePathName>>. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats 
+        queryParameters:
+          rowcount?:
+            type: integer
+            minimum: 1
+            required: false
+            description: It limits the result set amount to the specified limit to avoid API call to return too many records. Default row count is 100
+          nextrows?:
+            type: integer
+            required: false
+            description: The number of the next starting row. It is dependent on rowcount. For example, for total 250 items, if rowcount is 100 and nextrows is 101, it return items 101-201
+          order?:
+            type: integer
+            required: false
+            description: Orders the results in ascending or descending order. 0=Ascending and 1=Descending. It is used in combination with sort
+          sort?:
+            type: string
+            required: false
+            description: Sorts the results using string that is a JSON attribute
+          interval?:
+            type: string
+            required: false
+            description: Interval type, e.g. start, finish, created, or modified. It is used in combination with intervalstart or intervalfinish
+          intervalstart?:
+            type: string
+            required: false
+            description: Start date of the interval in UTC format, intervalfinish required 
+            example: 22014-01-01T00:00:00.000+0200
+          intervalfinish?:
+            type: string
+            required: false
+            description: Finish date of the interval in UTC format, intervalstart required
+            example: 2014-01-01T00:00:00.000+0200
+        responses:
+          200:
+            body:
+              application/json:
+                schema: <<resourcePathName|!singularize>>
+                example: |
+                  <<exampleCollectionItemArray>>
+      post:
+        description: Add a new <<resourcePathName|!singularize>> to PlanMill or update existing (if id is given).  See <<resourcePathName|!pluralize>>/meta for list of columns and formats 
+        headers:
+          Content-Type:
+            type: string
+            required: true
+            default: |
+              application/json;charset=UTF-8
+            example: |
+              application/json;charset=UTF-8
+        body:
+          application/json:
+            schema: <<resourcePathName|!singularize>>
+            example: <<exampleCollectionItem>>
+        responses:
+          201:
+            body:
+              application/json:
+                example: |
+                 { "id" : 123456 }
+  - collectionItem:
+      is: [all,secured]
+      description: A single <<resourcePathName|!singularize>> in PlanMill.
+      get:
+        description: View details of single <<resourcePathName|!singularize>>. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats 
+        responses:
+          200:
+            body:
+              application/json: 
+                  example: |
+                    <<exampleCollectionItem>>
+      post:
+        description: Update an existing resource <<resourcePathName|!singularize>> to PlanMill.  See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats 
+        headers:
+          Content-Type:
+            type: string
+            required: true
+            default: |
+              application/json;charset=UTF-8
+            example: |
+              application/json;charset=UTF-8
+        body:
+          application/json: 
+            schema: <<resourcePathName|!singularize>>
+            example: <<exampleCollectionItem>>
+        responses:
+          204:
+            description: No HTTP body returned
+      delete:
+        description: Remove a <<resourcePathName|!singularize>> from PlanMill
+        responses: 
+          204:
+            description: No HTTP body returned
+  - postOnlyCollection:
+      is: [all, secured]
+      post:
+        headers:
+          Content-Type:
+            type: string
+            required: true
+            default: |
+              application/json;charset=UTF-8
+            example: |
+              application/json;charset=UTF-8
+        body:
+          application/json:
+            schema: <<resourcePathName|!singularize>>
+            example: <<exampleCollectionItem>>
+        responses:
+          200:
+            body:
+              application/json:
+               example: |
+                <<exampleCollectionItem>>
+  - postOnlyCollectionMultiPart:
+      is: [all, secured]
+      post:
+        description: Add a new <<resourcePathName|!singularize>> to PlanMill 
+        headers:
+          Content-Type:
+            type: string
+            required: true
+            default: |
+              multipart/form-data
+            example: |
+              multipart/form-data
+        queryParameters:
+          name:
+            required: false
+            description: Name of uploaded file
+          description:
+            required: false
+            description: Description of uploaded file
+        body:
+          multipart/form-data:
+            example: |
+                Contents of file
+        responses:
+          201:
+            body:
+              application/json:
+               example: |
+                { "id" : 123456 }
+  - putOnlyCollectionItem:
+      is: [all, secured]
+      put:
+        headers:
+          Content-Type:
+            type: string
+            required: true
+            default: |
+              application/json;charset=UTF-8
+            example: |
+              application/json;charset=UTF-8
+        body:
+            example: <<exampleCollectionItem>>
+        responses:
+          204:
+            description: No HTTP body returned
+  - putDeleteCollectionItem:
+      is: [all, secured]
+      put:
+        headers:
+          Content-Type:
+            type: string
+            required: true
+            default: |
+              application/json;charset=UTF-8
+            example: |
+              application/json;charset=UTF-8
+        responses:
+          204:
+            description: No HTTP body returned
+        queryParameters:
+         setPrimary:
+          type: boolean
+          example: true | false
+          required: true
+      delete:
+        description: Remove a <<resourcePathName|!singularize>> from PlanMill
+        responses:
+          204:
+            description: No HTTP body returned
+  - putGetDeleteCollectionItem:
+      is: [all, secured]
+      put:
+        headers:
+          Content-Type:
+            type: string
+            required: true
+            default: |
+              application/json;charset=UTF-8
+            example: |
+              application/json;charset=UTF-8
+        responses:
+          204:
+            description: No HTTP body returned
+      get:
+        description: View details of single <<resourcePathName|!singularize>>
+        responses:
+          200:
+            body:
+              application/json: 
+                  example: |
+                    <<exampleCollectionItem>>
+      delete:
+        description: Remove a <<resourcePathName|!singularize>> from PlanMill
+        responses:
+          204:
+            description: No HTTP body returned
+  - getDeleteCollectionItem:
+      is: [all, secured]
+      get:
+        description: View details of single <<resourcePathName|!singularize>>
+        responses:
+          200:
+            body:
+              application/json:
+                  example: |
+                    <<exampleCollectionItem>>
+      delete:
+        description: Remove a <<resourcePathName|!singularize>> from PlanMill
+        responses:
+          204:
+            description: No HTTP body returned
+  - deleteOnlyCollectionItem:
+      is: [all, secured]
+      delete:
+        description: Remove a <<resourcePathName|!singularize>> from PlanMill
+        responses:
+          204:
+            description: No HTTP body returned   
+/absences:
+  get:
+    queryParameters:
+      rowcount:
+      nextrows:
+      order:
+      sort:
+      interval:
+        type: string
+        description: Interval type, e.g. start, finish, created, or modified. It is used in combination with intervalstart or intervalfinish
+      intervalstart:
+        type: string
+        description: Start date of the interval in UTC format
+        example: 2014-01-01T00:00:00.000+0200
+      intervalfinish:
+        type: string
+        description: Finish date of the interval in UTC format
+        example: 2014-01-01T00:00:00.000+0200
+  type:
+    collection:
+       exampleCollectionItemArray: !include absence_array1_5.sample
+       exampleCollectionItem: !include absence1_5.sample
+  /meta:
+      description: Get meta information for absences. Includes resource's fields names and type and related filters
+      get:
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include absence_meta1_5.sample
+  /{id}:
+    type: 
+     collectionItem:
+        exampleCollectionItem: !include absence1_5.sample
+    /meta:
+      description: Get meta information for the updatable fields of the absence
+      get:
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include absence_single_meta1_5.sample
+/accounts:
+  get:
+    queryParameters:
+      rowcount:
+      nextrows:
+      order:
+      sort:
+      interval:
+        type: string
+        description: Interval type, e.g. start, finish, created, or modified. It is used in combination with intervalstart or intervalfinish
+      intervalstart:
+        type: string
+        description: Start date of the interval in UTC format
+        example: 2014-01-01T00:00:00.000+0200
+      intervalfinish:
+        type: string
+        description: Finish date of the interval in UTC format
+        example: 2014-01-01T00:00:00.000+0200
+  type:
+    collection:
+       exampleCollectionItemArray: !include account_array1_5.sample
+       exampleCollectionItem: !include account1_5.sample
+  /meta:
+      description: Get meta information for accounts. Includes resource's fields names and type and related filters
+      get:
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include account_meta1_5.sample
+  /{id}:
+    type: 
+     collectionItem:
+        exampleCollectionItem: !include account1_5.sample
+    /meta:
+        description: Get meta information for the updatable fields of the account
+        get:
+        type:
+          readOnlyCollectionItem:
+            exampleCollectionItem: !include account_single_meta1_5.sample
+    /attachments:
+      type:
+        readOnlyCollection:
+          schemaName:
+          exampleCollectionItemArray: !include tempfile_array1_5.sample
+      /{id}:
+        type:
+          putGetDeleteCollectionItem:
+            exampleCollectionItem: Contents of file
+/actions:
+  get:
+    queryParameters:
+      rowcount:
+      nextrows:
+      order:
+      sort:
+      interval:
+        type: string
+        description: Interval type, e.g. start, finish, created, or modified. It is used in combination with intervalstart or intervalfinish
+      intervalstart:
+        type: string
+        description: Start date of the interval in UTC format
+        example: 2014-01-01T00:00:00.000+0200
+      intervalfinish:
+        type: string
+        description: Finish date of the interval in UTC format
+        example: 2014-01-01T00:00:00.000+0200
+  type:
+    collection:
+      exampleCollectionItemArray: !include action_array1_5.sample
+      exampleCollectionItem: !include action1_5.sample
+  /meta:
+      description: Get meta information for actions. Includes resource's fields names and type and related filters
+      get:
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include action_meta1_5.sample
+  /{id}:
+    type:
+      collectionItem:
+        exampleCollectionItem: !include action1_5.sample
+    /meta:
+        description: Get meta information for the updatable fields of the action
+        get:
+        type:
+          readOnlyCollectionItem:
+            exampleCollectionItem: !include action_single_meta1_5.sample
+    /attachments:
+      type:
+        readOnlyCollection:
+          schemaName:
+          exampleCollectionItemArray: !include tempfile_array1_5.sample
+      /{id}:
+        type:
+          putGetDeleteCollectionItem:
+            exampleCollectionItem: Contents of file
+/batch: 
+  description: Submit multiple API requests as a batch operation. All available individual API requests are supported collected into a JSON array. Responses are also returned as an array in same order as posted. If any request fails, all subsequent requests fail. This is to support execution order inside the batch. All headers apply for all requests unless specific headers applied
+  type: 
+    postOnlyCollection:       
+       exampleCollectionItem: !include batch1_5.sample
+/boards:
+  description: Kanban board from PlanMill
+  type:
+    readOnlyCollection:
+      schemaName: !include board1_5.schema
+      exampleCollectionItemArray: !include board1_5.sample
+  /{id}:
+    type:
+      collectionItem:
+        exampleCollectionItem: !include board1_5.sample
+/boardlists:
+  description: Kanban boardlist from PlanMill
+  type:
+    readOnlyCollection:
+      schemaName: !include boardlist1_5.schema
+      exampleCollectionItemArray: !include boardlist1_5.sample
+  /{id}:
+    type:
+      collectionItem:
+        exampleCollectionItem: !include boardlist1_5.sample
+                
+/capacitycalendars:
+  type:
+    readOnlyCollection:
+      schemaName: !include capacitycalendar1_5.schema
+      exampleCollectionItemArray: !include capacitycalendar_array1_5.sample
+  /meta:
+      description: Get meta information for capacity calendars. Includes resource's fields names and type and related filters
+      get:
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include capacitycalendar_meta1_5.sample
+/capacitycalendars/{id}/capacity/{date}:
+  description: Set a single day's capacity for a capacity calendar
+  uriParameters:
+    date:
+      type: date
+      description: Capacity date in UTC format
+      example: 2014-01-01T00:00:00.000+0200
+      required: true
+  type: 
+    putOnlyCollectionItem:
+      exampleCollectionItem:
+/contacts:
+  type:
+    collection:
+      exampleCollectionItemArray: !include contact_array1_5.sample
+      exampleCollectionItem: !include contact1_5.sample
+  /meta:
+      description: Get meta information for contacts. Includes resource's fields names and type and related filters
+      get:
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include contact_meta1_5.sample
+  /{id}:
+    type: 
+     collectionItem:
+        exampleCollectionItem: !include contact1_5.sample
+    /meta:
+        description: Get meta information for the updatable fields of the contact
+        get:
+        type:
+          readOnlyCollectionItem:
+            exampleCollectionItem: !include action_single_meta1_5.sample
+    /attachments:
+      type:
+        readOnlyCollection:
+          schemaName:
+          exampleCollectionItemArray: !include tempfile_array1_5.sample
+      /{id}:
+        type:
+          putGetDeleteCollectionItem:
+            exampleCollectionItem: Contents of file
+/enumerations:
+  description: Enumerations available in PlanMill
+  get:
+    queryParameters:
+      name: 
+        type: string
+        description: Name of enumeration
+        example: Employee directory.Appraisals.Status
+      section:
+        type: string
+        description: Category of enumeration
+        example: Employee directory.Appraisals
+  type:
+    readOnlyCollectionItem: 
+      exampleCollectionItem: !include enumeration1_5.sample
+/exitcriteria:
+  description: Kanban board exit criteria from PlanMill
+  type:
+    readOnlyCollection:
+      schemaName: !include exit_criteria1_5.schema
+      exampleCollectionItemArray: !include exit_criteria1_5.sample
+  /{id}:
+    type:
+      collectionItem:
+        exampleCollectionItem: !include exit_criteria1_5.sample
+/exitcriteriastatuses:
+  description: Kanban board exit criteria status from PlanMill
+  type:
+    readOnlyCollection:
+      schemaName: !include exit_criteria_status1_5.schema
+      exampleCollectionItemArray: !include exit_criteria_status1_5.sample
+  /{id}:
+    type:
+      collectionItem:
+        exampleCollectionItem: !include exit_criteria_status1_5.sample
+    /comments:
+      type: 
+        readOnlyCollection:
+          schemaName: !include exit_criteria_status_comments1_5.schema
+          exampleCollectionItemArray: !include exit_criteria_status_comments_array1_5.sample
+/expenses:
+  get:
+    queryParameters:
+      rowcount:
+      nextrows:
+      order:
+      sort:
+      interval:
+        type: string
+        description: Interval type, e.g. start, finish, created, or modified. It is used in combination with intervalstart or intervalfinish
+      intervalstart:
+        type: string
+        description: Start date of the interval in UTC format
+        example: 2014-01-01T00:00:00.000+0200
+      intervalfinish:
+        type: string
+        description: Finish date of the interval in UTC format
+        example: 2014-01-01T00:00:00.000+0200
+  type:
+    readOnlyCollection:
+      schemaName: !include expense1_5.schema
+      exampleCollectionItemArray: !include expense_array1_5.sample
+  /meta:
+      description: Get meta information for expenses. Includes resource's fields names and type and related filters
+      get:
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include expense_meta1_5.sample
+  /{id}:
+    get:
+      headers:
+        Accept:
+          description: Get expense in PDF format
+          required: false
+          example: "Accept: application/pdf"
+    type:
+     readOnlyCollectionItem:
+        exampleCollectionItem: !include expense1_5.sample
+    /items:
+      type:
+        readOnlyCollection:
+          schemaName: !include expenseitem1_5.schema
+          exampleCollectionItemArray: !include expenseitem_array1_5.sample
+      /{id}:
+        type:
+          readOnlyCollectionItem:
+            exampleCollectionItem: !include expenseitem1_5.sample
+        /meta:
+          description: Get meta information for the updatable fields of the expense
+          get:
+          type:
+            readOnlyCollectionItem:
+              exampleCollectionItem: !include expenseitem_meta1_5.sample
+      /meta:
+        description: Get meta information for the updatable fields of the expense
+        get:
+        type:
+          readOnlyCollection:
+            schemaName:
+            exampleCollectionItemArray: !include expenseitem_single_meta1_5.sample
+    /meta:
+      description: Get meta information for the updatable fields of the expense
+      get:
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include expense_single_meta1_5.sample
+/hooks:
+  description: The currently available subscribable events are timereport.insert, timereport.update, timereport.delete, absence.insert, absence.update, absence.delete, request.add, request.update,account.add, account.update and account.delete. More endpoints will be supporting push notifications in the future.
+  get:
+    queryParameters:   
+      hook: 
+        type: string
+        description: Event that is being triggered
+      eventUser:
+        type: integer
+        description: User identifier that is triggering the event
+      eventProject:
+        type: integer
+        description: Project identifier for which the event has been triggered
+  type:
+    collection: 
+      exampleCollectionItemArray: !include hook_array1_5.sample
+      exampleCollectionItem: !include hook1_5.sample
+  /{id}:
+    type: 
+      collectionItem:
+        exampleCollectionItem: !include hook1_5.sample
+#/integrations:
+ # type:
+  #  collection: 
+   #   exampleCollectionItemArray: !include integration_array1_5.sample
+    #  exampleCollectionItem: !include integration_use1_5.sample
+/integrations/{integrationName}:
+  is: [all, secured]
+  description: Using specific saved integration settings for importing or exporting a set of data to like file containing information of different companies to PlanMill as accounts.
+  uriParameters:
+    integrationName:
+        type: string
+        description: source.template
+        example: Asiakastieto.DecisionMaker
+   # delete: 
+    #  description: deletes the whole integration (settings) permanently
+  get: 
+    description: Previews fields, source and target data to be transformed into insertable data. Includes validation of source data if file id is given
+    queryParameters:
+      file:
+        type: integer
+        required: false
+        description: Id of the source file to be transformed
+      delim:
+        type: string
+        description: Delimiter character used in the source CSV file
+        default: (horizontal tab)
+      quote:
+        type: string
+        description: Quote character used in the source CSV file
+        default: (double quote)
+      rows:
+        type: integer
+        description: Number of rows to preview
+        default: 10
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include transformation_preview1_5.sample
+  /{file}:
+    uriParameters:
+      file:
+        description: Id of the document the operation will be performed on
+    /transform:
+      put:
+        is: [all, secured]
+        description: Transforms source file to insertable data. Returns a list of any omitted rows due to invalid  field data 
+        queryParameters:
+          delim:
+            description: Delimiter character used in the source CSV file
+            default: (horizontal tab)
+          quote:
+            description: Quote character used in the source CSV file
+            default: (double quote)
+          ignoreFirstRow:
+            description: Ignore the first row of a file. Useful with CSV files with header rows
+            default: false
+        responses:
+           201:
+    /comparison:
+      put:
+        is: [all, secured]
+        description: Compares candidate data with existing objects in PlanMill and returns an appropriate update or insert dataset
+        queryParameters:
+          resource:
+            description: The type of API resource to be compared against
+            example: account
+        responses:
+          202:
+            body:
+              application/json:
+          
+      /conflicts:
+        get:
+          is: [all, secured]
+          description: Lists all conflicts by their given import row. In the case that a given import row matches multiple existing objects in the system they are collected as conflicts to be resolved
+          responses:
+            200:
+              body:
+                application/json:
+                  example: !include integration_comparison_conflicts_get1_5.sample
+        put:
+          is: [all, secured]
+          description: Resolve matches to multiple existing objects by specifying the preferred object id for each conflict
+          body:
+            application/json:
+              example: !include integration_comparison_conflicts_resolve1_5.sample
+    /import:
+      post:
+        is: [all, secured]
+        description: Finally imports prepared comparison dataset into PlanMill
+        queryParameters:
+          resource:
+            required: true
+            description: The type of API resource to be imported
+            example: account
+          mode:
+            required: true
+            description: Importing mode. Insert will only import new objects, update will only update existing objects and merge will do both
+            enum: [insert, update, merge]
+          noComparison:
+            default: false
+            type: boolean
+            description: Perform import without comparison by directly using the transformation result
+        responses:
+          202:
+
+  #  /transformationsettings:
+   #   description: viewing and changing the settings of the integration
+    #  type: 
+     #   collectionItem:
+      #    exampleCollectionItem: include integration1_5.sample
+/invoices:
+  type:
+    readOnlyCollection:
+      schemaName:
+      exampleCollectionItemArray: !include invoice_array1_5.sample
+  /{id}:
+    get:
+      headers:
+        Accept:
+          description: Get invoice in PDF and XML formats. PDF-format works with Invoice + appendix and XML-format works with Finvoice
+          enum: [ application/pdf, application/xml ]
+          required: false
+          example: "Accept: application/pdf"
+    type:
+      readOnlyCollectionItem:
+        exampleCollectionItem: !include invoice1_5.sample
+/languages:
+  description: Language strings used for localization available in PlanMill
+  get:
+    queryParameters:
+      name: 
+        type: string
+        description: Name of language string
+        example: System.Generic.Table.No rows found.Create a new product
+      section:
+        type: string
+        description: Category of language
+        example: System
+      lang:
+        type: string
+        description: Language code ('en', 'fi') to get language string in desired language
+        example: en
+  type:
+    readOnlyCollectionItem: 
+      exampleCollectionItem: !include language1_5.sample
+/me:
+  description: Current user information in PlanMill
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            schema: !include me1_5.schema
+  type:
+    readOnlyCollectionItem:
+      exampleCollectionItem: !include me1_5.sample
+/mails:
+  description: Mail information in PlanMill
+  type:
+    readOnlyCollection:
+      schemaName: !include mail1_5.schema
+      exampleCollectionItemArray: !include mail_array1_5.sample
+  /{id}:
+    type:
+      getDeleteCollectionItem:
+        exampleCollectionItem: !include mail1_5.sample
+    /attachments:
+      type:
+        readOnlyCollection:
+          schemaName:
+          exampleCollectionItemArray: !include tempfile_array1_5.sample
+      /{id}:
+        type:
+          readOnlyCollectionItem:
+            exampleCollectionItem: Contents of file
+/opportunities:
+  get:
+    queryParameters:
+      rowcount:
+      nextrows:
+      order:
+      sort:
+      interval:
+        type: string
+        description: Interval type, e.g. start, finish, created, or modified. It is used in combination with intervalstart or intervalfinish
+      intervalstart:
+        type: string
+        description: Start date of the interval in UTC format
+        example: 2014-01-01T00:00:00.000+0200
+      intervalfinish:
+        type: string
+        description: Finish date of the interval in UTC format
+        example: 2014-01-01T00:00:00.000+0200
+  type:
+    collection:
+       exampleCollectionItemArray: !include opportunity_array1_5.sample
+       exampleCollectionItem: !include opportunity1_5.sample
+  /meta:
+      description: Get meta information for opportunities. Includes resource's fields names and type and related filters
+      get:
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include opportunity_meta1_5.sample
+  /{id}:
+    type: 
+     collectionItem:
+        exampleCollectionItem: !include opportunity1_5.sample
+    /attachments:
+      type:
+        readOnlyCollection:
+          schemaName:
+          exampleCollectionItemArray: !include tempfile_array1_5.sample
+      /{id}:
+        type:
+          putGetDeleteCollectionItem:
+            exampleCollectionItem: Contents of file
+    /meta:
+      description: Get meta information for the updatable fields of the sales orders
+      get:
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include opportunity_single_meta1_5.sample
+    /items:
+      get:
+        description: Get a list of opportunity items. See opportunities/{id}/items/meta for list of filters, columns and formats
+        responses:
+          200:
+            body:
+              application/json:
+                schema: !include opportunityitem1_5.schema
+      post:
+        description: Add a new opportunity item to PlanMill or update existing (if id is given). See opportunities/{id}/items/meta for list of columns and formats
+        body:
+          application/json:
+            schema: !include opportunityitem1_5.schema
+      type:
+        collection:
+          exampleCollectionItemArray: !include opportunityitem_array1_5.sample
+          exampleCollectionItem: !include opportunityitem1_5.sample
+      /{id}:
+        get:
+          description: View details of single item of single opportunity item. #See opportunities/{id}/items/{id}/meta for list of filters, columns and formats
+        post:
+          description: Update an existing resource single item of single opportunity to PlanMill. #See opportunities/{id}/items/{id}/meta for list of filters, columns and formats
+        type:
+          collectionItem:
+            exampleCollectionItem: !include opportunityitem1_5.sample
+/projects:
+  description: reportedHours -field returns minutes like all other effortunit-formatted fields. See /meta -endpoint.
+  get:
+    queryParameters:
+      rowcount:
+      nextrows:
+      order:
+      sort:    
+      interval:
+        type: string
+        description: Interval type, e.g. start, finish, created, or modified. It is used in combination with intervalstart or intervalfinish
+      intervalstart:
+        type: string
+        description: Start date of the interval in UTC format
+        example: 2014-01-01T00:00:00.000+0200 
+      intervalfinish:
+        type: string
+        description: Finish date of the interval in UTC format
+        example: 2014-01-01T00:00:00.000+0200
+  type:
+    collection:
+       exampleCollectionItemArray: !include project_array1_5.sample
+       exampleCollectionItem: !include project1_5.sample
+  /meta:
+      description: Get meta information for projects. Includes resource's fields names and type and related filters
+      get:
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include project_meta1_5.sample
+  /{id}:
+    type: 
+     collectionItem:
+        exampleCollectionItem: !include project1_5.sample
+    /assignments:
+      type:
+        readOnlyCollection:
+          schemaName: !include assignment1_5.schema
+          exampleCollectionItemArray: !include assignment_array1_5.sample
+      /meta:
+          description: Get meta information for the updatable fields of the assignment of a project
+          get:
+          type:
+            readOnlyCollectionItem:
+              exampleCollectionItem: !include project_single_assignment_meta1_5.sample
+      /{id}:
+        type:
+          readOnlyCollectionItem:
+            exampleCollectionItem: !include assignment1_5.sample
+    /attachments:
+      type:
+        readOnlyCollection:
+          schemaName:
+          exampleCollectionItemArray: !include tempfile_array1_5.sample
+      /{id}:
+        type:
+          putGetDeleteCollectionItem:
+            exampleCollectionItem: Contents of file
+    /members:
+      description: Collection of available team members of a project in PlanMill
+      type:
+        readOnlyCollection:
+          schemaName:
+          exampleCollectionItemArray: !include team_array1_5.sample
+      /meta:
+          description: Get meta information for the updatable fields of the team member of a project
+          get:
+          type:
+            readOnlyCollectionItem:
+              exampleCollectionItem: !include project_single_member_meta1_5.sample
+      /{id}:
+        description: A single team member of a project in PlanMill
+        type:
+          putDeleteCollectionItem:
+      /external/{id}:
+        description: A single external team member of a project in PlanMill
+        type:
+          putOnlyCollectionItem:
+            exampleCollectionItem:
+      /editors/{id}:
+        description: A single editor team member of a project in PlanMill
+        type:
+          putDeleteCollectionItem:
+      /managers/{id}:
+        description: A single manager team member of a project in PlanMill
+        type:
+          putOnlyCollectionItem:
+            exampleCollectionItem:
+    /meta:
+      description: Get meta information for the updatable fields of the project
+      get:
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include project_single_meta1_5.sample
+    /milestones:
+      description: List milestones information for a project
+      type:
+        readOnlyCollection:
+          schemaName:
+          exampleCollectionItemArray: !include project_milestones1_5.sample
+      /meta:
+        description: Get meta information for the milestone of a project
+        get:
+        type:
+          readOnlyCollectionItem:
+            exampleCollectionItem: !include project_milestones_meta1_5.sample
+    /purchases:
+      description: List purchase information for a project
+      type:
+        collection:
+         exampleCollectionItemArray: !include project_purchases_array1_5.sample
+         exampleCollectionItem: !include project_single_purchase1_5.sample
+      /id:
+        description: Single purchase information for a project
+        type:
+          collectionItem:
+            exampleCollectionItem: !include project_single_purchase1_5.sample
+        /meta:
+          description: Get meta information for the purchase of a project
+          get:
+          type:
+            readOnlyCollectionItem:
+              exampleCollectionItem: !include project_single_purchase_meta1_5.sample
+      /meta:
+        description: Get meta information for the purchase of a project
+        get:
+        type:
+          readOnlyCollection:
+            schemaName:
+            exampleCollectionItemArray: !include project_purchases_array_meta1_5.sample
+    /tasks:
+      description: Please note that this data model might change and might be inconsistent with the schema right now
+      get:
+        queryParameters:
+          rowcount:
+          nextrows:
+          order:
+          sort:    
+          interval:
+            type: string
+            description: Interval type, e.g. start, finish, created, or modified. It is used in combination with intervalstart or intervalfinish
+          intervalstart:
+            type: string
+            description: Start date of the interval in UTC format
+            example: 2014-01-01T00:00:00.000+0200
+          intervalfinish:
+            type: string
+            description: Finish date of the interval in UTC format
+            example: 2014-01-01T00:00:00.000+0200
+      type:
+        readOnlyCollection:
+          schemaName: !include task1_5.schema
+          exampleCollectionItemArray: !include task_array1_5.sample
+      /meta:
+        description: Get meta information for tasks. Includes resource's fields names and type and related filters
+        get:
+        type:
+          readOnlyCollectionItem:
+            exampleCollectionItem: !include task_meta1_5.sample
+    /requests:
+      description: List requests information for a project
+      type:
+        readOnlyCollection:
+          schemaName:
+          exampleCollectionItemArray: !include project_requests1_5.sample
+      /meta:
+        description: Get meta information for the request of a project
+        get:
+        type:
+          readOnlyCollectionItem:
+            exampleCollectionItem: !include project_requests_meta1_5.sample 
+/reports:
+  get:
+    queryParameters:
+      modernOnly:
+        description: Only list reports which can be viewed by the report API
+        type: boolean
+        default: false
+        required: false
+      exportType:
+        description: Export type which can be used to only export top 1 or 2 categories of a report. (Only applies when exporting to pdf, xsl, csv or xml); level1 exports only top level categories; level2 exports only top 2 categories; detailed (default when parameter not set) export all rows 
+        enum: [ level1, level2, detailed ]
+        required: false
+      rowcount:
+      nextrows:
+      sort:
+      order:
+  type:
+    readOnlyCollection:
+      schemaName:
+      exampleCollectionItemArray: !include report_array1_5.sample
+  /{reportName}:
+    get:
+      headers: 
+        Accept:
+          description: Get report in PDF, CSV, MS-Excel and XML formats
+          enum: [ application/json, application/pdf, application/vnd.ms-excel, application/xml, text/csv]
+          required: false
+          example: "Accept: application/pdf"
+      queryParameters:
+        exportType:
+          description: Export type which can be used to only export top 1 or 2 categories of a report. (Only applies when exporting to json, pdf, xsl, csv or xml); level1 exports only top level categories; level2 exports only top 2 categories; detailed - exports all rows (it is default when parameter is not set)
+          enum: [ level1, level2, detailed ]
+          required: false
+          default: detailed
+        paramX:
+          description: Report filter parameters which are given in separate query parameters. Check the meta resource for information on the report's parameters
+          type: number
+          required: false
+          example: param1=3&param2=2015&param3=-100
+        delim:
+          type: string
+          description: Delimiter character used to separate fields in exported csv files
+          default: (horizontal tab)
+    type: 
+      readOnlyCollectionItem:
+        exampleCollectionItem: !include report1_5.sample
+    /meta:
+      description: Get meta information for a report. Includes the report's name in user's language and information on columns and report filter parameters
+      get:
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include report_meta1_5.sample
+/requests:
+  type:
+    collection:
+      exampleCollectionItemArray: !include request_array1_5.sample
+      exampleCollectionItem: !include request1_5.sample
+  /meta:
+      description: Get meta information for requests. Includes resource's fields names and type and related filters
+      get:
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include request_meta1_5.sample
+  /{id}:
+    type:
+      collectionItem:
+        exampleCollectionItem: !include request1_5.sample
+    /meta:
+        description: Get meta information for the updatable fields of the request
+        get:
+        type:
+          readOnlyCollectionItem:
+            exampleCollectionItem: !include capacitycalendar_meta1_5.sample
+    /assignments:
+      type:
+        collection:
+          exampleCollectionItemArray: !include assignment_array1_5.sample
+          exampleCollectionItem: !include assignment1_5.sample
+      /meta:
+          description:
+          get:
+          type:
+            readOnlyCollectionItem:
+              exampleCollectionItem: !include request_single_assignment_meta1_5.sample
+      /{id}:
+        type:
+          collectionItem:
+            exampleCollectionItem: !include assignment1_5.sample
+        /meta:
+          description:
+          get:
+          type:
+            readOnlyCollectionItem:
+              exampleCollectionItem: !include request_single_assignment_single_meta1_5.sample
+    /attachments:
+      type:
+        readOnlyCollection:
+          schemaName:
+          exampleCollectionItemArray: !include tempfile_array1_5.sample
+      /{id}:
+        type:
+          putGetDeleteCollectionItem:
+            exampleCollectionItem: Contents of file
+    /mails:
+      type:
+        collection:
+          exampleCollectionItemArray: !include request_mail_array1_5.sample
+          exampleCollectionItem: !include request_mail1_5.sample
+      /meta:
+        description: 
+        get:
+        type:
+          readOnlyCollectionItem:
+            exampleCollectionItem: !include request_single_mail_meta1_5.sample   
+/salesorders: 
+  get:
+    queryParameters:
+      rowcount:
+      nextrows:
+      order:
+      sort:
+      interval:
+        type: string
+        description: Interval type, e.g. start, finish, created, or modified. It is used in combination with intervalstart or intervalfinish
+      intervalstart:
+        type: string
+        description: Start date of the interval in UTC format
+        example: 2014-01-01T00:00:00.000+0200
+      intervalfinish:
+        type: string
+        description: Finish date of the interval in UTC format
+        example: 2014-01-01T00:00:00.000+0200
+  type:
+    collection:
+       exampleCollectionItemArray: !include salesorder_array1_5.sample
+       exampleCollectionItem: !include salesorder1_5.sample
+  /meta:
+      description: Get meta information for sales orders. Includes resource's fields names and type and related filters.
+      get:
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include salesorder_meta1_5.sample
+  /{id}:
+    type: 
+     collectionItem:
+        exampleCollectionItem: !include salesorder1_5.sample
+    /attachments:
+      type:
+        readOnlyCollection:
+          schemaName:
+          exampleCollectionItemArray: !include tempfile_array1_5.sample
+      /{id}:
+        type:
+          putGetDeleteCollectionItem:
+            exampleCollectionItem: Contents of file
+    /meta:
+      description: Get meta information for the updatable fields of the sales orders
+      get:
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include salesorder_single_meta1_5.sample
+    /items:
+      get:
+        description: Get a list of sales order items. See salesorder/{id}/items/meta for list of filters, columns and formats
+        responses:
+          200:
+            body:
+              application/json:
+                schema: !include salesorderitem1_5.schema
+      post:
+        description: Add a new sales order item to PlanMill or update existing (if id is given). See opportunities/{id}/items/meta for list of columns and formats
+        body:
+          application/json:
+            schema: !include salesorderitem1_5.schema
+      type:
+        collection:
+          exampleCollectionItemArray: !include salesorderitem_array1_5.sample
+          exampleCollectionItem: !include salesorderitem1_5.sample
+      /{id}:
+        get:
+          description: View details of single item of single sales order item. #See salesorder/{id}/items/{id}/meta for list of filters, columns and formats
+        post:
+          description: Update an existing resource single item of single sales order to PlanMill. #See salesorder/{id}/items/{id}/meta for list of filters, columns and formats
+        type:
+          collectionItem:
+            exampleCollectionItem: !include salesorderitem1_5.sample
+/tasks/{id}:
+  type: 
+    collectionItem:
+      exampleCollectionItem: !include task1_5.sample
+  /meta:
+    description: Get meta information for the updatable fields of the task
+    get:
+    type:
+      readOnlyCollectionItem:
+        exampleCollectionItem: !include task_single_meta1_5.sample
+  /assignments:
+    type:
+      collection:
+        exampleCollectionItemArray: !include assignment_array1_5.sample
+        exampleCollectionItem: !include assignment1_5.sample
+    /meta:
+      description:
+      get:
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include task_single_assignment_meta1_5.sample
+    /{id}:
+      type:
+        collectionItem:
+          exampleCollectionItem: !include assignment1_5.sample
+      /meta:
+        description:
+        get:
+        type:
+          readOnlyCollectionItem:
+            exampleCollectionItem: !include task_single_assignment_single_meta1_5.sample
+  /attachments:
+     type:
+       readOnlyCollection:
+         schemaName:
+         exampleCollectionItemArray: !include tempfile_array1_5.sample
+     /{id}:
+       type:
+         putGetDeleteCollectionItem:
+           exampleCollectionItem: Contents of file
+/teams:
+  get:
+    queryParameters:
+      rowcount:
+      order:
+      sort:
+      interval:
+      intervalstart:
+      intervalfinish:
+  type:
+    collection:
+      exampleCollectionItemArray: !include team_array1_5.sample
+      exampleCollectionItem: !include team1_5.sample
+  /meta:
+    description: Get meta information for teams. Includes resource's fields names and type and related filters
+    get:
+    type:
+      readOnlyCollectionItem:
+        exampleCollectionItem: !include team_meta1_5.sample
+  /{id}:
+    type: 
+     collectionItem:
+      exampleCollectionItem: !include team1_5.sample
+    /meta:
+      description: Get meta information for the updatable fields of the team
+      get:
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include team_single_meta1_5.sample
+    /attachments:
+      type:
+        readOnlyCollection:
+          schemaName:
+          exampleCollectionItemArray: !include tempfile_array1_5.sample
+      /{id}:
+        type:
+          putGetDeleteCollectionItem:
+            exampleCollectionItem: Contents of file
+    /members:
+     type:
+       readOnlyCollection:
+        schemaName:
+        exampleCollectionItemArray: !include teammember_array1_5.sample
+    /members/{id}:
+      description: A single team member in PlanMill
+      type:
+        putDeleteCollectionItem:
+    /unitcosts:
+      description: List of team member unit costs in PlanMill
+      type:
+        readOnlyCollection:
+          schemaName: !include team_unitcost1_5.schema
+          exampleCollectionItemArray: !include team_unitcost_array1_5.sample
+/tempfiles:
+  type:
+    postOnlyCollectionMultiPart:
+  /{id}:
+    type:
+      getDeleteCollectionItem:
+        exampleCollectionItem: Contents of file
+/timereports:
+  get:
+    queryParameters:
+      rowcount:
+      nextrows:
+      order:
+      sort:
+      period: 
+        type: integer
+        description: Period like This year, this month etc. See values from /meta endpoint.
+      interval:
+      intervalstart:
+      intervalfinish: 
+      status: 
+        type: integer
+        description: Used in enumeration of status
+      billableStatus:
+        type: integer
+        description: Used in enumeration of billableStatus
+      projectfilter:
+        type: integer
+        description: Id of a project. It could be used for querying multiple projects' time reports by comma-separated id, e.g., "projectfilter=projectid_1,projectid_2"
+      person:
+        type: integer
+        description: Id of a person. Required, but if not given in request, authenticated API user's time reports are returned. For performance reasons time reports of all users can not be returned
+  type:
+    collection:
+       exampleCollectionItemArray: !include timereport_array1_5.sample
+       exampleCollectionItem: !include timereport1_5.sample
+  /meta:
+      description: Get meta information for time reports. Includes resource's fields names and type and related filters.
+      get:
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include timereport_meta1_5.sample
+  /{id}:
+    type: 
+     collectionItem:
+        exampleCollectionItem: !include timereport1_5.sample
+    /meta:
+      description: Get meta information for the updatable fields of the timereport
+      get:
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include timereport_single_meta1_5.sample
+/users:
+  get:
+    queryParameters:
+      rowcount:
+      nextrows:
+      order:
+      sort:    
+      account: 
+        type: integer
+        description: Id of account of a user
+      team:
+        type: integer
+        description: Id of the team which a user belongs to 
+      type:
+        type: integer
+        description: Type of a user
+      role:
+        type: integer
+        description: Id of a role of a user
+      city:
+        type: string
+        description: City of a user
+      country:
+        type: string
+        description: Country of a user 
+      superior: 
+        type: integer
+        description: Id of superior of a user
+  type: 
+     collection:
+       exampleCollectionItemArray: !include user_array1_5.sample
+       exampleCollectionItem: !include user1_5.sample
+  /meta:
+      description: Get meta information for timereports. Includes resource's fields names and type and related filters
+      get:
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include user_meta1_5.sample
+  /{id}:
+    type: 
+     collectionItem:
+        exampleCollectionItem: !include user1_5.sample
+    /attachments:
+      type:
+        readOnlyCollection:
+          schemaName:
+          exampleCollectionItemArray: !include tempfile_array1_5.sample
+      /{id}:
+        type:
+          putGetDeleteCollectionItem:
+            exampleCollectionItem: Contents of file
+    /meta:
+      description: Get meta information for the updatable fields of the user.
+      get:
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include user_single_meta1_5.sample
+    /capacity:
+      get:
+        queryParameters:
+          start:
+            type: string
+            required: true
+            description: Start date of the capacity calendar in UTC format
+            example: 2014-01-01T00:00:00.000+0200
+          finish:
+            type: string
+            required: true
+            description: Finish date of the capacity calendar in UTC format
+            example: 2014-01-01T00:00:00.000+0200
+      type:
+        readOnlyCollection:
+          schemaName: !include capacity1_5.schema
+          exampleCollectionItemArray: !include capacity1_5.sample
+    /overtimebalance:
+      get:
+        description: View details of single over time balance
+        queryParameters:
+          finish:
+            type: string
+            description: Start date of the balance in UTC format
+            example: 2014-12-31T00:00:00.000+0200
+        responses:
+          200:
+            body:
+              application/json:
+                schema: !include balance1_5.schema
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include balance1_5.sample
+    /reportableassignment:
+      get:
+        description: A single user's reportable assignments in PlanMill. This is a read-only item.
+        queryParameters:
+          start:
+            type: string
+            description: Start date of the capacity calendar in UTC format
+            example: 2014-01-01T00:00:00.000+0200
+          finish:
+            type: string
+            description: Finish date of the capacity calendar in UTC format
+            example: 2014-01-01T00:00:00.000+0200
+      type:
+        readOnlyCollection:
+          schemaName: !include reportable_assignments1_5.schema
+          exampleCollectionItemArray: !include reportable_assignments_array1_5.sample
+    /timebalance:
+      get:
+        queryParameters:
+          finish:
+            type: string
+            description: Start date of the balance in UTC format
+            example: 2014-12-31T00:00:00.000+0200
+        responses:
+          200:
+            body:
+              application/json:
+                schema: !include balance1_5.schema
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include balance1_5.sample
+    /traveltimebalance:
+      get:
+        queryParameters:
+          finish:
+            type: string
+            description: Start date of the balance in UTC format
+            example: 2014-12-31T00:00:00.000+0200
+        responses:
+          200:
+            body:
+              application/json:
+                schema: !include balance1_5.schema
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include balance1_5.sample
+    /unitcosts:
+      description: List of a user's unit costs in PlanMill
+      type:
+        readOnlyCollection:
+          schemaName: !include user_unitcost1_5.schema
+          exampleCollectionItemArray: !include user_unitcost_array1_5.sample
+
+# /campaigns:
+# /competences:
+# /contracts:
+# /forecasts:
+# /products:
+# /revenues:
+# /sessions:
+# /vacations:

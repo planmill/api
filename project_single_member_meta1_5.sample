@@ -1,0 +1,115 @@
+{
+  "filters": [
+    {
+      "name": "searchkey",
+      "caption": ""
+    },
+    {
+      "name": "viewby",
+      "caption": "View by",
+      "values": {
+        "Project team": "0",
+        "Project team - team members": "2",
+        "Project team  - Project manager and team members": "10",
+        "Project team - external team members": "3",
+        "All active contacts": "9",
+        "All active users": "7",
+        "Project team - request assignments": "5",
+        "Project team - team assignments": "4",
+        "Other active users": "6",
+        "Project team - editors": "1",
+        "Other active contacts": "8"
+      }
+    },
+    {
+      "name": "PersonHasTeam.TeamId",
+      "caption": "Team",
+      "values": {
+        "All": "-1",
+        "Support Team\\R & D Team": "4830"
+      }
+    },
+    {
+      "name": "Person.Type",
+      "caption": "Type",
+      "values": {
+        "All": "-1",
+        "Hired - temporarily": "10",
+        "Subcontractor": "4",
+        "Permanent - part-time": "2",
+        "Permanent - full-time": "0",
+        "Partner": "11"
+      }
+    },
+    {
+      "name": "rowcount",
+      "caption": "Rows",
+      "values": {
+        "25": "25",
+        "50": "50",
+        "75": "75",
+        "100": "100",
+        "150": "150",
+        "250": "250"
+      }
+    }
+  ],
+  "fields": {
+    "lastName": {
+      "format": "text",
+      "caption": "_Name"
+    },
+    "editor": {
+      "format": "Enumeration values.Project.Team.Editor.Type",
+      "caption": "Editor"
+    },
+    "photo": {
+      "format": "fileicon",
+      "caption": "_iconmap(ui-icon-person)"
+    },
+    "title": {
+      "format": "text",
+      "caption": "Title"
+    },
+    "superiorLastName": {
+      "format": "text",
+      "caption": "Superior"
+    },
+    "skills": {
+      "format": "text",
+      "caption": "Competences"
+    },
+    "primaryTeamName": {
+      "format": "text",
+      "caption": "Primary team"
+    },
+    "superior": {
+      "format": "text",
+      "caption": "Person.SuperiorId"
+    },
+    "phone": {
+      "format": "text",
+      "caption": "Primary phone"
+    },
+    "primaryTeam": {
+      "format": "text",
+      "caption": "Team.Id"
+    },
+    "primaryDepartment": {
+      "format": "text",
+      "caption": "City"
+    },
+    "teamRole": {
+      "format": "text",
+      "caption": "Team role"
+    },
+    "id": {
+      "format": "checkbox",
+      "caption": "_"
+    },
+    "email": {
+      "format": "emaillink",
+      "caption": "Email"
+    }
+  }
+}

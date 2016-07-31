@@ -1,0 +1,32 @@
+[
+    {
+        "date": "2016-01-18T12:23:00.000+0200",
+        "actualAmount": 50,
+        "description": null,
+        "type": 7,
+        "billableStatus": "Billable",
+        "task": 4751,
+        "createdBy": 4730,
+        "name": "View Purchases",
+        "modifiedBy": null,
+        "id": 4764,
+        "plannedAmount": 100,
+        "account": null,
+        "status": 0
+    },
+    {
+        "date": "2016-01-18T12:23:00.000+0200",
+        "actualAmount": 50,
+        "description": null,
+        "type": 7,
+        "billableStatus": "Billable",
+        "task": 4751,
+        "createdBy": 4730,
+        "name": "Update Purchases",
+        "modifiedBy": null,
+        "id": 4765,
+        "plannedAmount": 100,
+        "account": null,
+        "status": 0
+    }
+]

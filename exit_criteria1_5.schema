@@ -1,0 +1,87 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "base schema for all exit criteria entities",
+  "oneOf": [
+    {
+      "type": "array",
+      "items": { "$ref": "#/definitions/exitCriteriaArray" }
+    },
+    {
+      "$ref": "#/definitions/exitCriteriaSingle"
+    }
+  ],
+  "definitions": {
+    "exitCriteriaSingle": {
+      "type": "object",
+      "required": ["boardlist", "name"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of a board list"
+        },
+        "updatedFields": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "id": {
+          "type": "integer",
+          "description": "Id of a board list"
+        },
+        "resource": {
+          "type": ["string", "null"],
+          "description": "Type of a resource"
+        },
+        "filters": {
+          "type": ["string", "null"],
+          "description": "Filters of a resource"
+        },
+        "ordinalNumber": {
+          "type": ["integer", "null"],
+          "description": ""
+        },
+        "board": {
+          "type": "integer",
+          "description": "The board that the boardlist belongs to"
+        }
+      }
+    },
+    "exitCriteriaArray": {
+      "type": "object",
+      "required": [
+        "sender"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": ["string", "null"],
+          "description": "Name of a board list"
+        },
+        "updatedFields": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "id": {
+          "type": "integer",
+          "description": "Id of a board list"
+        },
+        "resource": {
+          "type": ["string", "null"],
+          "description": "Type of a resource"
+        },
+        "filters": {
+          "type": ["string", "null"],
+          "description": "Filters of a resource"
+        },
+        "ordinalNumber": {
+          "type": ["integer", "null"],
+          "description": ""
+        },
+        "board": {
+          "type": "integer",
+          "description": "The board that the boardlist belongs to"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "base schema for all hook subscriptions",
+  "items": { "$ref": "#/definitions/hooks" },
+  "definitions": {
+    "hook": {
+      "type": "object",
+      "required": [ "hook", "url" ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "Unique subscription identifier"
+        },
+        "hook": {
+          "type": "string",
+          "description": "Event identifier"
+        },
+        "url": {
+          "type": "string",
+          "description": "Subscription URL that will be posted with data when event is triggered"
+        },
+        "eventUser": {
+          "type": ["number", "null"]
+        },
+        "eventProject": {
+          "type": ["number", "null"]
+        }
+      }
+    }
+  }
+}

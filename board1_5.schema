@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "base schema for all board entities",
+  "oneOf": [
+    {
+      "type": "array",
+      "items": { "$ref": "#/definitions/boardArray" }
+    },
+    {
+      "$ref": "#/definitions/boardSingle"
+    }
+  ],
+  "definitions": {
+    "boardSingle": {
+      "type": "object",
+      "required": ["name","id"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the board"
+        },
+        "id": {
+          "type": "integer",
+          "description": "Id of the board"
+        }
+      }
+    },
+    "boardArray": {
+      "type": "object",
+      "required": ["name","id"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the board"
+        },
+        "id": {
+          "type": "integer",
+          "description": "Id of the board"
+        }
+      }
+    }
+  }
+}

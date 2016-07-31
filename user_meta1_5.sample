@@ -1,0 +1,197 @@
+{
+  "filters": [
+    {
+      "name": "freetextsearch",
+      "caption": ""
+    },
+    {
+      "name": "viewtemplate",
+      "caption": "View by",
+      "values": {
+        "My recently created users - last 7 days": "6",
+        "My recently modified users - last 7 days": "7",
+        "All recently modified users - last 30 days": "11",
+        "All recently created users - this month": "12",
+        "All users": "2",
+        "All recently modified users - this month": "14",
+        "All recently modified users - last month": "15",
+        "My teams' members": "5",
+        "All recently created users - last 7 days": "3",
+        "All active users": "0",
+        "All recently created users - last 30 days": "10",
+        "All recently modified users - last 7 days": "4",
+        "All recently created users - last month": "13",
+        "All inactive users": "1"
+      }
+    },
+    {
+      "name": "account",
+      "caption": "Organization",
+      "values": {
+        "All": "-1",
+        "Testi Oy": "2803729",
+        "BillionMill Inc.": "558783"
+      }
+    },
+    {
+      "name": "team",
+      "caption": "Primary team",
+      "values": {
+        "All": "-1",
+        "Extranet_Company1": "2795443",
+        "Support Team": "498896",
+        "Graphical designers": "519914",
+        "Sales Team": "481244",
+        "Consulting Team": "490066",
+        "R & D Team": "480530",
+        "Executive Team": "563642"
+      }
+    },
+    {
+      "name": "contractType",
+      "caption": "Type",
+      "values": {
+        "All": "-1",
+        "Hired - temporarily": "10",
+        "Subcontractor": "4",
+        "Permanent - part-time": "2",
+        "Permanent - full-time": "0",
+        "Partner": "11"
+      }
+    },
+    {
+      "name": "role",
+      "caption": "Role",
+      "values": {
+        "All": "-1",
+        "Extranet user": "468519",
+        "TM testrole": "2772811",
+        "Team Member": "2"
+      }
+    },
+    {
+      "name": "city",
+      "caption": "City",
+      "values": {
+        "All": "-1",
+        "Espoo": "Espoo",
+        "weuyweyu": "weuyweyu",
+        "New York city": "New York city",
+        "Oulu": "Oulu",
+        "Vantaa": "Vantaa",
+        "Helsinki": "Helsinki",
+        "Turku": "Turku",
+        "copenhaagen": "copenhaagen",
+        "Joensuu": "Joensuu",
+        "Miami": "Miami"
+      }
+    },
+    {
+      "name": "country",
+      "caption": "Country",
+      "values": {
+        "All": "-1",
+        "United States": "220",
+        "Finland": "73",
+        "Denmark": "58",
+        "Estonia": "68"
+      }
+    },
+    {
+      "name": "superior",
+      "caption": "Superior",
+      "values": {
+        "All": "-1",
+        "Jim, Harris": "2752646",
+        "Sara, Johnson": "580283",
+        "Mike, Hike": "2828584"
+      }
+    },
+    {
+      "name": "rowcount",
+      "caption": "Rows",
+      "values": {
+        "25": "25",
+        "50": "50",
+        "75": "75",
+        "100": "100",
+        "150": "150",
+        "250": "250"
+      }
+    }
+  ],
+  "fields": {
+    "lastName": {
+      "format": "text",
+      "caption": "_User"
+    },
+    "country": {
+      "format": "Enumeration values.Location.CountryId",
+      "caption": "Country"
+    },
+    "hireDate": {
+      "format": "shortdate",
+      "caption": "Hire date"
+    },
+    "balanceAdjustment": {
+      "format": "effortunit",
+      "caption": "Balance adjust"
+    },
+    "contractType": {
+      "format": "Enumeration values.Employee directory.Contact.Employee status",
+      "caption": "Type"
+    },
+    "skin": {
+      "format": "Enumeration values.System.Theme",
+      "caption": "Theme"
+    },
+    "photo": {
+      "format": "fileicon",
+      "caption": "_iconmap(ui-icon-person)"
+    },
+    "timeZone": {
+      "format": "text",
+      "caption": "Time zone"
+    },
+    "title": {
+      "format": "text",
+      "caption": "Title"
+    },
+    "userName": {
+      "format": "text",
+      "caption": "User name"
+    },
+    "languageCode": {
+      "format": "Enumeration values.System.Language",
+      "caption": "Language"
+    },
+    "effortUnit": {
+      "format": "Enumeration values.Task.Effort units",
+      "caption": "Time unit"
+    },
+    "passive": {
+      "format": "Enumeration values.Employee directory.Contact.Passive",
+      "caption": "Status"
+    },
+    "balanceMaximum": {
+      "format": "effortunit",
+      "caption": "Balance maximum"
+    },
+    "departDate": {
+      "format": "shortdate",
+      "caption": "Depart date"
+    },
+    "department": {
+      "format": "text",
+      "caption": "Department"
+    },
+    "email": {
+      "format": "emaillink",
+      "caption": "Email"
+    },
+    "account": {
+      "format": "text",
+      "caption": "Account.Id"
+    }
+  }
+}

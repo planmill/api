@@ -1,0 +1,179 @@
+{
+  "unitPrice": {
+    "caption": "Task unit price",
+    "format": "double",
+    "values": null
+  },
+  "dutyType": {
+    "description": "NOTE: Consult PlanMill-support before selecting Absence-duty types",
+    "caption": "Duty type",
+    "values": {
+      "HRM": "2070",
+      "Sick leave due to child": "1020",
+      "Maternal leave (unpaid)": "1190",
+      "Office work": "2110",
+      "Internal events": "2100",
+      "Sick leave by medical certificate": "1025",
+      "Marketing": "2010",
+      "Study leave (unpaid)": "1140",
+      "Annual holiday": "1000",
+      "Maternal leave (paid)": "1030",
+      "Layoff": "1120",
+      "Education": "2000",
+      "Overtime leave": "1080",
+      "Bonus holiday pay": "1100",
+      "Development": "2030",
+      "Paternal leave (paid)": "1180",
+      "Sick leave": "1010",
+      "Unpaid holiday": "1060",
+      "Administrative duty": "optgroup",
+      "Other annual vacation": "1160",
+      "Military refresher": "1110",
+      "Paid holiday": "1070",
+      "Finance": "2060",
+      "Balance leave": "1090",
+      "Presales": "2020",
+      "Management": "2090",
+      "IT": "2050",
+      "Customer service": "2120",
+      "Paternal leave (unpaid)": "1040",
+      "-": "/optgroup",
+      "On call": "2140",
+      "R&D": "2040",
+      "Emergency duty 22.00-06.00": "2135",
+      "Military leave": "1050",
+      "Saved leave": "1165",
+      "Child care leave": "1130",
+      "HRD": "2080",
+      "Emergency duty < 22.00": "2130",
+      "Other": "9999"
+    },
+    "format": "int",
+    "enumeration": "Enumeration values.Task.Offduty"
+  },
+  "parent": {
+    "caption": "Parent",
+    "values": {
+      "-": "2835262"
+    },
+    "format": "int"
+  },
+  "targetEffort": {
+    "caption": "Estimated work",
+    "format": "double",
+    "values": null
+  },
+  "start": {
+    "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+    "caption": "Start",
+    "format": "string",
+    "maxlength": "10",
+    "values": null
+  },
+  "tempFinish": {
+    "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+    "caption": "",
+    "values": null
+  },
+  "originalFinish": {
+    "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+    "caption": "Finish",
+    "format": "string",
+    "maxlength": "10",
+    "values": null
+  },
+  "priceType": {
+    "caption": "Price type",
+    "format": "int",
+    "description": "",
+    "values": null
+  },
+  "project": {
+    "caption": "",
+    "format": "int",
+    "values": null
+  },
+  "wbs": {
+    "caption": "WBS",
+    "format": "string",
+    "maxlength": "50",
+    "values": null
+  },
+  "description": {
+    "caption": "",
+    "format": "string",
+    "values": null
+  },
+  "finishOld": {
+    "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+    "caption": "",
+    "values": null
+  },
+  "predecessorTask": {
+    "caption": "Depends on (Finish to Start)",
+    "values": {
+      "-": "-1"
+    },
+    "format": "int"
+  },
+  "type": {
+    "caption": "Type",
+    "format": "int",
+    "enumeration": "Enumeration values.Task.Type in form",
+    "values": {
+      "Task": "100",
+      "Milestone": "101"
+    }
+  },
+  "billableStatus": {
+    "caption": "Billing type",
+    "format": "int",
+    "enumeration": "Enumeration values.Project.Billable status short",
+    "values": {
+      "Non-billable": "3",
+      "Time based": "2",
+      "Fixed": "1"
+    }
+  },
+  "originalStart": {
+    "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+    "caption": "Start",
+    "format": "string",
+    "maxlength": "10",
+    "values": null
+  },
+  "name": {
+    "caption": "Name",
+    "format": "string",
+    "maxlength": "255",
+    "values": null
+  },
+  "finish": {
+    "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+    "caption": "Finish",
+    "format": "string",
+    "maxlength": "10",
+    "values": null
+  },
+  "id": {
+    "caption": "",
+    "format": "int",
+    "values": null
+  },
+  "status": {
+    "caption": "Status",
+    "format": "int",
+    "enumeration": "Enumeration values.Task.Status in form",
+    "values": {
+      "Manually set status values": "optgroup",
+      "100% complete": "160",
+      "75% complete": "150",
+      "On hold": "100",
+      "50% complete": "140",
+      "Approved": "120",
+      "25% complete": "130",
+      "-": "/optgroup",
+      "Progressing": "110"
+    }
+  }
+}

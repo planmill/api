@@ -1,0 +1,79 @@
+{
+  "taskStart": {
+    "caption": "",
+    "format": "shortdate",
+    "values": null
+  },
+  "proposedDeadline": {
+    "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+    "caption": "Proposal deadline",
+    "format": "string",
+    "description": "",
+    "maxlength": "10",
+    "values": null
+  },
+  "personOrTeam": {
+    "caption": "Assigned to",
+    "values": {
+      "Mikkonen, Juha": "5798",
+      "-": "",
+      "Team: R & D Team": "4853"
+    },
+    "format": "int"
+  },
+  "actualAmount": {
+    "caption": "Accepted",
+    "format": "double",
+    "values": null
+  },
+  "totalReported": {
+    "caption": "AssignmentReported",
+    "format": "double",
+    "values": null
+  },
+  "project": {
+    "caption": "",
+    "format": "int",
+    "values": null
+  },
+  "proposedAmount": {
+    "caption": "Proposed",
+    "format": "double",
+    "values": null
+  },
+  "remainingAmount": {
+    "caption": "Remain",
+    "format": "double",
+    "values": null
+  },
+  "task": {
+    "caption": "Task",
+    "values": {
+      "PlanMill Professional Services, 25.09.2012 - 31.12.2012": "2856",
+      "PlanMill ERP Cloud  Quick Setup Pack, 25.09.2012 - 30.09.2012": "2175",
+      "-": "",
+      "PlanMill Integration for SAP Finance, 25.09.2012 - 31.12.2012": "2873"
+    },
+    "format": "int"
+  },
+  "timereportsAmount": {
+    "caption": "Reported",
+    "format": "double",
+    "values": null
+  },
+  "comment": {
+    "caption": "Proposal hint",
+    "description": "",
+    "maxlength": "50",
+    "values": null
+  },
+  "plannedAmount": {
+    "caption": "Planned",
+    "format": "double",
+    "values": null
+  },
+  "taskFinish": {
+    "caption": "",
+    "values": null
+  }
+}

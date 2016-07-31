@@ -1,0 +1,22 @@
+{
+  "unitPrice": 10,
+  "dutyType": 2040,
+  "parent": 3094,
+  "targetEffort": 120,
+  "start": "2015-09-08T09:00:00.000+0300",
+  "tempFinish": "2015-09-08T16:30:00.000+0300",
+  "originalFinish": "2015-09-08T16:30:00.000+0300",
+  "priceType": null,
+  "project": 3094,
+  "wbs": "",
+  "description": "<p>test description</p>",
+  "finishOld": "2015-09-08T16:30:00.000+0300",
+  "predecessorTask": null,
+  "type": 100,
+  "billableStatus": 2,
+  "originalStart": "2015-09-08T09:00:00.000+0300",
+  "name": "test task",
+  "finish": "2015-09-08T16:30:00.000+0300",
+  "id": 4139,
+  "status": -1
+}

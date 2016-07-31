@@ -1,0 +1,255 @@
+{
+  "Project homepage": [
+    {
+      "reports": [
+        {
+          "localizedName": "Time and expense reports by month",
+          "modern": false,
+          "hasAccess": true,
+          "name": "Time and expense reports by month",
+          "favorite": true
+        },
+        {
+          "localizedName": "Time and expense reports by person",
+          "modern": false,
+          "hasAccess": true,
+          "name": "Time and expense reports by person",
+          "favorite": true
+        }
+      ],
+      "localizedName": "Time & expense"
+    },
+    {
+      "reports": [
+        {
+          "localizedName": "Revenues summary by month",
+          "modern": false,
+          "hasAccess": true,
+          "name": "Revenues summary by month",
+          "favorite": true
+        }
+      ],
+      "localizedName": "Expenses & invoices"
+    },
+    {
+      "reports": [
+        {
+          "localizedName": "Requests by status",
+          "modern": false,
+          "hasAccess": true,
+          "name": "Requests by status",
+          "favorite": true
+        },
+        {
+          "localizedName": "Open tasks & requests",
+          "modern": false,
+          "hasAccess": true,
+          "name": "Open tasks & requests",
+          "favorite": true
+        }
+      ],
+      "localizedName": "Other project related"
+    }
+  ],
+  "Portfolio homepage": [
+    {
+      "reports": [
+        {
+          "localizedName": "Time and expense reports by person and project",
+          "modern": false,
+          "hasAccess": true,
+          "name": "Time and expense reports by person and project",
+          "favorite": true
+        },
+        {
+          "localizedName": "Time and expense reports by month and project",
+          "modern": false,
+          "hasAccess": true,
+          "name": "Time and expense reports by month and project",
+          "favorite": true
+        }
+      ],
+      "localizedName": "Time & expense"
+    }
+  ],
+  "Portal": [
+    {
+      "reports": [],
+      "localizedName": "Self generated reports"
+    },
+    {
+      "reports": [
+        {
+          "localizedName": "My accounts by status & country",
+          "modern": false,
+          "hasAccess": true,
+          "name": "My accounts by status & country",
+          "description": "Lists all the accounts where you are the owner.",
+          "favorite": true
+        },
+        {
+          "localizedName": "My expense reports",
+          "modern": false,
+          "hasAccess": true,
+          "name": "My expense reports",
+          "favorite": true
+        }
+      ],
+      "localizedName": "My reports"
+    },
+    {
+      "reports": [
+        {
+          "localizedName": "Account billable time analysis",
+          "modern": false,
+          "hasAccess": false,
+          "name": "Account billable time analysis",
+          "favorite": true
+        },
+        {
+          "localizedName": "Account project billable time analysis",
+          "modern": false,
+          "hasAccess": false,
+          "name": "Account project billable time analysis",
+          "favorite": true
+        }
+      ],
+      "localizedName": "Portfolio analysis"
+    },
+    {
+      "reports": [
+        {
+          "localizedName": "Draft invoices by month",
+          "modern": false,
+          "hasAccess": true,
+          "name": "Draft invoices by month",
+          "favorite": true
+        },
+        {
+          "localizedName": "Invoices by country",
+          "modern": false,
+          "hasAccess": true,
+          "name": "Invoices by country",
+          "favorite": true
+        }
+      ],
+      "localizedName": "Invoicing"
+    },
+    {
+      "reports": [
+        {
+          "localizedName": "All expense summary by month",
+          "modern": false,
+          "hasAccess": true,
+          "name": "All expense summary by month",
+          "favorite": true
+        },
+        {
+          "localizedName": "Taxation expense items",
+          "modern": false,
+          "hasAccess": false,
+          "name": "Taxation expense items",
+          "favorite": true
+        }
+      ],
+      "localizedName": "Time & expense"
+    },
+    {
+      "reports": [
+        {
+          "localizedName": "Actual utilization analysis by cost center",
+          "modern": true,
+          "hasAccess": true,
+          "name": "Actual utilization analysis by cost center",
+          "description": "Also includes absences",
+          "favorite": true
+        },
+        {
+          "localizedName": "Actual utilization analysis by person",
+          "modern": true,
+          "hasAccess": true,
+          "name": "Actual utilization analysis by person",
+          "description": "Also includes absences",
+          "favorite": true
+        }
+      ],
+      "localizedName": "Resources & utilization"
+    },
+    {
+      "reports": [
+        {
+          "localizedName": "Accounts by owner",
+          "modern": false,
+          "hasAccess": true,
+          "name": "Accounts by owner",
+          "favorite": true
+        },
+        {
+          "localizedName": "Actions analysis by month",
+          "modern": false,
+          "hasAccess": true,
+          "name": "Actions analysis by month",
+          "favorite": true
+        }
+      ],
+      "localizedName": "Sales & service"
+    },
+    {
+      "reports": [
+        {
+          "localizedName": "Revenue item preparation",
+          "modern": true,
+          "hasAccess": true,
+          "name": "Revenue item preparation",
+          "favorite": true
+        },
+        {
+          "localizedName": "Time report invoice preparation",
+          "modern": true,
+          "hasAccess": true,
+          "name": "Time report invoice preparation",
+          "favorite": true
+        }
+      ],
+      "localizedName": "Update reports"
+    },
+    {
+      "reports": [
+        {
+          "localizedName": "Project list",
+          "modern": false,
+          "hasAccess": true,
+          "name": "Project list",
+          "favorite": true
+        },
+        {
+          "localizedName": "Task list",
+          "modern": true,
+          "hasAccess": true,
+          "name": "Task list",
+          "favorite": true
+        }
+      ],
+      "localizedName": "List reports"
+    },
+    {
+      "reports": [
+        {
+          "localizedName": "Appraisals summary - Topics",
+          "modern": true,
+          "hasAccess": false,
+          "name": "Appraisals summary - Topics",
+          "favorite": false
+        },
+        {
+          "localizedName": "Competences by team",
+          "modern": true,
+          "hasAccess": false,
+          "name": "Competences by team",
+          "favorite": true
+        }
+      ],
+      "localizedName": "Other"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "destination": "projects",
+    "method": "POST",
+    "header": {
+      
+    },
+    "body": {
+      "name": "BatchDraftV1"
+    }
+  },
+  {
+    "destination": "projects/2839831",
+    "method": "POST",
+    "header": {
+      
+    },
+    "body": {
+      "name": "BatchDraftV4"
+    }
+  },
+  {
+    "destination": "projects/2839830",
+    "method": "DELETE",
+    "header": {
+      
+    },
+    "body": {
+      
+    }
+  }
+]

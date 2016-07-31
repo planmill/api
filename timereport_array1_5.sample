@@ -1,0 +1,38 @@
+[
+  {
+    "dutyType": 0,
+    "amount": 120,
+    "start": "2015-09-08T14:06:00.000+0300",
+    "project": 3094,
+    "billableStatus": 4,
+    "overtimeAmount": 60,
+    "task": 3124,    
+    "billingComment": "requirements workshop preparation",
+    "person": 3081,
+    "comment": "testing comment",
+    "overtimeComment": "urgent bug fix in release",
+    "finish": "2015-09-08T16:06:00.000+0300",
+    "id": 4138,
+    "travelComment": "visit to customer permises for new installation",
+    "travelAmount": 180,
+    "status": 0
+  },
+    {
+    "dutyType": 2040,
+    "amount": 180,
+    "start": "2015-09-08T14:06:00.000+0300",
+    "project": 4136,
+    "billableStatus": 1,
+    "overtimeAmount": 0,
+    "task": 3124,    
+    "billingComment": null,
+    "person": 3081,
+    "comment": "",
+    "overtimeComment": "",
+    "finish": "2015-09-08T16:06:00.000+0300",
+    "id": 4156,
+    "travelComment": "",
+    "travelAmount": 0,
+    "status": 0
+  }
+]

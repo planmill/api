@@ -1,0 +1,12 @@
+{
+  "remainingAmount": 0,
+  "taskStart": "2015-08-13T09:58:00.000+0300",
+  "task": 7468,
+  "timereportsAmount": 120,
+  "personOrTeam": 7447,
+  "actualAmount": 0,
+  "totalReported": 120,
+  "project": 7449,
+  "plannedAmount": 240,
+  "taskFinish": "2015-08-14T09:58:00.000+0300"
+}

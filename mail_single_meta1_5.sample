@@ -1,0 +1,50 @@
+{
+  "sender": {
+    "caption": "From",
+    "format": "email",
+    "description": "",
+    "values": {
+      "tester.test@planmill.com": "tester.test@planmill.com"
+    }
+  },
+  "subject": {
+    "caption": "Subject",
+    "format": "string",
+    "description": "",
+    "values": null
+  },
+  "carbonCopy": {
+    "caption": "CC",
+    "format": "string",
+    "description": "",
+    "values": null
+  },
+  "blindCarbonCopy": {
+    "caption": "BCC",
+    "format": "string",
+    "description": "",
+    "values": null
+  },
+  "nonDraft": {
+    "format": "int",
+    "values": null
+  },
+  "id": {
+    "caption": "",
+    "format": "int",
+    "description": "",
+    "values": null
+  },
+  "primaryTo": {
+    "caption": "To",
+    "format": "string",
+    "description": "",
+    "values": null
+  },
+  "body": {
+    "caption": " ",
+    "format": "string",
+    "description": "",
+    "values": null
+  }
+}

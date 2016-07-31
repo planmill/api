@@ -1,0 +1,10 @@
+{
+  "sender": "tester@planmill.com",
+  "subject": "test request (ID 3938, Tester Peter / PlanMill Oy)",
+  "carbonCopy": "bug@planmill.com",
+  "blindCarbonCopy": "test@planmill.com",
+  "nonDraft": 0,
+  "id": 4149,
+  "primaryTo": "receiver@planmill.com",
+  "body": "This is the first request mail"
+}

@@ -1,0 +1,41 @@
+[
+  {
+    "country": 73,
+    "defaultWeekStartDay": 1,
+    "defaultDailyWorktime": 510,
+    "defaultDailyStartTime": 540,
+    "name": "FI 2006 - 2010",
+    "start": "2006-01-01T00:00:00.000+0200",
+    "defaultWeeklyWorkdays": 5,
+    "finish": "2011-12-31T00:00:00.000+0200",
+    "activeUsers": 7,
+    "id": 480895,
+    "type": 0
+  },
+  {
+    "country": null,
+    "defaultWeekStartDay": 1,
+    "defaultDailyWorktime": 450,
+    "defaultDailyStartTime": 540,
+    "name": "FI 2009 - 2019",
+    "start": "2009-01-01T00:00:00.000+0200",
+    "defaultWeeklyWorkdays": 5,
+    "finish": "2019-12-31T00:00:00.000+0200",
+    "activeUsers": 54,
+    "id": 585281,
+    "type": 0
+  },
+  {
+    "country": 73,
+    "defaultWeekStartDay": 1,
+    "defaultDailyWorktime": 360,
+    "defaultDailyStartTime": 540,
+    "name": "FI2011: Osa-aika - 30 h/vk",
+    "start": "2011-01-01T00:00:00.000+0200",
+    "defaultWeeklyWorkdays": 5,
+    "finish": "2011-12-31T00:00:00.000+0200",
+    "activeUsers": 1,
+    "id": 2771516,
+    "type": 2
+  }
+]

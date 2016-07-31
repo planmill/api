@@ -1,0 +1,205 @@
+{
+  "filters": [
+    {
+      "name": "freetextsearch",
+      "caption": ""
+    },
+    {
+      "name": "viewtemplate",
+      "caption": "View by",
+      "values": {
+        "All absences": "30",
+        "Absences to handle": "10",
+        "My absences": "0",
+        "My subordinates' absences": "20"
+      }
+    },
+    {
+      "name": "period",
+      "caption": "Period",
+      "values": {
+        "All": "0",
+        "Last 180 days": "16",
+        "This week": "30",
+        "This and next FY": "7",
+        "Last 14 days": "26",
+        "This and next month": "24",
+        "This and next week": "34",
+        "Next 30 days": "17",
+        "Next 180 days": "21",
+        "This FY": "5",
+        "Next FY": "6",
+        "This and last month": "25",
+        "This FQ": "1",
+        "Last month": "11",
+        "Last 30 days": "12",
+        "Last FY": "8",
+        "Today and tomorrow": "44",
+        "This and last week": "32",
+        "This and next FQ": "3",
+        "Last FQ": "4",
+        "Last 120 days": "15",
+        "This and last FY": "23",
+        "Last week": "31",
+        "This month": "9",
+        "Next 120 days": "20",
+        "Yesterday": "41",
+        "Last 60 days": "13",
+        "Next week": "33",
+        "Next 60 days": "18",
+        "Tomorrow": "43",
+        "Today": "40",
+        "Today and yesterday": "42",
+        "Next FQ": "2",
+        "Next month": "10",
+        "This & last FQ": "22",
+        "Last 90 days": "14",
+        "Next 90 days": "19"
+      }
+    },
+    {
+      "name": "person",
+      "caption": "Person",
+      "values": {
+        "All": "-1",
+        "Jim, Harris": "2752646",
+        "Sara, Johnson": "580283",
+        "Mike, Hike": "2828584"
+      }
+    },
+    {
+      "name": "accepterPerson",
+      "caption": "Acceptor",
+      "values": {
+        "All": "-1",
+        "Jim, Harris": "2752646",
+        "Sara, Johnson": "580283",
+        "Mike, Hike": "2828584"
+      }
+    },
+    {
+      "name": "absenceType",
+      "caption": "Absence type",
+      "values": {
+        "All": "-1",
+        "Military refresher": "1110",
+        "Paid holiday": "1070",
+        "Balance leave": "1090",
+        "Sick leave by medical certificate": "1025",
+        "Study leave (unpaid)": "1140",
+        "Annual holiday": "1000",
+        "Maternal leave (paid)": "1030",
+        "Overtime leave": "1080",
+        "Bonus holiday pay": "1100",
+        "Military leave": "1050",
+        "Sick leave": "1010",
+        "Paternal leave (paid)": "1180",
+        "Saved leave": "1165",
+        "Child care leave": "1130",
+        "Unpaid holiday": "1060",
+        "Other annual vacation": "1160"
+      }
+    },
+    {
+      "name": "status",
+      "caption": "Status",
+      "values": {
+        "All": "-1",
+        "Interrupted": "50",
+        "Preliminary": "0",
+        "Interruption accepted": "60",
+        "Ready for acceptance": "10",
+        "Completed": "40",
+        "Ongoing": "30",
+        "Rejected": "70",
+        "Cancelled": "80",
+        "Accepted": "20"
+      }
+    },
+    {
+      "name": "team",
+      "caption": "Primary team",
+      "values": {
+        "All": "-1",
+        "Sales Team": "481244",
+        "Consulting Team": "490066",
+        "R & D Team": "480530",
+        "Executive Team": "563642"
+      }
+    },
+    {
+      "name": "interval",
+      "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+      "values": {
+        "Modified": "modfied",
+        "Start": "start",
+        "Ongoing": "ongoing",
+        "Finish": "finish",
+        "Accepted": "accepted",
+        "Created": "created"
+      }
+    }
+  ],
+  "fields": {
+    "accepterPerson": {
+      "format": "text",
+      "caption": "Task.ResponsibleId"
+    },
+    "interruptionDate": {
+      "format": "shortdate",
+      "caption": "Interruption date"
+    },
+    "created": {
+      "format": "mediumdate",
+      "caption": "Created"
+    },
+    "modfied": {
+      "format": "mediumdate",
+      "caption": "Modified"
+    },
+    "start": {
+      "format": "mediumdateday",
+      "caption": "Start"
+    },
+    "project": {
+      "format": null,
+      "caption": ""
+    },
+    "description": {
+      "format": null,
+      "caption": ""
+    },
+    "vacationYear": {
+      "format": "text",
+      "caption": "Vacation year"
+    },
+    "vacationLength": {
+      "format": "day",
+      "caption": "Length"
+    },
+    "person": {
+      "format": "text",
+      "caption": "Assignment.PersonId"
+    },
+    "absenceType": {
+      "format": "Enumeration values.Task.Offduty",
+      "caption": "Absence type"
+    },
+    "finish": {
+      "format": "mediumdateday",
+      "caption": "Finish"
+    },
+    "id": {
+      "format": "text",
+      "caption": "Task.Id"
+    },
+    "substitutePerson": {
+      "format": "text",
+      "caption": "Substitute.Id"
+    },
+    "status": {
+      "format": "Enumeration values.Employee directory.Absences.Status",
+      "caption": "Status"
+    }
+  }
+}

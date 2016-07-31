@@ -1,0 +1,14 @@
+{
+	"id": 3081,
+	"name": "First pricebook",
+	"validFrom": "2015-08-13T15:14:00.000+0300",
+	"validUntil": "2015-08-13T15:14:00.000+0300",
+	"currency": 1,
+	"languageCode": "en",
+	"supplier": 7401,
+	"ownerId": 6551,
+	"operationalId": "SKU001",
+	"searchKeywords": "pets",
+	"description": "Fluffy",
+	"publishToStore": 1
+}

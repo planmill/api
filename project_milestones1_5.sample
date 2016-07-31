@@ -1,0 +1,24 @@
+[
+    {
+        "unitPrice": null,
+        "dutyType": 0,
+        "targetEffort": 0,
+        "plannedEffort": 360,
+        "created": "2016-01-11T12:27:22.883+0200",
+        "start": "2016-01-10T12:27:00.000+0200",
+        "wbs": null,
+        "remainingEffort": 360,
+        "totalEffort": 360,
+        "totalRemainingEffort": 60,
+        "type": 101,
+        "billableStatus": 3,
+        "duration": 450,
+        "actualEffort": 0,
+        "name": "<task name>",
+        "modified": "2016-01-11T12:27:22.883+0200",
+        "finish": "2016-01-12T12:27:00.000+0200",
+        "id": 1372,
+        "workCompleteness": 0,
+        "status": 30
+    }
+]

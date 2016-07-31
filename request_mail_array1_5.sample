@@ -1,0 +1,26 @@
+[
+  {
+    "request": 7665,
+    "senderName": "sender@mail.com",
+    "creator": 7629,
+    "receiver": null,
+    "sender": "sender@mail.com",
+    "created": "2015-08-13 12:15:59.207",
+    "subject": "This is the first request mail ",
+    "receiverName": "test@planmill.com",
+    "creatorName": "User, Peter",
+    "id": 7668
+  },
+    {
+    "request": 4142,
+    "senderName": "mikko.tester@planmill.com",
+    "creator": 3081,
+    "receiver": null,
+    "sender": "qasim.tester@planmill.com",
+    "created": "2015-09-08 16:48:23.903",
+    "subject": "test request (ID 3938, lastName firstName / UI.PlanMill Oy)",
+    "receiverName": "receiver@planmill.com",
+    "creatorName": "Tester, First",
+    "id": 4149
+  }
+]

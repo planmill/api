@@ -1,0 +1,88 @@
+{
+  "filters": [
+    {
+      "name": "searchkey",
+      "caption": ""
+    },
+    {
+      "name": "viewby",
+      "caption": "View by",
+      "values": {
+        "My inbox": "0",
+        "My sent mail": "1",
+        "All incoming mail": "5",
+        "All sent mail": "6",
+        "My teams' sent mail": "4",
+        "My teams' inbox": "3",
+        "My draft mail": "2"
+      }
+    },
+    {
+      "name": "relatedto",
+      "caption": "Related to",
+      "values": {
+        "All": "0",
+        "Products": "13",
+        "Messages": "9",
+        "Actions": "4",
+        "Expenses": "11",
+        "Projects": "1",
+        "Opportunities": "2",
+        "Campaigns": "10",
+        "Requests": "3",
+        "Assignment": "12",
+        "Contacts": "5",
+        "Documents": "8",
+        "Teams": "7",
+        "Accounts": "6",
+        "Contracts": "14"
+      }
+    },
+    {
+      "name": "interval",
+      "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+      "values": {
+        "Modified": "Mail.Modified",
+        "Created": "created"
+      }
+    },
+    {
+      "name": "rowcount",
+      "caption": "Rows",
+      "values": {
+        "25": "25",
+        "50": "50",
+        "75": "75",
+        "100": "100",
+        "150": "150",
+        "250": "250"
+      }
+    }
+  ],
+  "fields": {
+    "senderName": {
+      "format": "text",
+      "caption": "_From"
+    },
+    "sender": {
+      "format": "text",
+      "caption": "FromPerson.Id"
+    },
+    "subject": {
+      "format": "text",
+      "caption": "_Subject"
+    },
+    "created": {
+      "format": "mediumdate",
+      "caption": "Created"
+    },
+    "id": {
+      "format": "text",
+      "caption": "Mail.Id"
+    },
+    "primaryTo": {
+      "format": null,
+      "caption": "Receivers"
+    }
+  }
+}

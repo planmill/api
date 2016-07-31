@@ -1,0 +1,61 @@
+{
+  "filters": null,
+  "fields": {
+    "quantity": {
+      "format": "number",
+      "caption": "QTY"
+    },
+    "start": {
+      "format": "mediumdate",
+      "caption": "Start"
+    },
+    "vat": {
+      "format": "number",
+      "caption": null
+    },
+    "description": {
+      "format": "text",
+      "caption": "Description"
+    },
+    "type": {
+      "format": "Expense sheet.XHTML.Single item.Types",
+      "caption": "Type"
+    },
+    "expense": {
+      "format": "number",
+      "caption": null
+    },
+    "unit": {
+      "format": null,
+      "caption": "Unit"
+    },
+    "exchangeRate": {
+      "format": "number",
+      "caption": "Exchange rate"
+    },
+    "advancePayment": {
+      "format": "number",
+      "caption": null
+    },
+    "paymentMethod": {
+      "format": "Enumeration values.Expense.Expense item payment",
+      "caption": "Payment"
+    },
+    "finish": {
+      "format": "mediumdate",
+      "caption": "Finish"
+    },
+    "id": {
+      "format": "number",
+      "caption": null
+    },
+    "debt": {
+      "format": "number",
+      "caption": null
+    },
+    "currencyCode": {
+      "format": "text",
+      "caption": null
+    }
+  }
+}

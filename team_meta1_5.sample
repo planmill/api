@@ -1,0 +1,111 @@
+{
+  "filters": [
+    {
+      "name": "searchkey",
+      "caption": ""
+    },
+    {
+      "name": "viewby",
+      "caption": "View by",
+      "values": {
+        "My recently modified teams - last 7 days": "9",
+        "All inactive teams": "1",
+        "My inactive teams": "6",
+        "All recently modified teams - last 7 days": "4",
+        "All active teams": "0",
+        "All teams": "2",
+        "My active teams": "5",
+        "My teams": "7",
+        "My recently created teams - last 7 days": "8",
+        "All recently created teams - last 7 days": "3"
+      }
+    },
+    {
+      "name": "Location.City",
+      "caption": "City",
+      "values": {
+        "All": "-1",
+        "Helsinki": "Helsinki"
+      }
+    },
+    {
+      "name": "Location.CountryId",
+      "caption": "Country",
+      "values": {
+        "All": "-1",
+        "Bhutan": "26",
+        "Finland": "73"
+      }
+    },
+    {
+      "name": "rowcount",
+      "caption": "Rows",
+      "values": {
+        "25": "25",
+        "50": "50",
+        "75": "75",
+        "100": "100",
+        "150": "150",
+        "250": "250"
+      }
+    }
+  ],
+  "fields": {
+    "latestMember": {
+      "format": "text",
+      "caption": "LatestId"
+    },
+    "manager": {
+      "format": "text",
+      "caption": "Person.Id"
+    },
+    "parentTeamName": {
+      "format": "text",
+      "caption": "Parent team"
+    },
+    "costCenter": {
+      "format": "Enumeration values.Employee directory.Team.Cost center",
+      "caption": "Cost center"
+    },
+    "created": {
+      "format": "mediumdate",
+      "caption": "Created"
+    },
+    "description": {
+      "format": "text",
+      "caption": "Description"
+    },
+    "parentTeam": {
+      "format": "text",
+      "caption": "ParentTeam.Id"
+    },
+    "createdBy": {
+      "format": "text",
+      "caption": "Person1.Id"
+    },
+    "members": {
+      "format": "text",
+      "caption": "Members"
+    },
+    "name": {
+      "format": "text",
+      "caption": "_Team"
+    },
+    "childTeams": {
+      "format": "number",
+      "caption": "Child teams"
+    },
+    "modified": {
+      "format": "mediumdate",
+      "caption": "Modified"
+    },
+    "modifiedBy": {
+      "format": "text",
+      "caption": "Person2.Id"
+    },
+    "id": {
+      "format": "checkbox",
+      "caption": "_"
+    }
+  }
+}

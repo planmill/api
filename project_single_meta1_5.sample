@@ -1,0 +1,242 @@
+{
+  "setRequestPerformerAsTeamMember": {
+    "caption": "Set request performer(s) as team member(s)",
+    "description": "",
+    "enumeration": "Enumeration values.Administration.Parameters.Enabled",
+    "values": {
+      "No": "0",
+      "Yes": "1"
+    }
+  },
+  "description": {
+    "caption": "",
+    "format": "string",
+    "description": "",
+    "values": null
+  },
+  "operationalId": {
+    "caption": "Project ID",
+    "format": "string",
+    "description": "",
+    "values": null
+  },
+  "type": {
+    "caption": "Project type",
+    "format": "int",
+    "description": "",
+    "enumeration": "Enumeration values.Project.Project type in wizard",
+    "values": {
+      "Project": "1",
+      "Template": "3"
+    }
+  },
+  "effortUnit": {
+    "caption": "Time unit",
+    "description": "",
+    "enumeration": "Enumeration values.Units.Effort",
+    "values": {
+      "Hours": "2",
+      "Weeks": "4",
+      "Days": "3",
+      "Minutes": "1"
+    }
+  },
+  "requireBillableComment": {
+    "caption": "Require comment for reported hours",
+    "description": "",
+    "enumeration": "Enumeration values.Project.Require comment for reported hours",
+    "values": {
+      "No": "0",
+      "For all tasks": "2",
+      "For all billable tasks": "1"
+    }
+  },
+  "portfolio": {
+    "caption": "Portfolio",
+    "values": {
+      "All": "-1",
+      "E. New customer portfolio": "464559",
+      "D. Administrative portfolio": "464557"
+    },
+    "format": "int",
+    "description": ""
+  },
+  "contact": {
+    "caption": "",
+    "format": "int",
+    "description": "",
+    "values": null
+  },
+  "fixedWorkEffort": {
+    "caption": "Work",
+    "format": "double",
+    "values": null
+  },
+  "currency": {
+    "caption": "Currency",
+    "values": {
+      "AED": 480976,
+      "CHF": 2796099,
+      "HKD": 480893,
+      "ALL": 2813286,
+      "EUR": 468491,
+      "MTL": 481034,
+      "DKK": 481332,
+      "ZWD": 2833328,
+      "USD": 480880,
+      "EEK": 480936,
+      "NOK": 480960,
+      "THB": 481048,
+      "JPY": 480952,
+      "GBP": 480898,
+      "BRL": 2813468
+    },
+    "description": ""
+  },
+  "id": {
+    "caption": "",
+    "format": "int",
+    "description": "",
+    "values": null
+  },
+  "invoiceAppendix": {
+    "caption": "Invoice appendix",
+    "description": "",
+    "enumeration": "Enumeration values.Finance control.Invoice position summary.Invoices.Appendix",
+    "values": {
+      "Priced invoice items by task": "3",
+      "Invoice items by person": "2",
+      "Priced invoice items by person": "4",
+      "Invoice items by task": "1",
+      "None": "0",
+      "Account billing settings default": "-1"
+    }
+  },
+  "invoiceReference": {
+    "description": "Maximum length of 'Your reference' is 35 characters because of Finvoice standard (Finvoice standard supports only 35 characters)",
+    "caption": "Reference/PO-number",
+    "format": "string",
+    "maxlength": "255",
+    "values": null
+  },
+  "autoAcceptTimeReports": {
+    "caption": "Automatically accept time reports",
+    "description": "",
+    "enumeration": "Enumeration values.Administration.Parameters.Enabled",
+    "values": {
+      "No": "0",
+      "Yes": "1"
+    }
+  },
+  "fixedWork": {
+    "caption": "Work",
+    "format": "double",
+    "values": null
+  },
+  "billableStatus": {
+    "caption": "Billing type",
+    "format": "int",
+    "description": "",
+    "enumeration": "Enumeration values.Project.Billable status short",
+    "values": {
+      "Non-billable": "3",
+      "Time based": "2",
+      "Fixed": "1"
+    }
+  },
+  "budgetedPurchase": {
+    "caption": "Purchase",
+    "format": "double",
+    "values": null
+  },
+  "requireCommentForOvertime": {
+    "caption": "Require comment for overtime hours",
+    "description": "",
+    "enumeration": "Enumeration values.Project.Require comment for reported hours",
+    "values": {
+      "No": "0",
+      "For all tasks": "2",
+      "For all billable tasks": "1"
+    }
+  },
+  "fixedRevenue": {
+    "caption": "Revenue",
+    "format": "double",
+    "values": null
+  },
+  "autoAssignNewTeamMembers": {
+    "caption": "Automatically assign new team members to tasks",
+    "description": "",
+    "enumeration": "Enumeration values.Project.Automatically assign new team members to tasks",
+    "values": {
+      "No": "0",
+      "Yes": "2",
+      "Yes, but only to sub tasks": "1"
+    }
+  },
+  "name": {
+    "caption": "Name",
+    "format": "string",
+    "description": "",
+    "values": null
+  },
+  "allowNewTasksAndAssignmentsForAllUsers": {
+    "caption": "Allow new tasks and assignments for all users",
+    "description": "",
+    "enumeration": "Enumeration values.Project.Allow new tasks and assignments for all users",
+    "values": {
+      "No": "0",
+      "Yes, and add them as team members": "2",
+      "Yes, but do not add them as team members": "1"
+    }
+  },
+  "category": {
+    "caption": "Category",
+    "format": "int",
+    "description": "",
+    "enumeration": "Enumeration values.Project.Category",
+    "values": {
+      "Continuous service": "100",
+      "Administration": "20",
+      "Sales": "70",
+      "Support": "60",
+      "Education": "90",
+      "Development": "30",
+      "Absence": "10",
+      "Maintenance": "110",
+      "Delivery": "40",
+      "R & D": "50",
+      "Marketing": "80"
+    }
+  },
+  "budgetedExpense": {
+    "caption": "Expense",
+    "format": "double",
+    "values": null
+  },
+  "account": {
+    "format": "number",
+    "values": null
+  },
+  "totalCost": {
+    "caption": "Total cost",
+    "format": "string",
+    "description": "",
+    "values": null
+  },
+  "status": {
+    "caption": "Status",
+    "format": "int",
+    "description": "",
+    "enumeration": "Enumeration values.Project.Status",
+    "values": {
+      "Draft": "1",
+      "Preliminary": "2",
+      "Execution": "3",
+      "On hold": "6",
+      "Closed": "5",
+      "Aborted": "4",
+      "Archived": "8"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Schema for performing integration transformation",
+  "type": "object",
+  "required": [ "file" ],
+  "additionalProperties": false,
+  "properties": {
+    "file": {
+      "type": "integer",
+      "description": "Id of the source file to be transformed."
+    },
+    "delim": {
+      "type": "string",
+      "description": "Deliminator character used in the source CSV file (optional, default value: horizontal tab)."
+    },
+    "quote": {
+      "type": "string",
+      "description": "Quote character used in the source CSV file (optional, default value: double quote)."
+    }
+  }
+}

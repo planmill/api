@@ -1,0 +1,10 @@
+{
+  "sender": "noreply@planmill.com",
+  "subject": "This is the first mail",
+  "carbonCopy": "tester.carbon@planmill.com",
+  "blindCarbonCopy": null,
+  "nonDraft": 0,
+  "id": 7415,
+  "primaryTo": "tester.primary@planmill.com",
+  "body": "This is the first mail main from planmill api regression test"
+}

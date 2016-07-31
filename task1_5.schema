@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "base schema for all task entities",
+  "oneOf": [
+    {
+      "type": "array",
+      "items": { "$ref": "#/definitions/task" }
+    },
+    {
+      "$ref": "#/definitions/task"
+    }
+  ],
+  "definitions": {
+    "task": {
+      "type": "object",
+      "required": ["name", "type", "start", "finish", "dutyType", "billableStatus"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "maxLength": 255,
+          "description": "Name of a task"
+        },
+        "type": {
+          "type": "integer",
+          "description": "Type of the task"
+        },
+        "project": {
+          "type": "integer",
+          "description": "Project of a task"
+        },
+        "start": {
+          "type": "string",
+          "pattern": "(\\d{4})-([0][1-9]|[1][0-2])-([0][1-9]|[1-2][0-9]|[3][0-1])",
+          "description": "Start date of a task in yyyy-MM-dd format"
+        },
+        "finish": {
+          "type": "string",
+          "pattern": "(\\d{4})-([0][1-9]|[1][0-2])-([0][1-9]|[1-2][0-9]|[3][0-1])",
+          "description": "Finish date of a task in yyyy-MM-dd format"
+        },
+        "dutyType": {
+          "type": [ "integer", "null" ],
+          "description": "Enumeration of duty type of task"
+        },
+        "billableStatus": {
+          "type": "integer",
+          "description": "Enumeration of a task's billable status: 1=Fixed, 2=Time-based , 3=Non-billable."
+        },
+        "parent": {
+          "type": "integer",
+          "description": "Parent of a task"
+        }
+      }
+    }
+  }
+}

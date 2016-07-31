@@ -1,0 +1,26 @@
+[
+  {
+    "senderName": "Tester, First",
+    "sender": 3081,
+    "subject": "This is the first request mail",
+    "created": "2015-08-11T16:39:38.340+0300",
+    "id": 1991,
+    "primaryTo": "tester.mikko@planmill.com"
+  },
+  {
+    "senderName": "Tester, Second",
+    "sender": 1680,
+    "subject": "This is the first request mail",
+    "created": "2015-08-11T16:39:37.967+0300",
+    "id": 1992,
+    "primaryTo": "test@test.com"
+  },
+    {
+    "senderName": "noreply@planmill.com",
+    "sender": null,
+    "subject": "Execution reports for /release1541_temp",
+    "created": "2015-09-06T08:02:07.187+0300",
+    "id": 4130,
+    "primaryTo": null
+    }
+]

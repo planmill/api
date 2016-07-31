@@ -1,0 +1,145 @@
+{
+    "filters": [
+        {
+            "name": "searchkey",
+            "caption": ""
+        },
+        {
+            "name": "viewby",
+            "caption": "View by",
+            "values": {
+                "22": "All open requests - late more than 7 days",
+                "23": "All open requests - late more than 14 days",
+                "26": "All recently closed requests - this week",
+                "27": "All recently closed requests - last week",
+                "28": "All requests created by email capture - this week",
+                "29": "All requests created by email capture - last week",
+                "30": "All requests created by email capture",
+                "31": "My active requests",
+                "10": "My recently closed requests - last week",
+                "32": "My inactive requests",
+                "11": "All open requests - deadline this week",
+                "33": "All requests with active performers",
+                "12": "All recently created requests - this week",
+                "34": "All requests with inactive performers",
+                "13": "All recently created requests - last week",
+                "35": "All requests with only active performers",
+                "14": "My open requests - late",
+                "36": "All requests with only inactive performers",
+                "15": "My open requests - late more than 1 day",
+                "37": "My closed requests",
+                "16": "My open requests - late more than 3 days",
+                "38": "All requests created by me",
+                "17": "My open requests - late more than 7 days",
+                "39": "All requests created by me - this week",
+                "18": "My open requests - late more than 14 days",
+                "19": "All open requests - late",
+                "0": "My requests",
+                "1": "My requests - excluding team assignments",
+                "2": "My open requests - deadline this week",
+                "3": "My recently created requests - this week",
+                "4": "My recently created requests - last week",
+                "5": "All requests",
+                "7": "All open requests - no performer(s)",
+                "9": "My recently closed requests - this week",
+                "40": "All requests created by me - last week",
+                "20": "All open requests - late more than 1 day",
+                "21": "All open requests - late more than 3 days"
+            }
+        },
+        {
+            "name": "Request.Type",
+            "caption": "Type",
+            "values": {
+                "0": "9. Other",
+                "1": "1. Support",
+                "2": "2. Bug",
+                "3": "3. Feature enhancement",
+                "-1": "All",
+                "4": "4. New feature",
+                "5": "5. Work estimate",
+                "6": "6. Ordered",
+                "7": "7. Product info",
+                "8": "8. Trial"
+            }
+        },
+        {
+            "name": "viewby2",
+            "caption": "Status",
+            "values": {
+                "0": "1. Received",
+                "-100": "Open (1,2,3)",
+                "1": "2. In progress",
+                "2": "3. In progress - waiting for info",
+                "35": "5. Solved",
+                "3": "4. Suspended",
+                "-1": "All",
+                "40": "6. Completed"
+            }
+        },
+        {
+            "name": "Account.Id",
+            "caption": "Account",
+            "values": {
+                "353": "First account",
+                "-1": "All",
+                "1450": "PlanMill Oy"
+            }
+        },
+        {
+            "name": "Task.ParentId",
+            "caption": "Parent task",
+            "values": {
+                "-1": "All"
+            }
+        },
+        {
+            "name": "Assignment.PersonId",
+            "caption": "Performer",
+            "values": {
+                "-1": "All"
+            }
+        },
+        {
+            "name": "Task.ResponsibleId",
+            "caption": "Responsible person",
+            "values": {
+                "1018": "Verdezoto, Ivan",
+                "1456": "no.api.key, Right",
+                "1467": "TEST, DBUNIT_BOARD",
+                "-1": "All",
+                "1455": "ThirdUser, third.auth.person",
+                "356": "User, First",
+                "1465": "access.right, Right",
+                "1454": "SecondUser, second.auth.person",
+                "1453": "User, auth.person",
+                "1462": "access.right, Right",
+                "1470": "user, reportable.assignment"
+            }
+        },
+        {
+            "name": "interval",
+            "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+            "values": {
+                "Task.Start": "Start",
+                "Task.ActualFinish": "Completed",
+                "Request.Modified": "Modified",
+                "Task.Finish": "Deadline",
+                "Request.Created": "Created"
+            }
+        },
+        {
+            "name": "rowcount",
+            "caption": "Rows",
+            "values": {
+                "100": "100",
+                "25": "25",
+                "50": "50",
+                "150": "150",
+                "250": "250",
+                "75": "75"
+            }
+        }
+    ],
+    "fields": null
+}

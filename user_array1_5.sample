@@ -1,0 +1,40 @@
+[
+  {
+    "id": 67395,
+    "balanceMaximum": null,
+    "lastName": "Saana, Pouta",
+    "departDate": null,
+    "department": "",
+    "hireDate": null,
+    "timeZone": "Europe/Helsinki",
+    "photo": null,
+    "effortUnit": 2,
+    "skin": 190,
+    "title": "",
+    "languageCode": "en",
+    "email": "firstname.lastname@planmill.com",
+    "balanceAdjustment": null,
+    "contractType": 0,
+    "passive": 0,
+    "userName": "user.name"
+  },
+  {
+    "id": 38356,
+    "balanceMaximum": 120,
+    "lastName": "Kari, Risto",
+    "departDate": null,
+    "department": "",
+    "hireDate": "2012-08-01T00:00:00.000+0300",
+    "timeZone": "Europe/Helsinki",
+    "photo": null,
+    "effortUnit": 2,
+    "skin": 190,
+    "title": "CEO",
+    "languageCode": "en",
+    "email": "",
+    "balanceAdjustment": null,
+    "contractType": 0,
+    "passive": 0,
+    "userName": "user_name"
+  }
+]

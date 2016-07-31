@@ -1,0 +1,13 @@
+{
+  "task": 2969,
+  "journey": 2975,
+  "acceptor": -1,
+  "name": "test expense 1",
+  "project": 2969,
+  "description": "example expense 1",
+  "currency": "1",
+  "id": 2972,
+  "type": 0,
+  "billableStatus": 3,
+  "currencyCode": "EUR"
+}

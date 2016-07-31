@@ -1,0 +1,184 @@
+{
+  "filters": [
+    {
+      "name": "searchkey",
+      "caption": ""
+    },
+    {
+      "name": "viewby",
+      "caption": "View by",
+      "values": {
+        "All recently created tasks - this month": "20",
+        "My tasks": "10",
+        "All tasks": "0",
+        "All recently completed tasks - this month": "40",
+        "All not completed milestones": "150",
+        "All completed tasks & requests": "100",
+        "All not completed requests": "140",
+        "All recently created tasks - last month": "30",
+        "All not completed tasks": "130",
+        "All not completed tasks & requests": "120",
+        "All recently completed tasks - last month": "50",
+        "All tasks in progress - late": "6",
+        "All completed requests": "110"
+      }
+    },
+    {
+      "name": "viewby2",
+      "caption": "Type",
+      "values": {
+        "All": "0",
+        "Tasks & milestones": "25",
+        "Tasks": "10",
+        "Milestones": "20",
+        "Requests": "30"
+      }
+    },
+    {
+      "name": "status",
+      "caption": "Status",
+      "values": {
+        "All": "-1"
+      }
+    },
+    {
+      "name": "billableStatus",
+      "caption": "Billing type",
+      "values": {
+        "All": "-1",
+        "Non-billable": "3",
+        "Time based": "2",
+        "Fixed": "1"
+      }
+    },
+    {
+      "name": "Assignment.PersonId",
+      "caption": "Performer",
+      "values": {
+        "All": "-1"
+      }
+    },
+    {
+      "name": "Team.Id",
+      "caption": "Team",
+      "values": {
+        "All": "-1"
+      }
+    },
+    {
+      "name": "parent",
+      "caption": "Parent",
+      "values": {
+        "All": "-1"
+      }
+    },
+    {
+      "name": "Baseline.Id",
+      "caption": "Baseline",
+      "values": {
+        "-": "-1"
+      }
+    },
+    {
+      "name": "interval",
+      "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+      "values": {
+        "Modified": "modified",
+        "Start": "start",
+        "Finish": "finish",
+        "Created": "created"
+      }
+    },
+    {
+      "name": "CreatedPerson.Id",
+      "caption": "Created by",
+      "values": {
+        "All": "-1",
+        "Mikkonen, Aalto": "2734",
+        "PlanMill, Admin": "1000"
+      }
+    }
+  ],
+  "fields": {
+    "unitPrice": {
+      "format": "projectcurrency",
+      "caption": "Unit price"
+    },
+    "dutyType": {
+      "format": "Enumeration values.Task.Offduty",
+      "caption": "Duty type"
+    },
+    "targetEffort": {
+      "format": "projecteffortunit",
+      "caption": "Estimated"
+    },
+    "plannedEffort": {
+      "format": "projecteffortunit",
+      "caption": "Planned"
+    },
+    "created": {
+      "format": "mediumdate",
+      "caption": "Created"
+    },
+    "start": {
+      "format": "shortdate",
+      "caption": "Start"
+    },
+    "wbs": {
+      "format": "text",
+      "caption": "WBS"
+    },
+    "remainingEffort": {
+      "format": "projecteffortunit",
+      "caption": "Remain"
+    },
+    "totalEffort": {
+      "format": "projecteffortunit",
+      "caption": "Forecast"
+    },
+    "totalRemainingEffort": {
+      "format": "projecteffortunit",
+      "caption": "Total remain"
+    },
+    "type": {
+      "format": "Enumeration values.Task.Type",
+      "caption": "Type"
+    },
+    "billableStatus": {
+      "format": "Enumeration values.Project.Billable status",
+      "caption": "Billing type"
+    },
+    "duration": {
+      "format": "day",
+      "caption": "Duration"
+    },
+    "actualEffort": {
+      "format": "projecteffortunit",
+      "caption": "Accepted"
+    },
+    "name": {
+      "format": "text",
+      "caption": "_Task"
+    },
+    "modified": {
+      "format": "mediumdate",
+      "caption": "Modified"
+    },
+    "finish": {
+      "format": "shortdate",
+      "caption": "Finish"
+    },
+    "id": {
+      "format": "text",
+      "caption": "Task.Id"
+    },
+    "workCompleteness": {
+      "format": "percent",
+      "caption": "Completeness"
+    },
+    "status": {
+      "format": "text",
+      "caption": "Status"
+    }
+  }
+}

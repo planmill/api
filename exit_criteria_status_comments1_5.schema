@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "base schema for all exit criteria status comments entities",
+  "definitions": {
+    "exitCriteriaStatusCommentsArray": {
+      "type": "object",
+      "required": ["personName", "id"],
+      "additionalProperties": false,
+      "properties": {
+        "personName": {
+          "type": "string",
+          "description": "Name of a person"
+        },
+        "data": {
+          "type": "string",
+          "description": "Type of a resource"
+        },
+        "person": {
+          "type": "integer",
+          "description": "Id of a person"
+        },
+        "status": {
+          "type": ["integer", "null"],
+          "description": "Status of an exit criteria"
+        },
+        "id": {
+          "type": "integer",
+          "description": "Id of an exit criteria status comment"
+        },
+        "pictureLink": {
+          "type": ["string", "null"],
+          "description": "Image link of a user"
+        }
+      }
+    }
+  }
+}

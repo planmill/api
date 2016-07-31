@@ -1,0 +1,18 @@
+[
+  {
+    "size": 56,
+    "createdBy": 2848153,
+    "created": "2015-09-02T16:45:25.877+0300",
+    "name": "attached_file.txt",
+    "modified": "2015-09-02T16:45:23.353+0300",
+    "id": 2848174
+  },
+  {
+    "size": 56,
+    "createdBy": 2848153,
+    "created": "2015-09-02T16:45:25.877+0300",
+    "name": "attached_file_delete.txt",
+    "modified": "2015-09-02T16:45:23.353+0300",
+    "id": 2848175
+  }
+]
