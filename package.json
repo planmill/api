@@ -4,7 +4,8 @@
   "description": "PlanMill API documentation",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "raml2html planmill1_5.raml > index.html"
   },
   "repository": {
     "type": "git",
@@ -23,9 +24,5 @@
   "homepage": "https://github.com/planmill/api#readme",
   "dependencies": {
     "raml2html": "^2.4.0"
-  },
-  
-  "scripts": {
-    "build": "raml2html planmill1_5.raml > index.html",
   }
 }
