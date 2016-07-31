@@ -4,7 +4,8 @@
   "description": "PlanMill API documentation",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "jlint --glob './*.sample' && jlint --glob './*.schema'",
+    "prebuild": "npm run lint",
     "build": "raml2html planmill1_5.raml > index.html"
   },
   "repository": {
@@ -23,6 +24,7 @@
   },
   "homepage": "https://github.com/planmill/api#readme",
   "dependencies": {
+    "jlint": "^3.0.2",
     "raml2html": "^2.4.0"
   }
 }
