@@ -1145,7 +1145,7 @@
       "Programmer": 2727419,
       "Software Engineer": 1,
       "Senior Law Consultation": 604468,
-      "QT Developer": 606870,
+      "QT Developer": 606870
       
     },
     "description": ""
@@ -1220,7 +1220,7 @@
     "caption": "Calendars",
     "values": {
       "FI 2009 - 2019, 01.01.2009-31.12.2019": "585281",
-      "FI 2006 - 2010, 01.01.2006-31.12.2011": "480895",
+      "FI 2006 - 2010, 01.01.2006-31.12.2011": "480895"
       
     },
     "format": "string",
