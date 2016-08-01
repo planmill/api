@@ -38,7 +38,7 @@
         "type": {
           "type": "integer",
           "description": "Enumeration type for the unit cost. 1=External price, 2=Internal total cost, 3=Internal self cost"
-        },
+        }
       }
     }
   }

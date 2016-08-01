@@ -1,13 +1,13 @@
 [
   {
     "lastName": "Tester, First",
-    "secondaryAddress": Kuitinkatu 2,
-    "primaryPostalCode": 00500,
-    "accountName": PlanMill Oy,
+    "secondaryAddress": "Kuitinkatu 2",
+    "primaryPostalCode": "00500",
+    "accountName": "PlanMill Oy",
     "title": "Software Engineer",
-    "primaryCity": Helsinki,
-    "invoiceXsl": bull,
-    "secondaryPostalCode": 02210,
+    "primaryCity": "Helsinki",
+    "invoiceXsl": "planmill_en_eur.xsl",
+    "secondaryPostalCode": "02210",
     "skype": "skype:skpe_id?userinfo",
     "secondaryCity": "Espoo",
     "modified": "2015-09-08T14:56:19.663+0300",
@@ -28,7 +28,7 @@
     "mobilePhone": "+358-466-5556951",
     "createdBy": "PlanMill, Maintenance-user",
     "workPhone": 358103229110,
-    "googleTalk": "gtalk:call?gtalk_id",,
+    "googleTalk": "gtalk:call?gtalk_id",
     "primaryAddress": "Hämeentie 19",
     "account": 51
   },

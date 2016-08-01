@@ -99,7 +99,7 @@
       "name": "createdBy",
       "caption": "Created by",
       "values": {
-        "All": "-1"
+        "All": "-1",
         "PlanMill, Admin": "1000"
       }
     },

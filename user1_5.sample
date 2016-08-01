@@ -58,7 +58,7 @@
   "passive": 0,
   "superior": null,
   "calendars": "60",
-  "shippingAddress": 'Kuitinkatu 2',
+  "shippingAddress": "Kuitinkatu 2",
   "workPhone": "+358 10 322 9110",
   "googleTalk": "gtalk_id",
   "shippingDepartment": "First Department",

@@ -49,14 +49,14 @@
           "phone": "12323",
           "createdBy": "User, First",
           "billingPostalCode": "1343",
-          "name": "Test Account 2,
+          "name": "Test Account 2",
           "shippingAddress": "TEST",
           "billingAddress": "Hämeentie 19",
           "termsOfPayment": "14",
           "billingCity": "Helsinki"
         },
         {
-          "shippingCity": "helsinki",
+          "shippingCity": "Helsinki",
           "businessId": "7777777",
           "invoiceVat": "24",
           "revenueLastYear": "0",

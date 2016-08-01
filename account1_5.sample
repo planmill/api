@@ -44,7 +44,7 @@
   "staff": null,
   "passive": 0,
   "invoiceNetOperator": 210,
-  "billingPostalCode": 00500,
+  "billingPostalCode": "00500",
   "firstInvoiceNumber": 3000,
   "shippingAddress": "Siltasaarenkatu 18",
   "billingAddress": "Hämeentie 19",
