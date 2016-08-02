@@ -1,7 +1,6 @@
 #%RAML 0.8
 #IMPORTANT NOTE: Do not remove the mock service URL from the baseUri.
-#baseUri: http://mocksvc.mulesoft.com/mocks/c837a2fb-4326-4ff1-a1ab-bb0f37297be2/api/{version}
-baseUri: http://mocksvc.mulesoft.com/mocks/46e3a0a3-2e0c-4979-92f1-20ea1586fbb6/mocks/c837a2fb-4326-4ff1-a1ab-bb0f37297be2/api/{version}
+baseUri: https://online.planmill.com/{instance}/api/1.5
 title: PlanMill
 version: 1.5
 protocols: [HTTPS]
@@ -26,189 +25,9 @@ documentation:
   - title: Introduction to PlanMill API 1.5
     content: |
       PlanMill REST API 1.5 enables developers to access some of the core functionality of PlanMill CRM, project management, and ERP products. 
-   
-  - title: Recent changes
-    content: |  
-      **Upcoming changes** 
-      
-      * Zapier integration on invite bases coming soon (now in private launch -phase). Contact us at info@planmill.com if you are interested in Zapier integration and tell us more. 
-  
-      **June 10th, 2016**
-      * The API now supports the OAuth2 and OpenId connect standards for authentication. More information under the Authentication chapter
-
-      ** March 16th, 2016** 
-      * API documentation improved: authentication information more specific, meta -endpoints highlighted more so users get more knowledge of available filters and columns and effortunit-formatted fields explained to be minutes.
-      * /invoices and /expenses endpoints (GET) added. Generating invoices and creating and updating expenses will come later this year (not commonly used and depend on other changes in the system).
-      * Export -endpoint depricated, see Accept -header support in /reports -endpoint for PDF, XSL and CSV formats
-      
-      **Jan 13th and 20th, 2016**
-
-      * Most endpoints have their own meta endpoints.
-      * New endpoints: /purchases, /teams/id/unitcosts, /users/id/unitcosts
-      * Improved endpoints: /users/id/reportableassignments
-      * Fixes to GET-calls: datatype formats and filters. There might be more cases despite our best efforts, please inform us if you find some.
-      * /projects/projectId/tasks API endpoint has been split into 3 separate endpoints to fix the problem: /projects/projectId/tasks only lists tasks for a project, /projects/projectId/milestones only lists milestones for a project, /projects/projectId/requests only lists requests for a project
-      * Also the /tasks/id -endpoint has been resurrected put back into documentation. Note that it only suppors single tasks. URL parameter ?project=projectId is mandatory for this endpoint.
-
-  - title: Security
-    content: |   
-      ####  OAuth 2.0 and OpenID Connect Authentication
-
-      OAuth 2.0 protocol introduces the HTTP header **"Authorization"** for authentication and authorization to PlanMill API endpoints. The header value is a randomised string token.
-      Current implementation only supports the authorization flow and the access token lifetime is configured to be 6 minutes. Refresh tokens do not expire and only one refresh token can exist per client and per user.
-      To read more about the standard follow this link : http://oauth.net/2/ .
-  
-      **Standard Endpoints**
-  
-      Standard Authorization URI for PlanMill is located in the https://online.planmill.com/{instance}/api/oauth2/authorize endpoint.
-      Required parameters **"client_id"**, **"redirect_uri"** and **"response_type"**.
-      Optional parameters **"scope"** and **"state"**.
-      Standard Token URI for PlanMill is located in the https://online.planmill.com/{instance}/api/oauth2/token endpoint.
-      Required parameters **"client_id"**, **"client_secret"** and **"grant_type"**.
-      Optional parameter **"state"**.
-
-      **Registration**
-  
-      OAuth 2.0 usage requires the clients to be registered to the server, which provides the client with a client identifying string and a client secret. The registration also requires a redirect URI or multiple URIs in comma separated string format.
-      The registration process can be done under the **https://online.planmill.com/{instance}/api/registrations.jsp** page.
-
-      The page will also provide the public RSA key to verify OpenID Connect extension specified signed JSON Web Token "id_token" . 
-      More information about the OpenID Connect and JWTs can be found under these urls: http://openid.net/connect/ , https://jwt.io/ .
-      
-      **Non-standard endpoints**
-  
-      Refresh and access tokens can be revoked through the **/api/oauth2/revoke** endpoint that requires query parameters **"client_id"**, **"client_secret"** and **"token"**.
-
-      To support verification and inspection of access tokens, a non-standard token info endpoint was implemented. It can be accessed through HTTP GET protocol to **/api/oauth2/tokeninfo** endpoint.
-      The request requires query parameters **"client_id"**, **"client_secret"** and **"access_token"**. Response is in JSON format that includes the user, the scope and the audience and expiration in seconds bound to the token.
-
-      Also a userinfo endpoint was added. It can be accessed through HTTP GET request to **/api/oauth2/userinfo** endpoint and requires a Authorization header with the access token. It will provide information about the user, who is bound to the token
-      and all scopes available to the user. 
-
-      **Scopes**
-
-      Scopes are currently implemented as the PlanMill system's access rights and the scope parameter, that is provided during an OAuth 2.0 authorization request or during a refresh token grant, is checked against the user's current access rights.
-
-      ####  HMAC Authentication
-      
-      **Authentication changes coming! See Recent changes -section**  
-      API is secured with secure information in a HTTP-header in each request. Information is similar to data used in OAuth 1.0 or digest. 
-      
-      The authentication header contains the API user's id, a client generated nonce, timestamp and a signature. **Note that the Authentication header is base-64 encoded (SHA256)**
-
-      More information and an example about the authentication header can be found here: [Authentication example](authexample.html)
-      
-      Real service checks authentication data, e.g. uniqueness of nonce. For more details see each endpoints documentation for authentication header values. 
-
-      #### Trying out API with Postman, SoapUi or other tool and need authentication?
-
-      For quick prototyping you can use the https://online.planmill.com/yourinstancename/api/keytest.jsp -page (requires authentication) which generates a ready-made authentication header which you can copy paste to your API client.
-      
-      #### Authorization
-      
-      All API resources respect role, user and data visibility (customer account, project, team, manager, employee) based restrictions defined by the each company's PlanMill Power users for the back-end service and any user interface maintained by PlanMill. 
-      
-      These restrictions may cause the responses to be different for same resource based on whose userid and API key are used to sign the requests. 
-      
-      If some user doesn't have right to see for example project 123 at all, API will return an error with response code 401 (Unauthorized). 
-      
-      If user has right to see the project, but not all information for it, he will get a JSON response containing those attributes he is allowed to see, but those attributes he isn't allowed to see are not contained at all.
-  
-      #### Special issues with authorization (viewing other users' timereports, absences, expenses etc.)
- 
-      If you need to handle other users private information like timereports absences, expenses etc. you must have enough access rights in your API user account. 
- 
-      For example handling time reports for other users requires so called "secretary" rights and viewing absences requires HR -access to absences. Expenses requires your user account to see/edit all projects and to have project space expenses view -access.
-      
-      Authorization based restrictions are valid also for creating, updating and deleting resources.
-  - title: Rate limits
-    content: |
-      #### Request limit
-      
-      The purpose of supplying a randomly generated nonce in each request is to limit client's request amount. Currently, it is configured to be 1000 requests/minute.
-# Network usage limit
-# File and database size 
-  - title: Headers
-    content: |
-      #### x-PLANMILL HTTP-headers
-      
-      All http-headers starting with x-PLANMILL- are specific to PlanMill's API only. Other headers are standard HTTP 1.1 specification or user agent specific headers.
-      
-      See required headers from each resource's documentation. Using the headers is required to keep the data consistent and correct.
-      
-      #### Metadata: Media-type, content, filtering and schemas
-      
-      The API consumes and produces data only in JSON format (excluding exports). Always supply the Content-Type header in requests which have JSON content and provide the character encoding of the request entity (UTF-8). 
-      
-      Each API resource's documentation includes JSON schemas and sample files for validating request bodies in client side.
-      
-      Schemas do not include all possible properties, only the essentially required and common ones.
-
-      **To see all available fields, filter parameters, list values and data formats of fieldss for a specific customer instance, make a GET request to both a single resource's metadata end point (/timereports/123/meta) and a collection's metadata enpoint (/timereports/meta).**
- 
-      Filtering **can** be done using **any of the columns as filters**, even if they are not documented as filters in the /meta -endpoints.
- 
-      Metadata -enpoints return the format of the fields handled by the endpoint. Note that format **effortunit** means the data is returned always in minutes (regardless of the name of the field). To get hours, divide the number with 60.
-  
-      If you still find that data is returned in incorrect format from some endpoint it's usually because some individual text field contains numbers and is missing datatype information in our system. Please contact our support so we can fix it.
-  
-  - title: HTTP-verbs
-    content: |       
-      #### GET -requests
-      
-      GET verb in requests is used to query results from a collection of resources, i.e. a list of timereports containing different attributes for different timereports. A collection of items is always returned as a JSON array. It can be filtered using query parameters like /timereports?project=123&rowcount=10 (returns 10 timereports from project 123).  
-
-      GET is also used to return all available information about a single item (e.g. GET /timereports/123 will return all attributes of a single timereport with id 123). The same information can also be used for creating an updating the item. Query parameters can't be used with single items.
-      
-      Information returned for multiple items (collection like /timereports) and single items (like /timereports/123) can include different data. For example long text information is only returned for a single item. **See section Metadata for further information on how to get information about available data and formats** 
-      
-      #### POST -requests
-
-      POST -requests are used for creating, updating and partially updating data. For back-end reasons we don't currently provide support with PATCH -verb and delta (change) instructions with it, but partial updates are allowed with POST.
-      
-      #### PATCH -requests (partial update with change instructions)
-      
-      Not supported, see POST.
-      
-      #### PUT -requests
-      
-      PUT requests are used for replacing single resources. For example, you can set capacity for a day in a capacity calendar with PUT /capacitycalendars/1/capacity/2014-01-01T00:00:00.000+0200. The new capacity will replace the old one set for the same day.
-      
-      #### DELETE -requests
-      
-      Delete single resources. Not supported for deleting collections, e.g. DELETE /timereports/123 will delete (remove permanently) the timereport with id 123.
-      
-      #### Mass operations (batch)
-      
-      Multiple different API requests can be combined to one JSON array and posted at the same time. See more information from [/batch](#_batch)
-  - title: Error responses
-    content: |
-      When a client made an API request which the server could not process successfully, an error response is returned. The error response contains an error code, a short message describing the error and sometimes a map containing a set of resource's fields what the error(s) are related to. The response also contains an appropriate 4xx or 5xx HTTP response code.
-      
-      An example error response:
-      
-      <pre>
-      Response code 400 (Bad request)
-      {
-        "message": "Validation failed",
-        "code": "00018",
-        "fields": {
-          "finish": "Please enter a valid date.",
-          "accepterPerson": "Please enter a valid number.",
-          "person": "Please enter a valid number."
-        }
-      }
-      </pre>
-      
-      The error code can be used to query for a user friendly error message in user's default language via the enumerations and languages resources. 
-      
-      All possible error codes and their corresponding language strings can be found under <pre>/enumerations?section=System.API.Errors</pre>
-            
-      More information about enumerations and languages can be found in their corresponding documentations.
-  
   - title: Getting started with PlanMill API 1.5
     content: |
-      #### URL of the service
+      Please read https://github.com/planmill/api/wiki/Getting-started
       
       The API endpoint can be found in your PlanMill instance behind an URL like shown here:
       
@@ -216,13 +35,17 @@ documentation:
       
       Where 'server' and 'customerInstance' are replaced by the server address and customer instance name. For example if your instance name is "acme" and it is hosted on online.planmill.com the API 1.5 endpoint would be:
       
-      https://online.planmill.com/acme/api/1.5
-      
-      
-      #### Protocols 
-      
-      The API only supports TLS/SSL secured **https** protocol.
-      
+      https://online.planmill.com/acme/api/1.5   
+  - title: Recent changes
+    content: |  
+      See https://github.com/planmill/api/releases
+  - title: Other information
+    content: |   
+      Read more in our wiki https://github.com/planmill/api/wiki
+
+      Check open issues or report a new https://github.com/planmill/api/issues
+
+      Clone us in Github https://github.com/planmill/api.git
 traits:
   - all:
       securedBy: [oauth_2.0]
@@ -236,22 +59,6 @@ traits:
           required: false
           example: |
             EUR
-  - secured:
-      usage: Apply this to any method that needs to be secured
-      headers:
-        x-PlanMill-Auth:
-          description: |
-           **See section Authentication for examples and changes**
-           user: user's PlanMill id number (see "My page")
-           
-           nonce: unique string value for each request sent to same resource for same timestamp (60s tolerance) and same user's id and authkey. Its length should be 4-8 characters
-           
-           timestamp: time when request was sent (must match API servers time within 60s accuracy), in epoc format
-           
-           signature: hmac-SHA256 encrypted secret, calculated for every request based on base-64 encryption of user's id, timestamp and nonce
-          type: string
-          example: user:1234567;nonce:8usfNOfr;timestamp:1407834635;signature:1JR2KeTuJGNMdZr+Piys3PXoMnRW9AsTjcAaFo/MF9A=
-          required: true
       responses:
         400:
           headers:
@@ -351,7 +158,7 @@ schemas:
 # write name of the resource before the include and schema always in SINGULAR, i.e. hook not hooks - otherwise the automatic includes won't work
 resourceTypes:
   - readOnlyCollection:
-      is: [all, secured]
+      is: [all]
       description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. This is a read-only collection
       get:
         description: Get a list of <<resourcePathName>>
@@ -381,7 +188,7 @@ resourceTypes:
                   example: |
                     <<exampleCollectionItemArray>>
   - readOnlyCollectionItem:
-      is: [all,secured]
+      is: [all]
       description: A single <<resourcePathName|!singularize>> in PlanMill. This is a read-only item
       get:
         description: View details of single <<resourcePathName|!singularize>>
@@ -392,7 +199,7 @@ resourceTypes:
                 example: |
                   <<exampleCollectionItem>>
   - collection:
-      is: [all, secured]
+      is: [all]
       description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats 
       get:
         description: Get a list of <<resourcePathName>>. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats 
@@ -456,7 +263,7 @@ resourceTypes:
                 example: |
                  { "id" : 123456 }
   - collectionItem:
-      is: [all,secured]
+      is: [all]
       description: A single <<resourcePathName|!singularize>> in PlanMill.
       get:
         description: View details of single <<resourcePathName|!singularize>>. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats 
@@ -489,7 +296,7 @@ resourceTypes:
           204:
             description: No HTTP body returned
   - postOnlyCollection:
-      is: [all, secured]
+      is: [all]
       post:
         headers:
           Content-Type:
@@ -510,7 +317,7 @@ resourceTypes:
                example: |
                 <<exampleCollectionItem>>
   - postOnlyCollectionMultiPart:
-      is: [all, secured]
+      is: [all]
       post:
         description: Add a new <<resourcePathName|!singularize>> to PlanMill 
         headers:
@@ -539,7 +346,7 @@ resourceTypes:
                example: |
                 { "id" : 123456 }
   - putOnlyCollectionItem:
-      is: [all, secured]
+      is: [all]
       put:
         headers:
           Content-Type:
@@ -555,7 +362,7 @@ resourceTypes:
           204:
             description: No HTTP body returned
   - putDeleteCollectionItem:
-      is: [all, secured]
+      is: [all]
       put:
         headers:
           Content-Type:
@@ -579,7 +386,7 @@ resourceTypes:
           204:
             description: No HTTP body returned
   - putGetDeleteCollectionItem:
-      is: [all, secured]
+      is: [all]
       put:
         headers:
           Content-Type:
@@ -606,7 +413,7 @@ resourceTypes:
           204:
             description: No HTTP body returned
   - getDeleteCollectionItem:
-      is: [all, secured]
+      is: [all]
       get:
         description: View details of single <<resourcePathName|!singularize>>
         responses:
@@ -621,7 +428,7 @@ resourceTypes:
           204:
             description: No HTTP body returned
   - deleteOnlyCollectionItem:
-      is: [all, secured]
+      is: [all]
       delete:
         description: Remove a <<resourcePathName|!singularize>> from PlanMill
         responses:
@@ -970,7 +777,7 @@ resourceTypes:
    #   exampleCollectionItemArray: !include integration_array1_5.sample
     #  exampleCollectionItem: !include integration_use1_5.sample
 /integrations/{integrationName}:
-  is: [all, secured]
+  is: [all]
   description: Using specific saved integration settings for importing or exporting a set of data to like file containing information of different companies to PlanMill as accounts.
   uriParameters:
     integrationName:
@@ -1009,7 +816,7 @@ resourceTypes:
         description: Id of the document the operation will be performed on
     /transform:
       put:
-        is: [all, secured]
+        is: [all]
         description: Transforms source file to insertable data. Returns a list of any omitted rows due to invalid  field data 
         queryParameters:
           delim:
@@ -1025,7 +832,7 @@ resourceTypes:
            201:
     /comparison:
       put:
-        is: [all, secured]
+        is: [all]
         description: Compares candidate data with existing objects in PlanMill and returns an appropriate update or insert dataset
         queryParameters:
           resource:
@@ -1038,7 +845,7 @@ resourceTypes:
           
       /conflicts:
         get:
-          is: [all, secured]
+          is: [all]
           description: Lists all conflicts by their given import row. In the case that a given import row matches multiple existing objects in the system they are collected as conflicts to be resolved
           responses:
             200:
@@ -1046,14 +853,14 @@ resourceTypes:
                 application/json:
                   example: !include integration_comparison_conflicts_get1_5.sample
         put:
-          is: [all, secured]
+          is: [all]
           description: Resolve matches to multiple existing objects by specifying the preferred object id for each conflict
           body:
             application/json:
               example: !include integration_comparison_conflicts_resolve1_5.sample
     /import:
       post:
-        is: [all, secured]
+        is: [all]
         description: Finally imports prepared comparison dataset into PlanMill
         queryParameters:
           resource:
