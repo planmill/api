@@ -1,6 +1,6 @@
 {
   "name": "planmill-api",
-  "version": "1.0.0",
+  "version": "1.5.0",
   "description": "PlanMill API documentation",
   "main": "index.js",
   "scripts": {
