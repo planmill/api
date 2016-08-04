@@ -1,0 +1,36 @@
+[
+  {
+    "notParticipated": 0,
+    "latestCreatedMails": "create a campaign email",
+    "participated": 0,
+    "start": "2016-08-01T00:00:00.000+0300",
+    "registered": 0,
+    "type": 1,
+    "unsubscribed": 0,
+    "members": 0,
+    "responsible": 356,
+    "name": "email campaign",
+    "latestSentMails": null,
+    "cancelled": 0,
+    "finish": "2016-08-03T00:00:00.000+0300",
+    "id": 2002,
+    "status": 0
+  },
+  {
+    "notParticipated": 1,
+    "latestCreatedMails": null,
+    "participated": 1,
+    "start": "2016-08-04T00:00:00.000+0300",
+    "registered": 0,
+    "type": 4,
+    "unsubscribed": 0,
+    "members": 2,
+    "responsible": 50,
+    "name": "exhibition campaign",
+    "latestSentMails": null,
+    "cancelled": 0,
+    "finish": "2016-08-05T00:00:00.000+0300",
+    "id": 2001,
+    "status": 1
+  }
+]
