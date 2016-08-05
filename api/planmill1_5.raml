@@ -144,6 +144,7 @@ schemas:
  - account: !include account1_5.schema
  - action: !include action1_5.schema
  - batch: !include batch1_5.schema
+ - campaign: !include campaign1_5.schema
  - contact: !include contact1_5.schema
  - hook: !include hook1_5.schema
  - mail: !include request_mail1_5.schema 
@@ -591,7 +592,15 @@ resourceTypes:
     type:
       collectionItem:
         exampleCollectionItem: !include boardlist1_5.sample
-                
+/campaigns:
+  type:
+    collection:
+      exampleCollectionItemArray: !include campaign_array1_5.sample
+      exampleCollectionItem: !include campaign1_5.sample
+  /{id}:
+    type: 
+     collectionItem:
+        exampleCollectionItem: !include campaign1_5.sample
 /capacitycalendars:
   type:
     readOnlyCollection:
@@ -1664,7 +1673,6 @@ resourceTypes:
           schemaName: !include user_unitcost1_5.schema
           exampleCollectionItemArray: !include user_unitcost_array1_5.sample
 
-# /campaigns:
 # /competences:
 # /contracts:
 # /forecasts:
