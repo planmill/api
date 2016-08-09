@@ -74,7 +74,7 @@
 		},
 		"pricebookArray": {
 			"type": "object",
-			"required": ["currencyCode","owner","name"],
+			"required": ["currency","owner","name"],
 			"additionalProperties": false,
 			"properties": {
 				"name": {
@@ -93,25 +93,25 @@
 					"type": ["string","null"],
 					"description": "Optional external ID of the PriceBook"
 				},
+				"publishToStore": {
+					"type": "integer",
+					"description": "If pricebooks are published to a thirdparty system"
+				},
+				"currency": {
+					"type": "integer",
+					"description": "All PriceBook items will use the PriceBook currency id"
+				},
 				"currencyCode": {
 					"type": "string",
-					"description": "All PriceBook items will use the PriceBook currency id"
+					"description": "All PriceBook items will use the PriceBook currency"
 				},
 				"languageCode": {
 					"type": ["string","null"],
 					"description": "PriceBook may be bound to a given language-local for management handling and filtering"
 				},
-				"supplier": {
-					"type": ["integer","null"],
-					"description": "PriceBook may be limited to a given Supplier (My company)"
-				},
 				"description": {
 					"type": ["string","null"],
 					"description": "PriceBook description"
-				},
-				"publishToStore": {
-					"type": "integer",
-					"description": "If pricebooks are published to a thirdparty system"
 				},
 				"owner": {
 					"type": ["integer","null"],

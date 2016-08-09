@@ -63,9 +63,9 @@
           "type": ["string", "null"],
           "description": "Email address of an account"
         },
-        "parentAccount": {
-          "type": ["integer", "null"],
-          "description": "Parent id of an account"
+        "parentAccountName": {
+          "type": ["string", "null"],
+          "description": ""
         },
         "industry": {
           "type": ["integer", "null"],
@@ -79,21 +79,9 @@
           "type": ["integer", "null"],
           "description": ""
         },
-        "description": {
-          "type": ["string", "null"],
-          "description": "Description of an account"
-        },
-        "autoReplyRequestMails": {
-          "type": ["integer", "null"],
-          "description": "Auto-reply request mails"
-        },
         "invoiceChannel": {
           "type": ["integer", "null"],
           "description": "Methods of delivery of invoices"
-        },
-        "invoiceTemplate": {
-          "type": ["string", "null"],
-          "description": "Invoice XSL"
         },
         "invoiceVat": {
           "type": ["number", "null"],
@@ -119,18 +107,6 @@
           "type": ["integer", "null"],
           "description": "Supplier id of an account"
         },
-        "invoiceDelayInterest": {
-          "type": ["number", "null"],
-          "description": ""
-        },
-        "reverseCharge": {
-          "type": ["integer", "null"],
-          "description": ""
-        },
-        "linkedIn": {
-          "type": ["string", "null"],
-          "description": "LinkedIn name of an account"
-        },
         "twitter": {
           "type": ["string", "null"],
           "description": "Twitter name of an account"
@@ -143,14 +119,6 @@
           "type": ["string", "null"],
           "description": "Blog address of an account"
         },
-        "firstInvoiceNumber": {
-          "type": ["string", "null"],
-          "description": ""
-        },
-        "googleCalendar": {
-          "type": ["string", "null"],
-          "description": ""
-        },
         "combineInvoices": {
           "type": ["integer", "null"],
           "description": ""
@@ -160,14 +128,6 @@
           "description": ""
         },
         "lineOfBusiness": {
-          "type": ["integer", "null"],
-          "description": ""
-        },
-        "staff": {
-          "type": ["integer", "null"],
-          "description": ""
-        },
-        "turnover": {
           "type": ["integer", "null"],
           "description": ""
         },
@@ -282,6 +242,10 @@
           "type": "integer",
           "description": "Terms of payment of an invoice"
         },
+        "eInvoicingAddress": {
+          "type": ["string", "null"],
+          "description": "eInvoicing address"
+        },
         "phone": {
           "type": ["string", "null"],
           "description": "Phone number of an account"
@@ -297,10 +261,6 @@
         "email": {
           "type": ["string", "null"],
           "description": "Email address of an account"
-        },
-        "parentAccount": {
-          "type": ["integer", "null"],
-          "description": "Parent id of an account"
         },
         "industry": {
           "type": ["integer", "null"],
@@ -326,10 +286,6 @@
           "type": ["integer", "null"],
           "description": "Methods of delivery of invoices"
         },
-        "invoiceTemplate": {
-          "type": ["string", "null"],
-          "description": "Invoice XSL"
-        },
         "invoiceVat": {
           "type": ["number", "null"],
           "description": "VAT on an invoice of an account"
@@ -337,10 +293,6 @@
         "invoiceNetOperator": {
           "type": ["integer", "null"],
           "description": ""
-        },
-        "eInvoiceAddress": {
-          "type": ["string", "null"],
-          "description": "Party identification number"
         },
         "handlingFee": {
           "type": ["number", "null"],
@@ -354,17 +306,9 @@
           "type": ["integer", "null"],
           "description": "Supplier id of an account"
         },
-        "invoiceDelayInterest": {
-          "type": ["number", "null"],
-          "description": ""
-        },
         "reverseCharge": {
           "type": ["integer", "null"],
           "description": ""
-        },
-        "linkedIn": {
-          "type": ["string", "null"],
-          "description": "LinkedIn name of an account"
         },
         "twitter": {
           "type": ["string", "null"],
@@ -379,10 +323,6 @@
           "description": "Blog address of an account"
         },
         "firstInvoiceNumber": {
-          "type": ["string", "null"],
-          "description": ""
-        },
-        "googleCalendar": {
           "type": ["string", "null"],
           "description": ""
         },
@@ -422,10 +362,6 @@
           "type": ["string", "null"],
           "description": "Invoice billing postal code of an account"
         },
-        "billingLocationId": {
-          "type": ["integer", "null"],
-          "description": ""
-        },
         "billingReference": {
           "type": ["string", "integer", "null"],
           "description": ""
@@ -434,24 +370,16 @@
           "type": ["string", "null"],
           "description": ""
         },
-        "ceo": {
-          "type": ["string", "null"],
-          "description": ""
+        "parentAccount": {
+          "type": ["integer", "null"],
+          "description": "Parent id of an account"
         },
-        "ownerName": {
+        "ceo": {
           "type": ["string", "null"],
           "description": ""
         },
         "parentAccountName": {
           "type": ["string", "null"],
-          "description": ""
-        },
-        "revenueThisYear": {
-          "type": ["number", "null"],
-          "description": ""
-        },
-        "revenueLastYear": {
-          "type": ["number", "null"],
           "description": ""
         },
         "shippingAddress": {
@@ -470,10 +398,6 @@
           "type": ["string", "null"],
           "description": "Invoice shipping postal code of an account"
         },
-        "shippingLocationId": {
-          "type": ["integer", "null"],
-          "description": ""
-        },
         "shippingReference": {
           "type": ["string", "null"],
           "description": ""
@@ -481,10 +405,6 @@
         "shippingState": {
           "type": ["string", "null"],
           "description": ""
-        },
-        "supplierAccountName": {
-          "type": ["string", "null"],
-          "description": "Account name of supplier"
         }
       }
     }
