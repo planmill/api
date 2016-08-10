@@ -780,102 +780,100 @@ resourceTypes:
     type: 
       collectionItem:
         exampleCollectionItem: !include hook1_5.sample
-#/integrations:
- # type:
-  #  collection: 
-   #   exampleCollectionItemArray: !include integration_array1_5.sample
-    #  exampleCollectionItem: !include integration_use1_5.sample
-/integrations/{integrationName}:
-  is: [all]
-  description: Using specific saved integration settings for importing or exporting a set of data to like file containing information of different companies to PlanMill as accounts.
-  uriParameters:
-    integrationName:
-        type: string
-        description: source.template
-        example: Asiakastieto.DecisionMaker
-   # delete: 
-    #  description: deletes the whole integration (settings) permanently
-  get: 
-    description: Previews fields, source and target data to be transformed into insertable data. Includes validation of source data if file id is given
-    queryParameters:
-      file:
-        type: integer
-        required: false
-        description: Id of the source file to be transformed
-      delim:
-        type: string
-        description: Delimiter character used in the source CSV file
-        default: (horizontal tab)
-      quote:
-        type: string
-        description: Quote character used in the source CSV file
-        default: (double quote)
-      rows:
-        type: integer
-        description: Number of rows to preview
-        default: 10
-    responses:
-      200:
-        body:
-          application/json:
-            example: !include transformation_preview1_5.sample
-  /{file}:
+/integrations:
+  get:
+    description: Get a list of available integration templates and statuses.
+    body:
+      application/json: 
+        example: !include integration_integrations1_5.sample
+  /integrations/{template}:
+    description: Using specific saved integration settings for importing or exporting a set of data to like file containing information of different companies to PlanMill as accounts.
     uriParameters:
-      file:
-        description: Id of the document the operation will be performed on
+      template:
+          type: string
+          description: source.template
+          example: Asiakastieto.DecisionMaker
+    post:
+      queryParameters:
+        file:
+          type: integer 
+          description: Id of the file to be used in the integration.
+          required: false
+        delim:
+          type: string
+          description: Delimiter character used in the source CSV file. Optional but might be needed to be supplied if the delimiter cannot be detected.
+          required: false
+        quote:
+          type: string
+          description: Quote character used in the source CSV file
+          default: (double quote)
+          required: false
+      description: Begins a new integration process for this template with a given file.
+    delete: 
+      description: Cancels the current integration process for this template.
+    get: 
+      description: Previews data transformation with a given amount of rows.
+      queryParameters:
+        ignoreFirstRow:
+          description: Ignore the first row of a file. Useful with CSV files with header rows.
+          default: false
+        rows:
+          type: integer
+          description: Number of rows to preview
+          default: 10
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include transformation_preview1_5.sample
     /transform:
       put:
-        is: [all]
-        description: Transforms source file to insertable data. Returns a list of any omitted rows due to invalid  field data 
+        description: Transforms source file to insertable data. Returns a list of any omitted rows due to invalid  field data.
         queryParameters:
-          delim:
-            description: Delimiter character used in the source CSV file
-            default: (horizontal tab)
-          quote:
-            description: Quote character used in the source CSV file
-            default: (double quote)
           ignoreFirstRow:
-            description: Ignore the first row of a file. Useful with CSV files with header rows
+            description: Ignore the first row of a file. Useful with CSV files with header rows.
             default: false
         responses:
-           201:
+           202:
+      /errors:
+        get:
+          description: Returns errors occurred during transformation. Uses pagination.
+          queryParameters:
+            from:
+              description: The row number of the first error row to return.
+              type: integer
+              default: 1
+            rows:
+              description: The amount of rows to  return.
+              type: integer
+              default: 100
+          responses:
+            200:
+              body:
+                application/json:
+                  example: !include integration_transformation_errors1_5.sample
     /comparison:
       put:
-        is: [all]
-        description: Compares candidate data with existing objects in PlanMill and returns an appropriate update or insert dataset
-        queryParameters:
-          resource:
-            description: The type of API resource to be compared against
-            example: account
+        description: Compares candidate data with existing objects in PlanMill and returns an appropriate update or insert dataset.
         responses:
-          202:
-            body:
-              application/json:
-          
+          202: 
       /conflicts:
         get:
-          is: [all]
-          description: Lists all conflicts by their given import row. In the case that a given import row matches multiple existing objects in the system they are collected as conflicts to be resolved
+          description: Lists all conflicts by their given import row. In the case that a given import row matches multiple existing objects in the system they are collected as conflicts to be resolved.
           responses:
             200:
               body:
                 application/json:
                   example: !include integration_comparison_conflicts_get1_5.sample
         put:
-          is: [all]
           description: Resolve matches to multiple existing objects by specifying the preferred object id for each conflict
           body:
             application/json:
               example: !include integration_comparison_conflicts_resolve1_5.sample
     /import:
       post:
-        is: [all]
-        description: Finally imports prepared comparison dataset into PlanMill
+        description: Imports prepared comparison dataset into PlanMill.
         queryParameters:
-          resource:
-            required: true
-            description: The type of API resource to be imported
-            example: account
           mode:
             required: true
             description: Importing mode. Insert will only import new objects, update will only update existing objects and merge will do both
@@ -886,7 +884,18 @@ resourceTypes:
             description: Perform import without comparison by directly using the transformation result
         responses:
           202:
-
+      /errors:
+        get:
+          description: Returns errors occurred during transformation. Uses pagination.
+          queryParameters:
+            from:
+              description: The row number of the first error row to return.
+              type: integer
+              default: 1
+            rows:
+              description: The amount of rows to  return.
+              type: integer
+              default: 100
   #  /transformationsettings:
    #   description: viewing and changing the settings of the integration
     #  type: 
