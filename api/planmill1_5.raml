@@ -230,7 +230,7 @@ resourceTypes:
             type: string
             required: false
             description: Start date of the interval in UTC format, intervalfinish required 
-            example: 22014-01-01T00:00:00.000+0200
+            example: 2014-01-01T00:00:00.000+0200
           intervalfinish?:
             type: string
             required: false
@@ -443,16 +443,8 @@ resourceTypes:
       order:
       sort:
       interval:
-        type: string
-        description: Interval type, e.g. start, finish, created, or modified. It is used in combination with intervalstart or intervalfinish
       intervalstart:
-        type: string
-        description: Start date of the interval in UTC format
-        example: 2014-01-01T00:00:00.000+0200
       intervalfinish:
-        type: string
-        description: Finish date of the interval in UTC format
-        example: 2014-01-01T00:00:00.000+0200
   type:
     collection:
        exampleCollectionItemArray: !include absence_array1_5.sample
@@ -481,16 +473,8 @@ resourceTypes:
       order:
       sort:
       interval:
-        type: string
-        description: Interval type, e.g. start, finish, created, or modified. It is used in combination with intervalstart or intervalfinish
       intervalstart:
-        type: string
-        description: Start date of the interval in UTC format
-        example: 2014-01-01T00:00:00.000+0200
       intervalfinish:
-        type: string
-        description: Finish date of the interval in UTC format
-        example: 2014-01-01T00:00:00.000+0200
   type:
     collection:
        exampleCollectionItemArray: !include account_array1_5.sample
@@ -528,16 +512,8 @@ resourceTypes:
       order:
       sort:
       interval:
-        type: string
-        description: Interval type, e.g. start, finish, created, or modified. It is used in combination with intervalstart or intervalfinish
       intervalstart:
-        type: string
-        description: Start date of the interval in UTC format
-        example: 2014-01-01T00:00:00.000+0200
       intervalfinish:
-        type: string
-        description: Finish date of the interval in UTC format
-        example: 2014-01-01T00:00:00.000+0200
   type:
     collection:
       exampleCollectionItemArray: !include action_array1_5.sample
@@ -622,8 +598,20 @@ resourceTypes:
       required: true
   type: 
     putOnlyCollectionItem:
-      exampleCollectionItem:
+      exampleCollectionItem: !include braces.sample
 /contacts:
+  get:
+    queryParameters:
+      nextrows:
+      order:
+      sort:
+      interval:
+      intervalstart:
+      intervalfinish:
+      campaigns:
+        type: integer
+        required: false
+        description: Internal id of campaign to search contacts belonging to specific campaign
   type:
     collection:
       exampleCollectionItemArray: !include contact_array1_5.sample
@@ -701,16 +689,8 @@ resourceTypes:
       order:
       sort:
       interval:
-        type: string
-        description: Interval type, e.g. start, finish, created, or modified. It is used in combination with intervalstart or intervalfinish
       intervalstart:
-        type: string
-        description: Start date of the interval in UTC format
-        example: 2014-01-01T00:00:00.000+0200
       intervalfinish:
-        type: string
-        description: Finish date of the interval in UTC format
-        example: 2014-01-01T00:00:00.000+0200
   type:
     readOnlyCollection:
       schemaName: !include expense1_5.schema
@@ -974,16 +954,8 @@ resourceTypes:
       order:
       sort:
       interval:
-        type: string
-        description: Interval type, e.g. start, finish, created, or modified. It is used in combination with intervalstart or intervalfinish
       intervalstart:
-        type: string
-        description: Start date of the interval in UTC format
-        example: 2014-01-01T00:00:00.000+0200
       intervalfinish:
-        type: string
-        description: Finish date of the interval in UTC format
-        example: 2014-01-01T00:00:00.000+0200
   type:
     collection:
        exampleCollectionItemArray: !include opportunity_array1_5.sample
@@ -1045,18 +1017,10 @@ resourceTypes:
       rowcount:
       nextrows:
       order:
-      sort:    
+      sort:
       interval:
-        type: string
-        description: Interval type, e.g. start, finish, created, or modified. It is used in combination with intervalstart or intervalfinish
       intervalstart:
-        type: string
-        description: Start date of the interval in UTC format
-        example: 2014-01-01T00:00:00.000+0200 
       intervalfinish:
-        type: string
-        description: Finish date of the interval in UTC format
-        example: 2014-01-01T00:00:00.000+0200
   type:
     collection:
        exampleCollectionItemArray: !include project_array1_5.sample
@@ -1115,7 +1079,7 @@ resourceTypes:
         description: A single external team member of a project in PlanMill
         type:
           putOnlyCollectionItem:
-            exampleCollectionItem:
+            exampleCollectionItem: !include braces.sample
       /editors/{id}:
         description: A single editor team member of a project in PlanMill
         type:
@@ -1124,7 +1088,7 @@ resourceTypes:
         description: A single manager team member of a project in PlanMill
         type:
           putOnlyCollectionItem:
-            exampleCollectionItem:
+            exampleCollectionItem: !include braces.sample
     /meta:
       description: Get meta information for the updatable fields of the project
       get:
@@ -1176,16 +1140,8 @@ resourceTypes:
           order:
           sort:    
           interval:
-            type: string
-            description: Interval type, e.g. start, finish, created, or modified. It is used in combination with intervalstart or intervalfinish
           intervalstart:
-            type: string
-            description: Start date of the interval in UTC format
-            example: 2014-01-01T00:00:00.000+0200
           intervalfinish:
-            type: string
-            description: Finish date of the interval in UTC format
-            example: 2014-01-01T00:00:00.000+0200
       type:
         readOnlyCollection:
           schemaName: !include task1_5.schema
@@ -1330,16 +1286,8 @@ resourceTypes:
       order:
       sort:
       interval:
-        type: string
-        description: Interval type, e.g. start, finish, created, or modified. It is used in combination with intervalstart or intervalfinish
       intervalstart:
-        type: string
-        description: Start date of the interval in UTC format
-        example: 2014-01-01T00:00:00.000+0200
       intervalfinish:
-        type: string
-        description: Finish date of the interval in UTC format
-        example: 2014-01-01T00:00:00.000+0200
   type:
     collection:
        exampleCollectionItemArray: !include salesorder_array1_5.sample
@@ -1532,13 +1480,25 @@ resourceTypes:
   /{id}:
     type: 
      collectionItem:
-        exampleCollectionItem: !include timereport1_5.sample
+       exampleCollectionItem: !include timereport1_5.sample
+    /accepted:
+      put:
+        description: Accepts time reports. It can also accept multiple ids, for example, /timereports/{id},{id},{id}/accepted
+      type: 
+       putOnlyCollectionItem:
+        exampleCollectionItem: !include braces.sample
+    /unaccepted:
+      put:
+        description: Unaccepts time reports. It can also unaccept multiple ids, for example, /timereports/{id},{id},{id}/accepted
+      type: 
+       putOnlyCollectionItem:
+        exampleCollectionItem: !include braces.sample
     /meta:
       description: Get meta information for the updatable fields of the timereport
       get:
       type:
-        readOnlyCollectionItem:
-          exampleCollectionItem: !include timereport_single_meta1_5.sample
+       readOnlyCollectionItem:
+         exampleCollectionItem: !include timereport_single_meta1_5.sample
 /users:
   get:
     queryParameters:
