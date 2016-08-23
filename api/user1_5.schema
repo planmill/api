@@ -13,8 +13,8 @@
   "definitions": {
     "userSingle": {
       "type": "object",
-	  "required": ["lastName", "account", "userName", "role"],
-	  "additionalProperties": false,
+      "required": [ "lastName", "account", "userName", "role" ],
+      "additionalProperties": false,
       "properties": {
         "id": {
           "type": "integer",
@@ -54,7 +54,7 @@
           "description": "Confirm password of a user"
         },
         "account": {
-          "type": [ "integer", "null" ],
+          "type": ["integer", "null"],
           "description": "Id of user's account"
         },
         "currency": {
@@ -62,7 +62,7 @@
           "description": "Currency id of user's account"
         },
         "language": {
-          "type": ["integer","null"],
+          "type": ["integer", "null"],
           "description": "Language id of user's account"
         },
         "skin": {
@@ -114,172 +114,172 @@
           "description": "Title of user"
         },
         "languageCode": {
-          "type": [ "string", "null" ],
+          "type": ["string", "null"],
           "description": "Language code"
         },
         "email": {
           "type": ["string", "null"],
           "description": "Email address of user"
         },
-		"BIC": {
-		  "type": ["string", "null"],
-		  "description": ""
-		},
-		"balanceAdjustment": {
-		  "type": ["integer", "null"],
-		  "description": ""
-		},
-		"balanceMaximum": {
-		  "type": ["integer", "null"],
-		  "description": ""
-		},
-		"bankAccount": {
-		  "type": ["string", "null"],
-		  "description": ""
-		},
-		"blog": {
-		  "type": ["string", "null"],
-		  "description": ""
-		},
-		"competence": {
-		  "type": ["string", "null"],
-		  "description": ""
-		},
-		"competenceLevel": {
-		  "type": ["integer", "null"],
-		  "description": ""
-		},
-		"department": {
-		  "type": ["string", "null"],
-		  "description": ""
-		},
-		"description": {
-		  "type": ["string", "null"],
-		  "description": ""
-		},
-		"facebook": {
-		  "type": ["string", "null"],
-		  "description": ""
-		},
-		"fax": {
-		  "type": ["string", "null"],
-		  "description": ""
-		},
-		"goalValue": {
-		  "type": ["integer", "null"],
-		  "description": ""
-		},
-		"googleTalk": {
-		  "type": ["string", "null"],
-		  "description": ""
-		},
-		"linkedIn": {
-		  "type": ["string", "null"],
-		  "description": ""
-		},
-		"mobilePhone": {
-		  "type": ["string", "null"],
-		  "description": ""
-		},
-		"nationality": {
-		  "type": ["integer", "null"],
-		  "description": ""
-		},
-		"paymentTeam": {
-		  "type": ["integer", "null"],
-		  "description": ""
-		},
-		"primaryAddress": {
-		  "type": ["string", "null"],
-		  "description": ""
-		},
-		"primaryCity": {
-		  "type": ["string", "null"],
-		  "description": ""
-		},
-		"primaryCountry": {
-		  "type": ["integer", "null"],
-		  "description": ""
-		},
-		"primaryDepartment": {
-		  "type": ["string", "null"],
-		  "description": ""
-		},
-		"primaryPostalCode": {
-		  "type": ["string", "null"],
-		  "description": ""
-		},
-		"primaryState": {
-		  "type": ["string", "null"],
-		  "description": ""
-		},
-		"primaryStreet": {
-		  "type": ["string", "null"],
-		  "description": ""
-		},
-		"projectWikiUserGroup": {
-		  "type": ["string", "null"],
-		  "description": ""
-		},
-		"shippingAddress": {
-		  "type": ["string", "null"],
-		  "description": ""
-		},
-		"shippingCity": {
-		  "type": ["string", "null"],
-		  "description": ""
-		},
-		"shippingCountry": {
-		  "type": ["integer", "null"],
-		  "description": ""
-		},
-		"shippingDepartment": {
-		  "type": ["string", "null"],
-		  "description": ""
-		},
-		"shippingPostalCode": {
-		  "type": ["string", "null"],
-		  "description": ""
-		},
-		"shippingState": {
-		  "type": ["string", "null"],
-		  "description": ""
-		},
-		"shippingStreet": {
-		  "type": ["string", "null"],
-		  "description": ""
-		},
-		"skype": {
-		  "type": ["string", "null"],
-		  "description": ""
-		},
-		"superior": {
-		  "type": ["integer", "null"],
-		  "description": ""
-		},
-		"team": {
-		  "type": ["integer", "null"],
-		  "description": ""
-		},
-		"twitter": {
-		  "type": ["string", "null"],
-		  "description": ""
-		},
-		"workPhone": {
-		  "type": ["string", "null"],
-		  "description": ""
-		},
-		"photo": {
-			"type": ["string", "null"],
-			"description": ""
-		}
+        "BIC": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "balanceAdjustment": {
+          "type": ["integer", "null"],
+          "description": ""
+        },
+        "balanceMaximum": {
+          "type": ["integer", "null"],
+          "description": ""
+        },
+        "bankAccount": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "blog": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "competence": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "competenceLevel": {
+          "type": ["integer", "null"],
+          "description": ""
+        },
+        "department": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "description": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "facebook": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "fax": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "goalValue": {
+          "type": ["integer", "null"],
+          "description": ""
+        },
+        "googleTalk": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "linkedIn": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "mobilePhone": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "nationality": {
+          "type": ["integer", "null"],
+          "description": ""
+        },
+        "paymentTeam": {
+          "type": ["integer", "null"],
+          "description": ""
+        },
+        "primaryAddress": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "primaryCity": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "primaryCountry": {
+          "type": ["integer", "null"],
+          "description": ""
+        },
+        "primaryDepartment": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "primaryPostalCode": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "primaryState": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "primaryStreet": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "projectWikiUserGroup": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "shippingAddress": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "shippingCity": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "shippingCountry": {
+          "type": ["integer", "null"],
+          "description": ""
+        },
+        "shippingDepartment": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "shippingPostalCode": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "shippingState": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "shippingStreet": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "skype": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "superior": {
+          "type": ["integer", "null"],
+          "description": ""
+        },
+        "team": {
+          "type": ["integer", "null"],
+          "description": ""
+        },
+        "twitter": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "workPhone": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "photo": {
+          "type": ["string", "null"],
+          "description": ""
+        }
       }
     },
-	"userArray": {
+    "userArray": {
       "type": "object",
-	  "additionalProperties": false,
+      "additionalProperties": false,
       "properties": {
-		  "id": {
+        "id": {
           "type": "integer",
           "description": "Internal ID of a user"
         },
@@ -307,11 +307,11 @@
           "description": "Username of a user"
         },
         "account": {
-          "type": [ "integer", "null"],
+          "type": ["integer", "null"],
           "description": "Id of user's account"
         },
-		"accountName": {
-          "type": [ "string", "null"],
+        "accountName": {
+          "type": ["string", "null"],
           "description": "Name of user's account"
         },
         "currencyCode": {
@@ -319,7 +319,7 @@
           "description": "Currency code of user's account"
         },
         "languageCode": {
-          "type": ["string","null"],
+          "type": ["string", "null"],
           "description": "Language code of user's account"
         },
         "skin": {
@@ -362,56 +362,56 @@
           "type": ["string", "null"],
           "description": "Email address of user"
         },
-		"team": {
-			"type": ["integer", "null"],
-			"description": "ID of the user's primary team"
-		},
-		"teamName": {
-			"type": ["string", "null"],
-			"description": "Name of the user's primary team"
-		},
-		"lastLogin": {
-			"type": ["string", "null"],
-			"format": "date-time",
-			"description": "Time when the user last logged in"
-		},
-		"lastLogout": {
-			"type": ["string", "null"],
-			"format": "date-time",
-			"description": "Time when the user last logged out"
-		},
-		"competence": {
-			"type": ["string", "null"],
-			"description": "User's competence"
-		},
-		"department": {
-			"type": ["string", "null"],
-			"description": "Name of the user's department"
-		},
-		"balanceAdjustment": {
-			"type": ["integer", "null"],
-			"description": "User's balance adjustement in minutes"
-		},
-		"teams": {
-			"type": ["integer"],
-			"description": "Number of teams the user belongs to"
-		},
-		"photo": {
-			"type": ["string", "null"],
-			"description": "Link to the user's photo"
-		},
-		"balanceMaximum": {
-			"type": ["integer", "null"],
-			"description": "Maximum balance for the user"
-		},
-		"primaryPhone": {
-			"type": ["string", "null"],
-			"description": "User's primary phone number"
-		},
-		"superior": {
-			"type": ["integer", "null"],
-			"description": "ID of the user's superior"
-		}
+        "team": {
+          "type": ["integer", "null"],
+          "description": "ID of the user's primary team"
+        },
+        "teamName": {
+          "type": ["string", "null"],
+          "description": "Name of the user's primary team"
+        },
+        "lastLogin": {
+          "type": ["string", "null"],
+          "format": "date-time",
+          "description": "Time when the user last logged in"
+        },
+        "lastLogout": {
+          "type": ["string", "null"],
+          "format": "date-time",
+          "description": "Time when the user last logged out"
+        },
+        "competence": {
+          "type": ["string", "null"],
+          "description": "User's competence"
+        },
+        "department": {
+          "type": ["string", "null"],
+          "description": "Name of the user's department"
+        },
+        "balanceAdjustment": {
+          "type": ["integer", "null"],
+          "description": "User's balance adjustement in minutes"
+        },
+        "teams": {
+          "type": "integer",
+          "description": "Number of teams the user belongs to"
+        },
+        "photo": {
+          "type": ["string", "null"],
+          "description": "Link to the user's photo"
+        },
+        "balanceMaximum": {
+          "type": ["integer", "null"],
+          "description": "Maximum balance for the user"
+        },
+        "primaryPhone": {
+          "type": ["string", "null"],
+          "description": "User's primary phone number"
+        },
+        "superior": {
+          "type": ["integer", "null"],
+          "description": "ID of the user's superior"
+        }
       }
     }
   }
