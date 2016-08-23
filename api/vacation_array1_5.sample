@@ -1,0 +1,34 @@
+[
+  {
+    "daysRemaining": 13500,
+    "otherDaysRemaining": 450,
+    "savedLeaveDays": 900,
+    "created": "2016-08-22T18:25:32.960+0300",
+    "bonusDays": 1800,
+    "vacationYear": 2015,
+    "annualHoliday": 13500,
+    "bonusDaysRemaining": 1800,
+    "createdBy": 6781,
+    "savedLeaveDaysRemaining": 900,
+    "modified": "2016-08-22T18:25:45.127+0300",
+    "modifiedBy": 1876,
+    "id": 5873,
+    "otherDays": 450
+  },
+  {
+    "daysRemaining": 13500,
+    "otherDaysRemaining": 900,
+    "savedLeaveDays": 450,
+    "created": "2016-08-22T18:25:45.230+0300",
+    "bonusDays": 1350,
+    "vacationYear": 2016,
+    "annualHoliday": 13500,
+    "bonusDaysRemaining": 1350,
+    "createdBy": 6781,
+    "savedLeaveDaysRemaining": 450,
+    "modified": null,
+    "modifiedBy": null,
+    "id": 5875,
+    "otherDays": 900
+  }
+]

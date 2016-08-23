@@ -155,6 +155,7 @@ schemas:
  - tempfile: ! include tempfile1_5.schema 
  - timereport: !include timereport1_5.schema
  - user: !include user1_5.schema
+ - vacation: !include vacation1_5.schema
 
 # write name of the resource before the include and schema always in SINGULAR, i.e. hook not hooks - otherwise the automatic includes won't work
 resourceTypes:
@@ -192,7 +193,7 @@ resourceTypes:
       is: [all]
       description: A single <<resourcePathName|!singularize>> in PlanMill. This is a read-only item
       get:
-        description: View details of single <<resourcePathName|!singularize>>
+        description: View details of a single <<resourcePathName|!singularize>>
         responses:
           200:
             body:
@@ -267,13 +268,14 @@ resourceTypes:
       is: [all]
       description: A single <<resourcePathName|!singularize>> in PlanMill.
       get:
-        description: View details of single <<resourcePathName|!singularize>>. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats 
+        description: View details of a single <<resourcePathName|!singularize>>. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats 
         responses:
           200:
             body:
-              application/json: 
-                  example: |
-                    <<exampleCollectionItem>>
+              application/json:
+                schema: <<resourcePathName|!singularize>>
+                example: |
+                  <<exampleCollectionItem>>
       post:
         description: Update an existing resource <<resourcePathName|!singularize>> to PlanMill.  See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats 
         headers:
@@ -455,7 +457,7 @@ resourceTypes:
       type:
         readOnlyCollectionItem:
           exampleCollectionItem: !include absence_meta1_5.sample
-  /{id}:
+  /{absence_id}:
     type: 
      collectionItem:
         exampleCollectionItem: !include absence1_5.sample
@@ -485,7 +487,7 @@ resourceTypes:
       type:
         readOnlyCollectionItem:
           exampleCollectionItem: !include account_meta1_5.sample
-  /{id}:
+  /{account_id}:
     type: 
      collectionItem:
         exampleCollectionItem: !include account1_5.sample
@@ -500,7 +502,7 @@ resourceTypes:
         readOnlyCollection:
           schemaName:
           exampleCollectionItemArray: !include tempfile_array1_5.sample
-      /{id}:
+      /{attachment_id}:
         type:
           putGetDeleteCollectionItem:
             exampleCollectionItem: Contents of file
@@ -524,7 +526,7 @@ resourceTypes:
       type:
         readOnlyCollectionItem:
           exampleCollectionItem: !include action_meta1_5.sample
-  /{id}:
+  /{action_id}:
     type:
       collectionItem:
         exampleCollectionItem: !include action1_5.sample
@@ -539,7 +541,7 @@ resourceTypes:
         readOnlyCollection:
           schemaName:
           exampleCollectionItemArray: !include tempfile_array1_5.sample
-      /{id}:
+      /{attachment_id}:
         type:
           putGetDeleteCollectionItem:
             exampleCollectionItem: Contents of file
@@ -554,7 +556,9 @@ resourceTypes:
     readOnlyCollection:
       schemaName: !include board1_5.schema
       exampleCollectionItemArray: !include board1_5.sample
-  /{id}:
+  /{board_id}:
+    get:
+      description: View details of a single board
     type:
       collectionItem:
         exampleCollectionItem: !include board1_5.sample
@@ -564,16 +568,23 @@ resourceTypes:
     readOnlyCollection:
       schemaName: !include boardlist1_5.schema
       exampleCollectionItemArray: !include boardlist1_5.sample
-  /{id}:
+  /{boardlist_id}:
+    get:
+      description: View details of a single board list
     type:
       collectionItem:
         exampleCollectionItem: !include boardlist1_5.sample
 /campaigns:
+  description: Collection of available campaigns in PlanMill
+  get:
+    description: Get a list of campaigns
   type:
     collection:
       exampleCollectionItemArray: !include campaign_array1_5.sample
       exampleCollectionItem: !include campaign1_5.sample
-  /{id}:
+  /{campaign_id}:
+    get:
+      description: View details of a single campaign
     type: 
      collectionItem:
         exampleCollectionItem: !include campaign1_5.sample
@@ -622,7 +633,7 @@ resourceTypes:
       type:
         readOnlyCollectionItem:
           exampleCollectionItem: !include contact_meta1_5.sample
-  /{id}:
+  /{contact_id}:
     type: 
      collectionItem:
         exampleCollectionItem: !include contact1_5.sample
@@ -637,7 +648,7 @@ resourceTypes:
         readOnlyCollection:
           schemaName:
           exampleCollectionItemArray: !include tempfile_array1_5.sample
-      /{id}:
+      /{attachment_id}:
         type:
           putGetDeleteCollectionItem:
             exampleCollectionItem: Contents of file
@@ -662,7 +673,9 @@ resourceTypes:
     readOnlyCollection:
       schemaName: !include exit_criteria1_5.schema
       exampleCollectionItemArray: !include exit_criteria1_5.sample
-  /{id}:
+  /{exit_criteria_id}:
+    get:
+      description: View details of single exit criteria
     type:
       collectionItem:
         exampleCollectionItem: !include exit_criteria1_5.sample
@@ -672,7 +685,9 @@ resourceTypes:
     readOnlyCollection:
       schemaName: !include exit_criteria_status1_5.schema
       exampleCollectionItemArray: !include exit_criteria_status1_5.sample
-  /{id}:
+  /{exit_criteria_status_id}:
+    get:
+      description: View details of single exit criteria status
     type:
       collectionItem:
         exampleCollectionItem: !include exit_criteria_status1_5.sample
@@ -701,7 +716,7 @@ resourceTypes:
       type:
         readOnlyCollectionItem:
           exampleCollectionItem: !include expense_meta1_5.sample
-  /{id}:
+  /{expense_id}:
     get:
       headers:
         Accept:
@@ -716,7 +731,7 @@ resourceTypes:
         readOnlyCollection:
           schemaName: !include expenseitem1_5.schema
           exampleCollectionItemArray: !include expenseitem_array1_5.sample
-      /{id}:
+      /{expense_item_id}:
         type:
           readOnlyCollectionItem:
             exampleCollectionItem: !include expenseitem1_5.sample
@@ -756,7 +771,7 @@ resourceTypes:
     collection: 
       exampleCollectionItemArray: !include hook_array1_5.sample
       exampleCollectionItem: !include hook1_5.sample
-  /{id}:
+  /{hook_id}:
     type: 
       collectionItem:
         exampleCollectionItem: !include hook1_5.sample
@@ -886,7 +901,7 @@ resourceTypes:
     readOnlyCollection:
       schemaName:
       exampleCollectionItemArray: !include invoice_array1_5.sample
-  /{id}:
+  /{invoice_id}:
     get:
       headers:
         Accept:
@@ -933,7 +948,7 @@ resourceTypes:
     readOnlyCollection:
       schemaName: !include mail1_5.schema
       exampleCollectionItemArray: !include mail_array1_5.sample
-  /{id}:
+  /{mail_id}:
     type:
       getDeleteCollectionItem:
         exampleCollectionItem: !include mail1_5.sample
@@ -942,7 +957,7 @@ resourceTypes:
         readOnlyCollection:
           schemaName:
           exampleCollectionItemArray: !include tempfile_array1_5.sample
-      /{id}:
+      /{attachment_id}:
         type:
           readOnlyCollectionItem:
             exampleCollectionItem: Contents of file
@@ -966,7 +981,7 @@ resourceTypes:
       type:
         readOnlyCollectionItem:
           exampleCollectionItem: !include opportunity_meta1_5.sample
-  /{id}:
+  /{opportunity_id}:
     type: 
      collectionItem:
         exampleCollectionItem: !include opportunity1_5.sample
@@ -975,7 +990,7 @@ resourceTypes:
         readOnlyCollection:
           schemaName:
           exampleCollectionItemArray: !include tempfile_array1_5.sample
-      /{id}:
+      /{attachment_id}:
         type:
           putGetDeleteCollectionItem:
             exampleCollectionItem: Contents of file
@@ -987,14 +1002,14 @@ resourceTypes:
           exampleCollectionItem: !include opportunity_single_meta1_5.sample
     /items:
       get:
-        description: Get a list of opportunity items. See opportunities/{id}/items/meta for list of filters, columns and formats
+        description: Get a list of opportunity items. See opportunities/{opportunity_id}/items/meta for list of filters, columns and formats
         responses:
           200:
             body:
               application/json:
                 schema: !include opportunityitem1_5.schema
       post:
-        description: Add a new opportunity item to PlanMill or update existing (if id is given). See opportunities/{id}/items/meta for list of columns and formats
+        description: Add a new opportunity item to PlanMill or update existing (if id is given). See opportunities/{opportunity_id}/items/meta for list of columns and formats
         body:
           application/json:
             schema: !include opportunityitem1_5.schema
@@ -1002,11 +1017,11 @@ resourceTypes:
         collection:
           exampleCollectionItemArray: !include opportunityitem_array1_5.sample
           exampleCollectionItem: !include opportunityitem1_5.sample
-      /{id}:
+      /{opportunity_item_id}:
         get:
-          description: View details of single item of single opportunity item. #See opportunities/{id}/items/{id}/meta for list of filters, columns and formats
+          description: View details of single item of single opportunity item. #See opportunities/{opportunity_id}/items/{opportunity_item_id}/meta for list of filters, columns and formats
         post:
-          description: Update an existing resource single item of single opportunity to PlanMill. #See opportunities/{id}/items/{id}/meta for list of filters, columns and formats
+          description: Update an existing resource single item of single opportunity to PlanMill. #See opportunities/{opportunity_id}/items/{opportunity_item_id}/meta for list of filters, columns and formats
         type:
           collectionItem:
             exampleCollectionItem: !include opportunityitem1_5.sample
@@ -1031,7 +1046,7 @@ resourceTypes:
       type:
         readOnlyCollectionItem:
           exampleCollectionItem: !include project_meta1_5.sample
-  /{id}:
+  /{project_id}:
     type: 
      collectionItem:
         exampleCollectionItem: !include project1_5.sample
@@ -1046,7 +1061,7 @@ resourceTypes:
           type:
             readOnlyCollectionItem:
               exampleCollectionItem: !include project_single_assignment_meta1_5.sample
-      /{id}:
+      /{assignment_id}:
         type:
           readOnlyCollectionItem:
             exampleCollectionItem: !include assignment1_5.sample
@@ -1055,7 +1070,7 @@ resourceTypes:
         readOnlyCollection:
           schemaName:
           exampleCollectionItemArray: !include tempfile_array1_5.sample
-      /{id}:
+      /{attachment_id}:
         type:
           putGetDeleteCollectionItem:
             exampleCollectionItem: Contents of file
@@ -1071,20 +1086,20 @@ resourceTypes:
           type:
             readOnlyCollectionItem:
               exampleCollectionItem: !include project_single_member_meta1_5.sample
-      /{id}:
+      /{member_id}:
         description: A single team member of a project in PlanMill
         type:
           putDeleteCollectionItem:
-      /external/{id}:
+      /external/{external_member_id}:
         description: A single external team member of a project in PlanMill
         type:
           putOnlyCollectionItem:
             exampleCollectionItem: !include braces.sample
-      /editors/{id}:
+      /editors/{editor_id}:
         description: A single editor team member of a project in PlanMill
         type:
           putDeleteCollectionItem:
-      /managers/{id}:
+      /managers/{manager_id}:
         description: A single manager team member of a project in PlanMill
         type:
           putOnlyCollectionItem:
@@ -1227,7 +1242,7 @@ resourceTypes:
       type:
         readOnlyCollectionItem:
           exampleCollectionItem: !include request_meta1_5.sample
-  /{id}:
+  /{request_id}:
     type:
       collectionItem:
         exampleCollectionItem: !include request1_5.sample
@@ -1248,7 +1263,7 @@ resourceTypes:
           type:
             readOnlyCollectionItem:
               exampleCollectionItem: !include request_single_assignment_meta1_5.sample
-      /{id}:
+      /{assignment_id}:
         type:
           collectionItem:
             exampleCollectionItem: !include assignment1_5.sample
@@ -1263,7 +1278,7 @@ resourceTypes:
         readOnlyCollection:
           schemaName:
           exampleCollectionItemArray: !include tempfile_array1_5.sample
-      /{id}:
+      /{attachment_id}:
         type:
           putGetDeleteCollectionItem:
             exampleCollectionItem: Contents of file
@@ -1298,7 +1313,7 @@ resourceTypes:
       type:
         readOnlyCollectionItem:
           exampleCollectionItem: !include salesorder_meta1_5.sample
-  /{id}:
+  /{sales_order_id}:
     type: 
      collectionItem:
         exampleCollectionItem: !include salesorder1_5.sample
@@ -1307,7 +1322,7 @@ resourceTypes:
         readOnlyCollection:
           schemaName:
           exampleCollectionItemArray: !include tempfile_array1_5.sample
-      /{id}:
+      /{attachment_id}:
         type:
           putGetDeleteCollectionItem:
             exampleCollectionItem: Contents of file
@@ -1319,14 +1334,14 @@ resourceTypes:
           exampleCollectionItem: !include salesorder_single_meta1_5.sample
     /items:
       get:
-        description: Get a list of sales order items. See salesorder/{id}/items/meta for list of filters, columns and formats
+        description: Get a list of sales order items. See salesorder/{sales_order_id}/items/meta for list of filters, columns and formats
         responses:
           200:
             body:
               application/json:
                 schema: !include salesorderitem1_5.schema
       post:
-        description: Add a new sales order item to PlanMill or update existing (if id is given). See opportunities/{id}/items/meta for list of columns and formats
+        description: Add a new sales order item to PlanMill or update existing (if id is given). See salesorders/{sales_order_id}/items/meta for list of columns and formats
         body:
           application/json:
             schema: !include salesorderitem1_5.schema
@@ -1336,13 +1351,13 @@ resourceTypes:
           exampleCollectionItem: !include salesorderitem1_5.sample
       /{id}:
         get:
-          description: View details of single item of single sales order item. #See salesorder/{id}/items/{id}/meta for list of filters, columns and formats
+          description: View details of single item of single sales order item. #See salesorders/{sales_order_id}/items/{sales_order_item_id}/meta for list of filters, columns and formats
         post:
-          description: Update an existing resource single item of single sales order to PlanMill. #See salesorder/{id}/items/{id}/meta for list of filters, columns and formats
+          description: Update an existing resource single item of single sales order to PlanMill. #See salesorders/{sales_order_id}/items/{sales_order_item_id}/meta for list of filters, columns and formats
         type:
           collectionItem:
             exampleCollectionItem: !include salesorderitem1_5.sample
-/tasks/{id}:
+/tasks/{task_id}:
   type: 
     collectionItem:
       exampleCollectionItem: !include task1_5.sample
@@ -1363,7 +1378,7 @@ resourceTypes:
       type:
         readOnlyCollectionItem:
           exampleCollectionItem: !include task_single_assignment_meta1_5.sample
-    /{id}:
+    /{assignment_id}:
       type:
         collectionItem:
           exampleCollectionItem: !include assignment1_5.sample
@@ -1378,7 +1393,7 @@ resourceTypes:
        readOnlyCollection:
          schemaName:
          exampleCollectionItemArray: !include tempfile_array1_5.sample
-     /{id}:
+     /{attachment_id}:
        type:
          putGetDeleteCollectionItem:
            exampleCollectionItem: Contents of file
@@ -1401,7 +1416,7 @@ resourceTypes:
     type:
       readOnlyCollectionItem:
         exampleCollectionItem: !include team_meta1_5.sample
-  /{id}:
+  /{team_id}:
     type: 
      collectionItem:
       exampleCollectionItem: !include team1_5.sample
@@ -1416,7 +1431,7 @@ resourceTypes:
         readOnlyCollection:
           schemaName:
           exampleCollectionItemArray: !include tempfile_array1_5.sample
-      /{id}:
+      /{attachment_id}:
         type:
           putGetDeleteCollectionItem:
             exampleCollectionItem: Contents of file
@@ -1425,7 +1440,7 @@ resourceTypes:
        readOnlyCollection:
         schemaName:
         exampleCollectionItemArray: !include teammember_array1_5.sample
-    /members/{id}:
+    /members/{member_id}:
       description: A single team member in PlanMill
       type:
         putDeleteCollectionItem:
@@ -1438,7 +1453,7 @@ resourceTypes:
 /tempfiles:
   type:
     postOnlyCollectionMultiPart:
-  /{id}:
+  /{file_id}:
     type:
       getDeleteCollectionItem:
         exampleCollectionItem: Contents of file
@@ -1477,7 +1492,7 @@ resourceTypes:
       type:
         readOnlyCollectionItem:
           exampleCollectionItem: !include timereport_meta1_5.sample
-  /{id}:
+  /{timereport_id}:
     type: 
      collectionItem:
        exampleCollectionItem: !include timereport1_5.sample
@@ -1537,7 +1552,7 @@ resourceTypes:
       type:
         readOnlyCollectionItem:
           exampleCollectionItem: !include user_meta1_5.sample
-  /{id}:
+  /{user_id}:
     type: 
      collectionItem:
         exampleCollectionItem: !include user1_5.sample
@@ -1641,6 +1656,26 @@ resourceTypes:
         readOnlyCollection:
           schemaName: !include user_unitcost1_5.schema
           exampleCollectionItemArray: !include user_unitcost_array1_5.sample
+    /vacations:
+      get:
+        description: Get a list of vacations
+        queryParameters:
+          rowcount:
+          order:
+          sort:
+          interval:
+          intervalstart:
+          intervalfinish:
+      type: 
+         collection:
+           exampleCollectionItemArray: !include vacation_array1_5.sample
+           exampleCollectionItem: !include vacation1_5.sample
+      /{vacation_id}:
+        get:
+          description: View details of single vacation
+        type: 
+           collectionItem:
+             exampleCollectionItem: !include vacation1_5.sample
 
 # /competences:
 # /contracts:
