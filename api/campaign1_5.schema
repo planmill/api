@@ -111,7 +111,7 @@
           "description": "Start date of a campaign"
         },
         "description": {
-          "type": "string",
+          "type": ["string", "null"],
           "description": "Description of a campaign"
         },
         "project": {
