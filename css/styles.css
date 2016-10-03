@@ -8,6 +8,11 @@ h1,h2,h3,h4,h5 {
  i.small {
    font-size: 1.2rem;
  }
+ .logo {
+   float: left;
+   margin-left: 20px;
+   margin-top: 10px;
+ }
 .header-container {
   width: 100%;
   height: 64px;
@@ -19,6 +24,7 @@ h1,h2,h3,h4,h5 {
   float: left;
   margin-left: 15px;
   margin-top: 20px;
+  font-weight: 400;
 }
 
 .title-container {
@@ -29,4 +35,7 @@ h1,h2,h3,h4,h5 {
 }
 .content-header-area {
   padding-bottom: 20px;
+}
+.news-container {
+  padding-bottom: 40px;
 }
