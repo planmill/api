@@ -20,6 +20,12 @@ h1,h2,h3,h4,h5 {
 .news-container {
   margin-top: 30px;
 }
+.title-container {
+  position: relative;
+}
+.planmill-link {
+  top: 28%;
+}
 /*
 .planmill-big-header {
   color: white;
