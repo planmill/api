@@ -1,0 +1,92 @@
+[
+  {
+    "date": "2016-10-17T00:00:00.000+0300",
+    "totalFinishTime": 1080,
+    "totalStartTime": 600,
+    "createdBy": 1088,
+    "person": 1088,
+    "created": "2016-10-14T09:30:00.000+0300",
+    "modified": null,
+    "modifiedBy": null,
+    "breakAmount": 90,
+    "workStartTime": 600,
+    "workFinishTime": 1080
+  },
+  {
+    "date": "2016-10-18T00:00:00.000+0300",
+    "totalFinishTime": 1020,
+    "totalStartTime": 540,
+    "createdBy": 1088,
+    "person": 1088,
+    "created": "2016-10-14T09:30:00.003+0300",
+    "modified": "2016-09-14T10:30:08.397+0300",
+    "modifiedBy": 1088,
+    "breakAmount": 60,
+    "workStartTime": 540,
+    "workFinishTime": 1020
+  },
+  {
+    "date": "2016-10-19T00:00:00.000+0300",
+    "totalFinishTime": 0,
+    "totalStartTime": 0,
+    "createdBy": 1088,
+    "person": 1088,
+    "created": "2016-10-14T09:30:00.005+0300",
+    "modified": null,
+    "modifiedBy": null,
+    "breakAmount": 30,
+    "workStartTime": 0,
+    "workFinishTime": 0
+  }{
+    "date": "2016-10-20T00:00:00.000+0300",
+    "totalFinishTime": 0,
+    "totalStartTime": 0,
+    "createdBy": 1088,
+    "person": 1088,
+    "created": "2016-10-14T09:30:00.007+0300",
+    "modified": null,
+    "modifiedBy": null,
+    "breakAmount": 30,
+    "workStartTime": 0,
+    "workFinishTime": 0
+  },
+  {
+    "date": "2016-10-21T00:00:00.000+0300",
+    "totalFinishTime": 0,
+    "totalStartTime": 0,
+    "createdBy": 1088,
+    "person": 1088,
+    "created": "2016-10-14T09:30:00.009+0300",
+    "modified": null,
+    "modifiedBy": null,
+    "breakAmount": 30,
+    "workStartTime": 0,
+    "workFinishTime": 0
+  },
+  {
+    "date": "2016-10-22T00:00:00.000+0300",
+    "totalFinishTime": 0,
+    "totalStartTime": 0,
+    "createdBy": 1088,
+    "person": 1088,
+    "created": "2016-10-14T09:30:00.012+0300",
+    "modified": null,
+    "modifiedBy": null,
+    "breakAmount": 0,
+    "workStartTime": 0,
+    "workFinishTime": 0
+  },
+  {
+    "date": "2016-10-23T00:00:00.000+0300",
+    "totalFinishTime": 0,
+    "totalStartTime": 0,
+    "createdBy": 1088,
+    "person": 1088,
+    "created": "2016-10-14T09:30:00.015+0300",
+    "modified": null,
+    "modifiedBy": null,
+    "breakAmount": 0,
+    "workStartTime": 0,
+    "workFinishTime": 0
+  }
+]
