@@ -11,7 +11,6 @@ h1,h2,h3,h4,h5 {
  .logo {
    float: left;
    margin-left: 20px;
-   margin-top: 10px;
  }
 .header-container {
   width: 100%;
@@ -23,7 +22,7 @@ h1,h2,h3,h4,h5 {
 .developers-tag {
   float: left;
   margin-left: 15px;
-  margin-top: 20px;
+  margin-top: 23px;
   font-weight: 400;
 }
 
@@ -38,4 +37,11 @@ h1,h2,h3,h4,h5 {
 }
 .news-container {
   padding-bottom: 40px;
+  margin-top: 25px;
+}
+.doc-title {
+  margin-bottom: 20px;
+}
+.doc-icon {
+  margin-bottom: 10px;
 }
