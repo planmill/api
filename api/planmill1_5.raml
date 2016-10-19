@@ -231,12 +231,12 @@ resourceTypes:
             type: string
             required: false
             description: Start date of the interval in UTC format, intervalfinish required 
-            example: 2014-01-01T00:00:00.000+0200
+            example: 2016-01-01T00:00:00.000+0200
           intervalfinish?:
             type: string
             required: false
             description: Finish date of the interval in UTC format, intervalstart required
-            example: 2014-01-01T00:00:00.000+0200
+            example: 2016-01-01T00:00:00.000+0200
         responses:
           200:
             body:
@@ -361,6 +361,46 @@ resourceTypes:
               application/json;charset=UTF-8
         body:
             example: <<exampleCollectionItem>>
+        responses:
+          204:
+            description: No HTTP body returned
+  - timecardCollection:
+      is: [all]
+      description: Collection of available <<resourcePathName|!pluralize>> in PlanMill.
+      get:
+        description: Get a list of <<resourcePathName>>
+        queryParameters:
+          intervalstart:
+            type: string
+            required: false
+            description: Start date of the interval in UTC format, intervalfinish required 
+            example: 2016-01-01T00:00:00.000+0200
+          intervalfinish:
+            type: string
+            required: false
+            description: Finish date of the interval in UTC format, intervalstart required
+            example: 2016-01-01T00:00:00.000+0200
+        responses:
+            200:
+              body:
+                application/json:
+                  schema: <<schemaName>>
+                  example: |
+                    <<exampleCollectionItemArray>>
+  - putGetCollectionItem:
+      is: [all]
+      description: A single <<resourcePathName|!singularize>> in PlanMill.
+      get:
+        description: View details of a single <<resourcePathName|!singularize>>
+        responses:
+          200:
+            body:
+              application/json:
+                schema: <<schemaName>>
+                example: |
+                  <<exampleCollectionItem>>
+      put:
+        description: Create or update an existing <<resourcePathName|!singularize>>
         responses:
           204:
             description: No HTTP body returned
@@ -605,7 +645,7 @@ resourceTypes:
     date:
       type: date
       description: Capacity date in UTC format
-      example: 2014-01-01T00:00:00.000+0200
+      example: 2016-01-01T00:00:00.000+0200
       required: true
   type: 
     putOnlyCollectionItem:
@@ -1217,7 +1257,7 @@ resourceTypes:
           description: Report filter parameters which are given in separate query parameters. Check the meta resource for information on the report's parameters
           type: number
           required: false
-          example: param1=3&param2=2015&param3=-100
+          example: param1=3&param2=2016&param3=-100
         delim:
           type: string
           description: Delimiter character used to separate fields in exported csv files
@@ -1578,12 +1618,12 @@ resourceTypes:
             type: string
             required: true
             description: Start date of the capacity calendar in UTC format
-            example: 2014-01-01T00:00:00.000+0200
+            example: 2016-01-01T00:00:00.000+0200
           finish:
             type: string
             required: true
             description: Finish date of the capacity calendar in UTC format
-            example: 2014-01-01T00:00:00.000+0200
+            example: 2016-01-01T00:00:00.000+0200
       type:
         readOnlyCollection:
           schemaName: !include capacity1_5.schema
@@ -1595,7 +1635,7 @@ resourceTypes:
           finish:
             type: string
             description: Start date of the balance in UTC format
-            example: 2014-12-31T00:00:00.000+0200
+            example: 2016-12-31T00:00:00.000+0200
         responses:
           200:
             body:
@@ -1611,11 +1651,11 @@ resourceTypes:
           start:
             type: string
             description: Start date of the capacity calendar in UTC format
-            example: 2014-01-01T00:00:00.000+0200
+            example: 2016-01-01T00:00:00.000+0200
           finish:
             type: string
             description: Finish date of the capacity calendar in UTC format
-            example: 2014-01-01T00:00:00.000+0200
+            example: 2016-01-01T00:00:00.000+0200
       type:
         readOnlyCollection:
           schemaName: !include reportable_assignments1_5.schema
@@ -1626,7 +1666,7 @@ resourceTypes:
           finish:
             type: string
             description: Start date of the balance in UTC format
-            example: 2014-12-31T00:00:00.000+0200
+            example: 2016-12-31T00:00:00.000+0200
         responses:
           200:
             body:
@@ -1641,7 +1681,7 @@ resourceTypes:
           finish:
             type: string
             description: Start date of the balance in UTC format
-            example: 2014-12-31T00:00:00.000+0200
+            example: 2016-12-31T00:00:00.000+0200
         responses:
           200:
             body:
@@ -1650,6 +1690,22 @@ resourceTypes:
       type:
         readOnlyCollectionItem:
           exampleCollectionItem: !include balance1_5.sample
+    /timecard:
+      type:
+        timecardCollection:
+          schemaName: !include timecard1_5.schema
+          exampleCollectionItemArray: !include timecard_array1_5.sample
+      /{date}:
+        uriParameters:
+          date:
+            type: date
+            description: Time card date in UTC format
+            example: 2016-01-01T00:00:00.000+0300
+            required: true
+        type:
+          putGetCollectionItem:
+            schemaName: !include timecard1_5.schema
+            exampleCollectionItem: !include timecard1_5.sample
     /unitcosts:
       description: List of a user's unit costs in PlanMill
       type:
@@ -1683,4 +1739,3 @@ resourceTypes:
 # /products:
 # /revenues:
 # /sessions:
-# /vacations:
