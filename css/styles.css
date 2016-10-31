@@ -45,3 +45,6 @@ h1,h2,h3,h4,h5 {
 .doc-icon {
   margin-bottom: 10px;
 }
+.page-header h3 {
+  color: black;
+}
