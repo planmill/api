@@ -19,6 +19,10 @@
           "type": "integer",
           "description": "Internal ID of an account"
         },
+        "operationalId": {
+          "type": ["string", "null"],
+          "description": "Operational ID of an account"
+        },
         "name": {
           "type": "string",
           "description": "Name of Account"
@@ -213,6 +217,10 @@
         "id": {
           "type": "integer",
           "description": "Internal ID of an account"
+        },
+        "operationalId": {
+          "type": ["string", "null"],
+          "description": "Operational ID of an account"
         },
         "name": {
           "type": "string",
