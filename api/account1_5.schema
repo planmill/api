@@ -20,7 +20,7 @@
           "description": "Internal ID of an account"
         },
         "operationalId": {
-          "type": ["string", "null"],
+          "type": ["integer", "null"],
           "description": "Operational ID of an account"
         },
         "name": {
@@ -219,7 +219,7 @@
           "description": "Internal ID of an account"
         },
         "operationalId": {
-          "type": ["string", "null"],
+          "type": ["integer", "null"],
           "description": "Operational ID of an account"
         },
         "name": {
