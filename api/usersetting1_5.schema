@@ -21,7 +21,7 @@
           "description": "Name for key-value pair in user setting"
         },
         "data": {
-          "type": ["integer", "string"],
+          "type": "string",
           "description": "Data for key-value pair in user setting"
         },
         "id": {
@@ -40,7 +40,7 @@
           "description": "Internal ID of the user setting"
         },
         "name": {
-          "type": ["integer", "string"],
+          "type": "string",
           "description": "Name for key-value pair in user setting"
         },
         "data": {
