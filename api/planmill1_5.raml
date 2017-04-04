@@ -155,7 +155,6 @@ schemas:
  - tempfile: ! include tempfile1_5.schema 
  - timereport: !include timereport1_5.schema
  - user: !include user1_5.schema
- - usersetting: !include usersetting1_5.schema
  - vacation: !include vacation1_5.schema
 
 # write name of the resource before the include and schema always in SINGULAR, i.e. hook not hooks - otherwise the automatic includes won't work
@@ -1738,24 +1737,6 @@ resourceTypes:
         type: 
            collectionItem:
              exampleCollectionItem: !include vacation1_5.sample
-/usersettings:
-  description: Collection of available usersettings.
-  get:
-    description: Get a list of usersettings.
-  post:
-    description: Add a new usersetting.
-  type: 
-     collection:
-       exampleCollectionItemArray: !include usersetting_array1_5.sample
-       exampleCollectionItem: !include usersetting1_5.sample
-  /{usersetting_id}:
-    get:
-      description: View details of a single usersetting.
-    post:
-      description: Update an existing resource usersetting to PlanMill.
-    type: 
-     collectionItem:
-        exampleCollectionItem: !include usersetting1_5.sample
 
 # /competences:
 # /contracts:
