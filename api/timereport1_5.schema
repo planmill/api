@@ -39,7 +39,7 @@
         },
         "amount": {
           "type": "number",
-          "description": "Reported time in hours using decimals. 15 min = 0,25 hours"
+          "description": "Reported time in minutes"
         },
         "billableStatus": {
           "type": ["integer", "null"],
@@ -63,7 +63,7 @@
         },
         "overtimeAmount": {
           "type": ["integer", "null"],
-          "description": "Time in minutes for amount of overtime work done"
+          "description": "Overtime in minutes"
         },
         "overtimeComment": {
           "type": ["string", "null"],
