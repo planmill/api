@@ -161,7 +161,7 @@ schemas:
 resourceTypes:
   - readOnlyCollection:
       is: [all]
-      description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. This is a read-only collection
+      description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. This is a read-only collection.
       get:
         description: Get a list of <<resourcePathName>>
         queryParameters:
@@ -191,9 +191,9 @@ resourceTypes:
                     <<exampleCollectionItemArray>>
   - readOnlyCollectionItem:
       is: [all]
-      description: A single <<resourcePathName|!singularize>> in PlanMill. This is a read-only item
+      description: A single <<resourcePathName|!singularize>> in PlanMill. This is a read-only item.
       get:
-        description: View details of a single <<resourcePathName|!singularize>>
+        description: View details of a single <<resourcePathName|!singularize>>.
         responses:
           200:
             body:
@@ -202,9 +202,9 @@ resourceTypes:
                   <<exampleCollectionItem>>
   - collection:
       is: [all]
-      description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats 
+      description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats.
       get:
-        description: Get a list of <<resourcePathName>>. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats 
+        description: Get a list of <<resourcePathName>>. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats.
         queryParameters:
           rowcount?:
             type: integer
@@ -245,7 +245,7 @@ resourceTypes:
                 example: |
                   <<exampleCollectionItemArray>>
       post:
-        description: Add a new <<resourcePathName|!singularize>> to PlanMill or update existing (if id is given).  See <<resourcePathName|!pluralize>>/meta for list of columns and formats 
+        description: Add a new <<resourcePathName|!singularize>> to PlanMill or update existing (if id is given).  See <<resourcePathName|!pluralize>>/meta for list of columns and formats.
         headers:
           Content-Type:
             type: string
@@ -268,7 +268,7 @@ resourceTypes:
       is: [all]
       description: A single <<resourcePathName|!singularize>> in PlanMill.
       get:
-        description: View details of a single <<resourcePathName|!singularize>>. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats 
+        description: View details of a single <<resourcePathName|!singularize>>. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats. 
         responses:
           200:
             body:
@@ -277,7 +277,7 @@ resourceTypes:
                 example: |
                   <<exampleCollectionItem>>
       post:
-        description: Update an existing resource <<resourcePathName|!singularize>> to PlanMill.  See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats 
+        description: Update an existing resource <<resourcePathName|!singularize>> to PlanMill.  See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats.
         headers:
           Content-Type:
             type: string
@@ -294,7 +294,7 @@ resourceTypes:
           204:
             description: No HTTP body returned
       delete:
-        description: Remove a <<resourcePathName|!singularize>> from PlanMill
+        description: Remove a <<resourcePathName|!singularize>> from PlanMill.
         responses: 
           204:
             description: No HTTP body returned
@@ -322,7 +322,7 @@ resourceTypes:
   - postOnlyCollectionMultiPart:
       is: [all]
       post:
-        description: Add a new <<resourcePathName|!singularize>> to PlanMill 
+        description: Add a new <<resourcePathName|!singularize>> to PlanMill.
         headers:
           Content-Type:
             type: string
@@ -368,7 +368,7 @@ resourceTypes:
       is: [all]
       description: Collection of available <<resourcePathName|!pluralize>> in PlanMill.
       get:
-        description: Get a list of <<resourcePathName>>
+        description: Get a list of <<resourcePathName>>.
         queryParameters:
           intervalstart:
             type: string
@@ -391,7 +391,7 @@ resourceTypes:
       is: [all]
       description: A single <<resourcePathName|!singularize>> in PlanMill.
       get:
-        description: View details of a single <<resourcePathName|!singularize>>
+        description: View details of a single <<resourcePathName|!singularize>>.
         responses:
           200:
             body:
@@ -400,7 +400,7 @@ resourceTypes:
                 example: |
                   <<exampleCollectionItem>>
       put:
-        description: Create or update an existing <<resourcePathName|!singularize>>
+        description: Create or update an existing <<resourcePathName|!singularize>>.
         responses:
           204:
             description: No HTTP body returned
@@ -424,7 +424,7 @@ resourceTypes:
           example: true | false
           required: true
       delete:
-        description: Remove a <<resourcePathName|!singularize>> from PlanMill
+        description: Remove a <<resourcePathName|!singularize>> from PlanMill.
         responses:
           204:
             description: No HTTP body returned
@@ -443,7 +443,7 @@ resourceTypes:
           204:
             description: No HTTP body returned
       get:
-        description: View details of single <<resourcePathName|!singularize>>
+        description: View details of single <<resourcePathName|!singularize>>.
         responses:
           200:
             body:
@@ -451,14 +451,14 @@ resourceTypes:
                   example: |
                     <<exampleCollectionItem>>
       delete:
-        description: Remove a <<resourcePathName|!singularize>> from PlanMill
+        description: Remove a <<resourcePathName|!singularize>> from PlanMill.
         responses:
           204:
             description: No HTTP body returned
   - getDeleteCollectionItem:
       is: [all]
       get:
-        description: View details of single <<resourcePathName|!singularize>>
+        description: View details of single <<resourcePathName|!singularize>>.
         responses:
           200:
             body:
@@ -466,14 +466,14 @@ resourceTypes:
                   example: |
                     <<exampleCollectionItem>>
       delete:
-        description: Remove a <<resourcePathName|!singularize>> from PlanMill
+        description: Remove a <<resourcePathName|!singularize>> from PlanMill.
         responses:
           204:
             description: No HTTP body returned
   - deleteOnlyCollectionItem:
       is: [all]
       delete:
-        description: Remove a <<resourcePathName|!singularize>> from PlanMill
+        description: Remove a <<resourcePathName|!singularize>> from PlanMill.
         responses:
           204:
             description: No HTTP body returned   
@@ -821,7 +821,7 @@ resourceTypes:
     body:
       application/json: 
         example: !include integration_integrations1_5.sample
-  /integrations/{template}:
+  /{template}:
     description: Using specific saved integration settings for importing or exporting a set of data to like file containing information of different companies to PlanMill as accounts.
     uriParameters:
       template:
@@ -928,7 +928,7 @@ resourceTypes:
               type: integer
               default: 1
             rows:
-              description: The amount of rows to  return.
+              description: The amount of rows to return.
               type: integer
               default: 100
   #  /transformationsettings:
