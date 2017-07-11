@@ -92,7 +92,7 @@
           "description": "VAT on an invoice of an account"
         },
         "invoiceNetOperator": {
-          "type": ["integer", "null"],
+          "type": ["string", "null"],
           "description": ""
         },
         "eInvoiceAddress": {
@@ -299,7 +299,7 @@
           "description": "VAT on an invoice of an account"
         },
         "invoiceNetOperator": {
-          "type": ["integer", "null"],
+          "type": ["string", "null"],
           "description": ""
         },
         "handlingFee": {
