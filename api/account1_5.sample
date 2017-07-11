@@ -43,7 +43,7 @@
   "facebook": "http://www.facebook.com",
   "staff": null,
   "passive": 0,
-  "invoiceNetOperator": 210,
+  "invoiceNetOperator": "NDEAFIHH",
   "billingPostalCode": "00500",
   "firstInvoiceNumber": 3000,
   "shippingAddress": "Siltasaarenkatu 18",
