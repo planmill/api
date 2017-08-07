@@ -61,5 +61,9 @@
     "format": "string",
     "description": "",
     "values": null
+  },
+  "expenseOwner": {
+	"format": "integer",
+	"description": "id of the person the that owns the expense",
   }
 }

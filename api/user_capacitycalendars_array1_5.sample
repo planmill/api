@@ -1,0 +1,29 @@
+[
+    {
+	 "calendar": "FI 2014 - 2019 40% Calendar",
+	 "calendarId": 1251,
+	 "start": "2015-01-12 00:00:00.0",
+	 "updatable": 0,
+	 "finish": "2019-12-31 00:00:00.0",
+	 "id": 3127,
+	 "user": 991
+	},
+	{
+	 "calendar": "FI 2009 - 2019",
+	 "calendarId": 60,
+	 "start": "2017-07-21 00:00:00.0",
+	 "updatable": 0,
+	 "finish": "2019-12-31 00:00:00.0",
+	 "id": 5601,
+	 "user": 991
+	},
+	{
+	 "calendar": "FI 2009 - 2019",
+	 "calendarId": 60,
+	 "start": "2017-08-07 00:00:00.0",
+	 "updatable": 1,
+	 "finish": "2019-12-31 00:00:00.0",
+	 "id": 5819,
+	 "user": 991
+	}
+]
