@@ -6,12 +6,12 @@
   "scripts": {
     "lint": "jlint --glob './*.sample' && jlint --glob './*.schema'",
     "prebuild": "npm run lint",
-    "build": "raml2html ./api/planmill1_5.raml > ./api/index.html",
+    "build": "raml2html ./docs/planmill1_5.raml > ./docs/index.html",
     "patch": "npm run build & npm version patch & npm publish"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/planmill/api.git"
+    "url": "git+https://github.com/planmill/api-docs.git"
   },
   "keywords": [
     "raml",
