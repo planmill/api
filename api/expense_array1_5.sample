@@ -15,7 +15,6 @@
     "paymentDate": null,
     "debt": 10,
     "status": 0
-	"expenseOwner": 356
   },
   {
     "date": "2016-03-02T00:00:00.000+0200",
@@ -33,6 +32,5 @@
     "paymentDate": null,
     "debt": 288.45,
     "status": 2
-	"expenseOwner": 356
   }
 ]

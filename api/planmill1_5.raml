@@ -42,9 +42,7 @@ documentation:
   - title: Other information
     content: |   
       Read more in our wiki https://github.com/planmill/api/wiki
-
       Check open issues or report a new https://github.com/planmill/api/issues
-
       Clone us in Github https://github.com/planmill/api.git
 traits:
   - all:
@@ -152,7 +150,7 @@ schemas:
  - project: !include project1_5.schema
  - salesorder: !include sales_order1_5.schema
  - team: !include team1_5.schema
- - tempfile: ! include tempfile1_5.schema 
+ - tempfile: !include tempfile1_5.schema 
  - timereport: !include timereport1_5.schema
  - user: !include user1_5.schema
  - vacation: !include vacation1_5.schema
@@ -747,9 +745,9 @@ resourceTypes:
       intervalstart:
       intervalfinish:
   type:
-    collection:
+    readOnlyCollection:
+      schemaName: !include expense1_5.schema
       exampleCollectionItemArray: !include expense_array1_5.sample
-      exampleCollectionItem: !include expense1_5.sample
   /meta:
       description: Get meta information for expenses. Includes resource's fields names and type and related filters
       get:
@@ -764,16 +762,16 @@ resourceTypes:
           required: false
           example: "Accept: application/pdf"
     type:
-      collectionItem:
+     readOnlyCollectionItem:
         exampleCollectionItem: !include expense1_5.sample
     /items:
       type:
-        collection:
+        readOnlyCollection:
+          schemaName: !include expenseitem1_5.schema
           exampleCollectionItemArray: !include expenseitem_array1_5.sample
-          exampleCollectionItem: !include expenseitem1_5.sample
       /{expense_item_id}:
         type:
-          collectionItem:
+          readOnlyCollectionItem:
             exampleCollectionItem: !include expenseitem1_5.sample
         /meta:
           description: Get meta information for the updatable fields of the expense
@@ -788,13 +786,6 @@ resourceTypes:
           readOnlyCollection:
             schemaName:
             exampleCollectionItemArray: !include expenseitem_single_meta1_5.sample
-    /status:
-      description: Increment the status of expenses
-      post: 
-          description: Inspected = 3, Accepted = 4, Paid = 6, Rejected = 7
-      type:
-        postOnlyCollection:       
-          exampleCollectionItem: !include expense_status1_5.sample       
     /meta:
       description: Get meta information for the updatable fields of the expense
       get:
@@ -1640,27 +1631,6 @@ resourceTypes:
         readOnlyCollection:
           schemaName: !include capacity1_5.schema
           exampleCollectionItemArray: !include capacity1_5.sample
-    /capacitycalendars:
-      description: Collection of a users capacity calendars in PlanMill.
-      get:
-        description: Get a list of user capacity calendars.
-      post:
-        description: Add a new capacity calendar for user to PlanMill or update existing (if id is given).
-      type:
-        collection:
-          exampleCollectionItemArray: !include user_capacitycalendars_array1_5.sample
-          exampleCollectionItem: !include user_capacitycalendars1_5.sample
-    /capacitycalendars/{realtionship_id}:
-      description: A single capacity calendar.
-      get:
-        description: View details of single capacity calendar of a single user.
-      post:
-        description: Add a new capacity calendar for user to PlanMill or update existing (if id is given).
-      delete:
-        description: Remove user's capacity calendar from planmill
-      type:
-        collectionItem:
-          exampleCollectionItem: !include user_capacitycalendars1_5.sample
     /overtimebalance:
       get:
         description: View details of single over time balance

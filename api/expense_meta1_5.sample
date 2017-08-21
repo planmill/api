@@ -173,10 +173,6 @@
     "status": {
       "format": "Enumeration values.Expense.Status",
       "caption": "Status"
-    },
-	"expenseOwner": {
-		"format": "integer",
-		"caption": "PersonHasExpense"
-	}
+    }
   }
 }
