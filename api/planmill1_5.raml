@@ -42,7 +42,9 @@ documentation:
   - title: Other information
     content: |   
       Read more in our wiki https://github.com/planmill/api/wiki
+
       Check open issues or report a new https://github.com/planmill/api/issues
+
       Clone us in Github https://github.com/planmill/api.git
 traits:
   - all:
@@ -745,9 +747,9 @@ resourceTypes:
       intervalstart:
       intervalfinish:
   type:
-    readOnlyCollection:
-      schemaName: !include expense1_5.schema
+    collection:
       exampleCollectionItemArray: !include expense_array1_5.sample
+      exampleCollectionItem: !include expense1_5.sample
   /meta:
       description: Get meta information for expenses. Includes resource's fields names and type and related filters
       get:
@@ -762,16 +764,16 @@ resourceTypes:
           required: false
           example: "Accept: application/pdf"
     type:
-     readOnlyCollectionItem:
+      collectionItem:
         exampleCollectionItem: !include expense1_5.sample
     /items:
       type:
-        readOnlyCollection:
-          schemaName: !include expenseitem1_5.schema
+        collection:
           exampleCollectionItemArray: !include expenseitem_array1_5.sample
+          exampleCollectionItem: !include expenseitem1_5.sample
       /{expense_item_id}:
         type:
-          readOnlyCollectionItem:
+          collectionItem:
             exampleCollectionItem: !include expenseitem1_5.sample
         /meta:
           description: Get meta information for the updatable fields of the expense
@@ -786,12 +788,28 @@ resourceTypes:
           readOnlyCollection:
             schemaName:
             exampleCollectionItemArray: !include expenseitem_single_meta1_5.sample
+    /status:
+      description: Increment the status of expenses
+      post: 
+          description: Inspected = 3, Accepted = 4, Paid = 6, Rejected = 7
+      type:
+        postOnlyCollection:       
+          exampleCollectionItem: !include expense_status1_5.sample       
     /meta:
       description: Get meta information for the updatable fields of the expense
       get:
       type:
         readOnlyCollectionItem:
           exampleCollectionItem: !include expense_single_meta1_5.sample
+    /attachments:
+      type:
+        readOnlyCollection:
+          schemaName:
+          exampleCollectionItemArray: !include tempfile_array1_5.sample
+      /{attachment_id}:
+        type:
+          putGetDeleteCollectionItem:
+            exampleCollectionItem: Contents of file
 /hooks:
   description: The currently available subscribable events are timereport.insert, timereport.update, timereport.delete, absence.insert, absence.update, absence.delete, request.add, request.update,account.add, account.update and account.delete. More endpoints will be supporting push notifications in the future.
   get:

@@ -1,13 +1,15 @@
 {
-  "task": 2969,
-  "journey": 2975,
-  "acceptor": -1,
-  "name": "test expense 1",
-  "project": 2969,
-  "description": "example expense 1",
-  "currency": "1",
-  "id": 2972,
-  "type": 0,
-  "billableStatus": 3,
-  "currencyCode": "EUR"
+    "journey": null,
+    "acceptor": null,
+    "project": 4210,
+    "description": "",
+    "type": 0,
+    "billableStatus": 3,
+    "task": -1,
+    "name": "test expense 1",
+    "expenseOwner": 2297,
+    "currency": "1",
+    "id": 4211,
+    "currencyCode": "EUR",
+    "status": 3
 }

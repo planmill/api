@@ -34,11 +34,11 @@
         },
         "description": {
           "type": ["string", "null"],
-          "description": "Description of an expense"
+          "description": "Description of an expense item"
         },
         "type": {
           "type": ["integer", "null"],
-          "description": "Type of an expense"
+          "description": "Type of an expense item"
         },
         "expense": {
           "type": "integer",
@@ -50,11 +50,11 @@
         },
         "unit": {
           "type": ["string", "null"],
-          "description": "Unit of an expense"
+          "description": "Unit of an expense item"
         },
         "exchangeRate": {
           "type": ["number", "null"],
-          "description": "Exchange rate if currency is other than Euro"
+          "description": "Exchange rate of an expense item if currency is other than Euro"
         },
         "generated": {
           "type": ["string", "null"],
@@ -62,11 +62,15 @@
         },
         "advancePayment": {
           "type": ["integer", "null"],
-          "description": "Amount of advanced payment"
+          "description": "Amount of advanced payment of an expense item"
+        },
+        "unitCost": {
+          "type": "integer",
+          "description": "Unit cost of an expeense item"
         },
         "paymentMethod": {
           "type": "integer",
-          "description": "Methods of payment"
+          "description": "Methods of payment of an expeense item"
         },
         "finish": {
           "type": ["string", "null"],
@@ -83,7 +87,7 @@
         },
         "currencyCode": {
           "type": ["string", "null"],
-          "description": "Currency code of expense item"
+          "description": "Currency code of an expense item"
         },
         "foreignCountryCode": {
           "type": ["string", "null"],
@@ -114,11 +118,11 @@
         },
         "description": {
           "type": ["string", "null"],
-          "description": "Description of an expense"
+          "description": "Description of an expense item"
         },
         "type": {
           "type": ["integer", "null"],
-          "description": "Type of an expense"
+          "description": "Type of an expense item"
         },
         "expense": {
           "type": "integer",
@@ -126,7 +130,7 @@
         },
         "unit": {
           "type": ["string", "null"],
-          "description": "Unit of an expense"
+          "description": "Unit of an expense item"
         },
         "exchangeRate": {
           "type": ["number", "null"],
@@ -135,6 +139,10 @@
         "advancePayment": {
           "type": ["integer", "null"],
           "description": "Amount of advanced payment"
+        },
+        "unitCost": {
+          "type": "integer",
+          "description": "Unit cost of an expeense item"
         },
         "paymentMethod": {
           "type": "integer",
