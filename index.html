@@ -137,12 +137,11 @@
                         <div class="col s12 m6 l4">
                             <div class="left z-depth-0" style="min-width:100%">
                                 <h2 class="doc-title">News</h2>
-                                <p> It is super useful when you need a simple way to connect your PlanMill Cloud to other Cloud applications.</p>
-                                <p>You can for example transfer accounts, contacts, timereports or projects between systems. Or you can automate email, Slack, Twitter or other notifications if our ready-made features don't cover all your needs.</p>
-                                <p>Zapier offers integrations with hundreds of applications and we have added our own to the soup.</p>
-                                <p><i class="mdi mdi-human-greeting small black-text"></i> Not a coder?
-                                    <a href="https://zapier.com/developer/invite/36023/988db83d5418d94dc138f02f0ae43976/">
-                              You are invited to try out our Zapier integration.</a></p>
+                                <p>The 'user' endpoint POST now supports 'capacitycalendarid' as a single capacity calendar id for the creation of new users. No update of calendar is supported through this atttibute.</p>
+                                <p>All updates to user's active capacity calendar must be then done through the new endpont 'user/{user_id}/capacitycalendar'.</p>
+                                <p>Also 'Hire date' is now required for new users to ensure correct balance calculation and support better management of worktime with minimal calendar objects.</p>
+                                <p>The reason for these changes is to provide a more robust management of changing user capacity calendars which reflect employees' varying work-time agreements. By simply implementing a 'valid from' for any given calendar at a user we give control to the HR personnel to switch a user from and back to any relevant capacity calendar.</p>
+                                <p>Pending (ie. future) calendars may be removed from the user. Past calendars will persist (ie. no removal allowed).</p>
                             </div>
                         </div>
                         <div class="col s12 m6 l4">
