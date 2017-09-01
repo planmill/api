@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "lint": "jlint --glob './*.sample' && jlint --glob './*.schema'",
-    "prebuild": "npm run lint",
     "build": "raml2html ./api/planmill1_5.raml > ./api/index.html",
     "patch": "npm run build & npm version patch & npm publish"
   },
