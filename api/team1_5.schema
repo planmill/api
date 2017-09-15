@@ -49,10 +49,6 @@
           "type": ["integer", "null"],
           "description": "Parent team id of a team"
         },
-        "passive": {
-          "type": "integer",
-          "description": "Active state of a team; 0=Active, 1=Inactive"
-        },
         "createdBy": {
           "type": "integer",
           "description": "Id of a creator person of a team"
