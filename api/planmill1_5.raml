@@ -38,7 +38,7 @@ documentation:
       https://online.planmill.com/acme/api/1.5   
   - title: Recent changes
     content: |  
-      See https://github.com/planmill/api/releases
+      See https://help.planmill.com/help/release-notes
   - title: Other information
     content: |   
       Read more in our wiki https://github.com/planmill/api/wiki
@@ -1082,6 +1082,7 @@ resourceTypes:
           collectionItem:
             exampleCollectionItem: !include opportunityitem1_5.sample
 /projects:
+  description: reportedHours -field returns minutes like all other effortunit-formatted fields. See /meta -endpoint.
   get:
     queryParameters:
       name:
@@ -1311,7 +1312,7 @@ resourceTypes:
         get:
         type:
           readOnlyCollectionItem:
-            exampleCollectionItem: !include capacitycalendar_meta1_5.sample
+            exampleCollectionItem: !include request_meta1_5.sample
     /assignments:
       type:
         collection:
@@ -1648,6 +1649,32 @@ resourceTypes:
         readOnlyCollection:
           schemaName: !include capacity1_5.schema
           exampleCollectionItemArray: !include capacity1_5.sample
+    /capacitycalendars:
+      description: Collection of a users capacity calendars in PlanMill.
+      get:
+        description: Get a list of user capacity calendars.
+        queryParameters:
+         rowcount:
+         nextrows:
+         order:
+         sort:
+      post:
+        description: Add a new capacity calendar for user to PlanMill or update existing (if id is given).
+      type:
+        collection:
+          exampleCollectionItemArray: !include user_capacitycalendars_array1_5.sample
+          exampleCollectionItem: !include user_capacitycalendars1_5.sample
+    /capacitycalendars/{user_capacitycalendar_id}:
+      description: A single capacity calendar.
+      get:
+        description: View details of single capacity calendar of a single user.
+      post:
+        description: Add a new capacity calendar for user to PlanMill or update existing (if id is given).
+      delete:
+        description: Remove user's capacity calendar from planmill
+      type:
+        collectionItem:
+          exampleCollectionItem: !include user_capacitycalendars1_5.sample
     /overtimebalance:
       get:
         description: View details of single over time balance
