@@ -29,13 +29,13 @@ documentation:
     content: |
       Please read https://github.com/planmill/api/wiki/Getting-started
       
-      The API endpoint can be found in your PlanMill instance behind an URL like shown here:
+      The API endpoint can be found in your PlanMill instance behind a URL like shown here:
       
-      https://{server}/{customerInstance}/api/{version}
+      https://{server}/{customer_instance}/api/{api_version}
       
-      Where 'server' and 'customerInstance' are replaced by the server address and customer instance name. For example if your instance name is "acme" and it is hosted on online.planmill.com the API 1.5 endpoint would be:
+      Where 'server' and 'customer_instance' are replaced by the server address and customer instance name. For example, if your instance name is "abc" and it is hosted on online.planmill.com, the API version 1.5 endpoint would be:
       
-      https://online.planmill.com/acme/api/1.5   
+      https://online.planmill.com/abc/api/1.5
   - title: Recent changes
     content: |  
       See https://help.planmill.com/help/release-notes
@@ -145,6 +145,7 @@ schemas:
  - action: !include action1_5.schema
  - batch: !include batch1_5.schema
  - campaign: !include campaign1_5.schema
+ - capacitycalendar: !include user_capacitycalendars1_5.schema
  - contact: !include contact1_5.schema
  - hook: !include hook1_5.schema
  - mail: !include request_mail1_5.schema 
