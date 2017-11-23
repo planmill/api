@@ -954,6 +954,18 @@ resourceTypes:
      #   collectionItem:
       #    exampleCollectionItem: include integration1_5.sample
 /invoices:
+  get:
+    queryParameters:
+      rowcount:
+        type: number
+        required: false
+        description: Number of rows to be returned. Default is 100.
+        example: 250
+      cyear:
+        type: string
+        required: false
+        description: Get invoices for specified month. If parameter is missing, always return invoices for current month. Filter is using invoiceDate field.
+        example: "12/2018"
   type:
     readOnlyCollection:
       schemaName:
