@@ -413,11 +413,11 @@
         "shippingState": {
           "type": ["string", "null"],
           "description": ""
-        }
+        },
 		"invoiceAppendix": {
           "type": ["integer", "null"],
           "description": ""
-        }
+        },
 		"invoiceTemplate": {
           "type": ["string", "null"],
           "description": ""
