@@ -264,6 +264,10 @@
           "type": "string",
           "description": "Request's project name"
         },
+        "performerCount": {
+          "type": "integer",
+          "description": "Request's performer count"
+        },
         "status": {
           "type": "integer",
           "description": "Status of a request 1: Received, 2: In progress, 3: In progress - waiting for info, 4: Suspended, 5: Solved, 6: Completed"
