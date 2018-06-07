@@ -31,6 +31,10 @@
           "type": "string",
           "description": "Current user's language"
         },
+        "effortUnit": {
+          "type": "integer",
+          "description": "Current user's effort unit"
+        },
         "id": {
           "type": "integer",
           "description": "Current user's id"
