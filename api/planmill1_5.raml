@@ -153,6 +153,7 @@ schemas:
  - project: !include project1_5.schema
  - salesorder: !include sales_order1_5.schema
  - team: !include team1_5.schema
+ - resource: !include resource1_5.schema
  - tempfile: !include tempfile1_5.schema 
  - timereport: !include timereport1_5.schema
  - user: !include user1_5.schema
@@ -1531,6 +1532,50 @@ resourceTypes:
     type:
       getDeleteCollectionItem:
         exampleCollectionItem: Contents of file
+/resources:
+  description: View details of resources ( schedule + assignment ).  
+  get:
+    description: View details of resources ( schedule + assignment ). 
+    queryParameters:
+      start:
+        type: string
+        description: Start date of the resource in UTC format
+        example: 2016-12-31T00:00:00.000+0200
+      finsih:
+        type: string
+        description: Start date of the resource in UTC format
+        example: 2016-12-31T00:00:00.000+0200
+    responses:
+      400:
+      200:
+        body:
+          application/json:
+            schema: !include resource1_5.schema
+      403:
+            headers:
+              Content-type:
+                type: string
+                required: true
+                default: |
+                  application/json;charset=UTF-8
+            body:
+              application/json: 
+                example: |
+                  {
+                    "message": "start : Please enter a valid date.",
+                    "code": "00403"
+                  }, |
+                  {
+                    "message": "start date missing",
+                    "code": "00403"
+                  }, |
+                  {
+                    "message": "finish : Please enter a valid date.",
+                    "code": "00403"
+                  }
+  type:
+    readOnlyCollectionItem:
+      exampleCollectionItem: !include resource1_5.schema
 /timereports:
   get:
     queryParameters:
