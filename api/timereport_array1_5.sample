@@ -4,7 +4,10 @@
     "amount": 120,
     "start": "2015-09-08T14:06:00.000+0300",
     "project": 3094,
+    "billableAmount": 60,
     "billableStatus": 4,
+    "modified": "2015-09-08T14:06:00.000+0300",
+    "modifiedBy": 3081,
     "overtimeAmount": 60,
     "task": 3124,    
     "billingComment": "requirements workshop preparation",
@@ -15,14 +18,18 @@
     "id": 4138,
     "travelComment": "visit to customer permises for new installation",
     "travelAmount": 180,
-    "status": 0
+    "status": 0,
+    "unitPrice": 900
   },
     {
     "dutyType": 2040,
     "amount": 180,
     "start": "2015-09-08T14:06:00.000+0300",
     "project": 4136,
+    "billableAmount": 0,
     "billableStatus": 1,
+    "modified": "2015-09-08T14:06:00.000+0300",
+    "modifiedBy": 3081,
     "overtimeAmount": 0,
     "task": 3124,    
     "billingComment": null,
@@ -33,6 +40,7 @@
     "id": 4156,
     "travelComment": "",
     "travelAmount": 0,
-    "status": 0
+    "status": 0,
+    "unitPrice": 0
   }
 ]
