@@ -72,10 +72,6 @@
           "type": ["integer", "null"],
           "description": "Contact person of a customer's account"
         },
-        "shippingReference": {
-          "type": ["string", "null"],
-          "description": "Shipping department of a cusotomer"
-        },
         "noticeTime": {
           "type": "integer",
           "description": "Notice time of payment of a sales order"
