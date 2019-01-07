@@ -24,7 +24,6 @@
   },
   "homepage": "https://github.com/planmill/api#readme",
   "dependencies": {
-    "jlint": "^3.0.2",
     "raml2html": "^2.4.0"
   }
 }
