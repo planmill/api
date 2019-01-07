@@ -151,8 +151,11 @@ schemas:
  - mail: !include request_mail1_5.schema 
  - opportunity: !include opportunity1_5.schema
  - project: !include project1_5.schema
+ - product: !include product1_5.schema
+ - pricebook: !include pricebook1_5.schema
  - salesorder: !include sales_order1_5.schema
  - team: !include team1_5.schema
+ - resource: !include resource1_5.schema
  - tempfile: !include tempfile1_5.schema 
  - timereport: !include timereport1_5.schema
  - user: !include user1_5.schema
@@ -1252,7 +1255,82 @@ resourceTypes:
         get:
         type:
           readOnlyCollectionItem:
-            exampleCollectionItem: !include project_requests_meta1_5.sample 
+            exampleCollectionItem: !include project_requests_meta1_5.sample
+/products:
+  description: To manage and list all products in a company. See /meta -endpoint.
+  get:
+    queryParameters:
+      id:
+          description: Filters products for a specified products id
+          type: integer
+          required: false
+          example: id={product id}
+  type:
+    collection:
+       exampleCollectionItemArray: !include product_array1_5.sample
+       exampleCollectionItem: !include product1_5.sample
+  /meta:
+      description: Get meta information for productss. Includes resource's fields names and type and related filters
+      get:
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include product_meta1_5.sample
+  /{product_id}:
+    type:
+     collectionItem:
+        exampleCollectionItem: !include product1_5.sample
+    /attachments:
+      type:
+        readOnlyCollection:
+          schemaName:
+          exampleCollectionItemArray: !include tempfile_array1_5.sample
+      /{attachment_id}:
+        type:
+          putGetDeleteCollectionItem:
+            exampleCollectionItem: Contents of file
+/pricebooks:
+  description: To manage and list all pricebooks in a company. See /meta -endpoint.
+  get:
+    queryParameters:
+      id:
+          description: Filters products for a specified pricebook id
+          type: integer
+          required: false
+          example: id={pricebook id}
+  type:
+    collection:
+       exampleCollectionItemArray: !include pricebook_array1_5.sample
+       exampleCollectionItem: !include pricebook1_5.sample
+  /meta:
+      description: Get meta information for productss. Includes resource's fields names and type and related filters
+      get:
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include pricebook_meta1_5.sample
+  /{pricebook_id}:
+    type:
+     collectionItem:
+        exampleCollectionItem: !include pricebook1_5.sample
+    /items:
+      type:
+        readOnlyCollection:
+          schemaName: !include pricebookitem1_5.schema
+          exampleCollectionItemArray: !include pricebook_item_array1_5.sample
+      /meta:
+          description: Get meta information for pricebook items. Includes resource's fields names and type and related filters
+          get:
+          type:
+            readOnlyCollectionItem:
+              exampleCollectionItem: !include pricebookitems_meta1_5.sample
+      /{item_id}:
+        type:
+          putGetDeleteCollectionItem:
+            exampleCollectionItem: !include pricebook_item1_5.sample
+        /meta:
+              description: Get meta information for pricebook specific item. Includes resource's fields names and type and related filters
+              type:
+                readOnlyCollectionItem:
+                  exampleCollectionItem: !include pricebookitems_item_meta1_5.sample
 /reports:
   get:
     queryParameters:
@@ -1531,6 +1609,50 @@ resourceTypes:
     type:
       getDeleteCollectionItem:
         exampleCollectionItem: Contents of file
+/resources:
+  description: View details of resources ( schedule + assignment ).  
+  get:
+    description: View details of resources ( schedule + assignment ). 
+    queryParameters:
+      start:
+        type: string
+        description: Start date of the resource in UTC format
+        example: 2016-12-31T00:00:00.000+0200
+      finsih:
+        type: string
+        description: Start date of the resource in UTC format
+        example: 2016-12-31T00:00:00.000+0200
+    responses:
+      400:
+      200:
+        body:
+          application/json:
+            schema: !include resource1_5.schema
+      403:
+            headers:
+              Content-type:
+                type: string
+                required: true
+                default: |
+                  application/json;charset=UTF-8
+            body:
+              application/json: 
+                example: |
+                  {
+                    "message": "start : Please enter a valid date.",
+                    "code": "00403"
+                  }, |
+                  {
+                    "message": "start date missing",
+                    "code": "00403"
+                  }, |
+                  {
+                    "message": "finish : Please enter a valid date.",
+                    "code": "00403"
+                  }
+  type:
+    readOnlyCollectionItem:
+      exampleCollectionItem: !include resource1_5.schema
 /timereports:
   get:
     queryParameters:
@@ -1796,6 +1918,5 @@ resourceTypes:
 # /competences:
 # /contracts:
 # /forecasts:
-# /products:
 # /revenues:
 # /sessions:

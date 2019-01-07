@@ -1,0 +1,177 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "base schema for all product entities",
+  "oneOf": [
+    {
+      "type": "array",
+      "items": { "$ref": "#/definitions/product" }
+    },
+    {
+      "$ref": "#/definitions/product"
+    }
+  ],
+  "definitions": {
+    "product": {
+      "type": "object",
+      "required": [ "productGroup", "validFrom", "validUntil"],
+      "additionalProperties": false,
+      "properties": {
+        "productGroup": {
+          "type": [ "integer" ],
+          "description": "product group"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the product"
+        },
+        "project": {
+          "type": [ "integer", "null" ],
+          "description": "Project id of the product"
+        },
+        "owner": {
+          "type": "string",
+          "pattern": "(\\d{4})-([0][1-9]|[1][0-2])-([0][1-9]|[1-2][0-9]|[3][0-1])T([0][0-9]|[1][0-9]|[2][0-3]):([0-5][0-9]):([0-5][0-9]).(\\d{3})((\\+|\\-)([0-9]|[0][0-9]|[1][0-9]|[2][0-3])([0-5][0-9]))",
+          "description": "owner of the product"
+        },
+        "salesAccount": {
+          "type": "integer",
+          "description": "sales Account id  of the product"
+        },
+        "customer": {
+          "type": [ "integer", "null" ],
+          "description": "customer id"
+        },
+        "invoiceProcess": {
+          "type": [ "string", "null" ],
+          "description": "The Invoice process state  of the product"
+        },
+        "dutyType": {
+          "type": [ "integer", "null" ],
+          "description": "duty Type"
+        },
+        "minimumAmountToBeSold": {
+          "type": "float",
+          "description": "minimum amount to be sold  of the product"
+        },
+        "targetEffort": {
+          "type": "integer",
+          "description": "targeted effort  of the product"
+        },
+        "revenueType": {
+          "type": [ "integer", "null" ],
+          "description": "revenue type  of the product"
+        },
+        "operationalId": {
+                  "type": [ "integer", "null" ],
+                  "description": "operationalId of the product"
+                },
+        "validFrom": {
+          "type": "string",
+          "pattern": "(\\d{4})-([0][1-9]|[1][0-2])-([0][1-9]|[1-2][0-9]|[3][0-1])T([0][0-9]|[1][0-9]|[2][0-3]):([0-5][0-9]):([0-5][0-9]).(\\d{3})((\\+|\\-)([0-9]|[0][0-9]|[1][0-9]|[2][0-3])([0-5][0-9]))",
+          "description": "valid from date  of the product"
+        },
+        "validUntil": {
+          "type": "string",
+          "pattern": "(\\d{4})-([0][1-9]|[1][0-2])-([0][1-9]|[1-2][0-9]|[3][0-1])T([0][0-9]|[1][0-9]|[2][0-3]):([0-5][0-9]):([0-5][0-9]).(\\d{3})((\\+|\\-)([0-9]|[0][0-9]|[1][0-9]|[2][0-3])([0-5][0-9]))",
+          "description": "Modification date of an absence of the product"
+        },
+		"competence": {
+          "type": "integer",
+          "description": "competence id of the product"
+        },
+		"sellingPrice": {
+          "type": "float",
+          "description": "selling price of the product"
+        },
+		"warrantyPeriod": {
+          "type": "integer",
+          "description": "warranty period of the product"
+        },
+		"link1": {
+          "type": "string",
+          "description": "link 1  of the product"
+        },
+		"link2": {
+          "type": "string",
+          "description": "link 2 of the product"
+        },
+		"link3": {
+          "type": "string",
+          "description": "link 3 of the product"
+        },
+		"link4": {
+          "type": "string",
+          "description": "link 4 of the product"
+        },
+		"billingType": {
+          "type": "integer",
+          "description": "billing type of the product"
+        },
+		"vendor": {
+          "type": "integer",
+          "description": "vendor id of the product"
+        },
+		"supplier": {
+          "type": "integer",
+          "description": "supplier id of the product"
+        },
+		"relatedToPerson": {
+          "type": "integer",
+          "description": "person id to whom product related to"
+        },
+		"invoicingPeriod": {
+          "type": "integer",
+          "description": "invoicing period id of the product"
+        },
+		"quantity": {
+          "type": "integer",
+          "description": "quantity of the product"
+        },
+		"costCenter": {
+          "type": "integer",
+          "description": "cost center of the product"
+        },
+		"vat": {
+          "type": "integer",
+          "description": "VAT of the product"
+        },
+		"publishToStore": {
+          "type": "smallint",
+          "description": "publish to store of the product"
+        },
+		"passive": {
+          "type": "smallint",
+          "description": "passive state of the product"
+        },
+		"contractPeriod": {
+          "type": "integer",
+          "description": "contract period id of the product"
+        },
+		"unit": {
+          "type": "smallint",
+          "description": "unit of the product"
+        },
+		"selfCost": {
+          "type": "float",
+          "description": "self cost of the product"
+        },
+		"searchKeywords": {
+          "type": "string",
+          "description": "search key words of the product"
+        },
+		"description": {
+          "type": "string",
+          "description": "product description of the product"
+        },
+		"shortDescription": {
+          "type": "string",
+          "description": "short product description of the product"
+        },
+		"comment": {
+          "type": "string",
+          "description": "comments about the product"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,83 @@
+[{
+		"remainingAmount": 2340,
+		"taskStart": "2017-01-01T09:00:00.000+0200",
+		"task": 227,
+		"assignment": 1311,
+		"person": 1308,
+    "team": null,
+		"actualAmount": 0,
+		"schedules": [{
+				"date": "2018-09-20T03:00:00.000+0300",
+				"plannedAmount": 240
+			}, {
+				"date": "2018-09-21T03:00:00.000+0300",
+				"plannedAmount": 240
+			}, {
+				"date": "2018-09-24T03:00:00.000+0300",
+				"plannedAmount": 228
+			}, {
+				"date": "2018-09-25T03:00:00.000+0300",
+				"plannedAmount": 228
+			}, {
+				"date": "2018-09-26T03:00:00.000+0300",
+				"plannedAmount": 228
+			}, {
+				"date": "2018-09-27T03:00:00.000+0300",
+				"plannedAmount": 228
+			}, {
+				"date": "2018-09-28T03:00:00.000+0300",
+				"plannedAmount": 228
+			}
+		],
+		"totalReported": 2340,
+		"taskFinish": "2025-12-31T16:30:00.000+0200"
+	},  {
+		"remainingAmount": 10800,
+		"taskStart": "2017-01-01T09:00:00.000+0200",
+		"task": 230,
+		"assignment": 1314,
+		"person": null,
+  	"team": 1308,
+		"actualAmount": 0,
+		"schedules": [{
+				"date": "2018-09-20T03:00:00.000+0300",
+				"plannedAmount": 540
+			}, {
+				"date": "2018-09-21T03:00:00.000+0300",
+				"plannedAmount": 540
+			}, {
+				"date": "2018-09-24T03:00:00.000+0300",
+				"plannedAmount": 540
+			}, {
+				"date": "2018-09-25T03:00:00.000+0300",
+				"plannedAmount": 540
+			}, {
+				"date": "2018-09-26T03:00:00.000+0300",
+				"plannedAmount": 540
+			}, {
+				"date": "2018-09-27T03:00:00.000+0300",
+				"plannedAmount": 540
+			}, {
+				"date": "2018-09-28T03:00:00.000+0300",
+				"plannedAmount": 540
+			}, {
+				"date": "2018-10-01T03:00:00.000+0300",
+				"plannedAmount": 234
+			}, {
+				"date": "2018-10-02T03:00:00.000+0300",
+				"plannedAmount": 234
+			}, {
+				"date": "2018-10-03T03:00:00.000+0300",
+				"plannedAmount": 234
+			}, {
+				"date": "2018-10-04T03:00:00.000+0300",
+				"plannedAmount": 234
+			}, {
+				"date": "2018-10-05T03:00:00.000+0300",
+				"plannedAmount": 234
+			}
+		],
+		"totalReported": 10800,
+		"taskFinish": "2025-12-31T16:30:00.000+0200"
+	}
+]

@@ -1,0 +1,290 @@
+{
+  "invoiceProcess": {
+    "type": "string",
+    "caption": "Automatic invoice generation",
+    "values": {
+      "1": "Automatic prices",
+      "2": "Automatic revenue items and prices",
+      "3": "Automatic draft invoices",
+      "4": "Automatic invoice confirmation",
+      "": "-"
+    },
+    "format": "short"
+  },
+  "salesAccount": {
+    "type": "string",
+    "caption": "Sales account",
+    "values": {
+      "0": "Own New License",
+      "1": "Own Maintenance License",
+      "2": "3rd Party New License",
+      "3": "3rd Party Maint License",
+      "4": "Services",
+      "5": "Hosting",
+      "6": "Travel expenses",
+      "7": "Misc.",
+      "8": "Subscription",
+      "9": "3rd Party Subscription"
+    },
+    "format": "short"
+  },
+  "minimumAmountToBeSold": {
+    "type": "string",
+    "caption": "Minimum amount to be sold",
+    "format": "double",
+    "values": null
+  },
+  "invoicingPeriod": {
+    "type": "string",
+    "caption": "Inv. period",
+    "values": {
+      "1": "1 week Postpaid",
+      "2": "1 month Postpaid",
+      "3": "1 month (last day) Postpaid",
+      "4": "2 months Postpaid",
+      "5": "2 months (last day) Postpaid",
+      "6": "3 months Postpaid",
+      "7": "3 months (last day) Postpaid",
+      "8": "4 months Postpaid",
+      "9": "4 months (last day) Postpaid",
+      "10": "6 months Postpaid",
+      "11": "6 months (last day) Postpaid",
+      "12": "12 months Postpaid",
+      "13": "2 weeks Postpaid",
+      "14": "12 months (last day) Postpaid",
+      "23": "2 weeks (15th and last day) Postpaid",
+      "37": "4 weeks Postpaid",
+      "100": "Advance payment",
+      "110": "Payment after delivery",
+      "120": "50 % advance/ 50 % after delivery",
+      "-10": "6 months Prepaid",
+      "-11": "6 months (last day) Prepaid",
+      "-12": "12 months Prepaid",
+      "-13": "2 weeks Prepaid",
+      "-14": "12 months (last day) Prepaid",
+      "-15": "6 months (last day of first month) Prepaid",
+      "-16": "3 months (last day of first month) Prepaid",
+      "-17": "12 months (last day of first month) Prepaid",
+      "-2": "1 month Prepaid",
+      "-3": "1 month (last day) Prepaid",
+      "-4": "2 months Prepaid",
+      "-5": "2 months (last day) Prepaid",
+      "-6": "3 months Prepaid",
+      "-7": "3 months (last day) Prepaid",
+      "-8": "4 months Prepaid",
+      "-9": "4 months (last day) Prepaid",
+      "-22": "1 months (1 month in advance) Prepaid",
+      "-23": "2 weeks (15th and last day) Prepaid",
+      "-24": "2 weeks (first and 15th day) Prepaid"
+    },
+    "format": "short"
+  },
+  "quantity": {
+    "type": "string",
+    "caption": "Quantity",
+    "format": "double",
+    "values": null
+  },
+  "masterProduct": {
+    "type": "string",
+    "caption": "Product",
+    "values": {
+      "947": "Sample product group \\ Fixed fee based recurring service, ID: 2",
+      "948": "Sample product group \\ Time and material based service, ID: 3",
+      "1314": "Sample product group \\ pm test product, ID: 13",
+      "1321": "Sample product group \\ pm test product, ID: 15",
+      "1327": "Sample product group \\ pm test product, ID: 16",
+      "": "-",
+      "Sample product group \\ Time and material based service, ID: 3": 948,
+      "Sample product group \\ pm test product, ID: 16": 1327,
+      "Sample product group \\ pm test product, ID: 15": 1321,
+      "Sample product group \\ Fixed fee based recurring service, ID: 2": 947,
+      "Sample product group \\ pm test product, ID: 13": 1314
+    },
+    "format": "int"
+  },
+  "targetEffort": {
+    "type": "string",
+    "caption": "Estimated work",
+    "format": "double",
+    "values": null
+  },
+  "costCenter": {
+    "type": "string",
+    "caption": "Cost center",
+    "values": {
+      "3100": "3100 Customer R&S Finland",
+      "4100": "4100 Customer R&S international",
+      "-1": "-"
+    },
+    "format": "short"
+  },
+  "vat": {
+    "type": "string",
+    "caption": "VAT",
+    "values": {
+      "": "-",
+      "6.25": "6,25 %",
+      "15.0": "15 %",
+      "0.0": "0 %",
+      "14.0": "14 %",
+      "25.0": "25 %",
+      "13.0": "13 %",
+      "24.0": "24 %",
+      "12.0": "12%",
+      "23.0": "23 %",
+      "22.0": "22 %",
+      "10.0": "10 %",
+      "21.0": "21 %",
+      "5.0": "5 %",
+      "20.0": "20 %",
+      "6.0": "6 %",
+      "7.0": "7 %",
+      "8.0": "8 %",
+      "17.5": "17,5 %",
+      "9.0": "9%",
+      "19.0": "19 %",
+      "7.5": "7,5 %",
+      "18.0": "18 %",
+      "17.0": "17 %"
+    },
+    "format": "double"
+  },
+  "revenueType": {
+    "type": "string",
+    "caption": "Revenue type",
+    "values": {
+      "0": "Own New License",
+      "1": "Own Maintenance License",
+      "2": "3rd Party New License",
+      "3": "3rd Party Maint License",
+      "4": "Services",
+      "5": "Hosting",
+      "6": "Travel expenses",
+      "7": "Other",
+      "8": "Subscription",
+      "9": "3rd Party Subscription"
+    },
+    "format": "short"
+  },
+  "discount": {
+    "type": "string",
+    "value": "0.0",
+    "caption": "Discount",
+    "format": "double",
+    "values": null
+  },
+  "description": {
+    "type": "string",
+    "caption": "",
+    "format": "string",
+    "description": "",
+    "values": null
+  },
+  "shortDescription": {
+    "type": "string",
+    "caption": "",
+    "format": "string",
+    "description": "",
+    "values": null
+  },
+  "contractPeriod": {
+    "type": "string",
+    "caption": "Contract period",
+    "values": {
+      "10": "1 week",
+      "20": "2 weeks",
+      "30": "1 month",
+      "40": "1 month (last day)",
+      "50": "2 months",
+      "60": "2 months (last day)",
+      "70": "3 months",
+      "80": "3 months (last day)",
+      "90": "4 months",
+      "100": "4 months (last day)",
+      "110": "6 months",
+      "120": "6 months (last day)",
+      "130": "12 months (1 year)",
+      "140": "24 months (2 years)",
+      "150": "36 months (3 years)",
+      "160": "48 months (4 years)",
+      "170": "60 months (5 years)",
+      "180": "72 months (6 years)",
+      "190": "84 months (7 years)",
+      "200": "96 months (8 years)",
+      "210": "108 months (9 years)",
+      "220": "120 months (10 years)",
+      "230": "180 months (15 years)",
+      "240": "240 months (20 years)",
+      "": "-"
+    },
+    "format": "short"
+  },
+  "priceBook": {
+    "type": "string",
+    "value": "3812",
+    "caption": "",
+    "format": "int",
+    "values": null
+  },
+  "unit": {
+    "type": "string",
+    "caption": "Unit",
+    "values": {
+      "1": "unit",
+      "2": "h",
+      "3": "pcs",
+      "4": "days",
+      "5": "mth",
+      "6": "%",
+      "7": "users",
+      "8": "servers",
+      "10": "wk",
+      "11": "h/month",
+      "12": "units/months",
+      "13": "days/month",
+      "14": "users/month",
+      "15": "packets",
+      "16": "pcs/month",
+      "": "-"
+    },
+    "format": "short"
+  },
+  "sellingPrice": {
+    "type": "string",
+    "caption": "Price",
+    "format": "double",
+    "values": null
+  },
+  "billingType": {
+    "type": "string",
+    "caption": "Billing type",
+    "values": {
+      "0": "Non-billable",
+      "1": "Fixed",
+      "2": "Time based",
+      "3": "Category based volume price",
+      "4": "Cumulative volume price",
+      "5": "Expenses and purchases"
+    },
+    "format": "short"
+  },
+  "name": {
+    "type": "string",
+    "caption": "Name",
+    "format": "string",
+    "values": null
+  },
+  "id": {
+    "type": "string",
+    "value": "3816",
+    "format": "int",
+    "values": null
+  },
+  "selfCost": {
+    "type": "string",
+    "caption": "Self cost",
+    "format": "double",
+    "values": null
+  }
+}
