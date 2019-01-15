@@ -1065,9 +1065,10 @@ resourceTypes:
       interval:
       intervalstart:
       intervalfinish:
+  post:
+    description: To create a new opportunity given in the body
   type:
-    collection:
-       exampleCollectionItemArray: !include opportunity_array1_5.sample
+    postGetCollectionItem:
        exampleCollectionItem: !include opportunity1_5.sample
   /meta:
       description: Get meta information for opportunities. Includes resource's fields names and type and related filters
@@ -1076,9 +1077,11 @@ resourceTypes:
         readOnlyCollectionItem:
           exampleCollectionItem: !include opportunity_meta1_5.sample
   /{opportunity_id}:
-    type: 
+    type:
      collectionItem:
         exampleCollectionItem: !include opportunity1_5.sample
+    post:
+        description: To update the existing opportunity details by {opportunity_id}
     /attachments:
       type:
         readOnlyCollection:
