@@ -459,6 +459,28 @@ resourceTypes:
         responses:
           204:
             description: No HTTP body returned
+  - postGetCollectionItem:
+      is: [all]
+      post:
+        description: Add a new <<resourcePathName|!singularize>> to PlanMill.
+        headers:
+          Content-Type:
+            type: string
+            required: true
+            default: |
+              application/json;charset=UTF-8
+            example: |
+              application/json;charset=UTF-8
+        body:
+          application/json:
+            schema: <<resourcePathName|!singularize>>
+            example: <<exampleCollectionItem>>
+        responses:
+          200:
+            body:
+              application/json:
+               example: |
+                <<exampleCollectionItem>>
   - getDeleteCollectionItem:
       is: [all]
       get:
@@ -1265,6 +1287,8 @@ resourceTypes:
           type: integer
           required: false
           example: id={product id}
+  post:
+    description: To create the new product from the request body
   type:
     collection:
        exampleCollectionItemArray: !include product_array1_5.sample
@@ -1276,8 +1300,10 @@ resourceTypes:
         readOnlyCollectionItem:
           exampleCollectionItem: !include product_meta1_5.sample
   /{product_id}:
+    put:
+      description: To update the existing product from the request body with {product_id} in the url
     type:
-     collectionItem:
+     putGetDeleteCollectionItem:
         exampleCollectionItem: !include product1_5.sample
     /attachments:
       type:
@@ -1655,50 +1681,6 @@ resourceTypes:
     type:
       getDeleteCollectionItem:
         exampleCollectionItem: Contents of file
-/resources:
-  description: View details of resources ( schedule + assignment ).  
-  get:
-    description: View details of resources ( schedule + assignment ). 
-    queryParameters:
-      start:
-        type: string
-        description: Start date of the resource in UTC format
-        example: 2016-12-31T00:00:00.000+0200
-      finsih:
-        type: string
-        description: Start date of the resource in UTC format
-        example: 2016-12-31T00:00:00.000+0200
-    responses:
-      400:
-      200:
-        body:
-          application/json:
-            schema: !include resource1_5.schema
-      403:
-            headers:
-              Content-type:
-                type: string
-                required: true
-                default: |
-                  application/json;charset=UTF-8
-            body:
-              application/json: 
-                example: |
-                  {
-                    "message": "start : Please enter a valid date.",
-                    "code": "00403"
-                  }, |
-                  {
-                    "message": "start date missing",
-                    "code": "00403"
-                  }, |
-                  {
-                    "message": "finish : Please enter a valid date.",
-                    "code": "00403"
-                  }
-  type:
-    readOnlyCollectionItem:
-      exampleCollectionItem: !include resource1_5.schema
 /timereports:
   get:
     queryParameters:
