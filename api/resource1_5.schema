@@ -4,22 +4,21 @@
   "oneOf": [
     {
       "type": "array",
-      "items": { "$ref": "#/definitions/resource" }
+      "items": { "$ref": "#/definitions/resouceArray" }
     }
   ],
   "definitions": {
-    "resource": {
+    "resouceArray": {
       "type": "object",
       "required": [ "remainingAmount", "taskStart", "task", "assignment", "person", "team", "actualAmount", "totalReported", "taskFinish"],
       "additionalProperties": false,
       "properties": {
         "remainingAmount": {
           "type": "integer",
-          "description": "Assignment remaining amount in minutes"
+          "description": "Assignment remaining time in minutes"
         },
         "schedules": {
           "type": "array",
-          "description": "List of schedules for this assignment. Only schedules with a non-zero planned amount are included.",
           "items": { "$ref": "#/definitions/schedule" }
         },
         "taskStart": {
@@ -37,41 +36,44 @@
         },
         "person": {
           "type": ["integer", null],
-          "description": "Assignment person id"
+          "description": "Person id"
         },
         "team": {
           "type": ["integer", null],
-          "description": "Assignment team id"
+          "description": "Team id"
         },
         "actualAmount": {
           "type": "integer",
-          "description": "Assignment actual amount in minutes"
+          "description": "Actual Amount in minutes"
         },
         "totalReported": {
           "type": "integer",
-          "description": "Assignment total reported amount in minutes"
+          "description": "Total reported time in minutes"
         },
         "taskFinish": {
           "type": "string",
           "pattern": "(\\d{4})-([0][1-9]|[1][0-2])-([0][1-9]|[1-2][0-9]|[3][0-1])T([0][0-9]|[1][0-9]|[2][0-3]):([0-5][0-9]):([0-5][0-9]).(\\d{3})((\\+|\\-)([0-9]|[0][0-9]|[1][0-9]|[2][0-3])([0-5][0-9]))",
-          "description": "Task finish date"
+          "description": "Task finish date and time of a team or person"
         }
       }
     },
     "schedule": {
       "type": "object",
-      "description": "Contains planned amount for a single date",
       "required": [ "name" ],
       "additionalProperties": false,
       "properties": {
         "date": {
           "type": "string",
           "pattern": "(\\d{4})-([0][1-9]|[1][0-2])-([0][1-9]|[1-2][0-9]|[3][0-1])T([0][0-9]|[1][0-9]|[2][0-3]):([0-5][0-9]):([0-5][0-9]).(\\d{3})((\\+|\\-)([0-9]|[0][0-9]|[1][0-9]|[2][0-3])([0-5][0-9]))",
-          "description": "Date of the schedule"
+          "description": "Date of the schedule planned"
+        },
+        "owner": {
+          "type": "integer",
+          "description": "Id of a manager person of a team"
         },
         "plannedAmount": {
           "type": "integer",
-          "description": "Planned amount for this date in seconds"
+          "description": "Planned amount for the team or project"
         }
       }
     }

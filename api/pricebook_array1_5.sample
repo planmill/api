@@ -1,0 +1,40 @@
+[
+  {
+    "owner": 50,
+    "searchKeywords": "book",
+    "created": "2019-01-07T11:47:41.893+0200",
+    "description": "desc",
+    "validFrom": "2018-12-28T00:00:00.000+0200",
+    "languageCode": "en",
+    "operationalId": "SKU001",
+    "publishToStore": 0,
+    "passive": 0,
+    "createdBy": 50,
+    "name": "Price book API",
+    "validUntil": "2020-12-29T00:00:00.000+0200",
+    "modified": null,
+    "currency": 1,
+    "modifiedBy": null,
+    "id": 3811,
+    "currencyCode": "EUR"
+  },
+  {
+    "owner": 356,
+    "searchKeywords": "book",
+    "created": "2019-01-07T11:48:21.467+0200",
+    "description": "desc",
+    "validFrom": "2018-12-28T00:00:00.000+0200",
+    "languageCode": "en",
+    "operationalId": "SKU002",
+    "publishToStore": 0,
+    "passive": 0,
+    "createdBy": 50,
+    "name": "Price book API",
+    "validUntil": "2025-12-29T00:00:00.000+0200",
+    "modified": null,
+    "currency": 1,
+    "modifiedBy": null,
+    "id": 3812,
+    "currencyCode": "EUR"
+  }
+]

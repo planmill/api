@@ -1,0 +1,287 @@
+{
+  "filters": [
+    {
+      "type": "string",
+      "name": "freetextsearch",
+      "caption": ""
+    },
+    {
+      "type": "string",
+      "name": "viewtemplate",
+      "value": "10",
+      "caption": "View by",
+      "values": {
+        "0": "All price books",
+        "10": "All active price books",
+        "20": "{All inactive price books}",
+        "30": "All recently created price books - last 7 days",
+        "40": "All recently created price books - last 14 days",
+        "50": "All recently created price books - last 30 days",
+        "60": "All recently modified price books - last 7 days",
+        "70": "All recently modified price books - last 14 days",
+        "80": "All recently modified price books - last 30 days"
+      }
+    },
+    {
+      "type": "string",
+      "name": "availabilityDate",
+      "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+    },
+    {
+      "type": "string",
+      "name": "Supplier.Id",
+      "caption": "Supplier",
+      "values": {
+        "353": "Sample account",
+        "-1": "All"
+      }
+    },
+    {
+      "type": "string",
+      "name": "languageCode",
+      "caption": "Language",
+      "values": {
+        "-1": "All",
+        "en": "English"
+      }
+    },
+    {
+      "type": "string",
+      "name": "PriceBook.CurrencyId",
+      "caption": "Currency",
+      "values": {
+        "1": "EUR",
+        "-1": "All"
+      }
+    },
+    {
+      "type": "string",
+      "name": "DutyTypeProduct.DutyType",
+      "value": "-1",
+      "caption": "Duty type",
+      "values": {
+        "-1": "All"
+      }
+    },
+    {
+      "type": "string",
+      "name": "billingType",
+      "value": "-1",
+      "caption": "Billing type",
+      "values": {
+        "0": "Non-billable",
+        "1": "Fixed",
+        "2": "Time based",
+        "3": "Category based volume price",
+        "4": "Cumulative volume price",
+        "5": "Expenses and purchases",
+        "-1": "All"
+      }
+    }
+  ],
+  "fields": {
+    "owner": {
+      "format": "",
+      "caption": null
+    },
+    "searchKeywords": {
+      "format": "",
+      "caption": null
+    },
+    "created": {
+      "format": "mediumdate",
+      "caption": "Created"
+    },
+    "description": {
+      "format": "text",
+      "caption": "Description"
+    },
+    "validFrom": {
+      "format": "shortdate",
+      "caption": "Valid from"
+    },
+    "languageCode": {
+      "values": {
+        "en-IE": "English - Ireland",
+        "ms-MY": "Malay - Malaysia",
+        "es-BO": "Spanish - Bolivia",
+        "en-ZA": "English - South Africa",
+        "ta-IN": "Tamil - India",
+        "el-GR": "Greek - Greece",
+        "nl-NL": "Dutch - The Netherlands",
+        "en-AU": "English - Australia",
+        "he-IL": "Hebrew - Israel",
+        "mk-MK": "Macedonian (FYROM)",
+        "syr-SY": "Syriac - Syria",
+        "en-ZW": "English - Zimbabwe",
+        "hu-HU": "Hungarian - Hungary",
+        "en-JM": "English - Jamaica",
+        "es-SV": "Spanish - El Salvador",
+        "tt-RU": "Tatar - Russia",
+        "es-CR": "Spanish - Costa Rica",
+        "es-CL": "Spanish - Chile",
+        "eu-ES": "Basque - Basque",
+        "fr-CA": "French - Canada",
+        "es-CO": "Spanish - Colombia",
+        "ar": "Arabic",
+        "pl-PL": "Polish - Poland",
+        "pt-PT": "Portuguese - Portugal",
+        "fr-BE": "French - Belgium",
+        "ky-KZ": "Kyrgyz - Kazakhstan",
+        "en-BZ": "English - Belize",
+        "nb-NO": "Norwegian (Bokmål) - Norway",
+        "es-HN": "Spanish - Honduras",
+        "hr-HR": "Croatian - Croatia",
+        "es-PR": "Spanish - Puerto Rico",
+        "zh-MO": "Chinese - Macau SAR",
+        "af-ZA": "Afrikaans - South Africa",
+        "gl-ES": "Galician - Galician",
+        "es-PY": "Spanish - Paraguay",
+        "Cy-az-AZ": "Azeri (Cyrillic) - Azerbaijan",
+        "de-AT": "German - Austria",
+        "is-IS": "Icelandic - Iceland",
+        "bg-BG": "Bulgarian - Bulgaria",
+        "Lt-sr-SP": "Serbian (Latin) - Serbia",
+        "cs-CZ": "Czech - Czech Republic",
+        "en-PH": "English - Philippines",
+        "zh-TW": "Chinese - Taiwan",
+        "ko-KR": "Korean - Korea",
+        "sk-SK": "Slovak - Slovakia",
+        "Lt-az-AZ": "Azeri (Latin) - Azerbaijan",
+        "ru-RU": "Russian - Russia",
+        "sq-AL": "Albanian - Albania",
+        "es-AR": "Spanish - Argentina",
+        "sv-SE": "Swedish - Sweden",
+        "mr-IN": "Marathi - India",
+        "da-DK": "Danish - Denmark",
+        "mn-MN": "Mongolian - Mongolia",
+        "de": "German",
+        "uk-UA": "Ukrainian - Ukraine",
+        "en-US": "English - United States",
+        "gu-IN": "Gujarati - India",
+        "lv-LV": "Latvian - Latvia",
+        "sa-IN": "Sanskrit - India",
+        "Cy-sr-SP": "Serbian (Cyrillic) - Serbia",
+        "zh-CN": "Chinese - China",
+        "nl-BE": "Dutch - Belgium",
+        "zh-CHT": "Chinese (Traditional)",
+        "ur-PK": "Urdu - Pakistan",
+        "te-IN": "Telugu - India",
+        "zh-CHS": "Chinese (Simplified)",
+        "hi-IN": "Hindi - India",
+        "hy-AM": "Armenian - Armenia",
+        "fo-FO": "Faroese - Faroe Islands",
+        "de-CH": "German - Switzerland",
+        "ja-JP": "Japanese - Japan",
+        "ka-GE": "Georgian - Georgia",
+        "es-GT": "Spanish - Guatemala",
+        "en": "English",
+        "nn-NO": "Norwegian (Nynorsk) - Norway",
+        "es": "Spanish",
+        "es-PE": "Spanish - Peru",
+        "en-NZ": "English - New Zealand",
+        "fa-IR": "Farsi - Iran",
+        "be-BY": "Belarusian - Belarus",
+        "zh-SG": "Chinese - Singapore",
+        "ro-RO": "Romanian - Romania",
+        "es-PA": "Spanish - Panama",
+        "et-EE": "Estonian - Estonia",
+        "it-CH": "Italian - Switzerland",
+        "tr-TR": "Turkish - Turkey",
+        "fr-FR": "French - France",
+        "vi-VN": "Vietnamese - Vietnam",
+        "en-GB": "English - United Kingdom",
+        "en-CB": "English - Caribbean",
+        "en-CA": "English - Canada",
+        "fi": "Finnish",
+        "div-MV": "Dhivehi - Maldives",
+        "lt-LT": "Lithuanian - Lithuania",
+        "fr": "French",
+        "sl-SI": "Slovenian - Slovenia",
+        "es-DO": "Spanish - Dominican Republic",
+        "kok-IN": "Konkani - India",
+        "pa-IN": "Punjabi - India",
+        "fr-CH": "French - Switzerland",
+        "kn-IN": "Kannada - India",
+        "es-EC": "Spanish - Ecuador",
+        "ca-ES": "Catalan - Catalan",
+        "de-DE": "German - Germany",
+        "zh-HK": "Chinese - Hong Kong SAR",
+        "en-TT": "English - Trinidad and Tobago",
+        "Cy-uz-UZ": "Uzbek (Cyrillic) - Uzbekistan",
+        "fr-MC": "French - Monaco",
+        "de-LI": "German - Liechtenstein",
+        "pt-BR": "Portuguese - Brazil",
+        "ms-BN": "Malay - Brunei",
+        "es-UY": "Spanish - Uruguay",
+        "sv-FI": "Swedish - Finland",
+        "sw-KE": "Swahili - Kenya",
+        "kk-KZ": "Kazakh - Kazakhstan",
+        "es-ES": "Spanish - Spain",
+        "es-VE": "Spanish - Venezuela",
+        "es-MX": "Spanish - Mexico",
+        "it-IT": "Italian - Italy",
+        "Lt-uz-UZ": "Uzbek (Latin) - Uzbekistan",
+        "id-ID": "Indonesian - Indonesia",
+        "de-LU": "German - Luxembourg",
+        "fr-LU": "French - Luxembourg",
+        "es-NI": "Spanish - Nicaragua",
+        "th-TH": "Thai - Thailand"
+      },
+      "format": "Enumeration values.System.LanguageLocale",
+      "caption": "Language"
+    },
+    "operationalId": {
+      "format": "text",
+      "caption": "ID"
+    },
+    "publishToStore": {
+      "values": {
+        "0": "No",
+        "1": "Yes"
+      },
+      "format": "Enumeration values.Administration.Jobs.Enabled",
+      "caption": "Publish to store"
+    },
+    "passive": {
+      "values": {
+        "0": "Active",
+        "1": "Inactive"
+      },
+      "format": "Enumeration values.Product catalog.Products.Status",
+      "caption": "Status"
+    },
+    "createdBy": {
+      "format": "",
+      "caption": null
+    },
+    "name": {
+      "format": "text",
+      "caption": "Name"
+    },
+    "validUntil": {
+      "format": "shortdate",
+      "caption": "Valid until"
+    },
+    "modified": {
+      "format": "mediumdate",
+      "caption": "Modified"
+    },
+    "currency": {
+      "format": "",
+      "caption": null
+    },
+    "modifiedBy": {
+      "format": "",
+      "caption": null
+    },
+    "id": {
+      "format": "",
+      "caption": null
+    },
+    "currencyCode": {
+      "format": "text",
+      "caption": "Currency"
+    }
+  }
+}

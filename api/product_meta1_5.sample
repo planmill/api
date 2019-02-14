@@ -1,0 +1,342 @@
+{
+    "filters": [
+        {
+            "type": "string",
+            "name": "searchkey",
+            "caption": ""
+        },
+        {
+            "type": "string",
+            "name": "viewby",
+            "value": "10",
+            "caption": "View by",
+            "values": {
+                "0": "All products",
+                "10": "All active products",
+                "20": "All inactive products",
+                "30": "All recently created products - last 7 days",
+                "40": "All recently created products - last 14 days",
+                "50": "All recently created product - last 30 days",
+                "60": "All recently modified products - last 7 days",
+                "70": "All recently modified products - last 14 days",
+                "80": "All recently modified product - last 30 days"
+            }
+        },
+        {
+            "type": "string",
+            "name": "rowcount",
+            "value": "100",
+            "caption": "Rows",
+            "values": {
+                "25": "25",
+                "50": "50",
+                "75": "75",
+                "100": "100",
+                "150": "150",
+                "250": "250"
+            }
+        },
+        {
+            "type": "multivalue",
+            "name": "ParentGroup",
+            "value": "-100",
+            "caption": "Product group",
+            "values": {
+                "946": "Sample product group",
+                "1305": "Sample product group \\ pm test product 1",
+                "1306": "Sample product group \\ pm test product 1",
+                "-1": "All",
+                "-101": "All inactive product groups",
+                "-100": "All active product groups"
+            }
+        },
+        {
+            "type": "multivalue",
+            "name": "type",
+            "value": "-1",
+            "caption": "Type",
+            "values": {
+                "1": "Group",
+                "100": "Product",
+                "-1": "All"
+            }
+        },
+        {
+            "type": "multivalue",
+            "name": "revenueType",
+            "value": "-1",
+            "caption": "Revenue type",
+            "values": {
+                "1": "Own Maintenance License",
+                "2": "3rd Party New License",
+                "4": "Services",
+                "-1": "All"
+            }
+        }
+    ],
+    "fields": {
+        "minimumAmountToBeSold": {
+            "format": "number",
+            "caption": "Minimum amount to be sold"
+        },
+        "targetEffort": {
+            "format": "effortunit",
+            "caption": "Estimated work"
+        },
+        "searchKeywords": {
+            "format": "",
+            "caption": "Search keywords"
+        },
+        "revenueType": {
+            "values": {
+                "0": "Own New License",
+                "1": "Own Maintenance License",
+                "2": "3rd Party New License",
+                "3": "3rd Party Maint License",
+                "4": "Services",
+                "5": "Hosting",
+                "6": "Travel expenses",
+                "7": "Other",
+                "8": "Subscription",
+                "9": "3rd Party Subscription"
+            },
+            "format": "Enumeration values.Invoice position.Type",
+            "caption": "Revenue type"
+        },
+        "discount": {
+            "format": "percent",
+            "caption": "Discount"
+        },
+        "validFrom": {
+            "format": "shortdate",
+            "caption": "Valid from"
+        },
+        "operationalId": {
+            "format": "text",
+            "caption": "ID"
+        },
+        "type": {
+            "values": {
+                "1": "Group",
+                "100": "Product"
+            },
+            "format": "Enumeration values.Product catalog.Products.Type",
+            "caption": "Type"
+        },
+        "parentProduct": {
+            "format": "text",
+            "caption": "ParentProduct.Id"
+        },
+        "competence": {
+            "format": "text",
+            "caption": "Product.CompetenceId"
+        },
+        "sellingPrice": {
+            "format": "currency",
+            "caption": "Price"
+        },
+        "warrantyPeriod": {
+            "values": {
+                "7": "7 Days",
+                "14": "14 Days",
+                "30": "30 Days",
+                "60": "2 Months",
+                "90": "3 Months",
+                "120": "4 Months",
+                "150": "5 Months",
+                "180": "6 Months",
+                "360": "12 Months",
+                "540": "18 Months",
+                "720": "2 Years",
+                "1080": "3 Years",
+                "1440": "4 Years",
+                "1800": "5 Years"
+            },
+            "format": "Enumeration values.Product catalog.Products.Warranty period",
+            "caption": "Warranty period"
+        },
+        "billingType": {
+            "values": {
+                "0": "Non-billable",
+                "1": "Fixed",
+                "2": "Time based",
+                "3": "Category based volume price",
+                "4": "Cumulative volume price",
+                "5": "Expenses and purchases"
+            },
+            "format": "Enumeration values.Product catalog.Products.Billing type",
+            "caption": "Billing type"
+        },
+        "vendor": {
+            "format": "text",
+            "caption": "Product.VendorId"
+        },
+        "supplier": {
+            "format": "text",
+            "caption": "Product.SupplierId"
+        },
+        "modified": {
+            "format": "mediumdate",
+            "caption": "Modified"
+        },
+        "modifiedBy": {
+            "format": "text",
+            "caption": "ModifiedPerson.Id"
+        },
+        "relatedToPerson": {
+            "format": "text",
+            "caption": "Product.PersonId"
+        },
+        "id": {
+            "format": "text",
+            "caption": "Product.Id"
+        },
+        "owner": {
+            "format": "text",
+            "caption": "Product.ProductOwnerId"
+        },
+        "salesAccount": {
+            "values": {
+                "0": "Own New License",
+                "1": "Own Maintenance License",
+                "2": "3rd Party New License",
+                "3": "3rd Party Maint License",
+                "4": "Services",
+                "5": "Hosting",
+                "6": "Travel expenses",
+                "7": "Misc.",
+                "8": "Subscription",
+                "9": "3rd Party Subscription"
+            },
+            "format": "Enumeration values.Finance control.Invoice position summary.Invoices.Account",
+            "caption": "Sales account"
+        },
+        "invoicingPeriod": {
+            "values": {
+                "1": "1 week Postpaid",
+                "2": "1 month Postpaid",
+                "3": "1 month (last day) Postpaid",
+                "4": "2 months Postpaid",
+                "5": "2 months (last day) Postpaid",
+                "6": "3 months Postpaid",
+                "7": "3 months (last day) Postpaid",
+                "8": "4 months Postpaid",
+                "9": "4 months (last day) Postpaid",
+                "10": "6 months Postpaid",
+                "11": "6 months (last day) Postpaid",
+                "12": "12 months Postpaid",
+                "13": "2 weeks Postpaid",
+                "14": "12 months (last day) Postpaid",
+                "23": "2 weeks (15th and last day) Postpaid",
+                "37": "4 weeks Postpaid",
+                "100": "Advance payment",
+                "110": "Payment after delivery",
+                "120": "50 % advance/ 50 % after delivery",
+                "optgroup": "Postpaid",
+                "-10": "6 months Prepaid",
+                "-11": "6 months (last day) Prepaid",
+                "-12": "12 months Prepaid",
+                "-13": "2 weeks Prepaid",
+                "-14": "12 months (last day) Prepaid",
+                "-15": "6 months (last day of first month) Prepaid",
+                "-16": "3 months (last day of first month) Prepaid",
+                "-17": "12 months (last day of first month) Prepaid",
+                "/optgroup": "-",
+                "-2": "1 month Prepaid",
+                "-3": "1 month (last day) Prepaid",
+                "-4": "2 months Prepaid",
+                "-5": "2 months (last day) Prepaid",
+                "-6": "3 months Prepaid",
+                "-7": "3 months (last day) Prepaid",
+                "-8": "4 months Prepaid",
+                "-9": "4 months (last day) Prepaid",
+                "-22": "1 months (1 month in advance) Prepaid",
+                "-23": "2 weeks (15th and last day) Prepaid",
+                "-24": "2 weeks (first and 15th day) Prepaid"
+            },
+            "format": "Enumeration values.Sales management.Sales orders.Sales order item.Invoicing period",
+            "caption": "Inv. period"
+        },
+        "quantity": {
+            "format": "text",
+            "caption": "Quantity"
+        },
+        "costCenter": {
+            "values": {
+                "3100": "3100 Customer R&S Finland",
+                "4100": "4100 Customer R&S international"
+            },
+            "format": "Enumeration values.Finance control.Invoice position summary.Invoices.Cost center",
+            "caption": "Cost center"
+        },
+        "created": {
+            "format": "mediumdate",
+            "caption": "Created"
+        },
+        "vat": {
+            "format": "percent",
+            "caption": "VAT"
+        },
+        "publishToStore": {
+            "values": {
+                "0": "No",
+                "1": "Yes"
+            },
+            "format": "Enumeration values.Administration.Jobs.Enabled",
+            "caption": "Publish to store"
+        },
+        "passive": {
+            "values": {
+                "0": "Active",
+                "1": "Inactive"
+            },
+            "format": "Enumeration values.Product catalog.Products.Status",
+            "caption": "Status"
+        },
+        "unit": {
+            "values": {
+                "1": "unit",
+                "2": "h",
+                "3": "pcs",
+                "4": "days",
+                "5": "mth",
+                "6": "%",
+                "7": "users",
+                "8": "servers",
+                "10": "wk",
+                "11": "h/month",
+                "12": "units/months",
+                "13": "days/month",
+                "14": "users/month",
+                "15": "packets",
+                "16": "pcs/month"
+            },
+            "format": "Enumeration values.Pricing.Unit",
+            "caption": "Unit"
+        },
+        "task": {
+            "format": "text",
+            "caption": "Product.TaskId"
+        },
+        "createdBy": {
+            "format": "text",
+            "caption": "CreatedPerson.Id"
+        },
+        "name": {
+            "format": "text",
+            "caption": "Name"
+        },
+        "validUntil": {
+            "format": "shortdate",
+            "caption": "Valid until"
+        },
+        "selfCost": {
+            "format": "currency",
+            "caption": "Self cost"
+        },
+        "customer": {
+            "format": "text",
+            "caption": "Product.CustomerId"
+        }
+    }
+}
