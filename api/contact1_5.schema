@@ -13,7 +13,7 @@
   "definitions": {
     "contactSingle": {
       "type": "object",
-      "required": [ "lastName", "account", "passive" ],
+      "required": [ "lastName", "account", "email" ],
       "properties": {
         "firstName": {
           "type": "string",
