@@ -689,10 +689,12 @@ resourceTypes:
         type: integer
         required: false
         description: Internal id of campaign to search contacts belonging to specific campaign
+  post:
+    description: Add a new contact to PlanMill. See contacts/meta for list of columns and formats.
   type:
-    collection:
-      exampleCollectionItemArray: !include contact_array1_5.sample
-      exampleCollectionItem: !include contact1_5.sample
+     collection:
+       exampleCollectionItemArray: !include contact_array1_5.sample
+       exampleCollectionItem: !include contact1_5.sample
   /meta:
       description: Get meta information for contacts. Includes resource's fields names and type and related filters
       get:
