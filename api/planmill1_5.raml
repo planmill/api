@@ -459,6 +459,12 @@ resourceTypes:
         responses:
           204:
             description: No HTTP body returned
+  - deleteCollectionItem:
+      delete:
+        description: Remove a <<resourcePathName|!singularize>> from PlanMill.
+        responses:
+          204:
+            description: No HTTP body returned
   - postGetCollectionItem:
       is: [all]
       post:
@@ -502,7 +508,11 @@ resourceTypes:
         description: Remove a <<resourcePathName|!singularize>> from PlanMill.
         responses:
           204:
-            description: No HTTP body returned   
+            description: No HTTP body returned
+            body:
+              application/json:
+                  example: 
+                    <<exampleCollectionItem>>
 /absences:
   get:
     queryParameters:
@@ -717,9 +727,11 @@ resourceTypes:
           schemaName:
           exampleCollectionItemArray: !include tempfile_array1_5.sample
       /{attachment_id}:
+        delete:
+          description: Remove a single attachment from PlanMill.
         type:
-          putGetDeleteCollectionItem:
-            exampleCollectionItem: Contents of file
+          deleteOnlyCollectionItem:
+            exampleCollectionItem: Content of file
 /enumerations:
   description: Enumerations available in PlanMill
   get:
