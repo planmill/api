@@ -35,6 +35,7 @@
         },
         "finish": {
           "type": "string",
+          "description": "Finish time of a time report. May be used instead of 'amount' for a time report. Only available for 'amount' (normal time) - for 'overtimeAmount' or 'travelAmount' you must provide an explicit length."
           "pattern": "(\\d{4})-([0][1-9]|[1][0-2])-([0][1-9]|[1-2][0-9]|[3][0-1])T([0][0-9]|[1][0-9]|[2][0-3]):([0-5][0-9]):([0-5][0-9]).(\\d{3})((\\+|\\-)([0-9]|[0][0-9]|[1][0-9]|[2][0-3])([0-5][0-9]))"
         },
         "amount": {
