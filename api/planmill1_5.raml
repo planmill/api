@@ -235,12 +235,12 @@ resourceTypes:
             type: string
             required: false
             description: Start date of the interval in UTC format, intervalfinish required 
-            example: 2016-01-01T00:00:00.000+0200
+            example: 2019-03-01T00:00:00.000+0200
           intervalfinish?:
             type: string
             required: false
             description: Finish date of the interval in UTC format, intervalstart required
-            example: 2016-01-01T00:00:00.000+0200
+            example: 2019-03-01T00:00:00.000+0200
         responses:
           200:
             body:
@@ -1802,6 +1802,8 @@ resourceTypes:
           schemaName:
           exampleCollectionItemArray: !include tempfile_array1_5.sample
       /{id}:
+        put:
+          description: Attach existing file to PlanMill user.
         type:
           putGetDeleteCollectionItem:
             exampleCollectionItem: Contents of file
@@ -1940,7 +1942,7 @@ resourceTypes:
           exampleCollectionItemArray: !include user_unitcost_array1_5.sample
     /vacations:
       get:
-        description: Get a list of vacations
+        description: Get a list of vacations.
         queryParameters:
           rowcount:
           order:
@@ -1952,9 +1954,13 @@ resourceTypes:
          collection:
            exampleCollectionItemArray: !include vacation_array1_5.sample
            exampleCollectionItem: !include vacation1_5.sample
+      post:
+        description: Add a new vacation to PlanMill.
       /{vacation_id}:
         get:
-          description: View details of single vacation
+          description: View details of single vacation.
+        post:
+          description: Update an existing resource vacation to PlanMill.
         type: 
            collectionItem:
              exampleCollectionItem: !include vacation1_5.sample
