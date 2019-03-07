@@ -1,9 +1,5 @@
 Note:	
 	HireDate: required for permanent calendars.
-	Calendar: required for contract type Permanent - full-time.
-	FirstName: required (for some cases).
-	Location1.Id : required where account is required.
-
 {
   "shippingCity": "Espoo",
   "goalValue": 2250,
