@@ -11,6 +11,7 @@ securitySchemes:
            PlanMill supports OAuth 2.0 for authenticating all API requests. More information about it in the security part of the documentation.
        type: OAuth 2.0
        describedBy:
+
            headers:
                Authorization:
                    description: |
@@ -442,6 +443,25 @@ resourceTypes:
         responses:
           204:
             description: No HTTP body returned
+  - putDeleteContactCollectionItem:
+      is: [all]
+      put:
+        headers:
+          Content-Type:
+            type: string
+            required: true
+            default: |
+              application/json;charset=UTF-8
+            example: |
+              application/json;charset=UTF-8
+        responses:
+          204:
+            description: No HTTP body returned
+      delete:
+        description: Remove a <<resourcePathName|!singularize>> from PlanMill.
+        responses:
+          204:
+            description: No HTTP body returned
   - putGetDeleteCollectionItem:
       is: [all]
       put:
@@ -737,11 +757,12 @@ resourceTypes:
           schemaName:
           exampleCollectionItemArray: !include tempfile_array1_5.sample
       /{attachment_id}:
+        put:
+          description: Attach existing file to PlanMill user.( Tips - use file id from api/1.5/tempfile )
         delete:
           description: Remove a single attachment from PlanMill.
         type:
-          deleteOnlyCollectionItem:
-            exampleCollectionItem: Content of file
+          putDeleteContactCollectionItem
 /enumerations:
   description: Enumerations available in PlanMill
   get:
@@ -1814,6 +1835,8 @@ resourceTypes:
       /{id}:
         put:
           description: Attach existing file to PlanMill user.( Tips - use file id from api/1.5/tempfile )
+        delete:
+          description: Remove a single attachment from PlanMill.   
         type:
           putGetDeleteCollectionItem:
             exampleCollectionItem: Contents of file
