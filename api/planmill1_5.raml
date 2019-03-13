@@ -443,7 +443,7 @@ resourceTypes:
         responses:
           204:
             description: No HTTP body returned
-  - putDeleteContactCollectionItem:
+  - putContactCollectionItem:
       is: [all]
       put:
         headers:
@@ -454,11 +454,6 @@ resourceTypes:
               application/json;charset=UTF-8
             example: |
               application/json;charset=UTF-8
-        responses:
-          204:
-            description: No HTTP body returned
-      delete:
-        description: Remove a <<resourcePathName|!singularize>> from PlanMill.
         responses:
           204:
             description: No HTTP body returned
@@ -484,11 +479,6 @@ resourceTypes:
               application/json: 
                   example: |
                     <<exampleCollectionItem>>
-      delete:
-        description: Remove a <<resourcePathName|!singularize>> from PlanMill.
-        responses:
-          204:
-            description: No HTTP body returned
   - deleteCollectionItem:
       delete:
         description: Remove a <<resourcePathName|!singularize>> from PlanMill.
@@ -646,7 +636,7 @@ resourceTypes:
       type:
         readOnlyCollection:
           schemaName:
-          exampleCollectionItemArray: !include tempfile_array1_5.sample
+          exampleCollectionItemArray : !include tempfile_array1_5.sample
       /{attachment_id}:
         type:
           putGetDeleteCollectionItem:
@@ -730,7 +720,7 @@ resourceTypes:
         required: false
         description: Internal id of campaign to search contacts belonging to specific campaign
   post:
-    description: Add a new contact to PlanMill. See contacts/meta for list of columns and formats.
+    description: To add a new contact. See contacts/meta for list of columns and formats.
   type:
      collection:
        exampleCollectionItemArray: !include contact_array1_5.sample
@@ -758,11 +748,9 @@ resourceTypes:
           exampleCollectionItemArray: !include tempfile_array1_5.sample
       /{attachment_id}:
         put:
-          description: Attach existing file to PlanMill user.( Tips - use file id from api/1.5/tempfile )
-        delete:
-          description: Remove a single attachment from PlanMill.
+          description: Attach existing file to user.( Tips - use file id from api/1.5/tempfile )
         type:
-          putDeleteContactCollectionItem
+          putContactCollectionItem
 /enumerations:
   description: Enumerations available in PlanMill
   get:
@@ -1834,9 +1822,7 @@ resourceTypes:
           exampleCollectionItemArray: !include tempfile_array1_5.sample
       /{id}:
         put:
-          description: Attach existing file to PlanMill user.( Tips - use file id from api/1.5/tempfile )
-        delete:
-          description: Remove a single attachment from PlanMill.   
+          description: Attach existing file to PlanMill user.( Tips - use file id from api/1.5/tempfile )  
         type:
           putGetDeleteCollectionItem:
             exampleCollectionItem: Contents of file
@@ -1988,7 +1974,7 @@ resourceTypes:
            exampleCollectionItemArray: !include vacation_array1_5.sample
            exampleCollectionItem: !include vacation1_5.sample
       post:
-        description: Add a new vacation to PlanMill.
+        description: Add new vacation details to the user.
       /{vacation_id}:
         get:
           description: View details of single vacation.
