@@ -443,7 +443,7 @@ resourceTypes:
         responses:
           204:
             description: No HTTP body returned
-  - putContactCollectionItem:
+  - putCollectionItem:
       is: [all]
       put:
         headers:
@@ -479,12 +479,6 @@ resourceTypes:
               application/json: 
                   example: |
                     <<exampleCollectionItem>>
-  - deleteCollectionItem:
-      delete:
-        description: Remove a <<resourcePathName|!singularize>> from PlanMill.
-        responses:
-          204:
-            description: No HTTP body returned
   - postGetCollectionItem:
       is: [all]
       post:
@@ -522,17 +516,6 @@ resourceTypes:
         responses:
           204:
             description: No HTTP body returned
-  - deleteOnlyCollectionItem:
-      is: [all]
-      delete:
-        description: Remove a <<resourcePathName|!singularize>> from PlanMill.
-        responses:
-          204:
-            description: No HTTP body returned
-            body:
-              application/json:
-                  example: 
-                    <<exampleCollectionItem>>
 /absences:
   get:
     queryParameters:
@@ -750,7 +733,7 @@ resourceTypes:
         put:
           description: Attach existing file to user.( Tips - use file id from api/1.5/tempfile )
         type:
-          putContactCollectionItem
+          putCollectionItem
 /enumerations:
   description: Enumerations available in PlanMill
   get:
@@ -1974,7 +1957,7 @@ resourceTypes:
            exampleCollectionItemArray: !include vacation_array1_5.sample
            exampleCollectionItem: !include vacation1_5.sample
       post:
-        description: Add new vacation details to the user.
+        description: Add new vacation details to the user.See vacations/meta for list of columns and formats.
       /{vacation_id}:
         get:
           description: View details of single vacation.
