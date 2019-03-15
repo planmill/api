@@ -13,7 +13,7 @@
   "definitions": {
     "userSingle": {
       "type": "object",
-      "required": [ "lastName", "account", "userName", "role" ],
+      "required": [ "lastName", "account", "userName", "role", "Calendar", "firstName"],
       "additionalProperties": false,
       "properties": {
         "id": {

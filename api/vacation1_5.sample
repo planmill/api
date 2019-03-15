@@ -1,9 +1,9 @@
 {
-  "annualHoliday": 30,
-  "savedLeaveDays": 1,
-  "bonusDays": 2,
-  "comment": "Vacation year 2016",
-  "otherDays": 0,
-  "id": 6987,
-  "vacationYear": 2016
+	"annualHoliday": 40,
+	"savedLeaveDays": 0,
+	"bonusDays": 1,
+	"comment": "Vacation year 2019",
+	"otherDays": 0,
+	"id": 1608,
+	"vacationYear": 2019
 }

@@ -1,9 +1,9 @@
 {
-    "date": "2016-10-15T00:00:00.000+0300",
-    "totalFinishTime": 1080,
-    "totalStartTime": 600,
-    "person": 3505,
-    "breakAmount": 90,
-    "workStartTime": 600,
-    "workFinishTime": 1080
+    "date": "2019-02-28T00:00:00.000+0200",
+    "totalFinishTime": 1050,
+    "totalStartTime": 0,
+    "person": 1620,
+    "breakAmount": 30,
+    "workStartTime": 0,
+    "workFinishTime": 1050
 }

@@ -11,6 +11,7 @@ securitySchemes:
            PlanMill supports OAuth 2.0 for authenticating all API requests. More information about it in the security part of the documentation.
        type: OAuth 2.0
        describedBy:
+
            headers:
                Authorization:
                    description: |
@@ -139,6 +140,19 @@ traits:
                   "message": "Invalid date pattern",
                   "code": "00500"
                 }
+  - some:
+      securedBy: [oauth_2.0]
+      usage: default settings for all requests
+      headers:
+        x-PlanMill-Currency:
+          description: Recommended to be given. If currency not given in request header, user's current currency set in user settings is used. ISO code of currency in which money values should be shown or saved. Applies to all money attributes of the object, but may be converted by backend to the object specific currency. Some objects and their attributes may not care about the given currency but use the object's own currency
+          type: string
+          minLength: 3
+          maxLength: 3
+          required: false
+      responses:
+        204:
+          description: No HTTP body returned
 schemas:
  - absence: !include absence1_5.schema
  - account: !include account1_5.schema
@@ -235,12 +249,12 @@ resourceTypes:
             type: string
             required: false
             description: Start date of the interval in UTC format, intervalfinish required 
-            example: 2016-01-01T00:00:00.000+0200
+            example: 2019-03-01T00:00:00.000+0200
           intervalfinish?:
             type: string
             required: false
             description: Finish date of the interval in UTC format, intervalstart required
-            example: 2016-01-01T00:00:00.000+0200
+            example: 2019-03-01T00:00:00.000+0200
         responses:
           200:
             body:
@@ -351,7 +365,7 @@ resourceTypes:
             body:
               application/json:
                example: |
-                { "id" : 123456 }
+                { "id" : 1627 }
   - putOnlyCollectionItem:
       is: [all]
       put:
@@ -378,12 +392,12 @@ resourceTypes:
             type: string
             required: false
             description: Start date of the interval in UTC format, intervalfinish required 
-            example: 2016-01-01T00:00:00.000+0200
+            example: 2019-03-01T00:00:00.000+0200
           intervalfinish:
             type: string
             required: false
             description: Finish date of the interval in UTC format, intervalstart required
-            example: 2016-01-01T00:00:00.000+0200
+            example: 2019-09-01T00:00:00.000+0200
         responses:
             200:
               body:
@@ -392,7 +406,7 @@ resourceTypes:
                   example: |
                     <<exampleCollectionItemArray>>
   - putGetCollectionItem:
-      is: [all]
+      is: [some]
       description: A single <<resourcePathName|!singularize>> in PlanMill.
       get:
         description: View details of a single <<resourcePathName|!singularize>>.
@@ -404,10 +418,7 @@ resourceTypes:
                 example: |
                   <<exampleCollectionItem>>
       put:
-        description: Create or update an existing <<resourcePathName|!singularize>>.
-        responses:
-          204:
-            description: No HTTP body returned
+        description: Create new or update an existing <<resourcePathName|!singularize>>.
   - putDeleteCollectionItem:
       is: [all]
       put:
@@ -429,6 +440,20 @@ resourceTypes:
           required: true
       delete:
         description: Remove a <<resourcePathName|!singularize>> from PlanMill.
+        responses:
+          204:
+            description: No HTTP body returned
+  - putCollectionItem:
+      is: [all]
+      put:
+        headers:
+          Content-Type:
+            type: string
+            required: true
+            default: |
+              application/json;charset=UTF-8
+            example: |
+              application/json;charset=UTF-8
         responses:
           204:
             description: No HTTP body returned
@@ -454,11 +479,6 @@ resourceTypes:
               application/json: 
                   example: |
                     <<exampleCollectionItem>>
-      delete:
-        description: Remove a <<resourcePathName|!singularize>> from PlanMill.
-        responses:
-          204:
-            description: No HTTP body returned
   - postGetCollectionItem:
       is: [all]
       post:
@@ -496,13 +516,6 @@ resourceTypes:
         responses:
           204:
             description: No HTTP body returned
-  - deleteOnlyCollectionItem:
-      is: [all]
-      delete:
-        description: Remove a <<resourcePathName|!singularize>> from PlanMill.
-        responses:
-          204:
-            description: No HTTP body returned   
 /absences:
   get:
     queryParameters:
@@ -606,7 +619,7 @@ resourceTypes:
       type:
         readOnlyCollection:
           schemaName:
-          exampleCollectionItemArray: !include tempfile_array1_5.sample
+          exampleCollectionItemArray : !include tempfile_array1_5.sample
       /{attachment_id}:
         type:
           putGetDeleteCollectionItem:
@@ -671,7 +684,7 @@ resourceTypes:
     date:
       type: date
       description: Capacity date in UTC format
-      example: 2016-01-01T00:00:00.000+0200
+      example: 2019-03-01T00:00:00.000+0200
       required: true
   type: 
     putOnlyCollectionItem:
@@ -689,10 +702,12 @@ resourceTypes:
         type: integer
         required: false
         description: Internal id of campaign to search contacts belonging to specific campaign
+  post:
+    description: To add a new contact. See contacts/meta for list of columns and formats.
   type:
-    collection:
-      exampleCollectionItemArray: !include contact_array1_5.sample
-      exampleCollectionItem: !include contact1_5.sample
+     collection:
+       exampleCollectionItemArray: !include contact_array1_5.sample
+       exampleCollectionItem: !include contact1_5.sample
   /meta:
       description: Get meta information for contacts. Includes resource's fields names and type and related filters
       get:
@@ -715,9 +730,10 @@ resourceTypes:
           schemaName:
           exampleCollectionItemArray: !include tempfile_array1_5.sample
       /{attachment_id}:
+        put:
+          description: Attach existing file to user.( Tips - use file id from api/1.5/tempfile )
         type:
-          putGetDeleteCollectionItem:
-            exampleCollectionItem: Contents of file
+          putCollectionItem
 /enumerations:
   description: Enumerations available in PlanMill
   get:
@@ -1766,6 +1782,8 @@ resourceTypes:
       superior: 
         type: integer
         description: Id of superior of a user
+  post:
+    description: Add a new user to PlanMill. See users/meta for list of columns and formats.
   type: 
      collection:
        exampleCollectionItemArray: !include user_array1_5.sample
@@ -1786,6 +1804,8 @@ resourceTypes:
           schemaName:
           exampleCollectionItemArray: !include tempfile_array1_5.sample
       /{id}:
+        put:
+          description: Attach existing file to PlanMill user.( Tips - use file id from api/1.5/tempfile )  
         type:
           putGetDeleteCollectionItem:
             exampleCollectionItem: Contents of file
@@ -1802,12 +1822,12 @@ resourceTypes:
             type: string
             required: true
             description: Start date of the capacity calendar in UTC format
-            example: 2016-01-01T00:00:00.000+0200
+            example: 2019-03-01T00:00:00.000+0200
           finish:
             type: string
             required: true
             description: Finish date of the capacity calendar in UTC format
-            example: 2016-01-01T00:00:00.000+0200
+            example: 2019-04-01T00:00:00.000+0200
       type:
         readOnlyCollection:
           schemaName: !include capacity1_5.schema
@@ -1822,22 +1842,22 @@ resourceTypes:
          order:
          sort:
       post:
-        description: Add a new capacity calendar for user to PlanMill or update existing (if id is given).
+        description: Add a new capacity calendar for user to PlanMill.
       type:
         collection:
           exampleCollectionItemArray: !include user_capacitycalendars_array1_5.sample
-          exampleCollectionItem: !include user_capacitycalendars1_5.sample
+          exampleCollectionItem: !include user_capacitycalendars1_5_post.sample
     /capacitycalendars/{user_capacitycalendar_id}:
       description: A single capacity calendar.
       get:
         description: View details of single capacity calendar of a single user.
       post:
-        description: Add a new capacity calendar for user to PlanMill or update existing (if id is given).
+        description: Update existing single capacity calendar of a single user.
       delete:
-        description: Remove user's capacity calendar from planmill
+        description: Remove user's capacity calendar from planMill.
       type:
         collectionItem:
-          exampleCollectionItem: !include user_capacitycalendars1_5.sample
+          exampleCollectionItem: !include user_capacitycalendars1_5_post.sample
     /overtimebalance:
       get:
         description: View details of single over time balance
@@ -1845,7 +1865,7 @@ resourceTypes:
           finish:
             type: string
             description: Start date of the balance in UTC format
-            example: 2016-12-31T00:00:00.000+0200
+            example: 2019-07-12T00:00:00.000+0200
         responses:
           200:
             body:
@@ -1861,11 +1881,11 @@ resourceTypes:
           start:
             type: string
             description: Start date of the capacity calendar in UTC format
-            example: 2016-01-01T00:00:00.000+0200
+            example: 2019-03-07T00:00:00.000+0200
           finish:
             type: string
             description: Finish date of the capacity calendar in UTC format
-            example: 2016-01-01T00:00:00.000+0200
+            example: 2020-01-01T00:00:00.000+0200
       type:
         readOnlyCollection:
           schemaName: !include reportable_assignments1_5.schema
@@ -1876,7 +1896,7 @@ resourceTypes:
           finish:
             type: string
             description: Start date of the balance in UTC format
-            example: 2016-12-31T00:00:00.000+0200
+            example: 2019-12-3T00:00:00.000+0200
         responses:
           200:
             body:
@@ -1891,7 +1911,7 @@ resourceTypes:
           finish:
             type: string
             description: Start date of the balance in UTC format
-            example: 2016-12-31T00:00:00.000+0200
+            example: 2019-09-30T00:00:00.000+0200
         responses:
           200:
             body:
@@ -1910,7 +1930,7 @@ resourceTypes:
           date:
             type: date
             description: Time card date in UTC format
-            example: 2016-01-01T00:00:00.000+0300
+            example: 2020-04-01T00:00:00.000+0300
             required: true
         type:
           putGetCollectionItem:
@@ -1924,7 +1944,7 @@ resourceTypes:
           exampleCollectionItemArray: !include user_unitcost_array1_5.sample
     /vacations:
       get:
-        description: Get a list of vacations
+        description: Get a list of vacations.
         queryParameters:
           rowcount:
           order:
@@ -1936,9 +1956,13 @@ resourceTypes:
          collection:
            exampleCollectionItemArray: !include vacation_array1_5.sample
            exampleCollectionItem: !include vacation1_5.sample
+      post:
+        description: Add new vacation details to the user.See vacations/meta for list of columns and formats.
       /{vacation_id}:
         get:
-          description: View details of single vacation
+          description: View details of single vacation.
+        post:
+          description: Update an existing resource vacation to PlanMill.
         type: 
            collectionItem:
              exampleCollectionItem: !include vacation1_5.sample
