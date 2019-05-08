@@ -193,7 +193,15 @@
           "type": ["string", "null"],
           "description": ""
         },
+		"secondaryAddress": {
+          "type": ["string", "null"],
+          "description": ""
+        },
         "primaryCity": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "secondaryCity": {
           "type": ["string", "null"],
           "description": ""
         },
@@ -201,7 +209,15 @@
           "type": ["integer", "null"],
           "description": ""
         },
+        "secondaryCountry": {
+          "type": ["integer", "null"],
+          "description": ""
+        },
         "primaryDepartment": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "secondaryDepartment": {
           "type": ["string", "null"],
           "description": ""
         },
@@ -209,11 +225,23 @@
           "type": ["string", "null"],
           "description": ""
         },
+        "secondaryPostalCode": {
+          "type": ["string", "null"],
+          "description": ""
+        },
         "primaryState": {
           "type": ["string", "null"],
           "description": ""
         },
+        "secondaryState": {
+          "type": ["string", "null"],
+          "description": ""
+        },
         "primaryStreet": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "secondaryStreet": {
           "type": ["string", "null"],
           "description": ""
         },
