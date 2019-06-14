@@ -47,6 +47,9 @@ documentation:
       Check open issues or report a new https://github.com/planmill/api/issues
 
       Clone us in Github https://github.com/planmill/api.git
+
+      Refer https://github.com/planmill/api/wiki/WebHooks for how to register hooks 
+
 traits:
   - all:
       securedBy: [oauth_2.0]
@@ -853,7 +856,8 @@ resourceTypes:
           putGetDeleteCollectionItem:
             exampleCollectionItem: Contents of file
 /hooks:
-  description: The currently available subscribable events are timereport.insert, timereport.update, timereport.delete, absence.insert, absence.update, absence.delete, request.add, request.update,account.add, account.update and account.delete. More endpoints will be supporting push notifications in the future.
+  description: The currently available subscribable events are absence.add, absence.readyforacceptance, absence.update, account.add, account.delete, account.update, dayreport.add, dayreport.update, project.add, project.delete, project.update, request.add, request.delete, request.update, timereport.add, timereport.delete, timereport.update. eventUser and eventProject with id supported for absence.add, absence.update, request.add, request.update,   which means when subscribe with eventUser, eventProject then only respective user or projects updates are notified. Refer https://github.com/planmill/api/wiki/WebHooks for how to register hooks
+
   get:
     queryParameters:   
       hook: 

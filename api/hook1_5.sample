@@ -1,7 +1,8 @@
 {
-  "id": 2361,
-  "hook": "request.add",
-  "subject": "Request subject",
-  "eventUser": 356,
-  "eventProject": 213
+    "hook": "dayreport.add",
+    "eventUser": -1,
+    "id": 1409,
+    "eventProject": -1,
+    "type": 1,
+    "url": "https://endurable-hound.glitch.me/hook"
 }
