@@ -6,3 +6,42 @@
     "type": 1,
     "url": "https://endurable-hound.glitch.me/hook"
 }
+
+Triggered hook would look as below 
+
+{
+	"hook": "project.update",
+	"resource": {
+		"dutyType": 0,
+		"setRequestPerformerAsTeamMember": 0,
+		"description": "",
+		"operationalId": "6",
+		"type": 1,
+		"effortUnit": null,
+		"requireBillableComment": 1,
+		"portfolio": 209,
+		"contact": 356,
+		"fixedWorkEffort": null,
+		"currency": 1,
+		"id": 1046,
+		"invoiceAppendix": -1,
+		"invoiceReference": "",
+		"autoAcceptTimeReports": 1,
+		"fixedWork": null,
+		"billableStatus": 2,
+		"budgetedPurchase": null,
+		"requireCommentForOvertime": 0,
+		"fixedRevenue": null,
+		"autoAssignNewTeamMembers": 0,
+		"name": "First billable project example (update name, account etc.)",
+		"allowNewTasksAndAssignmentsForAllUsers": 0,
+		"category": 40,
+		"budgetedExpense": null,
+		"account": 353,
+		"editableByUser": 1,
+		"totalCost": 0,
+		"status": 3
+	},
+	"subject": "First billable project example (update name, account etc.)",
+	"Id": 1046
+}
