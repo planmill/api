@@ -856,8 +856,7 @@ resourceTypes:
           putGetDeleteCollectionItem:
             exampleCollectionItem: Contents of file
 /hooks:
-  description: The currently available subscribable events are absence.add, absence.readyforacceptance, absence.update, account.add, account.delete, account.update, dayreport.add, dayreport.update, request.add, request.delete, request.update, timereport.add, timereport.delete, timereport.update. eventUser and eventProject with id supported for absence.add, absence.update, request.add, request.update,   which means when subscribe with eventUser, eventProject then only respective user or projects updates are notified. Refer https://github.com/planmill/api/wiki/WebHooks for how to register hooks
-
+  description: The currently available subscribable events are <hr /> <p>**absence.add**, eventUser and eventProject with id supported, </p> <p>**absence.readyforacceptance**,</p> <p>**absence.update**, eventUser and eventProject with id supported </p> <p>**account.add**,</p> <p>**account.delete**,</p> <p>**account.update**,</p> <p>**dayreport.add**,</p> <p>**dayreport.update**,</p> <p>**request.add**, eventUser and eventProject with id supported</p> <p>**request.update**, eventUser and eventProject with id supported</p> <p>**request.delete**,</p> <p>**timereport.add**,</p> <p>**timereport.delete**,</p> <p>**timereport.update**</p> <p>Refer https://github.com/planmill/api/wiki/WebHooks for how to register hooks </p>
   get:
     queryParameters:   
       hook: 
