@@ -18,3 +18,7 @@ Run in Node js command prompt: npm i -g raml2html@3.0.1 (fetches raml2html from 
 In Node js command prompt, navigate to api folder in the downloaded folder from Github.
 Run following command in Node js command prompt: raml2html -i planmill1_5.raml -o index.html. It will generate the HTML file in the same folder where RAML file is present.
 Open the index.html in browser and you should see the API document (or parsing errors, if any).
+
+Documentation for formatting 
+
+https://github.github.com/gfm/#tables-extension-
