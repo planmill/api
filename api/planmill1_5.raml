@@ -156,7 +156,7 @@ traits:
       responses:
         204:
           description: No HTTP body returned
-schemas:
+types:
  absence: !include absence1_5.schema
  account: !include account1_5.schema
  action: !include action1_5.schema
@@ -207,7 +207,7 @@ resourceTypes:
             200:
               body:
                 application/json:
-                  schema: <<schemaName>>
+                  type: <<schemaName>>
                   example: |
                     <<exampleCollectionItemArray>>
   readOnlyCollectionItem:
@@ -262,7 +262,7 @@ resourceTypes:
           200:
             body:
               application/json:
-                schema: <<resourcePathName|!singularize>>
+                type: <<resourcePathName|!singularize>>
                 example: |
                   <<exampleCollectionItemArray>>
       post:
@@ -277,7 +277,7 @@ resourceTypes:
               application/json;charset=UTF-8
         body:
           application/json:
-            schema: <<resourcePathName|!singularize>>
+            type: <<resourcePathName|!singularize>>
             example: <<exampleCollectionItem>>
         responses:
           201:
@@ -294,7 +294,7 @@ resourceTypes:
           200:
             body:
               application/json:
-                schema: <<resourcePathName|!singularize>>
+                type: <<resourcePathName|!singularize>>
                 example: |
                   <<exampleCollectionItem>>
       post:
@@ -309,7 +309,7 @@ resourceTypes:
               application/json;charset=UTF-8
         body:
           application/json: 
-            schema: <<resourcePathName|!singularize>>
+            type: <<resourcePathName|!singularize>>
             example: <<exampleCollectionItem>>
         responses:
           204:
@@ -332,7 +332,7 @@ resourceTypes:
               application/json;charset=UTF-8
         body:
           application/json:
-            schema: <<resourcePathName|!singularize>>
+            type: <<resourcePathName|!singularize>>
             example: <<exampleCollectionItem>>
         responses:
           200:
@@ -405,7 +405,7 @@ resourceTypes:
             200:
               body:
                 application/json:
-                  schema: <<schemaName>>
+                  type: <<schemaName>>
                   example: |
                     <<exampleCollectionItemArray>>
   putGetCollectionItem:
@@ -417,7 +417,7 @@ resourceTypes:
           200:
             body:
               application/json:
-                schema: <<schemaName>>
+                type: <<schemaName>>
                 example: |
                   <<exampleCollectionItem>>
       put:
@@ -496,7 +496,7 @@ resourceTypes:
               application/json;charset=UTF-8
         body:
           application/json:
-            schema: <<resourcePathName|!singularize>>
+            type: <<resourcePathName|!singularize>>
             example: <<exampleCollectionItem>>
         responses:
           200:
@@ -1051,7 +1051,7 @@ resourceTypes:
       200:
         body:
           application/json:
-            schema: !include me1_5.schema
+            type: !include me1_5.schema
   type:
     readOnlyCollectionItem:
       exampleCollectionItem: !include me1_5.sample
@@ -1120,12 +1120,12 @@ resourceTypes:
           200:
             body:
               application/json:
-                schema: !include opportunityitem1_5.schema
+                type: !include opportunityitem1_5.schema
       post:
         description: Add a new opportunity item to PlanMill or update existing (if id is given). See opportunities/{opportunity_id}/items/meta for list of columns and formats
         body:
           application/json:
-            schema: !include opportunityitem1_5.schema
+            type: !include opportunityitem1_5.schema
       type:
         collection:
           exampleCollectionItemArray: !include opportunityitem_array1_5.sample
@@ -1510,7 +1510,7 @@ resourceTypes:
       200:
         body:
           application/json:
-            schema: !include resource1_5.schema
+            type: !include resource1_5.schema
       403:
             headers:
               Content-type:
@@ -1582,12 +1582,12 @@ resourceTypes:
           200:
             body:
               application/json:
-                schema: !include salesorderitem1_5.schema
+                type: !include salesorderitem1_5.schema
       post:
         description: Add a new sales order item to PlanMill or update existing (if id is given). See salesorders/{sales_order_id}/items/meta for list of columns and formats
         body:
           application/json:
-            schema: !include salesorderitem1_5.schema
+            type: !include salesorderitem1_5.schema
       type:
         collection:
           exampleCollectionItemArray: !include salesorderitem_array1_5.sample
@@ -1873,7 +1873,7 @@ resourceTypes:
           200:
             body:
               application/json:
-                schema: !include balance1_5.schema
+                type !include balance1_5.schema
       type:
         readOnlyCollectionItem:
           exampleCollectionItem: !include balance1_5.sample
@@ -1904,7 +1904,7 @@ resourceTypes:
           200:
             body:
               application/json:
-                schema: !include balance1_5.schema
+                type: !include balance1_5.schema
       type:
         readOnlyCollectionItem:
           exampleCollectionItem: !include balance1_5.sample
@@ -1919,7 +1919,7 @@ resourceTypes:
           200:
             body:
               application/json:
-                schema: !include balance1_5.schema
+                type: !include balance1_5.schema
       type:
         readOnlyCollectionItem:
           exampleCollectionItem: !include balance1_5.sample
