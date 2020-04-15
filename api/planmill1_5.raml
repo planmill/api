@@ -1,4 +1,4 @@
-#%RAML 0.8
+#%RAML 1.0
 #IMPORTANT NOTE: Do not remove the mock service URL from the baseUri.
 baseUri: https://online.planmill.com/{instance}/api/1.5
 title: PlanMill
@@ -6,7 +6,7 @@ version: 1.5
 protocols: [HTTPS]
 mediaType: application/json
 securitySchemes:
-   - oauth_2.0:
+   oauth_2.0:
        description: |
            PlanMill supports OAuth 2.0 for authenticating all API requests. More information about it in the security part of the documentation.
        type: OAuth 2.0
@@ -20,7 +20,7 @@ securitySchemes:
        settings:
         authorizationUri: https://online.planmill.com/{instance}/api/oauth2/authorize
         accessTokenUri: https://online.planmill.com/{instance}/api/oauth2/token
-        authorizationGrants: [code]
+        authorizationGrants: [authorization_code]
 securedBy: [oauth_2.0]
 documentation:
   - title: Introduction to PlanMill API 1.5
@@ -51,7 +51,7 @@ documentation:
       Refer https://github.com/planmill/api/wiki/WebHooks for how to register hooks 
 
 traits:
-  - all:
+  all:
       securedBy: [oauth_2.0]
       usage: default settings for all requests
       headers:
@@ -143,7 +143,7 @@ traits:
                   "message": "Invalid date pattern",
                   "code": "00500"
                 }
-  - some:
+  some:
       securedBy: [oauth_2.0]
       usage: default settings for all requests
       headers:
@@ -157,30 +157,30 @@ traits:
         204:
           description: No HTTP body returned
 schemas:
- - absence: !include absence1_5.schema
- - account: !include account1_5.schema
- - action: !include action1_5.schema
- - batch: !include batch1_5.schema
- - campaign: !include campaign1_5.schema
- - capacitycalendar: !include user_capacitycalendars1_5.schema
- - contact: !include contact1_5.schema
- - hook: !include hook1_5.schema
- - mail: !include request_mail1_5.schema 
- - opportunity: !include opportunity1_5.schema
- - project: !include project1_5.schema
- - product: !include product1_5.schema
- - pricebook: !include pricebook1_5.schema
- - salesorder: !include sales_order1_5.schema
- - team: !include team1_5.schema
- - resource: !include resource1_5.schema
- - tempfile: !include tempfile1_5.schema 
- - timereport: !include timereport1_5.schema
- - user: !include user1_5.schema
- - vacation: !include vacation1_5.schema
+ absence: !include absence1_5.schema
+ account: !include account1_5.schema
+ action: !include action1_5.schema
+ batch: !include batch1_5.schema
+ campaign: !include campaign1_5.schema
+ capacitycalendar: !include user_capacitycalendars1_5.schema
+ contact: !include contact1_5.schema
+ hook: !include hook1_5.schema
+ mail: !include request_mail1_5.schema 
+ opportunity: !include opportunity1_5.schema
+ project: !include project1_5.schema
+ product: !include product1_5.schema
+ pricebook: !include pricebook1_5.schema
+ salesorder: !include sales_order1_5.schema
+ team: !include team1_5.schema
+ resource: !include resource1_5.schema
+ tempfile: !include tempfile1_5.schema 
+ timereport: !include timereport1_5.schema
+ user: !include user1_5.schema
+ vacation: !include vacation1_5.schema
 
-# write name of the resource before the include and schema always in SINGULAR, i.e. hook not hooks - otherwise the automatic includes won't work
+# write name of the resource before the include and schema always in SINGULAR, i.e. hook not hooks otherwise the automatic includes won't work
 resourceTypes:
-  - readOnlyCollection:
+  readOnlyCollection:
       is: [all]
       description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. This is a read-only collection.
       get:
@@ -210,7 +210,7 @@ resourceTypes:
                   schema: <<schemaName>>
                   example: |
                     <<exampleCollectionItemArray>>
-  - readOnlyCollectionItem:
+  readOnlyCollectionItem:
       is: [all]
       description: A single <<resourcePathName|!singularize>> in PlanMill. This is a read-only item.
       get:
@@ -221,7 +221,7 @@ resourceTypes:
               application/json:
                 example: |
                   <<exampleCollectionItem>>
-  - collection:
+  collection:
       is: [all]
       description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats.
       get:
@@ -285,7 +285,7 @@ resourceTypes:
               application/json:
                 example: |
                  { "id" : 123456 }
-  - collectionItem:
+  collectionItem:
       is: [all]
       description: A single <<resourcePathName|!singularize>> in PlanMill.
       get:
@@ -319,7 +319,7 @@ resourceTypes:
         responses: 
           204:
             description: No HTTP body returned
-  - postOnlyCollection:
+  postOnlyCollection:
       is: [all]
       post:
         headers:
@@ -340,7 +340,7 @@ resourceTypes:
               application/json:
                example: |
                 <<exampleCollectionItem>>
-  - postOnlyCollectionMultiPart:
+  postOnlyCollectionMultiPart:
       is: [all]
       post:
         description: Add a new <<resourcePathName|!singularize>> to PlanMill.
@@ -369,7 +369,7 @@ resourceTypes:
               application/json:
                example: |
                 { "id" : 1627 }
-  - putOnlyCollectionItem:
+  putOnlyCollectionItem:
       is: [all]
       put:
         headers:
@@ -385,7 +385,7 @@ resourceTypes:
         responses:
           204:
             description: No HTTP body returned
-  - timecardCollection:
+  timecardCollection:
       is: [all]
       description: Collection of available <<resourcePathName|!pluralize>> in PlanMill.
       get:
@@ -408,7 +408,7 @@ resourceTypes:
                   schema: <<schemaName>>
                   example: |
                     <<exampleCollectionItemArray>>
-  - putGetCollectionItem:
+  putGetCollectionItem:
       is: [some]
       description: A single <<resourcePathName|!singularize>> in PlanMill.
       get:
@@ -422,7 +422,7 @@ resourceTypes:
                   <<exampleCollectionItem>>
       put:
         description: Create new or update an existing <<resourcePathName|!singularize>>.
-  - putDeleteCollectionItem:
+  putDeleteCollectionItem:
       is: [all]
       put:
         headers:
@@ -446,7 +446,7 @@ resourceTypes:
         responses:
           204:
             description: No HTTP body returned
-  - putCollectionItem:
+  putCollectionItem:
       is: [all]
       put:
         headers:
@@ -460,7 +460,7 @@ resourceTypes:
         responses:
           204:
             description: No HTTP body returned
-  - putGetDeleteCollectionItem:
+  putGetDeleteCollectionItem:
       is: [all]
       put:
         headers:
@@ -482,7 +482,7 @@ resourceTypes:
               application/json: 
                   example: |
                     <<exampleCollectionItem>>
-  - postGetCollectionItem:
+  postGetCollectionItem:
       is: [all]
       post:
         description: Add a new <<resourcePathName|!singularize>> to PlanMill.
@@ -504,7 +504,7 @@ resourceTypes:
               application/json:
                example: |
                 <<exampleCollectionItem>>
-  - getDeleteCollectionItem:
+  getDeleteCollectionItem:
       is: [all]
       get:
         description: View details of single <<resourcePathName|!singularize>>.
@@ -734,7 +734,7 @@ resourceTypes:
           exampleCollectionItemArray: !include tempfile_array1_5.sample
       /{attachment_id}:
         put:
-          description: Attach existing file to user.( Tips - use file id from api/1.5/tempfile )
+          description: Attach existing file to user.( Tips use file id from api/1.5/tempfile )
         type:
           putCollectionItem
 /enumerations:
