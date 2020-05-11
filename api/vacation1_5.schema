@@ -108,7 +108,11 @@
         "vacationYear": {
           "type": "integer",
           "description": "Year of the vacation"
-        }
+		},
+		"PersonId": {
+          "type": "integer",
+          "description": "ID of the person whose vacation it is" 
+        },
       }
     }
   }
