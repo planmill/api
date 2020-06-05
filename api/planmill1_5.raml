@@ -1,4 +1,4 @@
-#%RAML 0.8
+#%RAML 1.0
 #IMPORTANT NOTE: Do not remove the mock service URL from the baseUri.
 baseUri: https://online.planmill.com/{instance}/api/1.5
 title: PlanMill
@@ -6,7 +6,7 @@ version: 1.5
 protocols: [HTTPS]
 mediaType: application/json
 securitySchemes:
-   - oauth_2.0:
+   oauth_2.0:
        description: |
            PlanMill supports OAuth 2.0 for authenticating all API requests. More information about it in the security part of the documentation.
        type: OAuth 2.0
@@ -20,7 +20,7 @@ securitySchemes:
        settings:
         authorizationUri: https://online.planmill.com/{instance}/api/oauth2/authorize
         accessTokenUri: https://online.planmill.com/{instance}/api/oauth2/token
-        authorizationGrants: [code]
+        authorizationGrants: [authorization_code]
 securedBy: [oauth_2.0]
 documentation:
   - title: Introduction to PlanMill API 1.5
@@ -51,7 +51,7 @@ documentation:
       Refer https://github.com/planmill/api/wiki/WebHooks for how to register hooks 
 
 traits:
-  - all:
+  all:
       securedBy: [oauth_2.0]
       usage: default settings for all requests
       headers:
@@ -72,7 +72,8 @@ traits:
               default: |
                 application/json;charset=UTF-8
           body:
-              application/json: 
+              application/json:
+                type: object
                 example: |
                  {
                    "message": "ID in GET request URI was malformed",
@@ -86,7 +87,8 @@ traits:
               default: |
                 application/json;charset=UTF-8
           body:
-            application/json: 
+            application/json:
+              type: object 
               example: |
                 {
                   "message": "Nonce too old",
@@ -101,6 +103,7 @@ traits:
                 application/json;charset=UTF-8
           body:
             application/json: 
+              type: object
               example: |
                 {
                   "message": "Timer is not allowed to go over 24h! Rounding it down.",
@@ -115,6 +118,7 @@ traits:
                 application/json;charset=UTF-8
           body:
             application/json:
+              type: object
               example: |
                 {
                   "message": "Item not found",
@@ -128,7 +132,8 @@ traits:
               default: |
                 application/json;charset=UTF-8
           body:
-            application/json: 
+            application/json:
+              type: object 
         500:
           headers:
             Content-type:
@@ -138,12 +143,13 @@ traits:
                 application/json;charset=UTF-8
           body:
             application/json:
+              type: object
               example: |
                 {
                   "message": "Invalid date pattern",
                   "code": "00500"
                 }
-  - some:
+  some:
       securedBy: [oauth_2.0]
       usage: default settings for all requests
       headers:
@@ -156,31 +162,119 @@ traits:
       responses:
         204:
           description: No HTTP body returned
-schemas:
- - absence: !include absence1_5.schema
- - account: !include account1_5.schema
- - action: !include action1_5.schema
- - batch: !include batch1_5.schema
- - campaign: !include campaign1_5.schema
- - capacitycalendar: !include user_capacitycalendars1_5.schema
- - contact: !include contact1_5.schema
- - hook: !include hook1_5.schema
- - mail: !include request_mail1_5.schema 
- - opportunity: !include opportunity1_5.schema
- - project: !include project1_5.schema
- - product: !include product1_5.schema
- - pricebook: !include pricebook1_5.schema
- - salesorder: !include sales_order1_5.schema
- - team: !include team1_5.schema
- - resource: !include resource1_5.schema
- - tempfile: !include tempfile1_5.schema 
- - timereport: !include timereport1_5.schema
- - user: !include user1_5.schema
- - vacation: !include vacation1_5.schema
+types:
+  absence: |
+    { 
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "description": "base schema for all absence entities",
+      "oneOf": [
+        {
+          "type": "array",
+          "items": { "$ref": "#/definitions/absence" }
+        },
+        {
+          "$ref": "#/definitions/absence"
+        }
+      ],
+      "definitions": {
+        "absence": {
+          "type": "object",
+          "required": [ "finish", "person", "start", "absenceType" ],
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": "integer",
+              "description": "Internal ID of an absence"
+            },
+            "vacationYear": {
+              "type": [ "integer", "null" ],
+              "description": "Vacation year of the user"
+            },
+            "project": {
+              "type": "integer",
+              "description": ""
+            },
+            "accepterPerson": {
+              "type": [ "integer", "null" ],
+              "description": "Superior of user who accepts an absence"
+            },
+            "finish": {
+              "type": "string",
+              "pattern": "(\\d{4})-([0][1-9]|[1][0-2])-([0][1-9]|[1-2][0-9]|[3][0-1])T([0][0-9]|[1][0-9]|[2][0-3]):([0-5][0-9]):([0-5][0-9]).(\\d{3})((\\+|\\-)([0-9]|[0][0-9]|[1][0-9]|[2][0-3])([0-5][0-9]))",
+              "description": "Finish date of an absence"
+            },
+            "person": {
+              "type": "integer",
+              "description": "Absentee and user of a system"
+            },
+            "substitutePerson": {
+              "type": [ "integer", "null" ],
+              "description": "Superior of user who accepts an absence when actual superior of user is not available"
+            },
+            "status": {
+              "type": [ "integer", "null" ],
+              "description": "Status of an absence"
+            },
+            "start": {
+              "type": "string",
+              "pattern": "(\\d{4})-([0][1-9]|[1][0-2])-([0][1-9]|[1-2][0-9]|[3][0-1])T([0][0-9]|[1][0-9]|[2][0-3]):([0-5][0-9]):([0-5][0-9]).(\\d{3})((\\+|\\-)([0-9]|[0][0-9]|[1][0-9]|[2][0-3])([0-5][0-9]))",
+              "description": "Start date of an absence"
+            },
+            "description": {
+              "type": [ "string", "null" ],
+              "description": "Description of an absence"
+            },
+            "absenceType": {
+              "type": "integer",
+              "description": "Type of an absence"
+            },
+            "vacationLength": {
+              "type": "integer",
+              "description": "Length of an absence represented in minutes"
+            },
+            "interruptionDate": {
+              "type": [ "string", "null" ],
+              "description": "Interruption date of an absence"
+            },
+            "created": {
+              "type": "string",
+              "pattern": "(\\d{4})-([0][1-9]|[1][0-2])-([0][1-9]|[1-2][0-9]|[3][0-1])T([0][0-9]|[1][0-9]|[2][0-3]):([0-5][0-9]):([0-5][0-9]).(\\d{3})((\\+|\\-)([0-9]|[0][0-9]|[1][0-9]|[2][0-3])([0-5][0-9]))",
+              "description": "Creation date of an absence"
+            },
+            "modified": {
+              "type": "string",
+              "pattern": "(\\d{4})-([0][1-9]|[1][0-2])-([0][1-9]|[1-2][0-9]|[3][0-1])T([0][0-9]|[1][0-9]|[2][0-3]):([0-5][0-9]):([0-5][0-9]).(\\d{3})((\\+|\\-)([0-9]|[0][0-9]|[1][0-9]|[2][0-3])([0-5][0-9]))",
+              "description": "Modification date of an absence"
+            }
+          }
+        }
+      }
+    }
+ 
+  account: !include account1_5.raml
+  accountsingle: !include account_single1_5.raml
+  action: !include action1_5.schema
+  batch: !include batch1_5.schema
+  campaign: !include campaign1_5.schema
+  capacitycalendar: !include user_capacitycalendars1_5.schema
+  contact: !include contact1_5.schema
+  hook: !include hook1_5.schema
+  mail: !include request_mail1_5.schema 
+  opportunity: !include opportunity1_5.schema
+  project: !include project1_5.schema
+  product: !include product1_5.schema
+  pricebook: !include pricebook1_5.schema
+  salesorder: !include sales_order1_5.schema
+  team: !include team1_5.schema
+  resource: !include resource1_5.schema
+  tempfile: !include tempfile1_5.schema 
+  timereport: !include timereport1_5.schema
+  user: !include user1_5.schema
+  vacation: !include vacation1_5.schema
 
-# write name of the resource before the include and schema always in SINGULAR, i.e. hook not hooks - otherwise the automatic includes won't work
+# write name of the resource before the include and schema always in SINGULAR, i.e. hook not hooks otherwise the automatic includes won't work
 resourceTypes:
-  - readOnlyCollection:
+  readOnlyCollection:
       is: [all]
       description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. This is a read-only collection.
       get:
@@ -207,10 +301,10 @@ resourceTypes:
             200:
               body:
                 application/json:
-                  schema: <<schemaName>>
+                  type: object
                   example: |
                     <<exampleCollectionItemArray>>
-  - readOnlyCollectionItem:
+  readOnlyCollectionItem:
       is: [all]
       description: A single <<resourcePathName|!singularize>> in PlanMill. This is a read-only item.
       get:
@@ -219,9 +313,10 @@ resourceTypes:
           200:
             body:
               application/json:
+                type: object
                 example: |
                   <<exampleCollectionItem>>
-  - collection:
+  collection:
       is: [all]
       description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats.
       get:
@@ -262,7 +357,7 @@ resourceTypes:
           200:
             body:
               application/json:
-                schema: <<resourcePathName|!singularize>>
+                type: <<resourcePathName|!singularize>>
                 example: |
                   <<exampleCollectionItemArray>>
       post:
@@ -277,15 +372,16 @@ resourceTypes:
               application/json;charset=UTF-8
         body:
           application/json:
-            schema: <<resourcePathName|!singularize>>
+            type: <<resourcePathName|!singularize>>
             example: <<exampleCollectionItem>>
         responses:
           201:
             body:
               application/json:
+                type: object
                 example: |
                  { "id" : 123456 }
-  - collectionItem:
+  collectionItem:
       is: [all]
       description: A single <<resourcePathName|!singularize>> in PlanMill.
       get:
@@ -294,7 +390,7 @@ resourceTypes:
           200:
             body:
               application/json:
-                schema: <<resourcePathName|!singularize>>
+                type: <<resourcePathName|!singularize>>
                 example: |
                   <<exampleCollectionItem>>
       post:
@@ -309,7 +405,7 @@ resourceTypes:
               application/json;charset=UTF-8
         body:
           application/json: 
-            schema: <<resourcePathName|!singularize>>
+            type: <<resourcePathName|!singularize>>
             example: <<exampleCollectionItem>>
         responses:
           204:
@@ -319,7 +415,7 @@ resourceTypes:
         responses: 
           204:
             description: No HTTP body returned
-  - postOnlyCollection:
+  postOnlyCollection:
       is: [all]
       post:
         headers:
@@ -332,7 +428,7 @@ resourceTypes:
               application/json;charset=UTF-8
         body:
           application/json:
-            schema: <<resourcePathName|!singularize>>
+            type: <<resourcePathName|!singularize>>
             example: <<exampleCollectionItem>>
         responses:
           200:
@@ -340,7 +436,7 @@ resourceTypes:
               application/json:
                example: |
                 <<exampleCollectionItem>>
-  - postOnlyCollectionMultiPart:
+  postOnlyCollectionMultiPart:
       is: [all]
       post:
         description: Add a new <<resourcePathName|!singularize>> to PlanMill.
@@ -369,7 +465,7 @@ resourceTypes:
               application/json:
                example: |
                 { "id" : 1627 }
-  - putOnlyCollectionItem:
+  putOnlyCollectionItem:
       is: [all]
       put:
         headers:
@@ -385,7 +481,7 @@ resourceTypes:
         responses:
           204:
             description: No HTTP body returned
-  - timecardCollection:
+  timecardCollection:
       is: [all]
       description: Collection of available <<resourcePathName|!pluralize>> in PlanMill.
       get:
@@ -405,10 +501,9 @@ resourceTypes:
             200:
               body:
                 application/json:
-                  schema: <<schemaName>>
                   example: |
                     <<exampleCollectionItemArray>>
-  - putGetCollectionItem:
+  putGetCollectionItem:
       is: [some]
       description: A single <<resourcePathName|!singularize>> in PlanMill.
       get:
@@ -417,12 +512,11 @@ resourceTypes:
           200:
             body:
               application/json:
-                schema: <<schemaName>>
                 example: |
                   <<exampleCollectionItem>>
       put:
         description: Create new or update an existing <<resourcePathName|!singularize>>.
-  - putDeleteCollectionItem:
+  putDeleteCollectionItem:
       is: [all]
       put:
         headers:
@@ -446,7 +540,7 @@ resourceTypes:
         responses:
           204:
             description: No HTTP body returned
-  - putCollectionItem:
+  putCollectionItem:
       is: [all]
       put:
         headers:
@@ -460,7 +554,7 @@ resourceTypes:
         responses:
           204:
             description: No HTTP body returned
-  - putGetDeleteCollectionItem:
+  putGetDeleteCollectionItem:
       is: [all]
       put:
         headers:
@@ -480,9 +574,10 @@ resourceTypes:
           200:
             body:
               application/json: 
+                  type: object
                   example: |
                     <<exampleCollectionItem>>
-  - postGetCollectionItem:
+  postGetCollectionItem:
       is: [all]
       post:
         description: Add a new <<resourcePathName|!singularize>> to PlanMill.
@@ -496,7 +591,7 @@ resourceTypes:
               application/json;charset=UTF-8
         body:
           application/json:
-            schema: <<resourcePathName|!singularize>>
+            type: <<resourcePathName|!singularize>>
             example: <<exampleCollectionItem>>
         responses:
           200:
@@ -504,7 +599,7 @@ resourceTypes:
               application/json:
                example: |
                 <<exampleCollectionItem>>
-  - getDeleteCollectionItem:
+  getDeleteCollectionItem:
       is: [all]
       get:
         description: View details of single <<resourcePathName|!singularize>>.
@@ -529,28 +624,441 @@ resourceTypes:
       interval:
       intervalstart:
       intervalfinish:
+    responses:
+      200:
+        body:
+          application/json: 
+            type: absence
+            example: |
+                [
+                  {
+                    "accepterPerson": 2850572,
+                    "interruptionDate": null,
+                    "created": "2015-09-07T11:16:40.807+0300",
+                    "start": "2016-04-07T11:17:00.000+0300",
+                    "project": 2850582,
+                    "description": "sick leave",
+                    "vacationYear": null,
+                    "vacationLength": 450,
+                    "person": 2850572,
+                    "absenceType": 1010,
+                    "modified": "2015-09-07T11:16:40.807+0300",
+                    "finish": "2016-04-07T11:17:00.000+0300",
+                    "id": 2850600,
+                    "substitutePerson": null,
+                    "status": 20
+                  },
+                  {
+                    "accepterPerson": 604564,
+                    "interruptionDate": null,
+                    "created": "2012-02-03T13:52:47.503+0200",
+                    "start": "2012-03-26T00:00:00.000+0300",
+                    "project": 2691515,
+                    "description": "unpaid holiday",
+                    "vacationYear": null,
+                    "vacationLength": 450,
+                    "person": 2557769,
+                    "absenceType": 1060,
+                    "modified": "2012-02-03T13:53:11.337+0200",
+                    "finish": "2012-03-26T00:00:00.000+0300",
+                    "id": 2803661,
+                    "substitutePerson": null,
+                    "status": 10
+                  },
+                  {
+                    "accepterPerson": 2557769,
+                    "interruptionDate": null,
+                    "created": "2012-02-03T12:39:48.830+0200",
+                    "start": "2012-03-16T00:00:00.000+0200",
+                    "project": 2691515,
+                    "description": "annual holiday",
+                    "vacationYear": 2012,
+                    "vacationLength": 3150,
+                    "person": 604564,
+                    "absenceType": 1000,
+                    "modified": "2012-02-03T12:39:48.830+0200",
+                    "finish": "2012-03-26T00:00:00.000+0200",
+                    "id": 2803656,
+                    "substitutePerson": null,
+                    "status": 10
+                  },
+                  {
+                    "accepterPerson": 2801981,
+                    "interruptionDate": "2014-01-09T00:00:00.000+0200",
+                    "created": "2014-01-09T14:15:00.290+0200",
+                    "start": "2013-09-24T00:00:00.000+0300",
+                    "project": 2691515,
+                    "description": "sick leave by medical certificate",
+                    "vacationYear": null,
+                    "vacationLength": 32400,
+                    "person": 2801981,
+                    "absenceType": 1025,
+                    "modified": "2014-01-09T14:17:18.343+0200",
+                    "finish": "2014-01-09T00:00:00.000+0200",
+                    "id": 2832618,
+                    "substitutePerson": null,
+                    "status": 40
+                  }
+                ]
   type:
     collection:
-       exampleCollectionItemArray: !include absence_array1_5.sample
-       exampleCollectionItem: !include absence1_5.sample
+      exampleCollectionItem: |
+        {
+          "accepterPerson": 2850921,
+          "interruptionDate": null,
+          "start": "2015-09-07T00:00:00.000+0300",
+          "project": 2850931,
+          "description": "child care leave",
+          "vacationYear": null,
+          "vacationLength": 450,
+          "person": 2850921,
+          "absenceType": 1130,
+          "finish": "2015-09-07T00:00:00.000+0300",
+          "id": 2850933,
+          "substitutePerson": null,
+          "status": 40
+        }
   /meta:
       description: Get meta information for absences. Includes resource's fields names and type and related filters
       get:
       type:
         readOnlyCollectionItem:
-          exampleCollectionItem: !include absence_meta1_5.sample
+          exampleCollectionItem: |
+            {
+              "filters": [
+                {
+                  "name": "freetextsearch",
+                  "caption": ""
+                },
+                {
+                  "name": "viewtemplate",
+                  "caption": "View by",
+                  "values": {
+                    "All absences": "30",
+                    "Absences to handle": "10",
+                    "My absences": "0",
+                    "My subordinates' absences": "20"
+                  }
+                },
+                {
+                  "name": "period",
+                  "caption": "Period",
+                  "values": {
+                    "All": "0",
+                    "Last 180 days": "16",
+                    "This week": "30",
+                    "This and next FY": "7",
+                    "Last 14 days": "26",
+                    "This and next month": "24",
+                    "This and next week": "34",
+                    "Next 30 days": "17",
+                    "Next 180 days": "21",
+                    "This FY": "5",
+                    "Next FY": "6",
+                    "This and last month": "25",
+                    "This FQ": "1",
+                    "Last month": "11",
+                    "Last 30 days": "12",
+                    "Last FY": "8",
+                    "Today and tomorrow": "44",
+                    "This and last week": "32",
+                    "This and next FQ": "3",
+                    "Last FQ": "4",
+                    "Last 120 days": "15",
+                    "This and last FY": "23",
+                    "Last week": "31",
+                    "This month": "9",
+                    "Next 120 days": "20",
+                    "Yesterday": "41",
+                    "Last 60 days": "13",
+                    "Next week": "33",
+                    "Next 60 days": "18",
+                    "Tomorrow": "43",
+                    "Today": "40",
+                    "Today and yesterday": "42",
+                    "Next FQ": "2",
+                    "Next month": "10",
+                    "This & last FQ": "22",
+                    "Last 90 days": "14",
+                    "Next 90 days": "19"
+                  }
+                },
+                {
+                  "name": "person",
+                  "caption": "Person",
+                  "values": {
+                    "All": "-1",
+                    "Jim, Harris": "2752646",
+                    "Sara, Johnson": "580283",
+                    "Mike, Hike": "2828584"
+                  }
+                },
+                {
+                  "name": "accepterPerson",
+                  "caption": "Acceptor",
+                  "values": {
+                    "All": "-1",
+                    "Jim, Harris": "2752646",
+                    "Sara, Johnson": "580283",
+                    "Mike, Hike": "2828584"
+                  }
+                },
+                {
+                  "name": "absenceType",
+                  "caption": "Absence type",
+                  "values": {
+                    "All": "-1",
+                    "Military refresher": "1110",
+                    "Paid holiday": "1070",
+                    "Balance leave": "1090",
+                    "Sick leave by medical certificate": "1025",
+                    "Study leave (unpaid)": "1140",
+                    "Annual holiday": "1000",
+                    "Maternal leave (paid)": "1030",
+                    "Overtime leave": "1080",
+                    "Bonus holiday pay": "1100",
+                    "Military leave": "1050",
+                    "Sick leave": "1010",
+                    "Paternal leave (paid)": "1180",
+                    "Saved leave": "1165",
+                    "Child care leave": "1130",
+                    "Unpaid holiday": "1060",
+                    "Other annual vacation": "1160"
+                  }
+                },
+                {
+                  "name": "status",
+                  "caption": "Status",
+                  "values": {
+                    "All": "-1",
+                    "Interrupted": "50",
+                    "Preliminary": "0",
+                    "Interruption accepted": "60",
+                    "Ready for acceptance": "10",
+                    "Completed": "40",
+                    "Ongoing": "30",
+                    "Rejected": "70",
+                    "Cancelled": "80",
+                    "Accepted": "20"
+                  }
+                },
+                {
+                  "name": "team",
+                  "caption": "Primary team",
+                  "values": {
+                    "All": "-1",
+                    "Sales Team": "481244",
+                    "Consulting Team": "490066",
+                    "R & D Team": "480530",
+                    "Executive Team": "563642"
+                  }
+                },
+                {
+                  "name": "interval",
+                  "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+                  "values": {
+                    "Modified": "modfied",
+                    "Start": "start",
+                    "Ongoing": "ongoing",
+                    "Finish": "finish",
+                    "Accepted": "accepted",
+                    "Created": "created"
+                  }
+                }
+              ],
+              "fields": {
+                "accepterPerson": {
+                  "format": "text",
+                  "caption": "Task.ResponsibleId"
+                },
+                "interruptionDate": {
+                  "format": "shortdate",
+                  "caption": "Interruption date"
+                },
+                "created": {
+                  "format": "mediumdate",
+                  "caption": "Created"
+                },
+                "modfied": {
+                  "format": "mediumdate",
+                  "caption": "Modified"
+                },
+                "start": {
+                  "format": "mediumdateday",
+                  "caption": "Start"
+                },
+                "project": {
+                  "format": null,
+                  "caption": ""
+                },
+                "description": {
+                  "format": null,
+                  "caption": ""
+                },
+                "vacationYear": {
+                  "format": "text",
+                  "caption": "Vacation year"
+                },
+                "vacationLength": {
+                  "format": "day",
+                  "caption": "Length"
+                },
+                "person": {
+                  "format": "text",
+                  "caption": "Assignment.PersonId"
+                },
+                "absenceType": {
+                  "format": "Enumeration values.Task.Offduty",
+                  "caption": "Absence type"
+                },
+                "finish": {
+                  "format": "mediumdateday",
+                  "caption": "Finish"
+                },
+                "id": {
+                  "format": "text",
+                  "caption": "Task.Id"
+                },
+                "substitutePerson": {
+                  "format": "text",
+                  "caption": "Substitute.Id"
+                },
+                "status": {
+                  "format": "Enumeration values.Employee directory.Absences.Status",
+                  "caption": "Status"
+                }
+              }
+            }
+             
   /{absence_id}:
     type: 
      collectionItem:
-        exampleCollectionItem: !include absence1_5.sample
+      exampleCollectionItem: |
+        {
+          "accepterPerson": 2850921,
+          "interruptionDate": null,
+          "start": "2015-09-07T00:00:00.000+0300",
+          "project": 2850931,
+          "description": "child care leave",
+          "vacationYear": null,
+          "vacationLength": 450,
+          "person": 2850921,
+          "absenceType": 1130,
+          "finish": "2015-09-07T00:00:00.000+0300",
+          "id": 2850933,
+          "substitutePerson": null,
+          "status": 40
+        }
     /meta:
       description: Get meta information for the updatable fields of the absence
       get:
-      type:
+      type: 
         readOnlyCollectionItem:
-          exampleCollectionItem: !include absence_single_meta1_5.sample
+          exampleCollectionItem: |
+            {
+              "accepterPerson": {
+                "caption": "Acceptor",
+                "format": "int"
+              },
+              "interruptionDate": {
+                "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+                "caption": "Interruption date",
+                "format": "string",
+                "maxlength": "10",
+                "values": null
+              },
+              "start": {
+                "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+                "caption": "Start",
+                "format": "string",
+                "values": null
+              },
+              "project": {
+                "caption": "Project",
+                "values": {
+                  "Absences 2011": "2691515"
+                },
+                "format": "int"
+              },
+              "description": {
+                "caption": "",
+                "format": "string",
+                "values": null
+              },
+              "vacationYear": {
+                "caption": "Vacation year",
+                "values": {
+                  "-": ""
+                },
+                "format": "int"
+              },
+              "vacationLength": {
+                "caption": "",
+                "values": null
+              },
+              "person": {
+                "caption": "Person",
+                "values": {
+                  
+                },
+                "format": "int"
+              },
+              "absenceType": {
+                "caption": "Absence type",
+                "values": {
+                  "Military refresher": "1110",
+                  "Maternal leave (unpaid)": "1190",
+                  "Sick leave due to child": "1020",
+                  "Paid holiday": "1070",
+                  "Balance leave": "1090",
+                  "Sick leave by medical certificate": "1025",
+                  "Paternal leave (unpaid)": "1040",
+                  "-": "",
+                  "Study leave (unpaid)": "1140",
+                  "Annual holiday": "1000",
+                  "Maternal leave (paid)": "1030",
+                  "Layoff": "1120",
+                  "Overtime leave": "1080",
+                  "Bonus holiday pay": "1100",
+                  "Military leave": "1050",
+                  "Saved leave": "1165",
+                  "Sick leave": "1010",
+                  "Paternal leave (paid)": "1180",
+                  "Child care leave": "1130",
+                  "Unpaid holiday": "1060",
+                  "Other annual vacation": "1160"
+                },
+                "format": "int",
+                "enumeration": "Enumeration values.Task.Absence offduty"
+              },
+              "finish": {
+                "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+                "caption": "Finish",
+                "format": "string",
+                "values": null
+              },
+              "id": {
+                "caption": "",
+                "format": "int",
+                "values": null
+              },
+              "substitutePerson": {
+                "description": "Substitute for acceptance handling during my absence",
+                "caption": "Substitute",
+                "values": {
+                  "Jim, Harris": "2752646",
+                  "Sara, Johnson": "580283",
+                  "Mike, Hike": "2828584"
+                },
+                "format": "int"
+              },
+              "status": {
+                "caption": "Status"
+              }
+            }
 /accounts:
   get:
+    description: Get a list of accounts. See accounts/meta for list of filters, columns and formats.
     queryParameters:
       rowcount:
       nextrows:
@@ -559,6 +1067,23 @@ resourceTypes:
       interval:
       intervalstart:
       intervalfinish:
+    responses:
+      200:
+        body:
+          application/json: 
+            type: account[]
+  post:
+    headers:
+      Content-Type:
+        type: string
+        required: true
+        default: |
+          application/json;charset=UTF-8
+        example: |
+          application/json;charset=UTF-8
+    body:
+      application/json:
+        type: account[]     
   type:
     collection:
        exampleCollectionItemArray: !include account_array1_5.sample
@@ -570,6 +1095,25 @@ resourceTypes:
         readOnlyCollectionItem:
           exampleCollectionItem: !include account_meta1_5.sample
   /{account_id}:
+    get:
+      description: View details of a single account. See accounts/meta for list of filters, columns and formats. 
+      responses:
+        200:
+          body:
+            application/json: 
+              type: accountsingle
+    post:
+      headers:
+        Content-Type:
+          type: string
+          required: true
+          default: |
+            application/json;charset=UTF-8
+          example: |
+            application/json;charset=UTF-8
+      body:
+        application/json:
+          type: accountsingle
     type: 
      collectionItem:
         exampleCollectionItem: !include account1_5.sample
@@ -734,7 +1278,7 @@ resourceTypes:
           exampleCollectionItemArray: !include tempfile_array1_5.sample
       /{attachment_id}:
         put:
-          description: Attach existing file to user.( Tips - use file id from api/1.5/tempfile )
+          description: Attach existing file to user.( Tips use file id from api/1.5/tempfile )
         type:
           putCollectionItem
 /enumerations:
@@ -1051,7 +1595,7 @@ resourceTypes:
       200:
         body:
           application/json:
-            schema: !include me1_5.schema
+            type: !include me1_5.schema
   type:
     readOnlyCollectionItem:
       exampleCollectionItem: !include me1_5.sample
@@ -1120,12 +1664,12 @@ resourceTypes:
           200:
             body:
               application/json:
-                schema: !include opportunityitem1_5.schema
+                type: !include opportunityitem1_5.schema
       post:
         description: Add a new opportunity item to PlanMill or update existing (if id is given). See opportunities/{opportunity_id}/items/meta for list of columns and formats
         body:
           application/json:
-            schema: !include opportunityitem1_5.schema
+            type: !include opportunityitem1_5.schema
       type:
         collection:
           exampleCollectionItemArray: !include opportunityitem_array1_5.sample
@@ -1510,7 +2054,7 @@ resourceTypes:
       200:
         body:
           application/json:
-            schema: !include resource1_5.schema
+            type: !include resource1_5.schema
       403:
             headers:
               Content-type:
@@ -1582,12 +2126,12 @@ resourceTypes:
           200:
             body:
               application/json:
-                schema: !include salesorderitem1_5.schema
+                type: !include salesorderitem1_5.schema
       post:
         description: Add a new sales order item to PlanMill or update existing (if id is given). See salesorders/{sales_order_id}/items/meta for list of columns and formats
         body:
           application/json:
-            schema: !include salesorderitem1_5.schema
+            type: !include salesorderitem1_5.schema
       type:
         collection:
           exampleCollectionItemArray: !include salesorderitem_array1_5.sample
@@ -1873,7 +2417,7 @@ resourceTypes:
           200:
             body:
               application/json:
-                schema: !include balance1_5.schema
+                type: !include balance1_5.schema
       type:
         readOnlyCollectionItem:
           exampleCollectionItem: !include balance1_5.sample
@@ -1904,7 +2448,7 @@ resourceTypes:
           200:
             body:
               application/json:
-                schema: !include balance1_5.schema
+                type: !include balance1_5.schema
       type:
         readOnlyCollectionItem:
           exampleCollectionItem: !include balance1_5.sample
@@ -1919,7 +2463,7 @@ resourceTypes:
           200:
             body:
               application/json:
-                schema: !include balance1_5.schema
+                type: !include balance1_5.schema
       type:
         readOnlyCollectionItem:
           exampleCollectionItem: !include balance1_5.sample
