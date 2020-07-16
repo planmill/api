@@ -24,6 +24,9 @@
   },
   "homepage": "https://github.com/planmill/api#readme",
   "dependencies": {
-    "raml2html": "^7.5.0"
+    "downloadjs": "^1.4.7",
+    "express": "^4.17.1",
+    "raml2html": "^7.5.0",
+    "ramldt2jsonschema": "^1.2.2"
   }
 }

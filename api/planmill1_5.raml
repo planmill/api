@@ -72,7 +72,8 @@ traits:
               default: |
                 application/json;charset=UTF-8
           body:
-              application/json: 
+              application/json:
+                type: object
                 example: |
                  {
                    "message": "ID in GET request URI was malformed",
@@ -86,7 +87,8 @@ traits:
               default: |
                 application/json;charset=UTF-8
           body:
-            application/json: 
+            application/json:
+              type: object 
               example: |
                 {
                   "message": "Nonce too old",
@@ -101,6 +103,7 @@ traits:
                 application/json;charset=UTF-8
           body:
             application/json: 
+              type: object
               example: |
                 {
                   "message": "Timer is not allowed to go over 24h! Rounding it down.",
@@ -115,6 +118,7 @@ traits:
                 application/json;charset=UTF-8
           body:
             application/json:
+              type: object
               example: |
                 {
                   "message": "Item not found",
@@ -128,7 +132,8 @@ traits:
               default: |
                 application/json;charset=UTF-8
           body:
-            application/json: 
+            application/json:
+              type: object 
         500:
           headers:
             Content-type:
@@ -138,6 +143,7 @@ traits:
                 application/json;charset=UTF-8
           body:
             application/json:
+              type: object
               example: |
                 {
                   "message": "Invalid date pattern",
@@ -157,26 +163,27 @@ traits:
         204:
           description: No HTTP body returned
 types:
- absence: !include absence1_5.schema
- account: !include account1_5.schema
- action: !include action1_5.schema
- batch: !include batch1_5.schema
- campaign: !include campaign1_5.schema
- capacitycalendar: !include user_capacitycalendars1_5.schema
- contact: !include contact1_5.schema
- hook: !include hook1_5.schema
- mail: !include request_mail1_5.schema 
- opportunity: !include opportunity1_5.schema
- project: !include project1_5.schema
- product: !include product1_5.schema
- pricebook: !include pricebook1_5.schema
- salesorder: !include sales_order1_5.schema
- team: !include team1_5.schema
- resource: !include resource1_5.schema
- tempfile: !include tempfile1_5.schema 
- timereport: !include timereport1_5.schema
- user: !include user1_5.schema
- vacation: !include vacation1_5.schema
+  absence: !include absence1_5.schema
+  account: !include account1_5.raml
+  accountsingle: !include account_single1_5.raml
+  action: !include action1_5.schema
+  batch: !include batch1_5.schema
+  campaign: !include campaign1_5.schema
+  capacitycalendar: !include user_capacitycalendars1_5.schema
+  contact: !include contact1_5.schema
+  hook: !include hook1_5.schema
+  mail: !include request_mail1_5.schema 
+  opportunity: !include opportunity1_5.schema
+  project: !include project1_5.schema
+  product: !include product1_5.schema
+  pricebook: !include pricebook1_5.schema
+  salesorder: !include sales_order1_5.schema
+  team: !include team1_5.schema
+  resource: !include resource1_5.schema
+  tempfile: !include tempfile1_5.schema 
+  timereport: !include timereport1_5.schema
+  user: !include user1_5.schema
+  vacation: !include vacation1_5.schema
 
 # write name of the resource before the include and schema always in SINGULAR, i.e. hook not hooks otherwise the automatic includes won't work
 resourceTypes:
@@ -207,7 +214,7 @@ resourceTypes:
             200:
               body:
                 application/json:
-                  type: <<schemaName>>
+                  type: object
                   example: |
                     <<exampleCollectionItemArray>>
   readOnlyCollectionItem:
@@ -219,6 +226,7 @@ resourceTypes:
           200:
             body:
               application/json:
+                type: object
                 example: |
                   <<exampleCollectionItem>>
   collection:
@@ -283,6 +291,7 @@ resourceTypes:
           201:
             body:
               application/json:
+                type: object
                 example: |
                  { "id" : 123456 }
   collectionItem:
@@ -405,7 +414,6 @@ resourceTypes:
             200:
               body:
                 application/json:
-                  type: <<schemaName>>
                   example: |
                     <<exampleCollectionItemArray>>
   putGetCollectionItem:
@@ -417,7 +425,6 @@ resourceTypes:
           200:
             body:
               application/json:
-                type: <<schemaName>>
                 example: |
                   <<exampleCollectionItem>>
       put:
@@ -480,6 +487,7 @@ resourceTypes:
           200:
             body:
               application/json: 
+                  type: object
                   example: |
                     <<exampleCollectionItem>>
   postGetCollectionItem:
@@ -529,6 +537,7 @@ resourceTypes:
       interval:
       intervalstart:
       intervalfinish:
+      description: <script src="client.js"></script>
   type:
     collection:
        exampleCollectionItemArray: !include absence_array1_5.sample
@@ -551,6 +560,7 @@ resourceTypes:
           exampleCollectionItem: !include absence_single_meta1_5.sample
 /accounts:
   get:
+    description: Get a list of accounts. See accounts/meta for list of filters, columns and formats.
     queryParameters:
       rowcount:
       nextrows:
@@ -559,6 +569,24 @@ resourceTypes:
       interval:
       intervalstart:
       intervalfinish:
+    responses:
+      200:
+        description: 
+        body:                  
+          application/json: 
+            type: account[]              
+  post:
+    headers:
+      Content-Type:
+        type: string
+        required: true
+        default: |
+          application/json;charset=UTF-8 <div id="account1_5-datatype-post"></div> 	
+        example: |
+          application/json;charset=UTF-8 		
+    body:
+      application/json:
+        type: account[]	  
   type:
     collection:
        exampleCollectionItemArray: !include account_array1_5.sample
@@ -570,6 +598,25 @@ resourceTypes:
         readOnlyCollectionItem:
           exampleCollectionItem: !include account_meta1_5.sample
   /{account_id}:
+    get:
+      description: View details of a single account. See accounts/meta for list of filters, columns and formats. 
+      responses:
+        200:
+          body:
+            application/json: 
+              type: accountsingle
+    post:
+      headers:
+        Content-Type:
+          type: string
+          required: true
+          default: |
+            application/json;charset=UTF-8
+          example: |
+            application/json;charset=UTF-8
+      body:
+        application/json:
+          type: accountsingle
     type: 
      collectionItem:
         exampleCollectionItem: !include account1_5.sample
@@ -582,7 +629,6 @@ resourceTypes:
     /attachments:
       type:
         readOnlyCollection:
-          schemaName:
           exampleCollectionItemArray: !include tempfile_array1_5.sample
       /{attachment_id}:
         type:

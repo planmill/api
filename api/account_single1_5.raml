@@ -1,0 +1,127 @@
+#%RAML 1.0 Library
+
+mediaType: application/json
+properties:
+      id?:
+        description: Internal ID of an account
+        type: integer
+      operationalId?:
+        description: Operational ID of an account
+        type: integer | nil
+      name:
+        description: Name of Account
+        type: string
+      passive?:
+        description: Active or passive state of account
+        type: integer
+      owner?:
+        description: Responsible id of an account
+        type: integer
+      type?:
+        description: Type of an account
+        type: integer | nil
+      vatId?:
+        description: VAT id of an account
+        type: string
+      businessId?:
+        description: Business id of an account
+        type: string
+      termsOfPayment?:
+        description: Terms of payment of an invoice
+        type: integer
+      eInvoicingAddress?:
+        description: eInvoicing address
+        type: string
+      phone?:
+        description: Phone number of an account
+        pattern: "^[0-9|-]+$"
+        type: string
+      fax?:
+        description: Fax number of an account
+        type: string
+      website?:
+        description: Website of an account
+        type: string
+      email?:
+        description: Email address of an account
+        type: string
+        pattern: "^\\w+(\\.\\w+)?@company.com"
+      industry?: integer | nil
+      serviceLevel?:
+        description: Service level provided to real company linked to an account
+        type: integer | nil
+      customerSatisfaction?: integer | nil
+      description?:
+        description: Description of an account
+        type: string
+      autoReplyRequestMails?:
+        description: Auto-reply request mails
+        type: integer | nil
+      invoiceChannel?:
+        description: Methods of delivery of invoices
+        type: integer | nil
+      invoiceVat?:
+        description: VAT on an invoice of an account
+        type: number | nil
+      invoiceNetOperator?: string
+      handlingFee?:
+        description: Handling fee of an account
+        type: number | nil
+      invoiceEmail?:
+        description: Invoice delivery email
+        type: string
+        pattern: "^\\w+(\\.\\w+)?@company.com"
+      supplierAccount?:
+        description: Supplier id of an account
+        type: integer | nil
+      reverseCharge?: integer | nil
+      twitter?:
+        description: Twitter name of an account
+        type: string
+      facebook?:
+        description: Facebook name of an account
+        type: string
+      blog?:
+        description: Blog address of an account
+        type: string
+      firstInvoiceNumber?: string
+      combineInvoices?: integer | nil
+      rfReferenceNumber?: integer | nil
+      lineOfBusiness?: integer | nil
+      staff?: integer | nil
+      turnover?: integer | nil
+      billingAddress?:
+        description: Invoice billing address of an account
+        type: string
+      billingCity?:
+        description: Invoice billing city of an account
+        type: string
+      billingCountry?:
+        description: Invoice billing country of an account
+        type: integer | nil
+      billingPostalCode?:
+        description: Invoice billing postal code of an account
+        type: string
+      billingReference?: string | integer | nil
+      billingState?: string
+      parentAccount?:
+        description: Parent id of an account
+        type: integer | nil
+      ceo?: string
+      parentAccountName?: string
+      shippingAddress?:
+        description: Invoice shipping address of an account
+        type: string
+      shippingCity?:
+        description: Invoice shipping city of an account
+        type: string
+      shippingCountry?:
+        description: Invoice shipping country of an account
+        type: integer | nil
+      shippingPostalCode?: 
+        description: Invoice shipping postal code of an account
+        type: string
+      shippingReference?: string
+      shippingState?: string
+      invoiceAppendix?: integer | nil
+      invoiceTemplate?: string
