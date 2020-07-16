@@ -21,6 +21,6 @@ npm install -g express
 npm install -g downloadjs
 
 
--command: node server.js
+-command: node custom_datatype_server.js
 -open localhost:8080 in browser
 -click "Download JSON" -button(s) to generate json files from raml available in server. 
