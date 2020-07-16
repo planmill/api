@@ -1,4 +1,3 @@
-console.log('Client-side code running');
 var divSelector = "div[id*='datatype']";
 var idSplit = ":";
 
@@ -23,7 +22,7 @@ function createButton(divId) {
 
 $(function(){
 var linkItems = ["accounts_get_response:account1_5", "accounts_post_request:account1_5", "accounts__account_id__get_response:account_single1_5", "accounts__account_id__post_request:account_single1_5"];
-console.log(linkItems);
+
   linkItems.forEach((elem) => {
     let divId = elem.split(idSplit)[0];
     let type = elem.split(idSplit)[1];
@@ -35,7 +34,7 @@ console.log(linkItems);
     if(el) {
       el.addEventListener("click", function () {
         let jsonFile = type + ".json";
-        console.log(jsonFile);
+        
           fetch("/download/" + type, { method: "GET" })
             .then((response) => response.text())
             .then((data) => {
