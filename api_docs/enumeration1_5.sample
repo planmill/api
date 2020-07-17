@@ -1,0 +1,10 @@
+{
+  "Enumeration values.Employee directory.Appraisals.Status": {
+    "10": "Preliminary",
+    "20": "Employee writes comments",
+    "30": "Ready for meeting",
+    "40": "Final version for comments",
+    "50": "Final version, requires additional discussion",
+    "60": "Final version, accepted"
+  }
+}

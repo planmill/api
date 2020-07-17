@@ -1,0 +1,22 @@
+[
+  {
+    "date": "2019-12-23T00:00:00.000+0200",
+    "amount": 450,
+    "description": null
+  },
+  {
+    "date": "2019-12-24T00:00:00.000+0200",
+    "amount": 0,
+    "description": "Christmas Eve - Jouluaatto"
+  },
+  {
+    "date": "2019-12-25T00:00:00.000+0200",
+    "amount": 0,
+    "description": "Christmas Day - Joulupäivä"
+  },
+  {
+    "date": "2019-12-26T00:00:00.000+0200",
+    "amount": 0,
+    "description": "2.Christmas Day, Boxing Day - 2.joulupäivä, Tapaninpäivä"
+  }
+]

@@ -1,0 +1,157 @@
+{
+  "filters": [
+    {
+      "name": "searchkey",
+      "caption": ""
+    },
+    {
+      "name": "Person.Id",
+      "caption": "Performer",
+      "values": {
+        "All": "-1"
+      }
+    },
+    {
+      "name": "task",
+      "caption": "Task",
+      "values": {
+        "All": "-1"
+      }
+    },
+    {
+      "name": "taskStatus",
+      "caption": "Status",
+      "values": {
+        "All": "-1"
+      }
+    },
+    {
+      "name": "taskBillableStatus",
+      "caption": "Billing type",
+      "values": {
+        "All": "-1",
+        "Non-billable": "3",
+        "Time based": "2",
+        "Fixed": "1"
+      }
+    },
+    {
+      "name": "Baseline.Id",
+      "caption": "Baseline",
+      "values": {
+        "-": "-1"
+      }
+    },
+    {
+      "name": "status",
+      "caption": "Assignment status",
+      "values": {
+        "All": "-1",
+        "Declined": "30",
+        "Proposed": "10",
+        "Accepted": "20",
+        "Open": "-2"
+      }
+    },
+    {
+      "name": "interval",
+      "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+      "values": {
+        "Modified": "Assignment.Modified",
+        "Start": "taskStart",
+        "Finish": "taskFinish",
+        "Created": "Assignment.Created"
+      }
+    }
+  ],
+  "fields": {
+    "unitPrice": {
+      "format": "projectcurrency",
+      "caption": "Unit price"
+    },
+    "reportedEffort": {
+      "format": "projecteffortunit",
+      "caption": "Reported"
+    },
+    "taskBillableStatus": {
+      "format": "Enumeration values.Project.Billable status",
+      "caption": "Billing type"
+    },
+    "request": {
+      "format": "text",
+      "caption": "Request.Id"
+    },
+    "taskStart": {
+      "format": "shortdate",
+      "caption": "Start"
+    },
+    "proposedDeadline": {
+      "format": "shortdate",
+      "caption": "Proposal deadline"
+    },
+    "actualAmount": {
+      "format": "projecteffortunit",
+      "caption": "Accepted"
+    },
+    "personOrTeam": {
+      "format": null,
+      "caption": null
+    },
+    "proposedEffortAmount": {
+      "format": "projecteffortunit",
+      "caption": "Proposed-Planned"
+    },
+    "proposedAmount": {
+      "format": "projecteffortunit",
+      "caption": "Proposed"
+    },
+    "remainingAmount": {
+      "format": "projecteffortunit",
+      "caption": "Remain"
+    },
+    "totalAmount": {
+      "format": "projecteffortunit",
+      "caption": "Forecast"
+    },
+    "personOrTeamName": {
+      "format": "text",
+      "caption": "_Performer"
+    },
+    "task": {
+      "format": "text",
+      "caption": "Task.Id"
+    },
+    "declined": {
+      "format": "projecteffortunit",
+      "caption": "Declined"
+    },
+    "taskName": {
+      "format": "text",
+      "caption": "_Task"
+    },
+    "comment": {
+      "format": null,
+      "caption": "Proposal hint"
+    },
+    "plannedAmount": {
+      "format": "projecteffortunit",
+      "caption": "Planned"
+    },
+    "id": {
+      "format": "text",
+      "caption": "Assignment.Id"
+    },
+    "taskFinish": {
+      "format": "shortdate",
+      "caption": "Finish"
+    },
+    "taskStatus": {
+      "format": "text",
+      "caption": "Status"
+    },
+    "status": {
+      "format": "Enumeration values.Assignment.Status",
+      "caption": "Assignment status"
+    }
+  }
+}

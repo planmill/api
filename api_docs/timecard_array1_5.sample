@@ -1,0 +1,54 @@
+[
+    {
+        "date": "2019-02-27T00:00:00.000+0200",
+        "totalFinishTime": 1000,
+        "totalStartTime": 250,
+        "createdBy": 50,
+        "person": 1610,
+        "created": "2019-02-27T16:34:20.547+0200",
+        "modified": null,
+        "modifiedBy": null,
+        "breakAmount": 45,
+        "workStartTime": 250,
+        "workFinishTime": 1000
+    },
+    {
+        "date": "2019-04-03T00:00:00.000+0300",
+        "totalFinishTime": 1250,
+        "totalStartTime": 0,
+        "createdBy": 50,
+        "person": 1610,
+        "created": "2019-02-27T16:29:26.263+0200",
+        "modified": "2019-02-27T16:38:13.410+0200",
+        "modifiedBy": 50,
+        "breakAmount": 20,
+        "workStartTime": 0,
+        "workFinishTime": 1250
+    },
+    {
+        "date": "2019-04-06T00:00:00.000+0300",
+        "totalFinishTime": 1090,
+        "totalStartTime": 360,
+        "createdBy": 50,
+        "person": 1610,
+        "created": "2019-02-27T16:32:52.490+0200",
+        "modified": null,
+        "modifiedBy": null,
+        "breakAmount": 40,
+        "workStartTime": 360,
+        "workFinishTime": 1090
+    },
+    {
+        "date": "2019-05-03T00:00:00.000+0300",
+        "totalFinishTime": 700,
+        "totalStartTime": 0,
+        "createdBy": 50,
+        "person": 1610,
+        "created": "2019-02-27T16:31:21.513+0200",
+        "modified": "2019-02-27T16:39:54.870+0200",
+        "modifiedBy": 50,
+        "breakAmount": 10,
+        "workStartTime": 0,
+        "workFinishTime": 700
+    }
+]

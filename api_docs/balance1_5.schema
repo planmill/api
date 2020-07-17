@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "base schema for all balance entities",
+  "type": "object",
+  "required": [ "amount" ],
+  "additionalProperties": false,
+  "properties": {
+    "amount": {
+      "type": "integer",
+      "description": "Balance amount in minutes of a user"
+    }
+  }
+}

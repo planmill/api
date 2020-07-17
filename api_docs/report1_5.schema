@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "base schema for all report entities",
+  "oneOf": [
+    {
+      "type": "array",
+      "items": { "$ref": "#/definitions/report" }
+    },
+    {
+      "type": "array",
+      "items": { "$ref": "#/definitions/report_single" }
+    }
+  ],
+  "definitions": {
+    "report": {
+      "type": "object",
+      "required": [ "name", "localizedName", "modern", "favorite", "hasAccess" ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of a report"
+        },
+        "localizedName": {
+          "type": "string",
+          "description": "Name of a report in user's language setting"
+        },
+        "modern": {
+          "type": "boolean",
+          "description": ""
+        },
+        "favorite": {
+          "type": "boolean",
+          "description": ""
+        },
+        "hasAccess": {
+          "type": "boolean",
+          "description": ""
+        }
+      }
+    },
+    "report_single": {
+      "type": "array"
+    }
+  }
+}

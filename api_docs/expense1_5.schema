@@ -1,0 +1,139 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "base schema for all expense entities",
+  "oneOf": [
+    {
+      "type": "array",
+      "items": { "$ref": "#/definitions/expenseArray" }
+    },
+    {
+      "$ref": "#/definitions/expenseSingle"
+    }
+  ],
+  "definitions": {
+    "expenseSingle": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Internal id of an expense"
+        },
+        "task": {
+          "type": "integer",
+          "description": "Id of an expense task"
+        },
+        "journey": {
+          "type": ["integer", "null"],
+          "description": "Id of an expense journey"
+        },
+        "acceptor": {
+          "type": ["integer", "null"],
+          "description": "Id of an expense acceptor person"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of an expense"
+        },
+        "expenseOwner": {
+          "type": "integer",
+          "description": "Owner of an expense"
+        },
+        "project": {
+          "type": "integer",
+          "description": "Id of an expense project"
+        },
+        "description": {
+          "type": ["string", "null"],
+          "description": "Description of an expense"
+        },
+        "currency": {
+          "type": ["string", "null"],
+          "description": "Id of a expense currency"
+        },
+        "type": {
+          "type": ["integer", "null"],
+          "description": "Type of an expense; 0=Travel, 7=Other, 10=Advanced payment"
+        },
+        "billableStatus": {
+          "type": "integer",
+          "description": "Billable status of an expense; 1=Billable, 3=Non-billable"
+        },
+        "currencyCode": {
+          "type": "string",
+          "description": "Currency code of an expense"
+        },
+        "status": {
+          "type": "string",
+          "description": "Status of an expense"
+        }
+      }
+    },
+    "expenseArray": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Internal ID of a time report"
+        },
+        "date": {
+          "type": ["string", "null"],
+          "description": "Date of creation of an expense"
+        },
+        "journey": {
+          "type": ["integer", "null"],
+          "description": "Id of a journey"
+        },
+        "description": {
+          "type": ["string", "null"],
+          "description": "Description of an expense"
+        },
+        "totalInclVAT": {
+          "type": ["number", "null"],
+          "description": ""
+        },
+        "project": {
+          "type": "integer",
+          "description": "Id of a project"
+        },
+        "sentToBank": {
+          "type": ["integer", "null"],
+          "description": ""
+        },
+        "billableStatus": {
+          "type": "integer",
+          "description": "Billable status of an expense; 1=Billable, 3=Non-billable"
+        },
+        "type": {
+          "type": ["integer", "null"],
+          "description": "Type of an expense; 0=Travel, 7=Other, 10=Advanced payment"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of an expense"
+        },
+        "modified": {
+          "type": ["string", "null"],
+          "description": "Date of modification of an expense"
+        },
+        "projectName": {
+          "type": "string",
+          "description": "Name of a project"
+        },
+        "paymentDate": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "debt": {
+          "type": ["number", "null"],
+          "description": ""
+        },
+        "status": {
+          "type": "integer",
+          "description": "Status of an expense"
+        }
+      }
+    }
+  }
+}

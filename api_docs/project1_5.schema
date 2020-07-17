@@ -1,0 +1,195 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "base schema for all project entities",
+  "oneOf": [
+    {
+      "type": "array",
+      "items": { "$ref": "#/definitions/project" }
+    },
+    {
+      "$ref": "#/definitions/project"
+    }
+  ],
+  "definitions": {
+    "project": {
+      "required": [ "name", "status", "billableStatus", "type", "contact" ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Project's name."
+        },
+        "status": {
+         "type": "integer",
+          "description": "Enumeration of a project's status: 1=Draft, 2=Preliminary, 3=Execution, 4=Aborted, 5=Closed, 6=On hold, 8=Archived"
+        },
+        "billableStatus": {
+          "type": "integer",
+          "description": "Enumeration of a project's billable status: 1=Fixed, 2=Time-based, 3=Non-billable"
+        },
+        "type": {
+         "type": "integer",
+          "description": "Enumeration of a project's type: 1=Project, 3=Template"
+        },
+        "category": {
+          "type": ["integer","null"],
+          "description": "Enumeration of a project's category: -1=NULL , 10=Absence ,20=Administration, 30=Development, 40=Delivery, 50=R & D, 60=Support, 70=Sales, 80=Marketing, 90=Education, 100=Continuos service, 110=Maintenance"
+        },
+        "parent": {
+          "type": "number",
+          "description": "Parenting project's id"
+        },
+        "template": {
+          "type": "number",
+          "description": "Id of a project's template"
+        },
+        "templateStart": {
+          "type": "string",
+          "pattern": "(\\d{4})-([0][1-9]|[1][0-2])-([0][1-9]|[1-2][0-9]|[3][0-1])",
+          "description": "Project's template starting date in yyyy-MM-dd format"
+        },
+        "contact": {
+          "type": "number",
+          "description": "Contact's id that is related to a project, REQUIRED only IF billable status is 1 or 2"
+        },
+        "autoAcceptTimeReports": {
+          "type": "integer",
+          "description": "Enumeration of autoAcceptTimeReports: 0=No, 1=Yes"
+        },
+        "requireBillableComment": {
+          "type": "integer",
+          "description": "Enumeration of requireBillableComment: 0=No, 1=For all billable tasks, 2=For all tasks"
+        },
+        "setRequestPerformerAsTeamMember": {
+          "type": "integer",
+          "description": "Enumeration of requestPerformerAsTeamMember: 0=No, 1=Yes"
+        },
+        "requireCommentForOvertime": {
+          "type": "integer",
+          "description": "Enumeration of requireBillableComment: 0=No, 1=For all billable tasks, 2=For all tasks"
+        },
+        "allowNewTasksAndAssignmentsForAllUsers": {
+          "type": "integer",
+          "description": "Enumeration of allowNewTasksAndAssignmentsForAllUsers: 0=No, 1=Yes,but do not add them as team members, 2=Yes,and add them as team members"
+        },
+        "autoAssignNewTeamMembers": {
+          "type": "integer",
+          "description": "Enumeration of autoAssignNewTeamMembers: 0=No, 1=Yes,but only to sub tasks, 2=Yes"
+        },
+        "invoiceReference": {
+          "type": "string",
+          "description": "Invoice reference of a project"
+        },
+        "description": {
+          "type": ["string", "null"],
+          "description": "Description of a project"
+        },
+        "billingAccount": {
+          "type": ["integer", "null"],
+          "description": "Billing account of a project"
+        },
+        "invoiceAppendix": {
+          "type": "integer",
+          "description": "Invoice appendix of a project"
+        },
+        "effortUnit": {
+          "type": ["integer", "null"],
+          "description": "Effort unit of a project"
+        },
+        "currency": {
+          "type": "number",
+          "description": "Currency id of a project"
+        },
+        "fixedRevenue": {
+          "type": ["number", "null"],
+          "description": "Revenue amount of a project"
+        },
+        "fixedEffort": {
+          "type": ["number", "null"],
+          "description": "Work effort hours of a project"
+        },
+        "fixedCost": {
+          "type": ["number", "null"],
+          "description": "Work effort cost of a project"
+        },
+        "budgetedExpense": {
+          "type": ["number", "null"],
+          "description": "Expense amount of a project"
+        },
+        "budgetedPurchase": {
+          "type": ["number", "null"],
+          "description": "Purchase amount of a project"
+        },
+        "totalCost": {
+          "type": "number",
+          "description": "Total cost of a project"
+        },
+        "actualCost": {
+          "type": "number",
+          "description": "Actual cost of a project"
+        },
+        "totalRevenue": {
+          "type": "number",
+          "description": "Total revenue of a project"
+        },
+        "actualRevenue": {
+          "type": "number",
+          "description": "Actual revenue of a project"
+        },
+        "invoicedRevenue": {
+          "type": "number",
+          "description": "Invoiced revenue of a project"
+        },
+        "plannedEffort": {
+          "type": "number",
+          "description": "Planned effort of a project"
+        },
+        "totalEffort": {
+          "type": "number",
+          "description": "Total effort of a project"
+        },
+        "actualEffort": {
+          "type": "number",
+          "description": "Actual effort of a project"
+        },
+        "remainingEffort": {
+          "type": "number",
+          "description": "Remaining effort of a project"
+        },
+        "start": {
+          "type": "string",
+          "pattern": "(\\d{4})-([0][1-9]|[1][0-2])-([0][1-9]|[1-2][0-9]|[3][0-1])",
+          "description": "Start date of a project"
+        },
+        "finish": {
+          "type": "string",
+          "pattern": "(\\d{4})-([0][1-9]|[1][0-2])-([0][1-9]|[1-2][0-9]|[3][0-1])",
+          "description": "Finish date of a project"
+        },
+        "workCompleteness": {
+          "type": "number",
+          "description": "Work completeness of a project"
+        },
+        "workCompletenessPercentage": {
+          "type": "number",
+          "description": "Work completeness percentage of a project"
+        },
+        "totalRemainingEffort": {
+          "type": "number",
+          "description": "Total remaining effort of a project"
+        },
+        "externalTeamMembers": {
+          "type": "string",
+          "description": "External team members of a project"
+        },
+        "reportedHours": {
+          "type": ["integer", "null"],
+          "description": "Amount of hours (in minutes) reported to a project"
+        },
+        "projectManager": {
+          "type": "integer",
+          "description": "Id of the project manager"
+        }
+      }
+    }
+  }
+}

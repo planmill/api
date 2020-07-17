@@ -1,0 +1,40 @@
+[
+  [
+    "Test project",
+    "Time and material based service",
+    "Test project",
+    "2",
+    "2016-01-27T09:00:00.000+0200",
+    "2020-01-26T16:30:00.000+0200",
+    null,
+    null,
+    "4693",
+    "0",
+    "3925",
+    "3865",
+    "0",
+    "3865",
+    null,
+    "PlanMill User",
+    null
+  ],
+  [
+    "test project - expense",
+    "test task - expense",
+    "test project - expense",
+    "2",
+    "2016-03-02T09:00:00.000+0200",
+    "2016-04-04T16:30:00.000+0300",
+    null,
+    null,
+    "10800",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    null,
+    "Tester Qasim",
+    null
+  ]
+]

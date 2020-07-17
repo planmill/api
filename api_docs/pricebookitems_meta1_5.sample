@@ -1,0 +1,272 @@
+{
+  "filters": null,
+  "fields": {
+    "invoiceProcess": {
+      "values": {
+        "1": "Automatic prices",
+        "2": "Automatic revenue items and prices",
+        "3": "Automatic draft invoices",
+        "4": "Automatic invoice confirmation"
+      },
+      "format": "Enumeration values.Product catalog.Products.Automatic invoice generation",
+      "caption": "Automatic invoice generation"
+    },
+    "minimumAmountToBeSold": {
+      "format": "number",
+      "caption": "Minimum amount to be sold"
+    },
+    "masterProduct": {
+      "format": "int",
+      "caption": null
+    },
+    "targetEffort": {
+      "format": "effortunit",
+      "caption": "Estimated work"
+    },
+    "revenueType": {
+      "values": {
+        "0": "Own New License",
+        "1": "Own Maintenance License",
+        "2": "3rd Party New License",
+        "3": "3rd Party Maint License",
+        "4": "Services",
+        "5": "Hosting",
+        "6": "Travel expenses",
+        "7": "Other",
+        "8": "Subscription",
+        "9": "3rd Party Subscription"
+      },
+      "format": "Enumeration values.Invoice position.Type",
+      "caption": "Revenue type"
+    },
+    "description": {
+      "format": "text",
+      "caption": "Description"
+    },
+    "discount": {
+      "format": "percent",
+      "caption": "Discount"
+    },
+    "operationalId": {
+      "format": "int",
+      "caption": null
+    },
+    "competence": {
+      "format": "text",
+      "caption": "Competence"
+    },
+    "priceBook": {
+      "format": "int",
+      "caption": "PriceBook Id"
+    },
+    "sellingPrice": {
+      "format": "currency",
+      "caption": "Price"
+    },
+    "warrantyPeriod": {
+      "values": {
+        "7": "7 Days",
+        "14": "14 Days",
+        "30": "30 Days",
+        "60": "2 Months",
+        "90": "3 Months",
+        "120": "4 Months",
+        "150": "5 Months",
+        "180": "6 Months",
+        "360": "12 Months",
+        "540": "18 Months",
+        "720": "2 Years",
+        "1080": "3 Years",
+        "1440": "4 Years",
+        "1800": "5 Years"
+      },
+      "format": "Enumeration values.Product catalog.Products.Warranty period",
+      "caption": "Warranty period"
+    },
+    "billingType": {
+      "values": {
+        "0": "Non-billable",
+        "1": "Fixed",
+        "2": "Time based",
+        "3": "Category based volume price",
+        "4": "Cumulative volume price",
+        "5": "Expenses and purchases"
+      },
+      "format": "Enumeration values.Product catalog.Products.Billing type",
+      "caption": "Billing type"
+    },
+    "modified": {
+      "format": "mediumdate",
+      "caption": "Modified"
+    },
+    "relatedToPerson": {
+      "values": {
+        "0": "No",
+        "1": "Yes"
+      },
+      "format": "Enumeration values.Administration.Parameters.Enabled",
+      "caption": "Person"
+    },
+    "modifiedBy": {
+      "format": "int",
+      "caption": "Modified by"
+    },
+    "id": {
+      "format": "int",
+      "caption": null
+    },
+    "salesAccount": {
+      "values": {
+        "0": "Own New License",
+        "1": "Own Maintenance License",
+        "2": "3rd Party New License",
+        "3": "3rd Party Maint License",
+        "4": "Services",
+        "5": "Hosting",
+        "6": "Travel expenses",
+        "7": "Misc.",
+        "8": "Subscription",
+        "9": "3rd Party Subscription"
+      },
+      "format": "Enumeration values.Finance control.Invoice position summary.Invoices.Account",
+      "caption": "Sales account"
+    },
+    "invoicingPeriod": {
+      "values": {
+        "1": "1 week Postpaid",
+        "2": "1 month Postpaid",
+        "3": "1 month (last day) Postpaid",
+        "4": "2 months Postpaid",
+        "5": "2 months (last day) Postpaid",
+        "6": "3 months Postpaid",
+        "7": "3 months (last day) Postpaid",
+        "8": "4 months Postpaid",
+        "9": "4 months (last day) Postpaid",
+        "10": "6 months Postpaid",
+        "11": "6 months (last day) Postpaid",
+        "12": "12 months Postpaid",
+        "13": "2 weeks Postpaid",
+        "14": "12 months (last day) Postpaid",
+        "23": "2 weeks (15th and last day) Postpaid",
+        "37": "4 weeks Postpaid",
+        "100": "Advance payment",
+        "110": "Payment after delivery",
+        "120": "50 % advance/ 50 % after delivery",
+        "optgroup": "Postpaid",
+        "-10": "6 months Prepaid",
+        "-11": "6 months (last day) Prepaid",
+        "-12": "12 months Prepaid",
+        "-13": "2 weeks Prepaid",
+        "-14": "12 months (last day) Prepaid",
+        "-15": "6 months (last day of first month) Prepaid",
+        "-16": "3 months (last day of first month) Prepaid",
+        "-17": "12 months (last day of first month) Prepaid",
+        "/optgroup": "-",
+        "-2": "1 month Prepaid",
+        "-3": "1 month (last day) Prepaid",
+        "-4": "2 months Prepaid",
+        "-5": "2 months (last day) Prepaid",
+        "-6": "3 months Prepaid",
+        "-7": "3 months (last day) Prepaid",
+        "-8": "4 months Prepaid",
+        "-9": "4 months (last day) Prepaid",
+        "-22": "1 months (1 month in advance) Prepaid",
+        "-23": "2 weeks (15th and last day) Prepaid",
+        "-24": "2 weeks (first and 15th day) Prepaid"
+      },
+      "format": "Enumeration values.Sales management.Sales orders.Sales order item.Invoicing period",
+      "caption": "Inv. period"
+    },
+    "quantity": {
+      "format": "int",
+      "caption": "Quantity"
+    },
+    "costCenter": {
+      "values": {
+        "3100": "3100 Customer R&S Finland",
+        "4100": "4100 Customer R&S international"
+      },
+      "format": "Enumeration values.Finance control.Invoice position summary.Invoices.Cost center",
+      "caption": "Cost center"
+    },
+    "created": {
+      "format": "mediumdate",
+      "caption": "Created"
+    },
+    "vat": {
+      "format": "percent",
+      "caption": "VAT"
+    },
+    "shortDescription": {
+      "format": "text",
+      "caption": "Short description"
+    },
+    "contractPeriod": {
+      "values": {
+        "10": "1 week",
+        "20": "2 weeks",
+        "30": "1 month",
+        "40": "1 month (last day)",
+        "50": "2 months",
+        "60": "2 months (last day)",
+        "70": "3 months",
+        "80": "3 months (last day)",
+        "90": "4 months",
+        "100": "4 months (last day)",
+        "110": "6 months",
+        "120": "6 months (last day)",
+        "130": "12 months (1 year)",
+        "140": "24 months (2 years)",
+        "150": "36 months (3 years)",
+        "160": "48 months (4 years)",
+        "170": "60 months (5 years)",
+        "180": "72 months (6 years)",
+        "190": "84 months (7 years)",
+        "200": "96 months (8 years)",
+        "210": "108 months (9 years)",
+        "220": "120 months (10 years)",
+        "230": "180 months (15 years)",
+        "240": "240 months (20 years)"
+      },
+      "format": "Enumeration values.Product catalog.Products.Contract period",
+      "caption": "Contract period"
+    },
+    "unit": {
+      "values": {
+        "1": "unit",
+        "2": "h",
+        "3": "pcs",
+        "4": "days",
+        "5": "mth",
+        "6": "%",
+        "7": "users",
+        "8": "servers",
+        "10": "wk",
+        "11": "h/month",
+        "12": "units/months",
+        "13": "days/month",
+        "14": "users/month",
+        "15": "packets",
+        "16": "pcs/month"
+      },
+      "format": "Enumeration values.Pricing.Unit",
+      "caption": "Unit"
+    },
+    "task": {
+      "format": "int",
+      "caption": "Task ID"
+    },
+    "createdBy": {
+      "format": "int",
+      "caption": "Created by"
+    },
+    "name": {
+      "format": "text",
+      "caption": "Name"
+    },
+    "selfCost": {
+      "format": "currency",
+      "caption": "Self cost"
+    }
+  }
+}

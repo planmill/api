@@ -1,0 +1,313 @@
+{
+    "filters": [
+        {
+            "type": "string",
+            "name": "freetextsearch",
+            "caption": ""
+        },
+        {
+            "type": "string",
+            "name": "viewtemplate",
+            "value": "0",
+            "caption": "View by",
+            "values": {
+                "0": "All active users",
+                "1": "All inactive users",
+                "2": "All users",
+                "3": "All recently created users - last 7 days",
+                "4": "All recently modified users - last 7 days",
+                "5": "My teams' members",
+                "6": "My recently created users - last 7 days",
+                "7": "My recently modified users - last 7 days",
+                "10": "All recently created users - last 30 days",
+                "11": "All recently modified users - last 30 days",
+                "12": "All recently created users - this month",
+                "13": "All recently created users - last month",
+                "14": "All recently modified users - this month",
+                "15": "All recently modified users - last month"
+            }
+        },
+        {
+            "type": "string",
+            "name": "rowcount",
+            "value": "100",
+            "caption": "Rows",
+            "values": {
+                "25": "25",
+                "50": "50",
+                "75": "75",
+                "100": "100",
+                "150": "150",
+                "250": "250"
+            }
+        },
+        {
+            "type": "multivalue",
+            "name": "account",
+            "value": "-1",
+            "caption": "Organization",
+            "values": {
+                "51": "PlanMill Oy",
+                "353": "Sample account",
+                "-1": "All"
+            }
+        },
+        {
+            "type": "multivalue",
+            "name": "PersonHasTeam.TeamId",
+            "value": "-1",
+            "caption": "Primary team",
+            "values": {
+                "1041": "First team (update name e.g. your company name)",
+                "-1": "All"
+            }
+        },
+        {
+            "type": "multivalue",
+            "name": "contractType",
+            "value": "-1",
+            "caption": "Type",
+            "values": {
+                "0": "Permanent - full-time",
+                "-1": "All"
+            }
+        },
+        {
+            "type": "multivalue",
+            "name": "Role.Id",
+            "value": "-1",
+            "caption": "Role",
+            "values": {
+                "1": "Administrator (1/1)",
+                "2": "Power",
+                "4": "Team",
+                "5": "Sales",
+                "-1": "All"
+            }
+        },
+        {
+            "type": "multivalue",
+            "name": "Location.City",
+            "value": "-1",
+            "caption": "City",
+            "values": {
+                "-1": "All",
+                "Helsinki": "Helsinki"
+            }
+        },
+        {
+            "type": "multivalue",
+            "name": "Location.CountryId",
+            "value": "-1",
+            "caption": "Country",
+            "values": {
+                "73": "Finland",
+                "-1": "All"
+            }
+        },
+        {
+            "type": "multivalue",
+            "name": "superior",
+            "value": "-1",
+            "caption": "Superior",
+            "values": {
+                "-1": "All"
+            }
+        }
+    ],
+    "fields": {
+        "teamName": {
+            "format": "text",
+            "caption": "Primary team"
+        },
+        "lastLogin": {
+            "format": "longdate",
+            "caption": "Last logged in"
+        },
+        "lastName": {
+            "format": "",
+            "caption": null
+        },
+        "role": {
+            "format": "text",
+            "caption": "Role.Id"
+        },
+        "accountName": {
+            "format": "text",
+            "caption": "Organization"
+        },
+        "contractType": {
+            "values": {
+                "0": "Permanent - full-time",
+                "2": "Permanent - part-time",
+                "3": "Trainee",
+                "4": "Subcontractor",
+                "5": "Army leave",
+                "6": "Study leave",
+                "7": "Maternity/Paternity leave",
+                "8": "Hired - full-time",
+                "9": "Hired - part-time",
+                "10": "Hired - temporarily",
+                "11": "Partner",
+                "12": "Customer",
+                "13": "Board"
+            },
+            "format": "Enumeration values.Employee directory.Contact.Employee status",
+            "caption": "Type"
+        },
+        "skin": {
+            "values": {
+                "1": "Forest",
+                "2": "Made Of Steel",
+                "3": "Gold Rush",
+                "4": "Bubbles",
+                "5": "Fall",
+                "6": "Through A Rock",
+                "7": "Wave",
+                "8": "Grey Horizon",
+                "9": "Winter",
+                "10": "Beach Holiday",
+                "190": "PlanMill Blue",
+                "200": "Seed Of Growth",
+                "210": "Red Carpet",
+                "220": "Rose-Tinted Glasses",
+                "230": "Oceans Of Calm",
+                "240": "Vision Quest",
+                "optgroup": "Original look"
+            },
+            "format": "Enumeration values.System.Theme",
+            "caption": "Theme"
+        },
+        "title": {
+            "format": "text",
+            "caption": "Title"
+        },
+        "effortUnit": {
+            "values": {
+                "1": "Minutes",
+                "2": "Hours",
+                "3": "Days",
+                "4": "Weeks",
+                "5": "Months",
+                "6": "Quarters",
+                "7": "Thirds",
+                "8": "Half years",
+                "9": "Years",
+                "10": "5 years",
+                "11": "10 years"
+            },
+            "format": "Enumeration values.Task.Effort units",
+            "caption": "Time unit"
+        },
+        "competence": {
+            "format": "text",
+            "caption": "Competences"
+        },
+        "id": {
+            "format": "",
+            "caption": null
+        },
+        "department": {
+            "format": "text",
+            "caption": "Department"
+        },
+        "email": {
+            "format": "emaillink",
+            "caption": "Email"
+        },
+        "lastLogout": {
+            "format": "longdate",
+            "caption": "Last logged out"
+        },
+        "hireDate": {
+            "format": "shortdate",
+            "caption": "Hire date"
+        },
+        "balanceAdjustment": {
+            "format": "effortunit",
+            "caption": "Balance adjust"
+        },
+        "teams": {
+            "format": "number",
+            "caption": "Teams"
+        },
+        "photo": {
+            "format": "fileicon",
+            "caption": "iconmap(ui-icon-person)"
+        },
+        "timeZone": {
+            "format": "text",
+            "caption": "Time zone"
+        },
+        "team": {
+            "format": "text",
+            "caption": "Team.Id"
+        },
+        "userName": {
+            "format": "text",
+            "caption": "User name"
+        },
+        "languageCode": {
+            "values": {
+                "de": "de",
+                "de-DE": "de-DE",
+                "en-CA": "en-CA",
+                "en-US": "en-US",
+                "fi": "fi",
+                "sv": "sv",
+                "pt": "pt",
+                "pt-BR": "pt-BR",
+                "sv-FI": "sv-FI",
+                "en": "en",
+                "et": "et",
+                "nb": "nb",
+                "en-BR": "en-BR",
+                "en-SG": "en-SG",
+                "da": "da",
+                "nl": "nl"
+            },
+            "format": "Enumeration values.System.Language",
+            "caption": "Language"
+        },
+        "passive": {
+            "values": {
+                "0": "Active",
+                "1": "Passive"
+            },
+            "format": "Enumeration values.Employee directory.Contact.Passive",
+            "caption": "Status"
+        },
+        "balanceMaximum": {
+            "format": "effortunit",
+            "caption": "Balance maximum"
+        },
+        "primaryPhone": {
+            "format": "text",
+            "caption": "Primary phone"
+        },
+        "firstName": {
+            "format": "",
+            "caption": null
+        },
+        "calendars": {
+            "format": "text",
+            "caption": "Calendars"
+        },
+        "roleName": {
+            "format": "text",
+            "caption": "Role"
+        },
+        "departDate": {
+            "format": "shortdate",
+            "caption": "Depart date"
+        },
+        "currencyCode": {
+            "format": "text",
+            "caption": "Currency"
+        },
+        "account": {
+            "format": "text",
+            "caption": "Account.Id"
+        }
+    }
+}

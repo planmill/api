@@ -1,0 +1,182 @@
+{
+  "filters": [
+    {
+      "name": "searchkey",
+      "caption": ""
+    },
+    {
+      "name": "status",
+      "caption": "Expense status",
+      "values": {
+        "0": "Preliminary",
+        "2": "Reported",
+        "3": "Inspected",
+        "4": "Accepted",
+        "6": "Paid",
+        "7": "Rejected",
+        "9": "Locked",
+        "-1": "All"
+      }
+    },
+    {
+      "name": "project",
+      "caption": "Project",
+      "values": {
+        "2969": "test project - expense",
+        "-1": "All"
+      }
+    },
+    {
+      "name": "period",
+      "caption": "Period",
+      "values": {
+        "0": "All",
+        "1": "This FQ",
+        "2": "Next FQ",
+        "3": "This and next FQ",
+        "4": "Last FQ",
+        "5": "This FY",
+        "6": "Next FY",
+        "7": "This and next FY",
+        "8": "Last FY",
+        "9": "This month",
+        "10": "Next month",
+        "11": "Last month",
+        "12": "Last 30 days",
+        "13": "Last 60 days",
+        "14": "Last 90 days",
+        "15": "Last 120 days",
+        "16": "Last 180 days",
+        "17": "Next 30 days",
+        "18": "Next 60 days",
+        "19": "Next 90 days",
+        "20": "Next 120 days",
+        "21": "Next 180 days",
+        "22": "This & last FQ",
+        "23": "This and last FY",
+        "24": "This and next month",
+        "25": "This and last month",
+        "26": "Last 14 days",
+        "30": "This week",
+        "31": "Last week",
+        "32": "This and last week",
+        "33": "Next week",
+        "34": "This and next week",
+        "40": "Today",
+        "41": "Yesterday",
+        "42": "Today and yesterday",
+        "43": "Tomorrow",
+        "44": "Today and tomorrow"
+      }
+    },
+    {
+      "name": "interval",
+      "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+      "values": {
+        "Expense.Created": "Created",
+        "Expense.Date": "Date",
+        "Expense.Modified": "Modified"
+      }
+    },
+    {
+      "name": "rowcount",
+      "caption": "Rows",
+      "values": {
+        "25": "25",
+        "50": "50",
+        "75": "75",
+        "100": "100",
+        "150": "150",
+        "250": "250"
+      }
+    },
+    {
+      "name": "type",
+      "caption": "Type",
+      "values": {
+        "0": "Travel",
+        "7": "Other",
+        "10": "Advance payment",
+        "-1": "All"
+      }
+    },
+    {
+      "name": "billableStatus",
+      "caption": "Billable status",
+      "values": {
+        "1": "Billable",
+        "3": "Non-billable",
+        "4": "In billing",
+        "5": "Draft invoice",
+        "6": "Invoiced",
+        "-1": "All"
+      }
+    }
+  ],
+  "fields": {
+    "date": {
+      "format": "shortdate",
+      "caption": "Date"
+    },
+    "journey": {
+      "format": "text",
+      "caption": "Expense.JourneyId"
+    },
+    "description": {
+      "format": "text",
+      "caption": "Description"
+    },
+    "totalInclVAT": {
+      "format": "currency",
+      "caption": "Total incl. VAT"
+    },
+    "project": {
+      "format": "text",
+      "caption": "PMVProject.Id"
+    },
+    "sentToBank": {
+      "format": "Enumeration values.Finance control.Expense summary.Expenses.Sent status",
+      "caption": "Sent to bank"
+    },
+    "billableStatus": {
+      "format": "Enumeration values.Expense.Billable status",
+      "caption": "Billable status"
+    },
+    "type": {
+      "format": "Enumeration values.Expense.Type",
+      "caption": "Type"
+    },
+    "name": {
+      "format": "text",
+      "caption": "Purpose"
+    },
+    "modified": {
+      "format": "mediumdate",
+      "caption": "Modified"
+    },
+    "id": {
+      "format": "text",
+      "caption": "Expense.Id"
+    },
+    "projectName": {
+      "format": "text",
+      "caption": "Project"
+    },
+    "paymentDate": {
+      "format": "shortdate",
+      "caption": "Payment date"
+    },
+    "debt": {
+      "format": "currency",
+      "caption": "Outstanding debt"
+    },
+    "status": {
+      "format": "Enumeration values.Expense.Status",
+      "caption": "Status"
+    },
+    "expenseOwner": {
+      "format": "integer",
+      "caption": "PersonHasExpense"
+    }
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "accepterPerson": {
+    "caption": "Acceptor",
+    "format": "int"
+  },
+  "interruptionDate": {
+    "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+    "caption": "Interruption date",
+    "format": "string",
+    "maxlength": "10",
+    "values": null
+  },
+  "start": {
+    "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+    "caption": "Start",
+    "format": "string",
+    "values": null
+  },
+  "project": {
+    "caption": "Project",
+    "values": {
+      "Absences 2011": "2691515"
+    },
+    "format": "int"
+  },
+  "description": {
+    "caption": "",
+    "format": "string",
+    "values": null
+  },
+  "vacationYear": {
+    "caption": "Vacation year",
+    "values": {
+      "-": ""
+    },
+    "format": "int"
+  },
+  "vacationLength": {
+    "caption": "",
+    "values": null
+  },
+  "person": {
+    "caption": "Person",
+    "values": {
+      
+    },
+    "format": "int"
+  },
+  "absenceType": {
+    "caption": "Absence type",
+    "values": {
+      "Military refresher": "1110",
+      "Maternal leave (unpaid)": "1190",
+      "Sick leave due to child": "1020",
+      "Paid holiday": "1070",
+      "Balance leave": "1090",
+      "Sick leave by medical certificate": "1025",
+      "Paternal leave (unpaid)": "1040",
+      "-": "",
+      "Study leave (unpaid)": "1140",
+      "Annual holiday": "1000",
+      "Maternal leave (paid)": "1030",
+      "Layoff": "1120",
+      "Overtime leave": "1080",
+      "Bonus holiday pay": "1100",
+      "Military leave": "1050",
+      "Saved leave": "1165",
+      "Sick leave": "1010",
+      "Paternal leave (paid)": "1180",
+      "Child care leave": "1130",
+      "Unpaid holiday": "1060",
+      "Other annual vacation": "1160"
+    },
+    "format": "int",
+    "enumeration": "Enumeration values.Task.Absence offduty"
+  },
+  "finish": {
+    "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+    "caption": "Finish",
+    "format": "string",
+    "values": null
+  },
+  "id": {
+    "caption": "",
+    "format": "int",
+    "values": null
+  },
+  "substitutePerson": {
+    "description": "Substitute for acceptance handling during my absence",
+    "caption": "Substitute",
+    "values": {
+      "Jim, Harris": "2752646",
+      "Sara, Johnson": "580283",
+      "Mike, Hike": "2828584"
+    },
+    "format": "int"
+  },
+  "status": {
+    "caption": "Status"
+  }
+}

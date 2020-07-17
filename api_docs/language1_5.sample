@@ -1,0 +1,14 @@
+[
+{
+  "System.Generic.Table.No rows found.Create a new product": "Create a new product",
+  "System.Errors.Delete.Cannot delete request": "Cannot delete request",
+  "System.Generic.Table.No rows found.Create a new contact": "Create a new contact",
+  "System.Generic.Table.No rows found.Create a new absence": "Create a new absence"
+},
+{
+  "System.Generic.Table.No rows found.Create a new product": "Luo uusi tuote",
+  "System.Errors.Delete.Cannot delete request": "Palvelupyyntö ei voi poistaa",
+  "System.Generic.Table.No rows found.Create a new contact": "Luo uusi kontakti",
+  "System.Generic.Table.No rows found.Create a new absence": "Luo uusi poissaolo"
+}
+]

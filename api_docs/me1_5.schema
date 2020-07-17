@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "base schema for current user",
+  "oneOf": [
+    {
+      "$ref": "#/definitions/me"
+    }
+  ],
+  "definitions": {
+    "me": {
+      "type": "object",
+      "required": ["firstName", "id", "currency", "language"],
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "description": "Current user's first name"
+        },
+        "lastName": {
+          "type": "string",
+          "description": "Current user's last name"
+        },
+        "photo":{
+          "type": ["string", "null"],
+          "description": "Current user's photo"
+        },
+        "currency": {
+          "type" : "integer",
+          "description": "Current user's currency type"
+        },
+        "language": {
+          "type": "string",
+          "description": "Current user's language"
+        },
+        "effortUnit": {
+          "type": "integer",
+          "description": "Current user's effort unit"
+        },
+        "id": {
+          "type": "integer",
+          "description": "Current user's id"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "base schema for all exit criteria status entities",
+  "oneOf": [
+    {
+      "type": "array",
+      "items": { "$ref": "#/definitions/exitCriteriaStatusArray" }
+    },
+    {
+      "$ref": "#/definitions/exitCriteriaStatusSingle"
+    }
+  ],
+  "definitions": {
+    "exitCriteriaStatusSingle": {
+      "type": "object",
+      "required": ["id", "exitCriterion"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Id of an exit criteria status"
+        },
+        "exitCriterion": {
+          "type": "integer",
+          "description": "Id of an exit criteria"
+        },
+        "object": {
+          "type": ["integer", "null"],
+          "description": "Id of a resource type"
+        },
+        "status": {
+          "type": ["integer", "null"],
+          "description": "Status of a criteria"
+        }
+      }
+    },
+    "exitCriteriaStatusArray": {
+      "type": "object",
+      "required": ["id", "exitCriterion"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "ID of an exit criteria status"
+        },
+         "exitCriterion": {
+          "type": "integer",
+          "description": "Id of an exit criteria"
+        },
+        "object": {
+          "type": ["integer", "null"],
+          "description": "Id of a resource type"
+        },
+        "status": {
+          "type": ["integer", "null"],
+          "description": "Status of a criteria"
+        }
+      }
+    }
+  }
+}

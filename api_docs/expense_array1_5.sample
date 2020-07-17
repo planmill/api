@@ -1,0 +1,38 @@
+[
+  {
+    "date": "2016-03-04T00:00:00.000+0200",
+    "journey": null,
+    "description": "example expense 2",
+    "totalInclVAT": 10,
+    "project": 2969,
+    "sentToBank": null,
+    "billableStatus": 3,
+    "type": 7,
+    "name": "test expense 2",
+    "modified": "2016-03-02T11:51:08.383+0200",
+    "id": 2983,
+    "projectName": "test project - expense",
+    "paymentDate": null,
+    "debt": 10,
+    "status": 0,
+    "expenseOwner": 356
+  },
+  {
+    "date": "2016-03-02T00:00:00.000+0200",
+    "journey": 2975,
+    "description": "example expense",
+    "totalInclVAT": 288.45,
+    "project": 2969,
+    "sentToBank": null,
+    "billableStatus": 3,
+    "type": 0,
+    "name": "test expense",
+    "modified": "2016-03-02T11:43:02.813+0200",
+    "id": 2972,
+    "projectName": "test project - expense",
+    "paymentDate": null,
+    "debt": 288.45,
+    "status": 2,
+    "expenseOwner": 356
+  }
+]

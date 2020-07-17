@@ -1,0 +1,178 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "base schema for all action entities",
+  "oneOf": [{
+    "type": "array",
+    "items": {
+      "$ref": "#/definitions/actionArray"
+    }
+  }, {
+    "$ref": "#/definitions/actionSingle" 
+  }],
+  "definitions": {
+    "actionSingle": {
+      "type": "object",
+      "required": ["subject"],
+      "properties": {
+        "request": {
+          "type": ["string", "null"],
+          "description": "Action's request"
+        },
+        "private": {
+          "type": ["integer", "null"],
+          "description": "Action's view status: 0=No, 1=Yes"
+        },
+        "performers": {
+          "type": ["string", "null"],
+          "description": "List of action's performers"
+        },
+        "reminder": {
+          "type": ["integer", "null"],
+          "description": "Action's reminder: 0=No, 1=Same day as due date, 2=1 day before due date, 3= 3 days before due date, 4= 7 days before due date, 5= 14 days before due date, 6= 30 days before due date"
+        },
+        "subject": {
+          "type": "string",
+          "description": "Action's subject"
+        },
+        "dueDate": {
+          "type": ["string", "null"],
+          "pattern": "(\\d{4})-([0][1-9]|[1][0-2])-([0][1-9]|[1-2][0-9]|[3][0-1])T([0][0-9]|[1][0-9]|[2][0-3]):([0-5][0-9]):([0-5][0-9]).(\\d{3})((\\+|\\-)([0-9]|[0][0-9]|[1][0-9]|[2][0-3])([0-5][0-9]))",
+          "description": "Action's due date"
+        },
+        "start": {
+          "type": ["string", "null"],
+          "pattern": "(\\d{4})-([0][1-9]|[1][0-2])-([0][1-9]|[1-2][0-9]|[3][0-1])T([0][0-9]|[1][0-9]|[2][0-3]):([0-5][0-9]):([0-5][0-9]).(\\d{3})((\\+|\\-)([0-9]|[0][0-9]|[1][0-9]|[2][0-3])([0-5][0-9]))",
+          "description": "Action's start date"
+        },
+        "description": {
+          "type": ["string", "null"],
+          "description": "Action description"
+        },
+        "project": {
+          "type": ["string", "null"],
+          "description": "Action's project"
+        },
+        "opportunity": {
+          "type": ["string", "null"],
+          "description": "Action's opportunity"
+        },
+        "type": {
+          "type": ["integer", "null"],
+          "description": "Action's type: 0= None, 1= Call, 2=Correspondence, 3= Demo, 4= Email, 5= Event, 6= Fax, 7= Meeting, 9= Presentation, 10= Todo, 11= Webinar"
+        },
+        "priority": {
+          "type": ["integer", "null"],
+          "description": "Action priority: 1= High, 2= Medium, 3= Low "
+        },
+        "salesOrder": {
+          "type": ["string", "null"],
+          "description": "Action's sales order"
+        },
+        "responsible": {
+          "type": ["integer", "null"],
+          "description": "Person responsible for the action"
+        },
+        "contact": {
+          "type": ["integer", "null"],
+          "description": "Action's contact"
+        },
+        "campaign": {
+          "type": ["string", "null"],
+          "description": "Action's campaign"
+        },
+        "location": {
+          "type": ["string", "null"],
+          "description": "Action's location"
+        },
+        "id": {
+          "type": "integer",
+          "description": "action id"
+        },
+        "status": {
+          "type": ["integer", "null"],
+          "description": "Action's status: 0= Received, 1= In progress, 2= In progress -waiting for more info, 4= Suspended, 40= Completed"
+        }
+      }
+    },
+    "actionArray": {
+      "type": "object",
+      "required": ["subject"],
+      "properties": {
+        "request": {
+          "type": ["string", "integer", "null"],
+          "description": "Action's request"
+        },
+        "private": {
+          "type": ["integer", "null"],
+          "description": "Action's view status: 0=No, 1=Yes"
+        },
+        "performers": {
+          "type": ["string", "null"],
+          "description": "List of action's performers"
+        },
+        "reminder": {
+          "type": ["integer", "null"],
+          "description": "Action's reminder: 0=No, 1=Same day as due date, 2=1 day before due date, 3= 3 days before due date, 4= 7 days before due date, 5= 14 days before due date, 6= 30 days before due date"
+        },
+        "subject": {
+          "type": "string",
+          "description": "Action's subject"
+        },
+        "dueDate": {
+          "type": ["string", "null"],
+          "pattern": "(\\d{4})-([0][1-9]|[1][0-2])-([0][1-9]|[1-2][0-9]|[3][0-1])T([0][0-9]|[1][0-9]|[2][0-3]):([0-5][0-9]):([0-5][0-9]).(\\d{3})((\\+|\\-)([0-9]|[0][0-9]|[1][0-9]|[2][0-3])([0-5][0-9]))",
+          "description": "Action's due date"
+        },
+        "start": {
+          "type": ["string", "null"],
+          "pattern": "(\\d{4})-([0][1-9]|[1][0-2])-([0][1-9]|[1-2][0-9]|[3][0-1])T([0][0-9]|[1][0-9]|[2][0-3]):([0-5][0-9]):([0-5][0-9]).(\\d{3})((\\+|\\-)([0-9]|[0][0-9]|[1][0-9]|[2][0-3])([0-5][0-9]))",
+          "description": "Action's start date"
+        },
+        "project": {
+          "type": ["string", "integer", "null"],
+          "description": "Action's project"
+        },
+        "opportunity": {
+          "type": ["string", "integer", "null"],
+          "description": "Action's opportunity"
+        },
+        "type": {
+          "type": ["integer", "null"],
+          "description": "Action's type: 0= None, 1= Call, 2=Correspondence, 3= Demo, 4= Email, 5= Event, 6= Fax, 7= Meeting, 9= Presentation, 10= Todo, 11= Webinar"
+        },
+        "priority": {
+          "type": ["integer", "null"],
+          "description": "Action priority: 1= High, 2= Medium, 3= Low "
+        },
+        "salesOrder": {
+          "type": ["string", "integer", "null"],
+          "description": "Action's sales order"
+        },
+        "responsible": {
+          "type": ["integer", "null"],
+          "description": "Person responsible for the action"
+        },
+        "contact": {
+          "type": ["integer", "null"],
+          "description": "Action's contact"
+        },
+        "campaign": {
+          "type": ["string", "integer", "null"],
+          "description": "Action's campaign"
+        },
+        "location": {
+          "type": ["string", "null"],
+          "description": "Action's location"
+        },
+        "id": {
+          "type": "integer",
+          "description": "action id"
+        },
+        "status": {
+          "type": ["integer", "null"],
+          "description": "Action's status: 0= Received, 1= In progress, 2= In progress -waiting for more info, 4= Suspended, 40= Completed"
+        }
+      }
+    }
+  }
+}

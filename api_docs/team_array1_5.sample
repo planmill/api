@@ -1,0 +1,50 @@
+[
+  {
+    "latestMember": null,
+    "manager": 2845523,
+    "parentTeamName": null,
+    "costCenter": 0,
+    "created": "2015-07-28T18:08:08.950+0300",
+    "description": "team for development",
+    "parentTeam": null,
+    "createdBy": 2845504,
+    "members": 0,
+    "name": "Support Team",
+    "childTeams": 1,
+    "modified": null,
+    "modifiedBy": null,
+    "id": 2845524
+  },
+  {
+    "latestMember": 2717546,
+    "manager": 222076,
+    "parentTeamName": "Support Team",
+    "costCenter": 3,
+    "created": "2005-04-11T14:04:23.897+0300",
+    "description": "Text of description",
+    "parentTeam": 498896,
+    "createdBy": 222076,
+    "members": 9,
+    "name": "R & D Team",
+    "childTeams": 1,
+    "modified": "2010-05-19T14:45:57.607+0300",
+    "modifiedBy": 222076,
+    "id": 480530
+  },
+  {
+    "latestMember": 2840388,
+    "manager": 26394,
+    "parentTeamName": "R & D Team",
+    "costCenter": 1,
+    "created": "2005-04-15T12:25:27.653+0300",
+    "description": "Finland &amp; Switzerland",
+    "parentTeam": 480530,
+    "createdBy": 26394,
+    "members": 10,
+    "name": "Sales Team",
+    "childTeams": 0,
+    "modified": "2008-01-18T09:13:20.267+0200",
+    "modifiedBy": 26284,
+    "id": 481244
+  }
+]

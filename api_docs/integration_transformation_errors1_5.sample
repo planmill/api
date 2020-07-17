@@ -1,0 +1,23 @@
+[{
+	"row" : "1",
+	"message" : "Transformation failed",
+	"fields" : {
+		"pricebookitem.vat" : "Could not parse value to a double.",
+		"pricebookitem.sellingPrice" : "Could not parse value to an integer.",
+		"pricebook.owner" : "Please enter a valid number.",
+		"pricebookitem.targetEffort" : "Could not parse value to an integer.",
+		"priceBook.validFrom" : "Failed to parse date with format dd.MM.yyyy",
+		"pricebook.validFrom" : "Please enter a valid date.",
+		"pricebook.passive" : "Please enter a valid number.",
+		"pricebookitem.invoicingPeriod" : "Enumeration value for key 'PBI Invoicing period' not found.",
+		"priceBook.passive" : "Could not parse value to an integer.",
+		"priceBook.supplier" : "Could not parse value to an integer.",
+		"pricebookitem.discount" : "Could not parse value to a double.",
+		"pricebookitem.salesAccount" : "Could not parse value to an integer.",
+		"pricebook.supplier" : "Please enter a valid number.",
+		"pricebookitem.revenueType" : "Could not parse value to an integer.",
+		"priceBook.currency" : "Enumeration value for key 'PB Currency' not found.",
+		"pricebookitem.unit" : "Enumeration value for key 'PBI Unit' not found.",
+		"pricebook.currency" : "Please enter a valid number."
+	}
+}]

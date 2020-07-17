@@ -1,0 +1,20 @@
+[
+  {
+    "data": "example data 1",
+    "createdBy": 3228,
+    "created": "2016-12-15T12:52:00.000+0200",
+    "name": "example user 1",
+    "modified": null,
+    "modifiedBy": null,
+    "id": 4828
+  },
+  {
+    "data": "example data 2",
+    "createdBy": 3228,
+    "created": "2016-12-15T12:53:00.000+0200",
+    "name": "example user 2",
+    "modified": null,
+    "modifiedBy": null,
+    "id": 4829
+  }
+]

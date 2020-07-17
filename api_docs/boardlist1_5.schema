@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "base schema for all board list entities",
+  "oneOf": [
+    {
+      "type": "array",
+      "items": { "$ref": "#/definitions/boardlistArray" }
+    },
+    {
+      "$ref": "#/definitions/boardlistSingle"
+    }
+  ],
+  "definitions": {
+    "boardlistSingle": {
+      "type": "object",
+      "required": ["board", "name"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of a board list"
+        },
+        "updatedFields": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "id": {
+          "type": "integer",
+          "description": "Id of the boardlist"
+        },
+        "resource": {
+          "type": ["string", "null"],
+          "description": "Type of a resource"
+        },
+        "filters": {
+          "type": ["string", "null"],
+          "description": "Filters of a resource"
+        },
+        "ordinalNumber": {
+          "type": ["integer", "null"],
+          "description": ""
+        },
+        "board": {
+          "type": "integer",
+          "description": "The board that the boardlist belongs to"
+        }
+      }
+    },
+    "boardlistArray": {
+      "type": "object",
+      "required": ["name", "board"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of a board list"
+        },
+        "updatedFields": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "id": {
+          "type": "integer",
+          "description": "Id of the board list"
+        },
+        "resource": {
+          "type": ["string", "null"],
+          "description": "Type of a resource"
+        },
+        "filters": {
+          "type": ["string", "null"],
+          "description": "Filters of a resource"
+        },
+        "ordinalNumber": {
+          "type": ["integer", "null"],
+          "description": ""
+        },
+        "board": {
+          "type": "integer",
+          "description": "The board that the board list belongs to"
+        }
+      }
+    }
+  }
+}

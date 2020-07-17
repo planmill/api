@@ -1,0 +1,29 @@
+[
+    {
+        "calendar": "FI/Part-time: 30 h/wk (Mon-Thu)",
+        "calendarId": 1106,
+        "start": "2019-08-06 00:00:00.0",
+        "updatable": 1,
+        "finish": "2022-12-31 00:00:00.0",
+        "id": 1611,
+        "user": 1610
+    },
+    {
+        "calendar": "FI/Full-time: 37,5 h/wk",
+        "calendarId": 1052,
+        "start": "2019-08-01 00:00:00.0",
+        "updatable": 1,
+        "finish": "2022-12-31 00:00:00.0",
+        "id": 1612,
+        "user": 1610
+    },
+    {
+        "calendar": "FI/Full-time: 37,5 h/wk",
+        "calendarId": 1052,
+        "start": "2019-08-06 00:00:00.0",
+        "updatable": 1,
+        "finish": "2022-12-31 00:00:00.0",
+        "id": 1613,
+        "user": 1610
+    }
+]

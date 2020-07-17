@@ -1,0 +1,17 @@
+{
+    "date": "2016-01-18T12:23:00.000+0200",
+    "accountName": null,
+    "actualAmount": 50,
+    "description": null,
+    "project": 4751,
+    "billableStatus": 1,
+    "type": 7,
+    "personName": null,
+    "task": 4751,
+    "contact": null,
+    "name": "View Purchases",
+    "plannedAmount": 100,
+    "id": 4764,
+    "account": null,
+    "status": 0
+}

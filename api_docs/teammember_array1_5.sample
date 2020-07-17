@@ -1,0 +1,18 @@
+[
+  {
+    "lastName": "Last Name",
+    "firstName": "First Name",
+    "added": "2015-08-18T12:43:46.817+0300",
+    "person": 2853944,
+    "addedBy": 2853944,
+    "primaryTeam": 1
+  },
+  {
+    "lastName": "User",
+    "firstName": "Person",
+    "added": "2015-08-18T12:43:46.817+0300",
+    "person": 2853944,
+    "addedBy": 2853944,
+    "primaryTeam": 1
+  }
+]

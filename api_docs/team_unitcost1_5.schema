@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "base schema for all team unit cost entities",
+  "oneOf": [
+    {
+      "type": "array",
+      "items": { "$ref": "#/definitions/teamUnitCostArray" }
+    }
+  ],
+  "definitions": {
+    "teamUnitCostArray": {
+    "type": "object",
+	  "required": "",
+	  "additionalProperties": true,
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Internal ID of the user unit cost"
+        },
+        "amount": {
+          "type": "integer",
+          "description": "Amount of the user unit cost"
+        },
+        "unit": {
+          "type": "integer",
+          "description": "Enumeration type for the unit value; 2=h, 4=days, 10=wk, 5=mth"
+        },
+        "validUntil": {
+          "type": ["string", "null"],
+          "pattern": "(\\d{4})-([0][1-9]|[1][0-2])-([0][1-9]|[1-2][0-9]|[3][0-1])T([0][0-9]|[1][0-9]|[2][0-3]):([0-5][0-9]):([0-5][0-9]).(\\d{3})((\\+|\\-)([0-9]|[0][0-9]|[1][0-9]|[2][0-3])([0-5][0-9]))",
+          "description": "End date for the unit cost"
+        },
+        "validFrom": {
+          "type": ["string", "null"],
+          "pattern": "(\\d{4})-([0][1-9]|[1][0-2])-([0][1-9]|[1-2][0-9]|[3][0-1])T([0][0-9]|[1][0-9]|[2][0-3]):([0-5][0-9]):([0-5][0-9]).(\\d{3})((\\+|\\-)([0-9]|[0][0-9]|[1][0-9]|[2][0-3])([0-5][0-9]))",
+          "description": "Start date for the unit cost"
+        },
+        "type": {
+          "type": "integer",
+          "description": "Enumeration type for the unit cost. 1=External price, 2=Internal total cost, 3=Internal self cost"
+        }
+      }
+    }
+  }
+}

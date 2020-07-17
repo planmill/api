@@ -1,0 +1,21 @@
+{
+  "request": 6875,
+  "private": 0,
+  "performers": "5547,50",
+  "reminder": 1,
+  "subject": "Test Action",
+  "dueDate": "2015-06-26T10:08:00.000+0300",
+  "start": "2015-06-26T10:08:00.000+0300",
+  "description": "<p>test description</p>",
+  "project": 9851,
+  "opportunity": 3257,
+  "type": 5,
+  "priority": 2,
+  "salesOrder": 6981,
+  "responsible": 28482,
+  "contact": 9647,
+  "campaign": 5214,
+  "location": "Oulu",
+  "id": 2842904,
+  "status": 1
+}

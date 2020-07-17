@@ -1,0 +1,15 @@
+{
+    "journey": null,
+    "acceptor": null,
+    "project": 4210,
+    "description": "",
+    "type": 0,
+    "billableStatus": 3,
+    "task": -1,
+    "name": "test expense 1",
+    "expenseOwner": 2297,
+    "currency": "1",
+    "id": 4211,
+    "currencyCode": "EUR",
+    "status": 3
+}

@@ -1,0 +1,167 @@
+{
+  "request": {
+    "caption": "",
+    "format": "int",
+    "description": "",
+    "values": null
+  },
+  "private": {
+    "caption": "Private",
+    "format": "short",
+    "description": "",
+    "enumeration": "Enumeration values.Sales management.Actions.View status",
+    "values": {
+      "No": "0",
+      "Yes": "1"
+    }
+  },
+  "performers": {
+    "caption": "Performer(s)",
+    "values": {
+      "Admin, Test": "2833",
+      "testi, testi": "2981"
+    },
+    "format": "string",
+    "description": ""
+  },
+  "reminder": {
+    "caption": "Reminder",
+    "format": "short",
+    "description": "",
+    "maxlength": "80",
+    "enumeration": "Enumeration values.Sales management.Actions.Reminder",
+    "values": {
+      "14 days before due date": "5",
+      "No": "0",
+      "1 days before due date": "2",
+      "3 days before due date": "3",
+      "7 days before due date": "4",
+      "Same day as due date": "1",
+      "30 days before due date": "6"
+    }
+  },
+  "subject": {
+    "caption": "Subject",
+    "format": "string",
+    "description": "",
+    "maxlength": "255",
+    "values": null
+  },
+  "dueDate": {
+    "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+    "caption": "Due date",
+    "format": "string",
+    "description": "",
+    "maxlength": "10",
+    "values": null
+  },
+  "start": {
+    "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+    "caption": "Start date",
+    "format": "string",
+    "description": "",
+    "maxlength": "10",
+    "values": null
+  },
+  "description": {
+    "caption": "",
+    "format": "string",
+    "description": "",
+    "values": null
+  },
+  "project": {
+    "caption": "",
+    "format": "int",
+    "description": "",
+    "values": null
+  },
+  "opportunity": {
+    "caption": "",
+    "format": "int",
+    "description": "",
+    "values": null
+  },
+  "type": {
+    "caption": "Type",
+    "format": "short",
+    "description": "",
+    "enumeration": "Enumeration values.Sales management.Actions.Type",
+    "values": {
+      "Call": "1",
+      "To do": "10",
+      "Demo": "3",
+      "Email": "4",
+      "Meeting": "7",
+      "Webinar": "11",
+      "Correspondence": "2",
+      "Event": "5",
+      "Fax": "6",
+      "Presentation": "9",
+      "-": "0"
+    }
+  },
+  "priority": {
+    "caption": "Priority",
+    "format": "short",
+    "description": "",
+    "enumeration": "Enumeration values.Sales management.Actions.Priority",
+    "values": {
+      "1. High": "1",
+      "3. Low": "3",
+      "2. Medium": "2"
+    }
+  },
+  "salesOrder": {
+    "caption": "",
+    "format": "int",
+    "description": "",
+    "values": null
+  },
+  "responsible": {
+    "caption": "Responsible person",
+    "values": {
+      "Admin, Test": 2833,
+      "testi, testi": "2801981"
+    },
+    "format": "int",
+    "description": ""
+  },
+  "contact": {
+    "caption": "",
+    "format": "int",
+    "description": "",
+    "values": null
+  },
+  "campaign": {
+    "caption": "",
+    "format": "int",
+    "description": "",
+    "values": null
+  },
+  "location": {
+    "caption": "Location",
+    "format": "string",
+    "description": "",
+    "maxlength": "255",
+    "values": null
+  },
+  "id": {
+    "caption": "",
+    "format": "int",
+    "description": "",
+    "values": null
+  },
+  "status": {
+    "caption": "Status",
+    "format": "short",
+    "description": "",
+    "enumeration": "Enumeration values.Sales management.Actions.Status",
+    "values": {
+      "3. In progress - waiting for more info": "2",
+      "5. Completed": "40",
+      "4. Suspended": "3",
+      "1. Received": "0",
+      "2. In progress": "1"
+    }
+  }
+}

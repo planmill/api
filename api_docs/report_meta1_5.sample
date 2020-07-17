@@ -1,0 +1,138 @@
+{
+  "localizedName": "My weekly time reports",
+  "columns": [
+    {
+      "type": "text",
+      "name": "Project"
+    },
+    {
+      "type": "text",
+      "name": "Task"
+    },
+    {
+      "type": "text",
+      "enumeration": "Enumeration values.Project.Billable status",
+      "name": "Type"
+    },
+    {
+      "type": "effortunit",
+      "name": "Mon"
+    },
+    {
+      "type": "effortunit",
+      "name": "Tue"
+    },
+    {
+      "type": "effortunit",
+      "name": "Wed"
+    },
+    {
+      "type": "effortunit",
+      "name": "Thu"
+    },
+    {
+      "type": "effortunit",
+      "name": "Fri"
+    },
+    {
+      "type": "effortunit",
+      "name": "Sat"
+    },
+    {
+      "type": "effortunit",
+      "name": "Sun"
+    },
+    {
+      "type": "effortunit",
+      "name": "Total"
+    }
+  ],
+  "name": "My weekly time reports",
+  "parameters": [
+    {
+      "name": "param1",
+      "caption": "Week",
+      "values": {
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "5": "5",
+        "6": "6",
+        "7": "7",
+        "8": "8",
+        "9": "9",
+        "10": "10",
+        "11": "11",
+        "12": "12",
+        "13": "13",
+        "14": "14",
+        "15": "15",
+        "16": "16",
+        "17": "17",
+        "18": "18",
+        "19": "19",
+        "20": "20",
+        "21": "21",
+        "22": "22",
+        "23": "23",
+        "24": "24",
+        "25": "25",
+        "26": "26",
+        "27": "27",
+        "28": "28",
+        "29": "29",
+        "30": "30",
+        "31": "31",
+        "32": "32",
+        "33": "33",
+        "34": "34",
+        "35": "35",
+        "36": "36",
+        "37": "37",
+        "38": "38",
+        "39": "39",
+        "40": "40",
+        "41": "41",
+        "42": "42",
+        "43": "43",
+        "44": "44",
+        "45": "45",
+        "46": "46",
+        "47": "47",
+        "48": "48",
+        "49": "49",
+        "50": "50",
+        "51": "51",
+        "52": "52",
+        "53": "53"
+      }
+    },
+    {
+      "name": "param2",
+      "caption": "Year",
+      "values": {
+        "2016": "2016"
+      }
+    },
+    {
+      "name": "param3",
+      "caption": "Invoice type",
+      "values": {
+        "1": "Billable",
+        "3": "Non-billable",
+        "-1": "All"
+      }
+    },
+    {
+      "name": "param4",
+      "caption": "Task type",
+      "values": {
+        "1": "Fixed",
+        "2": "Time based",
+        "3": "Non-billable",
+        "-1": "All"
+      }
+    }
+  ]
+}

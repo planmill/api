@@ -1,0 +1,20 @@
+{
+  "quantity": 1,
+  "start": "2016-03-02T00:00:00.000+0200",
+  "vat": null,
+  "description": "One night stay at Tampere hotel",
+  "type": 3,
+  "expense": 2972,
+  "typeCode": "",
+  "unit": "-",
+  "exchangeRate": 1,
+  "generated": "0",
+  "advancePayment": 0,
+  "paymentMethod": 1,
+  "finish": "2016-03-03T00:00:00.000+0200",
+  "currency": 1,
+  "id": 2973,
+  "debt": 1,
+  "currencyCode": "EUR",
+  "foreignCountryCode": ""
+}

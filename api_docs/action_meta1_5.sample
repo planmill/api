@@ -1,0 +1,257 @@
+{
+  "filters": [
+    {
+      "name": "searchkey",
+      "caption": ""
+    },
+    {
+      "name": "viewby",
+      "caption": "View by",
+      "values": {
+        "All recently modified actions - last 7 days": "17",
+        "All open actions - customers": "9",
+        "All open actions - prospects": "10",
+        "My all actions": "6",
+        "My open actions": "0",
+        "All recently completed actions - last 14 days": "18",
+        "All open actions": "8",
+        "All actions": "7",
+        "All completed actions - prospects": "14",
+        "My recently modified actions - last 7 days": "4",
+        "All recently created actions - last 14 days": "16",
+        "All recently created actions - last 7 days": "15",
+        "My recently completed actions - last 14 days": "5",
+        "All suspended actions": "11",
+        "My completed actions": "2",
+        "All completed actions - customers": "13",
+        "All completed actions": "12",
+        "My suspended actions": "1",
+        "My recently created actions - last 7 days": "3"
+      }
+    },
+    {
+      "name": "viewbystatus",
+      "caption": "Status",
+      "values": {
+        "All": "-1",
+        "3. In progress - waiting for more info": "2",
+        "5. Completed": "40",
+        "4. Suspended": "3",
+        "1. Received": "0",
+        "Open (1,2,3)": "-100",
+        "2. In progress": "1"
+      }
+    },
+    {
+      "name": "type",
+      "caption": "Type",
+      "values": {
+        "All": "-1",
+        "Call": "1",
+        "To do": "10",
+        "Demo": "3",
+        "Email": "4",
+        "Meeting": "7",
+        "Webinar": "11",
+        "Correspondence": "2",
+        "Event": "5",
+        "Fax": "6",
+        "Presentation": "9",
+        "-": "0"
+      }
+    },
+    {
+      "name": "Account.Id",
+      "caption": "Account",
+      "values": {
+        "All": "-1",
+        "PlanMill Oy": "4688"
+      }
+    },
+    {
+      "name": "Campaign.Id",
+      "caption": "Campaign",
+      "values": {
+        "All": "-1",
+        "Email newsletter 2008": "559808"
+      }
+    },
+    {
+      "name": "PMVProject.Id",
+      "caption": "Project",
+      "values": {
+        "All": "-1",
+        "Test project import (1257)": "5974"
+      }
+    },
+    {
+      "name": "Action.ResponsibleId",
+      "caption": "Responsible person",
+      "values": {
+        "All": "-1",
+        "Admin, Test": "2833",
+        "testi, testi": "2091"
+      }
+    },
+    {
+      "name": "ActionHasPerson.PersonId",
+      "caption": "Performer",
+      "values": {
+        "All": "-1",
+        "Admin, Test": "2833"
+      }
+    },
+    {
+      "name": "period",
+      "caption": "Period",
+      "values": {
+        "All": "0",
+        "Last 180 days": "16",
+        "This week": "30",
+        "This and next FY": "7",
+        "Last 14 days": "26",
+        "This and next month": "24",
+        "This and next week": "34",
+        "Next 30 days": "17",
+        "Next 180 days": "21",
+        "This FY": "5",
+        "Next FY": "6",
+        "This and last month": "25",
+        "This FQ": "1",
+        "Last month": "11",
+        "Last 30 days": "12",
+        "Last FY": "8",
+        "Today and tomorrow": "44",
+        "This and last week": "32",
+        "This and next FQ": "3",
+        "Last FQ": "4",
+        "Last 120 days": "15",
+        "This and last FY": "23",
+        "Last week": "31",
+        "This month": "9",
+        "Next 120 days": "20",
+        "Yesterday": "41",
+        "Last 60 days": "13",
+        "Next week": "33",
+        "Next 60 days": "18",
+        "Tomorrow": "43",
+        "Today": "40",
+        "Today and yesterday": "42",
+        "Next FQ": "2",
+        "Next month": "10",
+        "This & last FQ": "22",
+        "Last 90 days": "14",
+        "Next 90 days": "19"
+      }
+    },
+    {
+      "name": "interval",
+      "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+      "values": {
+        "Finish/Due date": "dueDate",
+        "Modified": "modified",
+        "Start": "start",
+        "Completed": "Action.FinishDate",
+        "Created": "created"
+      }
+    },
+    {
+      "name": "rowcount",
+      "caption": "Rows",
+      "values": {
+        "25": "25",
+        "50": "50",
+        "75": "75",
+        "100": "100",
+        "150": "150",
+        "250": "250"
+      }
+    },
+    {
+      "name": "Action.CreatedBy",
+      "caption": "Created by",
+      "values": {
+        "All": "-1",
+        "Admin, Test": 2833
+      }
+    }
+  ],
+  "fields": {
+    "request": {
+      "format": "text",
+      "caption": "Action.RequestId"
+    },
+    "private": {
+      "format": "Enumeration values.Sales management.Actions.View status",
+      "caption": "Private"
+    },
+    "reminder": {
+      "format": "Enumeration values.Sales management.Actions.Reminder",
+      "caption": "Reminder"
+    },
+    "subject": {
+      "format": "text",
+      "caption": "_Subject"
+    },
+    "created": {
+      "format": "mediumdate",
+      "caption": "Created"
+    },
+    "dueDate": {
+      "format": "mediumdate",
+      "caption": "Due date"
+    },
+    "start": {
+      "format": "mediumdate",
+      "caption": "Start"
+    },
+    "opportunity": {
+      "format": "text",
+      "caption": "Action.OpportunityId"
+    },
+    "project": {
+      "format": "text",
+      "caption": "Action.ProjectId"
+    },
+    "type": {
+      "format": "Enumeration values.Sales management.Actions.Type",
+      "caption": "Type"
+    },
+    "priority": {
+      "format": "Enumeration values.Sales management.Actions.Priority",
+      "caption": "Priority"
+    },
+    "salesOrder": {
+      "format": "text",
+      "caption": "Action.SalesOrderId"
+    },
+    "contact": {
+      "format": "text",
+      "caption": "Person.Id"
+    },
+    "responsible": {
+      "format": "text",
+      "caption": "Person1.Id"
+    },
+    "modified": {
+      "format": "mediumdate",
+      "caption": "Modified"
+    },
+    "campaign": {
+      "format": "text",
+      "caption": "Action.CampaignId"
+    },
+    "location": {
+      "format": "text",
+      "caption": "Location"
+    },
+    "id": {
+      "format": "checkbox",
+      "caption": "_"
+    },
+    "status": {
+      "format": "Enumeration values.Sales management.Actions.Status",
+      "caption": "Status"
+    }
+  }
+}

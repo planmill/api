@@ -1,0 +1,21 @@
+{
+  "amount": 180,
+  "start": "2015-09-08T17:30:00.000+0300",
+  "totalReported": 180,
+  "project": 4136,
+  "billableStatus": 1,
+  "requireBillableComment": 0,
+  "remainingAmount": 120,
+  "billableAmount": null,
+  "task": 4143,
+  "overtimeAmount": 60,
+  "billingComment": null,
+  "person": 3081,
+  "finish": "2015-09-08T20:30:00.000+0300",
+  "comment": "testing request",
+  "overtimeComment": "hot bug fix",
+  "id": 4156,
+  "travelComment": "travelled to buy office stuff from market",
+  "travelAmount": 60,
+  "status": 0
+}

@@ -1,0 +1,244 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "base schema for all sales order item entities",
+  "oneOf": [
+    {
+      "type": "array",
+      "items": { "$ref": "#/definitions/salesorderitemArray" }
+    },
+    {
+    
+      "$ref": "#/definitions/salesorderitemSingle"
+    }
+  ],
+  "definitions": {
+    "salesorderitemSingle": {
+      "type": "object",
+      "required": [ "name", "salesorder", "billingType" ],
+      "properties": {
+        "invoiceProcess": {
+          "type": ["integer", "null"],
+          "description": "SalesOrder item invoice process"
+        },
+        "generatePriceType": {
+          "type": ["integer","null"],
+          "description": "Sales order item price type"
+        },
+        "VAT": {
+          "type": ["integer", "null"],
+          "description": "Sales order item VAT value"
+        },
+        "revenueType": {
+          "type": ["integer", "null"],
+          "description": "Sales order item revenue type: 0= Own New License, 1=Own Maintenance License, 2=3rd Party New License, 3=3rd Party Maintenance License, 4=Services, 5=Hoisting,6=Travel Expenses, 7=Other, 8=Subscription, 9=3rd Party Subscription"          
+        },
+        "discount": {
+          "type": ["integer", "null"],
+          "description": "Sales order item discount"
+        },
+        "orderStatus":{
+          "type": ["integer", "null"],
+          "description": "Sales order item order status"
+        },
+        "description":{
+          "type": ["string", "null"],
+          "description": "Sales order item description"
+        },
+        "validFrom":{
+          "type": ["string", "null"],
+          "description": "Sales order item valid start date",
+          "pattern": "(\\d{4})-([0][1-9]|[1][0-2])-([0][1-9]|[1-2][0-9]|[3][0-1])T([0][0-9]|[1][0-9]|[2][0-3]):([0-5][0-9]):([0-5][0-9]).(\\d{3})((\\+|\\-)([0-9]|[0][0-9]|[1][0-9]|[2][0-3])([0-5][0-9]))"
+        },
+        "operationalId":{
+          "type": ["integer", "null"],
+          "description": "Sales order item operational id"
+        },
+        "salesorder":{
+          "type": "integer",
+          "description": "Sales order that the sales order item belongs to"
+        },
+        "competence":{
+          "type": ["integer", "null"],
+          "description": "Sales order item competence"
+        },
+        "sellingPrice":{
+          "type": ["number", "null"],
+          "description": "Sales order item selling price"
+        },
+        "warrantyPeriod":{
+          "type": ["integer", "null"],
+          "description": "Sales order item warranty period"
+        },
+        "billingType":{
+          "type": "integer",
+          "description": "Sales order item billing type"
+        },
+        "contractItem":{
+          "type": ["integer", "null"],
+          "description": "Sales order item contract item"
+        },
+        "product":{
+          "type": ["integer", "null"],
+          "description": "Sales order item product id"
+        },
+        "salesAccount":{
+          "type": ["integer", "null"],
+          "description": "Sales order item account"
+        },
+        "quantity":{
+          "type": ["integer", "null"],
+          "description": "Sales order item quantity"
+        },
+        "invoicingPeriod":{
+          "type": ["integer", "null"],
+          "description": "Sales order item invoicing period type"
+        },
+        "costCenter":{
+          "type": ["integer", "null"],
+          "description":"Sales order item cost center"
+        },
+        "unit":{
+          "type": ["integer", "null"],
+          "description": "Sales order item unit value"
+        },
+        "task":{
+          "type": ["integer", "null"],
+          "description": "Sales order item task id"
+        },
+        "person": {
+          "type": ["integer", "null"],
+          "description":"Sales order item person id"
+        },
+        "name": {
+          "type": "string",
+          "description": "Sales order item name"
+        },
+        "validUntil":{
+          "type":["string", "null"],
+          "description": "Sales order item ending valid date",
+          "pattern": "(\\d{4})-([0][1-9]|[1][0-2])-([0][1-9]|[1-2][0-9]|[3][0-1])T([0][0-9]|[1][0-9]|[2][0-3]):([0-5][0-9]):([0-5][0-9]).(\\d{3})((\\+|\\-)([0-9]|[0][0-9]|[1][0-9]|[2][0-3])([0-5][0-9]))"
+        },
+        "selfCost": {
+          "type": ["integer", "null"],
+          "description": "Sales order item self cost"
+        }
+      }
+    },
+    "salesorderitemArray": {
+      "type": "object",
+      "required": [ "id","name", "salesorder", "billingType" ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "sales order item id"
+        },
+        "invoiceProcess": {
+          "type": ["integer", "null"],
+          "description": "SalesOrder item invoice process"
+        },
+        "generatePriceType": {
+          "type": ["integer","null"],
+          "description": "Sales order item price type"
+        },
+        "VAT": {
+          "type": ["integer", "null"],
+          "description": "Sales order item VAT value"
+        },
+        "revenueType": {
+          "type": ["integer", "null"],
+          "description": "Sales order item revenue type: 0= Own New License, 1=Own Maintenance License, 2=3rd Party New License, 3=3rd Party Maintenance License, 4=Services, 5=Hoisting,6=Travel Expenses, 7=Other, 8=Subscription, 9=3rd Party Subscription"          
+        },
+        "discount": {
+          "type": ["integer", "null"],
+          "description": "Sales order item discount"
+        },
+        "orderStatus":{
+          "type": ["integer", "null"],
+          "description": "Sales order item order status"
+        },
+        "description":{
+          "type": ["string", "null"],
+          "description": "Sales order item description"
+        },
+        "validFrom":{
+          "type": ["string", "null"],
+          "description": "Sales order item valid start date",
+          "pattern": "(\\d{4})-([0][1-9]|[1][0-2])-([0][1-9]|[1-2][0-9]|[3][0-1])T([0][0-9]|[1][0-9]|[2][0-3]):([0-5][0-9]):([0-5][0-9]).(\\d{3})((\\+|\\-)([0-9]|[0][0-9]|[1][0-9]|[2][0-3])([0-5][0-9]))"
+        },
+        "operationalId":{
+          "type": ["integer", "null"],
+          "description": "Sales order item operational id"
+        },
+        "salesorder":{
+          "type": "integer",
+          "description": "Sales order that the sales order item belongs to"
+        },
+        "competence":{
+          "type": ["integer", "null"],
+          "description": "Sales order item competence"
+        },
+        "sellingPrice":{
+          "type": ["number", "null"],
+          "description": "Sales order item selling price"
+        },
+        "warrantyPeriod":{
+          "type": ["integer", "null"],
+          "description": "Sales order item warranty period"
+        },
+        "billingType":{
+          "type": "integer",
+          "description": "Sales order item billing type"
+        },
+        "contractItem":{
+          "type": ["integer", "null"],
+          "description": "Sales order item contract item"
+        },
+        "product":{
+          "type": ["integer", "null"],
+          "description": "Sales order item product id"
+        },
+        "salesAccount":{
+          "type": ["integer", "null"],
+          "description": "Sales order item account"
+        },
+        "quantity":{
+          "type": ["integer", "null"],
+          "description": "Sales order item quantity"
+        },
+        "invoicingPeriod":{
+          "type": ["integer", "null"],
+          "description": "Sales order item invoicing period type"
+        },
+        "costCenter":{
+          "type": ["integer", "null"],
+          "description":"Sales order item cost center"
+        },
+        "unit":{
+          "type": ["integer", "null"],
+          "description": "Sales order item unit value"
+        },
+        "task":{
+          "type": ["integer", "null"],
+          "description": "Sales order item task id"
+        },
+        "person": {
+          "type": ["integer", "null"],
+          "description":"Sales order item person id"
+        },
+        "name": {
+          "type": "string",
+          "description": "Sales order item name"
+        },
+        "validUntil":{
+          "type":["string", "null"],
+          "description": "Sales order item ending valid date",
+          "pattern": "(\\d{4})-([0][1-9]|[1][0-2])-([0][1-9]|[1-2][0-9]|[3][0-1])T([0][0-9]|[1][0-9]|[2][0-3]):([0-5][0-9]):([0-5][0-9]).(\\d{3})((\\+|\\-)([0-9]|[0][0-9]|[1][0-9]|[2][0-3])([0-5][0-9]))"
+        },
+        "selfCost": {
+          "type": ["integer", "null"],
+          "description": "Sales order item self cost"
+        }
+      }
+    }  
+  }
+}

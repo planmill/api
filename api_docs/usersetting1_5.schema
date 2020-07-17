@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "base schema for all user setting entities",
+  "oneOf": [
+    {
+      "type": "array",
+      "items": { "$ref": "#/definitions/userSettingArray" }
+    },
+    {
+      "$ref": "#/definitions/userSettingSingle"
+    }
+  ],
+  "definitions": {
+    "userSettingSingle": {
+      "type": "object",
+      "required": [ "name", "data" ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name for key-value pair in user setting"
+        },
+        "data": {
+          "type": "string",
+          "description": "Data for key-value pair in user setting"
+        },
+        "category": {
+          "type": "string",
+          "description": "Extra information for the setting, i.e. can be used for module specific settings. Setting is considered default when category is left empty."
+        },
+        "created": {
+          "type": "string",
+          "description": "Created date",
+          "pattern": "(\\d{4})-([0][1-9]|[1][0-2])-([0][1-9]|[1-2][0-9]|[3][0-1])T([0][0-9]|[1][0-9]|[2][0-3]):([0-5][0-9]):([0-5][0-9]).(\\d{3})((\\+|\\-)([0-9]|[0][0-9]|[1][0-9]|[2][0-3])([0-5][0-9]))"
+        },
+        "createdBy": {
+          "type": "integer",
+          "description": "Creator person id"
+        },
+        "modified": {
+          "type": ["string", "null"],
+          "description": "Modified date",
+          "pattern": "(\\d{4})-([0][1-9]|[1][0-2])-([0][1-9]|[1-2][0-9]|[3][0-1])T([0][0-9]|[1][0-9]|[2][0-3]):([0-5][0-9]):([0-5][0-9]).(\\d{3})((\\+|\\-)([0-9]|[0][0-9]|[1][0-9]|[2][0-3])([0-5][0-9]))"
+        },
+        "modifiedBy": {
+          "type": ["integer", "null"],
+          "description": "Modifier person id"
+        }
+      }
+    },
+    "userSettingArray": {
+      "type": "object",
+      "required": [ "name", "data" ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name for key-value pair in user setting"
+        },
+        "data": {
+          "type": "string",
+          "description": "Data for key-value pair in user setting"
+        },
+        "category": {
+          "type": "string",
+          "description": "Extra information for the setting, i.e. can be used for module specific settings. Setting is considered default when category is left empty."
+        },
+        "created": {
+          "type": "string",
+          "description": "Created date",
+          "pattern": "(\\d{4})-([0][1-9]|[1][0-2])-([0][1-9]|[1-2][0-9]|[3][0-1])T([0][0-9]|[1][0-9]|[2][0-3]):([0-5][0-9]):([0-5][0-9]).(\\d{3})((\\+|\\-)([0-9]|[0][0-9]|[1][0-9]|[2][0-3])([0-5][0-9]))"
+        },
+        "createdBy": {
+          "type": "integer",
+          "description": "Creator person id"
+        },
+        "modified": {
+          "type": ["string", "null"],
+          "description": "Modified date",
+          "pattern": "(\\d{4})-([0][1-9]|[1][0-2])-([0][1-9]|[1-2][0-9]|[3][0-1])T([0][0-9]|[1][0-9]|[2][0-3]):([0-5][0-9]):([0-5][0-9]).(\\d{3})((\\+|\\-)([0-9]|[0][0-9]|[1][0-9]|[2][0-3])([0-5][0-9]))"
+        },
+        "modifiedBy": {
+          "type": ["integer", "null"],
+          "description": "Modifier person id"
+        }
+      }
+    }
+  }
+}

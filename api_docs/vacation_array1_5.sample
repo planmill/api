@@ -1,0 +1,18 @@
+[
+    {
+        "daysRemaining": 18000,
+        "otherDaysRemaining": 0,
+        "savedLeaveDays": 0,
+        "created": "2019-02-27T14:03:23.880+0200",
+        "bonusDays": 0,
+        "vacationYear": 2018,
+        "annualHoliday": 18000,
+        "bonusDaysRemaining": 0,
+        "createdBy": 50,
+        "savedLeaveDaysRemaining": 0,
+        "modified": null,
+        "modifiedBy": null,
+        "id": 1615,
+        "otherDays": 0
+    }
+]

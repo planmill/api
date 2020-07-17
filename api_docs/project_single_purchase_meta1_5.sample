@@ -1,0 +1,92 @@
+{
+    "date": {
+        "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+        "caption": "Date",
+        "maxlength": "10",
+        "values": null
+    },
+    "accountName": {
+        "caption": "Account",
+        "format": "string",
+        "description": "",
+        "values": null
+    },
+    "actualAmount": {
+        "caption": "Actual cost",
+        "format": "double",
+        "values": null
+    },
+    "description": {
+        "caption": "",
+        "format": "string",
+        "values": null
+    },
+    "project": {
+        "caption": "",
+        "format": "int",
+        "values": null
+    },
+    "billableStatus": {
+        "caption": "Billable status",
+        "enumeration": "Enumeration values.Expense.Billable status editable",
+        "values": {
+            "In billing": "4",
+            "Billable": "1",
+            "Non-billable": "3"
+        }
+    },
+    "type": {
+        "caption": "Type",
+        "enumeration": "Enumeration values.Purchase.Type",
+        "values": {
+            "Travel": "0",
+            "Software": "5",
+            "Hardware": "6",
+            "Books": "4",
+            "Other": "7"
+        }
+    },
+    "personName": {
+        "caption": "Contact",
+        "format": "string",
+        "description": "",
+        "values": null
+    },
+    "task": {
+        "caption": "Task",
+        "format": "int",
+        "values": null
+    },
+    "contact": {
+        "values": null
+    },
+    "name": {
+        "caption": "Name",
+        "maxlength": "255",
+        "values": null
+    },
+    "plannedAmount": {
+        "caption": "Planned cost",
+        "format": "double",
+        "values": null
+    },
+    "id": {
+        "values": null
+    },
+    "account": {
+        "values": null
+    },
+    "status": {
+        "caption": "Status",
+        "enumeration": "Enumeration values.Expense.Status dates",
+        "values": {
+            "Locked": "9",
+            "Preliminary": "0",
+            "Reported": "2",
+            "Paid": "6",
+            "Rejected": "7",
+            "Inspected": "3",
+            "Accepted": "4"
+        }
+    }
+}

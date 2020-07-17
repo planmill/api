@@ -1,0 +1,62 @@
+{
+  "filters": [
+    {
+      "name": "rowcount",
+      "caption": "Rows",
+      "values": {
+        "25": "25",
+        "50": "50",
+        "75": "75",
+        "100": "100",
+        "150": "150",
+        "250": "250"
+      }
+    }
+  ],
+  "fields": {
+    "country": {
+      "format": "Enumeration values.Location.CountryId",
+      "caption": "Country"
+    },
+    "defaultWeekStartDay": {
+      "format": "Enumeration values.Administration.Calendars.Days",
+      "caption": "Default week start day"
+    },
+    "defaultDailyWorktime": {
+      "format": "hour",
+      "caption": "Default work time daily"
+    },
+    "defaultDailyStartTime": {
+      "format": "time",
+      "caption": "Default start time daily"
+    },
+    "name": {
+      "format": "text",
+      "caption": "_Name"
+    },
+    "start": {
+      "format": "shortdate",
+      "caption": "Start"
+    },
+    "defaultWeeklyWorkdays": {
+      "format": "number",
+      "caption": "Default work days weekly"
+    },
+    "finish": {
+      "format": "shortdate",
+      "caption": "Finish"
+    },
+    "activeUsers": {
+      "format": "text",
+      "caption": "Active users"
+    },
+    "id": {
+      "format": "checkbox",
+      "caption": "_"
+    },
+    "type": {
+      "format": "Enumeration values.Employee directory.Contact.Employee status",
+      "caption": "Type"
+    }
+  }
+}

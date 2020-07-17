@@ -1,0 +1,70 @@
+{
+  "task": {
+    "caption": "Task",
+    "values": {
+      "": "-"
+    }
+  },
+  "journey": {
+    "values": null
+  },
+  "acceptor": {
+    "caption": "Acceptor",
+    "format": "int",
+    "values": null
+  },
+  "name": {
+    "caption": "Purpose",
+    "maxlength": "255",
+    "values": null
+  },
+  "project": {
+    "caption": "Project",
+    "values": {
+      "2820": "Test project (13004)",
+      "2969": "test project - expense (13005)",
+      "": "-",
+      "test project - expense (13005)": 2969,
+      "Test project (13004)": 2820
+    }
+  },
+  "description": {
+    "caption": "Description",
+    "values": null
+  },
+  "currency": {
+    "caption": "currencyid",
+    "format": "string",
+    "description": "",
+    "values": null
+  },
+  "id": {
+    "values": null
+  },
+  "type": {
+    "caption": "Type",
+    "enumeration": "Enumeration values.Expense.Type",
+    "values": {
+      "Travel": "0",
+      "Advance payment": "10",
+      "Other": "7"
+    }
+  },
+  "billableStatus": {
+    "caption": "Billable status",
+    "values": {
+      "1": "1",
+      "3": "3"
+    }
+  },
+  "currencyCode": {
+    "format": "string",
+    "description": "",
+    "values": null
+  },
+  "expenseOwner": {
+    "format": "integer",
+    "description": "id of the person the that owns the expense",
+    
+  }
+}
