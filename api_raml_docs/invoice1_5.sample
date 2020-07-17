@@ -1,9 +1,0 @@
-{
-  "salesExecutive": 2960,
-  "invoiceXSL": "planmill_en_eur.xsl",
-  "invoiceAppendix": 0,
-  "invoiceNumber": 14,
-  "paymentStatus": 0,
-  "handlingFeeAccount": 7,
-  "sentToAccounting": null
-}
