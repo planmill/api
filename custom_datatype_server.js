@@ -1,12 +1,14 @@
 const r2j = require("ramldt2jsonschema");
 const join = require("path").join;
 const fs = require("fs");
+const http = require('http')
 const express = require("express");
 const app = express();
+const download = require("downloadjs")
 
 const ramlEndpoint = ".raml";
 const jsonEndpoint = ".json";
-const indexSubDir = "api_raml_docs"
+const indexSubDir = "api_docs"
 
 // serve files from the public directory
 app.use(express.static(indexSubDir));
@@ -23,15 +25,15 @@ app.get("/", (req, res) => {
 
 app.get("/download/:type", async (req, res) => {
 const click = { clickTime: new Date() };
-  console.log(click);
 
   let type = req.params.type,
-      filePath = join(__dirname, type + ramlEndpoint),
+      filePath = join(__dirname+'/api_docs/', type + ramlEndpoint),
       jsonfilePath = join(__dirname, indexSubDir + "/" + type + jsonEndpoint),
       ramlData = fs.readFileSync(filePath).toString(),
       schema;
-    
-  console.log(type, 'jsonfilePath:',jsonfilePath)
+	  console.log(filePath);
+	  console.log(jsonfilePath);
+
   schema = await r2j.dt2js(ramlData, type);
 
   fs.writeFile(jsonfilePath, JSON.stringify(schema, null, 2), function (err) {
