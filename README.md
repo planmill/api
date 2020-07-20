@@ -14,7 +14,7 @@ Following steps include the validation of RAML file before generating HTML doc f
 
 Install node.js http://nodejs.org/.
 Look for Node js command prompt (search your Windows). It's installed by the Node js.
-Run in Node js command prompt: npm i -g raml2html@3.0.1 (fetches raml2html from Node.js npm repository, same idea as Maven central and installs it). More about raml2html.
+Run in Node js command prompt: npm i -g https://github.com/planmill/raml2html#develop (fetches raml2html from Node.js npm repository, same idea as Maven central and installs it). More about raml2html.
 In Node js command prompt, navigate to api folder in the downloaded folder from Github.
 Run following command in Node js command prompt: raml2html -i planmill1_5.raml -o index.html. It will generate the HTML file in the same folder where RAML file is present.
 Open the index.html in browser and you should see the API document (or parsing errors, if any).

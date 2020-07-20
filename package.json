@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "jlint --glob './*.sample' && jlint --glob './*.schema'",
-    "build": "raml2html ./api/planmill1_5.raml > ./api/index.html",
+    "build": "npm i -g https://github.com/planmill/raml2html.git#develop --force & raml2html api_docs/planmill1_5.raml > api_docs/index.html",
     "patch": "npm run build & npm version patch & npm publish"
   },
   "repository": {
@@ -24,6 +24,10 @@
   },
   "homepage": "https://github.com/planmill/api#readme",
   "dependencies": {
-    "raml2html": "^7.5.0"
+    "downloadjs": "^1.4.7",
+    "express": "^4.17.1",
+    "raml2html": "git+https://github.com/planmill/raml2html.git#develop",
+    "raml2html-default-theme": "git+https://github.com/planmill/default-theme.git",
+    "ramldt2jsonschema": "^1.2.3"
   }
 }
