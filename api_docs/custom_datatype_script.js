@@ -43,7 +43,6 @@ $(function(){
           fetch("/download/" + type, { method: "GET" })
             .then((response) => response.text())
             .then((data) => {
-          console.log(data);
             download(jsonFile, data);
             })
             .catch(function (error) {
