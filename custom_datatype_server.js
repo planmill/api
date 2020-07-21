@@ -26,23 +26,18 @@ app.get("/api", (req, res) => {
 });
 
 app.get("/download/:type", async (req, res) => {
-const click = { clickTime: new Date() };
-
   let type = req.params.type,
-      filePath = join(__dirname, type + ramlEndpoint),
-      jsonfilePath = join(__dirname, indexSubDir + "/" + type + jsonEndpoint),
-      ramlData = fs.readFileSync(filePath).toString(),
-      schema;
-    
-  schema = await r2j.dt2js(ramlData, type);
+    filePath = join(__dirname + "/api_docs/", type + ramlEndpoint),
+    jsonfilePath = join(__dirname, indexSubDir + "/" + type + jsonEndpoint),
+    ramlData = fs.readFileSync(filePath).toString(),
+    schema;
 
+  schema = await r2j.dt2js(ramlData, type);
   fs.writeFile(jsonfilePath, JSON.stringify(schema, null, 2), function (err) {
     if (err) {
       return console.log(err);
     }
-    console.log("The file was saved!");
-    res.download(jsonfilePath,type+jsonEndpoint);
- 
+    res.download(jsonfilePath, type + jsonEndpoint);
   });
   //res.sendStatus(201);
 });
