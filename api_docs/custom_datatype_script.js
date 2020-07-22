@@ -23,7 +23,7 @@ function download(filename, text) {
 function createButton(divId) {
   var btn = document.createElement("a");
 
-  btn.innerHtml = $('#' + divId + " h3:contains('Body')").css('display', 'inline-block').
+  btn.innerHtml = $('#' + divId + " h3:contains('Body')").first().css('display', 'inline-block').
     after("<a href='#' style='margin-left:7px;'><div id=" + divId + "link style='display:inline-block;><a style='display:inline-block;margin-left:10px;' title='Download JSON Schema' href='#' ><span class='badge badge_post' style='width:130px;height:23px;padding-top:5px;'><span class='glyphicon glyphicon-download-alt' style='margin-right:7px;'></span>JSON SCHEMA</span></a></div></a>");
   return btn;
 }
