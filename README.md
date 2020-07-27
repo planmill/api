@@ -22,3 +22,30 @@ Open the index.html in browser and you should see the API document (or parsing e
 Documentation for formatting 
 
 https://github.github.com/gfm/#tables-extension-
+
+
+
+Netlify Local Installation steps
+--------------------------------
+
+1. Run command "npm install netlify-cli -g -force" as administrator
+2. Next steps:
+
+  netlify init     Connect or create a Netlify site from current directory
+  netlify deploy   Deploy the latest changes to your Netlify site
+  
+netlify init 
+
+and Next steps:
+
+ Logging into your Netlify account...
+ 
+Note :  Use always up / down keys to select your options
+
+3. Use commain "netlify init" to initialize your site
+
+4. Goto the root folder of the api doc and use "netlify deploy --prod" to deploy the documentation in public site
+
+Currently we are running at https://planmill.netlify.app/ 
+
+to Manage Site use the link https://app.netlify.com/
