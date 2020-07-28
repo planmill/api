@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
 
 app.get("/download/:type", async (req, res) => {
   let type = req.params.type,
-    filePath = join(__dirname + "/api_docs/", type + ramlEndpoint),
+    filePath = join(__dirname , type + ramlEndpoint),
     jsonfilePath = join(__dirname, indexSubDir + "/" + type + jsonEndpoint),
     ramlData = fs.readFileSync(filePath).toString(),
     schema;
