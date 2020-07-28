@@ -48,7 +48,14 @@
           "description": "Type of an account"
         },
         "vatId": {
-          "type": "string",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
           "description": "VAT id of an account"
         },
         "businessId": {
@@ -60,25 +67,51 @@
           "description": "Terms of payment of an invoice"
         },
         "phone": {
-          "type": "string",
-          "description": "Phone number of an account",
-          "pattern": "^[0-9|-]+$"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Phone number of an account"
         },
         "fax": {
           "type": "string",
           "description": "Fax number of an account"
         },
         "website": {
-          "type": "string",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
           "description": "Website of an account"
         },
         "email": {
-          "type": "string",
-          "pattern": "^\\w+(\\.\\w+)?@company.com$",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
           "description": "Email address of an account"
         },
         "parentAccountName": {
-          "type": "string"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "industry": {
           "anyOf": [
@@ -134,7 +167,14 @@
           "description": "VAT on an invoice of an account"
         },
         "invoiceNetOperator": {
-          "type": "string"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "eInvoiceAddress": {
           "type": "string",
@@ -152,9 +192,15 @@
           "description": "Handling fee of an account"
         },
         "invoiceEmail": {
-          "type": "string",
-          "description": "Invoice delivery email",
-          "pattern": "^\\w+(\\.\\w+)?@company.com$"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Invoice delivery email"
         },
         "supplierAccount": {
           "anyOf": [
@@ -168,15 +214,36 @@
           "description": "Supplier id of an account"
         },
         "twitter": {
-          "type": "string",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
           "description": "Twitter name of an account"
         },
         "facebook": {
-          "type": "string",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
           "description": "Facebook name of an account"
         },
         "blog": {
-          "type": "string",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
           "description": "Blog address of an account"
         },
         "combineInvoices": {

@@ -21,7 +21,7 @@ properties:
       type: integer | nil
       description: Type of an account
     vatId?: 
-      type: string
+      type: string | nil
       description: VAT id of an account
     businessId?: 
       type: string
@@ -30,21 +30,21 @@ properties:
       type: integer 
       description: Terms of payment of an invoice
     phone?: 
-      type: string
+      type: string | nil
       description: Phone number of an account
       pattern: "^[0-9|-]+$"
     fax?: 
       type: string
       description: Fax number of an account
     website?: 
-      type: string
+      type: string | nil
       description: Website of an account
     email?: 
-      type: string
+      type: string | nil
       pattern: "^\\w+(\\.\\w+)?@company.com"
       description: Email address of an account
     parentAccountName: 
-      type: string
+      type: string | nil
       required: false
     industry?: integer | nil
     serviceLevel?: 
@@ -57,7 +57,7 @@ properties:
     invoiceVat?: 
       type: number | nil
       description: VAT on an invoice of an account
-    invoiceNetOperator?: string
+    invoiceNetOperator?: string | nil
     eInvoiceAddress?: 
       type: string
       description: Party identification number
@@ -65,20 +65,20 @@ properties:
       type: number | nil
       description: Handling fee of an account
     invoiceEmail?: 
-      type: string
+      type: string | nil
       description: Invoice delivery email
       pattern: "^\\w+(\\.\\w+)?@company.com"
     supplierAccount?: 
       type: integer | nil
       description: Supplier id of an account
     twitter?: 
-      type: string
+      type: string | nil
       description: Twitter name of an account
     facebook?: 
-      type: string
+      type: string | nil
       description: Facebook name of an account
     blog?: 
-      type: string
+      type: string | nil
       description: Blog address of an account
     combineInvoices?: integer | nil
     rfReferenceNumber?: integer | nil 
@@ -108,16 +108,16 @@ properties:
     revenueThisYear?: number | nil
     revenueLastYear?: number | nil
     shippingAddress?: 
-      type: string
+      type: string | nil
       description: Invoice shipping address of an account
     shippingCity?: 
-      type: string
+      type: string | nil
       description: Invoice shipping city of an account
     shippingCountry?: 
       type: integer | nil
       description: Invoice shipping country of an account
     shippingPostalCode?: 
-      type: string
+      type: string | nil
       description: Invoice shipping postal code of an account
     supplierAccountName?: 
       type: string
