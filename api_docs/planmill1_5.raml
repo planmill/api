@@ -536,7 +536,7 @@ resourceTypes:
       interval:
       intervalstart:
       intervalfinish:
-      description: <script src="custom_datatype_script.js"></script>
+      description: #<script src="custom_datatype_script.js"></script>
   type:
     collection:
        exampleCollectionItemArray: !include absence_array1_5.sample
@@ -585,7 +585,7 @@ resourceTypes:
           application/json;charset=UTF-8 		
     body:
       application/json:
-        type: account[]	  
+        type: accountsingle
   type:
     collection:
        exampleCollectionItemArray: !include account_array1_5.sample
@@ -726,17 +726,17 @@ resourceTypes:
       type:
         readOnlyCollectionItem:
           exampleCollectionItem: !include capacitycalendar_meta1_5.sample
-/capacitycalendars/{id}/capacity/{date}:
-  description: Set a single day's capacity for a capacity calendar
-  uriParameters:
-    date:
-      type: date
-      description: Capacity date in UTC format
-      example: 2019-03-01T00:00:00.000+0200
-      required: true
-  type: 
-    putOnlyCollectionItem:
-      exampleCollectionItem: !include braces.sample
+  /capacitycalendars/{id}/capacity/{date}:
+    description: Set a single day's capacity for a capacity calendar
+    uriParameters:
+      date:
+        type: date
+        description: Capacity date in UTC format
+        example: 2019-03-01T00:00:00.000+0200
+        required: true
+    type: 
+      putOnlyCollectionItem:
+        exampleCollectionItem: !include braces.sample
 /contacts:
   get:
     queryParameters:
