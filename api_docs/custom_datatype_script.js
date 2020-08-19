@@ -33,15 +33,14 @@ $(function () {
     let divId = elem.split(idSplit)[0];
     let type = elem.split(idSplit)[1];
     let button = createButton(divId);
-    let el = document.getElementById(divId + 'link');
-
+    let el = document.getElementById(divId+'link');
     document.getElementById(divId).appendChild(button);
-
-    if (el) {
+	
+	if (el) {
       el.addEventListener("click", function () {
         let jsonFile = type + ".json";
 
-        fetch("/download/" + type, { method: "GET" })
+        fetch(jsonFile, { method: "GET" })
           .then((response) => response.text())
           .then((data) => {
             download(jsonFile, data);
@@ -53,3 +52,4 @@ $(function () {
     }
   });
 });
+	
