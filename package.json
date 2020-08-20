@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "jlint --glob './*.sample' && jlint --glob './*.schema'",
-    "build": "npm i -g https://github.com/planmill/raml2html.git#develop --force & raml2html api_docs/planmill1_5.raml > api_docs/index.html & node -e require('./lambda/schema/server.js').init()",
+    "build": "npm i -g https://github.com/planmill/raml2html.git#develop --force & raml2html api_docs/planmill1_5.raml > api_docs/index.html & node -e require('./lambda/schema/server.js')",
     "patch": "npm run build & npm version patch & npm publish"
   },
   "repository": {
