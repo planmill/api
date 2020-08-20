@@ -28,8 +28,8 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
-const currentDir = process.env.LAMBDA_TASK_ROOT;
-//const currentDir = __dirname;
+//const currentDir = process.env.LAMBDA_TASK_ROOT;
+const currentDir = __dirname;
 
 const main = async function () {
 	let filePath;
