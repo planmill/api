@@ -56,6 +56,7 @@ const main = async function () {
 			  console.log(e);
 			  }
 		})
+		return;
     };
 	
 main();
