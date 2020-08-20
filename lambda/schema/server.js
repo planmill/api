@@ -18,18 +18,18 @@ var linkItems = [
 // serve files from the public directory
 app.use(express.static(indexSubDir));
 
-// start the express web server listening on 3020
+/* start the express web server listening on 3020
 app.listen(3020, () => {
   console.log("listening on 3020");
-});
+});*/
 
 // serve the homepage
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
-//const currentDir = process.env.LAMBDA_TASK_ROOT;
-const currentDir = __dirname;
+const currentDir = process.env.LAMBDA_TASK_ROOT;
+//const currentDir = __dirname;
 
 const main = async function () {
 	let filePath;
