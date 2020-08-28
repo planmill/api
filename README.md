@@ -23,6 +23,16 @@ In Node js command prompt, navigate to api folder in the downloaded folder from 
 Run following command in Node js command prompt: raml2html -i planmill1_5.raml -o index.html. It will generate the HTML file in the same folder where RAML file is present.
 Open the index.html in browser and you should see the API document (or parsing errors, if any).
 
+Before running locally uncomment the below lines in /lambda/schema/server.js:
+/* start the express web server listening on 3020
+app.listen(3020, () => {
+  console.log("listening on 3020");
+});*/ 
+
+1. In the root directory Run Command "npm run build"
+2. Make sure index.html inside "api_docs" folder gets generated along with the new schema json files
+3. Go to http://localhost:3020 to test changes
+
 Documentation for formatting 
 
 https://github.github.com/gfm/#tables-extension-
