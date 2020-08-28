@@ -4,6 +4,10 @@ PlanMill REST API documentation and issues
 Add/Edit API Documentation
 API documentation project is located on Github at https://github.com/planmill/api
 
+You may install locally or to Netlify in www, or to netlify via command line. 
+
+1) Local installation guide
+
 Download the project from Github in a folder on your computer
 Navigate to planmill1_5.raml file. This file uses RESTful API Modeling Language (RAML). It makes it easy to manage the whole API lifecycle from design to sharing.
 Edit the file and save changes.
@@ -19,32 +23,39 @@ In Node js command prompt, navigate to api folder in the downloaded folder from 
 Run following command in Node js command prompt: raml2html -i planmill1_5.raml -o index.html. It will generate the HTML file in the same folder where RAML file is present.
 Open the index.html in browser and you should see the API document (or parsing errors, if any).
 
+Before running locally uncomment the below lines in /lambda/schema/server.js:
+/* start the express web server listening on 3020
+app.listen(3020, () => {
+  console.log("listening on 3020");
+});*/ 
+
+1. In the root directory Run Command "npm run build"
+2. Make sure index.html inside "api_docs" folder gets generated along with the new schema json files
+3. Go to http://localhost:3020 to test changes
+
 Documentation for formatting 
 
 https://github.github.com/gfm/#tables-extension-
 
+2) Netlify installation guide in www. 
 
+1. Connect the github repository to your netlify account. 
+2. Go to https://app.netlify.com/start. 
+3. Choose GitHub. 
+4. Choose Repository "Planmill". 
+5. Choose Configure your netlify app in github
+6.  Choose Planmill
+7. Choose Only select repositories. 
+8. Select repository planmill/api. 
+9. Choose update access. 
+10. Choose api
+11. Leave "build command" empty, and put "." to Publish directory. press "Deploy site". 
 
-Netlify Local Installation steps
---------------------------------
+3) Netlify installation guide in command line
 
 1. Run command "npm install netlify-cli -g -force" as administrator
-2. Next steps:
-
-  netlify init     Connect or create a Netlify site from current directory
-  netlify deploy   Deploy the latest changes to your Netlify site
-  
-netlify init 
-
-and Next steps:
-
- Logging into your Netlify account...
- 
-Note :  Use always up / down keys to select your options
-
-3. Use commain "netlify init" to initialize your site
-
-4. Goto the root folder of the api doc and use "netlify deploy --prod" to deploy the documentation in public site
+2. Use commain "netlify init" to initialize your site
+3. Goto the root folder of the api doc and use "netlify deploy --prod" to deploy the documentation in public site
 
 Currently we are running at https://planmill.netlify.app/ 
 
