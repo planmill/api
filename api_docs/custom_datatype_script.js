@@ -14,6 +14,8 @@ var linkItems = [
 
 function download(filename, text) {
   var element = document.createElement('a');
+  var filename = filename.replace(/1_5/ig, '');
+
   element.setAttribute('download', filename);
   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
   element.style.display = 'none';
