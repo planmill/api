@@ -162,7 +162,8 @@ traits:
         204:
           description: No HTTP body returned
 types:
-  absence: !include absence1_5.schema
+  absence: !include absence1_5.raml
+  absencesingle: !include absence_single1_5.raml
   account: !include account1_5.raml
   accountsingle: !include account_single1_5.raml
   action: !include action1_5.schema
@@ -537,6 +538,23 @@ resourceTypes:
       intervalstart:
       intervalfinish:
       description: <script src="custom_datatype_script.js"></script> <!--../lambda/schema/-->
+  responses:
+      200:
+        body:
+          application/json: 
+            type: absence[]
+  post:
+    headers:
+      Content-Type:
+        type: string
+        required: true
+        default: |
+          application/json;charset=UTF-8
+        example: |
+          application/json;charset=UTF-8
+    body:
+      application/json:
+        type: absencesingle
   type:
     collection:
        exampleCollectionItemArray: !include absence_array1_5.sample
@@ -548,6 +566,25 @@ resourceTypes:
         readOnlyCollectionItem:
           exampleCollectionItem: !include absence_meta1_5.sample
   /{absence_id}:
+    get:
+      description: View details of a single account. See accounts/meta for list of filters, columns and formats. 
+      responses:
+        200:
+          body:
+            application/json: 
+              type: absencesingle
+    post:
+      headers:
+        Content-Type:
+          type: string
+          required: true
+          default: |
+            application/json;charset=UTF-8
+          example: |
+            application/json;charset=UTF-8
+      body:
+        application/json:
+          type: absencesingle
     type: 
      collectionItem:
         exampleCollectionItem: !include absence1_5.sample

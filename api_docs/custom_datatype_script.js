@@ -2,6 +2,10 @@ var divSelector = "div[id*='datatype']";
 var idSplit = ":";
 
 var linkItems = [
+  "absences_get_response:absence1_5",
+  "absences_post_request:absence1_5",
+  "absences__absence_id__get_response:absence_single1_5",
+  "absences__absence_id__post_request:absence_single1_5",
   "accounts_get_response:account1_5",
   "accounts_post_request:account1_5",
   "accounts__account_id__get_response:account_single1_5",
