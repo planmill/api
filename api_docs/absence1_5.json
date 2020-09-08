@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$ref": "#/definitions/absence",
+  "$ref": "#/definitions/absence1_5",
   "definitions": {
-    "absence": {
+    "absence1_5": {
       "type": "object",
       "additionalProperties": true,
       "required": [

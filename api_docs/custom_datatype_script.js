@@ -41,6 +41,10 @@ $(function () {
     let button = createButton(divId);
     let el = document.getElementById(divId+'link');
     document.getElementById(divId).appendChild(button);
+    var mapSchemaObj = {
+      "true": false,
+      "1_5" : ''  
+    };
 	
 	if (el) {
       el.addEventListener("click", function () {
@@ -49,7 +53,10 @@ $(function () {
         fetch(jsonFile, { method: "GET" })
           .then((response) => response.text())
           .then((data) => {
-            download(jsonFile, data);
+            let jsonData = data.replace(/true|1_5/gi, function(matched){
+              return mapSchemaObj[matched];
+            }); 
+            download(jsonFile, jsonData);
           })
           .catch(function (error) {
             console.log(error);
