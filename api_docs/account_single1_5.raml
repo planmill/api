@@ -22,7 +22,7 @@ properties:
         type: integer | nil
       vatId?:
         description: VAT id of an account
-        type: string
+        type: string | nil
       businessId?:
         description: Business id of an account
         type: string
@@ -31,20 +31,20 @@ properties:
         type: integer
       eInvoicingAddress?:
         description: eInvoicing address
-        type: string
+        type: string | nil
       phone?:
         description: Phone number of an account
         pattern: "^[0-9|-]+$"
-        type: string
+        type: string | nil
       fax?:
         description: Fax number of an account
         type: string
       website?:
         description: Website of an account
-        type: string
+        type: string | nil
       email?:
         description: Email address of an account
-        type: string
+        type: string | nil
         pattern: "^\\w+(\\.\\w+)?@company.com"
       industry?: integer | nil
       serviceLevel?:
@@ -53,7 +53,7 @@ properties:
       customerSatisfaction?: integer | nil
       description?:
         description: Description of an account
-        type: string
+        type: string | nil
       autoReplyRequestMails?:
         description: Auto-reply request mails
         type: integer | nil
@@ -63,13 +63,13 @@ properties:
       invoiceVat?:
         description: VAT on an invoice of an account
         type: number | nil
-      invoiceNetOperator?: string
+      invoiceNetOperator?: string | nil
       handlingFee?:
         description: Handling fee of an account
         type: number | nil
       invoiceEmail?:
         description: Invoice delivery email
-        type: string
+        type: string | nil
         pattern: "^\\w+(\\.\\w+)?@company.com"
       supplierAccount?:
         description: Supplier id of an account
@@ -77,14 +77,14 @@ properties:
       reverseCharge?: integer | nil
       twitter?:
         description: Twitter name of an account
-        type: string
+        type: string | nil
       facebook?:
         description: Facebook name of an account
-        type: string
+        type: string | nil
       blog?:
         description: Blog address of an account
-        type: string
-      firstInvoiceNumber?: string
+        type: string | nil
+      firstInvoiceNumber?: string | nil
       combineInvoices?: integer | nil
       rfReferenceNumber?: integer | nil
       lineOfBusiness?: integer | nil
@@ -103,25 +103,25 @@ properties:
         description: Invoice billing postal code of an account
         type: string
       billingReference?: string | integer | nil
-      billingState?: string
+      billingState?: string | nil
       parentAccount?:
         description: Parent id of an account
         type: integer | nil
-      ceo?: string
-      parentAccountName?: string
+      ceo?: string | nil
+      parentAccountName?: string | nil
       shippingAddress?:
         description: Invoice shipping address of an account
-        type: string
+        type: string | nil
       shippingCity?:
         description: Invoice shipping city of an account
-        type: string
+        type: string | nil
       shippingCountry?:
         description: Invoice shipping country of an account
         type: integer | nil
       shippingPostalCode?: 
         description: Invoice shipping postal code of an account
-        type: string
-      shippingReference?: string
-      shippingState?: string
+        type: string | nil
+      shippingReference?: string | nil
+      shippingState?: string | nil
       invoiceAppendix?: integer | nil
-      invoiceTemplate?: string
+      invoiceTemplate?: string | nil

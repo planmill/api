@@ -1,6 +1,9 @@
 #%RAML 1.0 DataType
- 
+
 mediaType: application/json
+types:
+  account:
+additionalProperties: false
 properties:
     id?:
       type: integer
@@ -34,7 +37,7 @@ properties:
       description: Phone number of an account
       pattern: "^[0-9|-]+$"
     fax?: 
-      type: string
+      type: string | nil
       description: Fax number of an account
     website?: 
       type: string | nil
@@ -59,7 +62,7 @@ properties:
       description: VAT on an invoice of an account
     invoiceNetOperator?: string | nil
     eInvoiceAddress?: 
-      type: string
+      type: string| nil
       description: Party identification number
     handlingFee?: 
       type: number | nil
@@ -120,5 +123,5 @@ properties:
       type: string | nil
       description: Invoice shipping postal code of an account
     supplierAccountName?: 
-      type: string
+      type: string | nil
       description: Account name of supplier

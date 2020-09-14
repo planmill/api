@@ -5,14 +5,14 @@ const express = require("express");
 const app = express();
 
 const ramlEndpoint = ".raml";
-const jsonEndpoint = ".json";
+const schemaEndpoint = ".schema";
 const indexSubDir = "api_docs"
 
 var linkItems = [
-  "absence1_5",
-  "absence_single1_5",
-  "account1_5",
-  "account_single1_5"
+  "absence1_5:array",
+  "absence_single1_5:single",
+  "account1_5:array",
+  "account_single1_5:single"
 ];
 
 // serve files from the public directory
@@ -35,22 +35,22 @@ const currentDir = __dirname;
 const main = async function () {
 	let filePath;
 	let schema;
-	let jsonfilePath;
 	
 		linkItems.forEach(async  (elem) => 
 		{
 			try {
-				//console.log(elem + ramlEndpoint);
-				filePath = join(currentDir, elem + ramlEndpoint);
-				//console.log(filePath);
+				var name = elem.split(":")
+				filePath = join(currentDir, name[0] + ramlEndpoint);
 				
-				let ramlData = fs.readFileSync(filePath).toString();				
-				//console.log(ramlData);				
-				let schema = await r2j.dt2js(ramlData, elem);
-				
-				//console.log(JSON.stringify(schema, null, 2));
-				let jsonfilePath = join(currentDir, '../../api_docs/' + elem + jsonEndpoint);
-				fs.writeFile(jsonfilePath, JSON.stringify(schema, null, 2), function (err, data) {});
+				let ramlData = fs.readFileSync(filePath).toString();
+				let schema = await r2j.dt2js(ramlData, name[0].replace('1_5',''));
+				let schemaStr = JSON.stringify(schema, null, 2);
+				if(name[1] === 'array') {
+					var replaceString = '"$ref": "#/definitions/'+name[0].replace('1_5','')+'"';
+					schemaStr = schemaStr.replace(replaceString, '"oneOf": [{"type": "array","items": { '+replaceString+' }},{'+replaceString+'}  ]');
+				}
+				let jsonfilePath = join(currentDir, '../../api_docs/' + name[0]+ schemaEndpoint);
+				fs.writeFile(jsonfilePath, schemaStr, function (err, data) {});
   			  } catch (e) {
 			  console.log(e);
 			  }

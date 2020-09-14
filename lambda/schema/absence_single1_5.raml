@@ -2,7 +2,7 @@
 
 mediaType: application/json
 types:
-  absence_single1_5:
+  absence_single:
     properties:
         id?:
           type: integer
@@ -24,9 +24,7 @@ types:
           type: integer
         substitutePerson?:
           type: integer | nil
-          description: >-
-            Superior of user who accepts an absence when actual superior of user
-            is not available
+          description: Superior of user who accepts an absence when actual superior of user is not available
         status?:
           type: integer | nil
           description: Status of an absence
