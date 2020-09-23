@@ -6,31 +6,14 @@
       "additionalProperties": false,
       "type": "object",
       "required": [
-        "finish",
-        "person",
-        "start",
-        "absenceType"
+        "name"
       ],
       "properties": {
         "id": {
-          "type": "integer",
-          "description": "Internal ID of an account"
-        },
-        "vacationYear": {
-          "anyOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "description": "Vacation year of the user"
-        },
-        "project": {
+          "description": "Internal ID of an account",
           "type": "integer"
         },
-        "accepterPerson": {
+        "operationalId": {
           "anyOf": [
             {
               "type": "integer"
@@ -39,18 +22,21 @@
               "type": "null"
             }
           ],
-          "description": "Superior of user who accepts an absence"
+          "description": "Operational ID of an account"
         },
-        "finish": {
-          "description": "Finish date of an absence",
-          "type": "string",
-          "format": "RFC3339"
+        "name": {
+          "description": "Name of Account",
+          "type": "string"
         },
-        "person": {
-          "description": "Absentee and user of a system",
+        "passive": {
+          "description": "Active or passive state of account",
           "type": "integer"
         },
-        "substitutePerson": {
+        "owner": {
+          "description": "Responsible id of an account",
+          "type": "integer"
+        },
+        "type": {
           "anyOf": [
             {
               "type": "integer"
@@ -59,9 +45,86 @@
               "type": "null"
             }
           ],
-          "description": "Superior of user who accepts an absence when actual superior of user is not available"
+          "description": "Type of an account"
         },
-        "status": {
+        "vatId": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "VAT id of an account"
+        },
+        "businessId": {
+          "description": "Business id of an account",
+          "type": "string"
+        },
+        "termsOfPayment": {
+          "description": "Terms of payment of an invoice",
+          "type": "integer"
+        },
+        "eInvoicingAddress": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "eInvoicing address"
+        },
+        "phone": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Phone number of an account"
+        },
+        "fax": {
+          "description": "Fax number of an account",
+          "type": "string"
+        },
+        "website": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Website of an account"
+        },
+        "email": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Email address of an account"
+        },
+        "industry": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "serviceLevel": {
           "anyOf": [
             {
               "type": "integer"
@@ -70,12 +133,17 @@
               "type": "null"
             }
           ],
-          "description": "Status of an absence"
+          "description": "Service level provided to real company linked to an account"
         },
-        "start": {
-          "description": "Start date of an absence",
-          "type": "string",
-          "format": "RFC3339"
+        "customerSatisfaction": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "description": {
           "anyOf": [
@@ -86,17 +154,63 @@
               "type": "null"
             }
           ],
-          "description": "Description of an absence"
+          "description": "Description of an account"
         },
-        "absenceType": {
-          "description": "Type of an absence",
-          "type": "integer"
+        "autoReplyRequestMails": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Auto-reply request mails"
         },
-        "vacationLength": {
-          "description": "Length of an absence represented in minutes",
-          "type": "integer"
+        "invoiceChannel": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Methods of delivery of invoices"
         },
-        "interruptionDate": {
+        "invoiceVat": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "VAT on an invoice of an account"
+        },
+        "invoiceNetOperator": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "handlingFee": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Handling fee of an account"
+        },
+        "invoiceEmail": {
           "anyOf": [
             {
               "type": "string"
@@ -105,17 +219,282 @@
               "type": "null"
             }
           ],
-          "description": "Interruption date of an absence"
+          "description": "Invoice delivery email"
         },
-        "created": {
-          "description": "Creation date of an absence",
-          "type": "string",
-          "format": "RFC3339"
+        "supplierAccount": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Supplier id of an account"
         },
-        "modified": {
-          "description": "Modification date of an absence",
-          "type": "string",
-          "format": "RFC3339"
+        "reverseCharge": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "twitter": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Twitter name of an account"
+        },
+        "facebook": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Facebook name of an account"
+        },
+        "blog": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Blog address of an account"
+        },
+        "firstInvoiceNumber": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "combineInvoices": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "rfReferenceNumber": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "lineOfBusiness": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "staff": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "turnover": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "billingAddress": {
+          "description": "Invoice billing address of an account",
+          "type": "string"
+        },
+        "billingCity": {
+          "description": "Invoice billing city of an account",
+          "type": "string"
+        },
+        "billingCountry": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Invoice billing country of an account"
+        },
+        "billingPostalCode": {
+          "description": "Invoice billing postal code of an account",
+          "type": "string"
+        },
+        "billingReference": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "billingState": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "parentAccount": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Parent id of an account"
+        },
+        "ceo": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "parentAccountName": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "shippingAddress": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Invoice shipping address of an account"
+        },
+        "shippingCity": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Invoice shipping city of an account"
+        },
+        "shippingCountry": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Invoice shipping country of an account"
+        },
+        "shippingPostalCode": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Invoice shipping postal code of an account"
+        },
+        "shippingReference": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "shippingState": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "invoiceAppendix": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "invoiceTemplate": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         }
       }
     }

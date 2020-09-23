@@ -8,6 +8,10 @@ const ramlEndpoint = ".raml";
 const schemaEndpoint = ".schema";
 const indexSubDir = "api_docs"
 
+//options are passed from linkItems... 
+// first param is a type  name
+// second parameter is array or single schema object
+// third parameter is option to pass additionalProperties true or false
 var linkItems = [
   "absence1_5:array:noAdditionalProperties",
   "absence_single1_5:single:noAdditionalProperties",
