@@ -73,7 +73,14 @@
           "description": "Business id of an account"
         },
         "termsOfPayment": {
-          "type": "integer",
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
           "description": "Terms of payment of an invoice"
         },
         "phone": {
@@ -304,11 +311,25 @@
           "type": "integer"
         },
         "billingAddress": {
-          "type": "string",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
           "description": "Invoice billing address of an account"
         },
         "billingCity": {
-          "type": "string",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
           "description": "Invoice billing city of an account"
         },
         "billingCountry": {
@@ -323,12 +344,19 @@
           "description": "Invoice billing country of an account"
         },
         "billingPostalCode": {
-          "type": "string",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
           "description": "Invoice billing postal code of an account"
         },
         "created": {
           "type": "string",
-          "format": "RFC3339"
+          "format": "date-time"
         },
         "createdBy": {
           "anyOf": [
@@ -345,7 +373,7 @@
         },
         "modified": {
           "type": "string",
-          "format": "RFC3339"
+          "format": "date-time"
         },
         "modifiedBy": {
           "anyOf": [

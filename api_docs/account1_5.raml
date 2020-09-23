@@ -27,7 +27,7 @@ properties:
     type: string
     description: Business id of an account
   termsOfPayment?: 
-    type: integer 
+    type: integer | nil
     description: Terms of payment of an invoice
   phone?: 
     type: string | nil
@@ -85,26 +85,24 @@ properties:
   lineOfBusiness?: integer | nil
   activeContacts?: integer
   billingAddress?: 
-    type: string
+    type: string | nil
     description: Invoice billing address of an account
   billingCity?: 
-    type: string
+    type: string | nil
     description: Invoice billing city of an account
   billingCountry?: 
     type: integer | nil
     description: Invoice billing country of an account
   billingPostalCode?: 
-    type: string
+    type: string | nil
     description: Invoice billing postal code of an account
   created?: 
     type: datetime
-    format: RFC3339 
   createdBy?: string | integer | nil
   modified?: 
     type: datetime
-    format: RFC3339
   modifiedBy?: string | integer | nil
-  ownerName?: string | integer | nil       
+  ownerName?: string | integer | nil
   revenueThisYear?: number | nil
   revenueLastYear?: number | nil
   shippingAddress?: 
