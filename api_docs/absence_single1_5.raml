@@ -1,0 +1,56 @@
+#%RAML 1.0 Library
+
+mediaType: application/json
+types:
+  account_single:
+    properties:
+      id?:
+        type: integer
+        description: Internal ID of an absence
+      vacationYear?: 
+        type: integer | nil
+        description: Vacation year of the user
+      project?:
+        type: integer
+      accepterPerson?:
+        type: integer | nil
+        description: Superior of user who accepts an absence
+      finish:
+        description: Finish date of an absence
+        type: datetime
+        format: RFC3339
+      person:
+        description: Absentee and user of a system
+        type: integer
+      substitutePerson?:
+        type: integer | nil
+        description: >-
+          Superior of user who accepts an absence when actual superior of user
+          is not available
+      status?:
+        type: integer | nil
+        description: Status of an absence
+      start:
+        description: Start date of an absence
+        type: datetime
+        format: RFC3339
+      description?:
+        type: string | nil
+        description: Description of an absence
+      absenceType:
+        description: Type of an absence
+        type: integer
+      vacationLength?:
+        description: Length of an absence represented in minutes
+        type: integer
+      interruptionDate?:
+        type: string | nil
+        description: Interruption date of an absence
+      created?:
+        description: Creation date of an absence
+        type: datetime
+        format: RFC3339
+      modified?:
+        description: Modification date of an absence
+        type: datetime
+        format: RFC3339
