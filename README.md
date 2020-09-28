@@ -4,26 +4,25 @@ PlanMill REST API documentation and issues
 Add/Edit API Documentation
 API documentation project is located on Github at https://github.com/planmill/api
 
+Currently we are running at https://planmill.netlify.app/ 
+
+To Manage Site use the link https://app.netlify.com/
+
 You may install locally or to Netlify in www, or to netlify via command line. 
+
+Contents:
+
+1) Local installation guide
+2) Netlify installation guide in www. 
+3) Netlify installation guide in command line
+4) How to develop
 
 1) Local installation guide
 
 Download the project from Github in a folder on your computer
-Navigate to planmill1_5.raml file. This file uses RESTful API Modeling Language (RAML). It makes it easy to manage the whole API lifecycle from design to sharing.
-Edit the file and save changes.
-Add or edit schema and sample files.
-
-Generate HTML document
-Following steps include the validation of RAML file before generating HTML doc from it:
-
-Install node.js http://nodejs.org/.
-Look for Node js command prompt (search your Windows). It's installed by the Node js.
-Run in Node js command prompt: npm i -g https://github.com/planmill/raml2html#develop (fetches raml2html from Node.js npm repository, same idea as Maven central and installs it). More about raml2html.
-In Node js command prompt, navigate to api folder in the downloaded folder from Github.
-Run following command in Node js command prompt: raml2html -i planmill1_5.raml -o index.html. It will generate the HTML file in the same folder where RAML file is present.
-Open the index.html in browser and you should see the API document (or parsing errors, if any).
 
 Before running locally uncomment the below lines in /lambda/schema/server.js:
+
 /* start the express web server listening on 3020
 app.listen(3020, () => {
   console.log("listening on 3020");
@@ -31,11 +30,7 @@ app.listen(3020, () => {
 
 1. In the root directory Run Command "npm run build"
 2. Make sure index.html inside "api_docs" folder gets generated along with the new schema json files
-3. Go to http://localhost:3020 to test changes
-
-Documentation for formatting 
-
-https://github.github.com/gfm/#tables-extension-
+3. When index.html is generated, go to http://localhost:3020 to test changes
 
 2) Netlify installation guide in www. 
 
@@ -44,7 +39,7 @@ https://github.github.com/gfm/#tables-extension-
 3. Choose GitHub. 
 4. Choose Repository "Planmill". 
 5. Choose Configure your netlify app in github
-6.  Choose Planmill
+6. Choose Planmill
 7. Choose Only select repositories. 
 8. Select repository planmill/api. 
 9. Choose update access. 
@@ -53,10 +48,29 @@ https://github.github.com/gfm/#tables-extension-
 
 3) Netlify installation guide in command line
 
-1. Run command "npm install netlify-cli -g -force" as administrator
-2. Use commain "netlify init" to initialize your site
-3. Goto the root folder of the api doc and use "netlify deploy --prod" to deploy the documentation in public site
+1. Make sure your netlify account has access to Planmill. 
+2. Run command "npm install netlify-cli -g -force" as administrator
+3. Use commain "netlify init" to initialize your site
+4. Goto the root folder of the api doc and use "netlify deploy --prod" to deploy the documentation in public site
 
-Currently we are running at https://planmill.netlify.app/ 
+4) How to develop
 
-to Manage Site use the link https://app.netlify.com/
+Generate HTML document
+
+Navigate to planmill1_5.raml file. This file uses RESTful API Modeling Language (RAML). It makes it easy to manage the whole API lifecycle from design to sharing.
+Edit the file and save changes.
+Add or edit schema and sample files.
+
+Following steps include the validation of RAML file before generating HTML doc from it:
+
+Install node.js http://nodejs.org/.
+Look for Node js command prompt (search your Windows). It's installed by the Node js.
+Run in console: npm i -g https://github.com/planmill/raml2html#develop (fetches raml2html from Node.js npm repository, same idea as Maven central and installs it). 
+In Node js command prompt, navigate to api/api_docs folder in the downloaded folder from Github.
+Run following command in Node js command prompt: raml2html -i planmill1_5.raml -o index.html. It will generate the HTML file in the same folder where RAML file is present.
+Open the index.html in browser and you should see the API document (or parsing errors, if any). JSON Schema buttons do not work in this case, for that you have to do 
+full installation as explained in 1)-3). 
+
+Documentation for formatting 
+
+https://github.github.com/gfm/#tables-extension-
