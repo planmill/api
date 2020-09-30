@@ -2,10 +2,10 @@ var divSelector = "div[id*='datatype']";
 var idSplit = ":";
 
 var linkItems = [
-  "accounts_get_response:account",
-  "accounts_post_request:account_single",
-  "accounts__account_id__get_response:account_single",
-  "accounts__account_id__post_request:account_single"
+  "accounts_get_response:account_getAll",
+  "accounts_post_request:account_post",
+  "accounts__account_id__get_response:account_getId",
+  "accounts__account_id__post_request:account_postId"
 ];
 
 function download(filename, text) {

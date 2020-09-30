@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "lint": "jlint --glob './*.sample' && jlint --glob './*.schema'",
-    "build": "node server.js & npm i -g https://github.com/planmill/raml2html.git#develop --force & raml2html api_docs/planmill1_5.raml > api_docs/index.html",
+    "build": "npm run schema & npm i -g https://github.com/planmill/raml2html.git#develop --force & raml2html api_docs/planmill1_5.raml > api_docs/index.html",
     "deploy": "npm run build & netlify deploy --prod",
-    "patch": "npm run build & npm version patch & npm publish"
+    "patch": "npm run build & npm version patch & npm publish",
+    "schema": "dt2js api_docs/planmill1_5.raml account_getAll > api_docs/account_getAll.schema & dt2js api_docs/planmill1_5.raml account_getId > api_docs/account_getId.schema & dt2js api_docs/planmill1_5.raml account_post > api_docs/account_post.schema & dt2js api_docs/planmill1_5.raml account_postId > api_docs/account_postId.schema"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,6 @@
     "netlify-cli": "^2.59.1",
     "raml2html": "git+https://github.com/planmill/raml2html.git#develop",
     "raml2html-default-theme": "git+https://github.com/planmill/default-theme.git",
-    "ramldt2jsonschema": "^1.2.0"
+    "ramldt2jsonschema": "~1.2.0"
   }
 }

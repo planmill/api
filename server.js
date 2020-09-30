@@ -13,19 +13,21 @@ const indexSubDir = "api_docs"
 // second parameter is array or single schema object
 // third parameter is option to pass additionalProperties true or false
 var linkItems = [
-  "account1_5",
-  "accountsingle1_5"
+  "account_getId",
+  "account_post",
+  "account_postId",
+  "account_getAll"
 ];
 
 // serve files from the public directory
 app.use(express.static(indexSubDir));
 
-/*
+
 //start the express web server listening on 3020
-app.listen(3020, () => {
+/*app.listen(3020, () => {
   console.log("listening on 3020");
-});
-*/
+});*/
+
 // serve the homepage
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
@@ -37,14 +39,12 @@ const currentDir = __dirname +'/api_docs/' ;
 const main = async function () {
 	let filePath;
 	let schema;
-	
-		linkItems.forEach(async  (elem) => 
+    filePath = join(currentDir, 'planmill1_5' + ramlEndpoint);
+    const ramlData = fs.readFileSync(filePath).toString();
+		linkItems.forEach(async  (name) => 
 		{
 			try {
-				var name = elem;
-				filePath = join(currentDir, 'planmill1_5' + ramlEndpoint);
-				let ramlData = fs.readFileSync(filePath).toString();
-				let schema = await r2j.dt2js(ramlData, name.replace('1_5', ''));
+				let schema = await r2j.dt2js(ramlData, name);
 				let schemaStr = JSON.stringify(schema, null, 2);
 				
 				let jsonfilePath = join(currentDir, name+ schemaEndpoint);
