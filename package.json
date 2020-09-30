@@ -28,6 +28,7 @@
   "dependencies": {
     "downloadjs": "^1.4.7",
     "express": "^4.17.1",
+    "json-schema-migrate": "^0.2.0",
     "netlify-cli": "^2.59.1",
     "raml2html": "git+https://github.com/planmill/raml2html.git#develop",
     "raml2html-default-theme": "git+https://github.com/planmill/default-theme.git",
