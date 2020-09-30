@@ -20,7 +20,7 @@ app.listen(3020, () => {
 6. In the root directory Run Command "npm run build"
 7. Make sure index.html inside "api_docs" folder gets generated along with the new schema json files
 8. In command prompt, "node server.js"
-9. Go to http://localhost:3020 to test changes
+9. Go to http://localhost:3020 to see site. 
 
 2) Netlify installation guide in www. 
 
