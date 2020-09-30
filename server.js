@@ -21,10 +21,10 @@ app.use(express.static(indexSubDir));
 
 
 //start the express web server listening on 3020
-app.listen(3020, () => {
+/*app.listen(3020, () => {
   console.log("listening on 3020");
 });
-
+*/
 // serve the homepage
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
