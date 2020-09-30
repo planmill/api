@@ -9,7 +9,7 @@ const schemaEndpoint = ".schema";
 const indexSubDir = "api_docs"
 
 var linkItems = [
-/
+
   "account_getId",
   "account_post",
   "account_postId",
