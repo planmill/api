@@ -9,11 +9,12 @@ const schemaEndpoint = ".schema";
 const indexSubDir = "api_docs"
 
 var linkItems = [
-/*  "account_getId",
+/
+  "account_getId",
   "account_post",
   "account_postId",
   "account_getAll"
-  */
+  
 ];
 
 // serve files from the public directory
@@ -25,6 +26,7 @@ app.use(express.static(indexSubDir));
   console.log("listening on 3020");
 });
 */
+
 // serve the homepage
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
