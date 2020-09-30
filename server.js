@@ -8,15 +8,12 @@ const ramlEndpoint = ".raml";
 const schemaEndpoint = ".schema";
 const indexSubDir = "api_docs"
 
-//options are passed from linkItems... 
-// first param is a type  name
-// second parameter is array or single schema object
-// third parameter is option to pass additionalProperties true or false
 var linkItems = [
-  "account_getId",
+/*  "account_getId",
   "account_post",
   "account_postId",
   "account_getAll"
+  */
 ];
 
 // serve files from the public directory
@@ -24,9 +21,9 @@ app.use(express.static(indexSubDir));
 
 
 //start the express web server listening on 3020
-/*app.listen(3020, () => {
+app.listen(3020, () => {
   console.log("listening on 3020");
-});*/
+});
 
 // serve the homepage
 app.get("/", (req, res) => {
