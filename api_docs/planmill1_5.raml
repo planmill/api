@@ -280,17 +280,20 @@ types:
       autoReplyRequestMails?:
         description: Auto-reply request mails
         type: integer | nil
-  account_get:
+  account_getId:
     type: account_postId
-    properties:
+    properties: 
       id?:
         type: integer
         description: Internal ID of an account
+      parentAccountName?: 
+        type: string | nil
+  account_get:
+    type: account_getId
+    properties:
       operationalId?:         
         type: integer | nil
         description: Operational ID of an account
-      parentAccountName?: 
-        type: string | nil
       activeContacts?: integer
       created?: 
         type: datetime
@@ -306,14 +309,6 @@ types:
         description: Account name of supplier
   account_getAll:
      type: account_get[]
-  account_getId:
-    type: account_postId
-    properties: 
-      id?:
-        type: integer
-        description: Internal ID of an account
-      parentAccountName?: 
-        type: string | nil
   account_post:
     type: account_postId
     properties: 
