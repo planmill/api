@@ -164,7 +164,7 @@ traits:
 types:
   absence: !include absence1_5.raml
   absencesingle: !include absence_single1_5.raml
-  accountbase: 
+  account_postId: 
     additionalProperties: false
     properties:
       name?:
@@ -277,8 +277,12 @@ types:
       shippingState?: string | nil
       invoiceAppendix?: integer | nil
       invoiceTemplate?: string | nil
+	  properties: 
+      autoReplyRequestMails?:
+        description: Auto-reply request mails
+        type: integer | nil
   account_get:
-    type: accountbase
+    type: account_postId
     properties:
       id?:
         type: integer
@@ -304,22 +308,13 @@ types:
   account_getAll:
      type: account_get[]
   account_getId:
-    type: accountbase
+    type: account_postId
     properties: 
       id?:
         type: integer
         description: Internal ID of an account
       parentAccountName?: 
         type: string | nil
-      autoReplyRequestMails?:
-        description: Auto-reply request mails
-        type: integer | nil
-  account_postId:
-    type: accountbase
-    properties: 
-      autoReplyRequestMails?:
-        description: Auto-reply request mails
-        type: integer | nil
   account_post:
     type: account_postId
     properties: 
