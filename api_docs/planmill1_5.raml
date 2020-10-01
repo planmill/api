@@ -690,23 +690,6 @@ resourceTypes:
       intervalstart:
       intervalfinish:
       description: <script src="custom_datatype_script.js"></script> <!--../lambda/schema/-->
-    responses:
-        200:
-          body:
-            application/json: 
-              type: absence[]
-  post:
-    headers:
-      Content-Type:
-        type: string
-        required: true
-        default: |
-          application/json;charset=UTF-8
-        example: |
-          application/json;charset=UTF-8
-    body:
-      application/json:
-        type: absencesingle
   type:
     collection:
        exampleCollectionItemArray: !include absence_array1_5.sample
@@ -718,25 +701,6 @@ resourceTypes:
         readOnlyCollectionItem:
           exampleCollectionItem: !include absence_meta1_5.sample
   /{absence_id}:
-    get:
-      description: View details of a single account. See accounts/meta for list of filters, columns and formats. 
-      responses:
-        200:
-          body:
-            application/json: 
-              type: absencesingle
-    post:
-      headers:
-        Content-Type:
-          type: string
-          required: true
-          default: |
-            application/json;charset=UTF-8
-          example: |
-            application/json;charset=UTF-8
-      body:
-        application/json:
-          type: absencesingle
     type: 
      collectionItem:
         exampleCollectionItem: !include absence1_5.sample
