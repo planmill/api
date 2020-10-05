@@ -54,11 +54,16 @@ Add or edit schema and sample files.
 Run following command in command prompt in api_docs subdirectory: raml2html -i planmill1_5.raml -o index.html. It will generate the HTML file in the same folder where RAML file is present.
 Open the index.html in browser and you should see the API document (or parsing errors, if any).
 
-Documentation for formatting 
+5) API tests for newly generated schema 
+
+  1. Check out https://github.com/planmill/api-integration-tests
+  2. Open scripts/path.properties
+  3. Update "instance" name you would like to get/update the data from 
+  4. Update "schema_local_path" where latest netlify branch deployment done
+  5. Run the whole API test class you would like to test for the api change. for example API15AccountIT.java
+  
+  Documentation for formatting 
 
 https://github.github.com/gfm/#tables-extension-
-
-
-Currently we are running at https://planmill.netlify.app/ 
 
 to Manage Site use the link https://app.netlify.com/
