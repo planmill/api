@@ -66,4 +66,3 @@ Open the index.html in browser and you should see the API document (or parsing e
 Documentation for formatting 
 
 https://github.github.com/gfm/#tables-extension-
-
