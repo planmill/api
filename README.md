@@ -31,13 +31,12 @@ I) Local installation guide using node
 
 II) Netlify installation guide in deploying from git branch directly. 
 
-1. Connect the github repository to your netlify account. 
-2. Go to https://app.netlify.com/start. 
-3. Choose GitHub by clicking button GitHub. 
-4. Choose Repository "Planmill" from drop down menu. 
-5. Click link "Configure the Netlify app in GitHub"
-6. Choose Repository "Planmill" from the list by Clicking "PlanMill". 
-7. Login to your GitHub account if asked. 
+1. Go to https://app.netlify.com/start. 
+2. Choose GitHub by clicking button GitHub. 
+3. Choose Repository "Planmill" from drop down menu. 
+4. Click link "Configure the Netlify app in GitHub"
+5. Choose Repository "Planmill" from the list by Clicking "PlanMill". 
+6. Login to your GitHub account if asked. 
 7. Choose option Only select repositories from radio button. 
 8. Select repository planmill/api. 
 9. Choose update access. 
