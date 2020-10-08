@@ -18,17 +18,16 @@ I) Local installation guide using node
 1. Install node.js http://nodejs.org/, if not yet installed.
 2. Download the project from Github in a folder on your computer
 3. Navigate to root folder in the downloaded folder from Github.
-4. Install raml2html: npm i -g https://github.com/planmill/raml2html#develop
-5. Before running locally uncomment the below lines in /server.js:
+4. Before running locally uncomment the below lines in /server.js:
 
      /* start the express web server listening on 3020
      app.listen(3020, () => {
        console.log("listening on 3020");
      });*/ 
 
-6. In the root directory Run Command "npm run build"
-7. Make sure index.html inside "api_docs" folder gets generated along with the new schema json files
-8. Go to http://localhost:3020 to see site. 
+5. In the root directory Run Command "npm run build"
+6. Make sure index.html inside "api_docs" folder gets generated along with the new schema json files
+7. Go to http://localhost:3020 to see site. 
 
 II) Netlify installation guide in deploying from git branch directly. 
 
