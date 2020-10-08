@@ -2,14 +2,16 @@ var divSelector = "div[id*='datatype']";
 var idSplit = ":";
 
 var linkItems = [
-  "accounts_get_response:account1_5",
-  "accounts_post_request:account1_5",
-  "accounts__account_id__get_response:account_single1_5",
-  "accounts__account_id__post_request:account_single1_5"
+  "accounts_get_response:account_getAll",
+  "accounts_post_request:account_post",
+  "accounts__account_id__get_response:account_getId",
+  "accounts__account_id__post_request:account_postId"
 ];
 
 function download(filename, text) {
   var element = document.createElement('a');
+  var filename = filename.replace(/1_5/ig, '');
+
   element.setAttribute('download', filename);
   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
   element.style.display = 'none';
@@ -38,9 +40,9 @@ $(function () {
 	
 	if (el) {
       el.addEventListener("click", function () {
-        let jsonFile = type + ".json";
+        let jsonFile = type + ".schema";
 
-        fetch(jsonFile, { method: "GET" })
+        fetch(''+jsonFile, { method: "GET" })
           .then((response) => response.text())
           .then((data) => {
             download(jsonFile, data);
