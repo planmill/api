@@ -13,24 +13,24 @@ installation options are presented here in sections 1) 2) and 3), pick one most 
 Section 4)is about generating html files only, use it if you do not need a complete 
 installation and for testing html. 
  
-1) Local installation guide
+I) Local installation guide using node
 
 1. Install node.js http://nodejs.org/, if not yet installed.
 2. Download the project from Github in a folder on your computer
 3. Navigate to root folder in the downloaded folder from Github.
 4. Install raml2html: npm i -g https://github.com/planmill/raml2html#develop
-5.  Before running locally uncomment the below lines in /server.js:
+5. Before running locally uncomment the below lines in /server.js:
 
-/* start the express web server listening on 3020
-app.listen(3020, () => {
-  console.log("listening on 3020");
-});*/ 
+     /* start the express web server listening on 3020
+     app.listen(3020, () => {
+       console.log("listening on 3020");
+     });*/ 
 
 6. In the root directory Run Command "npm run build"
 7. Make sure index.html inside "api_docs" folder gets generated along with the new schema json files
 8. Go to http://localhost:3020 to see site. 
 
-2) Netlify installation guide in browser. 
+II) Netlify installation guide in deploying from git branch directly. 
 
 1. Connect the github repository to your netlify account. 
 2. Go to https://app.netlify.com/start. 
@@ -47,14 +47,14 @@ app.listen(3020, () => {
 you want to deploy. Usually this is master, but if you need to test a development branch, choose that branch. 
 12. Leave "build command" field as it is, and put "." to Publish directory. Click "Deploy site". 
 
-3) Netlify installation guide in command line
+III) Netlify installation guide in command line from local code
 
 1. Install node.js http://nodejs.org/, if not yet installed.
 2. Run command "npm install netlify-cli -g -force" as administrator
-3. Use commain "netlify init" to initialize your site
-4. Goto the root folder of the api doc and use "netlify deploy --prod" to deploy the documentation in public site
+3. Use command "netlify init" to initialize your site
+4. Goto the root folder of the api doc and use "npm run deploy" to deploy the documentation in public site
 
-4) Generating and investigating ramlt2html output html document:
+IV) Generating and investigating ramlt2html output html document:
 
 Following steps include the validation of RAML file before generating HTML doc from it:
 
