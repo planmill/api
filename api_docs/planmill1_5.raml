@@ -326,6 +326,104 @@ types:
   hook: !include hook1_5.schema
   mail: !include request_mail1_5.schema 
   opportunity: !include opportunity1_5.schema
+  project_base:
+    additionalProperties: false
+    properties:
+      name?: 
+        type: string
+        description: "Project's name."
+      category?:
+        type: integer | nil
+        description: "Enumeration of a project's category: -1=NULL , 10=Absence,20=Administration, 30=Development, 40=Delivery, 50=R & D, 60=Support, 70=Sales, 80=Marketing,90=Education, 100=Continuos service, 110=Maintenance"
+      portfolio:
+        type: integer | nil
+      invoiceReference?:
+        type: string
+        description: "Invoice reference of a project"
+      description?:
+        type: string | nil
+        description: "Description of a project"
+      contact?: 
+        type: number
+        description: "Contact's id that is related to a project, REQUIRED only IF billable status is 1 or 2"
+      billingAccount?:
+        type: integer | nil
+        description: "Billing account of a project"
+      autoAcceptTimeReports?:
+        type: integer
+        description: "Enumeration of autoAcceptTimeReports: 0=No, 1=Yes"
+      requireBillableComment?:
+        type: integer
+        description: Enumeration of requireBillableComment: 0=No, 1=For all billabletasks,2=For all tasks"
+      setRequestPerformerAsTeamMember?:
+        type: integer
+        description: "Enumeration of requestPerformerAsTeamMember: 0=No, 1=Yes"
+      requireCommentForOvertime?:
+        type: integer
+        description: "Enumeration of requireBillableComment: 0=No, 1=For all billable tasks,2=For all tasks"
+      allowNewTasksAndAssignmentsForAllUsers?:
+        type: integer
+        description: "Enumeration of allowNewTasksAndAssignmentsForAllUsers: 0=No, 1=Yes,butdonot add them as team members, 2=Yes,and add them as team members"
+      autoAssignNewTeamMembers?:
+        type: integer
+        description: "Enumeration of autoAssignNewTeamMembers: 0=No, 1=Yes,but only tosubtasks, 2=Yes"
+      invoiceAppendix?:
+        type: integer
+        description: "Invoice appendix of a project"
+      effortUnit?:
+        type: integer | nil
+        description: "Effort unit of a project"  
+      currency?:
+        type: number
+        description: "Currency id of a project"
+      fixedRevenue?:
+        type: number | nil
+        description: "Revenue amount of a project"
+      fixedWorkEffort?:
+        type: number | nil
+        description: "Work effort hours of a project"
+      fixedWork?:
+        type: number | nil
+        description: "Work effort cost of a project"
+      budgetedExpense?:
+        type: number | nil
+        description: "Expense amount of a project"
+      budgetedPurchase?:
+        type: number | nil
+        description: "Purchase amount of a project"
+      account?:
+        type: integer | nil
+  project_postId:		
+    type: project_base
+    properties:
+      type?:
+        type: integer
+        description: "Enumeration of a project's type: 1=Project, 3=Template"
+      dutyType?:
+        type: integer | nil
+      editableByUser?:
+        type: integer | nil
+  project_post:
+    type: project_postId
+    properties:
+      name: 
+        type: string
+        description: "Project's name."
+      status:
+        type: integer
+        description: "Enumeration of a project's status: 1=Draft, 2=Preliminary, 3=Execution,4=Aborted, 5=Closed, 6=On hold, 8=Archived"
+      billableStatus:
+        type: integer
+        description: "Enumeration of a project's billable status: 1=Fixed, 2=Time-based, 3=Non-billable"
+      contact: 
+        type: number
+        description: "Contact's id that is related to a project, REQUIRED only IF billable status is 1 or 2"
+      type:
+        type: integer
+        description: "Enumeration of a project's type: 1=Project, 3=Template"
+      operationalId?:
+        type: integer | nil
+        description: "Operational ID of a project"
   project: !include project1_5.schema
   product: !include product1_5.schema
   pricebook: !include pricebook1_5.schema
@@ -1352,6 +1450,18 @@ resourceTypes:
       interval:
       intervalstart:
       intervalfinish:
+  post:
+    headers:
+      Content-Type:
+        type: string
+        required: true
+        default: |
+          application/json;charset=UTF-8 <div id="project1_5-datatype-post"></div> 	
+        example: |
+          application/json;charset=UTF-8 		
+    body:
+      application/json:
+        type: project_post
   type:
     collection:
        exampleCollectionItemArray: !include project_array1_5.sample
@@ -1362,10 +1472,22 @@ resourceTypes:
       type:
         readOnlyCollectionItem:
           exampleCollectionItem: !include project_meta1_5.sample
-  /{project_id}:
-    type: 
-     collectionItem:
-        exampleCollectionItem: !include project1_5.sample
+  /{project_id}:  
+      post:
+        headers:
+          Content-Type:
+            type: string
+            required: true
+            default: |
+              application/json;charset=UTF-8
+            example: |
+              application/json;charset=UTF-8
+        body:
+          application/json:
+            type: project_postId 
+      type: 
+       collectionItem:
+          exampleCollectionItem: !include project1_5.sample
     /assignments:
       type:
         readOnlyCollection:
