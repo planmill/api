@@ -5,7 +5,11 @@ var linkItems = [
   "accounts_get_response:account_getAll",
   "accounts_post_request:account_post",
   "accounts__account_id__get_response:account_getId",
-  "accounts__account_id__post_request:account_postId"
+  "accounts__account_id__post_request:account_postId",
+  "projects_get_response:project_getAll",
+  "projects_post_request:project_post",
+  "projects__project_id__get_response:project_getId",
+  "projects__project_id__post_request:project_postId"
 ];
 
 function download(filename, text) {

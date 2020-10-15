@@ -424,6 +424,88 @@ types:
       operationalId?:
         type: integer | nil
         description: "Operational ID of a project"
+  project_getId:
+    type: project_base
+    properties:
+      id?:
+        type: integer
+        description: Internal ID of a project
+      totalCost?:
+        type: number
+        description: "total cost of a project"
+      type?:
+        type: integer
+        description: "Enumeration of a project's type: 1=Project, 3=Template"
+      dutyType?:
+        type: integer | nil
+      editableByUser?:
+        type: integer | nil
+  project_getAll:
+    type: project_base
+    properties:
+      id?:
+        type: integer
+        description: Internal ID of a project
+      status:
+        type: integer
+        description: "Enumeration of a project's status: 1=Draft, 2=Preliminary, 3=Execution,4=Aborted, 5=Closed, 6=On hold, 8=Archived"
+      billableStatus:
+        type: integer
+        description: "Enumeration of a project's billable status: 1=Fixed, 2=Time-based, 3=Non-billable"
+      operationalId?:
+        type: integer | nil
+        description: "Operational ID of a project"
+      totalCost?:
+        type: number
+        description: "total cost of a project"
+      actualCost?:
+        type: number
+        description: "actual cost of a project"
+      totalRevenue?:
+        type: number
+        description: "total revenue of a project"
+      actualRevenu?:
+        type: number
+        description: "actual revenue of a project"
+      invoicedRevenue?:
+        type: number
+        description: "invoiced revenue of a project"
+      plannedEffort?:
+        type: number
+        description: "planned effort of a project"
+      totalEffort?:
+        type: number
+        description: "total effort of a project"
+      actualEffort?:
+        type: number
+        description: "actual effort of a project"
+      remainingEffort?:
+        type: number
+        description: "remaining effort of a project"
+      start?:
+        type: datetime
+        description: "start date related to template"
+      finsih?:
+        type: datetime
+        description: "finsih date related to template"
+      workCompleteness?:
+        type: number
+        description: "Work completeness of a project"
+      workCompletenessPercentage?:
+        type: number
+        description: "Work completeness percentage of a project"
+      totalRemainingEffort?:
+        type: number
+        description: "Total remaining effort of a project"
+      accountName?:
+        type: string | nil
+      projectManager?:
+        type: number | nil
+        description: "Id of the project manager"
+      reportedHours?:
+        type: integer | nil
+        description: "Amount of hours (in minutes) reported to a project"
+
   project: !include project1_5.schema
   product: !include product1_5.schema
   pricebook: !include pricebook1_5.schema
@@ -1450,6 +1532,12 @@ resourceTypes:
       interval:
       intervalstart:
       intervalfinish:
+    responses:
+      200:
+        description: 
+        body:                  
+          application/json: 
+            type: project_getAll
   post:
     headers:
       Content-Type:
@@ -1472,22 +1560,29 @@ resourceTypes:
       type:
         readOnlyCollectionItem:
           exampleCollectionItem: !include project_meta1_5.sample
-  /{project_id}:  
+  /{project_id}:
+      get:
+        description: View details of a single account. See accounts/meta for list of filters, columns and formats. 
+        responses:
+          200:
+            body:
+              application/json: 
+                type: project_getId  
       post:
         headers:
           Content-Type:
             type: string
             required: true
             default: |
-              application/json;charset=UTF-8
+             application/json;charset=UTF-8
             example: |
               application/json;charset=UTF-8
         body:
           application/json:
             type: project_postId 
-      type: 
-       collectionItem:
-          exampleCollectionItem: !include project1_5.sample
+        type: 
+         collectionItem:
+            exampleCollectionItem: !include project1_5.sample
     /assignments:
       type:
         readOnlyCollection:

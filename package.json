@@ -8,7 +8,7 @@
     "build": "npm i -g --force & raml2html api_docs/planmill1_5.raml > api_docs/index.html & node server.js",
     "deploy": "npm run build & netlify deploy --prod",
     "patch": "npm run build & npm version patch & npm publish",
-    "schema": "dt2js ./api_docs/planmill1_5.raml account_getAll > ./api_docs/account_getAll.schema & dt2js ./api_docs/planmill1_5.raml account_getId > ./api_docs/account_getId.schema & dt2js ./api_docs/planmill1_5.raml account_post > ./api_docs/account_post.schema & dt2js ./api_docs/planmill1_5.raml account_postId > ./api_docs/account_postId.schema"
+    "schema": "dt2js ./api_docs/planmill1_5.raml account_getAll > ./api_docs/account_getAll.schema & dt2js ./api_docs/planmill1_5.raml account_getId > ./api_docs/account_getId.schema & dt2js ./api_docs/planmill1_5.raml account_post > ./api_docs/account_post.schema & dt2js ./api_docs/planmill1_5.raml account_postId > ./api_docs/account_postId.schema & dt2js ./api_docs/planmill1_5.raml project_getAll > ./api_docs/project_getAll.schema & dt2js ./api_docs/planmill1_5.raml project_getId > ./api_docs/project_getId.schema & dt2js ./api_docs/planmill1_5.raml project_post > ./api_docs/project_post.schema & dt2js ./api_docs/planmill1_5.raml project_postId > ./api_docs/project_postId.schema"
   },
   "repository": {
     "type": "git",
@@ -32,6 +32,6 @@
     "netlify-cli": "^2.59.1",
     "raml2html": "git+https://github.com/planmill/raml2html.git#develop",
     "raml2html-default-theme": "git+https://github.com/planmill/default-theme.git",
-    "ramldt2jsonschema": "^1.2.3"
+    "ramldt2jsonschema": "^1.2.0"
   }
 }
