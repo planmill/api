@@ -286,14 +286,14 @@ types:
       id?:
         type: integer
         description: Internal ID of an account
+      operationalId?:         
+        type: integer | nil
+        description: Operational ID of an account
       parentAccountName?: 
         type: string | nil
   account_get:
     type: account_getId
     properties:
-      operationalId?:         
-        type: integer | nil
-        description: Operational ID of an account
       activeContacts?: integer
       created?: 
         type: datetime
@@ -332,6 +332,12 @@ types:
       name?: 
         type: string
         description: "Project's name."
+      status:
+        type: integer
+        description: "Enumeration of a project's status: 1=Draft, 2=Preliminary, 3=Execution,4=Aborted, 5=Closed, 6=On hold, 8=Archived"
+      billableStatus:
+        type: integer
+        description: Used in enumeration of billableStatus
       category?:
         type: integer | nil
         description: "Enumeration of a project's category: -1=NULL , 10=Absence,20=Administration, 30=Development, 40=Delivery, 50=R & D, 60=Support, 70=Sales, 80=Marketing,90=Education, 100=Continuos service, 110=Maintenance"
@@ -409,12 +415,6 @@ types:
       name: 
         type: string
         description: "Project's name."
-      status:
-        type: integer
-        description: "Enumeration of a project's status: 1=Draft, 2=Preliminary, 3=Execution,4=Aborted, 5=Closed, 6=On hold, 8=Archived"
-      billableStatus:
-        type: integer
-        description: "Enumeration of a project's billable status: 1=Fixed, 2=Time-based, 3=Non-billable"
       contact: 
         type: number
         description: "Contact's id that is related to a project, REQUIRED only IF billable status is 1 or 2"
@@ -430,6 +430,9 @@ types:
       id?:
         type: integer
         description: Internal ID of a project
+      operationalId?:
+        type: integer | nil
+        description: "Operational ID of a project"
       totalCost?:
         type: number
         description: "total cost of a project"
@@ -440,18 +443,12 @@ types:
         type: integer | nil
       editableByUser?:
         type: integer | nil
-  project_getAll:
+  project_get:
     type: project_base
     properties:
       id?:
         type: integer
         description: Internal ID of a project
-      status:
-        type: integer
-        description: "Enumeration of a project's status: 1=Draft, 2=Preliminary, 3=Execution,4=Aborted, 5=Closed, 6=On hold, 8=Archived"
-      billableStatus:
-        type: integer
-        description: "Enumeration of a project's billable status: 1=Fixed, 2=Time-based, 3=Non-billable"
       operationalId?:
         type: integer | nil
         description: "Operational ID of a project"
@@ -505,7 +502,8 @@ types:
       reportedHours?:
         type: integer | nil
         description: "Amount of hours (in minutes) reported to a project"
-
+  project_getAll:
+    type: project_get[]
   product: !include product1_5.schema
   pricebook: !include pricebook1_5.schema
   salesorder: !include sales_order1_5.schema
