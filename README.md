@@ -63,6 +63,15 @@ Add or edit schema and sample files.
 Run following command in command prompt in api_docs subdirectory: raml2html -i planmill1_5.raml -o index.html. It will generate the HTML file in the same folder where RAML file is present.
 Open the index.html in browser and you should see the API document (or parsing errors, if any).
 
+V) API Testing
+
+1. Check out git master branch https://github.com/planmill/api-integration-tests
+2. Open the project in Intelij Idea
+3. Open path.properties from script folder (Not from template folder)4
+4. Make sure to change the "instance" property to point to the pmserver03 instance you would like to test against
+5. Make sure to change "schema_local_path" property to point to the netlify deployed developement instance you would like to test against
+6 Go to the test class for example API15ProjectIT.java and Click of the "Run Test" arrow in class level or method level.
+
 Documentation for formatting 
 
 https://github.github.com/gfm/#tables-extension-
