@@ -1586,135 +1586,136 @@ resourceTypes:
         type: 
           collectionItem:
             exampleCollectionItem: !include project1_5.sample
-    /assignments:
-      type:
-        readOnlyCollection:
-          schemaName: !include assignment1_5.schema
-          exampleCollectionItemArray: !include assignment_array1_5.sample
-      /meta:
-          description: Get meta information for the updatable fields of the assignment of a project
+      /assignments:
           get:
           type:
-            readOnlyCollectionItem:
-              exampleCollectionItem: !include project_single_assignment_meta1_5.sample
-      /{assignment_id}:
-        type:
-          readOnlyCollectionItem:
-            exampleCollectionItem: !include assignment1_5.sample
-    /attachments:
-      type:
-        readOnlyCollection:
-          schemaName:
-          exampleCollectionItemArray: !include tempfile_array1_5.sample
-      /{attachment_id}:
-        type:
-          putGetDeleteCollectionItem:
-            exampleCollectionItem: Contents of file
-    /members:
-      description: Collection of available team members of a project in PlanMill
-      type:
-        readOnlyCollection:
-          schemaName:
-          exampleCollectionItemArray: !include team_array1_5.sample
-      /meta:
-          description: Get meta information for the updatable fields of the team member of a project
-          get:
+            readOnlyCollection:
+              schemaName: !include assignment1_5.schema
+              exampleCollectionItemArray: !include assignment_array1_5.sample
+          /meta:
+              description: Get meta information for the updatable fields of the assignment of a project
+              get:
+              type:
+                readOnlyCollectionItem:
+                  exampleCollectionItem: !include project_single_assignment_meta1_5.sample
+        /{assignment_id}:
           type:
             readOnlyCollectionItem:
-              exampleCollectionItem: !include project_single_member_meta1_5.sample
-      /{member_id}:
-        description: A single team member of a project in PlanMill
+              exampleCollectionItem: !include assignment1_5.sample
+      /attachments:
         type:
-          putDeleteCollectionItem:
-      /external/{external_member_id}:
-        description: A single external team member of a project in PlanMill
+          readOnlyCollection:
+            schemaName:
+            exampleCollectionItemArray: !include tempfile_array1_5.sample
+        /{attachment_id}:
+          type:
+            putGetDeleteCollectionItem:
+              exampleCollectionItem: Contents of file
+      /members:
+        description: Collection of available team members of a project in PlanMill
         type:
-          putOnlyCollectionItem:
-            exampleCollectionItem: !include braces.sample
-      /editors/{editor_id}:
-        description: A single editor team member of a project in PlanMill
-        type:
-          putDeleteCollectionItem:
-      /managers/{manager_id}:
-        description: A single manager team member of a project in PlanMill
-        type:
-          putOnlyCollectionItem:
-            exampleCollectionItem: !include braces.sample
-    /meta:
-      description: Get meta information for the updatable fields of the project
-      get:
-      type:
-        readOnlyCollectionItem:
-          exampleCollectionItem: !include project_single_meta1_5.sample
-    /milestones:
-      description: List milestones information for a project
-      type:
-        readOnlyCollection:
-          schemaName:
-          exampleCollectionItemArray: !include project_milestones1_5.sample
+          readOnlyCollection:
+            schemaName:
+            exampleCollectionItemArray: !include team_array1_5.sample
+        /meta:
+            description: Get meta information for the updatable fields of the team member of a project
+            get:
+            type:
+              readOnlyCollectionItem:
+                exampleCollectionItem: !include project_single_member_meta1_5.sample
+        /{member_id}:
+          description: A single team member of a project in PlanMill
+          type:
+            putDeleteCollectionItem:
+        /external/{external_member_id}:
+          description: A single external team member of a project in PlanMill
+          type:
+            putOnlyCollectionItem:
+              exampleCollectionItem: !include braces.sample
+        /editors/{editor_id}:
+          description: A single editor team member of a project in PlanMill
+          type:
+            putDeleteCollectionItem:
+        /managers/{manager_id}:
+          description: A single manager team member of a project in PlanMill
+          type:
+            putOnlyCollectionItem:
+              exampleCollectionItem: !include braces.sample
       /meta:
-        description: Get meta information for the milestone of a project
+        description: Get meta information for the updatable fields of the project
         get:
         type:
           readOnlyCollectionItem:
-            exampleCollectionItem: !include project_milestones_meta1_5.sample
-    /purchases:
-      description: List purchase information for a project
-      type:
-        collection:
-         exampleCollectionItemArray: !include project_purchases_array1_5.sample
-         exampleCollectionItem: !include project_single_purchase1_5.sample
-      /id:
-        description: Single purchase information for a project
+            exampleCollectionItem: !include project_single_meta1_5.sample
+      /milestones:
+        description: List milestones information for a project
         type:
-          collectionItem:
-            exampleCollectionItem: !include project_single_purchase1_5.sample
+          readOnlyCollection:
+            schemaName:
+            exampleCollectionItemArray: !include project_milestones1_5.sample
+        /meta:
+          description: Get meta information for the milestone of a project
+          get:
+          type:
+            readOnlyCollectionItem:
+              exampleCollectionItem: !include project_milestones_meta1_5.sample
+      /purchases:
+        description: List purchase information for a project
+        type:
+          collection:
+          exampleCollectionItemArray: !include project_purchases_array1_5.sample
+          exampleCollectionItem: !include project_single_purchase1_5.sample
+        /id:
+          description: Single purchase information for a project
+          type:
+            collectionItem:
+              exampleCollectionItem: !include project_single_purchase1_5.sample
+          /meta:
+            description: Get meta information for the purchase of a project
+            get:
+            type:
+              readOnlyCollectionItem:
+                exampleCollectionItem: !include project_single_purchase_meta1_5.sample
         /meta:
           description: Get meta information for the purchase of a project
           get:
           type:
-            readOnlyCollectionItem:
-              exampleCollectionItem: !include project_single_purchase_meta1_5.sample
-      /meta:
-        description: Get meta information for the purchase of a project
+            readOnlyCollection:
+              schemaName:
+              exampleCollectionItemArray: !include project_purchases_array_meta1_5.sample
+      /tasks:
+        description: Please note that this data model might change and might be inconsistent with the schema right now
         get:
+          queryParameters:
+            rowcount:
+            nextrows:
+            order:
+            sort:    
+            interval:
+            intervalstart:
+            intervalfinish:
+        type:
+          readOnlyCollection:
+            schemaName: !include task1_5.schema
+            exampleCollectionItemArray: !include task_array1_5.sample
+        /meta:
+          description: Get meta information for tasks. Includes resource's fields names and type and related filters
+          get:
+          type:
+            readOnlyCollectionItem:
+              exampleCollectionItem: !include task_meta1_5.sample
+      /requests:
+        description: List requests information for a project
         type:
           readOnlyCollection:
             schemaName:
-            exampleCollectionItemArray: !include project_purchases_array_meta1_5.sample
-    /tasks:
-      description: Please note that this data model might change and might be inconsistent with the schema right now
-      get:
-        queryParameters:
-          rowcount:
-          nextrows:
-          order:
-          sort:    
-          interval:
-          intervalstart:
-          intervalfinish:
-      type:
-        readOnlyCollection:
-          schemaName: !include task1_5.schema
-          exampleCollectionItemArray: !include task_array1_5.sample
-      /meta:
-        description: Get meta information for tasks. Includes resource's fields names and type and related filters
-        get:
-        type:
-          readOnlyCollectionItem:
-            exampleCollectionItem: !include task_meta1_5.sample
-    /requests:
-      description: List requests information for a project
-      type:
-        readOnlyCollection:
-          schemaName:
-          exampleCollectionItemArray: !include project_requests1_5.sample
-      /meta:
-        description: Get meta information for the request of a project
-        get:
-        type:
-          readOnlyCollectionItem:
-            exampleCollectionItem: !include project_requests_meta1_5.sample
+            exampleCollectionItemArray: !include project_requests1_5.sample
+        /meta:
+          description: Get meta information for the request of a project
+          get:
+          type:
+            readOnlyCollectionItem:
+              exampleCollectionItem: !include project_requests_meta1_5.sample
 /products:
   description: To manage and list all products in a company. See /meta -endpoint.
   get:
