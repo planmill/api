@@ -1660,12 +1660,11 @@ resourceTypes:
             readOnlyCollectionItem:
               exampleCollectionItem: !include project_milestones_meta1_5.sample
       /purchases:
-        get:
         description: List purchase information for a project
         type:
           collection:
-          exampleCollectionItemArray: !include project_purchases_array1_5.sample
-          exampleCollectionItem: !include project_single_purchase1_5.sample
+            exampleCollectionItemArray: !include project_purchases_array1_5.sample
+            exampleCollectionItem: !include project_single_purchase1_5.sample
         /id:
           description: Single purchase information for a project
           type:
