@@ -433,9 +433,12 @@ types:
       operationalId?:
         type: integer | nil
         description: "Operational ID of a project"
-      totalCost?:
+      budgetedTotalCost?:
         type: number
-        description: "total cost of a project"
+        description: "Budgeted cost of a project"
+      forecastedTotalCost?:
+        type: number
+        description: "Forecasted cost of a project"  
       type?:
         type: integer
         description: "Enumeration of a project's type: 1=Project, 3=Template"
@@ -452,9 +455,12 @@ types:
       operationalId?:
         type: integer | nil
         description: "Operational ID of a project"
-      totalCost?:
+      budgetedTotalCost?:
         type: number
-        description: "total cost of a project"
+        description: "Budgeted cost of a project"
+      forecastedTotalCost?:
+        type: number
+        description: "Forecasted cost of a project"
       actualCost?:
         type: number
         description: "actual cost of a project"
