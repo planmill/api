@@ -422,7 +422,7 @@ types:
         type: integer
         description: "Enumeration of a project's type: 1=Project, 3=Template"
       operationalId?:
-        type: integer | nil
+        type: string | nil
         description: "Operational ID of a project"
   project_getId:
     type: project_base
@@ -431,7 +431,7 @@ types:
         type: integer
         description: Internal ID of a project
       operationalId?:
-        type: integer | nil
+        type: string | nil
         description: "Operational ID of a project"
       budgetedTotalCost?:
         type: number
@@ -453,7 +453,7 @@ types:
         type: integer
         description: Internal ID of a project
       operationalId?:
-        type: integer | nil
+        type: string | nil
         description: "Operational ID of a project"
       budgetedTotalCost?:
         type: number
