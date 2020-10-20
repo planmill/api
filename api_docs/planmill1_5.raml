@@ -409,25 +409,7 @@ types:
         type: integer | nil
       editableByUser?:
         type: integer | nil
-  project_post:
-    type: project_postId
-    properties:
-      name:
-        required: true
-      contact:
-        required: true
-      status:
-        required: true
-      billableStatus:
-        required: true
-      portfolio:
-        required: true
-      type:
-        required: true
-      operationalId?:
-        type: string | nil
-        description: "Operational ID of a project"
-  project_getId:
+project_getId:
     type: project_base
     properties:
       id?:
