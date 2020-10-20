@@ -349,9 +349,6 @@ types:
       description?:
         type: string | nil
         description: "Description of a project"
-      contact?:
-        type: number
-        description: "Contact's id that is related to a project, REQUIRED only IF billable status is 1 or 2"
       billingAccount?:
         type: integer | nil
         description: "Billing account of a project"
@@ -402,6 +399,9 @@ types:
   project_postId:
     type: project_base
     properties:
+      contact?:
+        type: number
+        description: "Contact's id that is related to a project, REQUIRED only IF billable status is 1 or 2"
       type?:
         type: integer
         description: "Enumeration of a project's type: 1=Project, 3=Template"
@@ -416,12 +416,23 @@ types:
         required: true
       contact:
         required: true
+      status:
+        required: true
+      billableStatus:
+        required: true
+      portfolio:
+        required: true
+      type:
+        required: true
       operationalId?:
         type: string | nil
         description: "Operational ID of a project"
   project_getId:
     type: project_base
     properties:
+        contact?:
+        type: number
+        description: "Contact's id that is related to a project, REQUIRED only IF billable status is 1 or 2"
       id?:
         type: integer
         description: Internal ID of a project
@@ -444,6 +455,9 @@ types:
   project_get:
     type: project_base
     properties:
+      contact?:
+        type: number
+        description: "Contact's id that is related to a project, REQUIRED only IF billable status is 1 or 2"
       id?:
         type: integer
         description: Internal ID of a project
