@@ -411,6 +411,15 @@ types:
         type: integer | nil
   project_post:
     type: project_base
+    properties:
+      name:
+        required: true
+      status:
+        required: true
+      billableStatus:
+        required: true
+      portfolio:
+        required: true
       operationalId?:
         type: string | nil
         description: "Operational ID of a project"
@@ -1551,8 +1560,8 @@ resourceTypes:
         type: project_post
     type:
       collection:
-        exampleCollectionItemArray: !include project_array1_5.sample
-        exampleCollectionItem: !include project1_5.sample
+         exampleCollectionItemArray: !include project_array1_5.sample
+         exampleCollectionItem: !include project1_5.sample
   /meta:
       description: Get meta information for projects. Includes resource's fields names and type and related filters
       get:
