@@ -414,6 +414,16 @@ types:
     properties:
       name:
         required: true
+      contact?:
+        type: number
+        description: "Contact's id that is related to a project, REQUIRED only IF billable status is 1 or 2"
+      type?:
+        type: integer
+        description: "Enumeration of a project's type: 1=Project, 3=Template"
+      dutyType?:
+        type: integer | nil
+      editableByUser?:
+        type: integer | nil		
       operationalId?:
         type: string | nil
         description: "Operational ID of a project"
