@@ -399,7 +399,7 @@ types:
         description: "Purchase amount of a project"
       account?:
         type: integer | nil
-  project_postId:		
+  project_postId:
     type: project_base
     properties:
       type?:
@@ -412,10 +412,10 @@ types:
   project_post:
     type: project_postId
     properties:
-      name: 
+      name:
         type: string
         description: "Project's name."
-      contact: 
+      contact:
         type: number
         description: "Contact's id that is related to a project, REQUIRED only IF billable status is 1 or 2"
       status:
