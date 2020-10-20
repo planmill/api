@@ -332,16 +332,16 @@ types:
       name?: 
         type: string
         description: "Project's name."
-      status:
+      status?:
         type: integer
         description: "Enumeration of a project's status: 1=Draft, 2=Preliminary, 3=Execution,4=Aborted, 5=Closed, 6=On hold, 8=Archived"
-      billableStatus:
+      billableStatus?:
         type: integer | nil
         description: Used in enumeration of billableStatus
       category?:
         type: integer | nil
         description: "Enumeration of a project's category: -1=NULL , 10=Absence,20=Administration, 30=Development, 40=Delivery, 50=R & D, 60=Support, 70=Sales, 80=Marketing,90=Education, 100=Continuos service, 110=Maintenance"
-      portfolio:
+      portfolio?:
         type: integer | nil
       invoiceReference?:
         type: string
@@ -418,6 +418,14 @@ types:
       contact: 
         type: number
         description: "Contact's id that is related to a project, REQUIRED only IF billable status is 1 or 2"
+ 	  status:
+        type: integer
+        description: "Enumeration of a project's status: 1=Draft, 2=Preliminary, 3=Execution,4=Aborted, 5=Closed, 6=On hold, 8=Archived"
+      billableStatus:
+        type: integer | nil
+        description: Used in enumeration of billableStatus
+      portfolio:
+        type: integer | nil
       type:
         type: integer
         description: "Enumeration of a project's type: 1=Project, 3=Template"
