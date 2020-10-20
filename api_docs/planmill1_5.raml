@@ -315,7 +315,7 @@ types:
       name:
         description: Name of Account
         type: string
-      operationalId?:
+      operationalId?:         
         type: integer | nil
         description: Operational ID of an account
   action: !include action1_5.schema
@@ -425,7 +425,7 @@ types:
       type:
         required: true
       operationalId?:
-        type: integer | nil
+        type: string | nil
         description: "Operational ID of a project"
   project_getId:
     type: project_base
@@ -434,7 +434,7 @@ types:
         type: integer
         description: Internal ID of a project
       operationalId?:
-        type: integer | nil
+        type: string | nil
         description: "Operational ID of a project"
       budgetedTotalCost?:
         type: number
@@ -456,7 +456,7 @@ types:
         type: integer
         description: Internal ID of a project
       operationalId?:
-        type: integer | nil
+        type: string | nil
         description: "Operational ID of a project"
       budgetedTotalCost?:
         type: number
