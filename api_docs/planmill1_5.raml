@@ -1562,16 +1562,16 @@ resourceTypes:
         type: string
         required: true
         default: |
-          application/json;charset=UTF-8 <div id="project1_5-datatype-post"></div> 	
+          application/json;charset=UTF-8 <div id="project1_5-datatype-post"></div> 
         example: |
-          application/json;charset=UTF-8 		
+          application/json;charset=UTF-8
     body:
       application/json:
         type: project_post
-  type:
-    collection:
-       exampleCollectionItemArray: !include project_array1_5.sample
-       exampleCollectionItem: !include project1_5.sample
+    type:
+      collection:
+         exampleCollectionItemArray: !include project_array1_5.sample
+         exampleCollectionItem: !include project1_5.sample
   /meta:
       description: Get meta information for projects. Includes resource's fields names and type and related filters
       get:
