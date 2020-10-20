@@ -420,6 +420,9 @@ types:
       contact:
         type: number
         description: "Contact's id that is related to a project, REQUIRED only IF billable status is 1 or 2"
+      billableStatus:
+        type: integer | nil
+        description: Used in enumeration of billableStatus
       type?:
         type: integer
         description: "Enumeration of a project's type: 1=Project, 3=Template"
