@@ -338,8 +338,6 @@ types:
       category?:
         type: integer | nil
         description: "Enumeration of a project's category: -1=NULL , 10=Absence,20=Administration, 30=Development, 40=Delivery, 50=R & D, 60=Support, 70=Sales, 80=Marketing,90=Education, 100=Continuos service, 110=Maintenance"
-      portfolio?:
-        type: integer | nil
       invoiceReference?:
         type: string
         description: "Invoice reference of a project"
@@ -402,6 +400,8 @@ types:
       type?:
         type: integer
         description: "Enumeration of a project's type: 1=Project, 3=Template"
+      portfolio?:
+        type: integer | nil
       dutyType?:
         type: integer | nil
       editableByUser?:
@@ -423,6 +423,8 @@ types:
       billableStatus:
         type: integer | nil
         description: Used in enumeration of billableStatus
+      portfolio:
+        type: integer | nil
       type?:
         type: integer
         description: "Enumeration of a project's type: 1=Project, 3=Template"
@@ -448,6 +450,8 @@ types:
       billableStatus?:
         type: integer | nil
         description: Used in enumeration of billableStatus
+      portfolio?:
+        type: integer | nil
       budgetedTotalCost?:
         type: number
         description: "Budgeted cost of a project"
@@ -476,6 +480,8 @@ types:
       billableStatus?:
         type: integer | nil
         description: Used in enumeration of billableStatus
+      portfolio?:
+        type: integer | nil
       budgetedTotalCost?:
         type: number
         description: "Budgeted cost of a project"
