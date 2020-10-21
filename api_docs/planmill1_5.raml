@@ -338,9 +338,6 @@ types:
       category?:
         type: integer | nil
         description: "Enumeration of a project's category: -1=NULL , 10=Absence,20=Administration, 30=Development, 40=Delivery, 50=R & D, 60=Support, 70=Sales, 80=Marketing,90=Education, 100=Continuos service, 110=Maintenance"
-      portfolio?:
-        type: integer | nil
-        description: "Project portfolio"
       invoiceReference?:
         type: string
         description: "Invoice reference of a project"
@@ -403,6 +400,9 @@ types:
       type?:
         type: integer
         description: "Enumeration of a project's type: 1=Project, 3=Template"
+      portfolio?:
+        type: integer | nil
+        description: "Project portfolio"
       dutyType?:
         type: integer | nil
       editableByUser?:
@@ -421,9 +421,9 @@ types:
       status:
         type: integer
         description: "Enumeration of a project's status: 1=Draft, 2=Preliminary, 3=Execution,4=Aborted, 5=Closed, 6=On hold, 8=Archived"
-      contact:
-        type: number
-        description: "Contact's id that is related to a project, REQUIRED only IF billable status is 1 or 2"
+      portfolio:
+        type: integer | nil
+        description: "Project portfolio"
       billableStatus:
         type: integer | nil
         description: Used in enumeration of billableStatus
@@ -440,9 +440,6 @@ types:
   project_getId:
     type: project_base
     properties:
-      contact?:
-        type: number
-        description: "Contact's id that is related to a project, REQUIRED only IF billable status is 1 or 2"
       id?:
         type: integer
         description: Internal ID of a project
@@ -452,6 +449,9 @@ types:
       billableStatus?:
         type: integer | nil
         description: Used in enumeration of billableStatus
+      portfolio?:
+        type: integer | nil
+        description: "Project portfolio"
       budgetedTotalCost?:
         type: number
         description: "Budgeted cost of a project"
@@ -468,9 +468,6 @@ types:
   project_get:
     type: project_base
     properties:
-      contact?:
-        type: number
-        description: "Contact's id that is related to a project, REQUIRED only IF billable status is 1 or 2"
       id?:
         type: integer
         description: Internal ID of a project
@@ -480,6 +477,9 @@ types:
       billableStatus?:
         type: integer | nil
         description: Used in enumeration of billableStatus
+      portfolio?:
+        type: integer | nil
+        description: "Project portfolio"
       budgetedTotalCost?:
         type: number
         description: "Budgeted cost of a project"
