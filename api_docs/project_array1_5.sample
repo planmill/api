@@ -25,7 +25,7 @@
     "fixedRevenue": null,
     "name": "Project A",
     "category": null,
-    "totalCost": 2528.2032051124797,
+    "forecastedtotalCost": 2528.2032051124797,
     "account": 558783,
     "status": 3
   },
@@ -55,7 +55,7 @@
     "fixedRevenue": null,
     "name": "Project B",
     "category": 10,
-    "totalCost": 90,
+    "forecastedtotalCost": 90,
     "account": 558783,
     "status": 2
   },
@@ -85,7 +85,7 @@
     "fixedRevenue": null,
     "name": "Project C",
     "category": null,
-    "totalCost": 94.2,
+    "forecastedtotalCost": 94.2,
     "account": 504828,
     "status": 3
   }

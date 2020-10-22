@@ -24,6 +24,6 @@
   "category": 30,
   "budgetedExpense": 100,
   "account": 558783,
-  "totalCost": 300,
+  "forecastedtotalCost": 300,
   "status": 3
 }
