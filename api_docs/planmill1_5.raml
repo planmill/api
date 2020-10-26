@@ -171,13 +171,13 @@ types:
         description: Name of Account
         type: string
       passive?:
-        description: Active or passive state of account ( Default value 0 - Inactive )
+        description: Active or passive state of account (Default value 0 - Inactive)
         type: integer
       owner?:
-        description: Responsible id of an account ( Defualt value 50 - Creator of an account )
+        description: Responsible id of an account (Default value - Creator of an account)
         type: integer
       type?:
-        description: Type of an account ( Default value 8 - Prospect )
+        description: Type of an account (Default value 8 - Prospect)
         type: integer | nil
       vatId?:
         description: VAT id of an account
@@ -186,7 +186,7 @@ types:
         description: Business id of an account
         type: string | nil
       termsOfPayment?:
-        description: Terms of payment of an invoice ( Default value 14 - 14 days )
+        description: Terms of payment of an invoice (Default value 14 - 14 days)
         type: integer | nil
       eInvoicingAddress?:
         description: eInvoicing address
@@ -214,7 +214,7 @@ types:
         description: Methods of delivery of invoices
         type: integer | nil
       invoiceVat?:
-        description: VAT on an invoice of an account ( Default value 24 - 24% )
+        description: VAT on an invoice of an account (Default value 24 - 24%)
         type: number | nil
       invoiceNetOperator?: string | nil
       handlingFee?:
