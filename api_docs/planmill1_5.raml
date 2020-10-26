@@ -164,7 +164,7 @@ traits:
 types:
   absence: !include absence1_5.schema
   absencesingle: !include absence_single1_5.raml
-  account_base: 
+  account_postId: 
     additionalProperties: false
     properties:
       name?:
@@ -188,6 +188,9 @@ types:
       termsOfPayment?:
         description: Terms of payment of an invoice (Default value 14 - 14 days)
         type: integer | nil
+      eInvoicingAddress?:
+        description: eInvoicing address
+        type: string | nil
       phone?:
         description: Phone number of an account
         pattern: "^[0-9|-]+$"
@@ -278,7 +281,7 @@ types:
         description: Auto-reply request mails
         type: integer | nil
   account_getId:
-    type: account_base
+    type: account_postId
     properties: 
       id?:
         type: integer
@@ -288,20 +291,9 @@ types:
         description: Operational ID of an account
       parentAccountName?: 
         type: string | nil
-      eInvoicingAddress?:
-        description: eInvoicing address
-        type: string | nil     
   account_get:
-    type: account_base
+    type: account_getId
     properties:
-      id?:
-        type: integer
-        description: Internal ID of an account
-      operationalId?:         
-        type: integer | nil
-        description: Operational ID of an account
-      parentAccountName?: 
-        type: string | nil
       activeContacts?: integer
       created?: 
         type: datetime
@@ -318,7 +310,7 @@ types:
   account_getAll:
      type: account_get[]
   account_post:
-    type: account_base
+    type: account_postId
     properties: 
       name:
         description: Name of Account
@@ -326,15 +318,6 @@ types:
       operationalId?:         
         type: integer | nil
         description: Operational ID of an account
-      eInvoicingAddress?:
-        description: eInvoicing address
-        type: string | nil
-  account_postId:
-    type: account_base
-    properties: 
-      eInvoicingAddress?:
-        description: eInvoicing address
-        type: string | nil   
   action: !include action1_5.schema
   batch: !include batch1_5.schema
   campaign: !include campaign1_5.schema
