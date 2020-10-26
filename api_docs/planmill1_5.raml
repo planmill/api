@@ -338,6 +338,9 @@ types:
       category?:
         type: integer | nil
         description: "Enumeration of a project's category: -1=NULL , 10=Absence,20=Administration, 30=Development, 40=Delivery, 50=R & D, 60=Support, 70=Sales, 80=Marketing,90=Education, 100=Continuos service, 110=Maintenance"
+      contact?:
+        type: number
+        description: "Contact's id that is related to a project, Required only if billable status is 1 or 2"
       invoiceReference?:
         type: string
         description: "Invoice reference of a project"
@@ -394,9 +397,6 @@ types:
   project_postId:
     type: project_base
     properties:
-      contact?:
-        type: number
-        description: "Contact's id that is related to a project, REQUIRED only IF billable status is 1 or 2"
       type?:
         type: integer
         description: "Enumeration of a project's type: 1=Project, 3=Template"
@@ -424,6 +424,9 @@ types:
       billableStatus:
         type: integer
         description: Used in enumeration of billableStatus
+      contact?:
+        type: number
+        description: "Contact's id that is related to a project, REQUIRED only IF billable status is 1 or 2"
       type?:
         type: integer
         description: "Enumeration of a project's type: 1=Project, 3=Template"
@@ -454,7 +457,7 @@ types:
         description: "Budgeted cost of a project"
       forecastedTotalCost?:
         type: number
-        description: "Forecasted cost of a project"  
+        description: "Forecasted cost of a project"
       type?:
         type: integer
         description: "Enumeration of a project's type: 1=Project, 3=Template"
