@@ -335,6 +335,12 @@ types:
       status?:
         type: integer
         description: "Enumeration of a project's status: 1=Draft, 2=Preliminary, 3=Execution,4=Aborted, 5=Closed, 6=On hold, 8=Archived"
+      billableStatus?:
+        type: integer
+        description: Used in enumeration of billableStatus
+      portfolio?:
+        type: integer
+        description: "Portfolio id of Project"
       category?:
         type: integer | nil
         description: "Enumeration of a project's category: -1=NULL , 10=Absence,20=Administration, 30=Development, 40=Delivery, 50=R & D, 60=Support, 70=Sales, 80=Marketing,90=Education, 100=Continuos service, 110=Maintenance"
@@ -349,7 +355,7 @@ types:
         description: "Description of a project"
       billingAccount?:
         type: integer | nil
-        description: "Billing account of a project"
+        description: "Billing account  Id of a project - set if different to the account of the contact."
       autoAcceptTimeReports?:
         type: integer
         description: "Enumeration of autoAcceptTimeReports: 0=No, 1=Yes"
@@ -400,16 +406,10 @@ types:
       type?:
         type: integer
         description: "Enumeration of a project's type: 1=Project, 3=Template"
-      portfolio?:
-        type: integer | nil
-        description: "Portfolio id of Project"
       dutyType?:
         type: integer | nil
       editableByUser?:
         type: integer | nil
-      billableStatus?:
-        type: integer | nil
-        description: Used in enumeration of billableStatus
   project_post:
     type: project_base
     properties:
@@ -419,10 +419,9 @@ types:
         type: integer
         description: "Enumeration of a project's status: 1=Draft, 2=Preliminary, 3=Execution,4=Aborted, 5=Closed, 6=On hold, 8=Archived"
       portfolio:
-        type: integer | nil
-        description: "Project portfolio"
-      billableStatus:
+        type: integer
         description: "Portfolio id of Project"
+      billableStatus:
         type: integer
         description: Used in enumeration of billableStatus
       contact?:
@@ -447,13 +446,6 @@ types:
       operationalId?:
         type: string | nil
         description: "Operational ID of a project"
-      billableStatus?:
-        type: integer | nil
-        description: Used in enumeration of billableStatus
-      portfolio?:
-        type: integer | nil
-        description: "Project portfolio"
-        description: "Portfolio id of Project"
       budgetedTotalCost?:
         type: number
         description: "Budgeted cost of a project"
@@ -476,13 +468,6 @@ types:
       operationalId?:
         type: string | nil
         description: "Operational ID of a project"
-      billableStatus?:
-        type: integer | nil
-        description: Used in enumeration of billableStatus
-      portfolio?:
-        type: integer | nil
-        description: "Project portfolio"
-        description: "Portfolio id of Project"
       budgetedTotalCost?:
         type: number
         description: "Budgeted cost of a project"
