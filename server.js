@@ -13,7 +13,11 @@ var linkItems = [
   "account_getId",
   "account_post",
   "account_postId",
-  "account_getAll"
+  "account_getAll",
+  "project_getId",
+  "project_post",
+  "project_postId",
+  "project_getAll"
   
 ];
 

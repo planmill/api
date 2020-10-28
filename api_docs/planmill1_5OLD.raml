@@ -171,13 +171,13 @@ types:
         description: Name of Account
         type: string
       passive?:
-        description: Active or passive state of account (Default value 0 - Inactive)
+        description: Active or passive state of account
         type: integer
       owner?:
-        description: Responsible id of an account (Default value - Creator of an account)
+        description: Responsible id of an account
         type: integer
       type?:
-        description: Type of an account (Default value 8 - Prospect)
+        description: Type of an account
         type: integer | nil
       vatId?:
         description: VAT id of an account
@@ -186,7 +186,7 @@ types:
         description: Business id of an account
         type: string | nil
       termsOfPayment?:
-        description: Terms of payment of an invoice (Default value 14 - 14 days)
+        description: Terms of payment of an invoice
         type: integer | nil
       eInvoicingAddress?:
         description: eInvoicing address
@@ -214,7 +214,7 @@ types:
         description: Methods of delivery of invoices
         type: integer | nil
       invoiceVat?:
-        description: VAT on an invoice of an account (Default value 24 - 24%)
+        description: VAT on an invoice of an account
         type: number | nil
       invoiceNetOperator?: string | nil
       handlingFee?:
@@ -336,26 +336,25 @@ types:
         type: integer
         description: "Enumeration of a project's status: 1=Draft, 2=Preliminary, 3=Execution,4=Aborted, 5=Closed, 6=On hold, 8=Archived"
       billableStatus?:
-        type: integer
+        type: integer | nil
         description: Used in enumeration of billableStatus
-      portfolio?:
-        type: integer
-        description: "Portfolio id of Project"
       category?:
         type: integer | nil
         description: "Enumeration of a project's category: -1=NULL , 10=Absence,20=Administration, 30=Development, 40=Delivery, 50=R & D, 60=Support, 70=Sales, 80=Marketing,90=Education, 100=Continuos service, 110=Maintenance"
-      contact?:
-        type: number
-        description: "Contact's id that is related to a project, Required only if billable status is 1 or 2"
+      portfolio?:
+        type: integer | nil
       invoiceReference?:
         type: string
         description: "Invoice reference of a project"
       description?:
         type: string | nil
         description: "Description of a project"
+      contact?: 
+        type: number
+        description: "Contact's id that is related to a project, REQUIRED only IF billable status is 1 or 2"
       billingAccount?:
         type: integer | nil
-        description: "Billing account  Id of a project - set if different to the account of the contact."
+        description: "Billing account of a project"
       autoAcceptTimeReports?:
         type: integer
         description: "Enumeration of autoAcceptTimeReports: 0=No, 1=Yes"
@@ -398,6 +397,8 @@ types:
       budgetedPurchase?:
         type: number | nil
         description: "Purchase amount of a project"
+      account?:
+        type: integer | nil
   project_postId:
     type: project_base
     properties:
@@ -409,29 +410,20 @@ types:
       editableByUser?:
         type: integer | nil
   project_post:
-    type: project_base
+    type: project_postId
     properties:
       name:
         required: true
+      contact:
+        required: true
       status:
-        type: integer
-        description: "Enumeration of a project's status: 1=Draft, 2=Preliminary, 3=Execution,4=Aborted, 5=Closed, 6=On hold, 8=Archived"
-      portfolio:
-        type: integer
-        description: "Portfolio id of Project"
+        required: true
       billableStatus:
-        type: integer
-        description: Used in enumeration of billableStatus
-      contact?:
-        type: number
-        description: "Contact's id that is related to a project, REQUIRED only IF billable status is 1 or 2"
-      type?:
-        type: integer
-        description: "Enumeration of a project's type: 1=Project, 3=Template"
-      dutyType?:
-        type: integer | nil
-      editableByUser?:
-        type: integer | nil		
+        required: true
+      portfolio:
+        required: true
+      type:
+        required: true
       operationalId?:
         type: string | nil
         description: "Operational ID of a project"
@@ -444,15 +436,12 @@ types:
       operationalId?:
         type: string | nil
         description: "Operational ID of a project"
-      account?:
-        type: integer | nil
-        description: "Contact's account Id"
       budgetedTotalCost?:
         type: number
         description: "Budgeted cost of a project"
       forecastedTotalCost?:
         type: number
-        description: "Forecasted cost of a project"
+        description: "Forecasted cost of a project"  
       type?:
         type: integer
         description: "Enumeration of a project's type: 1=Project, 3=Template"
@@ -469,9 +458,6 @@ types:
       operationalId?:
         type: string | nil
         description: "Operational ID of a project"
-      account?:
-        type: integer | nil
-        description: "Contact's account Id"
       budgetedTotalCost?:
         type: number
         description: "Budgeted cost of a project"
@@ -1564,16 +1550,16 @@ resourceTypes:
         type: string
         required: true
         default: |
-          application/json;charset=UTF-8 <div id="project1_5-datatype-post"></div> 
+          application/json;charset=UTF-8 <div id="project1_5-datatype-post"></div> 	
         example: |
-          application/json;charset=UTF-8
+          application/json;charset=UTF-8 		
     body:
       application/json:
         type: project_post
   type:
     collection:
-      exampleCollectionItemArray: !include project_array1_5.sample
-      exampleCollectionItem: !include project1_5.sample
+       exampleCollectionItemArray: !include project_array1_5.sample
+       exampleCollectionItem: !include project1_5.sample
   /meta:
       description: Get meta information for projects. Includes resource's fields names and type and related filters
       get:
@@ -1600,9 +1586,9 @@ resourceTypes:
         body:
           application/json:
             type: project_postId 
-      type: 
-        collectionItem:
-          exampleCollectionItem: !include project1_5.sample
+        type: 
+          collectionItem:
+            exampleCollectionItem: !include project1_5.sample
       /assignments:
           get:
           type:
