@@ -398,8 +398,6 @@ types:
       budgetedPurchase?:
         type: number | nil
         description: "Purchase amount of a project"
-      account?:
-        type: integer | nil
   project_postId:
     type: project_base
     properties:
@@ -446,6 +444,9 @@ types:
       operationalId?:
         type: string | nil
         description: "Operational ID of a project"
+      account?:
+        type: integer | nil
+        description: "Contact's account Id"
       budgetedTotalCost?:
         type: number
         description: "Budgeted cost of a project"
@@ -468,6 +469,9 @@ types:
       operationalId?:
         type: string | nil
         description: "Operational ID of a project"
+      account?:
+        type: integer | nil
+        description: "Contact's account Id"
       budgetedTotalCost?:
         type: number
         description: "Budgeted cost of a project"
