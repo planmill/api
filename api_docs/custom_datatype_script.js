@@ -9,7 +9,11 @@ var linkItems = [
   "projects_get_response:project_getAll",
   "projects_post_request:project_post",
   "projects__project_id__get_response:project_getId",
-  "projects__project_id__post_request:project_postId"
+  "projects__project_id__post_request:project_postId",
+  "portfolios_get_response:portfolio_getAll",
+  "portfolios_post_request:portfolio_post",
+  "portfolios__portfolio_id__get_response:portfolio_getId",
+  "portfolios__portfolio_id__post_request:portfolio_postId"
 ];
 
 function download(filename, text) {

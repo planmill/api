@@ -326,6 +326,25 @@ types:
   hook: !include hook1_5.schema
   mail: !include request_mail1_5.schema 
   opportunity: !include opportunity1_5.schema
+  portfolio_postId:
+    additionalProperties: false
+    properties:
+      name?: 
+        type: string
+        description: "Portfolio's name."
+  portfolio_post:
+    type: portfolio_postId
+    properties:
+      name:
+        required: true
+  portfolio_getId:
+    type: portfolio_postId
+    properties:
+      id?:
+        type: integer
+        description: "Internal ID of a portfolio."
+  portfolio_getAll:
+    type: portfolio_getId[]  
   project_base:
     additionalProperties: false
     properties:
@@ -1536,6 +1555,66 @@ resourceTypes:
         type:
           collectionItem:
             exampleCollectionItem: !include opportunityitem1_5.sample
+/portfolios:
+  get:
+    queryParameters:
+      name:
+          description: Filters portfolios for a specified portfolio name
+          type: string
+          required: false
+          example: name={existing_portfolio_name}
+      rowcount:
+      nextrows:
+      order:
+      sort:
+      interval:
+      intervalstart:
+      intervalfinish:
+    responses:
+      200:
+        description: 
+        body:                  
+          application/json: 
+            type: portfolio_getAll
+  post:
+    headers:
+      Content-Type:
+        type: string
+        required: true
+        default: |
+          application/json;charset=UTF-8 <div id="portfolio1_5-datatype-post"></div> 
+        example: |
+          application/json;charset=UTF-8
+    body:
+      application/json:
+        type: portfolio_post
+  type:
+    collection:
+      exampleCollectionItemArray: !include portfolio_array1_5.sample
+      exampleCollectionItem: !include portfolio1_5.sample
+  /{portfolio_id}:
+      get:
+        description: View details of a single portfolio.
+        responses:
+          200:
+            body:
+              application/json: 
+                type: portfolio_getId  
+      post:
+        headers:
+          Content-Type:
+            type: string
+            required: true
+            default: |
+             application/json;charset=UTF-8
+            example: |
+              application/json;charset=UTF-8
+        body:
+          application/json:
+            type: portfolio_postId 
+      type: 
+        collection:
+          exampleCollectionItem: !include portfolio1_5.sample
 /projects:
   description: reportedHours -field returns minutes like all other effortunit-formatted fields. See /meta -endpoint.
   get:
