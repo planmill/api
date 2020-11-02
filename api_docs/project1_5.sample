@@ -1,4 +1,5 @@
 {
+  "dutyType": 0,       
   "setRequestPerformerAsTeamMember": 0,
   "description": "<p>test description</p>",
   "operationalId": 12779,
@@ -15,6 +16,7 @@
   "autoAcceptTimeReports": 0,
   "fixedWork": 100,
   "billableStatus": 2,
+  "budgetedTotalCost": 0,
   "budgetedPurchase": 100,
   "requireCommentForOvertime": 0,
   "fixedRevenue": 1000,
@@ -24,6 +26,5 @@
   "category": 30,
   "budgetedExpense": 100,
   "account": 558783,
-  "forecastedtotalCost": 300,
   "status": 3
 }
