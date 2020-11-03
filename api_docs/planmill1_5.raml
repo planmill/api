@@ -896,84 +896,76 @@ resourceTypes:
                   example: |
                     <<exampleCollectionItem>>
   postGetCollectionItem:
-    is: [all]
-    get:
-      description: View details of a single <<resourcePathName|!singularize>>. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats. 
-      responses:
-        200:
-          body:
-            application/json:
-              type: <<resourcePathName|!singularize>>
-              example: |
-                <<exampleCollectionItem>>
-    post:
-      description: Add a new <<resourcePathName|!singularize>> to PlanMill.
-      headers:
-        Content-Type:
-          type: string
-          required: true
-          default: |
-            application/json;charset=UTF-8
-          example: |
-            application/json;charset=UTF-8
-      body:
-        application/json:
-          type: <<resourcePathName|!singularize>>
-          example: <<exampleCollectionItem>>
-      responses:
-        200:
-          body:
-            application/json:
-              type: object
-              example: |
-                { "id" : 123456 }
-  newPostGetCollectionItem:
-    is: [all]
-    get:
-      description: View details of a single <<resourcePathName|!singularize>>. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats. 
-      responses:
-        200:
-          body:
-            application/json:
-              type: <<resourcePathName|!singularize>>
-              example: |
-                <<exampleCollectionGetItem>>
-    post:
-      description: Add a new <<resourcePathName|!singularize>> to PlanMill.
-      headers:
-      Content-Type:
-        type: string
-        required: true
-          default: |
-            application/json;charset=UTF-8
-          example: |
-            application/json;charset=UTF-8
-      body:
-        application/json:
-          type: <<resourcePathName|!singularize>>
-          example: <<exampleCollectionPostItem>>
-      responses:
-        200:
-          body:
-            application/json:
-              type: object
-              example: |
-                { "id" : 123456 }
-  getDeleteCollectionItem:
-    is: [all]
-    get:
-      description: View details of single <<resourcePathName|!singularize>>.
-      responses:
-        200:
-          body:
-            application/json:
+      is: [all]
+      get:
+        description: View details of a single <<resourcePathName|!singularize>>. 
+        responses:
+          200:
+            body:
+              application/json:
+                type: <<resourcePathName|!singularize>>
                 example: |
                   <<exampleCollectionItem>>
-    delete:
-      description: Remove a <<resourcePathName|!singularize>> from PlanMill.
-      responses:
-        204:
-          description: No HTTP body returned
+      post:
+        description: Add a new <<resourcePathName|!singularize>> to PlanMill.
+        headers:
+          Content-Type:
+            type: string
+            required: true
+            default: |
+              application/json;charset=UTF-8
+            example: |
+              application/json;charset=UTF-8
+        body:
+          application/json:
+            type: <<resourcePathName|!singularize>>
+            example: <<exampleCollectionItem>>
+        responses:
+          204:
+            description: No HTTP body returned
+  newPostGetCollectionItem:
+      is: [all]
+      get:
+        description: View details of a single <<resourcePathName|!singularize>>.
+        responses:
+          200:
+            body:
+              application/json:
+                type: <<resourcePathName|!singularize>>
+                example: |
+                  <<exampleCollectionGetItem>>
+      post:
+        description: Add a new <<resourcePathName|!singularize>> to PlanMill.
+        headers:
+          Content-Type:
+            type: string
+            required: true
+            default: |
+              application/json;charset=UTF-8
+            example: |
+              application/json;charset=UTF-8
+        body:
+          application/json: 
+            type: <<resourcePathName|!singularize>>
+            example: <<exampleCollectionPostItem>>
+        responses:
+          204:
+            description: No HTTP body returned
+  getDeleteCollectionItem:
+      is: [all]
+      get:
+        description: View details of single <<resourcePathName|!singularize>>.
+        responses:
+          200:
+            body:
+              application/json:
+                  example: |
+                    <<exampleCollectionItem>>
+      delete:
+        description: Remove a <<resourcePathName|!singularize>> from PlanMill.
+        responses:
+          204:
+            description: No HTTP body returned
 /absences:
   get:
     queryParameters:
@@ -1687,11 +1679,11 @@ resourceTypes:
               application/json;charset=UTF-8
         body:
           application/json:
-            type: portfolio_postId
-      type:
+            type: portfolio_postId 
+      type: 
         newPostGetCollectionItem:
           exampleCollectionGetItem: !include portfolio_getId.sample
-          exampleCollectionPostItem: !include portfolio_postId.sample
+          exampleCollectionPostItem: !include portfolio_postId.sample																	 
 /projects:
   description: reportedHours -field returns minutes like all other effortunit-formatted fields. See /meta -endpoint.
   get:
