@@ -896,37 +896,37 @@ resourceTypes:
                   example: |
                     <<exampleCollectionItem>>
   postGetCollectionItem:
-      is: [all]
-      post:
-        description: Add a new <<resourcePathName|!singularize>> to PlanMill.
-        headers:
-          Content-Type:
-            type: string
-            required: true
-            default: |
-              application/json;charset=UTF-8
-            example: |
-              application/json;charset=UTF-8
-        body:
-          application/json:
-            type: <<resourcePathName|!singularize>>
-            example: <<exampleCollectionItem>>
-        responses:
-          200:
-            body:
-              application/json:
-                type: object
-                example: |
-                 { "id" : 123456 }
-      get:
-        description: View details of a single <<resourcePathName|!singularize>>. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats. 
-        responses:
-          200:
-            body:
-              application/json:
-                type: <<resourcePathName|!singularize>>
-                example: |
-                  <<exampleCollectionItem>>
+    is: [all]
+    get:
+      description: View details of a single <<resourcePathName|!singularize>>. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats. 
+      responses:
+        200:
+          body:
+            application/json:
+              type: <<resourcePathName|!singularize>>
+              example: |
+                <<exampleCollectionItem>>
+    post:
+      description: Add a new <<resourcePathName|!singularize>> to PlanMill.
+      headers:
+        Content-Type:
+          type: string
+          required: true
+          default: |
+            application/json;charset=UTF-8
+          example: |
+            application/json;charset=UTF-8
+      body:
+        application/json:
+          type: <<resourcePathName|!singularize>>
+          example: <<exampleCollectionItem>>
+      responses:
+        200:
+          body:
+            application/json:
+              type: object
+              example: |
+                { "id" : 123456 }
   newPostGetCollectionItem:
     is: [all]
     get:
@@ -958,7 +958,7 @@ resourceTypes:
             application/json:
               type: object
               example: |
-               { "id" : 123456 }
+                { "id" : 123456 }
   getDeleteCollectionItem:
     is: [all]
     get:
