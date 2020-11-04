@@ -926,7 +926,7 @@ resourceTypes:
   newPostGetCollectionItem:
       is: [all]
       get:
-        description: Update an existing resource <<resourcePathName|!singularize>>.
+        description: View details of a single <<resourcePathName|!singularize>>.
         responses:
           200:
             body:
@@ -935,7 +935,7 @@ resourceTypes:
                 example: |
                   <<exampleCollectionGetItem>>
       post:
-        description: Add a new <<resourcePathName|!singularize>> to PlanMill.
+        description: Update an existing resource <<resourcePathName|!singularize>> to PlanMill.
         headers:
           Content-Type:
             type: string
