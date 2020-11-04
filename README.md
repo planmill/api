@@ -41,7 +41,7 @@ II) Netlify installation guide in deploying from git branch directly.
 8. Select repository planmill/api. 
 9. Choose update access. 
 10. Choose api
-11. In field "Owner", Choose owner suitable for your deployment needs. In field "Branch to deploye", choose branch 
+11. In field "Owner", Choose owner suitable for your deployment needs. In field "Branch to deploy", choose branch 
 you want to deploy. Usually this is master, but if you need to test a development branch, choose that branch. 
 12. Leave "build command" field as it is, and put "." to Publish directory. Click "Deploy site". 
 
