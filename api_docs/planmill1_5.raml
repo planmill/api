@@ -603,10 +603,10 @@ resourceTypes:
                 type: object
                 example: |
                   <<exampleCollectionItem>>
-  minimalCollection:
+  allMethodsCollection:
       is: [all]
       description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats.
-      get:
+      get?:
         description: Get a list of <<resourcePathName>>. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats.
         queryParameters:
           rowcount?:
@@ -633,7 +633,7 @@ resourceTypes:
                 type: <<resourcePathName|!singularize>>
                 example: |
                   <<exampleCollectionItemArray>>
-      post:
+      post?:
         description: Add a new <<resourcePathName|!singularize>> to PlanMill or update existing (if id is given).  See <<resourcePathName|!pluralize>>/meta for list of columns and formats.
         headers:
           Content-Type:
@@ -754,10 +754,10 @@ resourceTypes:
         responses: 
           204:
             description: No HTTP body returned
-  newCollectionItem:
+  allMethodsCollectionItem:
       is: [all]
       description: A single <<resourcePathName|!singularize>> in PlanMill.
-      get:
+      get?:
         description: View details of a single <<resourcePathName|!singularize>>. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats. 
         responses:
           200:
@@ -766,7 +766,7 @@ resourceTypes:
                 type: <<resourcePathName|!singularize>>
                 example: |
                   <<exampleCollectionGetItem>>
-      post:
+      post?:
         description: Update an existing resource <<resourcePathName|!singularize>> to PlanMill.  See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats.
         headers:
           Content-Type:
@@ -783,9 +783,23 @@ resourceTypes:
         responses:
           204:
             description: No HTTP body returned
-      delete:
+      delete?:
         description: Remove a <<resourcePathName|!singularize>> from PlanMill.
         responses: 
+          204:
+            description: No HTTP body returned
+      put?:
+        headers:
+          Content-Type:
+            type: string
+            required: true
+            default: |
+              application/json;charset=UTF-8
+            example: |
+              application/json;charset=UTF-8
+        body:
+            example: <<exampleCollectionPutItem>>
+        responses:
           204:
             description: No HTTP body returned
   postOnlyCollection:
@@ -978,34 +992,6 @@ resourceTypes:
         responses:
           204:
             description: No HTTP body returned
-  newPostGetCollectionItem:
-      is: [all]
-      get:
-        description: View details of a single <<resourcePathName|!singularize>>.
-        responses:
-          200:
-            body:
-              application/json:
-                type: <<resourcePathName|!singularize>>
-                example: |
-                  <<exampleCollectionGetItem>>
-      post:
-        description: Update an existing resource <<resourcePathName|!singularize>> to PlanMill.
-        headers:
-          Content-Type:
-            type: string
-            required: true
-            default: |
-              application/json;charset=UTF-8
-            example: |
-              application/json;charset=UTF-8
-        body:
-          application/json: 
-            type: <<resourcePathName|!singularize>>
-            example: <<exampleCollectionPostItem>>
-        responses:
-          204:
-            description: No HTTP body returned
   getDeleteCollectionItem:
       is: [all]
       get:
@@ -1100,19 +1086,11 @@ resourceTypes:
             application/json: 
               type: account_getId
     post:
-      headers:
-        Content-Type:
-          type: string
-          required: true
-          default: |
-            application/json;charset=UTF-8
-          example: |
-            application/json;charset=UTF-8
       body:
         application/json:
           type: account_postId
     type: 
-     newCollectionItem:
+     allMethodsCollectionItem:
         exampleCollectionGetItem: !include account_getId.sample
         exampleCollectionPostItem: !include account_postId.sample
     /meta:
@@ -1683,7 +1661,6 @@ resourceTypes:
   get:
     responses:
       200:
-        description: 
         body:                  
           application/json: 
             type: portfolio_getAll
@@ -1700,31 +1677,22 @@ resourceTypes:
       application/json:
         type: portfolio_post
   type:
-    minimalCollection:
+    allMethodsCollection:
       exampleCollectionItemArray: !include portfolio_array1_5.sample
       exampleCollectionItem: !include portfolio_postId.sample
   /{portfolio_id}:
       get:
-        description: View details of a single portfolio.
         responses:
           200:
             body:
               application/json: 
                 type: portfolio_getId
       post:
-        headers:
-          Content-Type:
-            type: string
-            required: true
-            default: |
-              application/json;charset=UTF-8
-            example: |
-              application/json;charset=UTF-8
         body:
           application/json:
             type: portfolio_postId 
       type: 
-        newPostGetCollectionItem:
+        allMethodsCollectionItem:
           exampleCollectionGetItem: !include portfolio_getId.sample
           exampleCollectionPostItem: !include portfolio_postId.sample																	 
 /projects:
@@ -1792,7 +1760,7 @@ resourceTypes:
           application/json:
             type: project_postId 
       type: 
-        newCollectionItem:
+        allMethodsCollectionItem:
           exampleCollectionGetItem: !include project_getId.sample
           exampleCollectionPostItem: !include project_postId.sample
       /assignments:
