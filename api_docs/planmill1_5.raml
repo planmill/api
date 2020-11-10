@@ -1089,6 +1089,7 @@ resourceTypes:
       body:
         application/json:
           type: account_postId
+    delete:
     type: 
      allMethodsCollectionItem:
         exampleCollectionGetItem: !include account_getId.sample
@@ -1748,17 +1749,10 @@ resourceTypes:
               application/json: 
                 type: project_getId  
       post:
-        headers:
-          Content-Type:
-            type: string
-            required: true
-            default: |
-             application/json;charset=UTF-8
-            example: |
-              application/json;charset=UTF-8
         body:
           application/json:
-            type: project_postId 
+            type: project_postId
+      delete:			
       type: 
         allMethodsCollectionItem:
           exampleCollectionGetItem: !include project_getId.sample
