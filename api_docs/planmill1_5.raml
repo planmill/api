@@ -656,9 +656,27 @@ resourceTypes:
                  { "id" : 123456 }
   collection:
       is: [all]
+      description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats.
       get:
-        type: minimalCollection
+        description: Get a list of <<resourcePathName>>. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats.
         queryParameters:
+          rowcount?:
+            type: integer
+            minimum: 1
+            required: false
+            description: It limits the result set amount to the specified limit to avoid API call to return too many records. Default row count is 100
+          nextrows?:
+            type: integer
+            required: false
+            description: The number of the next starting row. It is dependent on rowcount. For example, for total 250 items, if rowcount is 100 and nextrows is 101, it return items 101-201
+          order?:
+            type: integer
+            required: false
+            description: Orders the results in ascending or descending order. 0=Ascending and 1=Descending. It is used in combination with sort
+          sort?:
+            type: string
+            required: false
+            description: Sorts the results using string that is a JSON attribute
           interval?:
             type: string
             required: false
@@ -673,6 +691,35 @@ resourceTypes:
             required: false
             description: Finish date of the interval in UTC format, intervalstart required
             example: 2019-03-01T00:00:00.000+0200
+        responses:
+          200:
+            body:
+              application/json:
+                type: <<resourcePathName|!singularize>>
+                example: |
+                  <<exampleCollectionItemArray>>
+      post:
+        description: Add a new <<resourcePathName|!singularize>> to PlanMill or update existing (if id is given).  See <<resourcePathName|!pluralize>>/meta for list of columns and formats.
+        headers:
+          Content-Type:
+            type: string
+            required: true
+            default: |
+              application/json;charset=UTF-8
+            example: |
+              application/json;charset=UTF-8
+        body:
+          application/json:
+            type: <<resourcePathName|!singularize>>
+            example: <<exampleCollectionItem>>
+        responses:
+          201:
+            body:
+              application/json:
+                type: object
+                example: |
+                 { "id" : 123456 }
+
   collectionItem:
       is: [all]
       description: A single <<resourcePathName|!singularize>> in PlanMill.
@@ -984,7 +1031,7 @@ resourceTypes:
       interval:
       intervalstart:
       intervalfinish:
-      description: <script src="custom_datatype_script.js"></script> <!--../lambda/schema/-->
+      description: <script src="custom_datatype_script.js"></script> <!-- This is a binding for our Download JSON buttons-->
   type:
     collection:
        exampleCollectionItemArray: !include absence_array1_5.sample
