@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/portfolio_getAll",
+  "definitions": {
+    "portfolio_getAll": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Portfolio's name."
+          },
+          "id": {
+            "type": "integer",
+            "description": "Internal ID of a portfolio."
+          }
+        }
+      }
+    }
+  }
+}

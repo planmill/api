@@ -326,6 +326,28 @@ types:
   hook: !include hook1_5.schema
   mail: !include request_mail1_5.schema 
   opportunity: !include opportunity1_5.schema
+  portfolio_postId:
+    additionalProperties: false
+    properties:
+      name?: 
+        type: string
+        description: "Portfolio's name."
+      parent?: 
+        type: integer | nil
+        description: "Portfolio parent Id."
+  portfolio_post:
+    type: portfolio_postId
+    properties:
+      name:
+        required: true
+  portfolio_getId:
+    type: portfolio_postId
+    properties:
+      id?:
+        type: integer
+        description: "Internal ID of a portfolio."
+  portfolio_getAll:
+    type: portfolio_getId[]  
   project_base:
     additionalProperties: false
     properties:
@@ -581,6 +603,57 @@ resourceTypes:
                 type: object
                 example: |
                   <<exampleCollectionItem>>
+  allMethodsCollection:
+      is: [all]
+      description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats.
+      get?:
+        description: Get a list of <<resourcePathName>>. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats.
+        queryParameters:
+          rowcount?:
+            type: integer
+            minimum: 1
+            required: false
+            description: It limits the result set amount to the specified limit to avoid API call to return too many records. Default row count is 100
+          nextrows?:
+            type: integer
+            required: false
+            description: The number of the next starting row. It is dependent on rowcount. For example, for total 250 items, if rowcount is 100 and nextrows is 101, it return items 101-201
+          order?:
+            type: integer
+            required: false
+            description: Orders the results in ascending or descending order. 0=Ascending and 1=Descending. It is used in combination with sort
+          sort?:
+            type: string
+            required: false
+            description: Sorts the results using string that is a JSON attribute
+        responses:
+          200:
+            body:
+              application/json:
+                type: <<resourcePathName|!singularize>>
+                example: |
+                  <<exampleCollectionItemArray>>
+      post?:
+        description: Add a new <<resourcePathName|!singularize>> to PlanMill. 
+        headers:
+          Content-Type:
+            type: string
+            required: true
+            default: |
+              application/json;charset=UTF-8
+            example: |
+              application/json;charset=UTF-8
+        body:
+          application/json:
+            type: <<resourcePathName|!singularize>>
+            example: <<exampleCollectionItem>>
+        responses:
+          201:
+            body:
+              application/json:
+                type: object
+                example: |
+                 { "id" : 123456 }
   collection:
       is: [all]
       description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats.
@@ -646,6 +719,7 @@ resourceTypes:
                 type: object
                 example: |
                  { "id" : 123456 }
+
   collectionItem:
       is: [all]
       description: A single <<resourcePathName|!singularize>> in PlanMill.
@@ -678,6 +752,54 @@ resourceTypes:
       delete:
         description: Remove a <<resourcePathName|!singularize>> from PlanMill.
         responses: 
+          204:
+            description: No HTTP body returned
+  allMethodsCollectionItem:
+      is: [all]
+      description: A single <<resourcePathName|!singularize>> in PlanMill.
+      get?:
+        description: View details of a single <<resourcePathName|!singularize>>. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats. 
+        responses:
+          200:
+            body:
+              application/json:
+                type: <<resourcePathName|!singularize>>
+                example: |
+                  <<exampleCollectionGetItem>>
+      post?:
+        description: Update an existing resource <<resourcePathName|!singularize>> to PlanMill.  See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats.
+        headers:
+          Content-Type:
+            type: string
+            required: true
+            default: |
+              application/json;charset=UTF-8
+            example: |
+              application/json;charset=UTF-8
+        body:
+          application/json: 
+            type: <<resourcePathName|!singularize>>
+            example: <<exampleCollectionPostItem>>
+        responses:
+          204:
+            description: No HTTP body returned
+      delete?:
+        description: Remove a <<resourcePathName|!singularize>> from PlanMill.
+        responses: 
+          204:
+            description: No HTTP body returned
+      put?:
+        headers:
+          Content-Type:
+            type: string
+            required: true
+            default: |
+              application/json;charset=UTF-8
+            example: |
+              application/json;charset=UTF-8
+        body:
+            example: <<exampleCollectionPutItem>>
+        responses:
           204:
             description: No HTTP body returned
   postOnlyCollection:
@@ -844,8 +966,17 @@ resourceTypes:
                     <<exampleCollectionItem>>
   postGetCollectionItem:
       is: [all]
+      get:
+        description: View details of a single <<resourcePathName|!singularize>>. 
+        responses:
+          200:
+            body:
+              application/json:
+                type: <<resourcePathName|!singularize>>
+                example: |
+                  <<exampleCollectionItem>>
       post:
-        description: Add a new <<resourcePathName|!singularize>> to PlanMill.
+        description: Update an existing resource <<resourcePathName|!singularize>> to PlanMill.
         headers:
           Content-Type:
             type: string
@@ -859,11 +990,8 @@ resourceTypes:
             type: <<resourcePathName|!singularize>>
             example: <<exampleCollectionItem>>
         responses:
-          200:
-            body:
-              application/json:
-               example: |
-                <<exampleCollectionItem>>
+          204:
+            description: No HTTP body returned
   getDeleteCollectionItem:
       is: [all]
       get:
@@ -889,7 +1017,7 @@ resourceTypes:
       interval:
       intervalstart:
       intervalfinish:
-      description: <script src="custom_datatype_script.js"></script> <!--../lambda/schema/-->
+      description: <script src="custom_datatype_script.js"></script> <!-- This is a binding for our Download JSON buttons-->
   type:
     collection:
        exampleCollectionItemArray: !include absence_array1_5.sample
@@ -942,7 +1070,7 @@ resourceTypes:
   type:
     collection:
        exampleCollectionItemArray: !include account_array1_5.sample
-       exampleCollectionItem: !include account1_5.sample
+       exampleCollectionItem: !include account_postId.sample
   /meta:
       description: Get meta information for accounts. Includes resource's fields names and type and related filters
       get:
@@ -958,20 +1086,14 @@ resourceTypes:
             application/json: 
               type: account_getId
     post:
-      headers:
-        Content-Type:
-          type: string
-          required: true
-          default: |
-            application/json;charset=UTF-8
-          example: |
-            application/json;charset=UTF-8
       body:
         application/json:
           type: account_postId
+    delete:
     type: 
-     collectionItem:
-        exampleCollectionItem: !include account1_5.sample
+     allMethodsCollectionItem:
+        exampleCollectionGetItem: !include account_getId.sample
+        exampleCollectionPostItem: !include account_postId.sample
     /meta:
         description: Get meta information for the updatable fields of the account
         get:
@@ -1536,6 +1658,44 @@ resourceTypes:
         type:
           collectionItem:
             exampleCollectionItem: !include opportunityitem1_5.sample
+/portfolios:
+  get:
+    responses:
+      200:
+        body:                  
+          application/json: 
+            type: portfolio_getAll
+  post:
+    headers:
+      Content-Type:
+        type: string
+        required: true
+        default: |
+          application/json;charset=UTF-8 <div id="portfolio1_5-datatype-post"></div> 
+        example: |
+          application/json;charset=UTF-8
+    body:
+      application/json:
+        type: portfolio_post
+  type:
+    allMethodsCollection:
+      exampleCollectionItemArray: !include portfolio_array1_5.sample
+      exampleCollectionItem: !include portfolio_postId.sample
+  /{portfolio_id}:
+      get:
+        responses:
+          200:
+            body:
+              application/json: 
+                type: portfolio_getId
+      post:
+        body:
+          application/json:
+            type: portfolio_postId 
+      type: 
+        allMethodsCollectionItem:
+          exampleCollectionGetItem: !include portfolio_getId.sample
+          exampleCollectionPostItem: !include portfolio_postId.sample																	 
 /projects:
   description: reportedHours -field returns minutes like all other effortunit-formatted fields. See /meta -endpoint.
   get:
@@ -1545,13 +1705,13 @@ resourceTypes:
           type: string
           required: false
           example: name={existing_project_name}
-      rowcount:
-      nextrows:
-      order:
-      sort:
-      interval:
-      intervalstart:
-      intervalfinish:
+      rowcount?:
+      nextrows?:
+      order?:
+      sort?:
+      interval?:
+      intervalstart?:
+      intervalfinish?:
     responses:
       200:
         description: 
@@ -1573,7 +1733,7 @@ resourceTypes:
   type:
     collection:
       exampleCollectionItemArray: !include project_array1_5.sample
-      exampleCollectionItem: !include project1_5.sample
+      exampleCollectionItem: !include project_postId.sample
   /meta:
       description: Get meta information for projects. Includes resource's fields names and type and related filters
       get:
@@ -1589,20 +1749,14 @@ resourceTypes:
               application/json: 
                 type: project_getId  
       post:
-        headers:
-          Content-Type:
-            type: string
-            required: true
-            default: |
-             application/json;charset=UTF-8
-            example: |
-              application/json;charset=UTF-8
         body:
           application/json:
-            type: project_postId 
+            type: project_postId
+      delete:			
       type: 
-        collectionItem:
-          exampleCollectionItem: !include project1_5.sample
+        allMethodsCollectionItem:
+          exampleCollectionGetItem: !include project_getId.sample
+          exampleCollectionPostItem: !include project_postId.sample
       /assignments:
           get:
           type:

@@ -17,8 +17,11 @@ var linkItems = [
   "project_getId",
   "project_post",
   "project_postId",
-  "project_getAll"
-  
+  "project_getAll",
+  "portfolio_getId",
+  "portfolio_post",
+  "portfolio_postId",
+  "portfolio_getAll"  
 ];
 
 // serve files from the public directory
