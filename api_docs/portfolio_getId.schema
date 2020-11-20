@@ -10,6 +10,17 @@
           "type": "string",
           "description": "Portfolio's name."
         },
+        "parent": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Portfolio parent Id."
+        },
         "id": {
           "type": "integer",
           "description": "Internal ID of a portfolio."
