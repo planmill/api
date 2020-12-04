@@ -94,7 +94,7 @@
           "description": ""
         },
         "project": {
-          "type": "integer",
+          "type": ["integer", "null"],
           "description": "Id of a project"
         },
         "sentToBank": {
@@ -118,7 +118,7 @@
           "description": "Date of modification of an expense"
         },
         "projectName": {
-          "type": "string",
+          "type": ["string", "null"],
           "description": "Name of a project"
         },
         "paymentDate": {
