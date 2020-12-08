@@ -30,7 +30,7 @@
     "json-schema-migrate": "^0.2.0",
     "netlify-cli": "^2.59.1",
     "raml2html": "git+https://github.com/planmill/raml2html.git#develop",
-    "raml2html-default-theme": "git+https://github.com/planmill/default-theme.git#1070528_favicon_handling",
+    "raml2html-default-theme": "git+https://github.com/planmill/default-theme/tree/1070528_favicon_handling",
     "ramldt2jsonschema": "^1.2.0"
   }
 }
