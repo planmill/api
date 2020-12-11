@@ -162,8 +162,119 @@ traits:
         204:
           description: No HTTP body returned
 types:
-  absence: !include absence1_5.schema
-  absencesingle: !include absence_single1_5.raml
+  absence_base:
+    additionalProperties: false
+    properties:
+      absenceType?:
+        description: Type of an absence
+        type: integer
+      description?:
+        type: string | nil
+        description: Description of an absence
+      finish?:
+        description: Finish date of an absence
+        type: datetime
+      person?:
+        description: Absentee and user of a system
+        type: integer
+      start?:
+        description: Start date of an absence
+        type: datetime
+      vacationYear?: 
+        type: integer | nil
+        description: Vacation year of the user
+      accepterPerson?:
+        type: integer | nil
+        description: Superior of user who accepts an absence
+      status?:
+        type: integer | nil
+        description: Status of an absence
+      interruptionDate?:
+        type: string | nil
+        description: Interruption date of an absence
+      vacationLength?:
+        description: Length of an absence represented in minutes
+        type: integer
+      project?:
+        type: integer 
+  absence_post:
+    type: absence_base
+    properties:
+      absenceType:
+        description: Type of an absence
+        type: integer
+      finish:
+        description: Finish date of an absence
+        type: datetime
+      person:
+        description: Absentee and user of a system
+        type: integer
+      start:
+        description: Start date of an absence
+        type: datetime
+      status:
+        type: integer | nil
+        description: Status of an absence
+      substitutePerson?:
+        type: integer | nil
+        description: >-
+          Superior of user who accepts an absence when actual superior of user
+          is not available
+      created?:
+        description: Creation date of an absence
+        type: datetime
+      modified?:
+        description: Modification date of an absence
+        type: datetime
+  absence_postId:
+    type: absence_base
+    properties:
+      absenceType:
+        description: Type of an absence
+        type: integer
+      finish:
+        description: Finish date of an absence
+        type: datetime
+      start:
+        description: Start date of an absence
+        type: datetime
+      id:
+        type: integer
+        description: Internal ID of an absence
+      substitutePerson?:
+        type: integer | nil
+        description: >-
+          Superior of user who accepts an absence when actual superior of user
+          is not available
+      created?:
+        description: Creation date of an absence
+        type: datetime
+      modified?:
+        description: Modification date of an absence
+        type: datetime
+  absence_getId:
+    type: absence_base
+    properties:
+      id?:
+        type: integer
+        description: Internal ID of an absence
+  absence_getAll:
+    type: absence_getId[]
+    properties:
+      id?:
+        type: integer
+        description: Internal ID of an absence
+      substitutePerson?:
+        type: integer | nil
+        description: >-
+          Superior of user who accepts an absence when actual superior of user
+          is not available    
+      created?:
+        description: Creation date of an absence
+        type: datetime
+      modified?:
+        description: Modification date of an absence
+        type: datetime
   account_postId: 
     additionalProperties: false
     properties:
@@ -1018,6 +1129,24 @@ resourceTypes:
       intervalstart:
       intervalfinish:
       description: <script src="custom_datatype_script.js"></script> <!-- This is a binding for our Download JSON buttons-->
+    responses:
+      200:
+        description: 
+        body:                  
+          application/json: 
+            type: absence_getAll
+  post:
+    headers:
+      Content-Type:
+        type: string
+        required: true
+        default: |
+          application/json;charset=UTF-8 <div id="project1_5-datatype-post"></div> 
+        example: |
+          application/json;charset=UTF-8
+    body:
+      application/json:
+        type: absence_post
   type:
     collection:
        exampleCollectionItemArray: !include absence_array1_5.sample
@@ -1029,6 +1158,18 @@ resourceTypes:
         readOnlyCollectionItem:
           exampleCollectionItem: !include absence_meta1_5.sample
   /{absence_id}:
+    get:
+      description: View details of a single account. See accounts/meta for list of filters, columns and formats. 
+      responses:
+        200:
+          body:
+            application/json: 
+              type: absence_getId
+    post:
+      body:
+        application/json:
+          type: absence_postId
+    delete:
     type: 
      collectionItem:
         exampleCollectionItem: !include absence1_5.sample
