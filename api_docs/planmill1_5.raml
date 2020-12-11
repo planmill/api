@@ -186,9 +186,6 @@ types:
       accepterPerson?:
         type: integer | nil
         description: Superior of user who accepts an absence
-      status?:
-        type: integer | nil
-        description: Status of an absence
       interruptionDate?:
         type: string | nil
         description: Interruption date of an absence
@@ -241,6 +238,9 @@ types:
       id:
         type: integer
         description: Internal ID of an absence
+      status?:
+        type: integer | nil
+        description: Status of an absence
       substitutePerson?:
         type: integer | nil
         description: >-
@@ -258,6 +258,9 @@ types:
       id?:
         type: integer
         description: Internal ID of an absence
+      status?:
+        type: integer | nil
+        description: Status of an absence
   absence_get:
     type: absence_getId
     properties:
