@@ -258,8 +258,8 @@ types:
       id?:
         type: integer
         description: Internal ID of an absence
-  absence_getAll:
-    type: absence_getId[]
+  absence_get:
+    type: absence_getId
     properties:
       id?:
         type: integer
@@ -275,6 +275,8 @@ types:
       modified?:
         description: Modification date of an absence
         type: datetime
+  absence_getAll:
+    type: absence_get[]
   account_postId: 
     additionalProperties: false
     properties:
