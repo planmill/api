@@ -226,15 +226,6 @@ types:
   absence_postId:
     type: absence_base
     properties:
-      absenceType:
-        description: Type of an absence
-        type: integer
-      finish:
-        description: Finish date of an absence
-        type: datetime
-      start:
-        description: Start date of an absence
-        type: datetime
       status?:
         type: integer | nil
         description: Status of an absence
@@ -261,9 +252,6 @@ types:
   absence_get:
     type: absence_getId
     properties:
-      id?:
-        type: integer
-        description: Internal ID of an absence
       substitutePerson?:
         type: integer | nil
         description: >-
