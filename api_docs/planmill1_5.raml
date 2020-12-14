@@ -755,6 +755,37 @@ resourceTypes:
                 type: object
                 example: |
                  { "id" : 123456 }
+  intervalCollection:
+      is: [all]
+      type: allMethodsCollection
+      description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats.
+      get?:
+        description: Get a list of <<resourcePathName>>. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats.
+        queryParameters:
+          interval?:
+            type: string
+            required: false
+            description: Interval type, e.g. start, finish, created, or modified. It is used in combination with intervalstart or intervalfinish
+          intervalstart?:
+            type: string
+            required: false
+            description: Start date of the interval in UTC format, intervalfinish required 
+            example: 2019-03-01T00:00:00.000+0200
+          intervalfinish?:
+            type: string
+            required: false
+            description: Finish date of the interval in UTC format, intervalstart required
+            example: 2019-03-01T00:00:00.000+0200
+        responses:
+          200:
+            body:
+              application/json:
+                example: |
+                  <<exampleCollectionItemArray>>
+      post?:
+        body:
+          application/json:
+            example: <<exampleCollectionItem>>
   collection:
       is: [all]
       description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats.
@@ -1111,13 +1142,6 @@ resourceTypes:
 /absences:
   get:
     queryParameters:
-      rowcount:
-      nextrows:
-      order:
-      sort:
-      interval:
-      intervalstart:
-      intervalfinish:
       description: <script src="custom_datatype_script.js"></script> <!-- This is a binding for our Download JSON buttons-->
     responses:
       200:
@@ -1138,9 +1162,9 @@ resourceTypes:
       application/json:
         type: absence_post
   type:
-    collection:
-       exampleCollectionItemArray: !include absence_array1_5.sample
-       exampleCollectionItem: !include absence1_5.sample
+    intervalCollection:
+      exampleCollectionItemArray: !include absence_array1_5.sample
+      exampleCollectionItem: !include absence_postId.sample
   /meta:
       description: Get meta information for absences. Includes resource's fields names and type and related filters
       get:
@@ -1161,8 +1185,9 @@ resourceTypes:
           type: absence_postId
     delete:
     type: 
-     collectionItem:
-        exampleCollectionItem: !include absence1_5.sample
+      allMethodsCollectionItem:
+        exampleCollectionGetItem: !include absence_getId.sample
+        exampleCollectionPostItem: !include absence_postId.sample			 
     /meta:
       description: Get meta information for the updatable fields of the absence
       get:
