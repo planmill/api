@@ -706,9 +706,9 @@ resourceTypes:
                   <<exampleCollectionItem>>
   allMethodsCollection:
       is: [all]
-      description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats.
+      description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
       get?:
-        description: Get a list of <<resourcePathName>>. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats.
+        description: Get a list of <<resourcePathName>>. See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
         queryParameters:
           rowcount?:
             type: integer
@@ -735,7 +735,7 @@ resourceTypes:
                 example: |
                   <<exampleCollectionItemArray>>
       post?:
-        description: Add a new <<resourcePathName|!singularize>> to PlanMill. 
+        description: Add a new <<resourcePathName|!singularize>> to PlanMill. See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
         headers:
           Content-Type:
             type: string
@@ -758,9 +758,9 @@ resourceTypes:
   intervalCollection:
       is: [all]
       type: allMethodsCollection
-      description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats.
+      description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
       get?:
-        description: Get a list of <<resourcePathName>>. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats.
+        description: Get a list of <<resourcePathName>>. See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
         queryParameters:
           interval?:
             type: string
@@ -788,9 +788,9 @@ resourceTypes:
             example: <<exampleCollectionItem>>
   collection:
       is: [all]
-      description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats.
+      description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields). 
       get:
-        description: Get a list of <<resourcePathName>>. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats.
+        description: Get a list of <<resourcePathName>>. See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
         queryParameters:
           rowcount?:
             type: integer
@@ -831,7 +831,7 @@ resourceTypes:
                 example: |
                   <<exampleCollectionItemArray>>
       post:
-        description: Add a new <<resourcePathName|!singularize>> to PlanMill or update existing (if id is given).  See <<resourcePathName|!pluralize>>/meta for list of columns and formats.
+        description: Add a new <<resourcePathName|!singularize>> to PlanMill or update existing (if id is given).  See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
         headers:
           Content-Type:
             type: string
@@ -856,7 +856,7 @@ resourceTypes:
       is: [all]
       description: A single <<resourcePathName|!singularize>> in PlanMill.
       get:
-        description: View details of a single <<resourcePathName|!singularize>>. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats. 
+        description: View details of a single <<resourcePathName|!singularize>>. See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields). 
         responses:
           200:
             body:
@@ -865,7 +865,7 @@ resourceTypes:
                 example: |
                   <<exampleCollectionItem>>
       post:
-        description: Update an existing resource <<resourcePathName|!singularize>> to PlanMill.  See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats.
+        description: Update an existing resource <<resourcePathName|!singularize>> to PlanMill.  See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
         headers:
           Content-Type:
             type: string
@@ -890,7 +890,7 @@ resourceTypes:
       is: [all]
       description: A single <<resourcePathName|!singularize>> in PlanMill.
       get?:
-        description: View details of a single <<resourcePathName|!singularize>>. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats. 
+        description: View details of a single <<resourcePathName|!singularize>>. See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields). 
         responses:
           200:
             body:
@@ -899,7 +899,7 @@ resourceTypes:
                 example: |
                   <<exampleCollectionGetItem>>
       post?:
-        description: Update an existing resource <<resourcePathName|!singularize>> to PlanMill.  See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats.
+        description: Update an existing resource <<resourcePathName|!singularize>> to PlanMill.  See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
         headers:
           Content-Type:
             type: string
@@ -1171,7 +1171,6 @@ resourceTypes:
           exampleCollectionItem: !include absence_meta1_5.sample
   /{absence_id}:
     get:
-      description: View details of a single account. See accounts/meta for list of filters, columns and formats. 
       responses:
         200:
           body:
@@ -1194,7 +1193,6 @@ resourceTypes:
           exampleCollectionItem: !include absence_single_meta1_5.sample
 /accounts:
   get:
-    description: Get a list of accounts. See accounts/meta for list of filters, columns and formats.
     queryParameters:
       rowcount:
       nextrows:
@@ -1233,7 +1231,6 @@ resourceTypes:
           exampleCollectionItem: !include account_meta1_5.sample
   /{account_id}:
     get:
-      description: View details of a single account. See accounts/meta for list of filters, columns and formats. 
       responses:
         200:
           body:
@@ -1896,7 +1893,6 @@ resourceTypes:
           exampleCollectionItem: !include project_meta1_5.sample
   /{project_id}:
       get:
-        description: View details of a single project. See projects/meta for list of filters, columns and formats. 
         responses:
           200:
             body:
