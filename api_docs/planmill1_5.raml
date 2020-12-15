@@ -1141,11 +1141,9 @@ resourceTypes:
             description: No HTTP body returned
 /absences:
   get:
-    queryParameters:
-      description: <script src="custom_datatype_script.js"></script> <!-- This is a binding for our Download JSON buttons-->
     responses:
       200:
-        description: 
+        description: <script src="custom_datatype_script.js"></script> <!-- This is a binding for our Download JSON buttons-->
         body:                  
           application/json: 
             type: absence_getAll
