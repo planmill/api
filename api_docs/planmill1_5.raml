@@ -250,7 +250,7 @@ types:
       status?:
         type: integer | nil
         description: Status of an absence
-  absence_get:
+  absence:
     type: absence_getId
     properties:
       substitutePerson?:
@@ -265,7 +265,7 @@ types:
         description: Modification date of an absence
         type: datetime
   absence_getAll:
-    type: absence_get[]
+    type: absence[]
   account_postId: 
     additionalProperties: false
     properties:
@@ -393,7 +393,7 @@ types:
         description: Operational ID of an account
       parentAccountName?: 
         type: string | nil
-  account_get:
+  account:
     type: account_getId
     properties:
       activeContacts?: integer
@@ -410,7 +410,7 @@ types:
         type: string | nil
         description: Account name of supplier
   account_getAll:
-     type: account_get[]
+     type: account[]
   account_post:
     type: account_postId
     properties: 
@@ -442,14 +442,14 @@ types:
     properties:
       name:
         required: true
-  portfolio_getId:
+  portfolio:
     type: portfolio_postId
     properties:
       id?:
         type: integer
         description: "Internal ID of a portfolio."
   portfolio_getAll:
-    type: portfolio_getId[]  
+    type: portfolio[]  
   project_base:
     additionalProperties: false
     properties:
@@ -584,7 +584,7 @@ types:
         type: integer | nil
       editableByUser?:
         type: integer | nil
-  project_get:
+  project:
     type: project_base
     properties:
       id?:
@@ -650,7 +650,7 @@ types:
         type: integer | nil
         description: "Amount of hours (in minutes) reported to a project"
   project_getAll:
-    type: project_get[]
+    type: project[]
   product: !include product1_5.schema
   pricebook: !include pricebook1_5.schema
   salesorder: !include sales_order1_5.schema
@@ -1839,14 +1839,14 @@ resourceTypes:
           200:
             body:
               application/json: 
-                type: portfolio_getId
+                type: portfolio
       post:
         body:
           application/json:
             type: portfolio_postId 
       type: 
         allMethodsCollectionItem:
-          exampleCollectionGetItem: !include portfolio_getId.sample
+          exampleCollectionGetItem: !include portfolio.sample
           exampleCollectionPostItem: !include portfolio_postId.sample																	 
 /projects:
   description: reportedHours -field returns minutes like all other effortunit-formatted fields. See /meta -endpoint.
