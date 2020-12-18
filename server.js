@@ -22,7 +22,7 @@ var linkItems = [
   "project_post",
   "project_postId",
   "project_getAll",
-  "portfolio_getId",
+  "portfolio",
   "portfolio_post",
   "portfolio_postId",
   "portfolio_getAll"  

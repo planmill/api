@@ -16,7 +16,7 @@ var linkItems = [
   "projects__project_id__post_request:project_postId",
   "portfolios_get_response:portfolio_getAll",
   "portfolios_post_request:portfolio_post",
-  "portfolios__portfolio_id__get_response:portfolio_getId",
+  "portfolios__portfolio_id__get_response:portfolio",
   "portfolios__portfolio_id__post_request:portfolio_postId"
 ];
 
