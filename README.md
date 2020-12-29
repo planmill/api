@@ -67,10 +67,15 @@ V) API Testing
 
 1. Check out git master branch https://github.com/planmill/api-integration-tests
 2. Open the project in Intelij Idea
-3. Open path.properties from script folder (Not from template folder)4
+3. Open path.properties from script folder (Not from template folder)
 4. Make sure to change the "instance" property to point to the pmserver03 instance you would like to test against
 5. Make sure to change "schema_local_path" property to point to the netlify deployed developement instance you would like to test against
 6 Go to the test class for example API15ProjectIT.java and Click of the "Run Test" arrow in class level or method level.
+
+VI) Adding API tests for sample files
+
+Check examples E_insertPortfolioSample()  and  F_updatePortfoliowithSample() in Portfolio API test module API15PortfolioIT.java of the API tests. 
+
 
 Documentation for formatting 
 
