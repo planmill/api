@@ -162,8 +162,110 @@ traits:
         204:
           description: No HTTP body returned
 types:
-  absence: !include absence1_5.schema
-  absencesingle: !include absence_single1_5.raml
+  absence_base:
+    additionalProperties: false
+    properties:
+      absenceType?:
+        description: Type of an absence
+        type: integer
+      description?:
+        type: string | nil
+        description: Description of an absence
+      finish?:
+        description: Finish date of an absence
+        type: datetime
+      person?:
+        description: Absentee and user of a system
+        type: integer
+      start?:
+        description: Start date of an absence
+        type: datetime
+      vacationYear?: 
+        type: integer | nil
+        description: Vacation year of the user
+      accepterPerson?:
+        type: integer | nil
+        description: Superior of user who accepts an absence
+      interruptionDate?:
+        type: string | nil
+        description: Interruption date of an absence
+      vacationLength?:
+        description: Length of an absence represented in minutes
+        type: integer
+      project?:
+        type: integer
+        description: Id of absence parent in the task hierarchy 
+  absence_post:
+    type: absence_base
+    properties:
+      absenceType:
+        description: Type of an absence
+        type: integer
+      finish:
+        description: Finish date of an absence
+        type: datetime
+      person:
+        description: Absentee and user of a system
+        type: integer
+      start:
+        description: Start date of an absence
+        type: datetime
+      status:
+        type: integer | nil
+        description: Status of an absence
+      substitutePerson?:
+        type: integer | nil
+        description: >-
+          Superior of user who accepts an absence when actual superior of user
+          is not available
+      created?:
+        description: Creation date of an absence
+        type: datetime
+      modified?:
+        description: Modification date of an absence
+        type: datetime
+  absence_postId:
+    type: absence_base
+    properties:
+      status?:
+        type: integer | nil
+        description: Status of an absence
+      substitutePerson?:
+        type: integer | nil
+        description: >-
+          Superior of user who accepts an absence when actual superior of user
+          is not available
+      created?:
+        description: Creation date of an absence
+        type: datetime
+      modified?:
+        description: Modification date of an absence
+        type: datetime
+  absence_getId:
+    type: absence_base
+    properties:
+      id?:
+        type: integer
+        description: Internal ID of an absence
+      status?:
+        type: integer | nil
+        description: Status of an absence
+  absence:
+    type: absence_getId
+    properties:
+      substitutePerson?:
+        type: integer | nil
+        description: >-
+          Superior of user who accepts an absence when actual superior of user
+          is not available    
+      created?:
+        description: Creation date of an absence
+        type: datetime
+      modified?:
+        description: Modification date of an absence
+        type: datetime
+  absence_getAll:
+    type: absence[]
   account_postId: 
     additionalProperties: false
     properties:
@@ -291,7 +393,7 @@ types:
         description: Operational ID of an account
       parentAccountName?: 
         type: string | nil
-  account_get:
+  account:
     type: account_getId
     properties:
       activeContacts?: integer
@@ -308,7 +410,7 @@ types:
         type: string | nil
         description: Account name of supplier
   account_getAll:
-     type: account_get[]
+     type: account[]
   account_post:
     type: account_postId
     properties: 
@@ -341,14 +443,14 @@ types:
     properties:
       name:
         required: true
-  portfolio_getId:
+  portfolio:
     type: portfolio_postId
     properties:
       id?:
         type: integer
         description: "Internal ID of a portfolio."
   portfolio_getAll:
-    type: portfolio_getId[]  
+    type: portfolio[]  
   project_base:
     additionalProperties: false
     properties:
@@ -483,7 +585,7 @@ types:
         type: integer | nil
       editableByUser?:
         type: integer | nil
-  project_get:
+  project:
     type: project_base
     properties:
       id?:
@@ -549,7 +651,7 @@ types:
         type: integer | nil
         description: "Amount of hours (in minutes) reported to a project"
   project_getAll:
-    type: project_get[]
+    type: project[]
   product: !include product1_5.schema
   pricebook: !include pricebook1_5.schema
   salesorder: !include sales_order1_5.schema
@@ -606,9 +708,9 @@ resourceTypes:
                   <<exampleCollectionItem>>
   allMethodsCollection:
       is: [all]
-      description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats.
+      description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
       get?:
-        description: Get a list of <<resourcePathName>>. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats.
+        description: Get a list of <<resourcePathName>>. See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
         queryParameters:
           rowcount?:
             type: integer
@@ -635,7 +737,7 @@ resourceTypes:
                 example: |
                   <<exampleCollectionItemArray>>
       post?:
-        description: Add a new <<resourcePathName|!singularize>> to PlanMill. 
+        description: Add a new <<resourcePathName|!singularize>> to PlanMill. See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
         headers:
           Content-Type:
             type: string
@@ -655,11 +757,42 @@ resourceTypes:
                 type: object
                 example: |
                  { "id" : 123456 }
+  intervalCollection:
+      is: [all]
+      type: allMethodsCollection
+      description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
+      get?:
+        description: Get a list of <<resourcePathName>>. See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
+        queryParameters:
+          interval?:
+            type: string
+            required: false
+            description: Interval type, e.g. start, finish, created, or modified. It is used in combination with intervalstart or intervalfinish
+          intervalstart?:
+            type: string
+            required: false
+            description: Start date of the interval in UTC format, intervalfinish required 
+            example: 2019-03-01T00:00:00.000+0200
+          intervalfinish?:
+            type: string
+            required: false
+            description: Finish date of the interval in UTC format, intervalstart required
+            example: 2019-03-01T00:00:00.000+0200
+        responses:
+          200:
+            body:
+              application/json:
+                example: |
+                  <<exampleCollectionItemArray>>
+      post?:
+        body:
+          application/json:
+            example: <<exampleCollectionItem>>
   collection:
       is: [all]
-      description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats.
+      description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields). 
       get:
-        description: Get a list of <<resourcePathName>>. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats.
+        description: Get a list of <<resourcePathName>>. See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
         queryParameters:
           rowcount?:
             type: integer
@@ -700,7 +833,7 @@ resourceTypes:
                 example: |
                   <<exampleCollectionItemArray>>
       post:
-        description: Add a new <<resourcePathName|!singularize>> to PlanMill or update existing (if id is given).  See <<resourcePathName|!pluralize>>/meta for list of columns and formats.
+        description: Add a new <<resourcePathName|!singularize>> to PlanMill or update existing (if id is given).  See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
         headers:
           Content-Type:
             type: string
@@ -725,7 +858,7 @@ resourceTypes:
       is: [all]
       description: A single <<resourcePathName|!singularize>> in PlanMill.
       get:
-        description: View details of a single <<resourcePathName|!singularize>>. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats. 
+        description: View details of a single <<resourcePathName|!singularize>>. See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields). 
         responses:
           200:
             body:
@@ -734,7 +867,7 @@ resourceTypes:
                 example: |
                   <<exampleCollectionItem>>
       post:
-        description: Update an existing resource <<resourcePathName|!singularize>> to PlanMill.  See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats.
+        description: Update an existing resource <<resourcePathName|!singularize>> to PlanMill.  See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
         headers:
           Content-Type:
             type: string
@@ -759,7 +892,7 @@ resourceTypes:
       is: [all]
       description: A single <<resourcePathName|!singularize>> in PlanMill.
       get?:
-        description: View details of a single <<resourcePathName|!singularize>>. See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats. 
+        description: View details of a single <<resourcePathName|!singularize>>. See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields). 
         responses:
           200:
             body:
@@ -768,7 +901,7 @@ resourceTypes:
                 example: |
                   <<exampleCollectionGetItem>>
       post?:
-        description: Update an existing resource <<resourcePathName|!singularize>> to PlanMill.  See <<resourcePathName|!pluralize>>/meta for list of filters, columns and formats.
+        description: Update an existing resource <<resourcePathName|!singularize>> to PlanMill.  See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
         headers:
           Content-Type:
             type: string
@@ -1010,19 +1143,28 @@ resourceTypes:
             description: No HTTP body returned
 /absences:
   get:
-    queryParameters:
-      rowcount:
-      nextrows:
-      order:
-      sort:
-      interval:
-      intervalstart:
-      intervalfinish:
-      description: <script src="custom_datatype_script.js"></script> <!-- This is a binding for our Download JSON buttons-->
+    responses:
+      200:
+        description: <script src="custom_datatype_script.js"></script> <!-- This is a binding for our Download JSON buttons-->
+        body:                  
+          application/json: 
+            type: absence_getAll
+  post:
+    headers:
+      Content-Type:
+        type: string
+        required: true
+        default: |
+          application/json;charset=UTF-8 <div id="project1_5-datatype-post"></div> 
+        example: |
+          application/json;charset=UTF-8
+    body:
+      application/json:
+        type: absence_post
   type:
-    collection:
-       exampleCollectionItemArray: !include absence_array1_5.sample
-       exampleCollectionItem: !include absence1_5.sample
+    intervalCollection:
+      exampleCollectionItemArray: !include absence_array1_5.sample
+      exampleCollectionItem: !include absence_postId.sample
   /meta:
       description: Get meta information for absences. Includes resource's fields names and type and related filters
       get:
@@ -1030,9 +1172,21 @@ resourceTypes:
         readOnlyCollectionItem:
           exampleCollectionItem: !include absence_meta1_5.sample
   /{absence_id}:
+    get:
+      responses:
+        200:
+          body:
+            application/json: 
+              type: absence_getId
+    post:
+      body:
+        application/json:
+          type: absence_postId
+    delete:
     type: 
-     collectionItem:
-        exampleCollectionItem: !include absence1_5.sample
+      allMethodsCollectionItem:
+        exampleCollectionGetItem: !include absence_getId.sample
+        exampleCollectionPostItem: !include absence_postId.sample			 
     /meta:
       description: Get meta information for the updatable fields of the absence
       get:
@@ -1041,7 +1195,6 @@ resourceTypes:
           exampleCollectionItem: !include absence_single_meta1_5.sample
 /accounts:
   get:
-    description: Get a list of accounts. See accounts/meta for list of filters, columns and formats.
     queryParameters:
       rowcount:
       nextrows:
@@ -1080,7 +1233,6 @@ resourceTypes:
           exampleCollectionItem: !include account_meta1_5.sample
   /{account_id}:
     get:
-      description: View details of a single account. See accounts/meta for list of filters, columns and formats. 
       responses:
         200:
           body:
@@ -1688,14 +1840,14 @@ resourceTypes:
           200:
             body:
               application/json: 
-                type: portfolio_getId
+                type: portfolio
       post:
         body:
           application/json:
             type: portfolio_postId 
       type: 
         allMethodsCollectionItem:
-          exampleCollectionGetItem: !include portfolio_getId.sample
+          exampleCollectionGetItem: !include portfolio.sample
           exampleCollectionPostItem: !include portfolio_postId.sample																	 
 /projects:
   description: reportedHours -field returns minutes like all other effortunit-formatted fields. See /meta -endpoint.
@@ -1743,7 +1895,6 @@ resourceTypes:
           exampleCollectionItem: !include project_meta1_5.sample
   /{project_id}:
       get:
-        description: View details of a single project. See projects/meta for list of filters, columns and formats. 
         responses:
           200:
             body:

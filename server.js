@@ -10,6 +10,10 @@ const indexSubDir = "api_docs"
 
 var linkItems = [
 
+  "absence_getId",
+  "absence_post",
+  "absence_postId",
+  "absence_getAll",
   "account_getId",
   "account_post",
   "account_postId",
@@ -18,7 +22,7 @@ var linkItems = [
   "project_post",
   "project_postId",
   "project_getAll",
-  "portfolio_getId",
+  "portfolio",
   "portfolio_post",
   "portfolio_postId",
   "portfolio_getAll"  

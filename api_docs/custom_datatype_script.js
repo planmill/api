@@ -2,6 +2,10 @@ var divSelector = "div[id*='datatype']";
 var idSplit = ":";
 
 var linkItems = [
+  "absences_get_response:absence_getAll",
+  "absences_post_request:absence_post",
+  "absences__absence_id__get_response:absence_getId",
+  "absences__absence_id__post_request:absence_postId",
   "accounts_get_response:account_getAll",
   "accounts_post_request:account_post",
   "accounts__account_id__get_response:account_getId",
@@ -12,7 +16,7 @@ var linkItems = [
   "projects__project_id__post_request:project_postId",
   "portfolios_get_response:portfolio_getAll",
   "portfolios_post_request:portfolio_post",
-  "portfolios__portfolio_id__get_response:portfolio_getId",
+  "portfolios__portfolio_id__get_response:portfolio",
   "portfolios__portfolio_id__post_request:portfolio_postId"
 ];
 
