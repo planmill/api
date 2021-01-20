@@ -505,7 +505,7 @@ types:
       account: 
         type: integer | nil
         description: Id of contact's account 
-  contact_getId:
+  contact:
     type: contact_postId
     properties: 
       fax?: 
@@ -522,8 +522,10 @@ types:
       email?:
         type: string 
         description: Email address of contact
+  contact_getId:
+    type: contact
   contact_getAll:
-    type: contact_getId
+    type: contact[]
     properties:
       website?:
         type: string | nil
