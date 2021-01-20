@@ -424,7 +424,125 @@ types:
   batch: !include batch1_5.schema
   campaign: !include campaign1_5.schema
   capacitycalendar: !include user_capacitycalendars1_5.schema
-  contact: !include contact1_5.schema
+  contact_postId: 
+    additionalProperties: false
+    properties:
+      lastName?:
+        type: string
+        maxLength: 80
+        description: Last name of a contact 
+      firstName?:
+        type: string 
+        maxLength: 80,
+        description: First name of a contact
+      title?:
+        type: string | nil
+        description: Title of contact
+      accountName?: 
+        type: string | nil
+        description: Account name of contact  
+      department?: 
+        type: string | nil
+        description: Contact's department
+      primaryAddress?: 
+        type: string | nil
+        description: Contact's primary address
+      primaryPostalCode?: 
+        type: string | nil
+        description: Primary postal code of contact
+      primaryCity?:
+        type: string | nil
+        description: Contact's city
+      primaryCountry?:
+        type: integer | nil
+        description: Contact's primary country
+      secondaryAddress?: 
+        type: string | nil
+        description: Secondary address of contact
+      secondaryPostalCode?: 
+        type: string | nil
+        description: Contact's secondary postal code
+      secondaryCity?: 
+        type: string | nil
+        description: Contact's secondary city
+      secondaryCountry?: 
+        type: integer | nil
+        description: Contact's secondary country
+      mobilePhone?: 
+        type: string | nil
+        description: Contact's mobile phone number
+      workPhone?: 
+        type: string | nil
+        description: Contact's work phone number
+      passive?:
+        type: integer
+        description: Contact status can be active or passive. 0=Active 1=InActive      
+      skype?:
+        type: string | nil
+        description: Contact's skype name
+      googleTalk?: 
+        type: string | nil
+        description: Contact's google talk address
+      linkedIn?:
+        type: string | nil
+        description: Contact's linkedIn address    
+      languageCode?: 
+        type: string | nil
+        description: Language code
+      blog?: 
+        type: string | nil
+        description: Contact's blog
+  contact_post:
+    type: contact_postId
+    properties:
+      lastName:
+        type: string
+        maxLength: 80
+        description: Last name of a contact 
+      email:
+        type: string | nil
+        description: Email address of contact 
+      account: 
+        type: integer | nil
+        description: Id of contact's account 
+  contact_getId:
+    type: contact_postId
+    properties: 
+      fax?: 
+        type: string | nil
+        description: Contact's fax
+      id?:
+        type: integer
+        description: Contact's id
+      account?: 
+        type: integer | nil
+        description: Id of contact's account 
+      campaigns?:
+        type: integer | nil
+      email?:
+        type: string 
+        description: Email address of contact
+  contact_getAll:
+    type: contact_getId
+    properties:
+      website?:
+        type: string | nil
+        description: Contact's website  
+      primaryPhone?:
+        type: string | nil
+        description: Contact's Primary phone number
+      created?: 
+        type: datetime
+      createdBy?: 
+        type: string | integer | nil 
+      modified?: 
+        type: datetime
+      modifiedBy?: 
+        type: string | integer | nil        
+      invoiceXsl?:
+        type: string | nil
+      accountType?:
+        type: integer | nil     
   expense: !include expense1_5.schema
   hook: !include hook1_5.schema
   mail: !include request_mail1_5.schema 
@@ -1378,7 +1496,24 @@ resourceTypes:
         type: integer
         required: false
         description: Internal id of campaign to search contacts belonging to specific campaign
+    responses:
+      200:
+        description: 
+        body:                  
+          application/json: 
+            type: contact_getAll 
   post:
+    headers:
+      Content-Type:
+        type: string
+        required: true
+        default: |
+          application/json;charset=UTF-8 <div id="account1_5-datatype-post"></div> 	
+        example: |
+          application/json;charset=UTF-8 		
+    body:
+      application/json:
+        type: contact_post
     description: To add a new contact. See contacts/meta for list of columns and formats.
   type:
      collection:
@@ -1391,6 +1526,17 @@ resourceTypes:
         readOnlyCollectionItem:
           exampleCollectionItem: !include contact_meta1_5.sample
   /{contact_id}:
+    get:
+      responses:
+        200:
+          body:
+            application/json: 
+              type: contact_getId
+    post:
+      body:
+        application/json:
+          type: contact_postId
+    delete:
     type: 
      collectionItem:
         exampleCollectionItem: !include contact1_5.sample
