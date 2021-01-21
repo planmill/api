@@ -492,6 +492,24 @@ types:
       blog?: 
         type: string | nil
         description: Contact's blog
+      twitter?:
+        type: string | nil
+        description: Contact's twitter account name
+      facebook?: 
+        type: string | nil
+        description: Contact's facebook address
+      secondaryEmail?: 
+        type: string | nil
+        description: Secondary email of contact
+      description?: 
+        type: string | nil
+        description: description of contact
+      primaryDepartment?: 
+        type: string | nil
+        description: Contact's primary department
+      projectWikiUserGroup?: 
+        type: integer | nil
+        description: Contact's projectWikiUserGroup
   contact_post:
     type: contact_postId
     properties:
@@ -522,6 +540,9 @@ types:
       email?:
         type: string 
         description: Email address of contact
+      primaryState?: 
+        type: string | nil
+        description: Primary state of contact
   contact:
     type: contact_getId
     properties:
