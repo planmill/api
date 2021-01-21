@@ -505,7 +505,7 @@ types:
       account: 
         type: integer | nil
         description: Id of contact's account 
-  contact:
+  contact_getId:
     type: contact_postId
     properties: 
       fax?: 
@@ -522,10 +522,8 @@ types:
       email?:
         type: string 
         description: Email address of contact
-  contact_getId:
-    type: contact
-  contact_getAll:
-    type: contact[]
+  contact:
+    type: contact_getId
     properties:
       website?:
         type: string | nil
@@ -544,7 +542,9 @@ types:
       invoiceXsl?:
         type: string | nil
       accountType?:
-        type: integer | nil     
+        type: integer | nil   
+  contact_getAll:
+    type: contact[] 
   expense: !include expense1_5.schema
   hook: !include hook1_5.schema
   mail: !include request_mail1_5.schema 
