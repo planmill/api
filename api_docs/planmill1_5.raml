@@ -424,7 +424,7 @@ types:
   batch: !include batch1_5.schema
   campaign: !include campaign1_5.schema
   capacitycalendar: !include user_capacitycalendars1_5.schema
-  contact_postId: 
+  contact_base:
     additionalProperties: false
     properties:
       lastName?:
@@ -474,6 +474,10 @@ types:
       workPhone?: 
         type: string | nil
         description: Contact's work phone number
+      email?:
+        description: Email address of an account
+        type: string 
+        pattern: "^\\w+(\\.\\w+)?@company.com"
       passive?:
         type: integer
         description: Contact status can be active or passive. 0=Active 1=InActive      
@@ -488,7 +492,10 @@ types:
         description: Contact's linkedIn address    
       languageCode?: 
         type: string | nil
-        description: Language code
+        description: Language code 
+  contact_postId: 
+    type: contact_base
+    properties:
       blog?: 
         type: string | nil
         description: Contact's blog
@@ -518,10 +525,10 @@ types:
         maxLength: 80
         description: Last name of a contact 
       email:
-        type: string | nil
+        type: string
         description: Email address of contact 
       account: 
-        type: integer | nil
+        type: integer
         description: Id of contact's account 
   contact_getId:
     type: contact_postId
@@ -537,14 +544,14 @@ types:
         description: Id of contact's account 
       campaigns?:
         type: integer | nil
-      email?:
-        type: string 
-        description: Email address of contact
+      role?:
+        type: integer | nil 
+        description: Basic Roles: 1=Administrator, 2=Power, 3=Pro, 4=Team, 5=Sales
       primaryState?: 
         type: string | nil
-        description: Primary state of contact
+        description: Primary state of contact  
   contact:
-    type: contact_getId
+    type: contact_base 
     properties:
       website?:
         type: string | nil
@@ -552,6 +559,9 @@ types:
       primaryPhone?:
         type: string | nil
         description: Contact's Primary phone number
+      fax?: 
+        type: string | nil
+        description: Contact's fax
       created?: 
         type: datetime
       createdBy?: 
@@ -563,9 +573,15 @@ types:
       invoiceXsl?:
         type: string | nil
       accountType?:
-        type: integer | nil   
+        type: integer | nil 
+      id?:
+        type: integer
+        description: Contact's id
+      account?: 
+        type: integer | nil
+        description: Id of contact's account 
   contact_getAll:
-    type: contact[] 
+    type: contact[]
   expense: !include expense1_5.schema
   hook: !include hook1_5.schema
   mail: !include request_mail1_5.schema 
