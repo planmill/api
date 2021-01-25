@@ -1,13 +1,10 @@
 {
     "lastName": "Tester",
     "secondaryAddress": null,
-    "primaryState": "",
     "secondaryEmail": "",
-    "role": null,
     "primaryPostalCode": "00020",
     "accountName": "PlanMill Oy",
     "description": null,
-    "secondaryDepartment": null,
     "title": "Software Engineer",
     "blog": "http://www.blog.com",
     "primaryCity": "NORDEA",
