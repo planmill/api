@@ -430,11 +430,13 @@ types:
       lastName?:
         type: string
         maxLength: 80
-        description: Last name of a contact 
+        description: Last name of a contact
+        pattern: ^note\d+$ 
       firstName?:
         type: string 
         maxLength: 80,
         description: First name of a contact
+        pattern: ^note\d+$
       title?:
         type: string | nil
         description: Title of contact
@@ -529,6 +531,7 @@ types:
         type: string
         maxLength: 80
         description: Last name of a contact 
+        pattern: ^note\d+$
       email:
         type: string
         description: Email address of contact 
