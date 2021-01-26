@@ -1,0 +1,299 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "base schema for all contacts entities",
+  "oneOf": [
+    {
+      "type": "array",
+      "items": { "$ref": "#/definitions/contactArray" }
+    },
+    {
+      "$ref": "#/definitions/contactSingle"
+    }
+  ],
+  "definitions": {
+    "contactSingle": {
+      "type": "object",
+      "required": [ "lastName", "account", "email" ],
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "maxLength": 80,
+          "description": "First name of a contact"
+        },
+        "lastName": {
+          "type": "string",
+          "maxLength": 80,
+          "description": "Last name of a contact "
+        },
+        "passive": {
+          "type": "integer",
+          "description": "Contact status can be active or passive. 0=Active 1=InActive"
+        },
+        "account": {
+          "type": ["integer", "null"],
+          "description": "Id of contact's account"
+        },
+        "languageCode": {
+          "type": ["string", "null"],
+          "description": "Language code"
+        },
+        "role": {
+          "type": ["integer", "null"],
+          "description": "Basic Roles: 1=Administrator, 2=Power, 3=Pro, 4=Team, 5=Sales"
+        },
+        "title": {
+          "type": ["string", "null"],
+          "description": "Title of contact"
+        },
+        "email": {
+          "type": ["string", "null"],
+          "description": "Email address of contact"
+        },
+        "secondaryAddress": {
+          "type": ["string", "null"],
+          "description": "Secondary address of contact"
+        },
+        "primaryState": {
+          "type": ["string", "null"],
+          "description": "Primary state of contact"
+        },
+        "secondaryEmail": {
+          "type": ["string", "null"],
+          "description": "Secondary email of contact"
+        },
+        "primaryPostalCode": {
+          "type": ["string", "null"],
+          "description": "Primary postal code of contact"
+        },
+        "accountName": {
+          "type": ["string", "null"],
+          "description": "Account name of contact"
+        },
+        "secondaryDepartment": {
+          "type": ["string", "null"],
+          "description": "Secondary Department name of contact"
+        },
+        "blog": {
+          "type": ["string", "null"],
+          "description": "Contact's blog"
+        },
+        "primaryCity": {
+          "type": ["string", "null"],
+          "description": "Contact's city"
+        },
+        "secondaryPostalCode": {
+          "type": ["string", "null"],
+          "description": "Contact's secondary postal code"
+        },
+        "skype": {
+          "type": ["string", "null"],
+          "description": "Contact's skype name"
+        },
+        "twitter": {
+          "type": ["string", "null"],
+          "description": "Contact's twitter account name"
+        },
+        "primaryDepartment": {
+          "type": ["string", "null"],
+          "description": "Contact's primary department"
+        },
+        "secondaryCity": {
+          "type": ["string", "null"],
+          "description": "Contact's secondary city"
+        },
+        "id": {
+          "type": "integer",
+          "description": "Contact's id"
+        },
+        "department": {
+          "type": ["string", "null"],
+          "description": "Contact's department"
+        },
+        "fax": {
+          "type": ["string", "null"],
+          "description": "Contact's fax"
+        },
+        "primaryCountry": {
+          "type": ["integer", "null"],
+          "description": "Contact's primary country"
+        },
+        "secondaryCountry": {
+          "type": ["integer", "null"],
+          "description": "Contact's secondary country"
+        },
+        "facebook": {
+          "type": ["string", "null"],
+          "description": "Contact's facebook address"
+        },
+        "linkedIn": {
+          "type": ["string", "null"],
+          "description": "Contact's linkedIn address"
+        },
+        "projectWikiUserGroup": {
+          "type": ["string", "null"],
+          "description": "Contact's projectWikiUserGroup"
+        },
+        "mobilePhone": {
+          "type": ["string", "null"],
+          "description": "Contact's mobile phone number"
+        },
+        "workPhone": {
+          "type": ["string", "null"],
+          "description": "Contact's work phone number"
+        },
+        "googleTalk": {
+          "type": ["string", "null"],
+          "description": "Contact's google talk address"
+        },
+        "primaryAddress": {
+          "type": ["string", "null"],
+          "description": "Contact's primary address"
+        }
+      }
+    },
+    "contactArray": {
+      "type": "object",
+      "required": [
+        "lastName",
+        "account",
+        "passive"
+      ],
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "maxLength": 80,
+          "description": "First name of a contact"
+        },
+        "lastName": {
+          "type": "string",
+          "maxLength": 80,
+          "description": "Last name of a contact "
+        },
+        "passive": {
+          "type": "integer",
+          "description": "Contact status can be active or passive. 0=Active 1=InActive"
+        },
+        "account": {
+          "type": ["integer", "null"],
+          "description": "Id of contact's account"
+        },
+        "languageCode": {
+          "type": ["string", "null"],
+          "description": "Language code"
+        },
+        "role": {
+          "type": ["integer", "null"],
+          "description": "Basic Roles: 1=Administrator, 2=Power, 3=Pro, 4=Team, 5=Sales"
+        },
+        "title": {
+          "type": ["string", "null"],
+          "description": "Title of contact"
+        },
+        "email": {
+          "type": ["string", "null"],
+          "description": "Email address of contact"
+        },
+        "secondaryAddress": {
+          "type": ["string", "null"],
+          "description": "Secondary address of contact"
+        },
+        "primaryState": {
+          "type": ["string", "null"],
+          "description": "Primary state of contact"
+        },
+        "secondaryEmail": {
+          "type": ["string", "null"],
+          "description": "Secondary email of contact"
+        },
+        "primaryPostalCode": {
+          "type": ["string", "null"],
+          "description": "Primary postal code of contact"
+        },
+        "accountName": {
+          "type": ["string", "null"],
+          "description": "Account name of contact"
+        },
+        "secondaryDepartment": {
+          "type": ["string", "null"],
+          "description": "Secondary Department name of contact"
+        },
+        "blog": {
+          "type": ["string", "null"],
+          "description": "Contact's blog"
+        },
+        "primaryCity": {
+          "type": ["string", "null"],
+          "description": "Contact's city"
+        },
+        "secondaryPostalCode": {
+          "type": ["string", "null"],
+          "description": "Contact's secondary postal code"
+        },
+        "skype": {
+          "type": ["string", "null"],
+          "description": "Contact's skype name"
+        },
+        "twitter": {
+          "type": ["string", "null"],
+          "description": "Contact's twitter account name"
+        },
+        "primaryDepartment": {
+          "type": ["string", "null"],
+          "description": "Contact's primary department"
+        },
+        "secondaryCity": {
+          "type": ["string", "null"],
+          "description": "Contact's secondary city"
+        },
+        "id": {
+          "type": "integer",
+          "description": "Contact's id"
+        },
+        "department": {
+          "type": ["string", "null"],
+          "description": "Contact's department"
+        },
+        "fax": {
+          "type": ["string", "null"],
+          "description": "Contact's fax"
+        },
+        "primaryCountry": {
+          "type": ["integer", "null"],
+          "description": "Contact's primary country"
+        },
+        "secondaryCountry": {
+          "type": ["integer", "null"],
+          "description": "Contact's secondary country"
+        },
+        "facebook": {
+          "type": ["string", "null"],
+          "description": "Contact's facebook address"
+        },
+        "linkedIn": {
+          "type": ["string", "null"],
+          "description": "Contact's linkedIn address"
+        },
+        "projectWikiUserGroup": {
+          "type": ["string", "null"],
+          "description": "Contact's projectWikiUserGroup"
+        },
+        "mobilePhone": {
+          "type": ["string", "null"],
+          "description": "Contact's mobile phone number"
+        },
+        "workPhone": {
+          "type": ["string", "null"],
+          "description": "Contact's work phone number"
+        },
+        "googleTalk": {
+          "type": ["string", "null"],
+          "description": "Contact's google talk address"
+        },
+        "primaryAddress": {
+          "type": ["string", "null"],
+          "description": "Contact's primary address"
+        }
+      }
+    }
+  }
+}
