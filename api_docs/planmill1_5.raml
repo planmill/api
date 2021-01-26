@@ -303,7 +303,7 @@ types:
       email?:
         description: Email address of an account
         type: string | nil
-        pattern: "^\\w+(\\.\\w+)?@company.com"
+        pattern: "^\\w+(\\.\\w+)?@\\w+(\\.\\w+)?$"
       industry?: integer | nil
       serviceLevel?:
         description: Service level provided to real company linked to an account
@@ -325,7 +325,7 @@ types:
       invoiceEmail?:
         description: Invoice delivery email
         type: string | nil
-        pattern: "^\\w+(\\.\\w+)?@company.com"
+        pattern: "^\\w+(\\.\\w+)?@\\w+(\\.\\w+)?$"
       supplierAccount?:
         description: Supplier id of an account
         type: integer | nil
@@ -431,12 +431,10 @@ types:
         type: string
         maxLength: 80
         description: Last name of a contact
-        pattern: ^note\d+$ 
       firstName?:
         type: string 
-        maxLength: 80,
+        maxLength: 80
         description: First name of a contact
-        pattern: ^note\d+$
       title?:
         type: string | nil
         description: Title of contact
@@ -479,7 +477,7 @@ types:
       email?:
         description: Email address of an account
         type: string 
-        pattern: "^\\w+(\\.\\w+)?@company.com"
+        pattern: "^\\w+(\\.\\w+)?@\\w+(\\.\\w+)?$"
       passive?:
         type: integer
         description: Contact status can be active or passive. 0=Active 1=InActive      
@@ -531,11 +529,10 @@ types:
         type: string
         maxLength: 80
         description: Last name of a contact 
-        pattern: ^note\d+$
       email:
         type: string
         description: Email address of contact 
-        pattern: "^\\w+(\\.\\w+)?@company.com"
+        pattern: "^\\w+(\\.\\w+)?@\\w+(\\.\\w+)?$"
       account: 
         type: integer
         description: Id of contact's account 
