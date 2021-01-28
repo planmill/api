@@ -444,21 +444,9 @@ types:
       department?: 
         type: string | nil
         description: Contact's department
-      primaryAddress?: 
-        type: string | nil
-        description: Contact's primary address
-      primaryPostalCode?: 
-        type: string | nil
-        description: Primary postal code of contact
-      primaryCity?:
-        type: string | nil
-        description: Contact's city
-      primaryCountry?:
-        type: integer | nil
-        description: Contact's primary country
       secondaryAddress?: 
         type: string | nil
-        description: Secondary address of contact
+        description: Contact specific address
       secondaryPostalCode?: 
         type: string | nil
         description: Contact's secondary postal code
@@ -493,6 +481,9 @@ types:
       languageCode?: 
         type: string | nil
         description: Language code 
+      account?: 
+        type: integer 
+        description: Id of contact's account 
   contact_postId: 
     type: contact_base
     properties:
@@ -545,15 +536,21 @@ types:
       id?:
         type: integer
         description: Contact's id
-      account?: 
-        type: integer | nil
-        description: Id of contact's account 
-      role?:
-        type: integer | nil 
-        description: Basic Roles: 1=Administrator, 2=Power, 3=Pro, 4=Team, 5=Sales
       primaryState?: 
         type: string | nil
-        description: Primary state of contact  
+        description: Primary state of contact
+      primaryAddress?: 
+        type: string | nil
+        description: Address of contact's account
+      primaryPostalCode?: 
+        type: string | nil
+        description: Primary postal code of contact
+      primaryCity?:
+        type: string | nil
+        description: Contact's city
+      primaryCountry?:
+        type: integer | nil
+        description: Contact's primary country  
   contact:
     type: contact_base 
     properties:
@@ -581,9 +578,18 @@ types:
       id?:
         type: integer
         description: Contact's id
-      account?: 
+      primaryAddress?: 
+        type: string | nil
+        description: Address of contact's account
+      primaryPostalCode?: 
+        type: string | nil
+        description: Primary postal code of contact
+      primaryCity?:
+        type: string | nil
+        description: Contact's city
+      primaryCountry?:
         type: integer | nil
-        description: Id of contact's account 
+        description: Contact's primary country 
   contact_getAll:
     type: contact[]
   expense: !include expense1_5.schema
@@ -1529,13 +1535,7 @@ resourceTypes:
 /contacts:
   get:
     queryParameters:
-      nextrows:
-      order:
-      sort:
-      interval:
-      intervalstart:
-      intervalfinish:
-      campaigns:
+      campaigns?:
         type: integer
         required: false
         description: Internal id of campaign to search contacts belonging to specific campaign
@@ -1559,9 +1559,9 @@ resourceTypes:
         type: contact_post
     description: To add a new contact. See contacts/meta for list of columns and formats.
   type:
-     collection:
+     intervalCollection:
        exampleCollectionItemArray: !include contact_array1_5.sample
-       exampleCollectionItem: !include contact1_5.sample
+       exampleCollectionItem: !include contact_postId.sample
   /meta:
       description: Get meta information for contacts. Includes resource's fields names and type and related filters
       get:
@@ -1581,8 +1581,9 @@ resourceTypes:
           type: contact_postId
     delete:
     type: 
-     collectionItem:
-        exampleCollectionItem: !include contact1_5.sample
+     allMethodsCollectionItem:
+        exampleCollectionGetItem: !include contact_getId.sample
+        exampleCollectionPostItem: !include contact_postId.sample	
     /meta:
         description: Get meta information for the updatable fields of the contact
         get:
