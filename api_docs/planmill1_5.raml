@@ -546,6 +546,9 @@ types:
         description: Contact (internal) id
       primaryPhone?:
         type: string | nil
+      website?: 
+        type: string | nil
+        description: Account website
       created?: 
         type: datetime
       createdBy?: 
@@ -567,8 +570,6 @@ types:
         type: string | nil
       primaryCountry?:
         type: integer | nil
-      website?: 
-        type: string | nil
   contact_getAll:
     type: contact[]
   expense: !include expense1_5.schema
