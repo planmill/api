@@ -297,9 +297,6 @@ types:
         description: Phone number of an account
         pattern: "^[0-9|-]+$"
         type: string | nil
-      website?:
-        description: Website of an account
-        type: string | nil
       email?:
         description: Email address of an account
         type: string | nil
@@ -452,18 +449,14 @@ types:
         description: Contact's secondary postal code
       secondaryCity?: 
         type: string | nil
-        description: Contact's secondary city
       secondaryCountry?: 
         type: integer | nil
-        description: Contact's secondary country
       mobilePhone?: 
         type: string | nil
-        description: Contact's mobile phone number
       workPhone?: 
         type: string | nil
-        description: Contact's work phone number
       email?:
-        description: Email address of an account
+        description: Contact specific email address
         type: string 
         pattern: "^\\w+(\\.\\w+)?@\\w+(\\.\\w+)?$"
       passive?:
@@ -522,7 +515,7 @@ types:
         description: Last name of a contact 
       email:
         type: string
-        description: Email address of contact 
+        description: Contact specific email address 
         pattern: "^\\w+(\\.\\w+)?@\\w+(\\.\\w+)?$"
       account: 
         type: integer
@@ -530,12 +523,9 @@ types:
   contact_getId:
     type: contact_postId
     properties: 
-      fax?: 
-        type: string | nil
-        description: Contact's fax
       id?:
         type: integer
-        description: Contact's id
+        description: Contact (internal) id
       primaryState?: 
         type: string | nil
         description: Primary state of contact
@@ -544,25 +534,18 @@ types:
         description: Address of contact's account
       primaryPostalCode?: 
         type: string | nil
-        description: Primary postal code of contact
       primaryCity?:
         type: string | nil
-        description: Contact's city
       primaryCountry?:
         type: integer | nil
-        description: Contact's primary country  
   contact:
     type: contact_base 
-    properties:
-      website?:
-        type: string | nil
-        description: Contact's website  
+    properties: 
+      id?:
+        type: integer
+        description: Contact (internal) id
       primaryPhone?:
         type: string | nil
-        description: Contact's Primary phone number
-      fax?: 
-        type: string | nil
-        description: Contact's fax
       created?: 
         type: datetime
       createdBy?: 
@@ -575,21 +558,17 @@ types:
         type: string | nil
       accountType?:
         type: integer | nil 
-      id?:
-        type: integer
-        description: Contact's id
       primaryAddress?: 
         type: string | nil
         description: Address of contact's account
       primaryPostalCode?: 
         type: string | nil
-        description: Primary postal code of contact
       primaryCity?:
         type: string | nil
-        description: Contact's city
       primaryCountry?:
         type: integer | nil
-        description: Contact's primary country 
+      website?: 
+        type: string | nil
   contact_getAll:
     type: contact[]
   expense: !include expense1_5.schema
