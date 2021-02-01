@@ -300,7 +300,7 @@ types:
       email?:
         description: Email address of an account
         type: string | nil
-        pattern: "^\\w+(\\.\\w+)?@\\w+(\\.\\w+)?$"
+        pattern: "^.+@.+\\..+$"
       industry?: integer | nil
       serviceLevel?:
         description: Service level provided to real company linked to an account
@@ -322,7 +322,7 @@ types:
       invoiceEmail?:
         description: Invoice delivery email
         type: string | nil
-        pattern: "^\\w+(\\.\\w+)?@\\w+(\\.\\w+)?$"
+        pattern: "^.+@.+\\..+$"
       supplierAccount?:
         description: Supplier id of an account
         type: integer | nil
