@@ -162,6 +162,8 @@ traits:
         204:
           description: No HTTP body returned
 types:
+  email:
+    pattern: "^\\w+(\\.\\w+)?@company.com"
   absence_base:
     additionalProperties: false
     properties:
@@ -300,7 +302,7 @@ types:
       email?:
         description: Email address of an account
         type: string | nil
-        pattern: "^.+@.+\\..+$"
+        email: email 
       industry?: integer | nil
       serviceLevel?:
         description: Service level provided to real company linked to an account
@@ -322,7 +324,7 @@ types:
       invoiceEmail?:
         description: Invoice delivery email
         type: string | nil
-        pattern: "^.+@.+\\..+$"
+        email: email 
       supplierAccount?:
         description: Supplier id of an account
         type: integer | nil
@@ -457,8 +459,8 @@ types:
         type: string | nil
       email?:
         description: Contact specific email address
-        type: string 
-        pattern: "^.+@.+\\..+$"
+        type: string | nil
+        email: email 
       passive?:
         type: integer
         description: Contact status can be active or passive. 0=Active 1=InActive      
