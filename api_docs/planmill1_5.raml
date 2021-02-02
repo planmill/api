@@ -455,6 +455,9 @@ types:
       email?:
         description: Contact specific email address
         type: email | nil
+      languageCode?: 
+        type: string | nil
+        description: Language code 
       passive?:
         type: integer
         description: Contact status can be active or passive. 0=Active 1=InActive      
@@ -467,15 +470,16 @@ types:
       linkedIn?:
         type: string | nil
         description: Contact's linkedIn address    
-      languageCode?: 
-        type: string | nil
-        description: Language code 
       account?: 
         type: integer 
         description: Id of contact's account 
   contact_postId: 
     type: contact_base
     properties:
+      secondaryEmail?: 
+        type: string | nil
+      secondaryState?: 
+        type: string | nil
       blog?: 
         type: string | nil
         description: Contact's blog
@@ -485,8 +489,6 @@ types:
       facebook?: 
         type: string | nil
         description: Contact's facebook address
-      secondaryEmail?: 
-        type: string | nil
       description?: 
         type: string | nil
         description: description of contact
@@ -498,8 +500,6 @@ types:
         description: Contact's projectWikiUserGroup
       campaigns?:
         type: integer | nil
-      secondaryState?: 
-        type: string | nil
   contact_post:
     type: contact_postId
     properties:
@@ -535,6 +535,15 @@ types:
         description: Contact (internal) id
       primaryPhone?:
         type: string | nil
+      primaryAddress?: 
+        type: string | nil
+        description: Address of contact's account
+      primaryPostalCode?: 
+        type: string | nil
+      primaryCity?:
+        type: string | nil
+      primaryCountry?:
+        type: integer | nil
       website?: 
         type: string | nil
         description: Account website
@@ -550,15 +559,6 @@ types:
         type: string | nil
       accountType?:
         type: integer | nil 
-      primaryAddress?: 
-        type: string | nil
-        description: Address of contact's account
-      primaryPostalCode?: 
-        type: string | nil
-      primaryCity?:
-        type: string | nil
-      primaryCountry?:
-        type: integer | nil
   contact_getAll:
     type: contact[]
   email:
