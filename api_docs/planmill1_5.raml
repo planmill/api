@@ -162,8 +162,6 @@ traits:
         204:
           description: No HTTP body returned
 types:
-  email:
-    pattern: "^\\w+(\\.\\w+)?@company.com"
   absence_base:
     additionalProperties: false
     properties:
@@ -570,6 +568,9 @@ types:
         type: integer | nil
   contact_getAll:
     type: contact[]
+  email:
+    type: string 
+    pattern: "^.+@.+\\..+$"
   expense: !include expense1_5.schema
   hook: !include hook1_5.schema
   mail: !include request_mail1_5.schema 
