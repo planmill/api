@@ -433,12 +433,36 @@ types:
       title?:
         type: string | nil
         description: Title of contact
-      accountName?: 
-        type: string | nil
-        description: Account name of contact  
       department?: 
         type: string | nil
         description: Contact's department
+      account?: 
+        type: integer 
+        description: Id of contact's account 
+      accountName?: 
+        type: string | nil
+        description: Account name of contact 
+      languageCode?: 
+        type: string | nil
+        description: Language code 
+      workPhone?: 
+        type: string | nil  
+      mobilePhone?: 
+        type: string | nil
+      email?:
+        description: Contact specific email address
+        type: email | nil    
+  contact_postId: 
+    type: contact_base
+    properties:
+      secondaryEmail?: 
+        type: string | nil
+      passive?:
+        type: integer
+        description: Contact status can be active or passive. 0=Active 1=InActive 
+      primaryDepartment?: 
+        type: string | nil
+        description: Contact's primary department
       secondaryAddress?: 
         type: string | nil
         description: Contact specific address
@@ -447,20 +471,11 @@ types:
       secondaryCity?: 
         type: string | nil
       secondaryCountry?: 
-        type: integer | nil
-      mobilePhone?: 
-        type: string | nil
-      workPhone?: 
-        type: string | nil
-      email?:
-        description: Contact specific email address
-        type: email | nil
-      languageCode?: 
-        type: string | nil
-        description: Language code 
-      passive?:
-        type: integer
-        description: Contact status can be active or passive. 0=Active 1=InActive      
+        type: integer | nil 
+      secondaryState?: 
+        type: string | nil 
+      campaigns?:
+        type: integer | nil   
       skype?:
         type: string | nil
         description: Contact's skype name
@@ -469,37 +484,22 @@ types:
         description: Contact's google talk address
       linkedIn?:
         type: string | nil
-        description: Contact's linkedIn address    
-      account?: 
-        type: integer 
-        description: Id of contact's account 
-  contact_postId: 
-    type: contact_base
-    properties:
-      secondaryEmail?: 
-        type: string | nil
-      secondaryState?: 
-        type: string | nil
-      blog?: 
-        type: string | nil
-        description: Contact's blog
+        description: Contact's linkedIn address 
       twitter?:
         type: string | nil
         description: Contact's twitter account name
       facebook?: 
         type: string | nil
         description: Contact's facebook address
+      blog?: 
+        type: string | nil
+        description: Contact's blog
       description?: 
         type: string | nil
         description: Contact's description
-      primaryDepartment?: 
-        type: string | nil
-        description: Contact's primary department
       projectWikiUserGroup?: 
         type: integer | nil
         description: Contact's projectWikiUserGroup
-      campaigns?:
-        type: integer | nil
   contact_post:
     type: contact_postId
     properties:
@@ -533,6 +533,9 @@ types:
       id?:
         type: integer
         description: Contact (internal) id
+      passive?:
+        type: integer
+        description: Contact status can be active or passive. 0=Active 1=InActive 
       primaryPhone?:
         type: string | nil
       primaryAddress?: 
@@ -544,6 +547,24 @@ types:
         type: string | nil
       primaryCountry?:
         type: integer | nil
+      secondaryAddress?: 
+        type: string | nil
+        description: Contact specific address
+      secondaryPostalCode?: 
+        type: string | nil
+      secondaryCity?: 
+        type: string | nil
+      secondaryCountry?: 
+        type: integer | nil     
+      skype?:
+        type: string | nil
+        description: Contact's skype name
+      googleTalk?: 
+        type: string | nil
+        description: Contact's google talk address
+      linkedIn?:
+        type: string | nil
+        description: Contact's linkedIn address 
       website?: 
         type: string | nil
         description: Account website
