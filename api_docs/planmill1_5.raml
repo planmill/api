@@ -460,9 +460,9 @@ types:
       passive?:
         type: integer
         description: Contact status can be active or passive. 0=Active 1=InActive 
-      primaryDepartment?: 
+      secondaryDepartment?: 
         type: string | nil
-        description: Contact's primary department
+        description: Contact's secondary department
       secondaryAddress?: 
         type: string | nil
         description: Contact specific address
@@ -513,14 +513,17 @@ types:
       id?:
         type: integer
         description: Contact (internal) id
-      primaryState?: 
+      primaryDepartment?: 
         type: string | nil
+        description: Contact's primary department
       primaryAddress?: 
         type: string | nil
         description: Address of contact's account
       primaryPostalCode?: 
         type: string | nil
       primaryCity?:
+        type: string | nil
+      primaryState?: 
         type: string | nil
       primaryCountry?:
         type: integer | nil
@@ -544,6 +547,9 @@ types:
         type: string | nil
       primaryCountry?:
         type: integer | nil
+      secondaryDepartment?: 
+        type: string | nil
+        description: Contact's secondary department
       secondaryAddress?: 
         type: string | nil
         description: Contact specific address
