@@ -456,7 +456,7 @@ types:
     type: contact_base
     properties:
       secondaryEmail?: 
-        type: string | nil
+        type: email | nil
       passive?:
         type: integer
         description: Contact status can be active or passive. 0=Active 1=InActive 
@@ -497,9 +497,6 @@ types:
       description?: 
         type: string | nil
         description: Contact's description
-      projectWikiUserGroup?: 
-        type: integer | nil
-        description: Contact's projectWikiUserGroup
   contact_post:
     type: contact_postId
     properties:
