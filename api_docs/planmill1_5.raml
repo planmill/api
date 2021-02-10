@@ -299,7 +299,7 @@ types:
         type: string | nil
       email?:
         description: Email address of an account
-        type: email | nil
+        type: email | emptystring | nil
       industry?: integer | nil
       serviceLevel?:
         description: Service level provided to real company linked to an account
@@ -320,7 +320,7 @@ types:
         type: number | nil
       invoiceEmail?:
         description: Invoice delivery email
-        type: email | nil
+        type: email | emptystring | nil
       supplierAccount?:
         description: Supplier id of an account
         type: integer | nil
@@ -451,12 +451,12 @@ types:
         type: string | nil
       email?:
         description: Contact specific email address
-        type: email | nil    
+        type: email | emptystring | nil    
   contact_postId: 
     type: contact_base
     properties:
       secondaryEmail?: 
-        type: email | nil
+        type: email | emptystring | nil
       passive?:
         type: integer
         description: Contact status can be active or passive. 0=Active 1=InActive 
@@ -588,6 +588,9 @@ types:
   email:
     type: string  
     pattern: "^.+@.+\\..+$"
+  emptystring:
+    type: string  
+    pattern: "^$"
   expense: !include expense1_5.schema
   hook: !include hook1_5.schema
   mail: !include request_mail1_5.schema 
