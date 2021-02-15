@@ -281,6 +281,10 @@
           "type": ["string", "null"],
           "description": ""
         },
+        "externalIdentifier": {
+          "type": ["integer", "null"],
+          "description": "External identifier of user"
+        },
         "superior": {
           "type": ["integer", "null"],
           "description": ""
@@ -341,6 +345,10 @@
         "accountName": {
           "type": ["string", "null"],
           "description": "Name of user's account"
+        },
+        "externalIdentifier": {
+          "type": ["integer", "null"],
+          "description": "External identifier of user"
         },
         "currencyCode": {
           "type": ["string", "null"],
