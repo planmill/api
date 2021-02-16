@@ -2729,6 +2729,13 @@ resourceTypes:
         readOnlyCollectionItem:
           exampleCollectionItem: !include user_meta1_5.sample
   /{user_id}:
+    get:
+      description: Get a list of opportunity items. See opportunities/{opportunity_id}/items/meta for list of filters, columns and formats
+      responses:
+        200:
+          body:
+            application/json:
+              type: !include user1_5_getId.schema
     type: 
      collectionItem:
         exampleCollectionItem: !include user1_5.sample
