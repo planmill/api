@@ -1,0 +1,308 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "base schema for all user entities",
+  "oneOf": [
+    {
+      "type": "object",
+      "items": { "$ref": "#/definitions/userSingle" }
+    }
+  ],
+  "definitions": {
+    "userSingle": {
+      "type": "object",
+      "required": [ "lastName", "account", "userName", "role", "firstName"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Internal ID of the user"
+        },
+        "firstName": {
+          "type": "string",
+          "maxLength": 80,
+          "description": "First name of a user"
+        },
+        "lastName": {
+          "type": "string",
+          "maxLength": 80,
+          "description": "Last name of a user"
+        },
+        "passive": {
+          "type": "integer",
+          "description": "User status can be active or passive"
+        },
+        "contractType": {
+          "type": ["integer", "null"],
+          "description": "Enumeration of contract type of the user. 0=Permanent - full-time, 2=Permanent - part-time, 3=Trainee, 4=Subcontractor, 5=Army leave, 6=Study leave, 7=Maternity/Paternity leave, 8=Hired - full-time, 9=Hired - part-time, 10=Hired - temporarily, 11=Partner, 12=Customer, 13=Board"
+        },
+        "userName": {
+          "type": ["string", "integer"],
+          "maxLength": 255,
+          "description": "Username of a user"
+        },
+        "password": {
+          "type": ["string", "null"],
+          "maxLength": 80,
+          "description": "Password of a user"
+        },
+        "confirmPassword": {
+          "type": ["string", "null"],
+          "maxLength": 80,
+          "description": "Confirm password of a user"
+        },
+        "account": {
+          "type": ["integer", "null"],
+          "description": "Id of user's account"
+        },
+        "currency": {
+          "type": ["integer", "null"],
+          "description": "Currency id of user's account"
+        },
+        "language": {
+          "type": ["integer", "null"],
+          "description": "Language id of user's account"
+        },
+        "skin": {
+          "type": ["integer", "null"],
+          "description": "Skin/Theme id of user's account"
+        },
+        "numberOfTabsShown": {
+          "type": ["integer", "null"],
+          "description": "Number of tabs displayed in a row"
+        },
+        "enableGroupTabs": {
+          "type": ["integer", "null"],
+          "description": "Enable and disable group tabs. 0=No, 1=Yes"
+        },
+        "role": {
+          "type": ["integer", "null"],
+          "description": "Basic Roles: 1=Administrator, 2=Power, 3=Pro, 4=Team, 5=Sales"
+        },
+        "effortUnit": {
+          "type": ["integer", "null"],
+          "description": "Enumeration of unit to record work time. 1=Minutes, 2=Hours, 3=Days, 4=Weeks"
+        },
+        "timeZone": {
+          "type": ["string", "null"],
+          "description": "Time zone of user"
+        },
+        "calendars": {
+          "type": ["integer", "null"],
+          "description": "calendar id of a user. It is required only when the contractType is any of the following: 0,2,3,4,8,9,10"
+        },
+        "goalType": {
+          "type": ["integer", "null"],
+          "description": "Enumeration of goal type of user. 1=Hours, 2=Percent 3=Revenue"
+        },
+        "goalPeriod": {
+          "type": ["integer", "null"],
+          "description": "Enumeration of goal period of user. 0=-, 1=Hours, 2=Percent 3=Revenue"
+        },
+        "hireDate": {
+          "type": ["string", "null"],
+          "format": "date-time"
+        },
+        "departDate": {
+          "type": ["string", "null"],
+          "format": "date-time"
+        },
+        "title": {
+          "type": ["string", "null"],
+          "description": "Title of user"
+        },
+        "languageCode": {
+          "type": ["string", "null"],
+          "description": "Language code"
+        },
+        "email": {
+          "type": ["string", "null"],
+          "description": "Email address of user"
+        },
+        "BIC": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "balanceAdjustment": {
+          "type": ["integer", "null"],
+          "description": ""
+        },
+        "balanceMaximum": {
+          "type": ["integer", "null"],
+          "description": ""
+        },
+        "bankAccount": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "blog": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "competence": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "competenceLevel": {
+          "type": ["integer", "null"],
+          "description": ""
+        },
+        "department": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "description": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "facebook": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "fax": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "goalValue": {
+          "type": ["integer", "null"],
+          "description": ""
+        },
+        "googleTalk": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "linkedIn": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "mobilePhone": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "nationality": {
+          "type": ["integer", "null"],
+          "description": ""
+        },
+        "paymentTeam": {
+          "type": ["integer", "null"],
+          "description": ""
+        },
+        "primaryAddress": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+		"secondaryAddress": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "primaryCity": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "secondaryCity": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "primaryCountry": {
+          "type": ["integer", "null"],
+          "description": ""
+        },
+        "secondaryCountry": {
+          "type": ["integer", "null"],
+          "description": ""
+        },
+        "primaryDepartment": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "secondaryDepartment": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "primaryPostalCode": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "secondaryPostalCode": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "primaryState": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "secondaryState": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "primaryStreet": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "secondaryStreet": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "projectWikiUserGroup": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "shippingAddress": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "shippingCity": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "shippingCountry": {
+          "type": ["integer", "null"],
+          "description": ""
+        },
+        "shippingDepartment": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "shippingPostalCode": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "shippingState": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "shippingStreet": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "skype": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "externalIdentifier": {
+          "type": ["integer", "null"],
+          "description": "External identifier of user"
+        },
+        "superior": {
+          "type": ["integer", "null"],
+          "description": ""
+        },
+        "team": {
+          "type": ["integer", "null"],
+          "description": ""
+        },
+        "twitter": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "workPhone": {
+          "type": ["string", "null"],
+          "description": ""
+        },
+        "photo": {
+          "type": ["string", "null"],
+          "description": ""
+        }
+      }
+    }
+  }
+}
