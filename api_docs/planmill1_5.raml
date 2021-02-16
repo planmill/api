@@ -297,13 +297,9 @@ types:
         description: Phone number of an account
         pattern: "^[0-9|-]+$"
         type: string | nil
-      website?:
-        description: Website of an account
-        type: string | nil
       email?:
         description: Email address of an account
-        type: string | nil
-        pattern: "^\\w+(\\.\\w+)?@company.com"
+        type: email | emptystring | nil
       industry?: integer | nil
       serviceLevel?:
         description: Service level provided to real company linked to an account
@@ -324,8 +320,7 @@ types:
         type: number | nil
       invoiceEmail?:
         description: Invoice delivery email
-        type: string | nil
-        pattern: "^\\w+(\\.\\w+)?@company.com"
+        type: email | emptystring | nil
       supplierAccount?:
         description: Supplier id of an account
         type: integer | nil
@@ -424,7 +419,178 @@ types:
   batch: !include batch1_5.schema
   campaign: !include campaign1_5.schema
   capacitycalendar: !include user_capacitycalendars1_5.schema
-  contact: !include contact1_5.schema
+  contact_base:
+    additionalProperties: false
+    properties:
+      lastName?:
+        type: string
+        maxLength: 80
+        description: Last name of a contact
+      firstName?:
+        type: string 
+        maxLength: 80
+        description: First name of a contact
+      title?:
+        type: string | nil
+        description: Title of contact
+      department?: 
+        type: string | nil
+        description: Contact's department
+      account?: 
+        type: integer 
+        description: Id of contact's account 
+      accountName?: 
+        type: string | nil
+        description: Account name of contact 
+      languageCode?: 
+        type: string | nil
+        description: Language code 
+      workPhone?: 
+        type: string | nil  
+      mobilePhone?: 
+        type: string | nil
+      email?:
+        description: Contact specific email address
+        type: email | emptystring | nil    
+  contact_postId: 
+    type: contact_base
+    properties:
+      secondaryEmail?: 
+        type: email | emptystring | nil
+      passive?:
+        type: integer
+        description: Contact status can be active or passive. 0=Active 1=InActive 
+      secondaryDepartment?: 
+        type: string | nil
+        description: Contact's secondary department
+      secondaryAddress?: 
+        type: string | nil
+        description: Contact specific address
+      secondaryPostalCode?: 
+        type: string | nil
+      secondaryCity?: 
+        type: string | nil
+      secondaryState?: 
+        type: string | nil 
+      secondaryCountry?: 
+        type: integer | nil 
+      campaigns?:
+        type: integer | nil   
+      skype?:
+        type: string | nil
+        description: Contact's skype name
+      googleTalk?: 
+        type: string | nil
+        description: Contact's google talk address
+      linkedIn?:
+        type: string | nil
+        description: Contact's linkedIn address 
+      twitter?:
+        type: string | nil
+        description: Contact's twitter account name
+      facebook?: 
+        type: string | nil
+        description: Contact's facebook address
+      blog?: 
+        type: string | nil
+        description: Contact's blog
+      description?: 
+        type: string | nil
+        description: Contact's description
+  contact_post:
+    type: contact_postId
+    properties:
+      lastName:
+        type: string
+        maxLength: 80
+        description: Last name of a contact 
+      account: 
+        type: integer
+        description: Id of contact's account 
+  contact_getId:
+    type: contact_postId
+    properties: 
+      id?:
+        type: integer
+        description: Contact (internal) id
+      primaryDepartment?: 
+        type: string | nil
+        description: Contact's primary department
+      primaryAddress?: 
+        type: string | nil
+        description: Address of contact's account
+      primaryPostalCode?: 
+        type: string | nil
+      primaryCity?:
+        type: string | nil
+      primaryState?: 
+        type: string | nil
+      primaryCountry?:
+        type: integer | nil
+  contact:
+    type: contact_base 
+    properties: 
+      id?:
+        type: integer
+        description: Contact (internal) id
+      passive?:
+        type: integer
+        description: Contact status can be active or passive. 0=Active 1=InActive 
+      primaryPhone?:
+        type: string | nil
+      primaryAddress?: 
+        type: string | nil
+        description: Address of contact's account
+      primaryPostalCode?: 
+        type: string | nil
+      primaryCity?:
+        type: string | nil
+      primaryCountry?:
+        type: integer | nil
+      secondaryDepartment?: 
+        type: string | nil
+        description: Contact's secondary department
+      secondaryAddress?: 
+        type: string | nil
+        description: Contact specific address
+      secondaryPostalCode?: 
+        type: string | nil
+      secondaryCity?: 
+        type: string | nil
+      secondaryCountry?: 
+        type: integer | nil     
+      skype?:
+        type: string | nil
+        description: Contact's skype name
+      googleTalk?: 
+        type: string | nil
+        description: Contact's google talk address
+      linkedIn?:
+        type: string | nil
+        description: Contact's linkedIn address 
+      website?: 
+        type: string | nil
+        description: Account website
+      created?: 
+        type: datetime
+      createdBy?: 
+        type: string | integer | nil 
+      modified?: 
+        type: datetime
+      modifiedBy?: 
+        type: string | integer | nil        
+      invoiceXsl?:
+        type: string | nil
+      accountType?:
+        type: integer | nil 
+  contact_getAll:
+    type: contact[]
+  email:
+    type: string  
+    pattern: "^.+@.+\\..+$"
+  emptystring:
+    type: string  
+    pattern: "^$"
   expense: !include expense1_5.schema
   hook: !include hook1_5.schema
   mail: !include request_mail1_5.schema 
@@ -1368,22 +1534,33 @@ resourceTypes:
 /contacts:
   get:
     queryParameters:
-      nextrows:
-      order:
-      sort:
-      interval:
-      intervalstart:
-      intervalfinish:
-      campaigns:
+      campaigns?:
         type: integer
         required: false
         description: Internal id of campaign to search contacts belonging to specific campaign
+    responses:
+      200:
+        description: 
+        body:                  
+          application/json: 
+            type: contact_getAll 
   post:
+    headers:
+      Content-Type:
+        type: string
+        required: true
+        default: |
+          application/json;charset=UTF-8 <div id="account1_5-datatype-post"></div> 	
+        example: |
+          application/json;charset=UTF-8 		
+    body:
+      application/json:
+        type: contact_post
     description: To add a new contact. See contacts/meta for list of columns and formats.
   type:
-     collection:
+     intervalCollection:
        exampleCollectionItemArray: !include contact_array1_5.sample
-       exampleCollectionItem: !include contact1_5.sample
+       exampleCollectionItem: !include contact_postId.sample
   /meta:
       description: Get meta information for contacts. Includes resource's fields names and type and related filters
       get:
@@ -1391,9 +1568,21 @@ resourceTypes:
         readOnlyCollectionItem:
           exampleCollectionItem: !include contact_meta1_5.sample
   /{contact_id}:
+    get:
+      responses:
+        200:
+          body:
+            application/json: 
+              type: contact_getId
+    post:
+      body:
+        application/json:
+          type: contact_postId
+    delete:
     type: 
-     collectionItem:
-        exampleCollectionItem: !include contact1_5.sample
+     allMethodsCollectionItem:
+        exampleCollectionGetItem: !include contact_getId.sample
+        exampleCollectionPostItem: !include contact_postId.sample	
     /meta:
         description: Get meta information for the updatable fields of the contact
         get:
