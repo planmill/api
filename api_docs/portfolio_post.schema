@@ -9,6 +9,17 @@
         "name"
       ],
       "properties": {
+        "parent": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Portfolio parent Id."
+        },
         "name": {
           "description": "Portfolio's name.",
           "type": "string"
