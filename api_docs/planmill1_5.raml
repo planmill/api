@@ -297,6 +297,9 @@ types:
         description: Phone number of an account
         pattern: "^[0-9|-]+$"
         type: string | nil
+      website?:
+        description: Website of an account
+        type: string | nil
       email?:
         description: Email address of an account
         type: email | emptystring | nil
@@ -448,9 +451,6 @@ types:
       workPhone?: 
         type: string | nil  
       mobilePhone?: 
-        type: string | nil
-      website?:
-        description: Website of an account
         type: string | nil
       email?:
         description: Contact specific email address
