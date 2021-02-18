@@ -45,7 +45,7 @@ Note:
   "primaryCity": "Helsinki",
   "competence": null,
   "skype": "skpe_id",
-  "externalIdentifier": 234,
+  "externalIdentifier": null,
   "confirmPassword": null,
   "currency": 1,
   "department": "Software Development",
