@@ -97,7 +97,12 @@
         "email": {
           "anyOf": [
             {
-              "type": "string"
+              "type": "string",
+              "pattern": "^.+@.+\\..+$"
+            },
+            {
+              "type": "string",
+              "pattern": "^$"
             },
             {
               "type": "null"
@@ -193,7 +198,12 @@
         "invoiceEmail": {
           "anyOf": [
             {
-              "type": "string"
+              "type": "string",
+              "pattern": "^.+@.+\\..+$"
+            },
+            {
+              "type": "string",
+              "pattern": "^$"
             },
             {
               "type": "null"
@@ -497,6 +507,101 @@
             }
           ],
           "description": "Auto-reply request mails"
+        },
+        "id": {
+          "type": "integer",
+          "description": "Internal ID of an account"
+        },
+        "parentAccountName": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "activeContacts": {
+          "type": "integer"
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "createdBy": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "modified": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "modifiedBy": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "ownerName": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "revenueThisYear": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "revenueLastYear": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "supplierAccountName": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Account name of supplier"
         },
         "name": {
           "description": "Name of Account",

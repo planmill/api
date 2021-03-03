@@ -1,14 +1,25 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$ref": "#/definitions/portfolio_getId",
+  "$ref": "#/definitions/portfolio",
   "definitions": {
-    "portfolio_getId": {
+    "portfolio": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "name": {
           "type": "string",
           "description": "Portfolio's name."
+        },
+        "parent": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Portfolio parent Id."
         },
         "id": {
           "type": "integer",

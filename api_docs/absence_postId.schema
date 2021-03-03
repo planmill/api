@@ -73,7 +73,8 @@
           "type": "integer"
         },
         "project": {
-          "type": "integer"
+          "type": "integer",
+          "description": "Id of absence parent in the task hierarchy"
         },
         "status": {
           "anyOf": [
@@ -106,6 +107,10 @@
           "description": "Modification date of an absence",
           "type": "string",
           "format": "date-time"
+        },
+        "id": {
+          "type": "integer",
+          "description": "Internal ID of an absence"
         }
       }
     }

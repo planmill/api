@@ -95,12 +95,17 @@
                 "type": "null"
               }
             ],
-            "description": "Website of an account1"
+            "description": "Website of an account"
           },
           "email": {
             "anyOf": [
               {
-                "type": "string"
+                "type": "string",
+                "pattern": "^.+@.+\\..+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^$"
               },
               {
                 "type": "null"
@@ -196,7 +201,12 @@
           "invoiceEmail": {
             "anyOf": [
               {
-                "type": "string"
+                "type": "string",
+                "pattern": "^.+@.+\\..+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^$"
               },
               {
                 "type": "null"
