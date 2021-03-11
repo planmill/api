@@ -40,7 +40,7 @@
   "passive": 0,
   "invoiceNetOperator": "NDEAFIHH",
   "billingPostalCode": "00500",
-  "firstInvoiceNumber": 3000,
+  "firstInvoiceNumber": "3000",
   "shippingAddress": "Siltasaarenkatu 18",
   "billingAddress": "Hämeentie 19",
   "billingCity": "Helsinki"
