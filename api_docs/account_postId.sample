@@ -4,7 +4,7 @@
   "businessId": "2862228-2",
   "vatId": "2862228-2",
   "invoiceEmail": "invoice_email@planmill.com",
-  "shippingPostalCode": 13233,
+  "shippingPostalCode": "13233",
   "type": 100,
   "blog": "http://www.blog.com",
   "twitter": "http://www.twitter.com",
