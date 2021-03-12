@@ -15,6 +15,7 @@
   "autoAcceptTimeReports": 0,
   "fixedWork": 100,
   "billableStatus": 2,
+  "portfolio": 210
   "budgetedTotalCost": 0,
   "budgetedPurchase": 100,
   "requireCommentForOvertime": 0,
