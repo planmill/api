@@ -2,7 +2,7 @@
   "dutyType": 0,       
   "setRequestPerformerAsTeamMember": 0,
   "description": "<p>test description</p>",
-  "operationalId": 12779,
+  "operationalId": "12779",
   "type": 1,
   "effortUnit": null,
   "requireBillableComment": 0,
