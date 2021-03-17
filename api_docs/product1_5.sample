@@ -9,7 +9,6 @@
     "project": null,
     "description": "<p>Product product</p>",
     "validFrom": "2017-01-01T00:00:00.000+0200",
-    "operationalId": 66,
     "competence": 1,
     "sellingPrice": 1000,
     "warrantyPeriod": "2",
