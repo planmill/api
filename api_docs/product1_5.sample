@@ -1,6 +1,7 @@
 {
     "invoiceProcess": "1",
     "dutyType": 2,
+	"productType": 1,
     "minimumAmountToBeSold": 10,
     "targetEffort": null,
     "searchKeywords": "",
@@ -20,7 +21,6 @@
     "link4": "sdf",
     "relatedToPerson": 50,
     "link3": "sdf",
-    "id": 1404,
     "link2": "sdf",
     "owner": 356,
     "salesAccount": 2,

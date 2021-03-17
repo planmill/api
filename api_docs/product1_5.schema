@@ -49,6 +49,10 @@
           "type": [ "integer", "null" ],
           "description": "duty Type"
         },
+		  "productType": {
+          "type": "integer",
+          "description": "product type"
+        },
         "minimumAmountToBeSold": {
           "type": "float",
           "description": "minimum amount to be sold  of the product"
