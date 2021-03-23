@@ -4,15 +4,15 @@
   "oneOf": [
     {
       "type": "array",
-      "items": { "$ref": "#/definitions/product" }
+      "items": { "$ref": "#/definitions/products" }
     },
     {
-      "$ref": "#/definitions/product"
+      "$ref": "#/definitions/products"
     }
   ],
   "definitions": {
-    "product": {
-      "type": "object",
+    "products": {
+      "type": "array",
       "required": [ "productGroup", "validFrom", "validUntil"],
       "additionalProperties": false,
       "properties": {
@@ -49,8 +49,12 @@
           "type": [ "integer", "null" ],
           "description": "duty Type"
         },
+		"productType": {
+          "type": "integer",
+          "description": "product type"
+        },
         "minimumAmountToBeSold": {
-          "type": "float",
+          "type": "number",
           "description": "minimum amount to be sold  of the product"
         },
         "targetEffort": {
@@ -80,7 +84,7 @@
           "description": "competence id of the product"
         },
 		"sellingPrice": {
-          "type": "float",
+          "type": "number",
           "description": "selling price of the product"
         },
 		"warrantyPeriod": {
@@ -136,11 +140,11 @@
           "description": "VAT of the product"
         },
 		"publishToStore": {
-          "type": "smallint",
+          "type": "integer",
           "description": "publish to store of the product"
         },
 		"passive": {
-          "type": "smallint",
+          "type": "integer",
           "description": "passive state of the product"
         },
 		"contractPeriod": {
@@ -148,11 +152,11 @@
           "description": "contract period id of the product"
         },
 		"unit": {
-          "type": "smallint",
+          "type": "integer",
           "description": "unit of the product"
         },
 		"selfCost": {
-          "type": "float",
+          "type": "number",
           "description": "self cost of the product"
         },
 		"searchKeywords": {

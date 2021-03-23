@@ -1,6 +1,7 @@
 {
     "invoiceProcess": "1",
     "dutyType": 2,
+	"productType": 1,
     "minimumAmountToBeSold": 10,
     "targetEffort": null,
     "searchKeywords": "",
@@ -8,7 +9,6 @@
     "project": null,
     "description": "<p>Product product</p>",
     "validFrom": "2017-01-01T00:00:00.000+0200",
-    "operationalId": 66,
     "competence": 1,
     "sellingPrice": 1000,
     "warrantyPeriod": "2",
@@ -20,7 +20,6 @@
     "link4": "sdf",
     "relatedToPerson": 50,
     "link3": "sdf",
-    "id": 1404,
     "link2": "sdf",
     "owner": 356,
     "salesAccount": 2,
