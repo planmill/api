@@ -73,7 +73,8 @@
           "type": "integer"
         },
         "project": {
-          "type": "integer"
+          "type": "integer",
+          "description": "Id of absence parent in the task hierarchy"
         },
         "id": {
           "type": "integer",
@@ -89,6 +90,27 @@
             }
           ],
           "description": "Status of an absence"
+        },
+        "substitutePerson": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Superior of user who accepts an absence when actual superior of user is not available    "
+        },
+        "created": {
+          "description": "Creation date of an absence",
+          "type": "string",
+          "format": "date-time"
+        },
+        "modified": {
+          "description": "Modification date of an absence",
+          "type": "string",
+          "format": "date-time"
         }
       }
     }

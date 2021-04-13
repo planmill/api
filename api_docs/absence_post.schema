@@ -6,8 +6,8 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "absenceType",
         "person",
+        "absenceType",
         "finish",
         "start",
         "status"
@@ -62,7 +62,8 @@
           "type": "integer"
         },
         "project": {
-          "type": "integer"
+          "type": "integer",
+          "description": "Id of absence parent in the task hierarchy"
         },
         "absenceType": {
           "description": "Type of an absence",
@@ -113,6 +114,10 @@
           "description": "Modification date of an absence",
           "type": "string",
           "format": "date-time"
+        },
+        "id": {
+          "type": "integer",
+          "description": "Internal ID of an absence"
         }
       }
     }

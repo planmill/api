@@ -218,6 +218,96 @@
               "type": "null"
             }
           ]
+        },
+        "forecastedtotalCost": {
+          "type": "number",
+          "description": "Forecasted cost of a project"
+        },
+        "actualCost": {
+          "type": "number",
+          "description": "actual cost of a project"
+        },
+        "totalRevenue": {
+          "type": "number",
+          "description": "total revenue of a project"
+        },
+        "actualRevenue": {
+          "type": "number",
+          "description": "actual revenue of a project"
+        },
+        "invoicedRevenue": {
+          "type": "number",
+          "description": "invoiced revenue of a project"
+        },
+        "plannedEffort": {
+          "type": "number",
+          "description": "planned effort of a project"
+        },
+        "totalEffort": {
+          "type": "number",
+          "description": "total effort of a project"
+        },
+        "actualEffort": {
+          "type": "number",
+          "description": "actual effort of a project"
+        },
+        "remainingEffort": {
+          "type": "number",
+          "description": "remaining effort of a project"
+        },
+        "start": {
+          "type": "string",
+          "description": "start date related to template",
+          "format": "date-time"
+        },
+        "finish": {
+          "type": "string",
+          "description": "finsih date related to template",
+          "format": "date-time"
+        },
+        "workCompleteness": {
+          "type": "number",
+          "description": "Work completeness of a project"
+        },
+        "workCompletenessPercentage": {
+          "type": "number",
+          "description": "Work completeness percentage of a project"
+        },
+        "totalRemainingEffort": {
+          "type": "number",
+          "description": "Total remaining effort of a project"
+        },
+        "accountName": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "projectManager": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Id of the project manager"
+        },
+        "reportedHours": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Amount of hours (in minutes) reported to a project"
         }
       }
     }

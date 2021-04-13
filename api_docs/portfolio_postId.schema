@@ -20,6 +20,10 @@
             }
           ],
           "description": "Portfolio parent Id."
+        },
+        "id": {
+          "type": "integer",
+          "description": "Internal ID of a portfolio."
         }
       }
     }

@@ -23,6 +23,10 @@
         "name": {
           "description": "Portfolio's name.",
           "type": "string"
+        },
+        "id": {
+          "type": "integer",
+          "description": "Internal ID of a portfolio."
         }
       }
     }
