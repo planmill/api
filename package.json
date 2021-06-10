@@ -29,7 +29,7 @@
     "downloadjs": "^1.4.7",
     "express": "^4.17.1",
     "json-schema-migrate": "^0.2.0",
-    "netlify-cli": "^3.35.1",
+    "netlify-cli": "^3.35.10",
     "raml2html": "git+https://github.com/planmill/raml2html.git#develop",
     "raml2html-default-theme": "git+https://github.com/planmill/planmil-api-theme.git",
     "ramldt2jsonschema": "^1.2.0"
@@ -38,6 +38,8 @@
     "json-ptr": "~2.1.0",
     "underscore": "~1.12.1",
     "marked": "^2.0.7",
-    "date-and-time": "~1.0.0"
+    "date-and-time": "~1.0.0",
+    "glob-parent": "~5.1.2",
+    "normalize-url": "~5.3.1"
   }
 }
