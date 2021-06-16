@@ -37,7 +37,7 @@
   "resolutions": {
     "json-ptr": "~2.1.0",
     "underscore": "~1.12.1",
-    "marked": "^2.0.7",
+    "marked": "~2.0.7",
     "date-and-time": "~1.0.0",
     "glob-parent": "~5.1.2",
     "normalize-url": "~5.3.1"
