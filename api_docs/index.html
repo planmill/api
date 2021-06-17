@@ -1,4 +1,4 @@
-<!DOCTYPE HTML><html><head><title>PlanMill</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="generator" content="https://github.com/raml2html/raml2html 7.6.0"><link rel="icon" type="image/png" sizes="64x64" href="/icons/planmill-favicon-2020_64x64.png"><link rel="icon" type="image/png" sizes="32x32" href="/icons/planmill-favicon-2020_32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/icons/planmill-favicon-2020_16x16.png"><link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"><script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script><script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script><script type="text/javascript">
+<!DOCTYPE HTML><html><head><title>PlanMill</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="generator" content="https://github.com/raml2html/raml2html 7.6.0"><link rel="icon" type="image/png" sizes="16x16" href="/icons/planmill_icon_16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="/icons/planmill_icon_32x32.png"><link rel="icon" type="image/png" sizes="48x48" href="/icons/planmill_icon_48x48.png"><link rel="icon" type="image/png" sizes="64x64" href="/icons/planmill_icon_64x64.png"><link rel="icon" type="image/png" sizes="120x120" href="/icons/planmill_icon_120x120.png"><link rel="icon" type="image/png" sizes="180x180" href="/icons/planmill_icon_180x180.png"><link rel="apple-touch-icon" sizes="120x120" href="/icons/planmill_icon_120x120.png"><link rel="apple-touch-icon" sizes="180x180" href="/icons/planmill_icon_180x180.png"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"><script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script><script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script><script type="text/javascript">
       $(document).ready(function() {
 
   /*$('[data-toggle]').click(function() {
@@ -943,10 +943,10 @@ pre code {
 </code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>name</strong>: <em><span class="required">required</span>(string)</em><p>Name of Account</p></li><li><strong>passive</strong>: <em>(integer)</em><p>Active or passive state of account (Default value 0 - Inactive)</p></li><li><strong>owner</strong>: <em>(integer)</em><p>Responsible id of an account (Default value - Creator of an account)</p></li><li><strong>type</strong>: <em>(union of integer or nil)</em><p>Type of an account (Default value 8 - Prospect)</p></li><li><strong>vatId</strong>: <em>(union of string or nil)</em><p>VAT id of an account</p></li><li><strong>businessId</strong>: <em>(union of string or nil)</em><p>Business id of an account</p></li><li><strong>termsOfPayment</strong>: <em>(union of integer or nil)</em><p>Terms of payment of an invoice (Default value 14 - 14 days)</p></li><li><strong>eInvoicingAddress</strong>: <em>(union of string or nil)</em><p>eInvoicing address</p></li><li><strong>phone</strong>: <em>(union of string or nil)</em><p>Phone number of an account</p></li><li><strong>website</strong>: <em>(union of string or nil)</em><p>Website of an account</p></li><li><strong>email</strong>: <em>(union of email or emptystring or nil)</em><p>Email address of an account</p></li><li><strong>industry</strong>: <em>(union of integer or nil)</em></li><li><strong>serviceLevel</strong>: <em>(union of integer or nil)</em><p>Service level provided to real company linked to an account</p></li><li><strong>customerSatisfaction</strong>: <em>(union of integer or nil)</em></li><li><strong>description</strong>: <em>(union of string or nil)</em><p>Description of an account</p></li><li><strong>invoiceChannel</strong>: <em>(union of integer or nil)</em><p>Methods of delivery of invoices</p></li><li><strong>invoiceVat</strong>: <em>(union of number or nil)</em><p>VAT on an invoice of an account (Default value 24 - 24%)</p></li><li><strong>invoiceNetOperator</strong>: <em>(union of string or nil)</em></li><li><strong>handlingFee</strong>: <em>(union of number or nil)</em><p>Handling fee of an account</p></li><li><strong>invoiceEmail</strong>: <em>(union of email or emptystring or nil)</em><p>Invoice delivery email</p></li><li><strong>supplierAccount</strong>: <em>(union of integer or nil)</em><p>Supplier id of an account</p></li><li><strong>reverseCharge</strong>: <em>(union of integer or nil)</em></li><li><strong>twitter</strong>: <em>(union of string or nil)</em><p>Twitter name of an account</p></li><li><strong>facebook</strong>: <em>(union of string or nil)</em><p>Facebook name of an account</p></li><li><strong>blog</strong>: <em>(union of string or nil)</em><p>Blog address of an account</p></li><li><strong>firstInvoiceNumber</strong>: <em>(union of string or nil)</em></li><li><strong>combineInvoices</strong>: <em>(union of integer or nil)</em></li><li><strong>rfReferenceNumber</strong>: <em>(union of integer or nil)</em></li><li><strong>lineOfBusiness</strong>: <em>(union of integer or nil)</em></li><li><strong>staff</strong>: <em>(union of integer or nil)</em></li><li><strong>turnover</strong>: <em>(union of integer or nil)</em></li><li><strong>billingAddress</strong>: <em>(union of string or nil)</em><p>Invoice billing address of an account</p></li><li><strong>billingCity</strong>: <em>(union of string or nil)</em><p>Invoice billing city of an account</p></li><li><strong>billingCountry</strong>: <em>(union of integer or nil)</em><p>Invoice billing country of an account</p></li><li><strong>billingPostalCode</strong>: <em>(union of string or nil)</em><p>Invoice billing postal code of an account</p></li><li><strong>billingReference</strong>: <em>(union of string or integer or nil)</em></li><li><strong>billingState</strong>: <em>(union of string or nil)</em></li><li><strong>parentAccount</strong>: <em>(union of integer or nil)</em><p>Parent id of an account</p></li><li><strong>ceo</strong>: <em>(union of string or nil)</em></li><li><strong>shippingAddress</strong>: <em>(union of string or nil)</em><p>Invoice shipping address of an account</p></li><li><strong>shippingCity</strong>: <em>(union of string or nil)</em><p>Invoice shipping city of an account</p></li><li><strong>shippingCountry</strong>: <em>(union of integer or nil)</em><p>Invoice shipping country of an account</p></li><li><strong>shippingPostalCode</strong>: <em>(union of string or nil)</em><p>Invoice shipping postal code of an account</p></li><li><strong>shippingReference</strong>: <em>(union of string or nil)</em></li><li><strong>shippingState</strong>: <em>(union of string or nil)</em></li><li><strong>invoiceAppendix</strong>: <em>(union of integer or nil)</em></li><li><strong>invoiceTemplate</strong>: <em>(union of string or nil)</em></li><li><strong>autoReplyRequestMails</strong>: <em>(union of integer or nil)</em><p>Auto-reply request mails</p></li><li><strong>operationalId</strong>: <em>(union of integer or nil)</em><p>Operational ID of an account</p></li></ul><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "lineOfBusiness": null,
   "shippingCity": "Helsinki",
-  "businessId": "123456",
-  "vatId": "852645",
+  "businessId": "2862228-2",
+  "vatId": "2862228-2",
   "invoiceEmail": "invoice_email@planmill.com",
-  "shippingPostalCode": 13233,
+  "shippingPostalCode": "13233",
   "type": 100,
   "blog": "http://www.blog.com",
   "twitter": "http://www.twitter.com",
@@ -965,11 +965,9 @@ pre code {
   "billingReference": "Finance Department",
   "shippingState": "",
   "termsOfPayment": 0,
-  "billingLocationId": 4632,
   "handlingFee": 10,
   "invoiceVat": 24,
   "description": "&lt;p&gt;test description&lt;/p&gt;",
-  "shippingLocationId": 4633,
   "industry": 100000,
   "parentAccount": null,
   "ceo": "Hannu",
@@ -984,7 +982,7 @@ pre code {
   "passive": 0,
   "invoiceNetOperator": "NDEAFIHH",
   "billingPostalCode": "00500",
-  "firstInvoiceNumber": 3000,
+  "firstInvoiceNumber": "3000",
   "shippingAddress": "Siltasaarenkatu 18",
   "billingAddress": "Hämeentie 19",
   "billingCity": "Helsinki"
@@ -1825,7 +1823,7 @@ pre code {
   "businessId": "123456",
   "vatId": "852645",
   "invoiceEmail": "invoice_email@planmill.com",
-  "shippingPostalCode": 13233,
+  "shippingPostalCode": "13233",
   "type": 100,
   "blog": "http://www.blog.com",
   "twitter": "http://www.twitter.com",
@@ -1845,11 +1843,9 @@ pre code {
   "billingReference": "Finance Department",
   "shippingState": "",
   "termsOfPayment": 0,
-  "billingLocationId": 4632,
   "handlingFee": 10,
   "invoiceVat": 24,
   "description": "&lt;p&gt;test description&lt;/p&gt;",
-  "shippingLocationId": 4633,
   "industry": 100000,
   "parentAccount": null,
   "ceo": "Hannu",
@@ -1864,7 +1860,7 @@ pre code {
   "passive": 0,
   "invoiceNetOperator": "NDEAFIHH",
   "billingPostalCode": "00500",
-  "firstInvoiceNumber": 3000,
+  "firstInvoiceNumber": "3000",
   "shippingAddress": "Siltasaarenkatu 18",
   "billingAddress": "Hämeentie 19",
   "billingCity": "Helsinki"
@@ -1894,10 +1890,10 @@ pre code {
 </code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>name</strong>: <em>(string)</em><p>Name of Account</p></li><li><strong>passive</strong>: <em>(integer)</em><p>Active or passive state of account (Default value 0 - Inactive)</p></li><li><strong>owner</strong>: <em>(integer)</em><p>Responsible id of an account (Default value - Creator of an account)</p></li><li><strong>type</strong>: <em>(union of integer or nil)</em><p>Type of an account (Default value 8 - Prospect)</p></li><li><strong>vatId</strong>: <em>(union of string or nil)</em><p>VAT id of an account</p></li><li><strong>businessId</strong>: <em>(union of string or nil)</em><p>Business id of an account</p></li><li><strong>termsOfPayment</strong>: <em>(union of integer or nil)</em><p>Terms of payment of an invoice (Default value 14 - 14 days)</p></li><li><strong>eInvoicingAddress</strong>: <em>(union of string or nil)</em><p>eInvoicing address</p></li><li><strong>phone</strong>: <em>(union of string or nil)</em><p>Phone number of an account</p></li><li><strong>website</strong>: <em>(union of string or nil)</em><p>Website of an account</p></li><li><strong>email</strong>: <em>(union of email or emptystring or nil)</em><p>Email address of an account</p></li><li><strong>industry</strong>: <em>(union of integer or nil)</em></li><li><strong>serviceLevel</strong>: <em>(union of integer or nil)</em><p>Service level provided to real company linked to an account</p></li><li><strong>customerSatisfaction</strong>: <em>(union of integer or nil)</em></li><li><strong>description</strong>: <em>(union of string or nil)</em><p>Description of an account</p></li><li><strong>invoiceChannel</strong>: <em>(union of integer or nil)</em><p>Methods of delivery of invoices</p></li><li><strong>invoiceVat</strong>: <em>(union of number or nil)</em><p>VAT on an invoice of an account (Default value 24 - 24%)</p></li><li><strong>invoiceNetOperator</strong>: <em>(union of string or nil)</em></li><li><strong>handlingFee</strong>: <em>(union of number or nil)</em><p>Handling fee of an account</p></li><li><strong>invoiceEmail</strong>: <em>(union of email or emptystring or nil)</em><p>Invoice delivery email</p></li><li><strong>supplierAccount</strong>: <em>(union of integer or nil)</em><p>Supplier id of an account</p></li><li><strong>reverseCharge</strong>: <em>(union of integer or nil)</em></li><li><strong>twitter</strong>: <em>(union of string or nil)</em><p>Twitter name of an account</p></li><li><strong>facebook</strong>: <em>(union of string or nil)</em><p>Facebook name of an account</p></li><li><strong>blog</strong>: <em>(union of string or nil)</em><p>Blog address of an account</p></li><li><strong>firstInvoiceNumber</strong>: <em>(union of string or nil)</em></li><li><strong>combineInvoices</strong>: <em>(union of integer or nil)</em></li><li><strong>rfReferenceNumber</strong>: <em>(union of integer or nil)</em></li><li><strong>lineOfBusiness</strong>: <em>(union of integer or nil)</em></li><li><strong>staff</strong>: <em>(union of integer or nil)</em></li><li><strong>turnover</strong>: <em>(union of integer or nil)</em></li><li><strong>billingAddress</strong>: <em>(union of string or nil)</em><p>Invoice billing address of an account</p></li><li><strong>billingCity</strong>: <em>(union of string or nil)</em><p>Invoice billing city of an account</p></li><li><strong>billingCountry</strong>: <em>(union of integer or nil)</em><p>Invoice billing country of an account</p></li><li><strong>billingPostalCode</strong>: <em>(union of string or nil)</em><p>Invoice billing postal code of an account</p></li><li><strong>billingReference</strong>: <em>(union of string or integer or nil)</em></li><li><strong>billingState</strong>: <em>(union of string or nil)</em></li><li><strong>parentAccount</strong>: <em>(union of integer or nil)</em><p>Parent id of an account</p></li><li><strong>ceo</strong>: <em>(union of string or nil)</em></li><li><strong>shippingAddress</strong>: <em>(union of string or nil)</em><p>Invoice shipping address of an account</p></li><li><strong>shippingCity</strong>: <em>(union of string or nil)</em><p>Invoice shipping city of an account</p></li><li><strong>shippingCountry</strong>: <em>(union of integer or nil)</em><p>Invoice shipping country of an account</p></li><li><strong>shippingPostalCode</strong>: <em>(union of string or nil)</em><p>Invoice shipping postal code of an account</p></li><li><strong>shippingReference</strong>: <em>(union of string or nil)</em></li><li><strong>shippingState</strong>: <em>(union of string or nil)</em></li><li><strong>invoiceAppendix</strong>: <em>(union of integer or nil)</em></li><li><strong>invoiceTemplate</strong>: <em>(union of string or nil)</em></li><li><strong>autoReplyRequestMails</strong>: <em>(union of integer or nil)</em><p>Auto-reply request mails</p></li></ul><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "lineOfBusiness": null,
   "shippingCity": "Helsinki",
-  "businessId": "123456",
-  "vatId": "852645",
+  "businessId": "2862228-2",
+  "vatId": "2862228-2",
   "invoiceEmail": "invoice_email@planmill.com",
-  "shippingPostalCode": 13233,
+  "shippingPostalCode": "13233",
   "type": 100,
   "blog": "http://www.blog.com",
   "twitter": "http://www.twitter.com",
@@ -1916,11 +1912,9 @@ pre code {
   "billingReference": "Finance Department",
   "shippingState": "",
   "termsOfPayment": 0,
-  "billingLocationId": 4632,
   "handlingFee": 10,
   "invoiceVat": 24,
   "description": "&lt;p&gt;test description&lt;/p&gt;",
-  "shippingLocationId": 4633,
   "industry": 100000,
   "parentAccount": null,
   "ceo": "Hannu",
@@ -1935,7 +1929,7 @@ pre code {
   "passive": 0,
   "invoiceNetOperator": "NDEAFIHH",
   "billingPostalCode": "00500",
-  "firstInvoiceNumber": 3000,
+  "firstInvoiceNumber": "3000",
   "shippingAddress": "Siltasaarenkatu 18",
   "billingAddress": "Hämeentie 19",
   "billingCity": "Helsinki"
@@ -12403,12 +12397,12 @@ Triggered hook would look as below
   "dutyType": 0,       
   "setRequestPerformerAsTeamMember": 0,
   "description": "&lt;p&gt;test description&lt;/p&gt;",
-  "operationalId": 12779,
+  "operationalId": "12779",
   "type": 1,
   "effortUnit": null,
   "requireBillableComment": 0,
-  "portfolio": 464553,
-  "contact": 558786,
+  "portfolio": 210,
+  "contact": 356,
   "fixedWorkEffort": 2250,
   "currency": 1,
   "invoiceAppendix": -1,
@@ -12701,12 +12695,12 @@ Triggered hook would look as below
   "dutyType": 0,       
   "setRequestPerformerAsTeamMember": 0,
   "description": "&lt;p&gt;test description&lt;/p&gt;",
-  "operationalId": 12779,
+  "operationalId": "12779",
   "type": 1,
   "effortUnit": null,
   "requireBillableComment": 0,
-  "portfolio": 464553,
-  "contact": 558786,
+  "portfolio": 210,
+  "contact": 356,
   "fixedWorkEffort": 2250,
   "currency": 1,
   "id": 584043,
@@ -12753,12 +12747,12 @@ Triggered hook would look as below
   "dutyType": 0,       
   "setRequestPerformerAsTeamMember": 0,
   "description": "&lt;p&gt;test description&lt;/p&gt;",
-  "operationalId": 12779,
+  "operationalId": "12779",
   "type": 1,
   "effortUnit": null,
   "requireBillableComment": 0,
-  "portfolio": 464553,
-  "contact": 558786,
+  "portfolio": 210,
+  "contact": 356,
   "fixedWorkEffort": 2250,
   "currency": 1,
   "invoiceAppendix": -1,
@@ -15003,15 +14997,15 @@ Triggered hook would look as below
   "oneOf": [
     {
       "type": "array",
-      "items": { "$ref": "#/definitions/product" }
+      "items": { "$ref": "#/definitions/products" }
     },
     {
-      "$ref": "#/definitions/product"
+      "$ref": "#/definitions/products"
     }
   ],
   "definitions": {
-    "product": {
-      "type": "object",
+    "products": {
+      "type": "array",
       "required": [ "productGroup", "validFrom", "validUntil"],
       "additionalProperties": false,
       "properties": {
@@ -15048,8 +15042,12 @@ Triggered hook would look as below
           "type": [ "integer", "null" ],
           "description": "duty Type"
         },
+		"productType": {
+          "type": "integer",
+          "description": "product type"
+        },
         "minimumAmountToBeSold": {
-          "type": "float",
+          "type": "number",
           "description": "minimum amount to be sold  of the product"
         },
         "targetEffort": {
@@ -15079,7 +15077,7 @@ Triggered hook would look as below
           "description": "competence id of the product"
         },
 		"sellingPrice": {
-          "type": "float",
+          "type": "number",
           "description": "selling price of the product"
         },
 		"warrantyPeriod": {
@@ -15135,11 +15133,11 @@ Triggered hook would look as below
           "description": "VAT of the product"
         },
 		"publishToStore": {
-          "type": "smallint",
+          "type": "integer",
           "description": "publish to store of the product"
         },
 		"passive": {
-          "type": "smallint",
+          "type": "integer",
           "description": "passive state of the product"
         },
 		"contractPeriod": {
@@ -15147,11 +15145,11 @@ Triggered hook would look as below
           "description": "contract period id of the product"
         },
 		"unit": {
-          "type": "smallint",
+          "type": "integer",
           "description": "unit of the product"
         },
 		"selfCost": {
-          "type": "float",
+          "type": "number",
           "description": "self cost of the product"
         },
 		"searchKeywords": {
@@ -15279,15 +15277,15 @@ Triggered hook would look as below
   "oneOf": [
     {
       "type": "array",
-      "items": { "$ref": "#/definitions/product" }
+      "items": { "$ref": "#/definitions/products" }
     },
     {
-      "$ref": "#/definitions/product"
+      "$ref": "#/definitions/products"
     }
   ],
   "definitions": {
-    "product": {
-      "type": "object",
+    "products": {
+      "type": "array",
       "required": [ "productGroup", "validFrom", "validUntil"],
       "additionalProperties": false,
       "properties": {
@@ -15324,8 +15322,12 @@ Triggered hook would look as below
           "type": [ "integer", "null" ],
           "description": "duty Type"
         },
+		"productType": {
+          "type": "integer",
+          "description": "product type"
+        },
         "minimumAmountToBeSold": {
-          "type": "float",
+          "type": "number",
           "description": "minimum amount to be sold  of the product"
         },
         "targetEffort": {
@@ -15355,7 +15357,7 @@ Triggered hook would look as below
           "description": "competence id of the product"
         },
 		"sellingPrice": {
-          "type": "float",
+          "type": "number",
           "description": "selling price of the product"
         },
 		"warrantyPeriod": {
@@ -15411,11 +15413,11 @@ Triggered hook would look as below
           "description": "VAT of the product"
         },
 		"publishToStore": {
-          "type": "smallint",
+          "type": "integer",
           "description": "publish to store of the product"
         },
 		"passive": {
-          "type": "smallint",
+          "type": "integer",
           "description": "passive state of the product"
         },
 		"contractPeriod": {
@@ -15423,11 +15425,11 @@ Triggered hook would look as below
           "description": "contract period id of the product"
         },
 		"unit": {
-          "type": "smallint",
+          "type": "integer",
           "description": "unit of the product"
         },
 		"selfCost": {
-          "type": "float",
+          "type": "number",
           "description": "self cost of the product"
         },
 		"searchKeywords": {
@@ -15452,6 +15454,7 @@ Triggered hook would look as below
 }</code></pre><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
     "invoiceProcess": "1",
     "dutyType": 2,
+	"productType": 1,
     "minimumAmountToBeSold": 10,
     "targetEffort": null,
     "searchKeywords": "",
@@ -15459,7 +15462,6 @@ Triggered hook would look as below
     "project": null,
     "description": "&lt;p&gt;Product product&lt;/p&gt;",
     "validFrom": "2017-01-01T00:00:00.000+0200",
-    "operationalId": 66,
     "competence": 1,
     "sellingPrice": 1000,
     "warrantyPeriod": "2",
@@ -15471,7 +15473,6 @@ Triggered hook would look as below
     "link4": "sdf",
     "relatedToPerson": 50,
     "link3": "sdf",
-    "id": 1404,
     "link2": "sdf",
     "owner": 356,
     "salesAccount": 2,
@@ -15900,6 +15901,7 @@ Triggered hook would look as below
 </code></pre></div></li></ul></div><div class="tab-pane" id="products__product_id__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
     "invoiceProcess": "1",
     "dutyType": 2,
+	"productType": 1,
     "minimumAmountToBeSold": 10,
     "targetEffort": null,
     "searchKeywords": "",
@@ -15907,7 +15909,6 @@ Triggered hook would look as below
     "project": null,
     "description": "&lt;p&gt;Product product&lt;/p&gt;",
     "validFrom": "2017-01-01T00:00:00.000+0200",
-    "operationalId": 66,
     "competence": 1,
     "sellingPrice": 1000,
     "warrantyPeriod": "2",
@@ -15919,7 +15920,6 @@ Triggered hook would look as below
     "link4": "sdf",
     "relatedToPerson": 50,
     "link3": "sdf",
-    "id": 1404,
     "link2": "sdf",
     "owner": 356,
     "salesAccount": 2,
@@ -27415,6 +27415,10 @@ Triggered hook would look as below
           "type": ["string", "null"],
           "description": ""
         },
+        "externalIdentifier": {
+          "type": ["string", "null"],
+          "description": "External identifier of user"
+        },
         "superior": {
           "type": ["integer", "null"],
           "description": ""
@@ -27475,6 +27479,10 @@ Triggered hook would look as below
         "accountName": {
           "type": ["string", "null"],
           "description": "Name of user&#39;s account"
+        },
+        "externalIdentifier": {
+          "type": ["string", "null"],
+          "description": "External identifier of user"
         },
         "currencyCode": {
           "type": ["string", "null"],
@@ -27592,6 +27600,7 @@ Triggered hook would look as below
         "id": 356,
         "department": "",
         "email": "firstname.lastname@planmill.com",
+        "externalIdentifier": null,
         "lastLogout": "2013-11-08T17:38:43.777+0200",
         "hireDate": "2014-01-01T00:00:00.000+0200",
         "balanceAdjustment": null,
@@ -27625,6 +27634,7 @@ Triggered hook would look as below
         "id": 1480,
         "department": "",
         "email": "",
+        "externalIdentifier": null,
         "lastLogout": null,
         "hireDate": "2019-03-01T00:00:00.000+0200",
         "balanceAdjustment": null,
@@ -27950,6 +27960,10 @@ Triggered hook would look as below
           "type": ["string", "null"],
           "description": ""
         },
+        "externalIdentifier": {
+          "type": ["string", "null"],
+          "description": "External identifier of user"
+        },
         "superior": {
           "type": ["integer", "null"],
           "description": ""
@@ -28010,6 +28024,10 @@ Triggered hook would look as below
         "accountName": {
           "type": ["string", "null"],
           "description": "Name of user&#39;s account"
+        },
+        "externalIdentifier": {
+          "type": ["string", "null"],
+          "description": "External identifier of user"
         },
         "currencyCode": {
           "type": ["string", "null"],
@@ -28159,18 +28177,19 @@ Triggered hook would look as below
   "primaryCity": "Helsinki",
   "competence": null,
   "skype": "skpe_id",
+  "externalIdentifier": null,
   "confirmPassword": null,
   "currency": 1,
   "department": "Software Development",
   "enableGroupTabs": 0,
   "BIC": "NDEAFIHH",
-  "email": "adam.tester@planmill.com",
+  "email": "dam.test@planmill.com",
   "goalType": 1,
   "hireDate": "2014-01-01T00:00:00.000+0200",
   "primaryAddress": null,
   "facebook": "http://www.facebook.com",
   "team": 4150,
-  "userName": "adam.tester",
+  "userName": "dam.test",
   "passive": 0,
   "superior": null,
   "calendars": "60",
@@ -28818,6 +28837,10 @@ Triggered hook would look as below
           "type": ["string", "null"],
           "description": ""
         },
+        "externalIdentifier": {
+          "type": ["string", "null"],
+          "description": "External identifier of user"
+        },
         "superior": {
           "type": ["integer", "null"],
           "description": ""
@@ -28878,6 +28901,10 @@ Triggered hook would look as below
         "accountName": {
           "type": ["string", "null"],
           "description": "Name of user&#39;s account"
+        },
+        "externalIdentifier": {
+          "type": ["string", "null"],
+          "description": "External identifier of user"
         },
         "currencyCode": {
           "type": ["string", "null"],
@@ -29027,18 +29054,19 @@ Triggered hook would look as below
   "primaryCity": "Helsinki",
   "competence": null,
   "skype": "skpe_id",
+  "externalIdentifier": null,
   "confirmPassword": null,
   "currency": 1,
   "department": "Software Development",
   "enableGroupTabs": 0,
   "BIC": "NDEAFIHH",
-  "email": "adam.tester@planmill.com",
+  "email": "dam.test@planmill.com",
   "goalType": 1,
   "hireDate": "2014-01-01T00:00:00.000+0200",
   "primaryAddress": null,
   "facebook": "http://www.facebook.com",
   "team": 4150,
-  "userName": "adam.tester",
+  "userName": "dam.test",
   "passive": 0,
   "superior": null,
   "calendars": "60",
@@ -29353,6 +29381,10 @@ Triggered hook would look as below
           "type": ["string", "null"],
           "description": ""
         },
+        "externalIdentifier": {
+          "type": ["string", "null"],
+          "description": "External identifier of user"
+        },
         "superior": {
           "type": ["integer", "null"],
           "description": ""
@@ -29413,6 +29445,10 @@ Triggered hook would look as below
         "accountName": {
           "type": ["string", "null"],
           "description": "Name of user&#39;s account"
+        },
+        "externalIdentifier": {
+          "type": ["string", "null"],
+          "description": "External identifier of user"
         },
         "currencyCode": {
           "type": ["string", "null"],
@@ -29562,18 +29598,19 @@ Triggered hook would look as below
   "primaryCity": "Helsinki",
   "competence": null,
   "skype": "skpe_id",
+  "externalIdentifier": null,
   "confirmPassword": null,
   "currency": 1,
   "department": "Software Development",
   "enableGroupTabs": 0,
   "BIC": "NDEAFIHH",
-  "email": "adam.tester@planmill.com",
+  "email": "dam.test@planmill.com",
   "goalType": 1,
   "hireDate": "2014-01-01T00:00:00.000+0200",
   "primaryAddress": null,
   "facebook": "http://www.facebook.com",
   "team": 4150,
-  "userName": "adam.tester",
+  "userName": "dam.test",
   "passive": 0,
   "superior": null,
   "calendars": "60",
