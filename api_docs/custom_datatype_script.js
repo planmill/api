@@ -14,6 +14,8 @@ var linkItems = [
   "contacts_post_request:contact_post",
   "contacts__contact_id__get_response:contact_getId",
   "contacts__contact_id__post_request:contact_postId",
+  "invoices_get_response:invoice_getAll",
+  "invoices__invoice_id__get_response:invoice_getId",
   "projects_get_response:project_getAll",
   "projects_post_request:project_post",
   "projects__project_id__get_response:project_getId",
