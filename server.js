@@ -22,6 +22,8 @@ var linkItems = [
   "contact_post",
   "contact_postId",
   "contact_getAll",
+  "invoice_getId",
+  "invoice_getAll",
   "project_getId",
   "project_post",
   "project_postId",
@@ -41,6 +43,7 @@ app.use(express.static(indexSubDir));
   console.log("listening on 3020");
 });
 */
+
 
 // serve the homepage
 app.get("/", (req, res) => {
