@@ -1,0 +1,182 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/invoice_getId",
+  "definitions": {
+    "invoice_getId": {
+      "type": "object",
+      "description": "Get invoice in PDF and XML formats. PDF-format works with Invoice + appendix and XML-format works with Finvoice",
+      "enum": [
+        "application/pdf",
+        "application/xml"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "description": "Id of an invoice",
+          "type": "integer"
+        },
+        "dueDate": {
+          "type": "string",
+          "description": "duedate of an invoice",
+          "format": "date-time"
+        },
+        "yourReference": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "ourReference": {
+          "type": "string"
+        },
+        "customerName": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "customer": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "invoiceDate": {
+          "type": "string",
+          "description": "Date and time of an invoice",
+          "format": "date-time"
+        },
+        "reference": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "billingAddress": {
+          "type": "string"
+        },
+        "delayInterest": {
+          "type": "integer"
+        },
+        "invoiceCurrency": {
+          "type": "integer"
+        },
+        "comment": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "invoiceAppendix": {
+          "type": "integer"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "showSubTotals": {
+          "type": "integer"
+        },
+        "invoiceXSL": {
+          "type": "string",
+          "description": "Xsl file of an invoice"
+        },
+        "noticeTime": {
+          "type": "integer",
+          "description": "length of notice time"
+        },
+        "shippingAddress": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "supplier": {
+          "type": "integer"
+        },
+        "invoiceNumber": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "termsOfPayment": {
+          "type": "integer"
+        },
+        "handlingFee": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Handling fee of an invoice"
+        },
+        "handlingFeeAccount": {
+          "type": "integer",
+          "description": "Handling fee of an invoice account"
+        },
+        "VAT": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "salesExecutive": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reverseCharge": {
+          "type": "integer",
+          "description": "Status of payment"
+        }
+      }
+    }
+  }
+}
