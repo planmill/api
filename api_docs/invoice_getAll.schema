@@ -133,6 +133,104 @@
           },
           "termsOfPayment": {
             "type": "integer"
+          },
+          "invoicedAmount": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "paymentStatus": {
+            "type": "integer",
+            "description": "Status of payment"
+          },
+          "invoiceVAT": {
+            "type": "integer",
+            "description": "VAT of an invoice"
+          },
+          "delivered": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "invoiceNetAddress": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "invoiceNetOperator": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "invoiceChannel": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "created": {
+            "type": "string",
+            "description": "Created date of an invoice",
+            "format": "date-time"
+          },
+          "invoiceEmail": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^.+@.+\\..+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^$"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Invoice delivery email"
+          },
+          "paidAmount": {
+            "type": "integer"
+          },
+          "supplierName": {
+            "type": "string"
+          },
+          "VATid": {
+            "type": "string"
+          },
+          "sentToAccounting": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         }
       }

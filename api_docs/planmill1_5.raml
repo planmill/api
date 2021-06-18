@@ -648,24 +648,6 @@ types:
         type: integer
   invoice:
     type: invoice_base
-  invoice_getId:
-    type: invoice
-    properties: 
-      handlingFee?: 
-        type: number | nil
-        description: Handling fee of an invoice
-      handlingFeeAccount?:
-        type: integer
-        description: Handling fee of an invoice account
-      VAT?: 
-        type: integer | nil
-      salesExecutive?: 
-        type: integer | nil
-      reverseCharge?:
-        type: integer
-        description: Status of payment
-  invoice_getAll:
-    type: invoice[]
     properties: 
       invoicedAmount?: 
         type: integer | nil
@@ -687,7 +669,8 @@ types:
         type: datetime
         description: Created date of an invoice
       invoiceEmail?:
-        type: string | nil
+        type: email | emptystring | nil
+        description: Invoice delivery email       
       paidAmount?:
         type: integer 
       supplierName?:
@@ -696,6 +679,24 @@ types:
         type: string 
       sentToAccounting?: 
         type: integer | nil
+  invoice_getId:
+    type: invoice_base
+    properties: 
+      handlingFee?: 
+        type: number | nil
+        description: Handling fee of an invoice
+      handlingFeeAccount?:
+        type: integer
+        description: Handling fee of an invoice account
+      VAT?: 
+        type: integer | nil
+      salesExecutive?: 
+        type: integer | nil
+      reverseCharge?:
+        type: integer
+        description: Status of payment
+  invoice_getAll:
+    type: invoice[]
   mail: !include request_mail1_5.schema 
   opportunity: !include opportunity1_5.schema
   portfolio_postId:
