@@ -1967,7 +1967,8 @@ resourceTypes:
   get:
     queryParameters:
       cyear?:
-        type: string
+        type: string 
+        required: false
         description: Get invoices for specified month. If parameter is missing, always return invoices for current month. Filter is using invoiceDate field.
         example: "07/2021"
     responses:
