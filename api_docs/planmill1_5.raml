@@ -1958,15 +1958,15 @@ resourceTypes:
               description: The amount of rows to return.
               type: integer
               default: 100
-  #  /transformationsettings:
-   #   description: viewing and changing the settings of the integration
-    #  type: 
-     #   collectionItem:
-      #    exampleCollectionItem: include integration1_5.sample
+#    /transformationsettings:
+#      description: viewing and changing the settings of the integration
+#      type: 
+#        collectionItem:
+#          exampleCollectionItem: include integration1_5.sample
 /invoices:
   get:
     queryParameters:
-      cyear?:
+      cyear??:
         type: string
         description: Get invoices for specified month. If parameter is missing, always return invoices for current month. Filter is using invoiceDate field.
         example: "07/2021"
