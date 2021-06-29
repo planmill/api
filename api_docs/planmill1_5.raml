@@ -614,10 +614,10 @@ types:
       customer?:
         type: integer | nil
       invoiceDate?:
-        type: datetime
+        type: string
         description: Date and time of an invoice
       reference?:
-        type: string | nil
+        type: integer | nil
       billingAddress?:
         type: string
       delayInterest?: 
@@ -650,7 +650,7 @@ types:
     type: invoice_base
     properties: 
       invoicedAmount?: 
-        type: integer | nil
+        type: number | nil
       paymentStatus?:
         type: integer
         description: Status of payment
@@ -658,11 +658,11 @@ types:
         type: integer
         description: VAT of an invoice
       delivered?:
-        type: integer | nil
-      invoiceNetAddress?:
         type: string | nil
-      invoiceNetOperator?:
+      invoiceNetAddress?:
         type: integer | nil
+      invoiceNetOperator?:
+        type: string | nil
       invoiceChannel?:
         type: integer | nil
       created?:
@@ -676,9 +676,9 @@ types:
       supplierName?:
         type: string
       VATid?:
-        type: string 
+        type: string | nil
       sentToAccounting?: 
-        type: integer | nil
+        type: integer | string | nil
   invoice_getId:
     type: invoice_base
     properties: 
