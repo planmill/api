@@ -657,7 +657,7 @@ types:
     properties: 
       invoicedAmount?: 
         type: number | nil
-        description: Total invoiced amount including VAT in invoice currency
+        description: Total invoiced amount including VAT in base currency.
       invoiceVAT?:
         type: integer
         description: VAT of an invoice
@@ -681,6 +681,15 @@ types:
         type: string
       VATid?:
         type: string | nil
+      currencyCode?:
+        type: string
+        description: ISO 4217  currency code
+      creditedInvoice?:
+        type: number
+        description: Only present if invoice is a credit note. Id of the original invoice for which this is crediting.
+      InvoicedAmountVAT?:
+        type: number
+        description: Total VAT amount in base currency
   invoice_getId:
     type: invoice_base
     properties: 
