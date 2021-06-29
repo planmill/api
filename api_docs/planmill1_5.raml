@@ -624,6 +624,7 @@ types:
         type: integer
       invoiceCurrency?:
         type: integer
+        description: Currency rate of invoice. Multiply Invoiced amount with this rate for amounts in actual invoiced currency
       comment?:
         type: string | nil
       invoiceAppendix?: 
@@ -646,14 +647,17 @@ types:
         type: integer | nil
       termsOfPayment?:
         type: integer
+      sentToAccounting?: 
+        type: integer | string | nil
+      paymentStatus?:
+        type: integer
+        description: Status of payment
   invoice:
     type: invoice_base
     properties: 
       invoicedAmount?: 
         type: number | nil
-      paymentStatus?:
-        type: integer
-        description: Status of payment
+        description: Total invoiced amount including VAT in invoice currency
       invoiceVAT?:
         type: integer
         description: VAT of an invoice
@@ -677,8 +681,6 @@ types:
         type: string
       VATid?:
         type: string | nil
-      sentToAccounting?: 
-        type: integer | string | nil
   invoice_getId:
     type: invoice_base
     properties: 
