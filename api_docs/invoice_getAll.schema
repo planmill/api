@@ -1,0 +1,262 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/invoice_getAll",
+  "definitions": {
+    "invoice_getAll": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "description": "Id of an invoice",
+            "type": "integer"
+          },
+          "dueDate": {
+            "type": "string",
+            "description": "duedate of an invoice",
+            "format": "date-time"
+          },
+          "yourReference": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "ourReference": {
+            "type": "string"
+          },
+          "customerName": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "customer": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "invoiceDate": {
+            "type": "string",
+            "description": "Date and time of an invoice"
+          },
+          "reference": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "billingAddress": {
+            "type": "string"
+          },
+          "delayInterest": {
+            "type": "integer"
+          },
+          "invoiceCurrency": {
+            "type": "integer",
+            "description": "Currency rate of invoice. Multiply Invoiced amount with this rate for amounts in actual invoiced currency"
+          },
+          "comment": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "invoiceAppendix": {
+            "type": "integer"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "showSubTotals": {
+            "type": "integer"
+          },
+          "invoiceXSL": {
+            "type": "string",
+            "description": "Xsl file of an invoice"
+          },
+          "noticeTime": {
+            "type": "integer",
+            "description": "length of notice time"
+          },
+          "shippingAddress": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "supplier": {
+            "type": "integer"
+          },
+          "invoiceNumber": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "termsOfPayment": {
+            "type": "integer"
+          },
+          "sentToAccounting": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "paymentStatus": {
+            "type": "integer",
+            "description": "Status of payment"
+          },
+          "invoicedAmount": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Total invoiced amount including VAT in base currency."
+          },
+          "invoiceVAT": {
+            "type": "integer",
+            "description": "VAT of an invoice"
+          },
+          "delivered": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "invoiceNetAddress": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "invoiceNetOperator": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "invoiceChannel": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "created": {
+            "type": "string",
+            "description": "Created date of an invoice",
+            "format": "date-time"
+          },
+          "invoiceEmail": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^.+@.+\\..+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^$"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Invoice delivery email"
+          },
+          "paidAmount": {
+            "type": "integer"
+          },
+          "supplierName": {
+            "type": "string"
+          },
+          "VATid": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "currencyCode": {
+            "type": "string",
+            "description": "ISO 4217  currency code"
+          },
+          "creditedInvoice": {
+            "type": "number",
+            "description": "Only present if invoice is a credit note. Id of the original invoice for which this is crediting."
+          },
+          "InvoicedAmountVAT": {
+            "type": "number",
+            "description": "Total VAT amount in base currency"
+          }
+        }
+      }
+    }
+  }
+}

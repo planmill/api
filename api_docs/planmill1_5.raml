@@ -596,6 +596,118 @@ types:
     pattern: "^$"
   expense: !include expense1_5.schema
   hook: !include hook1_5.schema
+  invoice_base:
+    additionalProperties: false
+    properties:
+      id?:
+        description: Id of an invoice
+        type: integer
+      dueDate?: 
+        type: datetime
+        description: duedate of an invoice
+      yourReference?:
+        type: string | nil
+      ourReference?:
+        type: string
+      customerName?:
+        type: string | nil
+      customer?:
+        type: integer | nil
+      invoiceDate?:
+        type: string
+        description: Date and time of an invoice
+      reference?:
+        type: integer | nil
+      billingAddress?:
+        type: string
+      delayInterest?: 
+        type: integer
+      invoiceCurrency?:
+        type: integer
+        description: Currency rate of invoice. Multiply Invoiced amount with this rate for amounts in actual invoiced currency
+      comment?:
+        type: string | nil
+      invoiceAppendix?: 
+        type: integer 
+      description?:
+        type: string | nil
+      showSubTotals?:
+        type: integer
+      invoiceXSL?: 
+        type: string
+        description: Xsl file of an invoice
+      noticeTime?:
+        type: integer
+        description: length of notice time 
+      shippingAddress?:
+        type: string | nil
+      supplier?:
+        type: integer 
+      invoiceNumber?:
+        type: integer | nil
+      termsOfPayment?:
+        type: integer
+      sentToAccounting?: 
+        type: integer | string | nil
+      paymentStatus?:
+        type: integer
+        description: Status of payment
+  invoice:
+    type: invoice_base
+    properties: 
+      invoicedAmount?: 
+        type: number | nil
+        description: Total invoiced amount including VAT in base currency.
+      invoiceVAT?:
+        type: integer
+        description: VAT of an invoice
+      delivered?:
+        type: string | nil
+      invoiceNetAddress?:
+        type: integer | nil
+      invoiceNetOperator?:
+        type: string | nil
+      invoiceChannel?:
+        type: integer | nil
+      created?:
+        type: datetime
+        description: Created date of an invoice
+      invoiceEmail?:
+        type: email | emptystring | nil
+        description: Invoice delivery email       
+      paidAmount?:
+        type: integer 
+      supplierName?:
+        type: string
+      VATid?:
+        type: string | nil
+      currencyCode?:
+        type: string
+        description: ISO 4217  currency code
+      creditedInvoice?:
+        type: number
+        description: Only present if invoice is a credit note. Id of the original invoice for which this is crediting.
+      InvoicedAmountVAT?:
+        type: number
+        description: Total VAT amount in base currency
+  invoice_getId:
+    type: invoice_base
+    properties: 
+      handlingFee?: 
+        type: number | nil
+        description: Handling fee of an invoice
+      handlingFeeAccount?:
+        type: integer
+        description: Handling fee of an invoice account
+      VAT?: 
+        type: integer | nil
+      salesExecutive?: 
+        type: integer | nil
+      reverseCharge?:
+        type: integer
+        description: Status of payment
+  invoice_getAll:
+    type: invoice[]
   mail: !include request_mail1_5.schema 
   opportunity: !include opportunity1_5.schema
   portfolio_postId:
@@ -1857,39 +1969,45 @@ resourceTypes:
               description: The amount of rows to return.
               type: integer
               default: 100
-  #  /transformationsettings:
-   #   description: viewing and changing the settings of the integration
-    #  type: 
-     #   collectionItem:
-      #    exampleCollectionItem: include integration1_5.sample
+#    /transformationsettings:
+#      description: viewing and changing the settings of the integration
+#      type: 
+#        collectionItem:
+#          exampleCollectionItem: include integration1_5.sample
 /invoices:
   get:
     queryParameters:
-      rowcount:
-        type: number
-        required: false
-        description: Number of rows to be returned. Default is 100.
-        example: 250
-      cyear:
-        type: string
+      cyear?:
+        type: string 
         required: false
         description: Get invoices for specified month. If parameter is missing, always return invoices for current month. Filter is using invoiceDate field.
-        example: "12/2018"
+        example: "07/2021"
+    responses:
+      200:
+        description: 
+        body:                  
+          application/json: 
+            type: invoice_getAll
   type:
     readOnlyCollection:
-      schemaName:
-      exampleCollectionItemArray: !include invoice_array1_5.sample
+      exampleCollectionItemArray: !include invoice_array1_5.sample 
   /{invoice_id}:
-    get:
-      headers:
-        Accept:
-          description: Get invoice in PDF and XML formats. PDF-format works with Invoice + appendix and XML-format works with Finvoice
-          enum: [ application/pdf, application/xml ]
-          required: false
-          example: "Accept: application/pdf"
-    type:
-      readOnlyCollectionItem:
-        exampleCollectionItem: !include invoice1_5.sample
+      get:
+        headers:
+          Accept?:
+            type: string
+            description: Get invoice in PDF and XML formats. PDF-format works with Invoice + appendix and XML-format works with Finvoice
+            enum: [ application/pdf, application/xml]
+            example: "Accept: application/pdf"
+        responses:
+          200:
+            body:
+              application/pdf | application/xml: invoice_getId  
+              application/json: 
+                type: invoice_getId 
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include invoice1_5.sample
 /languages:
   description: Language strings used for localization available in PlanMill
   get:
