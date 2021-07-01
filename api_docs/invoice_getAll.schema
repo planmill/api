@@ -52,13 +52,12 @@
           },
           "invoiceDate": {
             "type": "string",
-            "description": "Date and time of an invoice",
-            "format": "date-time"
+            "description": "Date and time of an invoice"
           },
           "reference": {
             "anyOf": [
               {
-                "type": "string"
+                "type": "integer"
               },
               {
                 "type": "null"
@@ -72,7 +71,8 @@
             "type": "integer"
           },
           "invoiceCurrency": {
-            "type": "integer"
+            "type": "integer",
+            "description": "Currency rate of invoice. Multiply Invoiced amount with this rate for amounts in actual invoiced currency"
           },
           "comment": {
             "anyOf": [
@@ -134,10 +134,13 @@
           "termsOfPayment": {
             "type": "integer"
           },
-          "invoicedAmount": {
+          "sentToAccounting": {
             "anyOf": [
               {
                 "type": "integer"
+              },
+              {
+                "type": "string"
               },
               {
                 "type": "null"
@@ -148,21 +151,22 @@
             "type": "integer",
             "description": "Status of payment"
           },
+          "invoicedAmount": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Total invoiced amount including VAT in base currency."
+          },
           "invoiceVAT": {
             "type": "integer",
             "description": "VAT of an invoice"
           },
           "delivered": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "invoiceNetAddress": {
             "anyOf": [
               {
                 "type": "string"
@@ -172,10 +176,20 @@
               }
             ]
           },
-          "invoiceNetOperator": {
+          "invoiceNetAddress": {
             "anyOf": [
               {
                 "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "invoiceNetOperator": {
+            "anyOf": [
+              {
+                "type": "string"
               },
               {
                 "type": "null"
@@ -220,17 +234,26 @@
             "type": "string"
           },
           "VATid": {
-            "type": "string"
-          },
-          "sentToAccounting": {
             "anyOf": [
               {
-                "type": "integer"
+                "type": "string"
               },
               {
                 "type": "null"
               }
             ]
+          },
+          "currencyCode": {
+            "type": "string",
+            "description": "ISO 4217  currency code"
+          },
+          "creditedInvoice": {
+            "type": "number",
+            "description": "Only present if invoice is a credit note. Id of the original invoice for which this is crediting."
+          },
+          "InvoicedAmountVAT": {
+            "type": "number",
+            "description": "Total VAT amount in base currency"
           }
         }
       }

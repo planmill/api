@@ -4,11 +4,6 @@
   "definitions": {
     "invoice_getId": {
       "type": "object",
-      "description": "Get invoice in PDF and XML formats. PDF-format works with Invoice + appendix and XML-format works with Finvoice",
-      "enum": [
-        "application/pdf",
-        "application/xml"
-      ],
       "additionalProperties": false,
       "properties": {
         "id": {
@@ -55,13 +50,12 @@
         },
         "invoiceDate": {
           "type": "string",
-          "description": "Date and time of an invoice",
-          "format": "date-time"
+          "description": "Date and time of an invoice"
         },
         "reference": {
           "anyOf": [
             {
-              "type": "string"
+              "type": "integer"
             },
             {
               "type": "null"
@@ -75,7 +69,8 @@
           "type": "integer"
         },
         "invoiceCurrency": {
-          "type": "integer"
+          "type": "integer",
+          "description": "Currency rate of invoice. Multiply Invoiced amount with this rate for amounts in actual invoiced currency"
         },
         "comment": {
           "anyOf": [
@@ -136,6 +131,23 @@
         },
         "termsOfPayment": {
           "type": "integer"
+        },
+        "sentToAccounting": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "paymentStatus": {
+          "type": "integer",
+          "description": "Status of payment"
         },
         "handlingFee": {
           "anyOf": [
