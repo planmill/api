@@ -5,5 +5,5 @@
   "invoiceXSL": "planmill_fi_eur.xsl",
   "paymentStatus": 5,
   "salesExecutive": 2534285,
-  "sentToAccounting": 1,
+  "sentToAccounting": 1
 }
