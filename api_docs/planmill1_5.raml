@@ -945,6 +945,12 @@ types:
       project?:
         description: Id of project having task to report the time
         type: integer | nil
+      person?:
+        type: integer
+        description: User's id
+      start?:
+        type: datetime
+        description: Only date part is used for saving time report unless clock times -mode is active in users role
       status?: 
         type: integer
         description: Status of a time report
@@ -2848,16 +2854,9 @@ resourceTypes:
 /timereports:
   get:
     queryParameters:
-      rowcount:
-      nextrows:
-      order:
-      sort:
       period: 
         type: integer
-        description: Period like This year, this month etc. See values from /meta endpoint.
-      interval:
-      intervalstart:
-      intervalfinish: 
+        description: Period like This year, this month etc. See values from /meta endpoint. 
       status: 
         type: integer
         description: Used in enumeration of status
