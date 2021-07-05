@@ -939,7 +939,100 @@ types:
   team: !include team1_5.schema
   resource: !include resource1_5.schema
   tempfile: !include tempfile1_5.schema 
-  timereport: !include timereport1_5.schema
+  timereport_base:
+    additionalProperties: false
+    properties:
+      project?:
+        description: Id of project having task to report the time
+        type: integer | nil
+      status?: 
+        type: integer
+        description: Status of a time report
+      comment?:
+        type: string | nil
+        description: Comments of a time report
+      billingComment?:
+        type: string | nil
+        description: Billing comment of a time report
+      billableStatus?:
+        type: string | nil
+        description: If task's status is billable, time report's status can be either billable or non-billable
+      amount?:
+        type: number
+        description: Reported time in minutes
+      task?:
+        type: integer
+        description: Id of task for which time is reported
+      finish?:
+        type: datetime
+        description: Finish time of a time report. May be used instead of 'amount' for a time report. Only available for 'amount' (normal time) - for 'overtimeAmount' or 'travelAmount' you must provide an explicit length.
+      overtimeAmount?:
+        type: integer | nil
+        description: Overtime in minutes
+      overtimeComment?:
+        type: string | nil
+        description: Comment for overtime work
+      travelAmount?:
+        type: integer | nil
+        description: Travel time in minutes
+      travelComment?:
+        type: string | nil
+        description: Travel time in minutes
+      billableAmount?:
+        type: integer | nil
+        description: Billable amount of time report can be given separately, if reported amount affecting person's balance is different
+      invoice?:
+        type: integer | nil
+      totalReported?:
+        type: integer | nil
+        description: Total reported time of time report
+  timereport_postId:
+    type: timereport_base
+    properties:
+      person:
+        type: integer
+        description: User's id
+      start:
+        type: datetime
+        description: Only date part is used for saving time report unless clock times -mode is active in users role
+      finish:
+        type: datetime
+        description: Finish time of a time report. May be used instead of 'amount' for a time report. Only available for 'amount' (normal time) - for 'overtimeAmount' or 'travelAmount' you must provide an explicit length.
+      dutyType?:
+        type: integer
+        description: Type of duty
+      unitPrice?:
+        type: integer
+        description: Price per unit (hour)
+  timereport_getId:
+    type: timereport_base
+    properties:
+      id?:
+        type: integer
+        description: Internal ID of a time report
+      requireBillableComment?:
+        type: integer | nil
+        description: Used in get requests to indicate if task requires a comment for timereport
+      remainingAmount?:
+        type: integer | nil
+        description: Remaining amount of a time report
+  timereport:
+    type: timereport_getId
+    properties:
+      dutyType?:
+        type: integer
+        description: Type of duty
+      unitPrice?:
+        type: integer
+        description: Price per unit (hour)
+      modified?:
+        type: datetime
+        description: Last modified date
+      modifiedBy?:
+        type: datetime
+        description: Last modified date
+  timereport_getAll:
+    type: timereport[]
   user: !include user1_5.schema
   vacation: !include vacation1_5.schema
 
@@ -2777,6 +2870,24 @@ resourceTypes:
       person:
         type: integer
         description: Id of a person. Required, but if not given in request, authenticated API user's time reports are returned. For performance reasons time reports of all users can not be returned
+    responses:
+      200:
+        description: 
+        body:                  
+          application/json: 
+            type: timereport_getAll  
+  post:
+    headers:
+      Content-Type:
+        type: string
+        required: true
+        default: |
+          application/json;charset=UTF-8 <div id="project1_5-datatype-post"></div> 
+        example: |
+          application/json;charset=UTF-8
+    body:
+      application/json:
+        type: timereport_postId
   type:
     collection:
        exampleCollectionItemArray: !include timereport_array1_5.sample
@@ -2788,6 +2899,17 @@ resourceTypes:
         readOnlyCollectionItem:
           exampleCollectionItem: !include timereport_meta1_5.sample
   /{timereport_id}:
+    get:
+      responses:
+        200:
+          body:
+            application/json: 
+              type: timereport_getId
+    post:
+      body:
+        application/json:
+          type: timereport_postId
+    delete:
     type: 
      collectionItem:
        exampleCollectionItem: !include timereport1_5.sample
