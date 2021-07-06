@@ -1,164 +1,280 @@
 {
-  "filters": [
-    {
-      "name": "freetextsearch",
-      "caption": ""
-    },
-    {
-      "name": "status",
-      "caption": "Status",
-      "values": {
-        "All": "-1",
-        "Locked": "2",
-        "Preliminary": "4",
-        "Reported": "0",
-        "Accepted": "1"
-      }
-    },
-    {
-      "name": "billableStatus",
-      "caption": "Billable status",
-      "values": {
-        "All": "-1",
-        "In billing": "4",
-        "Billable": "1",
-        "Invoiced": "6",
-        "Draft invoice": "5",
-        "Non-billable": "3"
-      }
-    },
-    {
-      "name": "project",
-      "caption": "Project",
-      "values": {
-        "All": "-1",
-        "abc": "2782852"
-      }
-    },
-    {
-      "name": "person",
-      "caption": "Person",
-      "values": {
-        "Jim, Harris": "2752646",
-        "Sara, Johnson": "580283",
-        "Mike, Hike": "2828584"
-      }
-    },
-    {
-      "name": "period",
-      "caption": "Period",
-      "values": {
-        "All": "0",
-        "Last 180 days": "16",
-        "This week": "30",
-        "This and next FY": "7",
-        "Last 14 days": "26",
-        "This and next month": "24",
-        "This and next week": "34",
-        "Next 30 days": "17",
-        "Next 180 days": "21",
-        "This FY": "5",
-        "Next FY": "6",
-        "This and last month": "25",
-        "This FQ": "1",
-        "Last month": "11",
-        "Last 30 days": "12",
-        "Last FY": "8",
-        "Today and tomorrow": "44",
-        "This and last week": "32",
-        "This and next FQ": "3",
-        "Last FQ": "4",
-        "Last 120 days": "15",
-        "This and last FY": "23",
-        "Last week": "31",
-        "This month": "9",
-        "Next 120 days": "20",
-        "Yesterday": "41",
-        "Last 60 days": "13",
-        "Next week": "33",
-        "Next 60 days": "18",
-        "Tomorrow": "43",
-        "Today": "40",
-        "Today and yesterday": "42",
-        "Next FQ": "2",
-        "Next month": "10",
-        "This & last FQ": "22",
-        "Last 90 days": "14",
-        "Next 90 days": "19"
-      }
-    },
-    {
-      "name": "interval",
-      "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
-      "values": {
-        "Date": "start"
-      }
-    },
-    {
-      "name": "rowcount",
-      "caption": "Rows",
-      "values": {
-        "25": "25",
-        "50": "50",
-        "75": "75",
-        "100": "100",
-        "150": "150",
-        "250": "250"
-      }
-    },
-    {
-      "name": "balance",
-      "caption": "Balance"
-    },
-    {
-      "name": "overtimebalance",
-      "caption": "Overtime balance"
-    }
-  ],
-  "fields": {
-    "amount": {
-      "format": "hour",
-      "caption": "Reported"
-    },
-    "task": {
-      "format": "text",
-      "caption": "TimeReport.TaskId"
-    },
-    "billingComment": {
-      "format": "text",
-      "caption": "Invoice comment"
-    },
-    "person": {
-      "format": "text",
-      "caption": "Timereport.PersonId"
-    },
-    "start": {
-      "format": "shortdate",
-      "caption": "Date"
-    },
-    "project": {
-      "format": "text",
-      "caption": "PMVProject.Id"
-    },
-    "comment": {
-      "format": "text",
-      "caption": "Comment"
-    },
-    "finish": {
-      "format": "mediumdate",
-      "caption": "TimeReport.Finish"
-    },
-    "id": {
-      "format": "text",
-      "caption": "TimeReport.Id"
-    },
-    "billableStatus": {
-      "format": "Enumeration values.Time report.Billable status",
-      "caption": "Billable status"
-    },
-    "status": {
-      "format": "texthtml",
-      "caption": "Status"
-    }
-  }
+	"filters": [
+        {
+			"type": "string",
+			"name": "freetextsearch",
+			"caption": ""
+		}, 
+        {
+			"type": "multivalue",
+			"name": "TimeReport.Status",
+			"value": "-1",
+			"caption": "Status",
+			"values": {
+				"0": "Reported",
+				"1": "Accepted",
+				"2": "Locked",
+				"-1": "All",
+				"4": "Preliminary"
+			}
+		}, 
+        {
+			"type": "string",
+			"name": "balance",
+			"caption": "Balance"
+		}, 
+        {
+			"type": "multivalue",
+			"name": "billableStatus",
+			"value": "-1",
+			"caption": "Billable status",
+			"values": {
+				"1": "Billable",
+				"3": "Non-billable",
+				"-1": "All",
+				"4": "In billing",
+				"5": "Draft invoice",
+				"6": "Invoiced"
+			}
+		}, 
+        {
+			"type": "interval",
+			"name": "interval",
+			"calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+			"values": {
+				"TimeReport.Start": "Date"
+			}
+		}, 
+        {
+			"type": "string",
+			"name": "rowcount",
+			"value": "100",
+			"caption": "Rows",
+			"values": {
+				"100": "100",
+				"25": "25",
+				"50": "50",
+				"150": "150",
+				"250": "250",
+				"75": "75"
+			}
+		}, 
+        {
+			"type": "multivalue",
+			"name": "project",
+			"value": "-1",
+			"caption": "Project",
+			"values": {
+				"1525": "Timereports tinbit",
+				"-1": "All"
+			}
+		}, 
+        {
+			"type": "string",
+			"name": "person",
+			"caption": "Person",
+			"values": {
+				"1532": "Super, Supervisor",
+				"356": "User (update), First"
+			}
+		}, 
+        {
+			"type": "string",
+			"name": "period",
+			"value": "5",
+			"caption": "Period",
+			"values": {
+				"22": "This & last FQ",
+				"44": "Today and tomorrow",
+				"23": "This and last FY",
+				"24": "This and next month",
+				"25": "This and last month",
+				"26": "Last 14 days",
+				"30": "This week",
+				"31": "Last week",
+				"10": "Next month",
+				"32": "This and last week",
+				"11": "Last month",
+				"33": "Next week",
+				"34": "This and next week",
+				"12": "Last 30 days",
+				"13": "Last 60 days",
+				"14": "Last 90 days",
+				"15": "Last 120 days",
+				"16": "Last 180 days",
+				"17": "Next 30 days",
+				"18": "Next 60 days",
+				"19": "Next 90 days",
+				"1": "This FQ",
+				"2": "Next FQ",
+				"3": "This and next FQ",
+				"4": "Last FQ",
+				"5": "This FY",
+				"6": "Next FY",
+				"7": "This and next FY",
+				"8": "Last FY",
+				"9": "This month",
+				"40": "Today",
+				"41": "Yesterday",
+				"42": "Today and yesterday",
+				"20": "Next 120 days",
+				"43": "Tomorrow",
+				"21": "Next 180 days"
+			}
+		}
+	],
+	"fields": {
+		"unitPrice": {
+			"format": "currency",
+			"caption": "Unit price"
+		},
+		"dutyType": {
+			"values": {
+				"1080": "Overtime leave",
+				"2070": "HRM",
+				"2090": "Management",
+				"optgroup": "Administrative duty",
+				"1000": "Annual holiday",
+				"1165": "Saved leave",
+				"1120": "Layoff",
+				"2110": "Office work",
+				"1020": "Sick leave due to child",
+				"2010": "Marketing",
+				"1140": "Study leave (unpaid)",
+				"2130": "Emergency duty < 22.00",
+				"1040": "Paternity leave (unpaid)",
+				"2030": "Development",
+				"1160": "Other annual leave",
+				"1060": "Other unpaid leave",
+				"2050": "IT",
+				"1180": "Paternity leave (paid)",
+				"9999": "Other",
+				"1190": "Maternity leave (unpaid)",
+				"1090": "Balance leave",
+				"2080": "HRD",
+				"\/optgroup": "-",
+				"1110": "Military refresher",
+				"2100": "Internal events",
+				"1010": "Sick leave",
+				"2000": "Education",
+				"1130": "Child care leave",
+				"2120": "Customer service",
+				"1030": "Maternity leave (paid)",
+				"2020": "Presales",
+				"2140": "On call",
+				"1050": "Military leave",
+				"2040": "R&D",
+				"1170": "Parental leave (unpaid)",
+				"1070": "Other paid leave",
+				"2060": "Finance",
+				"1025": "Sick leave by medical certificate",
+				"1200": "Parental leave",
+				"2135": "Emergency duty 22.00-06.00",
+				"1100": "Bonus holiday"
+			},
+			"format": "Enumeration values.Task.Offduty",
+			"caption": "Task.Duty type"
+		},
+		"amount": {
+			"format": "hour",
+			"caption": "Reported"
+		},
+		"start": {
+			"format": "shortdate",
+			"caption": "Date"
+		},
+		"project": {
+			"format": "text",
+			"caption": "PMVProject.Id"
+		},
+		"billableStatus": {
+			"values": {
+				"1": "Billable",
+				"3": "Non-billable",
+				"4": "In billing",
+				"5": "Draft invoice",
+				"6": "Invoiced"
+			},
+			"format": "Enumeration values.Time report.Billable status",
+			"caption": "Billable status"
+		},
+		"requireBillableComment": {
+			"format": "text",
+			"caption": "{General.Table.requireBillableComment}"
+		},
+		"remainingAmount": {
+			"format": "hour",
+			"caption": "{General.Table.remainingAmount}"
+		},
+		"totalreported": {
+			"format": "timer",
+			"caption": "Total reported"
+		},
+		"billableAmount": {
+			"format": "effortunit",
+			"caption": "Billable"
+		},
+		"overtimeAmount": {
+			"format": "hour",
+			"caption": "Overtime"
+		},
+		"task": {
+			"format": "text",
+			"caption": "TimeReport.TaskId"
+		},
+		"billingComment": {
+			"format": "text",
+			"caption": "Invoice comment"
+		},
+		"person": {
+			"format": "text",
+			"caption": "Timereport.PersonId"
+		},
+		"modified": {
+			"format": "mediumdate",
+			"caption": "Modified"
+		},
+		"comment": {
+			"format": "text",
+			"caption": "Comment"
+		},
+		"overtimeComment": {
+			"format": "text",
+			"caption": "Overtime comment"
+		},
+		"finish": {
+			"format": "mediumdate",
+			"caption": "TimeReport.Finish"
+		},
+		"modifiedBy": {
+			"format": "text",
+			"caption": "Modified by"
+		},
+		"id": {
+			"format": "text",
+			"caption": "TimeReport.Id"
+		},
+		"invoice": {
+			"format": "number",
+			"caption": "Invoice ID"
+		},
+		"travelComment": {
+			"format": "text",
+			"caption": "Travel time comment"
+		},
+		"travelAmount": {
+			"format": "hour",
+			"caption": "Travel time"
+		},
+		"status": {
+			"values": {
+				"0": "Reported",
+				"1": "Accepted",
+				"2": "Locked",
+				"4": "Preliminary"
+			},
+			"format": "Enumeration values.Time report.Status",
+			"caption": "Status"
+		}
+	}
 }
