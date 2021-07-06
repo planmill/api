@@ -1,70 +1,102 @@
 {
-  "amount": {
-    "caption": "Quantity",
-    "format": "double",
-    "values": null
-  },
-  "start": {
-    "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
-    "caption": "Start",
-    "format": "string",
-    "values": null
-  },
-  "totalReported": {
-    "caption": "Total reported",
-    "maxlength": "512",
-    "values": null
-  },
-  "project": {
-    "link": "users/2834510/reportableassignments",
-    "values": null
-  },
-  "billableStatus": {
-    "values": null
-  },
-  "requireBillableComment": {
-    "values": null
-  },
-  "remainingAmount": {
-    "caption": "Remain",
-    "maxlength": "512",
-    "values": null
-  },
-  "billableAmount": {
-    "caption": "Billable",
-    "format": "double",
-    "values": null
-  },
-  "task": {
-    "caption": "Task / Assignment",
-    "values": {
-      "-": "-1"
-    },
-    "link": "users/2834510/reportableassignments"
-  },
-  "billingComment": {
-    "caption": "Invoice comment",
-    "maxlength": "512",
-    "values": null
-  },
-  "person": {
-    "values": null
-  },
-  "finish": {
-    "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
-    "caption": "Finish",
-    "format": "string",
-    "values": null
-  },
-  "comment": {
-    "caption": "Comment",
-    "maxlength": "512",
-    "values": null
-  },
-  "id": {
-    "values": null
-  },
-  "status": {
-    "values": null
-  }
+	"amount": {
+		"type": "string",
+		"caption": "Quantity",
+		"format": "double",
+		"values": null
+	},
+	"start": {
+		"type": "string",
+		"calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+		"caption": "Start",
+		"format": "string",
+		"values": null
+	},
+	"totalReported": {
+		"type": "string",
+		"caption": "Total reported",
+		"maxlength": "512",
+		"values": null
+	},
+	"project": {
+		"type": "string",
+		"link": "users\/356\/reportableassignments",
+		"values": null
+	},
+	"billableStatus": {
+		"type": "string",
+		"values": null
+	},
+	"requireBillableComment": {
+		"type": "string",
+		"values": null
+	},
+	"remainingAmount": {
+		"type": "string",
+		"caption": "Remain",
+		"maxlength": "512",
+		"values": null
+	},
+	"billableAmount": {
+		"type": "string",
+		"caption": "Billable",
+		"format": "double",
+		"values": null
+	},
+	"task": {
+		"type": "string",
+		"caption": "Task \/ Assignment",
+		"values": {
+			"-1": "-"
+		},
+		"link": "users\/356\/reportableassignments"
+	},
+	"overtimeAmount": {
+		"type": "string",
+		"values": null
+	},
+	"billingComment": {
+		"type": "string",
+		"caption": "Invoice comment",
+		"maxlength": "512",
+		"values": null
+	},
+	"person": {
+		"type": "string",
+		"value": "[userid]",
+		"values": null
+	},
+	"finish": {
+		"type": "string",
+		"calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+		"caption": "Finish",
+		"format": "string",
+		"values": null
+	},
+	"comment": {
+		"type": "string",
+		"caption": "Comment",
+		"maxlength": "512",
+		"values": null
+	},
+	"overtimeComment": {
+		"type": "string",
+		"values": null
+	},
+	"id": {
+		"type": "string",
+		"values": null
+	},
+	"travelComment": {
+		"type": "string",
+		"values": null
+	},
+	"travelAmount": {
+		"type": "string",
+		"values": null
+	},
+	"status": {
+		"type": "string",
+		"values": null
+	}
 }
