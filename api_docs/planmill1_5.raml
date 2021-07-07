@@ -2258,6 +2258,86 @@ resourceTypes:
         allMethodsCollectionItem:
           exampleCollectionGetItem: !include portfolio.sample
           exampleCollectionPostItem: !include portfolio_postId.sample																	 
+/timereports:
+  get:
+    queryParameters:
+      period: 
+        type: integer
+        description: Period like This year, this month etc. See values from /meta endpoint. 
+      status: 
+        type: integer
+        description: Used in enumeration of status
+      billableStatus:
+        type: integer
+        description: Used in enumeration of billableStatus
+      projectfilter:
+        type: integer
+        description: Id of a project. It could be used for querying multiple projects' time reports by comma-separated id, e.g., "projectfilter=projectid_1,projectid_2"
+      person:
+        type: integer
+        description: Id of a person. Required, but if not given in request, authenticated API user's time reports are returned. For performance reasons time reports of all users can not be returned
+    responses:
+      200:
+        description: 
+        body:                  
+          application/json: 
+            type: timereport_getAll  
+  post:
+    headers:
+      Content-Type:
+        type: string
+        required: true
+        default: |
+          application/json;charset=UTF-8 <div id="project1_5-datatype-post"></div> 
+        example: |
+          application/json;charset=UTF-8
+    body:
+      application/json:
+        type: timereport_postId
+  type:
+    allMethodsCollection:
+       exampleCollectionItemArray: !include timereport_array1_5.sample
+       exampleCollectionItem: !include timereport_postId.sample
+  /meta:
+      description: Get meta information for time reports. Includes resource's fields names and type and related filters.
+      get:
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include timereport_meta1_5.sample
+  /{timereport_id}:
+    get:
+      responses:
+        200:
+          body:
+            application/json: 
+              type: timereport_getId
+    post:
+      body:
+        application/json:
+          type: timereport_postId
+    delete:
+    type: 
+     allMethodsCollectionItem:
+       exampleCollectionGetItem: !include timereport_getId.sample
+       exampleCollectionPostItem !include timereport_postId.sample
+    /accepted:
+      put:
+        description: Accepts time reports. It can also accept multiple ids, for example, /timereports/{id},{id},{id}/accepted
+      type: 
+       putOnlyCollectionItem:
+        exampleCollectionItem: !include braces.sample
+    /unaccepted:
+      put:
+        description: Unaccepts time reports. It can also unaccept multiple ids, for example, /timereports/{id},{id},{id}/accepted
+      type: 
+       putOnlyCollectionItem:
+        exampleCollectionItem: !include braces.sample
+    /meta:
+      description: Get meta information for the updatable fields of the timereport
+      get:
+      type:
+       readOnlyCollectionItem:
+         exampleCollectionItem: !include timereport_single_meta1_5.sample
 /projects:
   description: reportedHours -field returns minutes like all other effortunit-formatted fields. See /meta -endpoint.
   get:
@@ -2851,85 +2931,6 @@ resourceTypes:
     type:
       getDeleteCollectionItem:
         exampleCollectionItem: Contents of file
-/timereports:
-  get:
-    queryParameters:
-      period: 
-        type: integer
-        description: Period like This year, this month etc. See values from /meta endpoint. 
-      status: 
-        type: integer
-        description: Used in enumeration of status
-      billableStatus:
-        type: integer
-        description: Used in enumeration of billableStatus
-      projectfilter:
-        type: integer
-        description: Id of a project. It could be used for querying multiple projects' time reports by comma-separated id, e.g., "projectfilter=projectid_1,projectid_2"
-      person:
-        type: integer
-        description: Id of a person. Required, but if not given in request, authenticated API user's time reports are returned. For performance reasons time reports of all users can not be returned
-    responses:
-      200:
-        description: 
-        body:                  
-          application/json: 
-            type: timereport_getAll  
-  post:
-    headers:
-      Content-Type:
-        type: string
-        required: true
-        default: |
-          application/json;charset=UTF-8 <div id="project1_5-datatype-post"></div> 
-        example: |
-          application/json;charset=UTF-8
-    body:
-      application/json:
-        type: timereport_postId
-  type:
-    collection:
-       exampleCollectionItemArray: !include timereport_array1_5.sample
-       exampleCollectionItem: !include timereport1_5.sample
-  /meta:
-      description: Get meta information for time reports. Includes resource's fields names and type and related filters.
-      get:
-      type:
-        readOnlyCollectionItem:
-          exampleCollectionItem: !include timereport_meta1_5.sample
-  /{timereport_id}:
-    get:
-      responses:
-        200:
-          body:
-            application/json: 
-              type: timereport_getId
-    post:
-      body:
-        application/json:
-          type: timereport_postId
-    delete:
-    type: 
-     collectionItem:
-       exampleCollectionItem: !include timereport1_5.sample
-    /accepted:
-      put:
-        description: Accepts time reports. It can also accept multiple ids, for example, /timereports/{id},{id},{id}/accepted
-      type: 
-       putOnlyCollectionItem:
-        exampleCollectionItem: !include braces.sample
-    /unaccepted:
-      put:
-        description: Unaccepts time reports. It can also unaccept multiple ids, for example, /timereports/{id},{id},{id}/accepted
-      type: 
-       putOnlyCollectionItem:
-        exampleCollectionItem: !include braces.sample
-    /meta:
-      description: Get meta information for the updatable fields of the timereport
-      get:
-      type:
-       readOnlyCollectionItem:
-         exampleCollectionItem: !include timereport_single_meta1_5.sample
 /users:
   get:
     queryParameters:
