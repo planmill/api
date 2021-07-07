@@ -31,7 +31,11 @@ var linkItems = [
   "portfolio",
   "portfolio_post",
   "portfolio_postId",
-  "portfolio_getAll"  
+  "portfolio_getAll",
+  "timereport_getId",
+  "timereport_post",
+  "timereport_postId",
+  "timereport_getAll"
 ];
 
 // serve files from the public directory
@@ -39,10 +43,10 @@ app.use(express.static(indexSubDir));
 
 
 //start the express web server listening on 3020
-/*app.listen(3020, () => {
+app.listen(3020, () => {
   console.log("listening on 3020");
 });
-*/
+
 
 
 // serve the homepage
