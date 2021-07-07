@@ -27,7 +27,7 @@ var linkItems = [
   "timereports_get_response:timereport_getAll",
   "timereports_post_request:timereport_post",
   "timereports__timereport_id__get_response:timereport_getId",
-  "timereport__timereport_id__post_request:timereport_postId"
+  "timereports__timereport_id__post_request:timereport_postId"
 ];
 
 function download(filename, text) {
