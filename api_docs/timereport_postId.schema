@@ -1,0 +1,202 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/timereport_postId",
+  "definitions": {
+    "timereport_postId": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "project": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Id of project having task to report the time"
+        },
+        "person": {
+          "type": "integer",
+          "description": "User's id"
+        },
+        "start": {
+          "type": "string",
+          "description": "Only date part is used for saving time report unless clock times -mode is active in users role",
+          "format": "date-time"
+        },
+        "status": {
+          "type": "integer",
+          "description": "Status of a time report"
+        },
+        "comment": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Comments of a time report"
+        },
+        "billingComment": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Billing comment of a time report"
+        },
+        "billableStatus": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "If task's status is billable, time report's status can be either billable or non-billable"
+        },
+        "amount": {
+          "type": "number",
+          "description": "Reported time in minutes"
+        },
+        "task": {
+          "type": "integer",
+          "description": "Id of task for which time is reported"
+        },
+        "finish": {
+          "type": "string",
+          "description": "Finish time of a time report. May be used instead of 'amount' for a time report. Only available for 'amount' (normal time) - for 'overtimeAmount' or 'travelAmount' you must provide an explicit length.",
+          "format": "date-time"
+        },
+        "overtimeAmount": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Overtime in minutes"
+        },
+        "overtimeComment": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Comment for overtime work"
+        },
+        "travelAmount": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Travel time in minutes"
+        },
+        "travelComment": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Travel time in minutes"
+        },
+        "billableAmount": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Billable amount of time report can be given separately, if reported amount affecting person's balance is different"
+        },
+        "invoice": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "totalReported": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Total reported time of time report"
+        },
+        "id": {
+          "type": "integer",
+          "description": "Internal ID of a time report"
+        },
+        "requireBillableComment": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Used in get requests to indicate if task requires a comment for timereport"
+        },
+        "remainingAmount": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Remaining amount of a time report"
+        },
+        "dutyType": {
+          "type": "integer",
+          "description": "Type of duty"
+        },
+        "unitPrice": {
+          "type": "integer",
+          "description": "Price per unit (hour)"
+        },
+        "modified": {
+          "type": "string",
+          "description": "Last modified date",
+          "format": "date-time"
+        },
+        "modifiedBy": {
+          "type": "string",
+          "description": "Last modified date",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}
