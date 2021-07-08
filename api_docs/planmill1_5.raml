@@ -992,7 +992,7 @@ types:
       totalReported?:
         type: integer | nil
         description: Total reported time of time report
-  timereport_postId:
+  timereport_post:
     type: timereport_base
     properties:
       person:
@@ -1010,6 +1010,8 @@ types:
       unitPrice?:
         type: integer
         description: Price per unit (hour)
+  timereport_postId:
+    type: timereport_base
   timereport_getId:
     type: timereport_base
     properties:
@@ -2257,7 +2259,7 @@ resourceTypes:
       type: 
         allMethodsCollectionItem:
           exampleCollectionGetItem: !include portfolio.sample
-          exampleCollectionPostItem: !include portfolio_postId.sample																	 
+          exampleCollectionPostItem: !include portfolio_postId.sample																 
 /projects:
   description: reportedHours -field returns minutes like all other effortunit-formatted fields. See /meta -endpoint.
   get:
@@ -2880,13 +2882,11 @@ resourceTypes:
       Content-Type:
         type: string
         required: true
-        default: |
-          application/json;charset=UTF-8 <div id="project1_5-datatype-post"></div> 
         example: |
           application/json;charset=UTF-8
     body:
       application/json:
-        type: timereport_postId
+        type: timereport_post
   type:
     collection:
        exampleCollectionItemArray: !include timereport_array1_5.sample
@@ -2929,7 +2929,7 @@ resourceTypes:
       get:
       type:
        readOnlyCollectionItem:
-         exampleCollectionItem: !include timereport_single_meta1_5.sample
+         exampleCollectionItem: !include timereport_single_meta1_5.sample	
 /users:
   get:
     queryParameters:
