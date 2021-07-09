@@ -961,7 +961,7 @@ types:
         type: string | nil
         description: Billing comment of a time report
       billableStatus?:
-        type: string | nil
+        type: integer | nil
         description: If task's status is billable, time report's status can be either billable or non-billable
       amount?:
         type: number
@@ -2856,19 +2856,19 @@ resourceTypes:
 /timereports:
   get:
     queryParameters:
-      period: 
+      period?: 
         type: integer
         description: Period like This year, this month etc. See values from /meta endpoint. 
-      status: 
+      status?: 
         type: integer
         description: Used in enumeration of status
-      billableStatus:
+      billableStatus?:
         type: integer
         description: Used in enumeration of billableStatus
-      projectfilter:
+      projectfilter?:
         type: integer
         description: Id of a project. It could be used for querying multiple projects' time reports by comma-separated id, e.g., "projectfilter=projectid_1,projectid_2"
-      person:
+      person?:
         type: integer
         description: Id of a person. Required, but if not given in request, authenticated API user's time reports are returned. For performance reasons time reports of all users can not be returned
     responses:
