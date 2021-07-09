@@ -2394,7 +2394,7 @@ resourceTypes:
         body:
           application/json:
             type: project_postId
-      delete:			
+      delete:
       type: 
         allMethodsCollectionItem:
           exampleCollectionGetItem: !include project_getId.sample
@@ -2411,10 +2411,10 @@ resourceTypes:
               type:
                 readOnlyCollectionItem:
                   exampleCollectionItem: !include project_single_assignment_meta1_5.sample
-        /{assignment_id}:
-          type:
-            readOnlyCollectionItem:
-              exampleCollectionItem: !include assignment1_5.sample
+          /{assignment_id}:
+              type:
+                readOnlyCollectionItem:
+                  exampleCollectionItem: !include assignment1_5.sample
       /attachments:
         type:
           readOnlyCollection:
@@ -2529,85 +2529,6 @@ resourceTypes:
           type:
             readOnlyCollectionItem:
               exampleCollectionItem: !include project_requests_meta1_5.sample
-/products:
-  description: To manage and list all products in a company. See /meta -endpoint.
-  get:
-    queryParameters:
-      id:
-          description: Filters products for a specified products id
-          type: integer
-          required: false
-          example: id={product id}
-  post:
-    description: To create the new product from the request body
-  type:
-    collection:
-       exampleCollectionItemArray: !include product_array1_5.sample
-       exampleCollectionItem: !include product1_5.sample
-  /meta:
-      description: Get meta information for productss. Includes resource's fields names and type and related filters
-      get:
-      type:
-        readOnlyCollectionItem:
-          exampleCollectionItem: !include product_meta1_5.sample
-  /{product_id}:
-    put:
-      description: To update the existing product from the request body with {product_id} in the url
-    type:
-     putGetDeleteCollectionItem:
-        exampleCollectionItem: !include product1_5.sample
-    /attachments:
-      type:
-        readOnlyCollection:
-          schemaName:
-          exampleCollectionItemArray: !include tempfile_array1_5.sample
-      /{attachment_id}:
-        type:
-          putGetDeleteCollectionItem:
-            exampleCollectionItem: Contents of file
-/pricebooks:
-  description: To manage and list all pricebooks in a company. See /meta -endpoint.
-  get:
-    queryParameters:
-      id:
-          description: Filters products for a specified pricebook id
-          type: integer
-          required: false
-          example: id={pricebook id}
-  type:
-    collection:
-       exampleCollectionItemArray: !include pricebook_array1_5.sample
-       exampleCollectionItem: !include pricebook1_5.sample
-  /meta:
-      description: Get meta information for products. Includes resource's fields names and type and related filters.
-      get:
-      type:
-        readOnlyCollectionItem:
-          exampleCollectionItem: !include pricebook_meta1_5.sample
-  /{pricebook_id}:
-    type:
-     collectionItem:
-        exampleCollectionItem: !include pricebook1_5.sample
-    /items:
-      type:
-        readOnlyCollection:
-          schemaName: !include pricebookitem1_5.schema
-          exampleCollectionItemArray: !include pricebook_item_array1_5.sample
-      /meta:
-          description: Get meta information for pricebook items. Includes resource's fields names and type and related filters.
-          get:
-          type:
-            readOnlyCollectionItem:
-              exampleCollectionItem: !include pricebookitems_meta1_5.sample
-      /{item_id}:
-        type:
-          putGetDeleteCollectionItem:
-            exampleCollectionItem: !include pricebook_item1_5.sample
-        /meta:
-              description: Get meta information for pricebook specific item. Includes resource's fields names and type and related filters.
-              type:
-                readOnlyCollectionItem:
-                  exampleCollectionItem: !include pricebookitems_item_meta1_5.sample
 /reports:
   get:
     queryParameters:
@@ -2932,6 +2853,84 @@ resourceTypes:
     type:
       getDeleteCollectionItem:
         exampleCollectionItem: Contents of file
+/timereports:
+  get:
+    queryParameters:
+      period: 
+        type: integer
+        description: Period like This year, this month etc. See values from /meta endpoint. 
+      status: 
+        type: integer
+        description: Used in enumeration of status
+      billableStatus:
+        type: integer
+        description: Used in enumeration of billableStatus
+      projectfilter:
+        type: integer
+        description: Id of a project. It could be used for querying multiple projects' time reports by comma-separated id, e.g., "projectfilter=projectid_1,projectid_2"
+      person:
+        type: integer
+        description: Id of a person. Required, but if not given in request, authenticated API user's time reports are returned. For performance reasons time reports of all users can not be returned
+    responses:
+      200:
+        description: 
+        body:                  
+          application/json: 
+            type: timereport_getAll  
+  post:
+    headers:
+      Content-Type:
+        type: string
+        required: true
+        example: |
+          application/json;charset=UTF-8
+    body:
+      application/json:
+        type: timereport_post
+  type:
+    allMethodsCollection:
+       exampleCollectionItemArray: !include timereport_array1_5.sample
+       exampleCollectionItem: !include timereport_postId.sample
+  /meta:
+      description: Get meta information for time reports. Includes resource's fields names and type and related filters.
+      get:
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include timereport_meta1_5.sample
+  /{timereport_id}:
+    get:
+      responses:
+        200:
+          body:
+            application/json: 
+              type: timereport_getId
+    post:
+      body:
+        application/json:
+          type: timereport_postId
+    delete:
+    type: 
+     allMethodsCollectionItem:
+       exampleCollectionGetItem: !include timereport_getId.sample
+       exampleCollectionPostItem: !include timereport_postId.sample
+    /accepted:
+      put:
+        description: Accepts time reports. It can also accept multiple ids, for example, /timereports/{id},{id},{id}/accepted
+      type: 
+       putOnlyCollectionItem:
+        exampleCollectionItem: !include braces.sample
+    /unaccepted:
+      put:
+        description: Unaccepts time reports. It can also unaccept multiple ids, for example, /timereports/{id},{id},{id}/accepted
+      type: 
+       putOnlyCollectionItem:
+        exampleCollectionItem: !include braces.sample
+    /meta:
+      description: Get meta information for the updatable fields of the timereport
+      get:
+      type:
+       readOnlyCollectionItem:
+         exampleCollectionItem: !include timereport_single_meta1_5.sample
 /users:
   get:
     queryParameters:
