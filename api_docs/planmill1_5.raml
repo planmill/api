@@ -1037,8 +1037,8 @@ types:
         type: datetime
         description: Last modified date
       modifiedBy?:
-        type: datetime
-        description: Last modified date
+        type: integer | nil
+        description: Last modified by this person
   timereport_getAll:
     type: timereport[]
   user: !include user1_5.schema
