@@ -1201,12 +1201,12 @@ resourceTypes:
             type: string
             required: false
             description: Start date of the interval in UTC format, intervalfinish required 
-            example: 2019-03-01T00:00:00.000+0200
+            example: 2021-08-05T00:00:00.000+0200
           intervalfinish?:
             type: string
             required: false
             description: Finish date of the interval in UTC format, intervalstart required
-            example: 2019-03-01T00:00:00.000+0200
+            example: 2021-08-05T00:00:00.000+0200
         responses:
           200:
             body:
@@ -2856,9 +2856,12 @@ resourceTypes:
 /timereports:
   get:
     queryParameters:
+      person:
+        type: integer
+        description: Id of a person. Required, but if not given in request, authenticated API user's time reports are returned. For performance reasons time reports of all users can not be returned.
       period?: 
         type: integer
-        description: Period like This year, this month etc. See values from /meta endpoint. 
+        description: Default for the period is 'This year' (check meta for full list). 
       status?: 
         type: integer
         description: Used in enumeration of status
@@ -2868,9 +2871,6 @@ resourceTypes:
       projectfilter?:
         type: integer
         description: Id of a project. It could be used for querying multiple projects' time reports by comma-separated id, e.g., "projectfilter=projectid_1,projectid_2"
-      person?:
-        type: integer
-        description: Id of a person. Required, but if not given in request, authenticated API user's time reports are returned. For performance reasons time reports of all users can not be returned
     responses:
       200:
         description: 
@@ -2888,7 +2888,7 @@ resourceTypes:
       application/json:
         type: timereport_post
   type:
-    allMethodsCollection:
+    collection:
        exampleCollectionItemArray: !include timereport_array1_5.sample
        exampleCollectionItem: !include timereport_postId.sample
   /meta:
