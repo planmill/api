@@ -57,7 +57,7 @@
           "billableStatus": {
             "anyOf": [
               {
-                "type": "string"
+                "type": "integer"
               },
               {
                 "type": "null"
@@ -122,27 +122,6 @@
             ],
             "description": "Travel time in minutes"
           },
-          "billableAmount": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "Billable amount of time report can be given separately, if reported amount affecting person's balance is different"
-          },
-          "invoice": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
           "totalReported": {
             "anyOf": [
               {
@@ -180,8 +159,37 @@
             ],
             "description": "Remaining amount of a time report"
           },
+          "billableAmount": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Billable amount of time report"
+          },
+          "invoice": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Internal invoice id"
+          },
           "dutyType": {
-            "type": "integer",
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "description": "Type of duty"
           },
           "unitPrice": {
@@ -194,9 +202,15 @@
             "format": "date-time"
           },
           "modifiedBy": {
-            "type": "string",
-            "description": "Last modified date",
-            "format": "date-time"
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Last modified by this person"
           }
         }
       }
