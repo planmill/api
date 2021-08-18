@@ -83,7 +83,14 @@
           ]
         },
         "invoiceAppendix": {
-          "type": "integer"
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "description": {
           "anyOf": [
