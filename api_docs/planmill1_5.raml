@@ -1005,12 +1005,6 @@ types:
       finish:
         type: datetime
         description: Finish time of a time report. May be used instead of 'amount' for a time report. Only available for 'amount' (normal time) - for 'overtimeAmount' or 'travelAmount' you must provide an explicit length.
-      dutyType?:
-        type: integer | nil
-        description: Type of duty
-      unitPrice?:
-        type: integer
-        description: Price per unit (hour)
   timereport_getId:
     type: timereport_base
     properties:
@@ -1026,8 +1020,8 @@ types:
       billableAmount?:
         type: integer | nil
         description: Billable amount of time report   
-  timereport_getAll:
-    type: timereport_getId[]
+  timereport_get:
+    type: timereport_getId
     properties:
       invoice?:
         type: integer | nil
@@ -1044,6 +1038,8 @@ types:
       modifiedBy?:
         type: integer | nil
         description: Last modified by this person
+  timereport_getAll:
+    type: timereport_get[]
   user: !include user1_5.schema
   vacation: !include vacation1_5.schema
 
