@@ -987,8 +987,10 @@ types:
       totalReported?:
         type: integer | nil
         description: Total reported time of time report
-  timereport_post:
+  timereport_postId:
     type: timereport_base
+  timereport_post:
+    type: timereport_postId
     properties:
       billableAmount?:
         type: integer | nil
@@ -1008,12 +1010,6 @@ types:
       unitPrice?:
         type: integer
         description: Price per unit (hour)
-  timereport_postId:
-    type: timereport_base
-    properties:
-      billableAmount?:
-        type: integer | nil
-        description: Billable amount of time report can be given separately, if reported amount affecting person's balance is different
   timereport_getId:
     type: timereport_base
     properties:
@@ -1028,9 +1024,9 @@ types:
         description: Remaining amount of a time report
       billableAmount?:
         type: integer | nil
-        description: Billable amount of time report
-  timereport:
-    type: timereport_getId
+        description: Billable amount of time report   
+  timereport_getAll:
+    type: timereport_getId[]
     properties:
       invoice?:
         type: integer | nil
@@ -1047,8 +1043,6 @@ types:
       modifiedBy?:
         type: integer | nil
         description: Last modified by this person
-  timereport_getAll:
-    type: timereport[]
   user: !include user1_5.schema
   vacation: !include vacation1_5.schema
 
@@ -2884,7 +2878,7 @@ resourceTypes:
         description: 
         body:                  
           application/json: 
-            type: timereport_getAll  
+            type: timereport_getAll
   post:
     headers:
       Content-Type:

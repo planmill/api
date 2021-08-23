@@ -161,59 +161,6 @@
         "unitPrice": {
           "type": "integer",
           "description": "Price per unit (hour)"
-        },
-        "id": {
-          "type": "integer",
-          "description": "Internal ID of a time report"
-        },
-        "requireBillableComment": {
-          "anyOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "description": "Used in get requests to indicate if task requires a comment for timereport"
-        },
-        "remainingAmount": {
-          "anyOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "description": "Remaining amount of a time report"
-        },
-        "invoice": {
-          "anyOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "description": "Internal invoice id"
-        },
-        "modified": {
-          "type": "string",
-          "description": "Last modified date",
-          "format": "date-time"
-        },
-        "modifiedBy": {
-          "anyOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "description": "Last modified by this person"
         }
       }
     }

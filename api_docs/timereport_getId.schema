@@ -167,48 +167,6 @@
             }
           ],
           "description": "Billable amount of time report"
-        },
-        "invoice": {
-          "anyOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "description": "Internal invoice id"
-        },
-        "dutyType": {
-          "anyOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "description": "Type of duty"
-        },
-        "unitPrice": {
-          "type": "integer",
-          "description": "Price per unit (hour)"
-        },
-        "modified": {
-          "type": "string",
-          "description": "Last modified date",
-          "format": "date-time"
-        },
-        "modifiedBy": {
-          "anyOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "description": "Last modified by this person"
         }
       }
     }
