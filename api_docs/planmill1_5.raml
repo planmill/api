@@ -989,12 +989,13 @@ types:
         description: Total reported time of time report
   timereport_postId:
     type: timereport_base
-  timereport_post:
-    type: timereport_postId
     properties:
       billableAmount?:
         type: integer | nil
         description: Billable amount of time report can be given separately, if reported amount affecting person's balance is different
+  timereport_post:
+    type: timereport_postId
+    properties:
       person:
         type: integer
         description: User's id

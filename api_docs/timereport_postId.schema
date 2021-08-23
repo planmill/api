@@ -130,6 +130,17 @@
             }
           ],
           "description": "Total reported time of time report"
+        },
+        "billableAmount": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Billable amount of time report can be given separately, if reported amount affecting person's balance is different"
         }
       }
     }
