@@ -577,11 +577,11 @@ types:
       created?: 
         type: datetime
       createdBy?: 
-        type: string | integer | nil 
+        type: string | integer | nil
       modified?: 
-        type: datetime
+        type: datetime | nil 
       modifiedBy?: 
-        type: string | integer | nil        
+        type: string | integer | nil
       invoiceXsl?:
         type: string | nil
       accountType?:
@@ -2101,7 +2101,7 @@ resourceTypes:
             example: "Accept: application/pdf"
         responses:
           200:
-            body: 
+            body:
               application/json: 
                 type: invoice_getId 
       type:
