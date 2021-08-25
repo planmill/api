@@ -10084,7 +10084,7 @@ Triggered hook would look as below
   "1" : "2839618",
   "2" : "-1"
 }</code></pre></div></div><div class="tab-pane" id="integrations__template__comparison_conflicts_put_securedby"><h1>Secured by oauth_2.0</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>Used to send a valid OAuth 2 access token.</p></li></ul></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_integrations__template__import"><span class="parent">/integrations/{template}</span>/import</a> <span class="methods"><a href="#integrations__template__import_post"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_integrations__template__import" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#integrations__template__import_post'" class="list-group-item"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Imports prepared comparison dataset into PlanMill.</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="integrations__template__import_post"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/integrations/{template}</span>/import</h4></div><div class="modal-body"><div class="alert alert-info"><p>Imports prepared comparison dataset into PlanMill.</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>oauth_2.0</b><p>PlanMill supports OAuth 2.0 for authenticating all API requests. More information about it in the security part of the documentation.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#integrations__template__import_post_request" data-toggle="tab">Request</a></li><li><a href="#integrations__template__import_post_response" data-toggle="tab">Response</a></li><li><a href="#integrations__template__import_post_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="integrations__template__import_post_request"><h3>URI Parameters</h3><ul><li><strong>template</strong>: <em><span class="required">required</span>(string)</em><p>source.template</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>Asiakastieto.DecisionMaker</code></pre></div></li></ul><h3>Query Parameters</h3><ul><li><strong>mode</strong>: <em><span class="required">required</span>(one of insert, update, merge)</em><p>Importing mode. Insert will only import new objects, update will only update existing objects and merge will do both</p></li><li><strong>noComparison</strong>: <em><span class="required">required</span>(boolean - default: false)</em><p>Perform import without comparison by directly using the transformation result</p></li></ul></div><div class="tab-pane" id="integrations__template__import_post_response"><h2>HTTP status code <a href="http://httpstatus.es/202" target="_blank">202</a></h2></div><div class="tab-pane" id="integrations__template__import_post_securedby"><h1>Secured by oauth_2.0</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>Used to send a valid OAuth 2 access token.</p></li></ul></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_integrations__template__import_errors"><span class="parent">/integrations/{template}/import</span>/errors</a> <span class="methods"><a href="#integrations__template__import_errors_get"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_integrations__template__import_errors" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#integrations__template__import_errors_get'" class="list-group-item"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Returns errors occurred during transformation. Uses pagination.</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="integrations__template__import_errors_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/integrations/{template}/import</span>/errors</h4></div><div class="modal-body"><div class="alert alert-info"><p>Returns errors occurred during transformation. Uses pagination.</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>oauth_2.0</b><p>PlanMill supports OAuth 2.0 for authenticating all API requests. More information about it in the security part of the documentation.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#integrations__template__import_errors_get_request" data-toggle="tab">Request</a></li><li><a href="#integrations__template__import_errors_get_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="integrations__template__import_errors_get_request"><h3>URI Parameters</h3><ul><li><strong>template</strong>: <em><span class="required">required</span>(string)</em><p>source.template</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>Asiakastieto.DecisionMaker</code></pre></div></li></ul><h3>Query Parameters</h3><ul><li><strong>from</strong>: <em><span class="required">required</span>(integer - default: 1)</em><p>The row number of the first error row to return.</p></li><li><strong>rows</strong>: <em><span class="required">required</span>(integer - default: 100)</em><p>The amount of rows to return.</p></li></ul></div><div class="tab-pane" id="integrations__template__import_errors_get_securedby"><h1>Secured by oauth_2.0</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>Used to send a valid OAuth 2 access token.</p></li></ul></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="invoices" class="panel-title">/invoices</h3></div><div class="panel-body"><div class="top-resource-description"><p>Collection of available invoices in PlanMill. This is a read-only collection.</p></div><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_invoices"><span class="parent"></span>/invoices</a> <span class="methods"><a href="#invoices_get"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_invoices" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#invoices_get'" class="list-group-item"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Get a list of invoices</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="invoices_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent"></span>/invoices</h4></div><div class="modal-body"><div class="alert alert-info"><p>Get a list of invoices</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>oauth_2.0</b><p>PlanMill supports OAuth 2.0 for authenticating all API requests. More information about it in the security part of the documentation.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#invoices_get_request" data-toggle="tab">Request</a></li><li><a href="#invoices_get_response" data-toggle="tab">Response</a></li><li><a href="#invoices_get_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="invoices_get_request"><h3>Headers</h3><ul><li><strong>x-PlanMill-Currency</strong>: <em>(string - minLength: 3 - maxLength: 3)</em><p>Recommended to be given. If currency not given in request header, user&#39;s current currency set in user settings is used. ISO code of currency in which money values should be shown or saved. Applies to all money attributes of the object, but may be converted by backend to the object specific currency. Some objects and their attributes may not care about the given currency but use the object&#39;s own currency</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>EUR
-</code></pre></div></li></ul><h3>Query Parameters</h3><ul><li><strong>cyear?</strong>: <em>(string)</em><p>Get invoices for specified month. If parameter is missing, always return invoices for current month. Filter is using invoiceDate field.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>07/2021</code></pre></div></li><li><strong>rowcount?</strong>: <em>(integer - minimum: 1)</em><p>It limits the result set amount to the specified limit to avoid API call to return too many records. Default row count is 100</p></li><li><strong>nextrows?</strong>: <em>(integer)</em><p>The number of the next starting row. It is dependent on rowcount. For example, for total 250 items, if rowcount is 100 and nextrows is 101, it return items 101-201</p></li><li><strong>order?</strong>: <em>(integer)</em><p>Orders the results in ascending or descending order. 0=Ascending and 1=Descending. It is used in combination with sort</p></li><li><strong>sort?</strong>: <em>(integer)</em><p>Sorts the results using number that is associated with each column</p></li></ul></div><div class="tab-pane" id="invoices_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: array of invoice</p><p><strong>Items</strong>: invoice</p><div class="items"><ul><li><strong>id</strong>: <em>(integer)</em><p>Id of an invoice</p></li><li><strong>dueDate</strong>: <em>(datetime)</em><p>duedate of an invoice</p></li><li><strong>yourReference</strong>: <em>(union of string or nil)</em></li><li><strong>ourReference</strong>: <em>(string)</em></li><li><strong>customerName</strong>: <em>(union of string or nil)</em></li><li><strong>customer</strong>: <em>(union of integer or nil)</em></li><li><strong>invoiceDate</strong>: <em>(string)</em><p>Date and time of an invoice</p></li><li><strong>reference</strong>: <em>(union of integer or nil)</em></li><li><strong>billingAddress</strong>: <em>(string)</em></li><li><strong>delayInterest</strong>: <em>(integer)</em></li><li><strong>invoiceCurrency</strong>: <em>(integer)</em><p>Currency rate of invoice. Multiply Invoiced amount with this rate for amounts in actual invoiced currency</p></li><li><strong>comment</strong>: <em>(union of string or nil)</em></li><li><strong>invoiceAppendix</strong>: <em>(union of integer or nil)</em></li><li><strong>description</strong>: <em>(union of string or nil)</em></li><li><strong>showSubTotals</strong>: <em>(integer)</em></li><li><strong>invoiceXSL</strong>: <em>(string)</em><p>Xsl file of an invoice</p></li><li><strong>noticeTime</strong>: <em>(integer)</em><p>length of notice time</p></li><li><strong>shippingAddress</strong>: <em>(union of string or nil)</em></li><li><strong>supplier</strong>: <em>(integer)</em></li><li><strong>invoiceNumber</strong>: <em>(union of integer or nil)</em></li><li><strong>termsOfPayment</strong>: <em>(integer)</em></li><li><strong>sentToAccounting</strong>: <em>(union of integer or string or nil)</em></li><li><strong>paymentStatus</strong>: <em>(integer)</em><p>Status of payment</p></li><li><strong>invoicedAmount</strong>: <em>(union of number or nil)</em><p>Total invoiced amount including VAT in base currency.</p></li><li><strong>invoiceVAT</strong>: <em>(integer)</em><p>VAT of an invoice</p></li><li><strong>delivered</strong>: <em>(union of string or nil)</em></li><li><strong>invoiceNetAddress</strong>: <em>(union of integer or nil)</em></li><li><strong>invoiceNetOperator</strong>: <em>(union of string or nil)</em></li><li><strong>invoiceChannel</strong>: <em>(union of integer or nil)</em></li><li><strong>created</strong>: <em>(datetime)</em><p>Created date of an invoice</p></li><li><strong>invoiceEmail</strong>: <em>(union of email or emptystring or nil)</em><p>Invoice delivery email</p></li><li><strong>paidAmount</strong>: <em>(integer)</em></li><li><strong>supplierName</strong>: <em>(string)</em></li><li><strong>VATid</strong>: <em>(union of string or nil)</em></li><li><strong>currencyCode</strong>: <em>(string)</em><p>ISO 4217 currency code</p></li><li><strong>creditedInvoice</strong>: <em>(number)</em><p>Only present if invoice is a credit note. Id of the original invoice for which this is crediting.</p></li><li><strong>InvoicedAmountVAT</strong>: <em>(number)</em><p>Total VAT amount in base currency</p></li></ul></div><p><strong>Example</strong>:</p><div class="examples"><pre><code>[
+</code></pre></div></li></ul><h3>Query Parameters</h3><ul><li><strong>cyear?</strong>: <em>(string)</em><p>Get invoices for specified month. If parameter is missing, always return invoices for current month. Filter is using invoiceDate field.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>07/2021</code></pre></div></li><li><strong>rowcount?</strong>: <em>(integer - minimum: 1)</em><p>It limits the result set amount to the specified limit to avoid API call to return too many records. Default row count is 100</p></li><li><strong>nextrows?</strong>: <em>(integer)</em><p>The number of the next starting row. It is dependent on rowcount. For example, for total 250 items, if rowcount is 100 and nextrows is 101, it return items 101-201</p></li><li><strong>order?</strong>: <em>(integer)</em><p>Orders the results in ascending or descending order. 0=Ascending and 1=Descending. It is used in combination with sort</p></li><li><strong>sort?</strong>: <em>(integer)</em><p>Sorts the results using number that is associated with each column</p></li></ul></div><div class="tab-pane" id="invoices_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: array of invoice</p><p><strong>Items</strong>: invoice</p><div class="items"><ul><li><strong>id</strong>: <em>(integer)</em><p>Id of an invoice</p></li><li><strong>dueDate</strong>: <em>(datetime)</em><p>duedate of an invoice</p></li><li><strong>yourReference</strong>: <em>(union of string or nil)</em></li><li><strong>ourReference</strong>: <em>(string)</em></li><li><strong>customerName</strong>: <em>(union of string or nil)</em></li><li><strong>customer</strong>: <em>(union of integer or nil)</em></li><li><strong>invoiceDate</strong>: <em>(string)</em><p>Date and time of an invoice</p></li><li><strong>reference</strong>: <em>(union of integer or nil)</em></li><li><strong>billingAddress</strong>: <em>(string)</em></li><li><strong>delayInterest</strong>: <em>(integer)</em></li><li><strong>invoiceCurrency</strong>: <em>(integer)</em><p>Currency rate of invoice. Multiply Invoiced amount with this rate for amounts in actual invoiced currency</p></li><li><strong>comment</strong>: <em>(union of string or nil)</em></li><li><strong>invoiceAppendix</strong>: <em>(union of integer or nil)</em></li><li><strong>description</strong>: <em>(union of string or nil)</em></li><li><strong>showSubTotals</strong>: <em>(integer)</em></li><li><strong>invoiceXSL</strong>: <em>(string)</em><p>Xsl file of an invoice</p></li><li><strong>noticeTime</strong>: <em>(integer)</em><p>length of notice time</p></li><li><strong>shippingAddress</strong>: <em>(union of string or nil)</em></li><li><strong>supplier</strong>: <em>(integer)</em></li><li><strong>invoiceNumber</strong>: <em>(union of integer or nil)</em></li><li><strong>termsOfPayment</strong>: <em>(integer)</em></li><li><strong>sentToAccounting</strong>: <em>(union of integer or string or nil)</em></li><li><strong>paymentStatus</strong>: <em>(integer)</em><p>Status of payment</p></li><li><strong>invoicedAmount</strong>: <em>(union of number or nil)</em><p>Total invoiced amount including VAT in base currency.</p></li><li><strong>InvoicedAmountVAT</strong>: <em>(number)</em><p>Total VAT amount in base currency</p></li><li><strong>invoiceVAT</strong>: <em>(integer)</em><p>VAT of an invoice</p></li><li><strong>delivered</strong>: <em>(union of string or nil)</em></li><li><strong>invoiceNetAddress</strong>: <em>(union of integer or nil)</em></li><li><strong>invoiceNetOperator</strong>: <em>(union of string or nil)</em></li><li><strong>invoiceChannel</strong>: <em>(union of integer or nil)</em></li><li><strong>created</strong>: <em>(datetime)</em><p>Created date of an invoice</p></li><li><strong>invoiceEmail</strong>: <em>(union of email or emptystring or nil)</em><p>Invoice delivery email</p></li><li><strong>paidAmount</strong>: <em>(integer)</em></li><li><strong>supplierName</strong>: <em>(string)</em></li><li><strong>VATid</strong>: <em>(union of string or nil)</em></li><li><strong>currencyCode</strong>: <em>(string)</em><p>ISO 4217 currency code</p></li><li><strong>creditedInvoice</strong>: <em>(number)</em><p>Only present if invoice is a credit note. Id of the original invoice for which this is crediting.</p></li></ul></div><p><strong>Example</strong>:</p><div class="examples"><pre><code>[
   {
     "VATid": "SE556018557001",
     "billingAddress": "BOX 689\r\n136 26 HANINGE\r\nSweden",
@@ -10179,7 +10179,7 @@ Triggered hook would look as below
   "code": "00500"
 }
 </code></pre></div></div><div class="tab-pane" id="invoices_get_securedby"><h1>Secured by oauth_2.0</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>Used to send a valid OAuth 2 access token.</p></li></ul></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_invoices__invoice_id_"><span class="parent">/invoices</span>/{invoice_id}</a> <span class="methods"><a href="#invoices__invoice_id__get"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_invoices__invoice_id_" class="panel-collapse collapse"><div class="panel-body"><div class="resource-description"><p>A single invoice in PlanMill. This is a read-only item.</p></div><div class="list-group"><div onclick="window.location.href = '#invoices__invoice_id__get'" class="list-group-item"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>View details of a single invoice.</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="invoices__invoice_id__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/invoices</span>/{invoice_id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>View details of a single invoice.</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>oauth_2.0</b><p>PlanMill supports OAuth 2.0 for authenticating all API requests. More information about it in the security part of the documentation.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#invoices__invoice_id__get_request" data-toggle="tab">Request</a></li><li><a href="#invoices__invoice_id__get_response" data-toggle="tab">Response</a></li><li><a href="#invoices__invoice_id__get_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="invoices__invoice_id__get_request"><h3>URI Parameters</h3><ul><li><strong>invoice_id</strong>: <em><span class="required">required</span>(string)</em></li></ul><h3>Headers</h3><ul><li><strong>Accept</strong>: <em>(one of application/pdf, application/xml)</em><p>Get invoice in PDF and XML formats. PDF-format works with Invoice + appendix and XML-format works with Finvoice</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>Accept: application/pdf</code></pre></div></li><li><strong>x-PlanMill-Currency</strong>: <em>(string - minLength: 3 - maxLength: 3)</em><p>Recommended to be given. If currency not given in request header, user&#39;s current currency set in user settings is used. ISO code of currency in which money values should be shown or saved. Applies to all money attributes of the object, but may be converted by backend to the object specific currency. Some objects and their attributes may not care about the given currency but use the object&#39;s own currency</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>EUR
-</code></pre></div></li></ul></div><div class="tab-pane" id="invoices__invoice_id__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/pdf | application/xml</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>id</strong>: <em>(integer)</em><p>Id of an invoice</p></li><li><strong>dueDate</strong>: <em>(datetime)</em><p>duedate of an invoice</p></li><li><strong>yourReference</strong>: <em>(union of string or nil)</em></li><li><strong>ourReference</strong>: <em>(string)</em></li><li><strong>customerName</strong>: <em>(union of string or nil)</em></li><li><strong>customer</strong>: <em>(union of integer or nil)</em></li><li><strong>invoiceDate</strong>: <em>(string)</em><p>Date and time of an invoice</p></li><li><strong>reference</strong>: <em>(union of integer or nil)</em></li><li><strong>billingAddress</strong>: <em>(string)</em></li><li><strong>delayInterest</strong>: <em>(integer)</em></li><li><strong>invoiceCurrency</strong>: <em>(integer)</em><p>Currency rate of invoice. Multiply Invoiced amount with this rate for amounts in actual invoiced currency</p></li><li><strong>comment</strong>: <em>(union of string or nil)</em></li><li><strong>invoiceAppendix</strong>: <em>(union of integer or nil)</em></li><li><strong>description</strong>: <em>(union of string or nil)</em></li><li><strong>showSubTotals</strong>: <em>(integer)</em></li><li><strong>invoiceXSL</strong>: <em>(string)</em><p>Xsl file of an invoice</p></li><li><strong>noticeTime</strong>: <em>(integer)</em><p>length of notice time</p></li><li><strong>shippingAddress</strong>: <em>(union of string or nil)</em></li><li><strong>supplier</strong>: <em>(integer)</em></li><li><strong>invoiceNumber</strong>: <em>(union of integer or nil)</em></li><li><strong>termsOfPayment</strong>: <em>(integer)</em></li><li><strong>sentToAccounting</strong>: <em>(union of integer or string or nil)</em></li><li><strong>paymentStatus</strong>: <em>(integer)</em><p>Status of payment</p></li><li><strong>handlingFee</strong>: <em>(union of number or nil)</em><p>Handling fee of an invoice</p></li><li><strong>handlingFeeAccount</strong>: <em>(integer)</em><p>Handling fee of an invoice account</p></li><li><strong>VAT</strong>: <em>(union of integer or nil)</em></li><li><strong>salesExecutive</strong>: <em>(union of integer or nil)</em></li><li><strong>reverseCharge</strong>: <em>(integer)</em><p>Status of payment</p></li></ul><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>id</strong>: <em>(integer)</em><p>Id of an invoice</p></li><li><strong>dueDate</strong>: <em>(datetime)</em><p>duedate of an invoice</p></li><li><strong>yourReference</strong>: <em>(union of string or nil)</em></li><li><strong>ourReference</strong>: <em>(string)</em></li><li><strong>customerName</strong>: <em>(union of string or nil)</em></li><li><strong>customer</strong>: <em>(union of integer or nil)</em></li><li><strong>invoiceDate</strong>: <em>(string)</em><p>Date and time of an invoice</p></li><li><strong>reference</strong>: <em>(union of integer or nil)</em></li><li><strong>billingAddress</strong>: <em>(string)</em></li><li><strong>delayInterest</strong>: <em>(integer)</em></li><li><strong>invoiceCurrency</strong>: <em>(integer)</em><p>Currency rate of invoice. Multiply Invoiced amount with this rate for amounts in actual invoiced currency</p></li><li><strong>comment</strong>: <em>(union of string or nil)</em></li><li><strong>invoiceAppendix</strong>: <em>(union of integer or nil)</em></li><li><strong>description</strong>: <em>(union of string or nil)</em></li><li><strong>showSubTotals</strong>: <em>(integer)</em></li><li><strong>invoiceXSL</strong>: <em>(string)</em><p>Xsl file of an invoice</p></li><li><strong>noticeTime</strong>: <em>(integer)</em><p>length of notice time</p></li><li><strong>shippingAddress</strong>: <em>(union of string or nil)</em></li><li><strong>supplier</strong>: <em>(integer)</em></li><li><strong>invoiceNumber</strong>: <em>(union of integer or nil)</em></li><li><strong>termsOfPayment</strong>: <em>(integer)</em></li><li><strong>sentToAccounting</strong>: <em>(union of integer or string or nil)</em></li><li><strong>paymentStatus</strong>: <em>(integer)</em><p>Status of payment</p></li><li><strong>handlingFee</strong>: <em>(union of number or nil)</em><p>Handling fee of an invoice</p></li><li><strong>handlingFeeAccount</strong>: <em>(integer)</em><p>Handling fee of an invoice account</p></li><li><strong>VAT</strong>: <em>(union of integer or nil)</em></li><li><strong>salesExecutive</strong>: <em>(union of integer or nil)</em></li><li><strong>reverseCharge</strong>: <em>(integer)</em><p>Status of payment</p></li></ul><p><strong>Example</strong>:</p><div class="examples"><pre><code>{  
+</code></pre></div></li></ul></div><div class="tab-pane" id="invoices__invoice_id__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>id</strong>: <em>(integer)</em><p>Id of an invoice</p></li><li><strong>dueDate</strong>: <em>(datetime)</em><p>duedate of an invoice</p></li><li><strong>yourReference</strong>: <em>(union of string or nil)</em></li><li><strong>ourReference</strong>: <em>(string)</em></li><li><strong>customerName</strong>: <em>(union of string or nil)</em></li><li><strong>customer</strong>: <em>(union of integer or nil)</em></li><li><strong>invoiceDate</strong>: <em>(string)</em><p>Date and time of an invoice</p></li><li><strong>reference</strong>: <em>(union of integer or nil)</em></li><li><strong>billingAddress</strong>: <em>(string)</em></li><li><strong>delayInterest</strong>: <em>(integer)</em></li><li><strong>invoiceCurrency</strong>: <em>(integer)</em><p>Currency rate of invoice. Multiply Invoiced amount with this rate for amounts in actual invoiced currency</p></li><li><strong>comment</strong>: <em>(union of string or nil)</em></li><li><strong>invoiceAppendix</strong>: <em>(union of integer or nil)</em></li><li><strong>description</strong>: <em>(union of string or nil)</em></li><li><strong>showSubTotals</strong>: <em>(integer)</em></li><li><strong>invoiceXSL</strong>: <em>(string)</em><p>Xsl file of an invoice</p></li><li><strong>noticeTime</strong>: <em>(integer)</em><p>length of notice time</p></li><li><strong>shippingAddress</strong>: <em>(union of string or nil)</em></li><li><strong>supplier</strong>: <em>(integer)</em></li><li><strong>invoiceNumber</strong>: <em>(union of integer or nil)</em></li><li><strong>termsOfPayment</strong>: <em>(integer)</em></li><li><strong>sentToAccounting</strong>: <em>(union of integer or string or nil)</em></li><li><strong>paymentStatus</strong>: <em>(integer)</em><p>Status of payment</p></li><li><strong>handlingFee</strong>: <em>(union of number or nil)</em><p>Handling fee of an invoice</p></li><li><strong>handlingFeeAccount</strong>: <em>(integer)</em><p>Handling fee of an invoice account</p></li><li><strong>VAT</strong>: <em>(union of integer or nil)</em></li><li><strong>salesExecutive</strong>: <em>(union of integer or nil)</em></li><li><strong>reverseCharge</strong>: <em>(integer)</em><p>Status of payment</p></li></ul><p><strong>Example</strong>:</p><div class="examples"><pre><code>{  
   "handlingFeeAccount": 3700,
   "invoiceAppendix": 0,
   "invoiceNumber": 120884,
@@ -26135,7 +26135,7 @@ Triggered hook would look as below
   "code": "00500"
 }
 </code></pre></div></div><div class="tab-pane" id="tempfiles__file_id__delete_securedby"><h1>Secured by oauth_2.0</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>Used to send a valid OAuth 2 access token.</p></li></ul></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="timereports" class="panel-title">/timereports</h3></div><div class="panel-body"><div class="top-resource-description"><p>Collection of available timereports in PlanMill. See timereports/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).</p></div><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_timereports"><span class="parent"></span>/timereports</a> <span class="methods"><a href="#timereports_get"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href="#timereports_post"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_timereports" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#timereports_get'" class="list-group-item"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Get a list of timereports. See timereports/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#timereports_post'" class="list-group-item"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Add a new timereport to PlanMill or update existing (if id is given). See timereports/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="timereports_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent"></span>/timereports</h4></div><div class="modal-body"><div class="alert alert-info"><p>Get a list of timereports. See timereports/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>oauth_2.0</b><p>PlanMill supports OAuth 2.0 for authenticating all API requests. More information about it in the security part of the documentation.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#timereports_get_request" data-toggle="tab">Request</a></li><li><a href="#timereports_get_response" data-toggle="tab">Response</a></li><li><a href="#timereports_get_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="timereports_get_request"><h3>Headers</h3><ul><li><strong>x-PlanMill-Currency</strong>: <em>(string - minLength: 3 - maxLength: 3)</em><p>Recommended to be given. If currency not given in request header, user&#39;s current currency set in user settings is used. ISO code of currency in which money values should be shown or saved. Applies to all money attributes of the object, but may be converted by backend to the object specific currency. Some objects and their attributes may not care about the given currency but use the object&#39;s own currency</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>EUR
-</code></pre></div></li></ul><h3>Query Parameters</h3><ul><li><strong>person</strong>: <em><span class="required">required</span>(integer)</em><p>Id of a person. Required, but if not given in request, authenticated API user&#39;s time reports are returned. For performance reasons time reports of all users can not be returned.</p></li><li><strong>period</strong>: <em>(integer)</em><p>Default for the period is &#39;This year&#39; (check meta for full list).</p></li><li><strong>status</strong>: <em>(integer)</em><p>Used in enumeration of status</p></li><li><strong>billableStatus</strong>: <em>(integer)</em><p>Used in enumeration of billableStatus</p></li><li><strong>projectfilter</strong>: <em>(integer)</em><p>Id of a project. It could be used for querying multiple projects&#39; time reports by comma-separated id, e.g., "projectfilter=projectid_1,projectid_2"</p></li><li><strong>rowcount?</strong>: <em>(integer - minimum: 1)</em><p>It limits the result set amount to the specified limit to avoid API call to return too many records. Default row count is 100</p></li><li><strong>nextrows?</strong>: <em>(integer)</em><p>The number of the next starting row. It is dependent on rowcount. For example, for total 250 items, if rowcount is 100 and nextrows is 101, it return items 101-201</p></li><li><strong>order?</strong>: <em>(integer)</em><p>Orders the results in ascending or descending order. 0=Ascending and 1=Descending. It is used in combination with sort</p></li><li><strong>sort?</strong>: <em>(string)</em><p>Sorts the results using string that is a JSON attribute</p></li><li><strong>interval?</strong>: <em>(string)</em><p>Interval type, e.g. start, finish, created, or modified. It is used in combination with intervalstart or intervalfinish</p></li><li><strong>intervalstart?</strong>: <em>(string)</em><p>Start date of the interval in UTC format, intervalfinish required</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2021-08-05T00:00:00.000+0200</code></pre></div></li><li><strong>intervalfinish?</strong>: <em>(string)</em><p>Finish date of the interval in UTC format, intervalstart required</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2021-08-05T00:00:00.000+0200</code></pre></div></li></ul></div><div class="tab-pane" id="timereports_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: array of timereport_get</p><p><strong>Items</strong>: timereport_get</p><div class="items"><ul><li><strong>project</strong>: <em>(union of integer or nil)</em><p>Id of project having task to report the time</p></li><li><strong>person</strong>: <em>(integer)</em><p>User&#39;s id</p></li><li><strong>start</strong>: <em>(datetime)</em><p>Start time of time report. Only date part is used when amount is provided.(Unless clock-times mode is active in users role).</p></li><li><strong>amount</strong>: <em>(number)</em><p>Reported normal time in minutes.</p></li><li><strong>status</strong>: <em>(integer)</em><p>Status of a time report</p></li><li><strong>comment</strong>: <em>(union of string or nil)</em><p>Comments of a time report</p></li><li><strong>billingComment</strong>: <em>(union of string or nil)</em><p>Billing comment of a time report</p></li><li><strong>billableStatus</strong>: <em>(union of integer or nil)</em><p>If task&#39;s status is billable, time report&#39;s status can be either billable or non-billable</p></li><li><strong>task</strong>: <em>(integer)</em><p>Id of task for which time is reported</p></li><li><strong>finish</strong>: <em>(datetime)</em><p>Finish time of a time report. May be used instead of amount for a time report. System will then calculate amount. Note for &#39;overtimeAmount&#39; or &#39;travelAmount&#39; you must provide an explicit length in minutes.</p></li><li><strong>overtimeAmount</strong>: <em>(union of integer or nil)</em><p>Overtime in minutes</p></li><li><strong>overtimeComment</strong>: <em>(union of string or nil)</em><p>Comment for overtime work</p></li><li><strong>travelAmount</strong>: <em>(union of integer or nil)</em><p>Travel time in minutes</p></li><li><strong>travelComment</strong>: <em>(union of string or nil)</em><p>Travel time in minutes</p></li><li><strong>totalReported</strong>: <em>(union of integer or nil)</em><p>Total reported time of time report</p></li><li><strong>id</strong>: <em>(integer)</em><p>Internal ID of a time report</p></li><li><strong>requireBillableComment</strong>: <em>(union of integer or nil)</em><p>Used in get requests to indicate if task requires a comment for timereport</p></li><li><strong>remainingAmount</strong>: <em>(union of integer or nil)</em><p>Remaining amount of a time report</p></li><li><strong>billableAmount</strong>: <em>(union of integer or nil)</em><p>Billable amount of time report</p></li><li><strong>invoice</strong>: <em>(union of integer or nil)</em><p>Internal Invoice ID of any invoiced billable time reports</p></li><li><strong>dutyType</strong>: <em>(union of integer or nil)</em><p>Type of duty</p></li><li><strong>unitPrice</strong>: <em>(integer)</em><p>Price per unit (hour)</p></li><li><strong>modified</strong>: <em>(datetime)</em><p>Last modified date</p></li><li><strong>modifiedBy</strong>: <em>(union of integer or nil)</em><p>Last modified by this person</p></li></ul></div><p><strong>Example</strong>:</p><div class="examples"><pre><code>[
+</code></pre></div></li></ul><h3>Query Parameters</h3><ul><li><strong>person</strong>: <em><span class="required">required</span>(integer)</em><p>Id of a person. Required, but if not given in request, authenticated API user&#39;s time reports are returned. For performance reasons time reports of all users can not be returned.</p></li><li><strong>period</strong>: <em>(integer)</em><p>Default for the period is &#39;This year&#39; (check meta for full list).</p></li><li><strong>status</strong>: <em>(integer)</em><p>Used in enumeration of status</p></li><li><strong>billableStatus</strong>: <em>(integer)</em><p>Used in enumeration of billableStatus</p></li><li><strong>projectfilter</strong>: <em>(integer)</em><p>Id of a project. It could be used for querying multiple projects&#39; time reports by comma-separated id, e.g., "projectfilter=projectid_1,projectid_2"</p></li><li><strong>rowcount?</strong>: <em>(integer - minimum: 1)</em><p>It limits the result set amount to the specified limit to avoid API call to return too many records. Default row count is 100</p></li><li><strong>nextrows?</strong>: <em>(integer)</em><p>The number of the next starting row. It is dependent on rowcount. For example, for total 250 items, if rowcount is 100 and nextrows is 101, it return items 101-201</p></li><li><strong>order?</strong>: <em>(integer)</em><p>Orders the results in ascending or descending order. 0=Ascending and 1=Descending. It is used in combination with sort</p></li><li><strong>sort?</strong>: <em>(string)</em><p>Sorts the results using string that is a JSON attribute</p></li><li><strong>interval?</strong>: <em>(string)</em><p>Interval type, e.g. start, finish, created, or modified. It is used in combination with intervalstart or intervalfinish</p></li><li><strong>intervalstart?</strong>: <em>(string)</em><p>Start date of the interval in UTC format, intervalfinish required</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2021-08-05T00:00:00.000+0200</code></pre></div></li><li><strong>intervalfinish?</strong>: <em>(string)</em><p>Finish date of the interval in UTC format, intervalstart required</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2021-08-05T00:00:00.000+0200</code></pre></div></li></ul></div><div class="tab-pane" id="timereports_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: array of timereport_get</p><p><strong>Items</strong>: timereport_get</p><div class="items"><ul><li><strong>project</strong>: <em>(union of integer or nil)</em><p>Id of project having task to report the time</p></li><li><strong>person</strong>: <em>(integer)</em><p>User&#39;s id</p></li><li><strong>start</strong>: <em>(datetime)</em><p>Start time of time report. Only date part is used when amount is provided.(Unless clock-times mode is active in users role).</p></li><li><strong>amount</strong>: <em>(number)</em><p>Reported normal time in minutes.</p></li><li><strong>finish</strong>: <em>(datetime)</em><p>Finish time of a time report. May be used instead of amount for a time report. System will then calculate amount. Note for &#39;overtimeAmount&#39; or &#39;travelAmount&#39; you must provide an explicit length in minutes.</p></li><li><strong>status</strong>: <em>(integer)</em><p>Status of a time report</p></li><li><strong>comment</strong>: <em>(union of string or nil)</em><p>Comments of a time report</p></li><li><strong>billingComment</strong>: <em>(union of string or nil)</em><p>Billing comment of a time report</p></li><li><strong>billableStatus</strong>: <em>(union of integer or nil)</em><p>If task&#39;s status is billable, time report&#39;s status can be either billable or non-billable</p></li><li><strong>task</strong>: <em>(integer)</em><p>Id of task for which time is reported</p></li><li><strong>overtimeAmount</strong>: <em>(union of integer or nil)</em><p>Overtime in minutes</p></li><li><strong>overtimeComment</strong>: <em>(union of string or nil)</em><p>Comment for overtime work</p></li><li><strong>travelAmount</strong>: <em>(union of integer or nil)</em><p>Travel time in minutes</p></li><li><strong>travelComment</strong>: <em>(union of string or nil)</em><p>Travel time in minutes</p></li><li><strong>totalReported</strong>: <em>(union of integer or nil)</em><p>Total reported time of time report</p></li><li><strong>id</strong>: <em>(integer)</em><p>Internal ID of a time report</p></li><li><strong>requireBillableComment</strong>: <em>(union of integer or nil)</em><p>Used in get requests to indicate if task requires a comment for timereport</p></li><li><strong>remainingAmount</strong>: <em>(union of integer or nil)</em><p>Remaining amount of a time report</p></li><li><strong>billableAmount</strong>: <em>(union of integer or nil)</em><p>Billable amount of time report</p></li><li><strong>invoice</strong>: <em>(union of integer or nil)</em><p>Internal Invoice ID of any invoiced billable time reports</p></li><li><strong>dutyType</strong>: <em>(union of integer or nil)</em><p>Type of duty</p></li><li><strong>unitPrice</strong>: <em>(integer)</em><p>Price per unit (hour)</p></li><li><strong>modified</strong>: <em>(datetime)</em><p>Last modified date</p></li><li><strong>modifiedBy</strong>: <em>(union of integer or nil)</em><p>Last modified by this person</p></li></ul></div><p><strong>Example</strong>:</p><div class="examples"><pre><code>[
   {
     "amount": 1005,
     "billableAmount": 1005,
@@ -26209,7 +26209,7 @@ Triggered hook would look as below
 }
 </code></pre></div></div><div class="tab-pane" id="timereports_get_securedby"><h1>Secured by oauth_2.0</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>Used to send a valid OAuth 2 access token.</p></li></ul></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="timereports_post"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent"></span>/timereports</h4></div><div class="modal-body"><div class="alert alert-info"><p>Add a new timereport to PlanMill or update existing (if id is given). See timereports/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>oauth_2.0</b><p>PlanMill supports OAuth 2.0 for authenticating all API requests. More information about it in the security part of the documentation.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#timereports_post_request" data-toggle="tab">Request</a></li><li><a href="#timereports_post_response" data-toggle="tab">Response</a></li><li><a href="#timereports_post_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="timereports_post_request"><h3>Headers</h3><ul><li><strong>Content-Type</strong>: <em><span class="required">required</span>(string - default: application/json;charset=UTF-8 )</em><p><strong>Example</strong>:</p><div class="examples"><pre><code>application/json;charset=UTF-8
 </code></pre></div></li><li><strong>x-PlanMill-Currency</strong>: <em>(string - minLength: 3 - maxLength: 3)</em><p>Recommended to be given. If currency not given in request header, user&#39;s current currency set in user settings is used. ISO code of currency in which money values should be shown or saved. Applies to all money attributes of the object, but may be converted by backend to the object specific currency. Some objects and their attributes may not care about the given currency but use the object&#39;s own currency</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>EUR
-</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>person</strong>: <em><span class="required">required</span>(integer)</em><p>User&#39;s id</p></li><li><strong>start</strong>: <em><span class="required">required</span>(datetime)</em><p>Start time of time report. Only date part is used when amount is provided.(Unless clock-times mode is active in users role)</p></li><li><strong>amount</strong>: <em>(number)</em><p>Required if finish is not provided. Reported normal time in minutes.</p></li><li><strong>finish</strong>: <em><span class="required">required</span>(datetime)</em><p>REMOVE REQUIRED Finish time of a time report. May be used instead of amount for a time report. System will then calculate amount. Note for &#39;overtimeAmount&#39; or &#39;travelAmount&#39; you must provide an explicit length in minutes.</p></li><li><strong>project</strong>: <em>(union of integer or nil)</em><p>Id of project having task to report the time</p></li><li><strong>status</strong>: <em>(integer)</em><p>Status of a time report</p></li><li><strong>comment</strong>: <em>(union of string or nil)</em><p>Comments of a time report</p></li><li><strong>billingComment</strong>: <em>(union of string or nil)</em><p>Billing comment of a time report</p></li><li><strong>billableStatus</strong>: <em>(union of integer or nil)</em><p>If task&#39;s status is billable, time report&#39;s status can be either billable or non-billable</p></li><li><strong>task</strong>: <em>(integer)</em><p>Id of task for which time is reported</p></li><li><strong>overtimeAmount</strong>: <em>(union of integer or nil)</em><p>Overtime in minutes</p></li><li><strong>overtimeComment</strong>: <em>(union of string or nil)</em><p>Comment for overtime work</p></li><li><strong>travelAmount</strong>: <em>(union of integer or nil)</em><p>Travel time in minutes</p></li><li><strong>travelComment</strong>: <em>(union of string or nil)</em><p>Travel time in minutes</p></li><li><strong>totalReported</strong>: <em>(union of integer or nil)</em><p>Total reported time of time report</p></li><li><strong>billableAmount</strong>: <em>(union of integer or nil)</em><p>Billable amount of time report can be given separately, if reported amount affecting person&#39;s balance is different</p></li></ul><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>person</strong>: <em><span class="required">required</span>(integer)</em><p>User&#39;s id</p></li><li><strong>start</strong>: <em><span class="required">required</span>(datetime)</em><p>Start time of time report. Only date part is used when amount is provided.(Unless clock-times mode is active in users role)</p></li><li><strong>amount</strong>: <em>(number)</em><p>Required if finish is not provided. Reported normal time in minutes.</p></li><li><strong>project</strong>: <em>(union of integer or nil)</em><p>Id of project having task to report the time</p></li><li><strong>finish</strong>: <em>(datetime)</em><p>Finish time of a time report. May be used instead of amount for a time report. System will then calculate amount. Note for &#39;overtimeAmount&#39; or &#39;travelAmount&#39; you must provide an explicit length in minutes.</p></li><li><strong>status</strong>: <em>(integer)</em><p>Status of a time report</p></li><li><strong>comment</strong>: <em>(union of string or nil)</em><p>Comments of a time report</p></li><li><strong>billingComment</strong>: <em>(union of string or nil)</em><p>Billing comment of a time report</p></li><li><strong>billableStatus</strong>: <em>(union of integer or nil)</em><p>If task&#39;s status is billable, time report&#39;s status can be either billable or non-billable</p></li><li><strong>task</strong>: <em>(integer)</em><p>Id of task for which time is reported</p></li><li><strong>overtimeAmount</strong>: <em>(union of integer or nil)</em><p>Overtime in minutes</p></li><li><strong>overtimeComment</strong>: <em>(union of string or nil)</em><p>Comment for overtime work</p></li><li><strong>travelAmount</strong>: <em>(union of integer or nil)</em><p>Travel time in minutes</p></li><li><strong>travelComment</strong>: <em>(union of string or nil)</em><p>Travel time in minutes</p></li><li><strong>totalReported</strong>: <em>(union of integer or nil)</em><p>Total reported time of time report</p></li><li><strong>billableAmount</strong>: <em>(union of integer or nil)</em><p>Billable amount of time report can be given separately, if reported amount affecting person&#39;s balance is different</p></li></ul><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "amount": 1000,
   "billableAmount": null,
   "billableStatus": 1,
@@ -26249,284 +26249,284 @@ Triggered hook would look as below
 }
 </code></pre></div></div><div class="tab-pane" id="timereports_post_securedby"><h1>Secured by oauth_2.0</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>Used to send a valid OAuth 2 access token.</p></li></ul></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_timereports_meta"><span class="parent">/timereports</span>/meta</a> <span class="methods"><a href="#timereports_meta_get"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_timereports_meta" class="panel-collapse collapse"><div class="panel-body"><div class="resource-description"><p>Get meta information for time reports. Includes resource&#39;s fields names and type and related filters.</p></div><div class="list-group"><div onclick="window.location.href = '#timereports_meta_get'" class="list-group-item"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>View details of a single meta.</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="timereports_meta_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/timereports</span>/meta</h4></div><div class="modal-body"><div class="alert alert-info"><p>View details of a single meta.</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>oauth_2.0</b><p>PlanMill supports OAuth 2.0 for authenticating all API requests. More information about it in the security part of the documentation.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#timereports_meta_get_request" data-toggle="tab">Request</a></li><li><a href="#timereports_meta_get_response" data-toggle="tab">Response</a></li><li><a href="#timereports_meta_get_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="timereports_meta_get_request"><h3>Headers</h3><ul><li><strong>x-PlanMill-Currency</strong>: <em>(string - minLength: 3 - maxLength: 3)</em><p>Recommended to be given. If currency not given in request header, user&#39;s current currency set in user settings is used. ISO code of currency in which money values should be shown or saved. Applies to all money attributes of the object, but may be converted by backend to the object specific currency. Some objects and their attributes may not care about the given currency but use the object&#39;s own currency</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>EUR
 </code></pre></div></li></ul></div><div class="tab-pane" id="timereports_meta_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
-	"filters": [
-        {
-			"type": "string",
-			"name": "freetextsearch",
-			"caption": ""
-		}, 
-        {
-			"type": "multivalue",
-			"name": "TimeReport.Status",
-			"value": "-1",
-			"caption": "Status",
-			"values": {
-				"0": "Reported",
-				"1": "Accepted",
-				"2": "Locked",
-				"-1": "All",
-				"4": "Preliminary"
-			}
-		}, 
-        {
-			"type": "string",
-			"name": "balance",
-			"caption": "Balance"
-		}, 
-        {
-			"type": "multivalue",
-			"name": "billableStatus",
-			"value": "-1",
-			"caption": "Billable status",
-			"values": {
-				"1": "Billable",
-				"3": "Non-billable",
-				"-1": "All",
-				"4": "In billing",
-				"5": "Draft invoice",
-				"6": "Invoiced"
-			}
-		}, 
-        {
-			"type": "interval",
-			"name": "interval",
-			"calendar": "yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ",
-			"values": {
-				"TimeReport.Start": "Date"
-			}
-		}, 
-        {
-			"type": "string",
-			"name": "rowcount",
-			"value": "100",
-			"caption": "Rows",
-			"values": {
-				"100": "100",
-				"25": "25",
-				"50": "50",
-				"150": "150",
-				"250": "250",
-				"75": "75"
-			}
-		}, 
-        {
-			"type": "multivalue",
-			"name": "project",
-			"value": "-1",
-			"caption": "Project",
-			"values": {
-				"1525": "Timereports tinbit",
-				"-1": "All"
-			}
-		}, 
-        {
-			"type": "string",
-			"name": "person",
-			"caption": "Person",
-			"values": {
-				"1532": "Super, Supervisor",
-				"356": "User (update), First"
-			}
-		}, 
-        {
-			"type": "string",
-			"name": "period",
-			"value": "5",
-			"caption": "Period",
-			"values": {
-				"22": "This &amp; last FQ",
-				"44": "Today and tomorrow",
-				"23": "This and last FY",
-				"24": "This and next month",
-				"25": "This and last month",
-				"26": "Last 14 days",
-				"30": "This week",
-				"31": "Last week",
-				"10": "Next month",
-				"32": "This and last week",
-				"11": "Last month",
-				"33": "Next week",
-				"34": "This and next week",
-				"12": "Last 30 days",
-				"13": "Last 60 days",
-				"14": "Last 90 days",
-				"15": "Last 120 days",
-				"16": "Last 180 days",
-				"17": "Next 30 days",
-				"18": "Next 60 days",
-				"19": "Next 90 days",
-				"1": "This FQ",
-				"2": "Next FQ",
-				"3": "This and next FQ",
-				"4": "Last FQ",
-				"5": "This FY",
-				"6": "Next FY",
-				"7": "This and next FY",
-				"8": "Last FY",
-				"9": "This month",
-				"40": "Today",
-				"41": "Yesterday",
-				"42": "Today and yesterday",
-				"20": "Next 120 days",
-				"43": "Tomorrow",
-				"21": "Next 180 days"
-			}
-		}
-	],
-	"fields": {
-		"unitPrice": {
-			"format": "currency",
-			"caption": "Unit price"
-		},
-		"dutyType": {
-			"values": {
-				"1080": "Overtime leave",
-				"2070": "HRM",
-				"2090": "Management",
-				"optgroup": "Administrative duty",
-				"1000": "Annual holiday",
-				"1165": "Saved leave",
-				"1120": "Layoff",
-				"2110": "Office work",
-				"1020": "Sick leave due to child",
-				"2010": "Marketing",
-				"1140": "Study leave (unpaid)",
-				"2130": "Emergency duty &lt; 22.00",
-				"1040": "Paternity leave (unpaid)",
-				"2030": "Development",
-				"1160": "Other annual leave",
-				"1060": "Other unpaid leave",
-				"2050": "IT",
-				"1180": "Paternity leave (paid)",
-				"9999": "Other",
-				"1190": "Maternity leave (unpaid)",
-				"1090": "Balance leave",
-				"2080": "HRD",
-				"\/optgroup": "-",
-				"1110": "Military refresher",
-				"2100": "Internal events",
-				"1010": "Sick leave",
-				"2000": "Education",
-				"1130": "Child care leave",
-				"2120": "Customer service",
-				"1030": "Maternity leave (paid)",
-				"2020": "Presales",
-				"2140": "On call",
-				"1050": "Military leave",
-				"2040": "R&amp;D",
-				"1170": "Parental leave (unpaid)",
-				"1070": "Other paid leave",
-				"2060": "Finance",
-				"1025": "Sick leave by medical certificate",
-				"1200": "Parental leave",
-				"2135": "Emergency duty 22.00-06.00",
-				"1100": "Bonus holiday"
-			},
-			"format": "Enumeration values.Task.Offduty",
-			"caption": "Task.Duty type"
-		},
-		"amount": {
-			"format": "hour",
-			"caption": "Reported"
-		},
-		"start": {
-			"format": "shortdate",
-			"caption": "Date"
-		},
-		"project": {
-			"format": "text",
-			"caption": "PMVProject.Id"
-		},
-		"billableStatus": {
-			"values": {
-				"1": "Billable",
-				"3": "Non-billable",
-				"4": "In billing",
-				"5": "Draft invoice",
-				"6": "Invoiced"
-			},
-			"format": "Enumeration values.Time report.Billable status",
-			"caption": "Billable status"
-		},
-		"requireBillableComment": {
-			"format": "text",
-			"caption": "{General.Table.requireBillableComment}"
-		},
-		"remainingAmount": {
-			"format": "hour",
-			"caption": "{General.Table.remainingAmount}"
-		},
-		"totalreported": {
-			"format": "timer",
-			"caption": "Total reported"
-		},
-		"billableAmount": {
-			"format": "effortunit",
-			"caption": "Billable"
-		},
-		"overtimeAmount": {
-			"format": "hour",
-			"caption": "Overtime"
-		},
-		"task": {
-			"format": "text",
-			"caption": "TimeReport.TaskId"
-		},
-		"billingComment": {
-			"format": "text",
-			"caption": "Invoice comment"
-		},
-		"person": {
-			"format": "text",
-			"caption": "Timereport.PersonId"
-		},
-		"modified": {
-			"format": "mediumdate",
-			"caption": "Modified"
-		},
-		"comment": {
-			"format": "text",
-			"caption": "Comment"
-		},
-		"overtimeComment": {
-			"format": "text",
-			"caption": "Overtime comment"
-		},
-		"finish": {
-			"format": "mediumdate",
-			"caption": "TimeReport.Finish"
-		},
-		"modifiedBy": {
-			"format": "text",
-			"caption": "Modified by"
-		},
-		"id": {
-			"format": "text",
-			"caption": "TimeReport.Id"
-		},
-		"invoice": {
-			"format": "number",
-			"caption": "Invoice ID"
-		},
-		"travelComment": {
-			"format": "text",
-			"caption": "Travel time comment"
-		},
-		"travelAmount": {
-			"format": "hour",
-			"caption": "Travel time"
-		},
-		"status": {
-			"values": {
-				"0": "Reported",
-				"1": "Accepted",
-				"2": "Locked",
-				"4": "Preliminary"
-			},
-			"format": "Enumeration values.Time report.Status",
-			"caption": "Status"
-		}
-	}
+ "filters": [
+  {
+   "type": "string",
+   "name": "freetextsearch",
+   "caption": ""
+  }, 
+  {
+   "type": "multivalue",
+   "name": "TimeReport.Status",
+   "value": "-1",
+   "caption": "Status",
+   "values": {
+    "0": "Reported",
+    "1": "Accepted",
+    "2": "Locked",
+    "-1": "All",
+    "4": "Preliminary"
+   }
+  }, 
+  {
+   "type": "string",
+   "name": "balance",
+   "caption": "Balance"
+  }, 
+  {
+   "type": "multivalue",
+   "name": "billableStatus",
+   "value": "-1",
+   "caption": "Billable status",
+   "values": {
+    "1": "Billable",
+    "3": "Non-billable",
+    "-1": "All",
+    "4": "In billing",
+    "5": "Draft invoice",
+    "6": "Invoiced"
+   }
+  }, 
+  {
+   "type": "interval",
+   "name": "interval",
+   "calendar": "yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ",
+   "values": {
+    "TimeReport.Start": "Date"
+   }
+  }, 
+  {
+   "type": "string",
+   "name": "rowcount",
+   "value": "100",
+   "caption": "Rows",
+   "values": {
+    "100": "100",
+    "25": "25",
+    "50": "50",
+    "150": "150",
+    "250": "250",
+    "75": "75"
+   }
+  }, 
+  {
+   "type": "multivalue",
+   "name": "project",
+   "value": "-1",
+   "caption": "Project",
+   "values": {
+    "1525": "Timereports tinbit",
+    "-1": "All"
+   }
+  }, 
+  {
+   "type": "string",
+   "name": "person",
+   "caption": "Person",
+   "values": {
+    "1532": "Super, Supervisor",
+    "356": "User (update), First"
+   }
+  }, 
+  {
+   "type": "string",
+   "name": "period",
+   "value": "5",
+   "caption": "Period",
+   "values": {
+    "22": "This &amp; last FQ",
+    "44": "Today and tomorrow",
+    "23": "This and last FY",
+    "24": "This and next month",
+    "25": "This and last month",
+    "26": "Last 14 days",
+    "30": "This week",
+    "31": "Last week",
+    "10": "Next month",
+    "32": "This and last week",
+    "11": "Last month",
+    "33": "Next week",
+    "34": "This and next week",
+    "12": "Last 30 days",
+    "13": "Last 60 days",
+    "14": "Last 90 days",
+    "15": "Last 120 days",
+    "16": "Last 180 days",
+    "17": "Next 30 days",
+    "18": "Next 60 days",
+    "19": "Next 90 days",
+    "1": "This FQ",
+    "2": "Next FQ",
+    "3": "This and next FQ",
+    "4": "Last FQ",
+    "5": "This FY",
+    "6": "Next FY",
+    "7": "This and next FY",
+    "8": "Last FY",
+    "9": "This month",
+    "40": "Today",
+    "41": "Yesterday",
+    "42": "Today and yesterday",
+    "20": "Next 120 days",
+    "43": "Tomorrow",
+    "21": "Next 180 days"
+   }
+  }
+ ],
+ "fields": {
+  "unitPrice": {
+   "format": "currency",
+   "caption": "Unit price"
+  },
+  "dutyType": {
+   "values": {
+    "1080": "Overtime leave",
+    "2070": "HRM",
+    "2090": "Management",
+    "optgroup": "Administrative duty",
+    "1000": "Annual holiday",
+    "1165": "Saved leave",
+    "1120": "Layoff",
+    "2110": "Office work",
+    "1020": "Sick leave due to child",
+    "2010": "Marketing",
+    "1140": "Study leave (unpaid)",
+    "2130": "Emergency duty &lt; 22.00",
+    "1040": "Paternity leave (unpaid)",
+    "2030": "Development",
+    "1160": "Other annual leave",
+    "1060": "Other unpaid leave",
+    "2050": "IT",
+    "1180": "Paternity leave (paid)",
+    "9999": "Other",
+    "1190": "Maternity leave (unpaid)",
+    "1090": "Balance leave",
+    "2080": "HRD",
+    "\/optgroup": "-",
+    "1110": "Military refresher",
+    "2100": "Internal events",
+    "1010": "Sick leave",
+    "2000": "Education",
+    "1130": "Child care leave",
+    "2120": "Customer service",
+    "1030": "Maternity leave (paid)",
+    "2020": "Presales",
+    "2140": "On call",
+    "1050": "Military leave",
+    "2040": "R&amp;D",
+    "1170": "Parental leave (unpaid)",
+    "1070": "Other paid leave",
+    "2060": "Finance",
+    "1025": "Sick leave by medical certificate",
+    "1200": "Parental leave",
+    "2135": "Emergency duty 22.00-06.00",
+    "1100": "Bonus holiday"
+   },
+   "format": "Enumeration values.Task.Offduty",
+   "caption": "Task.Duty type"
+  },
+  "amount": {
+   "format": "hour",
+   "caption": "Reported"
+  },
+  "start": {
+   "format": "shortdate",
+   "caption": "Date"
+  },
+  "project": {
+   "format": "text",
+   "caption": "PMVProject.Id"
+  },
+  "billableStatus": {
+   "values": {
+    "1": "Billable",
+    "3": "Non-billable",
+    "4": "In billing",
+    "5": "Draft invoice",
+    "6": "Invoiced"
+   },
+   "format": "Enumeration values.Time report.Billable status",
+   "caption": "Billable status"
+  },
+  "requireBillableComment": {
+   "format": "text",
+   "caption": "{General.Table.requireBillableComment}"
+  },
+  "remainingAmount": {
+   "format": "hour",
+   "caption": "{General.Table.remainingAmount}"
+  },
+  "totalreported": {
+   "format": "timer",
+   "caption": "Total reported"
+  },
+  "billableAmount": {
+   "format": "effortunit",
+   "caption": "Billable"
+  },
+  "overtimeAmount": {
+   "format": "hour",
+   "caption": "Overtime"
+  },
+  "task": {
+   "format": "text",
+   "caption": "TimeReport.TaskId"
+  },
+  "billingComment": {
+   "format": "text",
+   "caption": "Invoice comment"
+  },
+  "person": {
+   "format": "text",
+   "caption": "Timereport.PersonId"
+  },
+  "modified": {
+   "format": "mediumdate",
+   "caption": "Modified"
+  },
+  "comment": {
+   "format": "text",
+   "caption": "Comment"
+  },
+  "overtimeComment": {
+   "format": "text",
+   "caption": "Overtime comment"
+  },
+  "finish": {
+   "format": "mediumdate",
+   "caption": "TimeReport.Finish"
+  },
+  "modifiedBy": {
+   "format": "text",
+   "caption": "Modified by"
+  },
+  "id": {
+   "format": "text",
+   "caption": "TimeReport.Id"
+  },
+  "invoice": {
+   "format": "number",
+   "caption": "Invoice ID"
+  },
+  "travelComment": {
+   "format": "text",
+   "caption": "Travel time comment"
+  },
+  "travelAmount": {
+   "format": "hour",
+   "caption": "Travel time"
+  },
+  "status": {
+   "values": {
+    "0": "Reported",
+    "1": "Accepted",
+    "2": "Locked",
+    "4": "Preliminary"
+   },
+   "format": "Enumeration values.Time report.Status",
+   "caption": "Status"
+  }
+ }
 }
 </code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Headers</h3><ul><li><strong>Content-type</strong>: <em><span class="required">required</span>(string - default: application/json;charset=UTF-8 )</em></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "message": "ID in GET request URI was malformed",
@@ -26549,7 +26549,7 @@ Triggered hook would look as below
   "code": "00500"
 }
 </code></pre></div></div><div class="tab-pane" id="timereports_meta_get_securedby"><h1>Secured by oauth_2.0</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>Used to send a valid OAuth 2 access token.</p></li></ul></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_timereports__timereport_id_"><span class="parent">/timereports</span>/{timereport_id}</a> <span class="methods"><a href="#timereports__timereport_id__get"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href="#timereports__timereport_id__post"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href="#timereports__timereport_id__delete"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_timereports__timereport_id_" class="panel-collapse collapse"><div class="panel-body"><div class="resource-description"><p>A single timereport in PlanMill.</p></div><div class="list-group"><div onclick="window.location.href = '#timereports__timereport_id__get'" class="list-group-item"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>View details of a single timereport. See timereports/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#timereports__timereport_id__post'" class="list-group-item"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Update an existing resource timereport to PlanMill. See timereports/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#timereports__timereport_id__delete'" class="list-group-item"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Remove a timereport from PlanMill.</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="timereports__timereport_id__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/timereports</span>/{timereport_id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>View details of a single timereport. See timereports/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>oauth_2.0</b><p>PlanMill supports OAuth 2.0 for authenticating all API requests. More information about it in the security part of the documentation.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#timereports__timereport_id__get_request" data-toggle="tab">Request</a></li><li><a href="#timereports__timereport_id__get_response" data-toggle="tab">Response</a></li><li><a href="#timereports__timereport_id__get_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="timereports__timereport_id__get_request"><h3>URI Parameters</h3><ul><li><strong>timereport_id</strong>: <em><span class="required">required</span>(string)</em></li></ul><h3>Headers</h3><ul><li><strong>x-PlanMill-Currency</strong>: <em>(string - minLength: 3 - maxLength: 3)</em><p>Recommended to be given. If currency not given in request header, user&#39;s current currency set in user settings is used. ISO code of currency in which money values should be shown or saved. Applies to all money attributes of the object, but may be converted by backend to the object specific currency. Some objects and their attributes may not care about the given currency but use the object&#39;s own currency</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>EUR
-</code></pre></div></li></ul></div><div class="tab-pane" id="timereports__timereport_id__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>project</strong>: <em>(union of integer or nil)</em><p>Id of project having task to report the time</p></li><li><strong>person</strong>: <em>(integer)</em><p>User&#39;s id</p></li><li><strong>start</strong>: <em>(datetime)</em><p>Start time of time report. Only date part is used when amount is provided.(Unless clock-times mode is active in users role).</p></li><li><strong>amount</strong>: <em>(number)</em><p>Reported normal time in minutes.</p></li><li><strong>status</strong>: <em>(integer)</em><p>Status of a time report</p></li><li><strong>comment</strong>: <em>(union of string or nil)</em><p>Comments of a time report</p></li><li><strong>billingComment</strong>: <em>(union of string or nil)</em><p>Billing comment of a time report</p></li><li><strong>billableStatus</strong>: <em>(union of integer or nil)</em><p>If task&#39;s status is billable, time report&#39;s status can be either billable or non-billable</p></li><li><strong>task</strong>: <em>(integer)</em><p>Id of task for which time is reported</p></li><li><strong>finish</strong>: <em>(datetime)</em><p>Finish time of a time report. May be used instead of amount for a time report. System will then calculate amount. Note for &#39;overtimeAmount&#39; or &#39;travelAmount&#39; you must provide an explicit length in minutes.</p></li><li><strong>overtimeAmount</strong>: <em>(union of integer or nil)</em><p>Overtime in minutes</p></li><li><strong>overtimeComment</strong>: <em>(union of string or nil)</em><p>Comment for overtime work</p></li><li><strong>travelAmount</strong>: <em>(union of integer or nil)</em><p>Travel time in minutes</p></li><li><strong>travelComment</strong>: <em>(union of string or nil)</em><p>Travel time in minutes</p></li><li><strong>totalReported</strong>: <em>(union of integer or nil)</em><p>Total reported time of time report</p></li><li><strong>id</strong>: <em>(integer)</em><p>Internal ID of a time report</p></li><li><strong>requireBillableComment</strong>: <em>(union of integer or nil)</em><p>Used in get requests to indicate if task requires a comment for timereport</p></li><li><strong>remainingAmount</strong>: <em>(union of integer or nil)</em><p>Remaining amount of a time report</p></li><li><strong>billableAmount</strong>: <em>(union of integer or nil)</em><p>Billable amount of time report</p></li></ul><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+</code></pre></div></li></ul></div><div class="tab-pane" id="timereports__timereport_id__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>project</strong>: <em>(union of integer or nil)</em><p>Id of project having task to report the time</p></li><li><strong>person</strong>: <em>(integer)</em><p>User&#39;s id</p></li><li><strong>start</strong>: <em>(datetime)</em><p>Start time of time report. Only date part is used when amount is provided.(Unless clock-times mode is active in users role).</p></li><li><strong>amount</strong>: <em>(number)</em><p>Reported normal time in minutes.</p></li><li><strong>finish</strong>: <em>(datetime)</em><p>Finish time of a time report. May be used instead of amount for a time report. System will then calculate amount. Note for &#39;overtimeAmount&#39; or &#39;travelAmount&#39; you must provide an explicit length in minutes.</p></li><li><strong>status</strong>: <em>(integer)</em><p>Status of a time report</p></li><li><strong>comment</strong>: <em>(union of string or nil)</em><p>Comments of a time report</p></li><li><strong>billingComment</strong>: <em>(union of string or nil)</em><p>Billing comment of a time report</p></li><li><strong>billableStatus</strong>: <em>(union of integer or nil)</em><p>If task&#39;s status is billable, time report&#39;s status can be either billable or non-billable</p></li><li><strong>task</strong>: <em>(integer)</em><p>Id of task for which time is reported</p></li><li><strong>overtimeAmount</strong>: <em>(union of integer or nil)</em><p>Overtime in minutes</p></li><li><strong>overtimeComment</strong>: <em>(union of string or nil)</em><p>Comment for overtime work</p></li><li><strong>travelAmount</strong>: <em>(union of integer or nil)</em><p>Travel time in minutes</p></li><li><strong>travelComment</strong>: <em>(union of string or nil)</em><p>Travel time in minutes</p></li><li><strong>totalReported</strong>: <em>(union of integer or nil)</em><p>Total reported time of time report</p></li><li><strong>id</strong>: <em>(integer)</em><p>Internal ID of a time report</p></li><li><strong>requireBillableComment</strong>: <em>(union of integer or nil)</em><p>Used in get requests to indicate if task requires a comment for timereport</p></li><li><strong>remainingAmount</strong>: <em>(union of integer or nil)</em><p>Remaining amount of a time report</p></li><li><strong>billableAmount</strong>: <em>(union of integer or nil)</em><p>Billable amount of time report</p></li></ul><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "amount": 1000,
   "billableAmount": null,
   "billableStatus": 1,
@@ -26592,7 +26592,7 @@ Triggered hook would look as below
 }
 </code></pre></div></div><div class="tab-pane" id="timereports__timereport_id__get_securedby"><h1>Secured by oauth_2.0</h1><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em><span class="required">required</span>(string)</em><p>Used to send a valid OAuth 2 access token.</p></li></ul></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="timereports__timereport_id__post"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/timereports</span>/{timereport_id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Update an existing resource timereport to PlanMill. See timereports/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by <b>oauth_2.0</b><p>PlanMill supports OAuth 2.0 for authenticating all API requests. More information about it in the security part of the documentation.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#timereports__timereport_id__post_request" data-toggle="tab">Request</a></li><li><a href="#timereports__timereport_id__post_response" data-toggle="tab">Response</a></li><li><a href="#timereports__timereport_id__post_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="timereports__timereport_id__post_request"><h3>URI Parameters</h3><ul><li><strong>timereport_id</strong>: <em><span class="required">required</span>(string)</em></li></ul><h3>Headers</h3><ul><li><strong>Content-Type</strong>: <em><span class="required">required</span>(string - default: application/json;charset=UTF-8 )</em><p><strong>Example</strong>:</p><div class="examples"><pre><code>application/json;charset=UTF-8
 </code></pre></div></li><li><strong>x-PlanMill-Currency</strong>: <em>(string - minLength: 3 - maxLength: 3)</em><p>Recommended to be given. If currency not given in request header, user&#39;s current currency set in user settings is used. ISO code of currency in which money values should be shown or saved. Applies to all money attributes of the object, but may be converted by backend to the object specific currency. Some objects and their attributes may not care about the given currency but use the object&#39;s own currency</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>EUR
-</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>project</strong>: <em>(union of integer or nil)</em><p>Id of project having task to report the time</p></li><li><strong>person</strong>: <em>(integer)</em><p>User&#39;s id</p></li><li><strong>start</strong>: <em>(datetime)</em><p>Start time of time report. Only date part is used when amount is provided.(Unless clock-times mode is active in users role).</p></li><li><strong>amount</strong>: <em>(number)</em><p>Reported normal time in minutes.</p></li><li><strong>status</strong>: <em>(integer)</em><p>Status of a time report</p></li><li><strong>comment</strong>: <em>(union of string or nil)</em><p>Comments of a time report</p></li><li><strong>billingComment</strong>: <em>(union of string or nil)</em><p>Billing comment of a time report</p></li><li><strong>billableStatus</strong>: <em>(union of integer or nil)</em><p>If task&#39;s status is billable, time report&#39;s status can be either billable or non-billable</p></li><li><strong>task</strong>: <em>(integer)</em><p>Id of task for which time is reported</p></li><li><strong>finish</strong>: <em>(datetime)</em><p>Finish time of a time report. May be used instead of amount for a time report. System will then calculate amount. Note for &#39;overtimeAmount&#39; or &#39;travelAmount&#39; you must provide an explicit length in minutes.</p></li><li><strong>overtimeAmount</strong>: <em>(union of integer or nil)</em><p>Overtime in minutes</p></li><li><strong>overtimeComment</strong>: <em>(union of string or nil)</em><p>Comment for overtime work</p></li><li><strong>travelAmount</strong>: <em>(union of integer or nil)</em><p>Travel time in minutes</p></li><li><strong>travelComment</strong>: <em>(union of string or nil)</em><p>Travel time in minutes</p></li><li><strong>totalReported</strong>: <em>(union of integer or nil)</em><p>Total reported time of time report</p></li><li><strong>billableAmount</strong>: <em>(union of integer or nil)</em><p>Billable amount of time report can be given separately, if reported amount affecting person&#39;s balance is different</p></li></ul><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>project</strong>: <em>(union of integer or nil)</em><p>Id of project having task to report the time</p></li><li><strong>person</strong>: <em>(integer)</em><p>User&#39;s id</p></li><li><strong>start</strong>: <em>(datetime)</em><p>Start time of time report. Only date part is used when amount is provided.(Unless clock-times mode is active in users role).</p></li><li><strong>amount</strong>: <em>(number)</em><p>Reported normal time in minutes.</p></li><li><strong>finish</strong>: <em>(datetime)</em><p>Finish time of a time report. May be used instead of amount for a time report. System will then calculate amount. Note for &#39;overtimeAmount&#39; or &#39;travelAmount&#39; you must provide an explicit length in minutes.</p></li><li><strong>status</strong>: <em>(integer)</em><p>Status of a time report</p></li><li><strong>comment</strong>: <em>(union of string or nil)</em><p>Comments of a time report</p></li><li><strong>billingComment</strong>: <em>(union of string or nil)</em><p>Billing comment of a time report</p></li><li><strong>billableStatus</strong>: <em>(union of integer or nil)</em><p>If task&#39;s status is billable, time report&#39;s status can be either billable or non-billable</p></li><li><strong>task</strong>: <em>(integer)</em><p>Id of task for which time is reported</p></li><li><strong>overtimeAmount</strong>: <em>(union of integer or nil)</em><p>Overtime in minutes</p></li><li><strong>overtimeComment</strong>: <em>(union of string or nil)</em><p>Comment for overtime work</p></li><li><strong>travelAmount</strong>: <em>(union of integer or nil)</em><p>Travel time in minutes</p></li><li><strong>travelComment</strong>: <em>(union of string or nil)</em><p>Travel time in minutes</p></li><li><strong>totalReported</strong>: <em>(union of integer or nil)</em><p>Total reported time of time report</p></li><li><strong>billableAmount</strong>: <em>(union of integer or nil)</em><p>Billable amount of time report can be given separately, if reported amount affecting person&#39;s balance is different</p></li></ul><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "amount": 1000,
   "billableAmount": null,
   "billableStatus": 1,

@@ -20,6 +20,7 @@
     "start": "2021-07-03T00:07:00.000+0300",
     "status": 1,
     "task": 1526,
+    "totalReported": 180,
     "travelAmount": 0,
     "travelComment": "visit to customer permises for new installation",
     "unitPrice": 0
@@ -45,6 +46,7 @@
     "start": "2021-07-03T00:07:00.000+0300",
     "status": 0,
     "task": -1,
+    "totalReported": 60,
     "travelAmount": 0,
     "travelComment": null,
     "unitPrice": 0
