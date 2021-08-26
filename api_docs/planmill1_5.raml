@@ -939,7 +939,110 @@ types:
   team: !include team1_5.schema
   resource: !include resource1_5.schema
   tempfile: !include tempfile1_5.schema 
-  timereport: !include timereport1_5.schema
+  timereport_base:
+    additionalProperties: false
+    properties:
+      project?:
+        description: Id of project having task to report the time
+        type: integer | nil
+      person?:
+        type: integer
+        description: User's id
+      start?:
+        type: datetime
+        description: Start time of time report. Only date part is used when amount is provided.(Unless clock-times mode is active in users role).     
+      amount?:
+        type: number
+        description: Reported normal time in minutes. 
+      finish?:
+        type: datetime
+        description: Finish time of a time report. May be used instead of amount for a time report. System will then calculate amount. Note for 'overtimeAmount' or 'travelAmount' you must provide an explicit length in minutes.
+      status?: 
+        type: integer
+        description: Status of a time report
+      comment?:
+        type: string | nil
+        description: Comments of a time report
+      billingComment?:
+        type: string | nil
+        description: Billing comment of a time report
+      billableStatus?:
+        type: integer | nil
+        description: If task's status is billable, time report's status can be either billable or non-billable
+      task?:
+        type: integer
+        description: Id of task for which time is reported
+      overtimeAmount?:
+        type: integer | nil
+        description: Overtime in minutes
+      overtimeComment?:
+        type: string | nil
+        description: Comment for overtime work
+      travelAmount?:
+        type: integer | nil
+        description: Travel time in minutes
+      travelComment?:
+        type: string | nil
+        description: Travel time in minutes
+  timereport_postId:
+    type: timereport_base
+    properties:
+      billableAmount?:
+        type: integer | nil
+        description: Billable amount of time report can be given separately, if reported amount affecting person's balance is different
+  timereport_post:
+    type: timereport_postId
+    properties:
+      person:
+        type: integer
+        description: User's id
+      start:
+        type: datetime
+        description: Start time of time report. Only date part is used when amount is provided.(Unless clock-times mode is active in users role)
+      amount?:
+        type: number
+        description: Required if finish is not provided. Reported normal time in minutes. 
+  timereport_single:
+    type: timereport_base
+    properties:
+      id?:
+        type: integer
+        description: Internal ID of a time report
+      billableAmount?:
+        type: integer | nil
+        description: Billable amount of time report
+  timereport_getId:
+    type: timereport_single
+    properties:
+      requireBillableComment?:
+        type: integer | nil
+        description: Used in get requests to indicate if task requires a comment for timereport
+      remainingAmount?:
+        type: integer | nil
+        description: Remaining amount of a time report 
+      totalReported?:
+        type: integer | nil
+        description: Total reported time of time report
+  timereport_get:
+    type: timereport_single
+    properties:
+      invoice?:
+        type: integer | nil
+        description: Internal Invoice ID of  any invoiced billable time reports
+      dutyType?:
+        type: integer | nil
+        description: Type of duty
+      unitPrice?:
+        type: integer
+        description: Price per unit (hour)
+      modified?:
+        type: datetime
+        description: Last modified date
+      modifiedBy?:
+        type: integer | nil
+        description: Last modified by this person
+  timereport_getAll:
+    type: timereport_get[]
   user: !include user1_5.schema
   vacation: !include vacation1_5.schema
 
@@ -1100,12 +1203,12 @@ resourceTypes:
             type: string
             required: false
             description: Start date of the interval in UTC format, intervalfinish required 
-            example: 2019-03-01T00:00:00.000+0200
+            example: 2021-08-05T00:00:00.000+0200
           intervalfinish?:
             type: string
             required: false
             description: Finish date of the interval in UTC format, intervalstart required
-            example: 2019-03-01T00:00:00.000+0200
+            example: 2021-08-05T00:00:00.000+0200
         responses:
           200:
             body:
@@ -2157,7 +2260,86 @@ resourceTypes:
       type: 
         allMethodsCollectionItem:
           exampleCollectionGetItem: !include portfolio.sample
-          exampleCollectionPostItem: !include portfolio_postId.sample																	 
+          exampleCollectionPostItem: !include portfolio_postId.sample
+/pricebooks:
+  description: To manage and list all pricebooks in a company. See /meta -endpoint.
+  get:
+    queryParameters:
+      id:
+          description: Filters products for a specified pricebook id
+          type: integer
+          required: false
+          example: id={pricebook id}
+  type:
+    collection:
+       exampleCollectionItemArray: !include pricebook_array1_5.sample
+       exampleCollectionItem: !include pricebook1_5.sample
+  /meta:
+      description: Get meta information for products. Includes resource's fields names and type and related filters.
+      get:
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include pricebook_meta1_5.sample
+  /{pricebook_id}:
+    type:
+     collectionItem:
+        exampleCollectionItem: !include pricebook1_5.sample
+    /items:
+      type:
+        readOnlyCollection:
+          schemaName: !include pricebookitem1_5.schema
+          exampleCollectionItemArray: !include pricebook_item_array1_5.sample
+      /meta:
+          description: Get meta information for pricebook items. Includes resource's fields names and type and related filters.
+          get:
+          type:
+            readOnlyCollectionItem:
+              exampleCollectionItem: !include pricebookitems_meta1_5.sample
+      /{item_id}:
+        type:
+          putGetDeleteCollectionItem:
+            exampleCollectionItem: !include pricebook_item1_5.sample
+        /meta:
+              description: Get meta information for pricebook specific item. Includes resource's fields names and type and related filters.
+              type:
+                readOnlyCollectionItem:
+                  exampleCollectionItem: !include pricebookitems_item_meta1_5.sample
+/products:
+  description: To manage and list all products in a company. See /meta -endpoint.
+  get:
+    queryParameters:
+      id:
+          description: Filters products for a specified products id
+          type: integer
+          required: false
+          example: id={product id}
+  post:
+    description: To create the new product from the request body
+  type:
+    collection:
+       exampleCollectionItemArray: !include product_array1_5.sample
+       exampleCollectionItem: !include product1_5.sample
+  /meta:
+      description: Get meta information for productss. Includes resource's fields names and type and related filters
+      get:
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include product_meta1_5.sample
+  /{product_id}:
+    put:
+      description: To update the existing product from the request body with {product_id} in the url
+    type:
+     putGetDeleteCollectionItem:
+        exampleCollectionItem: !include product1_5.sample
+    /attachments:
+      type:
+        readOnlyCollection:
+          schemaName:
+          exampleCollectionItemArray: !include tempfile_array1_5.sample
+      /{attachment_id}:
+        type:
+          putGetDeleteCollectionItem:
+            exampleCollectionItem: Contents of file
 /projects:
   description: reportedHours -field returns minutes like all other effortunit-formatted fields. See /meta -endpoint.
   get:
@@ -2213,7 +2395,7 @@ resourceTypes:
         body:
           application/json:
             type: project_postId
-      delete:			
+      delete:
       type: 
         allMethodsCollectionItem:
           exampleCollectionGetItem: !include project_getId.sample
@@ -2230,10 +2412,10 @@ resourceTypes:
               type:
                 readOnlyCollectionItem:
                   exampleCollectionItem: !include project_single_assignment_meta1_5.sample
-        /{assignment_id}:
-          type:
-            readOnlyCollectionItem:
-              exampleCollectionItem: !include assignment1_5.sample
+          /{assignment_id}:
+              type:
+                readOnlyCollectionItem:
+                  exampleCollectionItem: !include assignment1_5.sample
       /attachments:
         type:
           readOnlyCollection:
@@ -2348,85 +2530,6 @@ resourceTypes:
           type:
             readOnlyCollectionItem:
               exampleCollectionItem: !include project_requests_meta1_5.sample
-/products:
-  description: To manage and list all products in a company. See /meta -endpoint.
-  get:
-    queryParameters:
-      id:
-          description: Filters products for a specified products id
-          type: integer
-          required: false
-          example: id={product id}
-  post:
-    description: To create the new product from the request body
-  type:
-    collection:
-       exampleCollectionItemArray: !include product_array1_5.sample
-       exampleCollectionItem: !include product1_5.sample
-  /meta:
-      description: Get meta information for productss. Includes resource's fields names and type and related filters
-      get:
-      type:
-        readOnlyCollectionItem:
-          exampleCollectionItem: !include product_meta1_5.sample
-  /{product_id}:
-    put:
-      description: To update the existing product from the request body with {product_id} in the url
-    type:
-     putGetDeleteCollectionItem:
-        exampleCollectionItem: !include product1_5.sample
-    /attachments:
-      type:
-        readOnlyCollection:
-          schemaName:
-          exampleCollectionItemArray: !include tempfile_array1_5.sample
-      /{attachment_id}:
-        type:
-          putGetDeleteCollectionItem:
-            exampleCollectionItem: Contents of file
-/pricebooks:
-  description: To manage and list all pricebooks in a company. See /meta -endpoint.
-  get:
-    queryParameters:
-      id:
-          description: Filters products for a specified pricebook id
-          type: integer
-          required: false
-          example: id={pricebook id}
-  type:
-    collection:
-       exampleCollectionItemArray: !include pricebook_array1_5.sample
-       exampleCollectionItem: !include pricebook1_5.sample
-  /meta:
-      description: Get meta information for products. Includes resource's fields names and type and related filters.
-      get:
-      type:
-        readOnlyCollectionItem:
-          exampleCollectionItem: !include pricebook_meta1_5.sample
-  /{pricebook_id}:
-    type:
-     collectionItem:
-        exampleCollectionItem: !include pricebook1_5.sample
-    /items:
-      type:
-        readOnlyCollection:
-          schemaName: !include pricebookitem1_5.schema
-          exampleCollectionItemArray: !include pricebook_item_array1_5.sample
-      /meta:
-          description: Get meta information for pricebook items. Includes resource's fields names and type and related filters.
-          get:
-          type:
-            readOnlyCollectionItem:
-              exampleCollectionItem: !include pricebookitems_meta1_5.sample
-      /{item_id}:
-        type:
-          putGetDeleteCollectionItem:
-            exampleCollectionItem: !include pricebook_item1_5.sample
-        /meta:
-              description: Get meta information for pricebook specific item. Includes resource's fields names and type and related filters.
-              type:
-                readOnlyCollectionItem:
-                  exampleCollectionItem: !include pricebookitems_item_meta1_5.sample
 /reports:
   get:
     queryParameters:
@@ -2754,32 +2857,41 @@ resourceTypes:
 /timereports:
   get:
     queryParameters:
-      rowcount:
-      nextrows:
-      order:
-      sort:
-      period: 
-        type: integer
-        description: Period like This year, this month etc. See values from /meta endpoint.
-      interval:
-      intervalstart:
-      intervalfinish: 
-      status: 
-        type: integer
-        description: Used in enumeration of status
-      billableStatus:
-        type: integer
-        description: Used in enumeration of billableStatus
-      projectfilter:
-        type: integer
-        description: Id of a project. It could be used for querying multiple projects' time reports by comma-separated id, e.g., "projectfilter=projectid_1,projectid_2"
       person:
         type: integer
-        description: Id of a person. Required, but if not given in request, authenticated API user's time reports are returned. For performance reasons time reports of all users can not be returned
+        description: Id of a person. Required, but if not given in request, authenticated API user's time reports are returned. For performance reasons time reports of all users can not be returned.
+      period?: 
+        type: integer
+        description: Default for the period is 'This year' (check meta for full list). 
+      status?: 
+        type: integer
+        description: Used in enumeration of status
+      billableStatus?:
+        type: integer
+        description: Used in enumeration of billableStatus
+      projectfilter?:
+        type: integer
+        description: Id of a project. It could be used for querying multiple projects' time reports by comma-separated id, e.g., "projectfilter=projectid_1,projectid_2"
+    responses:
+      200:
+        description: 
+        body:                  
+          application/json: 
+            type: timereport_getAll
+  post:
+    headers:
+      Content-Type:
+        type: string
+        required: true
+        example: |
+          application/json;charset=UTF-8
+    body:
+      application/json:
+        type: timereport_post
   type:
     collection:
        exampleCollectionItemArray: !include timereport_array1_5.sample
-       exampleCollectionItem: !include timereport1_5.sample
+       exampleCollectionItem: !include timereport_postId.sample
   /meta:
       description: Get meta information for time reports. Includes resource's fields names and type and related filters.
       get:
@@ -2787,9 +2899,21 @@ resourceTypes:
         readOnlyCollectionItem:
           exampleCollectionItem: !include timereport_meta1_5.sample
   /{timereport_id}:
+    get:
+      responses:
+        200:
+          body:
+            application/json: 
+              type: timereport_getId
+    post:
+      body:
+        application/json:
+          type: timereport_postId
+    delete:
     type: 
-     collectionItem:
-       exampleCollectionItem: !include timereport1_5.sample
+     allMethodsCollectionItem:
+       exampleCollectionGetItem: !include timereport_getId.sample
+       exampleCollectionPostItem: !include timereport_postId.sample
     /accepted:
       put:
         description: Accepts time reports. It can also accept multiple ids, for example, /timereports/{id},{id},{id}/accepted

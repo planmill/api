@@ -23,7 +23,11 @@ var linkItems = [
   "portfolios_get_response:portfolio_getAll",
   "portfolios_post_request:portfolio_post",
   "portfolios__portfolio_id__get_response:portfolio",
-  "portfolios__portfolio_id__post_request:portfolio_postId"
+  "portfolios__portfolio_id__post_request:portfolio_postId",
+  "timereports_get_response:timereport_getAll",
+  "timereports_post_request:timereport_post",
+  "timereports__timereport_id__get_response:timereport_getId",
+  "timereports__timereport_id__post_request:timereport_postId"
 ];
 
 function download(filename, text) {

@@ -1,0 +1,153 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/timereport_post",
+  "definitions": {
+    "timereport_post": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "person",
+        "finish",
+        "start"
+      ],
+      "properties": {
+        "project": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Id of project having task to report the time"
+        },
+        "status": {
+          "type": "integer",
+          "description": "Status of a time report"
+        },
+        "comment": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Comments of a time report"
+        },
+        "billingComment": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Billing comment of a time report"
+        },
+        "billableStatus": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "If task's status is billable, time report's status can be either billable or non-billable"
+        },
+        "task": {
+          "type": "integer",
+          "description": "Id of task for which time is reported"
+        },
+        "overtimeAmount": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Overtime in minutes"
+        },
+        "overtimeComment": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Comment for overtime work"
+        },
+        "travelAmount": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Travel time in minutes"
+        },
+        "travelComment": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Travel time in minutes"
+        },
+        "totalReported": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Total reported time of time report"
+        },
+        "billableAmount": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Billable amount of time report can be given separately, if reported amount affecting person's balance is different"
+        },
+        "person": {
+          "type": "integer",
+          "description": "User's id"
+        },
+        "start": {
+          "type": "string",
+          "description": "Start time of time report. Only date part is used when amount is provided.(Unless clock-times mode is active in users role)",
+          "format": "date-time"
+        },
+        "amount": {
+          "type": "number",
+          "description": "Required if finish is not provided. Reported normal time in minutes."
+        },
+        "finish": {
+          "type": "string",
+          "description": "REMOVE REQUIRED Finish time of a time report. May be used instead of amount for a time report. System will then calculate amount. Note for 'overtimeAmount' or 'travelAmount' you must provide an explicit length in minutes.",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}
