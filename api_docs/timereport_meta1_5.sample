@@ -198,18 +198,6 @@
    "format": "Enumeration values.Time report.Billable status",
    "caption": "Billable status"
   },
-  "requireBillableComment": {
-   "format": "text",
-   "caption": "{General.Table.requireBillableComment}"
-  },
-  "remainingAmount": {
-   "format": "hour",
-   "caption": "{General.Table.remainingAmount}"
-  },
-  "totalreported": {
-   "format": "timer",
-   "caption": "Total reported"
-  },
   "billableAmount": {
    "format": "effortunit",
    "caption": "Billable"
