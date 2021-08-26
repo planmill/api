@@ -32,6 +32,11 @@
             "type": "number",
             "description": "Reported normal time in minutes."
           },
+          "finish": {
+            "type": "string",
+            "description": "Finish time of a time report. May be used instead of amount for a time report. System will then calculate amount. Note for 'overtimeAmount' or 'travelAmount' you must provide an explicit length in minutes.",
+            "format": "date-time"
+          },
           "status": {
             "type": "integer",
             "description": "Status of a time report"
@@ -72,11 +77,6 @@
           "task": {
             "type": "integer",
             "description": "Id of task for which time is reported"
-          },
-          "finish": {
-            "type": "string",
-            "description": "Finish time of a time report. May be used instead of amount for a time report. System will then calculate amount. Note for 'overtimeAmount' or 'travelAmount' you must provide an explicit length in minutes.",
-            "format": "date-time"
           },
           "overtimeAmount": {
             "anyOf": [
@@ -122,42 +122,9 @@
             ],
             "description": "Travel time in minutes"
           },
-          "totalReported": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "Total reported time of time report"
-          },
           "id": {
             "type": "integer",
             "description": "Internal ID of a time report"
-          },
-          "requireBillableComment": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "Used in get requests to indicate if task requires a comment for timereport"
-          },
-          "remainingAmount": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "Remaining amount of a time report"
           },
           "billableAmount": {
             "anyOf": [

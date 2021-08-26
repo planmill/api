@@ -984,9 +984,6 @@ types:
       travelComment?:
         type: string | nil
         description: Travel time in minutes
-      totalReported?:
-        type: integer | nil
-        description: Total reported time of time report
   timereport_postId:
     type: timereport_base
     properties:
@@ -1005,23 +1002,29 @@ types:
       amount?:
         type: number
         description: Required if finish is not provided. Reported normal time in minutes. 
-  timereport_getId:
+  timereport_single:
     type: timereport_base
     properties:
       id?:
         type: integer
         description: Internal ID of a time report
+      billableAmount?:
+        type: integer | nil
+        description: Billable amount of time report
+  timereport_getId:
+    type: timereport_single
+    properties:
       requireBillableComment?:
         type: integer | nil
         description: Used in get requests to indicate if task requires a comment for timereport
       remainingAmount?:
         type: integer | nil
-        description: Remaining amount of a time report
-      billableAmount?:
+        description: Remaining amount of a time report 
+      totalReported?:
         type: integer | nil
-        description: Billable amount of time report   
+        description: Total reported time of time report
   timereport_get:
-    type: timereport_getId
+    type: timereport_single
     properties:
       invoice?:
         type: integer | nil
