@@ -1,7 +1,7 @@
 {
   "amount": 1000,
   "billableAmount": null,
-  "billableStatus": 1,
+  "billableStatus": 0,
   "comment": "testing request",
   "finish": "2021-07-03T16:47:00.000+0300",
   "overtimeAmount": 0,
@@ -10,8 +10,7 @@
   "project": 211,
   "start": "2021-07-03T00:07:00.000+0300",
   "status": 1,
-  "task": 213, 
-  "totalReported": 1320,  
+  "task": 233, 
   "travelAmount": 0,
   "billingComment": null,
   "travelComment": ""
