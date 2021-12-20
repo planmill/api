@@ -936,6 +936,15 @@ types:
   product: !include product_getAll.schema
   pricebook: !include pricebook1_5.schema
   salesorder: !include sales_order1_5.schema
+  task_assignment: 
+    additionalProperties: false
+    properties:
+      project:
+        description: Id of project having task
+        type: integer 
+      personOrTeam:
+        type: integer
+        description: Person or team id
   team: !include team1_5.schema
   resource: !include resource1_5.schema
   tempfile: !include tempfile1_5.schema 
@@ -2765,6 +2774,11 @@ resourceTypes:
       readOnlyCollectionItem:
         exampleCollectionItem: !include task_single_meta1_5.sample
   /assignments:
+    get:
+    post:
+      body:
+        application/json:
+          type: task_assignment
     type:
       collection:
         exampleCollectionItemArray: !include assignment_array1_5.sample

@@ -1,12 +1,12 @@
 {
-  "remainingAmount": 0,
-  "taskStart": "2015-08-13T09:58:00.000+0300",
-  "task": 7468,
+  "remainingAmount": 100,
+  "taskStart": "2022-07-13T09:58:00.000+0300",
+  "task": 20250,
   "timereportsAmount": 120,
   "personOrTeam": 7447,
-  "actualAmount": 0,
-  "totalReported": 120,
-  "project": 7449,
-  "plannedAmount": 240,
-  "taskFinish": "2015-08-14T09:58:00.000+0300"
+  "actualAmount": 60,
+  "totalReported": 100,
+  "project": 26970,
+  "plannedAmount": 220,
+  "taskFinish": "2022-06-10T09:58:00.000+0300"
 }
