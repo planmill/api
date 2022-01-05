@@ -936,12 +936,12 @@ types:
   product: !include product_getAll.schema
   pricebook: !include pricebook1_5.schema
   salesorder: !include sales_order1_5.schema
-  task_assignment: 
+  assignment: 
     additionalProperties: false
     properties:
       project:
-        description: Id of project having task
-        type: integer 
+        type: integer
+        description: Id of project having task 
       personOrTeam:
         type: integer
         description: Person or team id
@@ -2767,9 +2767,9 @@ resourceTypes:
   get:
   post:
   type: 
-    collection:
-      exampleCollectionItemArray: !include task1_5.sample
-      exampleCollectionItem: !include task1_5_post.sample
+    allMethodsCollectionItem:
+      exampleCollectionGetItem: !include task1_5.sample
+      exampleCollectionPostItem: !include task1_5_post.sample
   /meta:
     description: Get meta information for the updatable fields of the task
     get:
@@ -2781,7 +2781,7 @@ resourceTypes:
     post:
       body:
         application/json:
-          type: task_assignment
+          type: assignment
     type:
       collection:
         exampleCollectionItemArray: !include assignment_array1_5.sample
