@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/salesorder_post",
+  "definitions": {
+    "salesorder_post": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "contact",
+        "orderDate",
+        "supplierContact"
+      ],
+      "properties": {
+        "status": {
+          "type": "integer",
+          "description": "Status of a sales order"
+        },
+        "termsOfPayment": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Terms of payment"
+        },
+        "quoteDate": {
+          "type": "string",
+          "description": "Start date of a quote",
+          "format": "date-time"
+        },
+        "quoteUntil": {
+          "type": "string",
+          "description": "Finish date of a quote",
+          "format": "date-time"
+        },
+        "billingAccount": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Billing account id of a customer's account"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of a sales order"
+        },
+        "contact": {
+          "type": "string",
+          "description": "Contact person of a customer's account"
+        },
+        "supplierContact": {
+          "type": "string",
+          "description": "Name of a supplier contact person"
+        },
+        "orderDate": {
+          "type": "string",
+          "description": "Ordered date of a sales order"
+        }
+      }
+    }
+  }
+}

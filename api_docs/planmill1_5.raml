@@ -935,7 +935,51 @@ types:
     type: project[]
   product: !include product_getAll.schema
   pricebook: !include pricebook1_5.schema
-  salesorder: !include sales_order1_5.schema
+  salesorder_base:
+    additionalProperties: false
+    properties:
+      name?:
+        type: string
+        description: "Name of a sales order"
+      supplierContact?:
+        type: string
+        description: "Name of a supplier contact person"
+      status?:
+        type: integer
+        description: "Status of a sales order"
+      termsOfPayment?:
+        type: number | nil
+        description: "Terms of payment" 
+      quoteDate?:
+        type: datetime
+        description: "Start date of a quote"
+      quoteUntil?:
+        type: datetime
+        description: "Finish date of a quote"
+      billingAccount?:
+        type: string | nil
+        description: "Billing account id of a customer's account"
+  salesorder_post:
+    type: salesorder_base
+    properties:
+      name:
+        type: string
+        description: "Name of a sales order"
+      contact:
+        type: string
+        description: "Contact person of a customer's account"
+      supplierContact:
+        type: string
+        description: "Name of a supplier contact person"
+      orderDate:
+        type: string
+        description: "Ordered date of a sales order"    
+  salesorder_postId:
+    type: salesorder_base 
+  salesorder_getId: 
+    type: salesorder_base 
+  salesorder_getAll:
+    type: salesorder_base[]
   team: !include team1_5.schema
   resource: !include resource1_5.schema
   tempfile: !include tempfile1_5.schema 
@@ -2692,14 +2736,23 @@ resourceTypes:
       exampleCollectionItem: !include resource1_5.schema
 /salesorders: 
   get:
-    queryParameters:
-      rowcount:
-      nextrows:
-      order:
-      sort:
-      interval:
-      intervalstart:
-      intervalfinish:
+    responses:
+      200:
+        body:                  
+          application/json: 
+            type: salesorder_getAll
+  post:
+    headers:
+      Content-Type:
+        type: string
+        required: true
+        default: |
+          application/json;charset=UTF-8 <div id="portfolio1_5-datatype-post"></div> 
+        example: |
+          application/json;charset=UTF-8
+    body:
+      application/json:
+        type: salesorder_post
   type:
     collection:
        exampleCollectionItemArray: !include salesorder_array1_5.sample
@@ -2711,6 +2764,16 @@ resourceTypes:
         readOnlyCollectionItem:
           exampleCollectionItem: !include salesorder_meta1_5.sample
   /{sales_order_id}:
+    get:
+      responses:
+        200:
+          body:
+            application/json: 
+              type: salesorder_getId
+    post:
+      body:
+        application/json:
+          type: salesorder_postId     
     type: 
      collectionItem:
         exampleCollectionItem: !include salesorder1_5.sample

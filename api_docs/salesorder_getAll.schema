@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/salesorder_getAll",
+  "definitions": {
+    "salesorder_getAll": {
+      "type": "array",
+      "items": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of a sales order"
+          },
+          "supplierContact": {
+            "type": "string",
+            "description": "Name of a supplier contact person"
+          },
+          "status": {
+            "type": "integer",
+            "description": "Status of a sales order"
+          },
+          "termsOfPayment": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Terms of payment"
+          },
+          "quoteDate": {
+            "type": "string",
+            "description": "Start date of a quote",
+            "format": "date-time"
+          },
+          "quoteUntil": {
+            "type": "string",
+            "description": "Finish date of a quote",
+            "format": "date-time"
+          },
+          "billingAccount": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Billing account id of a customer's account"
+          }
+        }
+      }
+    }
+  }
+}
