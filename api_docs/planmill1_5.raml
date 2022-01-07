@@ -957,10 +957,10 @@ types:
         type: datetime
         description: "Finish date of a quote"
       billingAccount?:
-        type: string | nil
+        type: integer | nil
         description: "Billing account id of a customer's account"
   salesorder_post:
-    type: salesorder_base
+    type: salesorder
     properties:
       name:
         type: string
@@ -971,15 +971,89 @@ types:
       supplierContact:
         type: string
         description: "Name of a supplier contact person"
-      orderDate:
+      languageAndCurrency:
         type: string
-        description: "Ordered date of a sales order"    
+        description: "language And Currency"
+  salesorder:
+    type: salesorder_base
+    properties: 
+      accountName?:
+        type: string | nil
+        description: "Name of a cutomer's account"
+      supplierName?:
+        type: string | nil
+        description: "Name of a supplier contact person"
+      responsibleName?:
+        type: string
+        description: "Sales executive person's name of a sales order" 
+      projectName?:
+        type: string | nil
+        description: "Name of a project related to a sales order"
+      contractName?:
+        type: string | nil
+        description: "Name of a contract"
+      delayInterest?:
+        type: number | nil
+        description: "Interest on delay of payment"
+      VAT?:
+        type: string | integer | nil
+        description: "VAT reg. no. of a cutomer's account"
+      TCV?:
+        type: number | nil
+        description: "Total amount excluding VAT"
+      totalIncludeVAT?:
+        type: number | nil
+        description: "Total amount including VAT"
+      orderDate?:
+        type: string 
+        description: "Ordered date of a sales order"
+      supplier?:
+        type: integer | nil
+        description: "Id of a supplier's account"
+      responsible?:
+        type: integer | nil
+        description: "Sales executive person's id of a sales order"
+      operationalId?:
+        type: integer | string
+        description: "Operational id of a sales order" 
+      invoiceAppendix?:
+        type: integer | string
+        description: "Invoice appendix"
   salesorder_postId:
     type: salesorder_base 
   salesorder_getId: 
-    type: salesorder_base 
+    type: salesorder_base
+    properties:
+      orderDate?:
+        type: string
+        description: "Ordered date of a sales order" 
+      responsible?:
+        type: integer | nil
+        description: "Sales executive person's id of a sales order"
+      operationalId?:
+        type: integer | string
+        description: "Operational id of a sales order"
+      shippingAccount?:
+        type: integer | nil
+        description: "Id of a shipping account"   
   salesorder_getAll:
-    type: salesorder_base[]
+    type: salesorder[]
+    properties: 
+      id?:
+        type: integer
+        description: "Id of a sales order"
+      account?:
+        type: integer | nil
+        description: "Id of a cutomer's account"
+      shippingAccountName?:
+        type: string | nil
+        description: "Name of a shipping accountr"
+      billingAccountName?:
+        type: string | nil
+        description: "Name of a customer's billing account"
+      shippingAccount?:
+        type: integer | nil
+        description: "Id of a shipping account"        
   team: !include team1_5.schema
   resource: !include resource1_5.schema
   tempfile: !include tempfile1_5.schema 
