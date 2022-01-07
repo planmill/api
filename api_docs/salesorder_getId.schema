@@ -1,0 +1,210 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/salesorder_getId",
+  "definitions": {
+    "salesorder_getId": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of a sales order"
+        },
+        "supplierContact": {
+          "type": "string",
+          "description": "Name of a supplier contact person"
+        },
+        "status": {
+          "type": "integer",
+          "description": "Status of a sales order"
+        },
+        "termsOfPayment": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Terms of payment"
+        },
+        "quoteDate": {
+          "type": "string",
+          "description": "Start date of a quote",
+          "format": "date-time"
+        },
+        "quoteUntil": {
+          "type": "string",
+          "description": "Finish date of a quote",
+          "format": "date-time"
+        },
+        "billingAccount": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Billing account id of a customer's account"
+        },
+        "accountName": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Name of a cutomer's account"
+        },
+        "supplierName": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Name of a supplier contact person"
+        },
+        "responsibleName": {
+          "type": "string",
+          "description": "Sales executive person's name of a sales order"
+        },
+        "projectName": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Name of a project related to a sales order"
+        },
+        "contractName": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Name of a contract"
+        },
+        "delayInterest": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Interest on delay of payment"
+        },
+        "VAT": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "VAT reg. no. of a cutomer's account"
+        },
+        "TCV": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Total amount excluding VAT"
+        },
+        "totalIncludeVAT": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Total amount including VAT"
+        },
+        "supplier": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Id of a supplier's account"
+        },
+        "invoiceAppendix": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "description": "Invoice appendix"
+        },
+        "orderDate": {
+          "type": "string",
+          "description": "Ordered date of a sales order"
+        },
+        "responsible": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Sales executive person's id of a sales order"
+        },
+        "operationalId": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "description": "Operational id of a sales order"
+        },
+        "shippingAccount": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Id of a shipping account"
+        }
+      }
+    }
+  }
+}
