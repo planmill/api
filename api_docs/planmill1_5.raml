@@ -950,6 +950,9 @@ types:
       termsOfPayment?:
         type: number | nil
         description: "Terms of payment" 
+      delayInterest?:
+        type: number | nil
+        description: "Interest on delay of payment"
       quoteDate?:
         type: datetime
         description: "Start date of a quote"
@@ -960,7 +963,7 @@ types:
         type: integer | nil
         description: "Billing account id of a customer's account"
   salesorder_post:
-    type: salesorder
+    type: salesorder_get
     properties:
       name:
         type: string
@@ -974,12 +977,15 @@ types:
       languageAndCurrency:
         type: string
         description: "language And Currency"
-  salesorder:
+  salesorder_get:
     type: salesorder_base
     properties: 
       accountName?:
         type: string | nil
         description: "Name of a cutomer's account"
+      contact?:
+        type: string
+        description: "Contact person of a customer's account"
       supplierName?:
         type: string | nil
         description: "Name of a supplier contact person"
@@ -992,9 +998,6 @@ types:
       contractName?:
         type: string | nil
         description: "Name of a contract"
-      delayInterest?:
-        type: number | nil
-        description: "Interest on delay of payment"
       VAT?:
         type: string | integer | nil
         description: "VAT reg. no. of a cutomer's account"
@@ -1019,8 +1022,17 @@ types:
       invoiceAppendix?:
         type: integer | string
         description: "Invoice appendix"
+      created?:
+        type: datetime
   salesorder_postId:
-    type: salesorder_base 
+    type: salesorder_base
+    properties:
+      contractName?:
+        type: string | nil
+        description: "Name of a contract"
+      projectName?:
+        type: string | nil
+        description: "Name of a project related to a sales order" 
   salesorder_getId: 
     type: salesorder_base
     properties:
@@ -1036,8 +1048,8 @@ types:
       shippingAccount?:
         type: integer | nil
         description: "Id of a shipping account"   
-  salesorder_getAll:
-    type: salesorder[]
+  salesorder:
+    type: salesorder_get
     properties: 
       id?:
         type: integer
@@ -1053,7 +1065,9 @@ types:
         description: "Name of a customer's billing account"
       shippingAccount?:
         type: integer | nil
-        description: "Id of a shipping account"        
+        description: "Id of a shipping account" 
+  salesorder_getAll:
+    type: salesorder[]       
   team: !include team1_5.schema
   resource: !include resource1_5.schema
   tempfile: !include tempfile1_5.schema 
