@@ -2755,9 +2755,13 @@ resourceTypes:
           collectionItem:
             exampleCollectionItem: !include salesorderitem1_5.sample
 /tasks/{task_id}:
+  get:
+  post:
+  delete:
   type: 
-    collectionItem:
-      exampleCollectionItem: !include task1_5.sample
+    allMethodsCollectionItem:
+      exampleCollectionGetItem: !include task1_5.sample
+      exampleCollectionPostItem: !include task1_5_post.sample
   /meta:
     description: Get meta information for the updatable fields of the task
     get:
