@@ -1028,6 +1028,14 @@ types:
       languageAndCurrency:
         type: string
         description: "language And Currency"
+      quoteDate:
+        type: datetime
+        description: "Start date of a quote"
+      quoteUntil:
+        type: datetime
+        description: "Finish date of a quote"
+      CustomerPerson.Name:
+        type: string
   salesorder_get:
     type: salesorder_base
     properties: 
@@ -1054,7 +1062,7 @@ types:
         description: "VAT reg. no. of a cutomer's account"
       TCV?:
         type: number | nil
-        description: "Total amount excluding VAT"
+        description: "Total contract value (TCV)"
       orderDate?:
         type: string 
         description: "Ordered date of a sales order"
@@ -1090,6 +1098,9 @@ types:
       contact?:
         type: string
         description: "Contact person of a customer's account"
+      id?:
+        type: integer
+        description: "Id of a sales order"
       shippingAccount?:
         type: integer | nil
         description: "Id of a shipping account"   
