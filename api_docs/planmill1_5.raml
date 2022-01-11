@@ -944,6 +944,9 @@ types:
       supplierContact?:
         type: string
         description: "Name of a supplier contact person"
+      orderDate?:
+        type: string
+        description: "Ordered date of a sales order" 
       status?:
         type: integer
         description: "Status of a sales order"
@@ -953,6 +956,12 @@ types:
       delayInterest?:
         type: number | nil
         description: "Interest on delay of payment"
+      responsible?:
+        type: integer | nil
+        description: "Sales executive person's id of a sales order"
+      operationalId?:
+        type: integer | string
+        description: "Operational id of a sales order" 
       quoteDate?:
         type: datetime
         description: "Start date of a quote"
@@ -962,6 +971,48 @@ types:
       billingAccount?:
         type: integer | nil
         description: "Billing account id of a customer's account"
+  salesorder_common:
+    type: salesorder_base
+    properties:
+      yourReference?:
+        type: string | nil
+        description: "Reference of a customer"
+      ourReference?:
+        type: integer | nil
+        description: "Reference of a supplier" 
+      type?:
+        type: integer
+        description: "Type of a sales order"
+      comment?:
+        type: string
+        description: "Comment of a sales order"
+      project?:
+        type: integer | nil
+        description: "Id of a related project"
+      languageAndCurrency?:
+        type: string
+        description: "language And Currency"
+      request?:
+        type: integer | nil
+        description: "Id of a related request"
+      reverseCharge?:
+        type: integer | nil
+        description: "Reverse charge"
+      invoiceItemSubtotaling?:
+        type: integer | nil
+        description: "Contact person of a customer's account"
+      handlingFee?:
+        type: integer
+        description: "Handling fee"
+      handlingFeeVat?:
+        type: integer
+        description: "Handling fee VAT"
+      noticeTime?:
+        type: integer
+        description: "Notice time of payment of a sales order"
+      description?:
+        type: string
+        description: "Description of a sales order"
   salesorder_post:
     type: salesorder_get
     properties:
@@ -1010,38 +1061,35 @@ types:
       supplier?:
         type: integer | nil
         description: "Id of a supplier's account"
-      responsible?:
-        type: integer | nil
-        description: "Sales executive person's id of a sales order"
-      operationalId?:
-        type: integer | string
-        description: "Operational id of a sales order" 
       invoiceAppendix?:
         type: integer | string
         description: "Invoice appendix"
       created?:
         type: datetime
   salesorder_postId:
-    type: salesorder_base
+    type: salesorder_common
     properties:
       contractName?:
         type: string | nil
         description: "Name of a contract"
       projectName?:
         type: string | nil
-        description: "Name of a project related to a sales order" 
-  salesorder_getId: 
-    type: salesorder_base
-    properties:
-      orderDate?:
-        type: string
-        description: "Ordered date of a sales order" 
-      responsible?:
+        description: "Name of a project related to a sales order"
+      VAT?:
+        type: string | integer | nil
+        description: "VAT reg. no. of a cutomer's account"
+      supplier?:
         type: integer | nil
-        description: "Sales executive person's id of a sales order"
-      operationalId?:
-        type: integer | string
-        description: "Operational id of a sales order"
+        description: "Id of a supplier's account"
+  salesorder_getId: 
+    type: salesorder_common
+    properties:
+      accountName?:
+        type: string | nil
+        description: "Name of a cutomer's account"
+      contact?:
+        type: string
+        description: "Contact person of a customer's account"
       shippingAccount?:
         type: integer | nil
         description: "Id of a shipping account"   
@@ -2858,10 +2906,12 @@ resourceTypes:
     post:
       body:
         application/json:
-          type: salesorder_postId     
+          type: salesorder_postId  
+    delete:   
     type: 
-     collectionItem:
-        exampleCollectionItem: !include salesorder1_5.sample
+     allMethodsCollectionItem:
+        exampleCollectionGetItem: !include salesorder_getId.sample
+        exampleCollectionPostItem: !include salesorder1_5.sample	
     /attachments:
       type:
         readOnlyCollection:
