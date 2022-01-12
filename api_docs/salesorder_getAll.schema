@@ -5,8 +5,8 @@
     "salesorder_getAll": {
       "type": "array",
       "items": {
-        "additionalProperties": false,
         "type": "object",
+        "additionalProperties": false,
         "properties": {
           "name": {
             "type": "string",
@@ -31,6 +31,39 @@
             ],
             "description": "Terms of payment"
           },
+          "delayInterest": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Interest on delay of payment"
+          },
+          "responsible": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Sales executive person's id of a sales order"
+          },
+          "operationalId": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "Operational id of a sales order"
+          },
           "quoteDate": {
             "type": "string",
             "description": "Start date of a quote",
@@ -44,13 +77,168 @@
           "billingAccount": {
             "anyOf": [
               {
-                "type": "string"
+                "type": "integer"
               },
               {
                 "type": "null"
               }
             ],
             "description": "Billing account id of a customer's account"
+          },
+          "accountName": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Name of a cutomer's account"
+          },
+          "contact": {
+            "type": "string",
+            "description": "Contact person of a customer's account"
+          },
+          "supplierName": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Name of a supplier contact person"
+          },
+          "responsibleName": {
+            "type": "string",
+            "description": "Sales executive person's name of a sales order"
+          },
+          "projectName": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Name of a project related to a sales order"
+          },
+          "contractName": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Name of a contract"
+          },
+          "VAT": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "VAT reg. no. of a cutomer's account"
+          },
+          "TCV": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Total contract value (TCV)"
+          },
+          "orderDate": {
+            "type": "string",
+            "description": "Ordered date of a sales order"
+          },
+          "supplier": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Id of a supplier's account"
+          },
+          "invoiceAppendix": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "Invoice appendix"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Id of a sales order"
+          },
+          "account": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Id of a cutomer's account"
+          },
+          "shippingAccountName": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Name of a shipping accountr"
+          },
+          "billingAccountName": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Name of a customer's billing account"
+          },
+          "shippingAccount": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Id of a shipping account"
           }
         }
       }

@@ -1034,8 +1034,47 @@ types:
       quoteUntil:
         type: datetime
         description: "Finish date of a quote"
+      shippingAccount?:
+        type: integer | nil
+        description: "Id of a shipping account" 
       CustomerPerson.Name:
         type: string
+      yourReference?:
+        type: string | nil
+        description: "Reference of a customer"
+      ourReference?:
+        type: integer | nil
+        description: "Reference of a supplier" 
+      type?:
+        type: integer
+        description: "Type of a sales order"
+      comment?:
+        type: string
+        description: "Comment of a sales order"
+      project?:
+        type: integer | nil
+        description: "Id of a related project"
+      request?:
+        type: integer | nil
+        description: "Id of a related request"
+      reverseCharge?:
+        type: integer | nil
+        description: "Reverse charge"
+      invoiceItemSubtotaling?:
+        type: integer | nil
+        description: "Contact person of a customer's account"
+      handlingFee?:
+        type: integer
+        description: "Handling fee"
+      handlingFeeVat?:
+        type: integer
+        description: "Handling fee VAT"
+      noticeTime?:
+        type: integer
+        description: "Notice time of payment of a sales order"
+      description?:
+        type: string
+        description: "Description of a sales order"
   salesorder_get:
     type: salesorder_base
     properties: 
@@ -2890,8 +2929,6 @@ resourceTypes:
       Content-Type:
         type: string
         required: true
-        default: |
-          application/json;charset=UTF-8 <div id="portfolio1_5-datatype-post"></div> 
         example: |
           application/json;charset=UTF-8
     body:
