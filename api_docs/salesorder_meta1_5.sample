@@ -1,268 +1,335 @@
 {
   "filters": [
     {
+      "type": "string",
       "name": "freetextsearch",
       "caption": ""
-    },
+    }, 
     {
+      "type": "string",
       "name": "viewtemplate",
+      "value": "7",
       "caption": "View by",
       "values": {
-        "All": "10",
-        "My quotes": "1",
-        "My recently created - last 14 days": "3",
-        "All recently created - last 30 days": "15",
-        "All recently created - this month": "18",
-        "All recently created - last month": "19",
-        "All orders": "12",
-        "My team's recently created - this week": "8",
-        "My recently created - this week": "5",
-        "All recently created - this week": "16",
-        "All recently created - last week": "17",
-        "My recently created - last week": "6",
-        "All recently created - last 14 days": "14",
-        "My all": "0",
-        "My orders": "2",
-        "My recently created - last 30 days": "4",
-        "All quotes": "11",
-        "My team's all": "7",
-        "All valid orders": "13",
-        "My team's recently created - last week": "9"
+        "11": "All quotes",
+        "12": "All orders",
+        "13": "All valid orders",
+        "14": "All recently created - last 14 days",
+        "15": "All recently created - last 30 days",
+        "16": "All recently created - this week",
+        "17": "All recently created - last week",
+        "18": "All recently created - this month",
+        "19": "All recently created - last month",
+        "0": "My all",
+        "1": "My quotes",
+        "2": "My orders",
+        "3": "My recently created - last 14 days",
+        "4": "My recently created - last 30 days",
+        "5": "My recently created - this week",
+        "6": "My recently created - last week",
+        "7": "My team's all",
+        "8": "My team's recently created - this week",
+        "9": "My team's recently created - last week",
+        "10": "All"
       }
-    },
+    }, 
     {
+      "type": "multivalue",
       "name": "portfolio",
+      "value": "-1",
       "caption": "Portfolio",
       "values": {
-        "All": "-1",
-        "E. New customer portfolio": "464559",
-        "D. Administrative portfolio": "464557"
+        "210": "B) Internal projects portfolio",
+        "211": "B) Internal projects portfolio \\ Administrative projects",
+        "-1": "All",
+        "209": "A) Customer projects portfolio"
       }
-    },
+    }, 
     {
-      "name": "responsible",
-      "caption": "Sales executive",
-      "values": {
-        "All": "-1",
-        "Jim, Harris": "2752646",
-        "Sara, Johnson": "580283",
-        "Mike, Hike": "2828584"
-      }
-    },
-    {
-      "name": "status",
-      "caption": "Status",
-      "values": {
-        "All": "-1",
-        "Quoted": "20",
-        "Ordered": "40",
-        "Draft quote": "10",
-        "Confirmed": "50",
-        "Cancelled": "70",
-        "Draft sales order": "30"
-      }
-    },
-    {
-      "name": "account",
-      "caption": "Customer",
-      "values": {
-        "All": "-1",
-        "Testi Oy": "2803729",
-        "BillionMill Inc.": "558783"
-      }
-    },
-    {
-      "name": "supplier",
-      "caption": "Supplier",
-      "values": {
-        "All": "-1",
-        "Test Group Ltd.": "441328",
-        "Test Supplier Oy": "2782784"
-      }
-    },
-    {
-      "name": "product",
-      "caption": "Product",
-      "values": {
-        "All": "-1",
-        "Fixed project": "2704411",
-        "Support": "2781425",
-        "Flower 3": "2827880",
-        "PlanMill PROJECT Cloud": "594836",
-        "Professional Services": "2818483"
-      }
-    },
-    {
-      "name": "revenueType",
-      "caption": "Revenue type",
-      "values": {
-        "All": "-1",
-        "Own New License": "0",
-        "3rd Party New License": "2",
-        "Services": "4",
-        "3rd Party Subscription": "9",
-        "Travel expenses": "6",
-        "Own Maintenance License": "1",
-        "3rd Party Maint License": "3",
-        "Subscription": "8",
-        "Hosting": "5",
-        "Other": "7"
-      }
-    },
-    {
+      "type": "multivalue",
       "name": "country",
+      "value": "-1",
       "caption": "Country",
       "values": {
-        "All": "-1",
-        "Canada": "39",
-        "Norway": "160",
-        "United States": "220",
-        "Finland": "73",
-        "Denmark": "58",
-        "Uganda": "215",
-        "France": "74",
-        "-": "0",
-        "Switzerland": "200"
+        "0": "-",
+        "-1": "All",
+        "73": "Finland"
       }
-    },
+    }, 
     {
+      "type": "string",
+      "name": "SalesOrder.BusinessUnit",
+      "value": "-1",
+      "caption": "Business unit",
+      "values": {
+        "1": "1. Value",
+        "2": "2. Value",
+        "3": "3. Value",
+        "-1": "All",
+        "4": "4. Value",
+        "5": "5. Value"
+      }
+    }, 
+    {
+      "type": "interval",
       "name": "interval",
       "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
       "values": {
-        "Modified": "modified",
-        "Order date": "orderDate",
-        "Created": "created"
+        "SalesOrder.OrderDate": "Order date",
+        "SalesOrder.Created": "Created",
+        "SalesOrder.Modified": "Modified"
       }
-    },
+    }, 
     {
+      "type": "string",
       "name": "rowcount",
+      "value": "100",
       "caption": "Rows",
       "values": {
+        "100": "100",
         "25": "25",
         "50": "50",
-        "75": "75",
-        "100": "100",
         "150": "150",
-        "250": "250"
+        "250": "250",
+        "75": "75"
+      }
+    }, 
+    {
+      "type": "multivalue",
+      "name": "responsible",
+      "value": "-1",
+      "caption": "Salesperson",
+      "values": {
+        "-1": "All",
+        "356": "User (update), First"
+      }
+    }, 
+    {
+      "type": "multivalue",
+      "name": "status",
+      "value": "-1",
+      "caption": "Status",
+      "values": {
+        "-1": "All",
+        "40": "Ordered"
+      }
+    }, 
+    {
+      "type": "multivalue",
+      "name": "account",
+      "value": "-1",
+      "caption": "Customer",
+      "values": {
+        "-1": "All",
+        "51": "PlanMill Oy"
+      }
+    }, 
+    {
+      "type": "multivalue",
+      "name": "supplier",
+      "value": "-1",
+      "caption": "Supplier",
+      "values": {
+        "353": "Your organisation legal trading name (update)",
+        "-1": "All"
+      }
+    }, 
+    {
+      "type": "multivalue",
+      "name": "product",
+      "value": "-1",
+      "caption": "Product",
+      "values": {
+        "1314": "Fixed one-time service",
+        "-1": "All"
+      }
+    }, 
+    {
+      "type": "multivalue",
+      "name": "revenueType",
+      "value": "-1",
+      "caption": "Revenue type",
+      "values": {
+        "-1": "All",
+        "4": "Services"
       }
     }
-  ],
-  "fields": {
-    "shippingAccountName": {
-      "format": "text",
-      "caption": "Shipping account"
-    },
-    "shippingAccount": {
-      "format": "text",
-      "caption": "ShippingAccount.Id"
-    },
-    "accountName": {
-      "format": "text",
-      "caption": "Customer"
-    },
-    "VAT": {
-      "format": "text",
-      "caption": "VAT Reg. No."
-    },
-    "description": {
-      "format": "iconmap",
-      "caption": "_iconmap(ui-icon-comment)"
-    },
-    "delayInterest": {
-      "format": "Enumeration values.Finance control.Invoice position summary.Invoices.Delay interest",
-      "caption": "Delay interest"
-    },
-    "operationalId": {
-      "format": "text",
-      "caption": "Order/Quote No."
-    },
-    "billingAccount": {
-      "format": "text",
-      "caption": "BillingAccount.Id"
-    },
-    "totalVAT": {
-      "format": "currency",
-      "caption": "Total VAT"
-    },
-    "contact": {
-      "format": "text",
-      "caption": "Customer contact"
-    },
-    "supplier": {
-      "format": "text",
-      "caption": "Supplier.Id"
-    },
-    "responsible": {
-      "format": "text",
-      "caption": "Person2.Id"
-    },
-    "contractName": {
-      "format": "text",
-      "caption": "Contract"
-    },
-    "id": {
-      "format": "text",
-      "caption": "SalesOrder.Id"
-    },
-    "responsibleName": {
-      "format": "text",
-      "caption": "Sales executive"
-    },
-    "quoteDate": {
-      "format": "mediumdate",
-      "caption": "Quote date"
-    },
-    "supplierName": {
-      "format": "text",
-      "caption": "Supplier"
-    },
-    "totalIncludeVAT": {
-      "format": "currency",
-      "caption": "Total incl. VAT"
-    },
-    "quoteUntil": {
-      "format": "mediumdate",
-      "caption": "Quote valid until"
-    },
-    "invoiceAppendix": {
-      "format": "Enumeration values.Finance control.Invoice position summary.Invoices.Appendix",
-      "caption": "Invoice appendix"
-    },
-    "name": {
-      "format": "text",
-      "caption": "_Order name"
-    },
-    "billingAccountName": {
-      "format": "text",
-      "caption": "Billing account"
-    },
-    "projectName": {
-      "format": "text",
-      "caption": "Project (ID)"
-    },
-    "supplierContact": {
-      "format": "text",
-      "caption": "Supplier contact"
-    },
-    "orderDate": {
-      "format": "mediumdate",
-      "caption": "Order date"
-    },
-    "termsOfPayment": {
-      "format": "Enumeration values.Sales management.Accounts.Terms of Payment",
-      "caption": "Terms of Payment"
-    },
-    "account": {
-      "format": "text",
-      "caption": "Account.Id"
-    },
-    "status": {
-      "format": "Enumeration values.Sales management.Sales orders.Status",
-      "caption": "Status"
-    },
-    "totalExcludeVAT": {
-      "format": "currency",
-      "caption": "Total excl. VAT"
+    ],
+    "fields": {
+      "shippingAccountName": {
+        "format": "text",
+        "caption": "Shipping account"
+      },
+      "shippingAccount": {
+        "format": "text",
+        "caption": "ShippingAccount.Id"
+      },
+      "accountName": {
+        "format": "text",
+        "caption": "Customer"
+      },
+      "VAT": {
+        "format": "text",
+        "caption": "VAT number"
+      },
+      "delayInterest": {
+        "values": {
+            "9.5": "9,5 %",
+            "11.5": "11,5 %",
+            "10.5": "10,5 %",
+            "0.0": "-",
+            "1.0": "1,0 %",
+            "2.0": "2,0 %",
+            "12.0": "12,0 %",
+            "3.0": "3,0 %",
+            "11.0": "11,0 %",
+            "4.0": "4,0 %",
+            "10.0": "10,0 %",
+            "5.0": "5,0 %",
+            "1.5": "1,5 %",
+            "6.0": "6,0 %",
+            "2.5": "2,5 %",
+            "7.0": "7,0 %",
+            "3.5": "3,5 %",
+            "8.0": "8,0 %",
+            "4.5": "4,5 %",
+            "9.0": "9,0 %",
+            "5.5": "5,5 %",
+            "6.5": "6,5 %",
+            "19.0": "19,0 %",
+            "7.5": "7,5 %",
+            "8.5": "8,5 %"
+        },
+        "format": "Enumeration values.Finance control.Invoice position summary.Invoices.Delay interest",
+        "caption": "Delay interest"
+      },
+      "operationalId": {
+        "format": "text",
+        "caption": "Order\/Quote No."
+      },
+      "billingAccount": {
+        "format": "text",
+        "caption": "BillingAccount.Id"
+      },
+      "contact": {
+        "format": "text",
+        "caption": "Customer contact"
+      },
+      "supplier": {
+        "format": "text",
+        "caption": "Supplier.Id"
+      },
+      "responsible": {
+        "format": "text",
+        "caption": "Person2.Id"
+      },
+      "contractName": {
+        "format": "text",
+        "caption": "Contract"
+      },
+      "id": {
+        "format": "text",
+        "caption": "SalesOrder.Id"
+      },
+      "responsibleName": {
+        "format": "text",
+        "caption": "Salesperson"
+      },
+      "quoteDate": {
+        "format": "mediumdate",
+        "caption": "Quote date"
+      },
+      "supplierName": {
+        "format": "text",
+        "caption": "Supplier"
+      },
+      "quoteUntil": {
+        "format": "mediumdate",
+        "caption": "Quote valid until"
+      },
+      "invoiceAppendix": {
+        "values": {
+            "0": "None",
+            "1": "Invoice items by task",
+            "2": "Invoice items by person",
+            "3": "Priced invoice items by task",
+            "4": "Priced invoice items by person"
+        },
+        "format": "Enumeration values.Finance control.Invoice position summary.Invoices.Appendix",
+        "caption": "Invoice appendix"
+      },
+      "created": {
+        "format": "shortdate",
+        "caption": "Created"
+      },
+      "name": {
+        "format": "text",
+        "caption": "Name"
+      },
+      "billingAccountName": {
+        "format": "text",
+        "caption": "Billing account"
+      },
+      "projectName": {
+        "format": "text",
+        "caption": "Project (ID)"
+      },
+      "supplierContact": {
+        "format": "text",
+        "caption": "Supplier contact"
+      },
+      "orderDate": {
+        "format": "mediumdate",
+        "caption": "Order date"
+      },
+      "termsOfPayment": {
+        "values": {
+            "45": "45 days net",
+            "35": "35 days net",
+            "14": "14 days net",
+            "37": "37 days net",
+            "28": "28 days net",
+            "180": "180 days net",
+            "120": "120 days net",
+            "0": "Immediately",
+            "7": "7 days net",
+            "90": "90 days net",
+            "70": "70 days net",
+            "60": "60 days net",
+            "50": "50 days net",
+            "40": "40 days net",
+            "30": "30 days net",
+            "20": "20 days net",
+            "31": "31 days net",
+            "75": "75 days net",
+            "21": "21 days net",
+            "32": "32 days net"
+        },
+        "format": "Enumeration values.Sales management.Accounts.Terms of Payment",
+        "caption": "Terms of Payment"
+      },
+      "account": {
+        "format": "text",
+        "caption": "Account.Id"
+      },
+      "status": {
+        "values": {
+            "optgroup": "Sales order",
+            "\/optgroup": "-",
+            "70": "Cancelled",
+            "60": "Completed",
+            "50": "Confirmed",
+            "40": "Ordered",
+            "30": "Draft sales order",
+            "20": "Quoted",
+            "10": "Draft quote"
+        },
+        "format": "Enumeration values.Sales management.Sales orders.Status",
+        "caption": "Status"
+      },
+      "totalExcludeVAT": {
+        "format": "currency",
+        "caption": "Total contract value (TCV)"
+      }
     }
-  }
 }
