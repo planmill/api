@@ -1,19 +1,18 @@
 [
-    {
-        "size": 447,
-        "createdBy": 50,
-        "created": "2019-02-21T10:31:19.170+0200",
-        "name": "attached_file_test.txt",
-        "modified": "2019-02-21T12:04:05.007+0200",
-        "id": 1514
-    },
-    {
-        "size": 466,
-        "createdBy": 50,
-        "created": "2019-02-21T12:04:05.017+0200",
-        "name": "attached_file.txt",
-        "modified": "2019-02-21T12:04:05.017+0200",
-        "id": 1515
-    }
+  {
+    "size": 8497,
+    "createdBy": 50,
+    "created": "2022-01-13T13:05:10.837+0200",
+    "name": "attached_file_test.txt",
+    "modified": "2022-01-13T13:18:25.353+0200",
+    "id": 1543
+  }, 
+  {
+    "size": 146169,
+    "createdBy": 50,
+    "created": "2022-01-13T13:18:25.353+0200",
+    "name": "attached_file.txt",
+    "modified": "2022-01-13T13:18:25.353+0200",
+    "id": 1545
+  }
 ]
-
