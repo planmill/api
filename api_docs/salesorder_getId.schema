@@ -181,6 +181,28 @@
           "type": "string",
           "description": "Description of a sales order"
         },
+        "contract": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Id of a related contract"
+        },
+        "opportunity": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Id of a related opportunity"
+        },
         "supplierName": {
           "anyOf": [
             {
@@ -193,7 +215,14 @@
           "description": "Name of a supplier contact person"
         },
         "responsibleName": {
-          "type": "string",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
           "description": "Sales executive person's name of a sales order"
         },
         "projectName": {
@@ -232,7 +261,7 @@
           ],
           "description": "VAT reg. no. of a cutomer's account"
         },
-        "TCV": {
+        "totalExcludeVAT": {
           "anyOf": [
             {
               "type": "number"
@@ -241,7 +270,7 @@
               "type": "null"
             }
           ],
-          "description": "Total contract value (TCV)"
+          "description": "Total contract value (TCV), total Exclude VAT"
         },
         "supplier": {
           "anyOf": [
@@ -260,7 +289,7 @@
               "type": "integer"
             },
             {
-              "type": "string"
+              "type": "null"
             }
           ],
           "description": "Invoice appendix"

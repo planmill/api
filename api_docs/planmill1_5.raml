@@ -1013,6 +1013,12 @@ types:
       description?:
         type: string
         description: "Description of a sales order"
+      contract?:
+        type: integer | nil
+        description: "Id of a related contract"
+      opportunity?:
+        type: string | nil
+        description: "Id of a related opportunity"
   salesorder_post:
     type: salesorder_get
     properties:
@@ -1128,6 +1134,8 @@ types:
       supplier?:
         type: integer | nil
         description: "Id of a supplier's account"
+      CustomerPerson.Name?:
+        type: string  | integer
   salesorder_getId: 
     type: salesorder_common
     properties:

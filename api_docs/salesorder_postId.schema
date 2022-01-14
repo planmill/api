@@ -181,6 +181,28 @@
           "type": "string",
           "description": "Description of a sales order"
         },
+        "contract": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Id of a related contract"
+        },
+        "opportunity": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Id of a related opportunity"
+        },
         "accountName": {
           "anyOf": [
             {
@@ -208,10 +230,17 @@
           "description": "Name of a supplier contact person"
         },
         "responsibleName": {
-          "type": "string",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
           "description": "Sales executive person's name of a sales order"
         },
-        "TCV": {
+        "totalExcludeVAT": {
           "anyOf": [
             {
               "type": "number"
@@ -220,7 +249,7 @@
               "type": "null"
             }
           ],
-          "description": "Total contract value (TCV)"
+          "description": "Total contract value (TCV), total Exclude VAT"
         },
         "invoiceAppendix": {
           "anyOf": [
@@ -228,7 +257,7 @@
               "type": "integer"
             },
             {
-              "type": "string"
+              "type": "null"
             }
           ],
           "description": "Invoice appendix"
@@ -283,6 +312,16 @@
             }
           ],
           "description": "Id of a supplier's account"
+        },
+        "CustomerPerson.Name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "integer"
+            }
+          ]
         },
         "id": {
           "type": "integer",

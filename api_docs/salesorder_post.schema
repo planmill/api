@@ -112,7 +112,14 @@
           "description": "Id of a shipping account"
         },
         "CustomerPerson.Name": {
-          "type": "string"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "integer"
+            }
+          ]
         },
         "yourReference": {
           "anyOf": [
@@ -227,7 +234,14 @@
           "description": "Name of a supplier contact person"
         },
         "responsibleName": {
-          "type": "string",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
           "description": "Sales executive person's name of a sales order"
         },
         "projectName": {
@@ -266,7 +280,7 @@
           ],
           "description": "VAT reg. no. of a cutomer's account"
         },
-        "TCV": {
+        "totalExcludeVAT": {
           "anyOf": [
             {
               "type": "number"
@@ -275,7 +289,7 @@
               "type": "null"
             }
           ],
-          "description": "Total contract value (TCV)"
+          "description": "Total contract value (TCV), total Exclude VAT"
         },
         "orderDate": {
           "type": "string",
@@ -298,7 +312,7 @@
               "type": "integer"
             },
             {
-              "type": "string"
+              "type": "null"
             }
           ],
           "description": "Invoice appendix"
