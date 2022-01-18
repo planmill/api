@@ -978,7 +978,7 @@ types:
         type: string | nil
         description: "Reference of a customer"
       ourReference?:
-        type: integer | nil
+        type: string | integer | nil
         description: "Reference of a supplier" 
       type?:
         type: integer
@@ -1049,7 +1049,7 @@ types:
         type: string | nil
         description: "Reference of a customer"
       ourReference?:
-        type: integer | nil
+        type: string | integer | nil
         description: "Reference of a supplier" 
       type?:
         type: integer
@@ -1143,13 +1143,13 @@ types:
         type: string | nil
         description: "Name of a cutomer's account"
       contact?:
-        type: string
+        type: string | integer
         description: "Contact person of a customer's account"
       id?:
         type: integer
         description: "Id of a sales order"
       shippingAccount?:
-        type: integer | nil
+        type: integer | string | nil 
         description: "Id of a shipping account"   
   salesorder:
     type: salesorder_get
