@@ -10,10 +10,6 @@
           "type": "string",
           "description": "Name of a sales order"
         },
-        "supplierContact": {
-          "type": "string",
-          "description": "Name of a supplier contact person"
-        },
         "orderDate": {
           "type": "string",
           "description": "Ordered date of a sales order"
@@ -97,17 +93,6 @@
             }
           ],
           "description": "Reference of a customer"
-        },
-        "ourReference": {
-          "anyOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "description": "Reference of a supplier"
         },
         "type": {
           "type": "integer",
@@ -310,7 +295,7 @@
           "description": "Name of a cutomer's account"
         },
         "contact": {
-          "type": "string",
+          "type": "integer",
           "description": "Contact person of a customer's account"
         },
         "id": {
@@ -327,6 +312,14 @@
             }
           ],
           "description": "Id of a shipping account"
+        },
+        "ourReference": {
+          "type": "string",
+          "description": "Reference of a supplier"
+        },
+        "supplierContact": {
+          "type": "integer",
+          "description": "Name of a supplier contact person"
         },
         "account": {
           "anyOf": [

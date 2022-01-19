@@ -12,10 +12,6 @@
             "type": "string",
             "description": "Name of a sales order"
           },
-          "supplierContact": {
-            "type": "string",
-            "description": "Name of a supplier contact person"
-          },
           "status": {
             "type": "integer",
             "description": "Status of a sales order"

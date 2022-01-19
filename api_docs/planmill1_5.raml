@@ -941,9 +941,6 @@ types:
       name?:
         type: string
         description: "Name of a sales order"
-      supplierContact?:
-        type: string 
-        description: "Name of a supplier contact person"
       orderDate?:
         type: string
         description: "Ordered date of a sales order" 
@@ -1136,6 +1133,9 @@ types:
         description: "Id of a supplier's account"
       CustomerPerson.Name?:
         type: string  | integer
+      supplierContact?:
+        type: string 
+        description: "Name of a supplier contact person" 
   salesorder_getId: 
     type: salesorder_common
     properties:
@@ -1143,14 +1143,20 @@ types:
         type: string | nil
         description: "Name of a cutomer's account"
       contact?:
-        type: string | integer
+        type: integer
         description: "Contact person of a customer's account"
       id?:
         type: integer
         description: "Id of a sales order"
       shippingAccount?:
         type: integer | nil 
-        description: "Id of a shipping account"   
+        description: "Id of a shipping account"
+      ourReference?:
+        type: string 
+        description: "Reference of a supplier"
+      supplierContact?:
+        type: integer 
+        description: "Name of a supplier contact person"  
   salesorder:
     type: salesorder_get
     properties: 

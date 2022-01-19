@@ -133,14 +133,7 @@
           "description": "Reference of a customer"
         },
         "ourReference": {
-          "anyOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
+          "type": "string",
           "description": "Reference of a supplier"
         },
         "type": {
