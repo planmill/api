@@ -1180,7 +1180,10 @@ types:
         description: "Name of a customer's billing account"
       shippingAccount?:
         type: integer | nil
-        description: "Id of a shipping account" 
+        description: "Id of a shipping account"
+      supplierContact?:
+        type: string 
+        description: "Name of a supplier contact person" 
   salesorder_getAll:
     type: salesorder[]       
   team: !include team1_5.schema

@@ -242,6 +242,10 @@
               }
             ],
             "description": "Id of a shipping account"
+          },
+          "supplierContact": {
+            "type": "string",
+            "description": "Name of a supplier contact person"
           }
         }
       }
