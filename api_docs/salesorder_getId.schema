@@ -94,6 +94,17 @@
           ],
           "description": "Reference of a customer"
         },
+        "ourReference": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Reference of a supplier"
+        },
         "type": {
           "type": "integer",
           "description": "Type of a sales order"
@@ -312,10 +323,6 @@
             }
           ],
           "description": "Id of a shipping account"
-        },
-        "ourReference": {
-          "type": "string",
-          "description": "Reference of a supplier"
         },
         "supplierContact": {
           "type": "integer",

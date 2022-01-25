@@ -195,6 +195,10 @@
             "type": "string",
             "format": "date-time"
           },
+          "supplierContact": {
+            "type": "string",
+            "description": "Name of a supplier contact person"
+          },
           "id": {
             "type": "integer",
             "description": "Id of a sales order"
@@ -242,10 +246,6 @@
               }
             ],
             "description": "Id of a shipping account"
-          },
-          "supplierContact": {
-            "type": "string",
-            "description": "Name of a supplier contact person"
           }
         }
       }

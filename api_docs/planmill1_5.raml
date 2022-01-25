@@ -981,7 +981,7 @@ types:
         type: string | nil
         description: "Reference of a customer"
       ourReference?:
-        type: string 
+        type: string | nil
         description: "Reference of a supplier" 
       type?:
         type: integer
@@ -1052,13 +1052,13 @@ types:
         type: string | nil
         description: "Reference of a customer"
       ourReference?:
-        type: string 
+        type: string | nil
         description: "Reference of a supplier" 
       type?:
         type: integer
         description: "Type of a sales order"
       comment?:
-        type: string
+        type: string | nil
         description: "Comment of a sales order"
       project?:
         type: integer | nil
@@ -1122,6 +1122,9 @@ types:
         description: "Invoice appendix"
       created?:
         type: datetime
+      supplierContact?:
+        type: string 
+        description: "Name of a supplier contact person" 
   salesorder_postId:
     type: salesorder_common
     properties:
@@ -1157,9 +1160,6 @@ types:
       shippingAccount?:
         type: integer | nil 
         description: "Id of a shipping account"
-      ourReference?:
-        type: string 
-        description: "Reference of a supplier"
       supplierContact?:
         type: integer 
         description: "Name of a supplier contact person"  
@@ -1180,10 +1180,7 @@ types:
         description: "Name of a customer's billing account"
       shippingAccount?:
         type: integer | nil
-        description: "Id of a shipping account"
-      supplierContact?:
-        type: string 
-        description: "Name of a supplier contact person" 
+        description: "Id of a shipping account" 
   salesorder_getAll:
     type: salesorder[]       
   team: !include team1_5.schema
