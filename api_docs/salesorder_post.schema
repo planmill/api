@@ -15,6 +15,17 @@
         "languageAndCurrency"
       ],
       "properties": {
+        "orderDate": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Ordered date of a sales order"
+        },
         "status": {
           "type": "integer",
           "description": "Status of a sales order"
@@ -297,10 +308,6 @@
             }
           ],
           "description": "Total contract value (TCV), total Exclude VAT"
-        },
-        "orderDate": {
-          "type": "string",
-          "description": "Ordered date of a sales order"
         },
         "supplier": {
           "anyOf": [

@@ -941,14 +941,8 @@ types:
       name?:
         type: string
         description: "Name of a sales order"
-  salesorder_base:
-    additionalProperties: false
-    properties:
-      name?:
-        type: string
-        description: "Name of a sales order"
       orderDate?:
-        type: string
+        type: string | nil
         description: "Ordered date of a sales order" 
       status?:
         type: integer
@@ -1111,9 +1105,6 @@ types:
       totalExcludeVAT?:
         type: number | nil
         description: "Total contract value (TCV), total Exclude VAT"
-      orderDate?:
-        type: string 
-        description: "Ordered date of a sales order"
       supplier?:
         type: integer | nil
         description: "Id of a supplier's account"

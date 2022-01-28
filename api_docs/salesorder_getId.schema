@@ -11,7 +11,14 @@
           "description": "Name of a sales order"
         },
         "orderDate": {
-          "type": "string",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
           "description": "Ordered date of a sales order"
         },
         "status": {
