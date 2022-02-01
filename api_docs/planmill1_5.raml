@@ -2950,7 +2950,7 @@ resourceTypes:
   type:
     collection:
        exampleCollectionItemArray: !include salesorder_array1_5.sample
-       exampleCollectionItem: !include salesorder1_5.sample
+       exampleCollectionItem: !include salesorder_post.sample
   /meta:
       description: Get meta information for sales orders. Includes resource's fields names and type and related filters.
       get:
@@ -2972,7 +2972,7 @@ resourceTypes:
     type: 
      allMethodsCollectionItem:
         exampleCollectionGetItem: !include salesorder_getId.sample
-        exampleCollectionPostItem: !include salesorder1_5.sample	
+        exampleCollectionPostItem: !include salesorder_post.sample	
     /attachments:
       type:
         readOnlyCollection:
