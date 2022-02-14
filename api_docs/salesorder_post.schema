@@ -6,12 +6,8 @@
       "type": "object",
       "additionalProperties": true,
       "required": [
-        "CustomerPerson.Name",
         "contact",
         "name",
-        "quoteDate",
-        "quoteUntil",
-        "supplierContact",
         "languageAndCurrency"
       ],
       "properties": {
@@ -93,13 +89,13 @@
           "type": "string",
           "description": "Contact person of a customer's account"
         },
-        "supplierContact": {
-          "type": "string",
-          "description": "Name of a supplier contact person"
-        },
         "languageAndCurrency": {
           "type": "string",
           "description": "language And Currency"
+        },
+        "supplierContact": {
+          "type": "string",
+          "description": "Name of a supplier contact person.Required if contact field is missing"
         },
         "quoteDate": {
           "type": "string",
@@ -130,7 +126,8 @@
             {
               "type": "integer"
             }
-          ]
+          ],
+          "description": "Required if contact field is missing"
         },
         "yourReference": {
           "anyOf": [

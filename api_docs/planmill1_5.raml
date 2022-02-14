@@ -1025,23 +1025,24 @@ types:
       contact:
         type: string
         description: "Contact person of a customer's account"
-      supplierContact:
-        type: string
-        description: "Name of a supplier contact person"
       languageAndCurrency:
         type: string
         description: "language And Currency"
-      quoteDate:
+      supplierContact?:
+        type: string
+        description: "Name of a supplier contact person.Required if contact field is missing"
+      quoteDate?:
         type: datetime
         description: "Start date of a quote"
-      quoteUntil:
+      quoteUntil?:
         type: datetime
         description: "Finish date of a quote"
       shippingAccount?:
         type: integer | nil
         description: "Id of a shipping account" 
-      CustomerPerson.Name:
+      CustomerPerson.Name?:
         type: string  | integer
+        description: "Required if contact field is missing"
       yourReference?:
         type: string | nil
         description: "Reference of a customer"
@@ -1139,15 +1140,15 @@ types:
   salesorder_getId: 
     type: salesorder_common
     properties:
+      id?:
+        type: integer
+        description: "Id of a sales order"
       accountName?:
         type: string | nil
         description: "Name of a cutomer's account"
       contact?:
         type: integer
         description: "Contact person of a customer's account"
-      id?:
-        type: integer
-        description: "Id of a sales order"
       shippingAccount?:
         type: integer | nil 
         description: "Id of a shipping account"
