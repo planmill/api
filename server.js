@@ -32,6 +32,10 @@ var linkItems = [
   "portfolio_post",
   "portfolio_postId",
   "portfolio_getAll",
+  "salesorder_getAll",
+  "salesorder_post",
+  "salesorder_postId",
+  "salesorder_getId",
   "timereport_getId",
   "timereport_post",
   "timereport_postId",
@@ -42,7 +46,8 @@ var linkItems = [
 app.use(express.static(indexSubDir));
 
 //start the express web server listening on 3020
-/*app.listen(3020, () => {
+/*
+app.listen(3020, () => {
   console.log("listening on 3020");
 });
 */

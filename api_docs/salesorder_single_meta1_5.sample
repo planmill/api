@@ -1,238 +1,269 @@
 {
   "request": {
+    "type": "string",
     "caption": "",
     "format": "int",
     "description": "",
     "values": null
   },
   "shippingAccount": {
+    "type": "string",
     "caption": "",
     "format": "int",
     "description": "",
     "values": null
   },
   "handlingFee": {
+    "type": "string",
+    "value": "0,00",
     "caption": "Handling fee",
     "format": "double",
     "description": "",
     "values": null
   },
   "handlingFeeVat": {
-    "caption": "Handling fee VAT",
+    "type": "string",
+    "caption": "VAT",
+    "values": {
+        "8,875 %": "8.875",
+        "10,25 %": "10.25",
+        "9%": "9.0",
+        "17,5 %": "17.5",
+        "24 %": "24.0",
+        "23 %": "23.0",
+        "22 %": "22.0",
+        "7,8 %": "7.8",
+        "21 %": "21.0",
+        "20 %": "20.0",
+        "6,25 %": "6.25",
+        "7,75 %": "7.75",
+        "9,25 %": "9.25",
+        "7,5 %": "7.5",
+        "25 %": "25.0",
+        "8,9 %": "8.9",
+        "12%": "12.0",
+        "8,5 %": "8.5",
+        "13 %": "13.0",
+        "0.0": "0 %",
+        "10 %": "10.0",
+        "5 %": "5.0",
+        "19 %": "19.0",
+        "6 %": "6.0",
+        "18 %": "18.0",
+        "7 %": "7.0",
+        "17 %": "17.0",
+        "16 %": "16.0",
+        "8 %": "8.0",
+        "6,625 %": "6.625",
+        "15 %": "15.0",
+        "9,5 %": "9.5",
+        "14 %": "14.0"
+    },
     "format": "double",
     "description": "",
-    "enumeration": "Enumeration values.Finance control.Invoice position summary.Invoices.VAT",
-    "values": {
-      "12%": "12.0",
-      "9%": "9.0",
-      "17,5 %": "17.5",
-      "13 %": "13.0",
-      "24 %": "24.0",
-      "23 %": "23.0",
-      "22 %": "22.0",
-      "10 %": "10.0",
-      "21 %": "21.0",
-      "20 %": "20.0",
-      "0 %": "0.0",
-      "5 %": "5.0",
-      "19 %": "19.0",
-      "18 %": "18.0",
-      "7 %": "7.0",
-      "17 %": "17.0",
-      "8 %": "8.0",
-      "15 %": "15.0",
-      "14 %": "14.0",
-      "25 %": "25.0"
-    }
+    "enumeration": "Enumeration values.Finance control.Invoice position summary.Invoices.VAT"
   },
   "project": {
+    "type": "string",
+    "value": "-1",
     "caption": "",
     "format": "int",
     "description": "",
     "values": null
   },
   "description": {
+    "type": "string",
     "caption": "",
     "format": "string",
     "description": "",
     "values": null
   },
   "delayInterest": {
+    "type": "string",
     "caption": "Delay interest",
     "description": "",
     "enumeration": "Enumeration values.Finance control.Invoice position summary.Invoices.Delay interest",
     "values": {
-      "5,0 %": "5.0",
-      "3,5 %": "3.5",
-      "8,0 %": "8.0",
-      "6,5 %": "6.0",
-      "11,5 %": "11.5",
-      "4,0 %": "4.0",
-      "11,0 %": "11.0",
-      "2,0 %": "2.0",
-      "8,5 %": "8.5",
-      "4,5 %": "4.5",
-      "2,5 %": "2.5",
-      "9,0 %": "9.0",
-      "12,0 %": "12.0",
-      "1,5 %": "1.5",
-      "10,5 %": "10.5",
-      "7,0 %": "7.0",
-      "5,5 %": "5.5",
-      "1,0 %": "1.0",
-      "10,0 %": "10.0",
-      "7,5 %": "7.5",
-      "9,5 %": "9.5",
-      "3,0 %": "3.0"
+        "5,0 %": "5.0",
+        "6,5 %": "6.5",
+        "11,5 %": "11.5",
+        "4,0 %": "4.0",
+        "11,0 %": "11.0",
+        "2,5 %": "2.5",
+        "12,0 %": "12.0",
+        "7,0 %": "7.0",
+        "7,5 %": "7.5",
+        "3,0 %": "3.0",
+        "3,5 %": "3.5",
+        "19,0 %": "19.0",
+        "8,0 %": "8.0",
+        "-": "0.0",
+        "2,0 %": "2.0",
+        "8,5 %": "8.5",
+        "6,0 %": "6.0",
+        "4,5 %": "4.5",
+        "9,0 %": "9.0",
+        "1,5 %": "1.5",
+        "10,5 %": "10.5",
+        "5,5 %": "5.5",
+        "1,0 %": "1.0",
+        "10,0 %": "10.0",
+        "9,5 %": "9.5"
     }
   },
   "operationalId": {
-    "description": "will be automatically generated",
-    "caption": "Order/Quote No.",
+    "type": "string",
+    "description": "Will be automatically generated",
+    "caption": "Order\/Quote No.",
     "maxlength": "50",
     "values": null
   },
   "type": {
+    "type": "string",
+    "value": "10",
     "caption": "Type",
     "format": "int",
     "description": "",
     "enumeration": "Enumeration values.Sales management.Sales orders.Type",
     "values": {
-      "Sales order": "10"
+        "Sales order": "10"
     }
   },
   "billingAccount": {
+    "type": "string",
     "caption": "",
     "format": "int",
     "description": "",
     "values": null
   },
   "ourReference": {
+    "type": "string",
     "caption": "Our reference",
     "description": "",
     "maxlength": "255",
     "values": null
   },
   "responsible": {
-    "caption": "Sales executive",
+    "type": "string",
+    "caption": "Salesperson",
     "values": {
-      "Jim, Harris": "2752646",
-      "Sara, Johnson": "580283",
-      "Mike, Hike": "2828584"
+        "356": "User (update), First",
+        "User (update), First": 356
     },
     "format": "int",
     "description": ""
   },
   "contact": {
+    "type": "string",
+    "caption": "",
+    "format": "int",
+    "description": "",
+    "values": null
+  },
+  "id": {
+    "type": "string",
     "caption": "",
     "format": "int",
     "description": "",
     "values": null
   },
   "invoiceItemSubtotaling": {
+    "type": "string",
     "caption": "Invoice item subtotalling",
     "description": "",
     "enumeration": "Enumeration values.Sales management.Sales orders.Show sub-totals",
     "values": {
-      "No task subtotals": "0",
-      "Include VAT - no task subtotals": "3",
-      "Totals by VAT": "2",
-      "Include VAT - show task subtotals": "4",
-      "Default": "-1",
-      "Show task subtotals": "1",
-      "Hide zero value rows": "6",
-      "Hide all item prices and subtotals": "5"
+        "No task subtotals": "0",
+        "Include VAT - no task subtotals": "3",
+        "Project total by VAT": "2",
+        "Include VAT - show task subtotals": "4",
+        "Default": "-1",
+        "Show task subtotals": "1",
+        "Hide zero value rows": "6",
+        "Hide all item prices and subtotals": "5"
     }
   },
-  "shippingReference": {
-    "caption": "Default Reference/PO-number",
-    "format": "string",
-    "description": "",
-    "maxlength": "255",
-    "values": null
-  },
   "noticeTime": {
+    "type": "string",
+    "value": "8",
     "caption": "Notice time",
     "description": "",
-    "enumeration": "Enumeration values.Sales management.Sales orders.Notice time",
+    "enumeration": "Enumeration values.Finance control.Invoice position summary.Invoices.Notice time",
     "values": {
-      "15 days": "15",
-      "8 days": "8"
+        "15 days": "15",
+        "-": "0",
+        "8 days": "8"
     }
   },
   "quoteDate": {
+    "type": "string",
     "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
     "caption": "Quote date",
     "format": "string",
     "description": "",
-    "maxlength": "10",
     "values": null
   },
   "quoteUntil": {
+    "type": "string",
     "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
-    "caption": "Quote valid until",
+    "caption": "Valid until",
     "format": "string",
     "description": "",
-    "maxlength": "10",
     "values": null
   },
   "yourReference": {
-    "description": "Maximum length of 'Your reference' is 35 characters because of Finvoice standard (Finvoice standard supports only 35 characters)",
+    "type": "string",
+    "description": "Maximum length is 35 characters due to Finvoice standard limit",
     "caption": "Your reference",
     "maxlength": "35",
     "values": null
   },
   "languageAndCurrency": {
+    "type": "string",
+    "description": "Additional currencies must be added by Power user in Administration settings.",
     "caption": "Language & currency",
     "values": {
-      "Swedish (DKK)": "planmill_sv_dkk.xsl",
-      "Swedish (EUR)": "planmill_sv_eur.xsl",
-      "English (USD)": "planmill_en_usd.xsl",
-      "English (DKK)": "planmill_en_dkk.xsl",
-      "English (ZAR)": "planmill_en_zar.xsl",
-      "Dutch (EUR)": "planmill_nl_eur.xsl",
-      "Norwegian (NOK)": "planmill_no_nok.xsl",
-      "English (SGD)": "planmill_en_sgd.xsl",
-      "English (EUR)": "planmill_en_eur.xsl",
-      "-": "",
-      "English (NOK)": "planmill_en_nok.xsl",
-      "Danish (DKK)": "planmill_da_dkk.xsl",
-      "English (CAD)": "planmill_en_cad.xsl",
-      "German (EUR)": "planmill_de_eur.xsl",
-      "English (BRL)": "planmill_en_brl.xsl",
-      "German (CHF)": "planmill_de_chf.xsl",
-      "English (SEK)": "planmill_en_sek.xsl",
-      "English (CHF)": "planmill_en_chf.xsl",
-      "English (GBP)": "planmill_en_gbp.xsl",
-      "Estonian (EUR)": "planmill_ee_eur.xsl",
-      "Swedish (SEK)": "planmill_sv_sek.xsl",
-      "Finnish (EUR)": "planmill_fi_eur.xsl"
-    },
-    "description": "",
-    "enumeration": "Enumeration values.Finance control.Invoice position summary.Invoices.Language and currency"
+        "": "-",
+        "Swedish (EUR)": "planmill_sv_eur.xsl",
+        "Dutch (EUR)": "planmill_nl_eur.xsl",
+        "English (EUR)": "planmill_en_eur.xsl",
+        "planmill_en_eur.xsl": "English (EUR)",
+        "planmill_nl_eur.xsl": "Dutch (EUR)",
+        "planmill_sv_eur.xsl": "Swedish (EUR)",
+        "planmill_et_eur.xsl": "Estonian (EUR)",
+        "German (EUR)": "planmill_de_eur.xsl",
+        "planmill_de_eur.xsl": "German (EUR)",
+        "planmill_fi_eur.xsl": "Finnish (EUR)",
+        "Estonian (EUR)": "planmill_et_eur.xsl",
+        "Finnish (EUR)": "planmill_fi_eur.xsl"
+    }
   },
   "contract": {
+    "type": "string",
     "caption": "",
     "format": "int",
     "description": "",
     "values": null
   },
   "opportunity": {
+    "type": "string",
     "caption": "",
     "format": "int",
     "description": "",
     "values": null
   },
   "reverseCharge": {
+    "type": "string",
     "caption": "Reverse charge",
     "format": "int",
     "description": "",
     "enumeration": "Enumeration values.Sales management.Sales orders.Reverse charge",
     "values": {
-      "0,0 % VAT Reverse charge": "10"
+        "0,0 % VAT Reverse charge": "10"
     }
   },
   "name": {
+    "type": "string",
     "caption": "Name",
     "format": "string",
     "description": "",
@@ -240,57 +271,73 @@
     "values": null
   },
   "comment": {
+    "type": "string",
     "format": "string",
     "description": "",
     "values": null
   },
-  "termsOfPayment": {
-    "caption": "Terms of Payment",
-    "description": "",
-    "enumeration": "Enumeration values.Sales management.Accounts.Terms of Payment",
-    "values": {
-      "180 days net": "180",
-      "Immediately": "0",
-      "14 days net": "14",
-      "45 days net": "45",
-      "28 days net": "28",
-      "30 days net": "30",
-      "120 days net": "120",
-      "7 days net": "7",
-      "60 days net": "60",
-      "90 days net": "90",
-      "21 days net": "21"
-    }
-  },
   "orderDate": {
+    "type": "string",
     "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
     "caption": "Order date",
     "format": "string",
     "description": "",
-    "maxlength": "10",
     "values": null
   },
   "supplierContact": {
+    "type": "string",
+    "value": "[userid]",
     "caption": "",
     "format": "int",
     "description": "",
     "values": null
   },
+  "termsOfPayment": {
+    "type": "string",
+    "value": "14",
+    "caption": "Terms of Payment",
+    "description": "",
+    "enumeration": "Enumeration values.Sales management.Accounts.Terms of Payment",
+    "values": {
+        "180 days net": "180",
+        "40 days net": "40",
+        "14 days net": "14",
+        "Immediately": "0",
+        "75 days net": "75",
+        "50 days net": "50",
+        "30 days net": "30",
+        "37 days net": "37",
+        "120 days net": "120",
+        "31 days net": "31",
+        "90 days net": "90",
+        "21 days net": "21",
+        "35 days net": "35",
+        "32 days net": "32",
+        "45 days net": "45",
+        "28 days net": "28",
+        "20 days net": "20",
+        "7 days net": "7",
+        "60 days net": "60",
+        "70 days net": "70"
+    }
+  },
   "status": {
+    "type": "string",
+    "value": "10",
     "caption": "Status",
     "format": "int",
     "description": "",
     "enumeration": "Enumeration values.Sales management.Sales orders.Status",
     "values": {
-      "Sales order": "optgroup",
-      "Quoted": "20",
-      "Completed": "60",
-      "Ordered": "40",
-      "Cancelled": "70",
-      "Confirmed": "50",
-      "Draft quote": "10",
-      "Draft sales order": "30",
-      "-": "/optgroup"
+        "Sales order": "optgroup",
+        "Quoted": "20",
+        "Completed": "60",
+        "Ordered": "40",
+        "Cancelled": "70",
+        "Confirmed": "50",
+        "Draft quote": "10",
+        "Draft sales order": "30",
+        "-": "\/optgroup"
     }
   }
 }

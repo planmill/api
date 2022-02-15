@@ -160,7 +160,14 @@
             "description": "Type of duty"
           },
           "unitPrice": {
-            "type": "integer",
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "description": "Price per unit (hour)"
           },
           "modified": {

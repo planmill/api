@@ -935,7 +935,246 @@ types:
     type: project[]
   product: !include product_getAll.schema
   pricebook: !include pricebook1_5.schema
-  salesorder: !include sales_order1_5.schema
+  salesorder_base:
+    additionalProperties: false
+    properties:
+      name?:
+        type: string
+        description: "Name of a sales order"
+      orderDate?:
+        type: string | nil
+        description: "Ordered date of a sales order" 
+      status?:
+        type: integer
+        description: "Status of a sales order"
+      termsOfPayment?:
+        type: number | nil
+        description: "Terms of payment" 
+      delayInterest?:
+        type: number | nil
+        description: "Interest on delay of payment"
+      responsible?:
+        type: integer | nil
+        description: "Sales executive person's id of a sales order"
+      operationalId?:
+        type: integer | string
+        description: "Operational id of a sales order" 
+      quoteDate?:
+        type: datetime
+        description: "Start date of a quote"
+      quoteUntil?:
+        type: datetime
+        description: "Finish date of a quote"
+      billingAccount?:
+        type: integer | nil
+        description: "Billing account id of a customer's account"
+  salesorder_common:
+    type: salesorder_base
+    properties:
+      yourReference?:
+        type: string | nil
+        description: "Reference of a customer"
+      ourReference?:
+        type: string | nil
+        description: "Reference of a supplier" 
+      type?:
+        type: integer
+        description: "Type of a sales order"
+      comment?:
+        type: string
+        description: "Comment of a sales order"
+      project?:
+        type: integer | nil
+        description: "Id of a related project"
+      languageAndCurrency?:
+        type: string
+        description: "language And Currency"
+      request?:
+        type: integer | nil
+        description: "Id of a related request"
+      reverseCharge?:
+        type: integer | nil
+        description: "Reverse charge"
+      invoiceItemSubtotaling?:
+        type: integer | nil
+        description: "Contact person of a customer's account"
+      handlingFee?:
+        type: integer
+        description: "Handling fee"
+      handlingFeeVat?:
+        type: integer
+        description: "Handling fee VAT"
+      noticeTime?:
+        type: integer
+        description: "Notice time of payment of a sales order"
+      description?:
+        type: string
+        description: "Description of a sales order"
+      contract?:
+        type: integer | nil
+        description: "Id of a related contract"
+      opportunity?:
+        type: string | nil
+        description: "Id of a related opportunity"
+  salesorder_post:
+    type: salesorder_get
+    properties:
+      name:
+        type: string
+        description: "Name of a sales order"
+      contact:
+        type: string
+        description: "Contact person of a customer's account"
+      languageAndCurrency:
+        type: string
+        description: "language And Currency"
+      supplierContact?:
+        type: string
+        description: "Name of a supplier contact person.Required if contact field is missing"
+      quoteDate?:
+        type: datetime
+        description: "Start date of a quote"
+      quoteUntil?:
+        type: datetime
+        description: "Finish date of a quote"
+      shippingAccount?:
+        type: integer | nil
+        description: "Id of a shipping account" 
+      CustomerPerson.Name?:
+        type: string  | integer
+        description: "Required if contact field is missing"
+      yourReference?:
+        type: string | nil
+        description: "Reference of a customer"
+      ourReference?:
+        type: string | nil
+        description: "Reference of a supplier" 
+      type?:
+        type: integer
+        description: "Type of a sales order"
+      comment?:
+        type: string | nil
+        description: "Comment of a sales order"
+      project?:
+        type: integer | nil
+        description: "Id of a related project"
+      request?:
+        type: integer | nil
+        description: "Id of a related request"
+      reverseCharge?:
+        type: integer | nil
+        description: "Reverse charge"
+      invoiceItemSubtotaling?:
+        type: integer | nil
+        description: "Contact person of a customer's account"
+      handlingFee?:
+        type: integer
+        description: "Handling fee"
+      handlingFeeVat?:
+        type: integer
+        description: "Handling fee VAT"
+      noticeTime?:
+        type: integer
+        description: "Notice time of payment of a sales order"
+      description?:
+        type: string
+        description: "Description of a sales order"
+  salesorder_get:
+    type: salesorder_base
+    properties: 
+      accountName?:
+        type: string | nil
+        description: "Name of a cutomer's account"
+      contact?:
+        type: string
+        description: "Contact person of a customer's account"
+      supplierName?:
+        type: string | nil
+        description: "Name of a supplier contact person"
+      responsibleName?:
+        type: string | nil
+        description: "Sales executive person's name of a sales order" 
+      projectName?:
+        type: string | nil
+        description: "Name of a project related to a sales order"
+      contractName?:
+        type: string | nil
+        description: "Name of a contract"
+      VAT?:
+        type: string | integer | nil
+        description: "VAT reg. no. of a cutomer's account"
+      totalExcludeVAT?:
+        type: number | nil
+        description: "Total contract value (TCV), total Exclude VAT"
+      supplier?:
+        type: integer | nil
+        description: "Id of a supplier's account"
+      invoiceAppendix?:
+        type: integer | nil
+        description: "Invoice appendix"
+      created?:
+        type: datetime
+      supplierContact?:
+        type: string 
+        description: "Name of a supplier contact person" 
+  salesorder_postId:
+    type: salesorder_common
+    properties:
+      contractName?:
+        type: string | nil
+        description: "Name of a contract"
+      projectName?:
+        type: string | nil
+        description: "Name of a project related to a sales order"
+      VAT?:
+        type: string | integer | nil
+        description: "VAT reg. no. of a cutomer's account"
+      supplier?:
+        type: integer | nil
+        description: "Id of a supplier's account"
+      CustomerPerson.Name?:
+        type: string  | integer
+      supplierContact?:
+        type: string 
+        description: "Name of a supplier contact person" 
+  salesorder_getId: 
+    type: salesorder_common
+    properties:
+      id?:
+        type: integer
+        description: "Id of a sales order"
+      accountName?:
+        type: string | nil
+        description: "Name of a cutomer's account"
+      contact?:
+        type: integer
+        description: "Contact person of a customer's account"
+      shippingAccount?:
+        type: integer | nil 
+        description: "Id of a shipping account"
+      supplierContact?:
+        type: integer 
+        description: "Name of a supplier contact person"  
+  salesorder:
+    type: salesorder_get
+    properties: 
+      id?:
+        type: integer
+        description: "Id of a sales order"
+      account?:
+        type: integer | nil
+        description: "Id of a cutomer's account"
+      shippingAccountName?:
+        type: string | nil
+        description: "Name of a shipping accountr"
+      billingAccountName?:
+        type: string | nil
+        description: "Name of a customer's billing account"
+      shippingAccount?:
+        type: integer | nil
+        description: "Id of a shipping account" 
+  salesorder_getAll:
+    type: salesorder[]       
   team: !include team1_5.schema
   resource: !include resource1_5.schema
   tempfile: !include tempfile1_5.schema 
@@ -1462,6 +1701,7 @@ resourceTypes:
   putGetDeleteCollectionItem:
       is: [all]
       put:
+        description: Use Id returned from the the upload via \tempfiles resource.
         headers:
           Content-Type:
             type: string
@@ -2692,18 +2932,27 @@ resourceTypes:
       exampleCollectionItem: !include resource1_5.schema
 /salesorders: 
   get:
-    queryParameters:
-      rowcount:
-      nextrows:
-      order:
-      sort:
-      interval:
-      intervalstart:
-      intervalfinish:
+    responses:
+      200:
+        body:                  
+          application/json: 
+            type: salesorder_getAll
+  post:
+    headers:
+      Content-Type:
+        type: string
+        required: true
+        default: |
+          application/json;charset=UTF-8 <div id="salesorder1_5-datatype-post"></div>  
+        example: |
+          application/json;charset=UTF-8
+    body:
+      application/json:
+        type: salesorder_post
   type:
     collection:
        exampleCollectionItemArray: !include salesorder_array1_5.sample
-       exampleCollectionItem: !include salesorder1_5.sample
+       exampleCollectionItem: !include salesorder_post.sample
   /meta:
       description: Get meta information for sales orders. Includes resource's fields names and type and related filters.
       get:
@@ -2711,9 +2960,21 @@ resourceTypes:
         readOnlyCollectionItem:
           exampleCollectionItem: !include salesorder_meta1_5.sample
   /{sales_order_id}:
+    get:
+      responses:
+        200:
+          body:
+            application/json: 
+              type: salesorder_getId
+    post:
+      body:
+        application/json:
+          type: salesorder_postId  
+    delete:   
     type: 
-     collectionItem:
-        exampleCollectionItem: !include salesorder1_5.sample
+     allMethodsCollectionItem:
+        exampleCollectionGetItem: !include salesorder_getId.sample
+        exampleCollectionPostItem: !include salesorder_post.sample	
     /attachments:
       type:
         readOnlyCollection:
