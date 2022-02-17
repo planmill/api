@@ -709,7 +709,93 @@ types:
   invoice_getAll:
     type: invoice[]
   mail: !include request_mail1_5.schema 
-  opportunity: !include opportunity1_5.schema
+  opportunity_base:
+    additionalProperties: false
+    properties:
+      subject?: 
+        type: string
+        description: "Name of an opportunity"
+      closed?:
+        type: datetime
+        description: "Closed date of an opportunity"
+      probability?:
+        type: integer
+        description: "Probability to win an opportunity"
+      status?:
+        type: integer | nil
+        description: "Status of an opportunity"
+      stage?:
+        type: integer
+        description: "Stage of an opportunity"
+      source?:
+        type: integer
+        description: "Source of an opportunity"
+      reason?:
+        type: integer
+        description: "Reason of an opportunity"
+      partnerContact?:
+        type: integer
+        description: "Partner contact name / Account "
+      nextstep?:
+        type: integer
+        description: "Nextstep of an opportunity"
+      request?:
+        type: integer | nil
+        description: "Request of an opportunity"  
+      campaign?:
+        type: string | nil
+        description: "Campaign of an opportunity"
+      type?:
+        type: integer
+        description: "Business type of an opportunity"
+      competitor?:
+        type: integer
+        description: "competitor of an opportunity" 
+  opportunity_common:
+    type: opportunity_base
+    properties:
+      project?:
+        type: integer | nil
+        description: "Project id of an opportunity"
+      contact?: 
+        type: integer
+        description: "Contact person id of an opportunity"
+      responsible?:
+        type: integer
+        description: "Responsible person id of an opportunity"
+      description?:
+        type: string | nil
+        description: "Description of an opportunity"
+  opportunity_getId:
+    type: opportunity_common
+  opportunity_post:
+    type: opportunity_common
+    properties:
+      subject: 
+        type: string
+        description: "Name of an opportunity"
+      closed:
+        type: datetime
+        description: "Closed date of an opportunity"
+      contact: 
+        type: integer
+        description: "Contact person id of an opportunity"
+      responsible:
+        type: integer
+        description: "Responsible person id of an opportunity"
+  opportunity_postId:
+    type: opportunity_common
+  opportunity:
+    type: opportunity_base
+    properties:
+      id?:
+        type: integer
+        description: "Internal ID of a portfolio"
+      keyContact?:
+        type: string
+        description: "Person lastName"
+  opportunity_getAll:
+    type: opportunity[]   
   portfolio_postId:
     additionalProperties: false
     properties:
@@ -2401,14 +2487,15 @@ resourceTypes:
             exampleCollectionItem: Contents of file
 /opportunities:
   get:
-    queryParameters:
-      rowcount:
-      nextrows:
-      order:
-      sort:
-      interval:
-      intervalstart:
-      intervalfinish:
+    responses:
+      200:
+        body:
+          application/json: 
+            type: opportunity_getAll 
+  post:
+    body:
+      application/json: 
+        type: opportunity_post 
   type:
     collection:
        exampleCollectionItemArray: !include opportunity_array1_5.sample
@@ -2420,6 +2507,16 @@ resourceTypes:
         readOnlyCollectionItem:
           exampleCollectionItem: !include opportunity_meta1_5.sample
   /{opportunity_id}:
+    get:
+      responses:
+        200:
+          body:
+            application/json: 
+              type: opportunity_getId 
+    post:
+      body:
+        application/json: 
+          type: opportunity_postId 
     type: 
      collectionItem:
         exampleCollectionItem: !include opportunity1_5.sample
