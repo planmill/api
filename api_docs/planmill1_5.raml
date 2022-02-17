@@ -763,6 +763,9 @@ types:
       responsible?:
         type: integer
         description: "Responsible person id of an opportunity"
+      priority?:
+        type: integer
+        description: "Priority level of an opportunity"
       description?:
         type: string | nil
         description: "Description of an opportunity"
@@ -794,6 +797,36 @@ types:
       keyContact?:
         type: string
         description: "Person lastName"
+      account?:
+        type: integer
+        description: "Id of account"
+      accountName?:
+        type: integer
+        description: "Name of account"
+      responsibleName?:
+        type: string | nil
+        description: "Name of responsible person"
+      revenue?:
+        type: integer
+        description: "Revenue of opportunity"
+      expectedRevenue?:
+        type: integer
+        description: "Expected revenue of opportunity"
+      created?:
+        type: datetime
+        description: "Created of opportunity"
+      country?:
+        type: integer
+        description: "Country of opportunity"
+      person?:
+        type: integer
+        description: "Person id"
+      attachmentCount?:
+        type: integer
+        description: "Count attachement"
+      itemCount?:
+        type: integer
+        description: "Count item"
   opportunity_getAll:
     type: opportunity[]   
   portfolio_postId:
