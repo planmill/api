@@ -2526,6 +2526,14 @@ resourceTypes:
           application/json: 
             type: opportunity_getAll 
   post:
+    headers:
+      Content-Type:
+        type: string
+        required: true
+        default: |
+          application/json;charset=UTF-8 <div id="opportunity1_5-datatype-post"></div>  
+        example: |
+          application/json;charset=UTF-8
     body:
       application/json: 
         type: opportunity_post 
