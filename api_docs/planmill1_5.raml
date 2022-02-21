@@ -734,7 +734,7 @@ types:
         type: integer
         description: "Reason of an opportunity"
       partnerContact?:
-        type: integer
+        type: integer | nil
         description: "Partner contact name / Account "
       nextstep?:
         type: integer
@@ -743,13 +743,13 @@ types:
         type: integer | nil
         description: "Request of an opportunity"  
       campaign?:
-        type: string | nil
+        type: integer | nil
         description: "Campaign of an opportunity"
       type?:
         type: integer
         description: "Business type of an opportunity"
       competitor?:
-        type: integer
+        type: integer | nil
         description: "competitor of an opportunity" 
   opportunity_common:
     type: opportunity_base
@@ -801,7 +801,7 @@ types:
         type: integer
         description: "Id of account"
       accountName?:
-        type: integer
+        type: string
         description: "Name of account"
       responsibleName?:
         type: string | nil
