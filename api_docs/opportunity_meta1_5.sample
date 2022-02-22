@@ -1,273 +1,218 @@
 {
-  "filters": [
-    {
-      "name": "freetextsearch",
-      "caption": ""
-    },
-    {
-      "name": "viewtemplate",
-      "caption": "View by",
-      "values": {
-        "All opportunities": "9",
-        "All won opportunities": "12",
-        "All closed opportunities": "14",
-        "My recently created opportunities - last 14 days": "6",
-        "My open opportunities": "0",
-        "My recently created opportunities - last 30 days": "7",
-        "All recently created opportunities - last 14 days": "16",
-        "My closed opportunities": "4",
-        "My lost opportunities": "3",
-        "My recently created opportunities - last 7 days": "5",
-        "All recently created opportunities - last 30 days": "17",
-        "My suspended opportunities": "1",
-        "All open opportunities": "10",
-        "My won opportunities": "2",
-        "All suspended opportunities": "11",
-        "All recently created opportunities - last 7 days": "15",
-        "My recently modified opportunities - last 7 days": "8",
-        "All lost opportunities": "13",
-        "All recently modified opportunities - last 7 days": "18"
-      }
-    },
-    {
-      "name": "responsible",
-      "caption": "Owner",
-      "values": {
-        "All": "-1",
-        "Mill, Will": "2801981",
-        "Selleri, Seppo": "2795446",
-        "Lowe, Jared": "580283"
-      }
-    },
-    {
-      "name": "stage",
-      "caption": "Stage",
-      "values": {
-        "All": "-1",
-        "5. Closed": "100",
-        "3. Qualified": "50",
-        "1. Identified": "10",
-        "2. Validated": "25",
-        "4. Quoted": "75"
-      }
-    },
-    {
-      "name": "country",
-      "caption": "Country",
-      "values": {
-        "All": "-1",
-        "Austria": "15",
-        "United States": "220",
-        "Finland": "73",
-        "France": "74",
-        "Switzerland": "200",
-        "Germany": "80"
-      }
-    },
-    {
-      "name": "campaign",
-      "caption": "Campaign",
-      "values": {
-        "All": "-1"
-      }
-    },
-    {
-      "name": "account",
-      "caption": "Account",
-      "values": {
-        "All": "-1",
-        "BillionMill Inc.": "558783",
-        "Testi Oy": "2803729"
-      }
-    },
-    {
-      "name": "type",
-      "caption": "Business type",
-      "values": {
-        "All": "-1",
-        "New": "0",
-        "Existing": "1"
-      }
-    },
-    {
-      "name": "competitor",
-      "caption": "Competitor",
-      "values": {
-        "All": "-1",
-        "TsillionMill Inc.": "501997"
-      }
-    },
-    {
-      "name": "partner",
-      "caption": "Partner",
-      "values": {
-        "All": "-1",
-        "All partner related": "-2",
-        "No partner related": "-3",
-        "Test Group Ltd.": "441328",
-        "Good Hood Oy": "504828"
-      }
-    },
-    {
-      "name": "product",
-      "caption": "Product",
-      "values": {
-        "All": "-1",
-        "Fixed project": "2704411",
-        "Support": "2781425",
-        "Flower 3": "2827880",
-        "PlanMill PROJECT Cloud": "594836",
-        "Professional Services": "2818483"
-      }
-    },
-    {
-      "name": "source",
-      "caption": "Source",
-      "values": {
-        "All": "-1",
-        "Event - seminar": "4",
-        "Email": "3",
-        "Event - trade show": "5",
-        "-": "0",
-        "Direct mail": "2",
-        "Referral - customer": "13",
-        "Newspaper & Magazine": "12",
-        "Referral - external": "10",
-        "List - purchased": "7",
-        "List - rented": "8",
-        "Advertisement": "1",
-        "Referral - employee": "9",
-        "Web site": "11",
-        "Event - other": "6",
-        "Other": "20"
-      }
-    },
-    {
-      "name": "interval",
-      "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
-      "values": {
-        "Modified": "modified",
-        "Close date": "finish",
-        "Created": "created"
-      }
-    },
-    {
-      "name": "rowcount",
-      "caption": "Rows",
-      "values": {
-        "25": "25",
-        "50": "50",
-        "75": "75",
-        "100": "100",
-        "150": "150",
-        "250": "250"
-      }
-    },
-    {
-      "name": "portfolio",
-      "caption": "Salkku",
-      "values": {
-        "All": "-1",
-        "E. New customer portfolio \\ New Customers (Finland)": "464595",
-        "E. New customer portfolio": "464559",
-        "D. Administrative portfolio": "464557",
-        "G. DefaultFolder": "464561",
-        "Test portfolio": "2705592"
-      }
-    }
-  ],
-  "fields": {
-    "country": {
-      "format": "Enumeration values.Location.CountryId",
-      "caption": "Country"
-    },
-    "expectedRevenue": {
-      "format": "currency",
-      "caption": "Expected"
-    },
     "reason": {
-      "format": "Enumeration values.Sales management.Opportunities.Reason lost",
-      "caption": "Reason won/lost"
+        "type": "string",
+        "caption": "Reason won\/lost",
+        "format": "int",
+        "enumeration": "Enumeration values.Sales management.Opportunities.Reason lost",
+        "values": {
+            "Not qualified": "7",
+            "Installed base": "1",
+            "No current project": "5",
+            "Lost to competition": "8",
+            "Lost to no decision": "9",
+            "Price": "2",
+            "Relationship": "3",
+            "No budget": "6",
+            "-": "0",
+            "Track record": "4",
+            "Other": "10"
+        }
     },
     "request": {
-      "format": "text",
-      "caption": "Request.Id"
-    },
-    "accountName": {
-      "format": "text",
-      "caption": "Account"
+        "type": "string",
+        "caption": "",
+        "format": "int",
+        "description": "",
+        "values": null
     },
     "subject": {
-      "format": "text",
-      "caption": "_Name"
+        "type": "string",
+        "caption": "Name",
+        "format": "string",
+        "maxlength": "255",
+        "values": null
     },
-    "created": {
-      "format": "mediumdate",
-      "caption": "Created"
+    "probability": {
+        "type": "string",
+        "value": "10",
+        "caption": "Probability",
+        "format": "int",
+        "enumeration": "Enumeration values.Sales management.Opportunities.Probability",
+        "values": {
+            "25%": "25",
+            "100%": "100",
+            "0%": "0",
+            "10%": "10",
+            "75%": "75",
+            "50%": "50"
+        }
     },
     "project": {
-      "format": "text",
-      "caption": "PMVProject.Id"
+        "type": "string",
+        "caption": "",
+        "format": "int",
+        "description": "",
+        "values": null
     },
-    "nextstep": {
-      "format": "Enumeration values.Sales management.Opportunities.Next step",
-      "caption": "Next step"
+    "description": {
+        "type": "string",
+        "caption": "",
+        "format": "string",
+        "description": "",
+        "values": null
     },
     "source": {
-      "format": "Enumeration values.Sales management.Opportunities.Source",
-      "caption": "Source"
+        "type": "string",
+        "caption": "Source",
+        "format": "int",
+        "enumeration": "Enumeration values.Sales management.Opportunities.Source",
+        "values": {
+            "Event - seminar": "4",
+            "Email": "3",
+            "Event - trade show": "5",
+            "-": "0",
+            "Direct mail": "2",
+            "Referral - customer": "13",
+            "Newspaper & Magazine": "12",
+            "Referral - external": "10",
+            "List - purchased": "7",
+            "List - rented": "8",
+            "Advertisement": "1",
+            "Referral - employee": "9",
+            "Web site": "11",
+            "Event - other": "6",
+            "Other": "20"
+        }
+    },
+    "priority": {
+        "type": "string",
+        "value": "2",
+        "caption": "Priority",
+        "format": "int",
+        "enumeration": "Enumeration values.Sales management.Opportunities.Priority",
+        "values": {
+            "High": "3",
+            "Low": "1",
+            "Medium": "2"
+        }
     },
     "type": {
-      "format": "Enumeration values.Sales management.Opportunities.Business type",
-      "caption": "Business type"
-    },
-    "keyContact": {
-      "format": "text",
-      "caption": "Key contact"
-    },
-    "revenue": {
-      "format": "currency",
-      "caption": "Total sales (VAT 0%)"
+        "type": "string",
+        "caption": "Business type",
+        "format": "int",
+        "enumeration": "Enumeration values.Sales management.Opportunities.Business type",
+        "values": {
+            "New": "0",
+            "Existing": "1"
+        }
     },
     "stage": {
-      "format": "Enumeration values.Sales management.Opportunities.Sales stage",
-      "caption": "Stage"
-    },
-    "partner": {
-      "format": "text",
-      "caption": "Partner.Id"
-    },
-    "person": {
-      "format": "text",
-      "caption": "Person.Id"
+        "type": "string",
+        "value": "10",
+        "description": "When changing the sales stage the Probability field is automatically changed to reflect the sales stage.",
+        "caption": "Sales stage",
+        "format": "int",
+        "maxlength": "80",
+        "enumeration": "Enumeration values.Sales management.Opportunities.Sales stage probability mapping",
+        "values": {
+            "25": "25",
+            "Closed - lost": "190",
+            "Open \/ Closed - won": "170",
+            "3. Qualified": "50",
+            "2. Validated": "25",
+            "1. Identified": "10",
+            "4. Quoted": "75",
+            "Open": "160",
+            "5. Closed": "100",
+            "100": "100",
+            "Closed - won": "150",
+            "50": "50",
+            "Suspended": "180",
+            "75": "75",
+            "10": "10"
+        }
     },
     "competitor": {
-      "format": "text",
-      "caption": "CompetitorAccount.Id"
+        "type": "string",
+        "caption": "Competitor",
+        "format": "int",
+        "values": null
+    },
+    "partnerContact": {
+        "type": "string",
+        "caption": "",
+        "format": "int",
+        "description": "",
+        "values": null
     },
     "responsible": {
-      "format": "text",
-      "caption": "Owner"
+        "type": "string",
+        "caption": "Owner",
+        "values": {
+            "356": "User (update), First",
+            "User (update), First": 356
+        },
+        "format": "int"
+    },
+    "contact": {
+        "type": "string",
+        "caption": "",
+        "format": "int",
+        "description": "",
+        "values": null
+    },
+    "closed": {
+        "type": "string",
+        "description": "The expected close date for the opportunity.",
+        "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+        "caption": "Close date",
+        "format": "string",
+        "values": null
+    },
+    "nextStep": {
+        "type": "string",
+        "caption": "Next step",
+        "format": "int",
+        "enumeration": "Enumeration values.Sales management.Opportunities.Next step",
+        "values": {
+            "Quote": "5",
+            "Call": "7",
+            "Follow up": "2",
+            "Demo": "1",
+            "Qualify": "4",
+            "Visit": "3",
+            "-": "0",
+            "RFP": "6"
+        }
     },
     "campaign": {
-      "format": "text",
-      "caption": "Opportunity.CampaignId"
-    },
-    "finish": {
-      "format": "shortdate",
-      "caption": "Close date"
+        "type": "string",
+        "caption": "",
+        "format": "int",
+        "description": "",
+        "values": null
     },
     "id": {
-      "format": "checkbox",
-      "caption": "_"
-    },
-    "account": {
-      "format": "text",
-      "caption": "Account.Id"
+        "type": "string",
+        "caption": "",
+        "format": "int",
+        "description": "",
+        "values": null
     },
     "status": {
-      "format": "Enumeration values.Sales management.Opportunities.Status",
-      "caption": "Status"
+        "type": "string",
+        "description": "The status field is used to describe in which state the opportunity is, e.g. Open or Won.",
+        "caption": "Status",
+        "format": "int",
+        "enumeration": "Enumeration values.Sales management.Opportunities.Status filter",
+        "values": {
+            "Lost": "3",
+            "Closed - won": "4",
+            "Closed": "3",
+            "Won": "2",
+            "Closed - lost": "5",
+            "Suspended": "2",
+            "Open": "1"
+        }
     }
-  }
 }
