@@ -1,218 +1,631 @@
 {
-    "reason": {
-        "type": "string",
-        "caption": "Reason won\/lost",
-        "format": "int",
-        "enumeration": "Enumeration values.Sales management.Opportunities.Reason lost",
-        "values": {
-            "Not qualified": "7",
-            "Installed base": "1",
-            "No current project": "5",
-            "Lost to competition": "8",
-            "Lost to no decision": "9",
-            "Price": "2",
-            "Relationship": "3",
-            "No budget": "6",
-            "-": "0",
-            "Track record": "4",
-            "Other": "10"
+    "filters": [
+      {
+            "type": "string",
+            "name": "freetextsearch",
+            "caption": ""
+      }, 
+      {
+            "type": "string",
+            "name": "viewtemplate",
+            "value": "0",
+            "caption": "View by",
+            "values": {
+                "11": "All suspended opportunities",
+                "12": "All won opportunities",
+                "13": "All lost opportunities",
+                "14": "All closed opportunities",
+                "15": "All recently created opportunities - last 7 days",
+                "16": "All recently created opportunities - last 14 days",
+                "17": "All recently created opportunities - last 30 days",
+                "18": "All recently modified opportunities - last 7 days",
+                "19": "My recently closed opportunities - last 90 days",
+                "0": "My open opportunities",
+                "1": "My suspended opportunities",
+                "2": "My won opportunities",
+                "3": "My lost opportunities",
+                "4": "My closed opportunities",
+                "5": "My recently created opportunities - last 7 days",
+                "6": "My recently created opportunities - last 14 days",
+                "7": "My recently created opportunities - last 30 days",
+                "8": "My recently modified opportunities - last 7 days",
+                "9": "All opportunities",
+                "20": "All recently closed opportunities - last 90 days",
+                "10": "All open opportunities"
+            }
+        }, 
+        {
+            "type": "multivalue",
+            "name": "campaignFilter",
+            "value": "-1",
+            "caption": "Campaign",
+            "values": {
+                "-1": "All",
+                "1529": "tinbit test"
+            }
+        }, 
+        {
+            "type": "multivalue",
+            "name": "partner",
+            "value": "-1",
+            "caption": "Partner",
+            "values": {
+                "353": "Your organisation legal trading name (update)",
+                "-1": "All",
+                "-2": "All partner related",
+                "-3": "No partner related"
+            }
+        }, 
+        {
+            "type": "multivalue",
+            "name": "product",
+            "value": "-1",
+            "caption": "Product",
+            "values": {
+                "1314": "Fixed one-time service",
+                "-1": "All"
+            }
+        }, 
+        {
+            "type": "multivalue",
+            "name": "source",
+            "value": "-1",
+            "caption": "Source",
+            "values": {
+                "11": "Web site",
+                "12": "Newspaper & Magazine",
+                "13": "Referral - customer",
+                "-1": "All",
+                "0": "-",
+                "1": "Advertisement",
+                "2": "Direct mail",
+                "3": "Email",
+                "4": "Event - seminar",
+                "5": "Event - trade show",
+                "6": "Event - other",
+                "7": "List - purchased",
+                "8": "List - rented",
+                "9": "Referral - employee",
+                "20": "Other",
+                "10": "Referral - external"
+            }
+        }, 
+        {
+            "type": "multivalue",
+            "name": "Opportunity.BusinessUnit",
+            "value": "-1",
+            "caption": "Business unit",
+            "values": {
+                "1": "1. Value",
+                "2": "2. Value",
+                "3": "3. Value",
+                "-1": "All",
+                "4": "4. Value",
+                "5": "5. Value"
+            }
+        }, 
+        {
+            "type": "interval",
+            "name": "interval",
+            "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+            "values": {
+                "Opportunity.Created": "Created",
+                "Opportunity.FinishDate": "Close date",
+                "Opportunity.Modified": "Modified"
+            }
+        }, 
+        {
+            "type": "string",
+            "name": "rowcount",
+            "value": "100",
+            "caption": "Rows",
+            "values": {
+                "100": "100",
+                "25": "25",
+                "50": "50",
+                "150": "150",
+                "250": "250",
+                "75": "75"
+            }
+        }, 
+        {
+            "type": "string",
+            "name": "status",
+            "value": "-1",
+            "caption": "Status",
+            "values": {
+                "0": "Open",
+                "1": "Suspended",
+                "2": "Won",
+                "3": "Lost",
+                "-1": "All"
+            }
+        }, 
+        {
+            "type": "multivalue",
+            "name": "responsible",
+            "value": "-1",
+            "caption": "Owner",
+            "values": {
+                "-1": "All",
+                "356": "User (update), First"
+            }
+        }, 
+        {
+            "type": "multivalue",
+            "name": "stage",
+            "value": "-1",
+            "caption": "Stage",
+            "values": {
+                "100": "5. Closed",
+                "25": "2. Validated",
+                "-1": "All",
+                "50": "3. Qualified",
+                "75": "4. Quoted",
+                "10": "1. Identified"
+            }
+        }, 
+        {
+            "type": "multivalue",
+            "name": "country",
+            "value": "-1",
+            "caption": "Country",
+            "values": {
+                "-1": "All",
+                "73": "Finland"
+            }
+        }, 
+        {
+            "type": "multivalue",
+            "name": "account",
+            "value": "-1",
+            "caption": "Account",
+            "values": {
+                "-1": "All",
+                "51": "PlanMill Oy"
+            }
+        }, 
+        {
+            "type": "multivalue",
+            "name": "type",
+            "value": "-1",
+            "caption": "Business type",
+            "values": {
+                "0": "New",
+                "1": "Existing",
+                "-1": "All"
+            }
+        }, 
+        {
+            "type": "multivalue",
+            "name": "competitorFilter",
+            "value": "-1",
+            "caption": "Competitor",
+            "values": {
+                "-1": "All"
+            }
         }
-    },
-    "request": {
-        "type": "string",
-        "caption": "",
-        "format": "int",
-        "description": "",
-        "values": null
-    },
-    "subject": {
-        "type": "string",
-        "caption": "Name",
-        "format": "string",
-        "maxlength": "255",
-        "values": null
-    },
-    "probability": {
-        "type": "string",
-        "value": "10",
-        "caption": "Probability",
-        "format": "int",
-        "enumeration": "Enumeration values.Sales management.Opportunities.Probability",
-        "values": {
-            "25%": "25",
-            "100%": "100",
-            "0%": "0",
-            "10%": "10",
-            "75%": "75",
-            "50%": "50"
-        }
-    },
-    "project": {
-        "type": "string",
-        "caption": "",
-        "format": "int",
-        "description": "",
-        "values": null
-    },
-    "description": {
-        "type": "string",
-        "caption": "",
-        "format": "string",
-        "description": "",
-        "values": null
-    },
-    "source": {
-        "type": "string",
-        "caption": "Source",
-        "format": "int",
-        "enumeration": "Enumeration values.Sales management.Opportunities.Source",
-        "values": {
-            "Event - seminar": "4",
-            "Email": "3",
-            "Event - trade show": "5",
-            "-": "0",
-            "Direct mail": "2",
-            "Referral - customer": "13",
-            "Newspaper & Magazine": "12",
-            "Referral - external": "10",
-            "List - purchased": "7",
-            "List - rented": "8",
-            "Advertisement": "1",
-            "Referral - employee": "9",
-            "Web site": "11",
-            "Event - other": "6",
-            "Other": "20"
-        }
-    },
-    "priority": {
-        "type": "string",
-        "value": "2",
-        "caption": "Priority",
-        "format": "int",
-        "enumeration": "Enumeration values.Sales management.Opportunities.Priority",
-        "values": {
-            "High": "3",
-            "Low": "1",
-            "Medium": "2"
-        }
-    },
-    "type": {
-        "type": "string",
-        "caption": "Business type",
-        "format": "int",
-        "enumeration": "Enumeration values.Sales management.Opportunities.Business type",
-        "values": {
-            "New": "0",
-            "Existing": "1"
-        }
-    },
-    "stage": {
-        "type": "string",
-        "value": "10",
-        "description": "When changing the sales stage the Probability field is automatically changed to reflect the sales stage.",
-        "caption": "Sales stage",
-        "format": "int",
-        "maxlength": "80",
-        "enumeration": "Enumeration values.Sales management.Opportunities.Sales stage probability mapping",
-        "values": {
-            "25": "25",
-            "Closed - lost": "190",
-            "Open \/ Closed - won": "170",
-            "3. Qualified": "50",
-            "2. Validated": "25",
-            "1. Identified": "10",
-            "4. Quoted": "75",
-            "Open": "160",
-            "5. Closed": "100",
-            "100": "100",
-            "Closed - won": "150",
-            "50": "50",
-            "Suspended": "180",
-            "75": "75",
-            "10": "10"
-        }
-    },
-    "competitor": {
-        "type": "string",
-        "caption": "Competitor",
-        "format": "int",
-        "values": null
-    },
-    "partnerContact": {
-        "type": "string",
-        "caption": "",
-        "format": "int",
-        "description": "",
-        "values": null
-    },
-    "responsible": {
-        "type": "string",
-        "caption": "Owner",
-        "values": {
-            "356": "User (update), First",
-            "User (update), First": 356
+    ],
+    "fields": {
+        "country": {
+            "values": {
+                "110": "Kiribati",
+                "231": "Yugoslavia (removed)",
+                "232": "Congo-Kinshasa",
+                "111": "Korea, Republic of (South Korea)",
+                "112": "Korea, Democratic People's Republic of (North Korea)",
+                "233": "Zambia",
+                "113": "Kuwait",
+                "234": "Zimbabwe",
+                "114": "Kyrgyzstan",
+                "235": "Yemen",
+                "115": "Latvia",
+                "236": "\u00C5land Islands",
+                "237": "Antarctica",
+                "116": "Lao People's Democratic Republic",
+                "238": "Bouvet Island",
+                "117": "Lebanon",
+                "239": "Guadeloupe",
+                "118": "Lesotho",
+                "119": "Liberia",
+                "10": "Armenia",
+                "11": "Aruba",
+                "13": "Australia",
+                "15": "Austria",
+                "16": "Azerbaijan",
+                "17": "Bahamas",
+                "18": "Barbados",
+                "19": "Bahrain",
+                "240": "Guernsey",
+                "241": "Heard Island and McDonald Islands",
+                "120": "Lithuania",
+                "0": "-",
+                "121": "Libyan Arab Jamahiriya",
+                "242": "Montenegro",
+                "1": "Afghanistan",
+                "122": "Liechtenstein",
+                "243": "Norfolk Island",
+                "2": "Albania",
+                "123": "Luxembourg",
+                "244": "Palestinian Territory, Occupied",
+                "3": "Algeria",
+                "245": "East Timor",
+                "124": "Macau",
+                "4": "American Samoa",
+                "246": "Isle of Man",
+                "125": "Macedonia, The former Yugoslav Republic of",
+                "5": "Andorra",
+                "247": "Jersey",
+                "126": "Madagascar",
+                "6": "Angola",
+                "127": "Malawi",
+                "248": "Pitcairn",
+                "7": "Anguilla",
+                "128": "Malaysia",
+                "249": "Saint Barth\u00E9lemy",
+                "8": "Antigua and Barbuda",
+                "129": "Maldives",
+                "9": "Argentina",
+                "20": "Bangladesh",
+                "21": "Belarus",
+                "22": "Belgium",
+                "23": "Belize",
+                "24": "Benin",
+                "25": "Bermuda",
+                "26": "Bhutan",
+                "27": "Virgin Islands, British",
+                "28": "Bolivia",
+                "29": "Bosnia and Herzegovina",
+                "1000": "Other",
+                "250": "Saint Lucia",
+                "130": "Mali",
+                "251": "Saint Martin",
+                "131": "Malta",
+                "252": "Saint Vincent and the Grenadines",
+                "132": "Marshall Islands",
+                "253": "South Georgia and the South Sandwich Islands",
+                "133": "Martinique",
+                "254": "Svalbard and Jan Mayen",
+                "134": "Mauritania",
+                "255": "Turks and Caicos Islands",
+                "135": "Mauritius",
+                "256": "Western Sahara",
+                "136": "Mayotte",
+                "257": "United States Minor Outlying Islands",
+                "258": "French Southern territories",
+                "137": "Mexico",
+                "259": "Christmas Island",
+                "138": "Micronesia, Federated States of",
+                "139": "Moldova, Republic of",
+                "30": "Botswana",
+                "31": "Brazil",
+                "33": "Brunei Darussalam",
+                "34": "Bulgaria",
+                "35": "Burkina Faso",
+                "36": "Burundi",
+                "37": "Cambodia",
+                "38": "Cameroon",
+                "39": "Canada",
+                "260": "Cocos (Keeling) Islands",
+                "261": "Cura\u00E7ao",
+                "140": "Monaco",
+                "141": "Mongolia",
+                "262": "Sint Maarten (Part of Netherlands)",
+                "263": "Bonaire, Sint Eustatius and Saba",
+                "142": "Montserrat",
+                "143": "Morocco",
+                "264": "South Sudan",
+                "144": "Mozambique",
+                "145": "Myanmar",
+                "146": "Namibia",
+                "147": "Nauru",
+                "148": "Nepal",
+                "149": "Netherlands",
+                "40": "Cape Verde",
+                "42": "Cayman Islands",
+                "44": "Central African Republic",
+                "45": "Chad",
+                "46": "Chile",
+                "47": "China",
+                "48": "Taiwan, Province of China",
+                "49": "Colombia",
+                "150": "Netherlands Antilles (removed)",
+                "152": "New Caledonia",
+                "153": "New Zealand",
+                "154": "Nicaragua",
+                "155": "Niger",
+                "156": "Nigeria",
+                "157": "Niue",
+                "159": "Northern Mariana Islands",
+                "50": "Comoros",
+                "51": "Congo-Brazzaville",
+                "52": "Cook Islands",
+                "53": "Costa Rica",
+                "54": "Croatia",
+                "55": "Cuba",
+                "56": "Cyprus",
+                "57": "Czech Republic",
+                "58": "Denmark",
+                "59": "British Indian Ocean Territory",
+                "160": "Norway",
+                "161": "Oman",
+                "162": "Pakistan",
+                "163": "Palau",
+                "164": "Panama",
+                "165": "Papua New Guinea",
+                "166": "Paraguay",
+                "167": "Peru",
+                "168": "Philippines",
+                "169": "Poland",
+                "60": "Dominica",
+                "61": "Dominican Republic",
+                "62": "Djibouti",
+                "63": "Ecuador",
+                "64": "Egypt",
+                "65": "El Salvador",
+                "66": "Equatorial Guinea",
+                "67": "Eritrea",
+                "68": "Estonia",
+                "69": "Ethiopia",
+                "170": "Portugal",
+                "171": "Puerto Rico",
+                "172": "Qatar",
+                "173": "R\u00E9union",
+                "174": "Romania",
+                "175": "Russian Federation",
+                "176": "Rwanda",
+                "178": "San Marino",
+                "179": "Sao Tome and Principe",
+                "70": "Falkland Islands (Malvinas)",
+                "71": "Faroe Islands",
+                "72": "Fiji",
+                "73": "Finland",
+                "74": "France",
+                "76": "French Guiana",
+                "77": "Gabon",
+                "78": "Gambia",
+                "79": "Georgia",
+                "180": "Saudi Arabia",
+                "181": "Senegal",
+                "182": "Serbia",
+                "183": "Seychelles",
+                "184": "Sierra Leone",
+                "185": "Singapore",
+                "186": "Slovakia",
+                "187": "Slovenia",
+                "188": "Solomon Islands",
+                "189": "Somalia",
+                "80": "Germany",
+                "81": "Ghana",
+                "82": "Gibraltar",
+                "83": "Greece",
+                "84": "Greenland",
+                "85": "Grenada",
+                "86": "Guam",
+                "87": "Guatemala",
+                "88": "Guinea",
+                "89": "Guinea-Bissau",
+                "190": "South Africa",
+                "191": "Spain",
+                "192": "Sri Lanka",
+                "193": "Saint Helena",
+                "194": "Saint Kitts and Nevis",
+                "195": "Saint Pierre and Miquelon",
+                "196": "Sudan",
+                "197": "Suriname",
+                "198": "Swaziland",
+                "199": "Sweden",
+                "90": "Guyana",
+                "91": "Haiti",
+                "92": "Honduras",
+                "93": "Hong Kong",
+                "94": "Hungary",
+                "95": "Iceland",
+                "96": "India",
+                "97": "Indonesia",
+                "98": "Iran, Islamic Republic of",
+                "99": "Iraq",
+                "200": "Switzerland",
+                "201": "Syrian Arab Republic",
+                "202": "French Polynesia",
+                "204": "Tajikistan",
+                "205": "Tanzania, United Republic of",
+                "206": "Thailand",
+                "207": "Togo",
+                "208": "Tokelau",
+                "209": "Tonga",
+                "210": "Trinidad and Tobago",
+                "211": "Tunisia",
+                "212": "Turkey",
+                "213": "Turkmenistan",
+                "214": "Tuvalu",
+                "215": "Uganda",
+                "216": "Ukraine",
+                "217": "United Arab Emirates",
+                "218": "United Kingdom",
+                "219": "Uruguay",
+                "220": "United States",
+                "100": "Ireland",
+                "221": "Uzbekistan",
+                "101": "Israel",
+                "222": "Vanuatu",
+                "223": "Holy See (Vatican City State)",
+                "102": "Italy",
+                "103": "C\u00F4te d'Ivoire",
+                "224": "Venezuela",
+                "104": "Jamaica",
+                "225": "Viet Nam",
+                "105": "Japan",
+                "226": "Virgin Islands, U.S.",
+                "106": "Jordan",
+                "227": "Wallis and Futuna",
+                "107": "Kazakstan",
+                "228": "Samoa",
+                "108": "Kenya"
+            },
+            "format": "Enumeration values.Location.CountryId",
+            "caption": "Country"
         },
-        "format": "int"
-    },
-    "contact": {
-        "type": "string",
-        "caption": "",
-        "format": "int",
-        "description": "",
-        "values": null
-    },
-    "closed": {
-        "type": "string",
-        "description": "The expected close date for the opportunity.",
-        "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
-        "caption": "Close date",
-        "format": "string",
-        "values": null
-    },
-    "nextStep": {
-        "type": "string",
-        "caption": "Next step",
-        "format": "int",
-        "enumeration": "Enumeration values.Sales management.Opportunities.Next step",
-        "values": {
-            "Quote": "5",
-            "Call": "7",
-            "Follow up": "2",
-            "Demo": "1",
-            "Qualify": "4",
-            "Visit": "3",
-            "-": "0",
-            "RFP": "6"
-        }
-    },
-    "campaign": {
-        "type": "string",
-        "caption": "",
-        "format": "int",
-        "description": "",
-        "values": null
-    },
-    "id": {
-        "type": "string",
-        "caption": "",
-        "format": "int",
-        "description": "",
-        "values": null
-    },
-    "status": {
-        "type": "string",
-        "description": "The status field is used to describe in which state the opportunity is, e.g. Open or Won.",
-        "caption": "Status",
-        "format": "int",
-        "enumeration": "Enumeration values.Sales management.Opportunities.Status filter",
-        "values": {
-            "Lost": "3",
-            "Closed - won": "4",
-            "Closed": "3",
-            "Won": "2",
-            "Closed - lost": "5",
-            "Suspended": "2",
-            "Open": "1"
+        "reason": {
+            "values": {
+                "0": "-",
+                "1": "Installed base",
+                "2": "Price",
+                "3": "Relationship",
+                "4": "Track record",
+                "5": "No current project",
+                "6": "No budget",
+                "7": "Not qualified",
+                "8": "Lost to competition",
+                "9": "Lost to no decision",
+                "10": "Other"
+            },
+            "format": "Enumeration values.Sales management.Opportunities.Reason lost",
+            "caption": "Reason won\/lost"
+        },
+        "request": {
+            "format": "text",
+            "caption": "Request Internal ID"
+        },
+        "accountName": {
+            "format": "text",
+            "caption": "Account"
+        },
+        "subject": {
+            "format": "text",
+            "caption": "Name"
+        },
+        "source": {
+            "values": {
+                "11": "Web site",
+                "12": "Newspaper & Magazine",
+                "13": "Referral - customer",
+                "0": "-",
+                "1": "Advertisement",
+                "2": "Direct mail",
+                "3": "Email",
+                "4": "Event - seminar",
+                "5": "Event - trade show",
+                "6": "Event - other",
+                "7": "List - purchased",
+                "8": "List - rented",
+                "9": "Referral - employee",
+                "20": "Other",
+                "10": "Referral - external"
+            },
+            "format": "Enumeration values.Sales management.Opportunities.Source",
+            "caption": "Source"
+        },
+        "type": {
+            "values": {
+                "0": "New",
+                "1": "Existing"
+            },
+            "format": "Enumeration values.Sales management.Opportunities.Business type",
+            "caption": "Business type"
+        },
+        "keyContact": {
+            "format": "text",
+            "caption": "Contact"
+        },
+        "revenue": {
+            "format": "currency",
+            "caption": "Total contract value (TCV)"
+        },
+        "partnerContact": {
+            "format": "text",
+            "caption": "Partner.Id"
+        },
+        "competitor": {
+            "format": "text",
+            "caption": "CompetitorAccount.Id"
+        },
+        "id": {
+            "format": "checkbox",
+            "caption": ""
+        },
+        "responsibleName": {
+            "format": "text",
+            "caption": "Owner"
+        },
+        "expectedRevenue": {
+            "format": "currency",
+            "caption": "Expected"
+        },
+        "created": {
+            "format": "mediumdate",
+            "caption": "Created"
+        },
+        "probability": {
+            "values": {
+                "0": "0%",
+                "100": "100%",
+                "25": "25%",
+                "50": "50%",
+                "75": "75%",
+                "10": "10%"
+            },
+            "format": "Enumeration values.Sales management.Opportunities.Probability",
+            "caption": "Probability"
+        },
+        "itemCount": {
+            "format": "text",
+            "caption": "Products and services"
+        },
+        "stage": {
+            "values": {
+                "100": "5. Closed",
+                "25": "2. Validated",
+                "50": "3. Qualified",
+                "75": "4. Quoted",
+                "10": "1. Identified"
+            },
+            "format": "Enumeration values.Sales management.Opportunities.Sales stage",
+            "caption": "Stage"
+        },
+        "person": {
+            "format": "text",
+            "caption": "Person.Id"
+        },
+        "closed": {
+            "format": "shortdate",
+            "caption": "Close date"
+        },
+        "nextStep": {
+            "values": {
+                "0": "-",
+                "1": "Demo",
+                "2": "Follow up",
+                "3": "Visit",
+                "4": "Qualify",
+                "5": "Quote",
+                "6": "RFP",
+                "7": "Call"
+            },
+            "format": "Enumeration values.Sales management.Opportunities.Next step",
+            "caption": "Next step"
+        },
+        "campaign": {
+            "format": "text",
+            "caption": "Opportunity.CampaignId"
+        },
+        "attachmentCount": {
+            "format": "text",
+            "caption": "Attachments"
+        },
+        "account": {
+            "format": "text",
+            "caption": "Account Internal ID"
+        },
+        "status": {
+            "values": {
+                "0": "Open",
+                "1": "Suspended",
+                "2": "Won",
+                "3": "Lost"
+            },
+            "format": "Enumeration values.Sales management.Opportunities.Status",
+            "caption": "Status"
         }
     }
 }
