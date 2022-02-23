@@ -795,13 +795,13 @@ types:
         type: integer
         description: "Internal ID of a portfolio"
       keyContact?:
-        type: string
+        type: string | nil
         description: "Person lastName"
       account?:
-        type: integer
+        type: integer | nil
         description: "Id of account"
       accountName?:
-        type: string
+        type: string | nil
         description: "Name of account"
       responsibleName?:
         type: string | nil
@@ -816,10 +816,10 @@ types:
         type: datetime
         description: "Created of opportunity"
       country?:
-        type: integer
+        type: integer | nil
         description: "Country of opportunity"
       person?:
-        type: integer
+        type: integer | nil
         description: "Person id"
       attachmentCount?:
         type: integer
