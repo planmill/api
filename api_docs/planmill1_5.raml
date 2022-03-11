@@ -771,6 +771,10 @@ types:
         description: "Description of an opportunity"
   opportunity_getId:
     type: opportunity_common
+    properties:
+      id?:
+        type: integer
+        description: "Internal ID of opportunity"
   opportunity_post:
     type: opportunity_common
     properties:
@@ -793,7 +797,7 @@ types:
     properties:
       id?:
         type: integer
-        description: "Internal ID of a portfolio"
+        description: "Internal ID of opportunity"
       keyContact?:
         type: string | nil
         description: "Person lastName"
@@ -2557,10 +2561,12 @@ resourceTypes:
     post:
       body:
         application/json: 
-          type: opportunity_postId 
-    type: 
-     collectionItem:
-        exampleCollectionItem: !include opportunity1_5.sample
+          type: opportunity_postId  
+    delete:
+    type:
+     allMethodsCollectionItem:
+        exampleCollectionGetItem: !include opportunity_getId.sample
+        exampleCollectionPostItem: !include opportunity_post.sample
     /attachments:
       type:
         readOnlyCollection:

@@ -130,18 +130,39 @@
         },
         "id": {
           "type": "integer",
-          "description": "Internal ID of a portfolio"
+          "description": "Internal ID of opportunity"
         },
         "keyContact": {
-          "type": "string",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
           "description": "Person lastName"
         },
         "account": {
-          "type": "integer",
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
           "description": "Id of account"
         },
         "accountName": {
-          "type": "string",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
           "description": "Name of account"
         },
         "responsibleName": {
@@ -150,7 +171,7 @@
               "type": "string"
             },
             {
-              "type": "null"
+              "type": "integer"
             }
           ],
           "description": "Name of responsible person"
@@ -169,11 +190,25 @@
           "format": "date-time"
         },
         "country": {
-          "type": "integer",
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
           "description": "Country of opportunity"
         },
         "person": {
-          "type": "integer",
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
           "description": "Person id"
         },
         "attachmentCount": {
