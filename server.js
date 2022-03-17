@@ -22,6 +22,10 @@ var linkItems = [
   "contact_post",
   "contact_postId",
   "contact_getAll",
+  "company_getAll",
+  "company_getId",
+  "company_post",
+  "company_postId",
   "invoice_getId",
   "invoice_getAll",
   "project_getId",
@@ -46,6 +50,7 @@ var linkItems = [
 app.use(express.static(indexSubDir));
 
 //start the express web server listening on 3020
+
 /*
 app.listen(3020, () => {
   console.log("listening on 3020");
