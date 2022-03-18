@@ -421,6 +421,61 @@ types:
   action: !include action1_5.schema
   batch: !include batch1_5.schema
   campaign: !include campaign1_5.schema
+  company:
+    additionalProperties: false
+    properties:
+      name?:
+        description: Name of company
+        type: string
+      passive?:
+        description: Active or passive state of account. Default value 0 (Active)
+        type: integer
+      vatId?:
+        description: VAT id of an account
+        type: string | nil
+      businessId?:
+        description: Business id of an account
+        type: string | nil
+      phone?:
+        description: Phone number of an account
+        pattern: "^[0-9|-]+$"
+        type: string | nil
+      website?:
+        description: Website of an account
+        type: string | nil
+      email?:
+        description: Email address of an account
+        type: email | emptystring | nil
+      billingAddress?:
+        description: Invoice billing address of an account
+        type: string | nil
+      billingCity?:
+        description: Invoice billing city of an account
+        type: string | nil
+      billingCountry?:
+        description: Invoice billing country of an account
+        type: integer | nil
+      billingState?: string | nil
+      billingPostalCode?:
+        description: Invoice billing postal code of an account
+        type: string | nil
+      visitingAddress?: string | integer | nil
+      visitingCity?: string | nil
+      visitingCountry?: string | nil
+      visitingPostalCode?: string | nil
+      visitingState?: string | nil
+  company_post:
+    type: company
+  company_getId:
+    type: company
+  company_postId:
+    type: company
+  company_getAll:
+    type: company[]
+    properties:
+      id?:
+        description: Id of an invoice
+        type: integer
   capacitycalendar: !include user_capacitycalendars1_5.schema
   contact_base:
     additionalProperties: false
@@ -588,61 +643,6 @@ types:
         type: integer | nil 
   contact_getAll:
     type: contact[]
-  company:
-    additionalProperties: false
-    properties:
-      name?:
-        description: Name of company
-        type: string
-      passive?:
-        description: Active or passive state of account. Default value 0 (Active)
-        type: integer
-      vatId?:
-        description: VAT id of an account
-        type: string | nil
-      businessId?:
-        description: Business id of an account
-        type: string | nil
-      phone?:
-        description: Phone number of an account
-        pattern: "^[0-9|-]+$"
-        type: string | nil
-      website?:
-        description: Website of an account
-        type: string | nil
-      email?:
-        description: Email address of an account
-        type: email | emptystring | nil
-      billingAddress?:
-        description: Invoice billing address of an account
-        type: string | nil
-      billingCity?:
-        description: Invoice billing city of an account
-        type: string | nil
-      billingCountry?:
-        description: Invoice billing country of an account
-        type: integer | nil
-      billingState?: string | nil
-      billingPostalCode?:
-        description: Invoice billing postal code of an account
-        type: string | nil
-      visitingAddress?: string | integer | nil
-      visitingCity?: string | nil
-      visitingCountry?: string | nil
-      visitingPostalCode?: string | nil
-      visitingState?: string | nil
-  company_post:
-    type: company
-  company_getId:
-    type: company
-  company_postId:
-    type: company
-  company_getAll:
-    type: company[]
-    properties:
-      id?:
-        description: Id of an invoice
-        type: integer 
   email:
     type: string  
     pattern: "^.+@.+\\..+$"
@@ -2022,6 +2022,48 @@ resourceTypes:
     type: 
      collectionItem:
         exampleCollectionItem: !include campaign1_5.sample
+/companies:
+  get:
+    queryParameters:
+      rowcount:
+      nextrows:
+      order:
+      sort:
+      interval:
+      intervalstart:
+      intervalfinish:
+    responses:
+      200:
+        description: 
+        body:                  
+          application/json: 
+            type: company_getAll             
+  post:
+    headers:
+      Content-Type:
+        type: string
+        required: true
+        default: |
+          application/json;charset=UTF-8 <div id="account1_5-datatype-post"></div> 	
+        example: |
+          application/json;charset=UTF-8 		
+    body:
+      application/json:
+        type: company_post
+  /{company_id}:
+      get:
+        responses:
+          200:
+            body:
+              application/json: 
+                type: company_getId
+      post:
+        body:
+          application/json:
+            type: company_postId
+      delete:
+      type: 
+        allMethodsCollectionItem:
 /capacitycalendars:
   type:
     readOnlyCollection:
@@ -2112,48 +2154,6 @@ resourceTypes:
           description: Attach existing file to user.( Tips use file id from api/1.5/tempfile )
         type:
           putCollectionItem
-/companies:
-  get:
-    queryParameters:
-      rowcount:
-      nextrows:
-      order:
-      sort:
-      interval:
-      intervalstart:
-      intervalfinish:
-    responses:
-      200:
-        description: 
-        body:                  
-          application/json: 
-            type: company_getAll             
-  post:
-    headers:
-      Content-Type:
-        type: string
-        required: true
-        default: |
-          application/json;charset=UTF-8 <div id="account1_5-datatype-post"></div> 	
-        example: |
-          application/json;charset=UTF-8 		
-    body:
-      application/json:
-        type: company_post
-  /{company_id}:
-      get:
-        responses:
-          200:
-            body:
-              application/json: 
-                type: company_getId
-      post:
-        body:
-          application/json:
-            type: company_postId
-      delete:
-      type: 
-        allMethodsCollectionItem:
 /enumerations:
   description: Enumerations available in PlanMill
   get:
