@@ -588,14 +588,12 @@ types:
         type: integer | nil 
   contact_getAll:
     type: contact[]
-  company_base:
+  company:
     additionalProperties: false
     properties:
       name?:
         description: Name of company
         type: string
-      id?:
-        type: integer
       passive?:
         description: Active or passive state of account. Default value 0 (Active)
         type: integer
@@ -634,13 +632,17 @@ types:
       visitingPostalCode?: string | nil
       visitingState?: string | nil
   company_post:
-    type: company_base
+    type: company
   company_getId:
-    type: company_base
+    type: company
   company_postId:
-    type: company_base  
+    type: company
   company_getAll:
-    type: company_base[]
+    type: company[]
+    properties:
+      id?:
+        description: Id of an invoice
+        type: integer 
   email:
     type: string  
     pattern: "^.+@.+\\..+$"
@@ -2139,17 +2141,19 @@ resourceTypes:
       application/json:
         type: company_post
   /{company_id}:
-    get:
-      responses:
-        200:
-          body:
-            application/json: 
-              type: company_getId
-    post:
-      body:
-        application/json:
-          type: company_postId
-    delete:
+      get:
+        responses:
+          200:
+            body:
+              application/json: 
+                type: company_getId
+      post:
+        body:
+          application/json:
+            type: company_postId
+      delete:
+      type: 
+        allMethodsCollectionItem:
 /enumerations:
   description: Enumerations available in PlanMill
   get:
