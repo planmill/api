@@ -468,14 +468,14 @@ types:
     type: company
   company_getId:
     type: company
-  company_postId:
-    type: company
-  company_getAll:
-    type: company[]
     properties:
       id?:
         description: Id of an invoice
         type: integer
+  company_postId:
+    type: company
+  company_getAll:
+    type: company_getId[]
   capacitycalendar: !include user_capacitycalendars1_5.schema
   contact_base:
     additionalProperties: false
