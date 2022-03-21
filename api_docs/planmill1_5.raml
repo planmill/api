@@ -2050,8 +2050,10 @@ resourceTypes:
     body:
       application/json:
         type: company_post
-  type: 
-    allMethodsCollectionItem:
+  type:
+    collection:
+       exampleCollectionItemArray: !include company_array1_5.sample
+       exampleCollectionItem: !include company_post.sample
   /{company_id}:
       get:
         responses:
@@ -2064,8 +2066,10 @@ resourceTypes:
           application/json:
             type: company_postId
       delete:
-      type: 
-        allMethodsCollectionItem:
+      type:
+       allMethodsCollectionItem:
+        exampleCollectionGetItem: !include company_getId.sample
+        exampleCollectionPostItem: !include company_post.sample
 /capacitycalendars:
   type:
     readOnlyCollection:
