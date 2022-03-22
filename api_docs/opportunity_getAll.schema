@@ -1,0 +1,159 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/opportunity_getAll",
+  "definitions": {
+    "opportunity_getAll": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "subject": {
+            "type": "string",
+            "description": "Name of an opportunity"
+          },
+          "closed": {
+            "type": "string",
+            "description": "Closed date of an opportunity",
+            "format": "date-time"
+          },
+          "probability": {
+            "type": "integer",
+            "description": "Probability to win an opportunity"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Status of an opportunity"
+          },
+          "stage": {
+            "type": "integer",
+            "description": "Stage of an opportunity"
+          },
+          "source": {
+            "type": "integer",
+            "description": "Source of an opportunity"
+          },
+          "reason": {
+            "type": "integer",
+            "description": "Reason of an opportunity"
+          },
+          "partnerContact": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Partner contact name / Account "
+          },
+          "nextStep": {
+            "type": "integer",
+            "description": "Nextstep of an opportunity"
+          },
+          "request": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Request of an opportunity"
+          },
+          "campaign": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Campaign of an opportunity"
+          },
+          "type": {
+            "type": "integer",
+            "description": "Business type of an opportunity"
+          },
+          "competitor": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "competitor of an opportunity"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Internal ID of a portfolio"
+          },
+          "keyContact": {
+            "type": "string",
+            "description": "Person lastName"
+          },
+          "account": {
+            "type": "integer",
+            "description": "Id of account"
+          },
+          "accountName": {
+            "type": "string",
+            "description": "Name of account"
+          },
+          "responsibleName": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Name of responsible person"
+          },
+          "revenue": {
+            "type": "integer",
+            "description": "Revenue of opportunity"
+          },
+          "expectedRevenue": {
+            "type": "integer",
+            "description": "Expected revenue of opportunity"
+          },
+          "created": {
+            "type": "string",
+            "description": "Created of opportunity",
+            "format": "date-time"
+          },
+          "country": {
+            "type": "integer",
+            "description": "Country of opportunity"
+          },
+          "person": {
+            "type": "integer",
+            "description": "Person id"
+          },
+          "attachmentCount": {
+            "type": "integer",
+            "description": "Count attachement"
+          },
+          "itemCount": {
+            "type": "integer",
+            "description": "Count item"
+          }
+        }
+      }
+    }
+  }
+}
