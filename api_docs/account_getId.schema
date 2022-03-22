@@ -266,16 +266,6 @@
           ],
           "description": "Blog address of an account"
         },
-        "firstInvoiceNumber": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
         "combineInvoices": {
           "anyOf": [
             {
