@@ -403,16 +403,6 @@
           ],
           "description": "Parent id of an account"
         },
-        "ceo": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
         "shippingAddress": {
           "anyOf": [
             {

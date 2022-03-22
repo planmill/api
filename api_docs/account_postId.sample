@@ -28,7 +28,6 @@
   "description": "<p>test description</p>",
   "industry": 100000,
   "parentAccount": null,
-  "ceo": "Hannu",
   "parentAccountName": null,
   "shippingReference": "HR department",
   "turnover": 100000,

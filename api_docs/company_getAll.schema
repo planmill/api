@@ -5,8 +5,8 @@
     "company_getAll": {
       "type": "array",
       "items": {
-        "additionalProperties": false,
         "type": "object",
+        "additionalProperties": false,
         "properties": {
           "name": {
             "description": "Name of company",
@@ -182,6 +182,10 @@
                 "type": "null"
               }
             ]
+          },
+          "id": {
+            "description": "Id of an invoice",
+            "type": "integer"
           }
         }
       }
