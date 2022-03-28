@@ -423,52 +423,79 @@ types:
     additionalProperties: false
     properties:
       name?:
-        description: Name of company
+        description: Name of a company
         type: string
       passive?:
-        description: Active or passive state of account. Default value 0 (Active)
+        description: Active or passive state of company. Default value 0 (Active)
         type: integer
       vatId?:
-        description: VAT id of an account
+        description: VAT id of a company
         type: string | nil
       businessId?:
-        description: Business id of an account
+        description: Business id of a company
         type: string | nil
       phone?:
-        description: Phone number of an account
+        description: Phone number of a company
         pattern: "^[0-9|-]+$"
         type: string | nil
       website?:
-        description: Website of an account
+        description: Website of a company
         type: string | nil
       email?:
-        description: Email address of an account
+        description: Email address of a company
         type: email | emptystring | nil
       billingAddress?:
-        description: Invoice billing address of an account
+        description: Invoice billing address of a company
         type: string | nil
       billingCity?:
-        description: Invoice billing city of an account
+        description: Invoice billing city of a company
         type: string | nil
       billingCountry?:
-        description: Invoice billing country of an account
+        description: Invoice billing country of a company
         type: integer | nil
       billingState?: string | nil
       billingPostalCode?:
-        description: Invoice billing postal code of an account
+        description: Invoice billing postal code of a company
         type: string | nil
       visitingAddress?: string | integer | nil
       visitingCity?: string | nil
       visitingCountry?: string | nil
       visitingPostalCode?: string | nil
       visitingState?: string | nil
+      domicile?: string | nil
+      firstInvoiceNumber?: string | nil
+      receiveInvoices?: 
+        description:: Use for internal invoicing purposes. Enables company to appear under accounts list to manage any billing settings.
+        type: integer 
+      einvoiceSenderId?: string | integer | nil
+      einvoiceSenderOperator?: string | integer | nil
+      einvoicePaymentInstruction?: string | integer | nil
+      ceo?: string | nil
+      bankAccount1?:
+        description: Bank name (and account number if no IBAN is used)
+        type: string
+      iban1?:
+        description: Required if IBAN is used
+        type: string | nil
+      bic1?:
+        description: Required if IBAN is used
+        type: string | nil
+      bankInfo1?:
+        description: Optional additional info for banking requirements
+        type: string | nil
+      bankAccount2?: string | nil
+      iban2?: string | nil
+      bic2?: string | nil
+      bankAccount3?: string | nil
+      iban3?: string | nil
+      bic3?: string | nil
   company_post:
     type: company
   company_getId:
     type: company
     properties:
       id?:
-        description: Id of an invoice
+        description: Id of a company
         type: integer
   company_postId:
     type: company

@@ -17,4 +17,20 @@
   "visitingCountry": 73,
   "visitingPostalCode": "13233",
   "visitingState": ""
+  "domicile": null,
+  "firstInvoiceNumber": null,
+   "einvoiceSenderId": null,
+  "einvoiceSenderOperator": null,
+  "einvoicePaymentInstruction": null,
+  "ceo": null,
+  "bankAccount1": null,
+  "iban1": null,
+  "bic1": null,
+  "bankInfo1": null,
+  "bankAccount2": null,
+  "iban2": null,
+  "bic2": null,
+  "bankAccount3": null,
+  "iban3": null,
+  "bic3": null
 }
