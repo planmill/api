@@ -2095,6 +2095,14 @@ resourceTypes:
        allMethodsCollectionItem:
         exampleCollectionGetItem: !include company_getId.sample
         exampleCollectionPostItem: !include company_post.sample
+      /logo:
+        type:
+          readOnlyCollection:
+            exampleCollectionItemArray: !include tempfile_array1_5.sample
+        /{logo_id}:
+          type:
+            putGetDeleteCollectionItem:
+              exampleCollectionItem: Contents of file
 /capacitycalendars:
   type:
     readOnlyCollection:
