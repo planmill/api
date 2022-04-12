@@ -459,7 +459,7 @@ types:
         type: string | nil
       visitingAddress?: string | integer | nil
       visitingCity?: string | nil
-      visitingCountry?: string | nil
+      visitingCountry?: integer | nil
       visitingPostalCode?: string | nil
       visitingState?: string | nil
       domicile?: string | nil
@@ -473,7 +473,7 @@ types:
       ceo?: string | nil
       bankAccount1?:
         description: Bank name (and account number if no IBAN is used)
-        type: string
+        type: string | nil
       iban1?:
         description: Required if IBAN is used
         type: string | nil
