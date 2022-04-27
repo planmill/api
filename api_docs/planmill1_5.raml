@@ -2099,12 +2099,13 @@ resourceTypes:
         get:
         delete:
         type:
-          readOnlyCollection:
-            exampleCollectionItemArray: !include tempfile_array1_5.sample
+          getDeleteCollectionItem:
+            exampleCollectionItem: Contents of file
         /{logo_id}:
+          put:
+            description: Attach existing file to user.( Tips use file id from api/1.5/tempfile )
           type:
-            putGetDeleteCollectionItem:
-              exampleCollectionItem: Contents of file
+            putCollectionItem
 /capacitycalendars:
   type:
     readOnlyCollection:
