@@ -1,6 +1,6 @@
 [
   {
-    "name": "Test Account",
+    "name": "Test Company",
     "id": 181417,
     "passive": 0,
     "vatId": "2862228-2",
@@ -36,7 +36,7 @@
     "bic3": null
   },
   {
-    "name": "Test Account",
+    "name": "Test Company",
     "id": 170317,
     "passive": 0,
     "vatId": "2862228-2",
