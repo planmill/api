@@ -1834,21 +1834,6 @@ resourceTypes:
         responses:
           204:
             description: No HTTP body returned
-  getDeleteCollectionItem:
-      is: [all]
-      get:
-        description: View details of single <<resourcePathName|!singularize>>.
-        responses:
-          200:
-            body:
-              application/json:
-                  example: |
-                    <<exampleCollectionItem>>
-      delete:
-        description: Remove a <<resourcePathName|!singularize>> from PlanMill.
-        responses:
-          204:
-            description: No HTTP body returned
 /absences:
   get:
     responses:
@@ -2101,10 +2086,11 @@ resourceTypes:
         exampleCollectionPostItem: !include company_post.sample
       /logo:
         get:
+          description: View details of the logo.
         delete:
         type:
-          getDeleteCollectionItem:
-            exampleCollectionItem: Contents of file
+          allMethodsCollectionItem:
+           exampleCollectionGetItem: Contents of file
         /{logo_id}:
           put:
             description: Attach existing file to user.( Tips use file id from api/1.5/tempfile )
