@@ -680,6 +680,100 @@ types:
     pattern: "^$"
   expense: !include expense1_5.schema
   hook: !include hook1_5.schema
+  integrator_base:
+    additionalProperties: false
+    properties:
+      typeId?:
+        type: integer
+        description: Type Id of the type of the integrator
+      accountId?:
+        type: integer
+        description: Account to which the integrator belongs
+      resourceType?:
+        type: string
+        description: Resource type of the integrator
+      name?:
+        type: string
+        description: Name of the integrator
+      enabled?:
+        type: integer
+        description: Is integrator enabled or not
+      username?:
+        type: string
+        description: Username of the integrator
+      startDate?:
+        type: datetime
+        description: Start date of the operation of the integrator
+      target?:
+        type: string
+        description: Target of the integrator
+      fileTemplate?:
+        type: string
+        description: File template of the integrator
+      dimensionTemplate?:
+        type: string
+        description: Dimension template of the integrator
+      language?:
+        type: string
+        description: Language of the integrator
+      includePdf?:
+        type:
+        description: Is PDF included or not
+      zipFiles?:
+        type:
+        description: are zip files included or not
+      deferredSending?:
+        type:
+        description: Is sendig deferred or not?
+      reportExports?:
+        type:
+        description: Are reports exported or not?
+      tableExports?:
+        type:
+        description: Are tables exported or not?
+      owner?:
+        type:
+        description: Owner of the integrator
+      includeElements?:
+        type:
+        description: Elements included in the Integrator
+  integrator_post:
+    type: integrator_base
+    properties:
+      password?:
+        type: string
+        description: Password of the integrator
+  integrator:
+    type: integrator_base
+    properties:
+      id?:
+        type: integer
+        description: Id of integrator
+  integrator_getAll:
+    type: integrator[]
+  integratortype_post:
+    additionalProperties: false
+    properties:
+      name?:
+        type: string
+        description: Name of integrator type
+      accessRight?:
+        type: string
+        description: Access right of integrator type
+      resourceType?:
+        type: string
+        description: Resource type of integrator type - expense, invoice etc.
+      countryId?:
+        type: integer
+        description: Country Id of integrator type
+  integratortype:
+    type: integratortype_post
+    properties:
+      typeId?:
+        description: integrator type id
+        type: integer
+  integratortype_getAll:
+    type: integratortype[]
   invoice_base:
     additionalProperties: false
     properties:
@@ -2172,9 +2266,9 @@ resourceTypes:
     responses:
       200:
         description: 
-        body:                  
+        body:
           application/json: 
-            type: company_getAll             
+            type: company_getAll
   post:
     headers:
       Content-Type:
@@ -2183,7 +2277,7 @@ resourceTypes:
         default: |
           application/json;charset=UTF-8 <div id="account1_5-datatype-post"></div> 	
         example: |
-          application/json;charset=UTF-8 		
+          application/json;charset=UTF-8
     body:
       application/json:
         type: company_post
@@ -2192,33 +2286,134 @@ resourceTypes:
        exampleCollectionItemArray: !include company_array1_5.sample
        exampleCollectionItem: !include company_post.sample
   /{company_id}:
+    get:
+      responses:
+        200:
+          body:
+            application/json: 
+              type: company_getId
+    post:
+      body:
+        application/json:
+          type: company_postId
+    delete:
+    type:
+     allMethodsCollectionItem:
+      exampleCollectionGetItem: !include company_getId.sample
+      exampleCollectionPostItem: !include company_post.sample
+    /logo:
+      get:
+        description: View details of the logo.
+      delete:
+      type:
+        allMethodsCollectionItem:
+         exampleCollectionGetItem: Contents of file
+      /{logo_id}:
+        put:
+          description: Attach existing file to user.( Tips use file id from api/1.5/tempfile )
+        type:
+          allMethodsCollectionItem
+    /integrator:
+      get:
+        queryParameters:
+          rowcount:
+          nextrows:
+          order:
+          sort:
+          interval:
+          intervalstart:
+          intervalfinish:
+        responses:
+          200:
+            description: 
+            body:
+              application/json: 
+                type: integrator_getAll
+      post:
+        headers:
+          Content-Type:
+            type: string
+            required: true
+            default: |
+              application/json;charset=UTF-8 <div id="integrator1_5-datatype-post"></div> 	
+            example: |
+              application/json;charset=UTF-8
+        body:
+          application/json:
+            type: integrator_post
+      type:
+        collection:
+           exampleCollectionItemArray: !include integrator_array1_5.sample
+           exampleCollectionItem: !include integrator_post.sample
+      /{integrator_id}:
+          get:
+            responses:
+              200:
+                body:
+                  application/json: 
+                     type: integrator
+          post:
+            body:
+              application/json:
+                type: integrator_post
+          delete:
+          type:
+           allMethodsCollectionItem:
+            exampleCollectionGetItem: !include integrator_getId.sample
+            exampleCollectionPostItem: !include integrator_post.sample
+        /enabled:
+          put:
+            description: Enable integrator
+          type:
+            allMethodsCollectionItem
+  /integratortype:
+    get:
+      description: View all available integrator types.
+      responses:
+        200:
+          body:
+            application/json: 
+              type: integratortype_getAll
+    post:
+      headers:
+        Content-Type:
+          type: string
+          required: true
+          default: |
+            application/json;charset=UTF-8 <div id="integratortype1_5-datatype-post"></div> 
+          example: |
+            application/json;charset=UTF-8
+      body:
+        application/json:
+          type: integratortype_post
+    type:
+      allMethodsCollection:
+        exampleCollectionItemArray: !include integratortype_array1_5.sample
+        exampleCollectionItem: !include integratortype_post.sample
+    /{integrator_type_id}:
       get:
         responses:
           200:
             body:
               application/json: 
-                type: company_getId
+                type: integratortype_post
       post:
+        headers:
+          Content-Type:
+            type: string
+            required: true
+            default: |
+              application/json;charset=UTF-8 <div id="account1_5-datatype-post"></div> 	
+            example: |
+              application/json;charset=UTF-8
         body:
           application/json:
-            type: company_postId
+            type: integratortype_post
       delete:
-      type:
-       allMethodsCollectionItem:
-        exampleCollectionGetItem: !include company_getId.sample
-        exampleCollectionPostItem: !include company_post.sample
-      /logo:
-        get:
-          description: View details of the logo.
-        delete:
-        type:
-          allMethodsCollectionItem:
-           exampleCollectionGetItem: Contents of file
-        /{logo_id}:
-          put:
-            description: Attach existing file to user.( Tips use file id from api/1.5/tempfile )
-          type:
-            allMethodsCollectionItem
+      type: 
+        allMethodsCollectionItem:
+          exampleCollectionGetItem: !include integratortype_post.sample
+          exampleCollectionPostItem: !include integratortype_post.sample
 /capacitycalendars:
   type:
     readOnlyCollection:
