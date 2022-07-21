@@ -2393,30 +2393,30 @@ resourceTypes:
       allMethodsCollection:
         exampleCollectionItemArray: !include integratortype_array1_5.sample
         exampleCollectionItem: !include integratortype_post.sample
-    /{integrator_type_id}:
-      get:
-        responses:
-          200:
-            body:
-              application/json: 
-                type: integratortype_post
-      post:
-        headers:
-          Content-Type:
-            type: string
-            required: true
-            default: |
-              application/json;charset=UTF-8 <div id="account1_5-datatype-post"></div> 	
-            example: |
-              application/json;charset=UTF-8
-        body:
-          application/json:
-            type: integratortype_post
-      delete:
-      type: 
-        allMethodsCollectionItem:
-          exampleCollectionGetItem: !include integratortype_post.sample
-          exampleCollectionPostItem: !include integratortype_post.sample
+      /{integrator_type_id}:
+        get:
+          responses:
+            200:
+              body:
+                application/json: 
+                  type: integratortype_post
+        post:
+          headers:
+            Content-Type:
+              type: string
+              required: true
+              default: |
+                application/json;charset=UTF-8 <div id="account1_5-datatype-post"></div> 	
+              example: |
+                application/json;charset=UTF-8
+          body:
+            application/json:
+              type: integratortype_post
+        delete:
+        type: 
+          allMethodsCollectionItem:
+            exampleCollectionGetItem: !include integratortype_post.sample
+            exampleCollectionPostItem: !include integratortype_post.sample
 /capacitycalendars:
   type:
     readOnlyCollection:
