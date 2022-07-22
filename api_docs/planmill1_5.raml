@@ -777,8 +777,6 @@ types:
     type: integratortype_base[]
   integratortype_getId:
     type: integratortype_base
-  integratortype_postId:
-    type: integratortype_base
   integratortype_post:
     type: integratortype_base
   invoice_base:
@@ -1012,7 +1010,7 @@ types:
         description: "Person id"
       attachmentCount?:
         type: integer
-        description: "Count attachement"
+        description: "Count attachment"
       itemCount?:
         type: integer
         description: "Count item"
@@ -1057,7 +1055,7 @@ types:
         description: "Portfolio id of Project"
       category?:
         type: integer | nil
-        description: "Enumeration of a project's category: -1=NULL , 10=Absence,20=Administration, 30=Development, 40=Delivery, 50=R & D, 60=Support, 70=Sales, 80=Marketing,90=Education, 100=Continuos service, 110=Maintenance"
+        description: "Enumeration of a project's category: -1=NULL , 10=Absence,20=Administration, 30=Development, 40=Delivery, 50=R & D, 60=Support, 70=Sales, 80=Marketing,90=Education, 100=Continuous service, 110=Maintenance"
       contact?:
         type: number
         description: "Contact's id that is related to a project, Required only if billable status is 1 or 2"
@@ -1084,10 +1082,10 @@ types:
         description: "Enumeration of requireBillableComment: 0=No, 1=For all billable tasks,2=For all tasks"
       allowNewTasksAndAssignmentsForAllUsers?:
         type: integer
-        description: "Enumeration of allowNewTasksAndAssignmentsForAllUsers: 0=No, 1=Yes,butdonot add them as team members, 2=Yes,and add them as team members"
+        description: "Enumeration of allowNewTasksAndAssignmentsForAllUsers: 0=No, 1=Yes,but do not add them as team members, 2=Yes,and add them as team members"
       autoAssignNewTeamMembers?:
         type: integer
-        description: "Enumeration of autoAssignNewTeamMembers: 0=No, 1=Yes,but only tosubtasks, 2=Yes"
+        description: "Enumeration of autoAssignNewTeamMembers: 0=No, 1=Yes,but only to sub tasks, 2=Yes"
       invoiceAppendix?:
         type: integer
         description: "Invoice appendix of a project"
@@ -1593,7 +1591,7 @@ types:
   user: !include user1_5.schema
   vacation: !include vacation1_5.schema
 
-# write name of the resource before the include and schema always in SINGULAR, i.e. hook not hooks otherwise the automatic includes won't work
+# write name of the resource before to include and schema always in SINGULAR, i.e. hook not hooks otherwise the automatic includes won't work
 resourceTypes:
   readOnlyCollection:
       is: [all]
@@ -2392,7 +2390,7 @@ resourceTypes:
               application/json;charset=UTF-8
           body:
             application/json:
-              type: integratortype_postId
+              type: integratortype_post
       type:
         allMethodsCollection:
           exampleCollectionItemArray: !include integratortype_array1_5.sample
@@ -3484,7 +3482,7 @@ resourceTypes:
           exampleCollectionItem: !include salesorderitem1_5.sample
       /{id}:
         get:
-          description: View details of single item of single sales order item. #See salesorders/{sales_order_id}/items/{sales_order_item_id}/meta for list of filters, columns and formats
+          description: View details of single item of single sales order item. #See sales orders/{sales_order_id}/items/{sales_order_item_id}/meta for list of filters, columns and formats
         post:
           description: Update an existing resource single item of single sales order to PlanMill. #See salesorders/{sales_order_id}/items/{sales_order_item_id}/meta for list of filters, columns and formats
         type:
