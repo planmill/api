@@ -743,6 +743,8 @@ types:
       password?:
         type: string
         description: Password of the integrator
+  integrator_postId:
+    type: integrator_post
   integrator:
     type: integrator_base
     properties:
@@ -2358,7 +2360,7 @@ resourceTypes:
           post:
             body:
               application/json:
-                type: integrator_post
+                type: integrator_postId
           delete:
           type:
            allMethodsCollectionItem:
@@ -2387,7 +2389,7 @@ resourceTypes:
               application/json;charset=UTF-8
           body:
             application/json:
-              type: integratortype_post
+              type: integratortype_postId
       type:
         allMethodsCollection:
           exampleCollectionItemArray: !include integratortype_array1_5.sample
