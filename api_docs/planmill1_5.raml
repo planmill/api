@@ -755,7 +755,7 @@ types:
     type: integrator[]
   integrator_getId:
     type: integrator
-  integratortype_post:
+  integratortype_base:
     additionalProperties: false
     properties:
       name?:
@@ -774,11 +774,13 @@ types:
         description: integrator type id
         type: integer
   integratortype_getAll:
-    type: integratortype_post[]
+    type: integratortype_base[]
   integratortype_getId:
-    type: integratortype_post
+    type: integratortype_base
   integratortype_postId:
-    type: integratortype_post
+    type: integratortype_base
+  integratortype_post:
+    type: integratortype_base
   invoice_base:
     additionalProperties: false
     properties:
@@ -2395,7 +2397,7 @@ resourceTypes:
         allMethodsCollection:
           exampleCollectionItemArray: !include integratortype_array1_5.sample
           exampleCollectionItem: !include integratortype_post.sample
-        /{integrator_type_id}:
+        /{integratortype_id}:
           get:
             responses:
               200:
