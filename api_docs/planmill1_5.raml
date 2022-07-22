@@ -464,7 +464,6 @@ types:
       visitingState?: string | nil
       domicile?: string | nil
       firstInvoiceNumber?: integer | nil
-      firstInvoiceNumber?: string | nil
       receiveInvoices?: 
         description:: Use for internal invoicing purposes. Enables company to appear under accounts list to manage any billing settings.
         type: integer 
@@ -913,7 +912,6 @@ types:
       attachmentCount?:
         type: integer
         description: "Count attachment"
-        description: "Count attachement"
       itemCount?:
         type: integer
         description: "Count item"
@@ -953,14 +951,12 @@ types:
       billableStatus?:
         type: integer
         description: "Used in enumeration of billableStatus"
-        description: Used in enumeration of billableStatus
       portfolio?:
         type: integer
         description: "Portfolio id of Project"
       category?:
         type: integer | nil
         description: "Enumeration of a project's category: -1=NULL , 10=Absence,20=Administration, 30=Development, 40=Delivery, 50=R & D, 60=Support, 70=Sales, 80=Marketing,90=Education, 100=Continuous service, 110=Maintenance"
-        description: "Enumeration of a project's category: -1=NULL , 10=Absence,20=Administration, 30=Development, 40=Delivery, 50=R & D, 60=Support, 70=Sales, 80=Marketing,90=Education, 100=Continuos service, 110=Maintenance"
       contact?:
         type: number
         description: "Contact's id that is related to a project, Required only if billable status is 1 or 2"
@@ -979,7 +975,6 @@ types:
       requireBillableComment?:
         type: integer
         description: "Enumeration of requireBillableComment: 0=No, 1=For all billabletasks,2=For all tasks"
-        description: Enumeration of requireBillableComment: 0=No, 1=For all billabletasks,2=For all tasks"
       setRequestPerformerAsTeamMember?:
         type: integer
         description: "Enumeration of requestPerformerAsTeamMember: 0=No, 1=Yes"
@@ -988,11 +983,6 @@ types:
         description: "Enumeration of requireBillableComment: 0=No, 1=For all billable tasks,2=For all tasks"
       allowNewTasksAndAssignmentsForAllUsers?:
         type: integer
-        description: "Enumeration of allowNewTasksAndAssignmentsForAllUsers: 0=No, 1=Yes,but do not add them as team members, 2=Yes,and add them as team members"
-        description: "Enumeration of allowNewTasksAndAssignmentsForAllUsers: 0=No, 1=Yes,butdonot add them as team members, 2=Yes,and add them as team members"
-      autoAssignNewTeamMembers?:
-        type: integer
-        description: "Enumeration of autoAssignNewTeamMembers: 0=No, 1=Yes,but only to sub tasks, 2=Yes"
         description: "Enumeration of autoAssignNewTeamMembers: 0=No, 1=Yes,but only tosubtasks, 2=Yes"
       invoiceAppendix?:
         type: integer
@@ -2181,10 +2171,8 @@ resourceTypes:
       200:
         description: 
         body:
-        body:                  
           application/json: 
             type: company_getAll
-            type: company_getAll             
   post:
     headers:
       Content-Type:
