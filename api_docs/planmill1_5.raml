@@ -768,16 +768,13 @@ types:
       countryId?:
         type: integer
         description: Country Id of integrator type
-  integratortype:
-    type: integratortype_post
-    properties:
       typeId?:
         description: integrator type id
         type: integer
   integratortype_getAll:
-    type: integratortype[]
+    type: integratortype_post[]
   integratortype_getId:
-    type: integratortype
+    type: integratortype_post
   integratortype_postId:
     type: integratortype_post
   invoice_base:
