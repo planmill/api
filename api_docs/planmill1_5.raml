@@ -604,6 +604,8 @@ types:
     type: integratortype_base
   integratortype_post:
     type: integratortype_base
+  integratortype_postId:
+    type: integratortype_base
   capacitycalendar: !include user_capacitycalendars1_5.schema
   contact_base:
     additionalProperties: false
@@ -2378,6 +2380,10 @@ resourceTypes:
             body:
               application/json:
                 type: integratortype_getAll
+      post:
+        body:
+          application/json:
+            type: integratortype_postId
       type:
         allMethodsCollection:
         exampleCollectionItemArray: !include integratortype_array1_5.sample
