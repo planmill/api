@@ -1,0 +1,5 @@
+{ "name":"Custom Finvoice based",
+  "accessRight":"Integrations.Finvoice Accounting connector edit",
+  "resourceType":"invoice",
+  "countryId": 73
+}

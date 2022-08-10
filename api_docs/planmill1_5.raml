@@ -2383,11 +2383,11 @@ resourceTypes:
       post:
         body:
           application/json:
-            type: integratortype_postId
+            type: integratortype_post
       type:
         allMethodsCollection:
         exampleCollectionItemArray: !include integratortype_array1_5.sample
-        exampleCollectionItem: !include integratortype_post.sample
+        exampleCollectionItem: !include integratortype_postId.sample
       /{integratortype_id}:
         get:
           responses:
@@ -2406,12 +2406,12 @@ resourceTypes:
                 application/json;charset=UTF-8
           body:
             application/json:
-              type: integratortype_post
+              type: integratortype_postId
         delete:
         type:
           allMethodsCollectionItem:
-            exampleCollectionGetItem: !include integratortype_post.sample
-            exampleCollectionPostItem: !include integratortype_post.sample
+            exampleCollectionGetItem: !include integratortype.sample
+            exampleCollectionPostItem: !include integratortype_postId.sample
 /capacitycalendars:
   type:
     readOnlyCollection:
