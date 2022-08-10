@@ -595,13 +595,14 @@ types:
       countryId?:
         type: integer
         description: Country Id of integrator type
+  integratortype_getId:
+    type: integratortype_base
+    properties:
       typeId?:
         description: integrator type id
         type: integer
   integratortype_getAll:
-    type: integratortype_base[]
-  integratortype_getId:
-    type: integratortype_base
+    type: integratortype_getId[]
   integratortype_post:
     type: integratortype_base
   integratortype_postId:
