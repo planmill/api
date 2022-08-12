@@ -521,52 +521,52 @@ types:
         type: string
         description: Name of the integrator
       enabled?:
-        type: integer
+        type: integer | nil
         description: Is integrator enabled or not
       username?:
-        type: string
+        type: string | nil
         description: Username of the integrator
       startDate?:
-        type: datetime
+        type: datetime | nil
         description: Start date of the operation of the integrator
       target?:
-        type: string
+        type: string | nil
         description: Target of the integrator
       fileTemplate?:
-        type: string
+        type: string | nil
         description: File template of the integrator
       dimensionTemplate?:
-        type: string
+        type: string | nil
         description: Dimension template of the integrator
       language?:
-        type: string
+        type: string | nil
         description: Language of the integrator
       includePdf?:
-        type: boolean
+        type: boolean | nil
         description: Is PDF included or not
       zipFiles?:
-        type: boolean
+        type: boolean | nil
         description: are zip files included or not
       deferredSending?:
-        type: boolean
+        type: boolean | nil
         description: Is sendig deferred or not?
       reportExports?:
-        type: string
+        type: string | nil
         description: Are reports exported or not?
       tableExports?:
-        type: string
+        type: string | nil
         description: Are tables exported or not?
       owner?:
-        type: string
+        type: string | nil
         description: Owner of the integrator
       includeElements?:
-        type: string
+        type: string | nil
         description: Elements included in the Integrator
   integrator_post:
     type: integrator_base
     properties:
       password?:
-        type: string
+        type: string | nil
         description: Password of the integrator
   integrator_postId:
     type: integrator_post
