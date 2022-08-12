@@ -1,23 +1,23 @@
-{ "typeId": 10
-  "accountId": 353
-  "jobId": null
-  "resourceType": "invoice"
-  "name": "Custom Finvoice based"
-  "enabled": 0
-  "username": null
-  "password": null
-  "startdate": "2021-12-01 00:00:00.0"
-  "target": null	
-  "finvoiceversion": null
-  "fileTemplate": "[InvoiceNumber]"
-  "dimensionTemplate": "[ProductGroupId]"
-  "languageCode": "EN"
-  "includePdf": 1
-  "zipFiles": null
-  "deferredSending": null
-  "frequency": null
-  "reportExports": null
-  "tableExports": null
-  "owner": null
+{ "typeId": 10,
+  "accountId": 353,
+  "jobId": null,
+  "resourceType": "invoice",
+  "name": "Custom Finvoice based",
+  "enabled": 0,
+  "username": null,
+  "password": null,
+  "startdate": "2021-12-01 00:00:00.0",
+  "target": null,	
+  "finvoiceversion": null,
+  "fileTemplate": "[InvoiceNumber]",
+  "dimensionTemplate": "[ProductGroupId]",
+  "languageCode": "EN",
+  "includePdf": 1,
+  "zipFiles": null,
+  "deferredSending": null,
+  "frequency": null,
+  "reportExports": null,
+  "tableExports": null,
+  "owner": null,
   "includeElements": null
 }
