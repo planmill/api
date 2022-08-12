@@ -2351,7 +2351,7 @@ resourceTypes:
       type:
         collection:
           exampleCollectionItemArray: !include integrator_array1_5.sample
-          exampleCollectionItem: !include integrator_post.sample
+          exampleCollectionItem: !include integrator_postId.sample
       /{integrator_id}:
         get:
           responses:
@@ -2366,8 +2366,8 @@ resourceTypes:
         delete:
         type:
           allMethodsCollectionItem:
-            exampleCollectionGetItem: !include integrator_getId.sample
-            exampleCollectionPostItem: !include integrator_post.sample
+            exampleCollectionGetItem: !include integrator.sample
+            exampleCollectionPostItem: !include integrator_postId.sample
         /enabled:
           put:
             description: Enable integrator
