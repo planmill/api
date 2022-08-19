@@ -1,5 +1,4 @@
 { "typeId": 10,
-  "accountId": 353,
   "resourceType": "invoice",
   "name": "Custom Finvoice based",
   "enabled": 0,
