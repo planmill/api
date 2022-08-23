@@ -582,6 +582,7 @@ types:
     type: integrator
   integrator_enable:
       additionalProperties: false
+      properties:
         enabled?:
           type: integer | nil
           description: Is integrator enabled or not
@@ -2381,7 +2382,7 @@ resourceTypes:
                 type: integrator_enable
           type:
             allMethodsCollectionItem:
-              exampleCollectionPostItem: !include integrator_enable.sample
+              exampleCollectionPutItem: !include integrator_enable.sample
     /integratortypes:
       get:
         responses:
