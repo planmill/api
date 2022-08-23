@@ -26,6 +26,7 @@ var linkItems = [
   "integrator_post",
   "integrator_postId",
   "integrator_getId",
+  "integrator_enable",
   "integratortype_getAll",
   "integratortype_getId",
   "integratortype_post",
