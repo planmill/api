@@ -7,11 +7,11 @@
       "additionalProperties": false,
       "properties": {
         "name": {
-          "description": "Name of company",
+          "description": "Name of a company",
           "type": "string"
         },
         "passive": {
-          "description": "Active or passive state of account. Default value 0 (Active)",
+          "description": "Active or passive state of company. Default value 0 (Active)",
           "type": "integer"
         },
         "vatId": {
@@ -23,7 +23,7 @@
               "type": "null"
             }
           ],
-          "description": "VAT id of an account"
+          "description": "VAT id of a company"
         },
         "businessId": {
           "anyOf": [
@@ -34,7 +34,7 @@
               "type": "null"
             }
           ],
-          "description": "Business id of an account"
+          "description": "Business id of a company"
         },
         "phone": {
           "anyOf": [
@@ -45,7 +45,7 @@
               "type": "null"
             }
           ],
-          "description": "Phone number of an account"
+          "description": "Phone number of a company"
         },
         "website": {
           "anyOf": [
@@ -56,7 +56,7 @@
               "type": "null"
             }
           ],
-          "description": "Website of an account"
+          "description": "Website of a company"
         },
         "email": {
           "anyOf": [
@@ -72,7 +72,7 @@
               "type": "null"
             }
           ],
-          "description": "Email address of an account"
+          "description": "Email address of a company"
         },
         "billingAddress": {
           "anyOf": [
@@ -83,7 +83,7 @@
               "type": "null"
             }
           ],
-          "description": "Invoice billing address of an account"
+          "description": "Invoice billing address of a company"
         },
         "billingCity": {
           "anyOf": [
@@ -94,7 +94,7 @@
               "type": "null"
             }
           ],
-          "description": "Invoice billing city of an account"
+          "description": "Invoice billing city of a company"
         },
         "billingCountry": {
           "anyOf": [
@@ -105,7 +105,7 @@
               "type": "null"
             }
           ],
-          "description": "Invoice billing country of an account"
+          "description": "Invoice billing country of a company"
         },
         "billingState": {
           "anyOf": [
@@ -126,7 +126,7 @@
               "type": "null"
             }
           ],
-          "description": "Invoice billing postal code of an account"
+          "description": "Invoice billing postal code of a company"
         },
         "visitingAddress": {
           "anyOf": [
@@ -154,7 +154,7 @@
         "visitingCountry": {
           "anyOf": [
             {
-              "type": "string"
+              "type": "integer"
             },
             {
               "type": "null"
@@ -172,6 +172,189 @@
           ]
         },
         "visitingState": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "domicile": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "firstInvoiceNumber": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "receiveInvoices": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "einvoiceSenderId": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "einvoiceSenderOperator": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "einvoicePaymentInstruction": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "ceo": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "bankAccount1": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Bank name (and account number if no IBAN is used)"
+        },
+        "iban1": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Required if IBAN is used"
+        },
+        "bic1": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Required if IBAN is used"
+        },
+        "bankInfo1": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Optional additional info for banking requirements"
+        },
+        "bankAccount2": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "iban2": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "bic2": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "bankAccount3": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "iban3": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "bic3": {
           "anyOf": [
             {
               "type": "string"

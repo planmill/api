@@ -356,8 +356,15 @@
           ]
         },
         "modified": {
-          "type": "string",
-          "format": "date-time"
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "modifiedBy": {
           "anyOf": [

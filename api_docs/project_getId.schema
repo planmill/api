@@ -31,7 +31,7 @@
               "type": "null"
             }
           ],
-          "description": "Enumeration of a project's category: -1=NULL , 10=Absence,20=Administration, 30=Development, 40=Delivery, 50=R & D, 60=Support, 70=Sales, 80=Marketing,90=Education, 100=Continuos service, 110=Maintenance"
+          "description": "Enumeration of a project's category: -1=NULL , 10=Absence,20=Administration, 30=Development, 40=Delivery, 50=R & D, 60=Support, 70=Sales, 80=Marketing,90=Education, 100=Continuous service, 110=Maintenance"
         },
         "contact": {
           "type": "number",
@@ -69,7 +69,7 @@
         },
         "requireBillableComment": {
           "type": "integer",
-          "description": ""
+          "description": "Enumeration of requireBillableComment: 0=No, 1=For all billabletasks,2=For all tasks"
         },
         "setRequestPerformerAsTeamMember": {
           "type": "integer",
@@ -80,10 +80,6 @@
           "description": "Enumeration of requireBillableComment: 0=No, 1=For all billable tasks,2=For all tasks"
         },
         "allowNewTasksAndAssignmentsForAllUsers": {
-          "type": "integer",
-          "description": "Enumeration of allowNewTasksAndAssignmentsForAllUsers: 0=No, 1=Yes,butdonot add them as team members, 2=Yes,and add them as team members"
-        },
-        "autoAssignNewTeamMembers": {
           "type": "integer",
           "description": "Enumeration of autoAssignNewTeamMembers: 0=No, 1=Yes,but only tosubtasks, 2=Yes"
         },

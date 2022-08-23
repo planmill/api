@@ -7,7 +7,6 @@
       "additionalProperties": false,
       "required": [
         "person",
-        "finish",
         "start"
       ],
       "properties": {
@@ -21,6 +20,11 @@
             }
           ],
           "description": "Id of project having task to report the time"
+        },
+        "finish": {
+          "type": "string",
+          "description": "Finish time of a time report. May be used instead of amount for a time report. System will then calculate amount. Note for 'overtimeAmount' or 'travelAmount' you must provide an explicit length in minutes.",
+          "format": "date-time"
         },
         "status": {
           "type": "integer",
@@ -107,17 +111,6 @@
           ],
           "description": "Travel time in minutes"
         },
-        "totalReported": {
-          "anyOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "description": "Total reported time of time report"
-        },
         "billableAmount": {
           "anyOf": [
             {
@@ -141,11 +134,6 @@
         "amount": {
           "type": "number",
           "description": "Required if finish is not provided. Reported normal time in minutes."
-        },
-        "finish": {
-          "type": "string",
-          "description": "REMOVE REQUIRED Finish time of a time report. May be used instead of amount for a time report. System will then calculate amount. Note for 'overtimeAmount' or 'travelAmount' you must provide an explicit length in minutes.",
-          "format": "date-time"
         }
       }
     }

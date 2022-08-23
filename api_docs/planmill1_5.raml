@@ -580,7 +580,7 @@ types:
     type: integrator[]
   integrator_getId:
     type: integrator
-  integrator_enable:
+  integratorenable_postId:
       additionalProperties: false
       properties:
         enabled?:
@@ -2379,7 +2379,7 @@ resourceTypes:
             description: Enable integrator
             body:
               application/json:
-                type: integrator_enable
+                type: integratorenable_postId
           type:
             allMethodsCollectionItem:
               exampleCollectionPutItem: !include integrator_enable.sample
