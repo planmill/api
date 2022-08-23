@@ -511,9 +511,6 @@ types:
       typeId?:
         type: integer
         description: Type Id of the type of the integrator
-      accountId?:
-        type: integer
-        description: Account to which the integrator belongs
       resourceType?:
         type: string
         description: Resource type of the integrator
@@ -576,10 +573,18 @@ types:
       id?:
         type: integer
         description: Id of integrator
+      accountId?:
+         type: integer
+         description: Account to which the integrator belongs
   integrator_getAll:
     type: integrator[]
   integrator_getId:
     type: integrator
+  integrator_enable:
+      additionalProperties: false
+        enabled?:
+          type: integer | nil
+          description: Is integrator enabled or not
   integratortype_base:
     additionalProperties: false
     properties:
@@ -2371,8 +2376,11 @@ resourceTypes:
         /enabled:
           put:
             description: Enable integrator
+            body:
+              application/json:
           type:
-            allMethodsCollectionItem
+            allMethodsCollectionItem:
+              exampleCollectionPostItem: !include integrator_enable.sample
     /integratortypes:
       get:
         responses:
