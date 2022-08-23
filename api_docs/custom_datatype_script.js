@@ -18,7 +18,6 @@ var linkItems = [
   "companies__company_id__integrators_post_request:integrator_post",
   "companies__company_id__integrators__integrator_id__get_response:integrator_getId",
   "companies__company_id__integrators__integrator_id__post_request:integrator_postId",
-  "companies__company_id__integrators__integrator_id__enabled__put_request:integratorenable_postId",
   "companies__company_id__integratortypes_get_response:integratortype_getAll",
   "companies__company_id__integratortypes_post_request:integratortype_post",
   "companies__company_id__integratortypes__integratortype_id__get_response:integratortype_getId",
