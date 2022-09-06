@@ -136,21 +136,9 @@
         },
         "id": {
           "type": "integer",
-          "description": "Internal ID of a portfolio"
+          "description": "Internal ID of opportunity"
         },
         "keyContact": {
-          "type": "string",
-          "description": "Person lastName"
-        },
-        "account": {
-          "type": "integer",
-          "description": "Id of account"
-        },
-        "accountName": {
-          "type": "string",
-          "description": "Name of account"
-        },
-        "responsibleName": {
           "anyOf": [
             {
               "type": "string"
@@ -159,14 +147,61 @@
               "type": "null"
             }
           ],
+          "description": "Person lastName"
+        },
+        "account": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Id of account"
+        },
+        "accountName": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Name of account"
+        },
+        "responsibleName": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "integer"
+            }
+          ],
           "description": "Name of responsible person"
         },
         "revenue": {
-          "type": "integer",
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
           "description": "Revenue of opportunity"
         },
         "expectedRevenue": {
-          "type": "integer",
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
           "description": "Expected revenue of opportunity"
         },
         "created": {
@@ -175,16 +210,30 @@
           "format": "date-time"
         },
         "country": {
-          "type": "integer",
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
           "description": "Country of opportunity"
         },
         "person": {
-          "type": "integer",
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
           "description": "Person id"
         },
         "attachmentCount": {
           "type": "integer",
-          "description": "Count attachement"
+          "description": "Count attachment"
         },
         "itemCount": {
           "type": "integer",

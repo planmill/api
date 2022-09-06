@@ -1,0 +1,16 @@
+[
+  {
+    "typeId": 10,
+    "name":"Custom Finvoice based",
+    "accessRight":"Integrations.Finvoice Accounting connector edit",
+    "resourceType":"invoice",
+    "countryId": 73
+  },
+  {
+    "typeId": 70,
+    "name": "M-files sales data",
+    "accessRight": "Integrations.Mfiles sales connector settings edit",
+    "resourceType": "metadatasales",
+    "countryId": 73
+  }
+]

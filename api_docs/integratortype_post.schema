@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/integratortype_post",
+  "definitions": {
+    "integratortype_post": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of integrator type"
+        },
+        "accessRight": {
+          "type": "string",
+          "description": "Access right of integrator type"
+        },
+        "resourceType": {
+          "type": "string",
+          "description": "Resource type of integrator type - expense, invoice etc."
+        },
+        "countryId": {
+          "type": "integer",
+          "description": "Country Id of integrator type"
+        }
+      }
+    }
+  }
+}

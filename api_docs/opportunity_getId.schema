@@ -177,11 +177,25 @@
           "description": "Name of responsible person"
         },
         "revenue": {
-          "type": "integer",
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
           "description": "Revenue of opportunity"
         },
         "expectedRevenue": {
-          "type": "integer",
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
           "description": "Expected revenue of opportunity"
         },
         "created": {
@@ -213,7 +227,7 @@
         },
         "attachmentCount": {
           "type": "integer",
-          "description": "Count attachement"
+          "description": "Count attachment"
         },
         "itemCount": {
           "type": "integer",
