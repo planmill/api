@@ -33,7 +33,10 @@
     "bic2": null,
     "bankAccount3": null,
     "iban3": null,
-    "bic3": null
+    "bic3": null,
+    "factoringResponsibleId": 100,
+    "factoringPartyId": 353,
+    "agreementId": "102"
   },
   {
     "name": "Test Company",
@@ -69,6 +72,9 @@
     "bic2": null,
     "bankAccount3": null,
     "iban3": null,
-    "bic3": null
+    "bic3": null,
+    "factoringResponsibleId": null,
+    "factoringPartyId": null,
+    "agreementId": null
   }
 ]
