@@ -1,0 +1,571 @@
+{
+    "lineOfBusiness": {
+        "type": "string",
+        "caption": "",
+        "format": "int",
+        "description": "",
+        "values": null
+    },
+    "shippingCity": {
+        "type": "string",
+        "caption": "City",
+        "format": "string",
+        "description": "",
+        "values": null
+    },
+    "eInvoicingAddress": {
+        "type": "string",
+        "caption": "E-invoicing address",
+        "format": "string",
+        "description": "",
+        "maxlength": "80",
+        "values": null
+    },
+    "handlingFee": {
+        "type": "string",
+        "caption": "Handling fee",
+        "format": "double",
+        "description": "",
+        "values": null
+    },
+    "invoiceVat": {
+        "type": "string",
+        "value": "24.0",
+        "caption": "VAT",
+        "values": {
+            "8,875 %": "8.875",
+            "10,25 %": "10.25",
+            "9%": "9.0",
+            "17,5 %": "17.5",
+            "24 %": "24.0",
+            "23 %": "23.0",
+            "22 %": "22.0",
+            "7,8 %": "7.8",
+            "21 %": "21.0",
+            "20 %": "20.0",
+            "6,25 %": "6.25",
+            "7,75 %": "7.75",
+            "9,25 %": "9.25",
+            "7,5 %": "7.5",
+            "25 %": "25.0",
+            "8,9 %": "8.9",
+            "12%": "12.0",
+            "8,5 %": "8.5",
+            "13 %": "13.0",
+            "0.0": "0 %",
+            "10 %": "10.0",
+            "5 %": "5.0",
+            "19 %": "19.0",
+            "6 %": "6.0",
+            "18 %": "18.0",
+            "7 %": "7.0",
+            "17 %": "17.0",
+            "16 %": "16.0",
+            "8 %": "8.0",
+            "6,625 %": "6.625",
+            "15 %": "15.0",
+            "9,5 %": "9.5",
+            "14 %": "14.0"
+        },
+        "description": "",
+        "enumeration": "Enumeration values.Finance control.Invoice position summary.Invoices.VAT"
+    },
+    "businessId": {
+        "type": "string",
+        "caption": "Business ID",
+        "format": "string",
+        "description": "",
+        "maxlength": "80",
+        "values": null
+    },
+    "vatId": {
+        "type": "string",
+        "caption": "VAT number",
+        "format": "string",
+        "description": "",
+        "maxlength": "80",
+        "values": null
+    },
+    "description": {
+        "type": "string",
+        "format": "string",
+        "description": "",
+        "values": null
+    },
+    "industry": {
+        "type": "string",
+        "caption": "Industry",
+        "format": "int",
+        "description": "",
+        "enumeration": "Enumeration values.Sales management.Accounts.Industry",
+        "values": {
+            "74 Other prof. services": "74",
+            "J ICT": "100900",
+            "61 Telecommunication": "61",
+            "Q Health&Social work": "101600",
+            "I Acc.dation&Food": "100800",
+            "6209 Other IT services": "6209",
+            "71 Architecture&Eng": "71",
+            "O Public administr.": "101400",
+            "U Extraterr.org.&bodies": "102000",
+            "S Other Service": "101800",
+            "E Water & Waste": "100400",
+            "72 Sc. Research": "72",
+            "F Construction": "100500",
+            "K Finance&Insurance": "101000",
+            "62 Software&IT serv": "62",
+            "B Mining&Quarrying": "100100",
+            "X Industry unknown": "102100",
+            "H Transport&storage": "100700",
+            "N Admin&Support": "101300",
+            "6203 IT Facilities": "6203",
+            "R Arts, ent.&recreation": "101700",
+            "75 Veterinary": "75",
+            "69 Legal&Accounting": "69",
+            "A Agric and Forestry": "100000",
+            "58 Publishing": "58",
+            "73 Adv&Marketing": "73",
+            "63 Inform. services": "63",
+            "L Real Estate": "101100",
+            "C Manufacturing": "100200",
+            "M Prof. services": "101200",
+            "-": "-1",
+            "59 Movies & sound pr.": "59",
+            "6202 IT Consulting": "6202",
+            "T Households as empl.": "101900",
+            "G Wholesale&Retail": "100600",
+            "6201 Programming": "6201",
+            "P Education": "101500",
+            "D Electricity Gas etc": "100300",
+            "70 Mgmt consultancy": "70",
+            "60 Broadcasting": "60"
+        }
+    },
+    "invoiceEmail": {
+        "type": "string",
+        "caption": "Invoice email",
+        "format": "multiemail",
+        "description": "",
+        "maxlength": "180",
+        "values": null
+    },
+    "shippingPostalCode": {
+        "type": "string",
+        "caption": "Postal\/Zip code",
+        "format": "string",
+        "description": "",
+        "values": null
+    },
+    "type": {
+        "type": "string",
+        "value": "8",
+        "caption": "Type",
+        "values": {
+            "Competitor": "2",
+            "Customer": "3",
+            "110": "My company - other",
+            "My company": "100",
+            "Partner": "6",
+            "10": "Other",
+            "11": "Vendor",
+            "12": "Subcontractor",
+            "My company - other": "110",
+            "Reseller": "9",
+            "Vendor": "11",
+            "-": "0",
+            "0": "-",
+            "100": "My company",
+            "2": "Competitor",
+            "3": "Customer",
+            "4": "Private customer",
+            "5": "Investor",
+            "6": "Partner",
+            "8": "Prospect",
+            "Subcontractor": "12",
+            "9": "Reseller",
+            "Private customer": "4",
+            "Prospect": "8",
+            "Investor": "5",
+            "Other": "10"
+        },
+        "format": "int",
+        "description": ""
+    },
+    "parentAccount": {
+        "type": "string",
+        "caption": "",
+        "format": "int",
+        "description": "",
+        "values": null
+    },
+    "blog": {
+        "type": "string",
+        "caption": "Blog",
+        "format": "url",
+        "description": "",
+        "maxlength": "255",
+        "values": null
+    },
+    "parentAccountName": {
+        "type": "string",
+        "caption": "Parent account",
+        "format": "string",
+        "description": "",
+        "values": null
+    },
+    "twitter": {
+        "type": "string",
+        "caption": "Twitter",
+        "format": "url",
+        "description": "",
+        "maxlength": "255",
+        "values": null
+    },
+    "shippingCountry": {
+        "type": "string",
+        "caption": "Country",
+        "format": "int",
+        "description": "",
+        "enumeration": "Enumeration values.Location.CountryId",
+        "values": {
+            "Western Sahara": "256",
+            "Afghanistan": "1",
+            "Finland": "73",
+            "Zimbabwe": "234",
+            "France": "74",
+            "-": "0",
+            "\u00C5land Islands": "236",
+            "Greenland": "84",
+            "Other": "1000"
+        }
+    },
+    "rfReferenceNumber": {
+        "type": "string",
+        "value": "0",
+        "caption": "International RF-reference number",
+        "format": "int",
+        "description": "",
+        "enumeration": "Enumeration values.Sales management.Accounts.International RF-reference number",
+        "values": {
+            "No": "0",
+            "Yes": "1"
+        }
+    },
+    "invoiceChannel": {
+        "type": "string",
+        "caption": "Invoice delivery channel",
+        "format": "int",
+        "description": "",
+        "enumeration": "Enumeration values.Finance control.Invoice position summary.Invoices.Channel",
+        "values": {
+            "Email": "4",
+            "Printing service": "1",
+            "E-invoice": "2",
+            "Manual handling": "3"
+        }
+    },
+    "billingCountry": {
+        "type": "string",
+        "value": "73",
+        "caption": "Country",
+        "format": "int",
+        "description": "",
+        "enumeration": "Enumeration values.Location.CountryId",
+        "values": {
+            "Western Sahara": "256",
+            "Afghanistan": "1",
+            "Finland": "73",
+            "Zimbabwe": "234",
+            "France": "74",
+            "-": "0",
+            "\u00C5land Islands": "236",
+            "Greenland": "84",
+            "Other": "1000"
+        }
+    },
+    "shippingReference": {
+        "type": "string",
+        "caption": "Shipping Department\/Reference",
+        "format": "string",
+        "description": "",
+        "values": null
+    },
+    "id": {
+        "type": "string",
+        "caption": "",
+        "format": "int",
+        "description": "",
+        "values": null
+    },
+    "turnover": {
+        "type": "string",
+        "description": "This field supports currently only euros, we will add full currency support later. Please fill in turnover in 1000s of euros",
+        "caption": "Turnover K\u20AC",
+        "format": "int",
+        "values": null
+    },
+    "email": {
+        "type": "string",
+        "caption": "Email",
+        "format": "email",
+        "description": "",
+        "maxlength": "254",
+        "values": null
+    },
+    "owner": {
+        "type": "string",
+        "caption": "Account owner",
+        "values": {
+            "356": "User (update), First",
+            "User (update), First": 356
+        },
+        "format": "int",
+        "description": ""
+    },
+    "website": {
+        "type": "string",
+        "caption": "Website",
+        "format": "url",
+        "description": "",
+        "maxlength": "150",
+        "values": null
+    },
+    "supplierAccount": {
+        "type": "string",
+        "caption": "Supplier",
+        "values": {
+            "353": "Your organisation legal trading name (update)",
+            "-1": "-"
+        },
+        "format": "int",
+        "description": ""
+    },
+    "invoiceAppendix": {
+        "type": "string",
+        "value": "0",
+        "caption": "Invoice appendix",
+        "format": "int",
+        "description": "",
+        "enumeration": "Enumeration values.Finance control.Invoice position summary.Invoices.Appendix",
+        "values": {
+            "Priced invoice items by task": "3",
+            "Invoice items by person": "2",
+            "Priced invoice items by person": "4",
+            "Invoice items by task": "1",
+            "None": "0"
+        }
+    },
+    "facebook": {
+        "type": "string",
+        "caption": "Facebook",
+        "format": "url",
+        "description": "",
+        "maxlength": "255",
+        "values": null
+    },
+    "staff": {
+        "type": "string",
+        "caption": "Personnel",
+        "format": "int",
+        "description": "",
+        "values": null
+    },
+    "billingState": {
+        "type": "string",
+        "caption": "State",
+        "format": "string",
+        "description": "",
+        "values": null
+    },
+    "serviceLevel": {
+        "type": "string",
+        "caption": "Service level",
+        "format": "int",
+        "description": "",
+        "enumeration": "Enumeration values.Sales management.Accounts.Service level",
+        "values": {
+            "No agreements": "0",
+            "Gold Care": "2",
+            "Platinum Care": "3",
+            "Silver Care": "1"
+        }
+    },
+    "customerSatisfaction": {
+        "type": "string",
+        "caption": "Customer satisfaction",
+        "values": {
+            "Red": "3",
+            "-1": "-",
+            "Unknown": "4",
+            "Yellow": "2",
+            "Green": "1"
+        },
+        "format": "int",
+        "description": "",
+        "enumeration": "Enumeration values.Sales management.Accounts.Customer satisfaction"
+    },
+    "passive": {
+        "type": "string",
+        "caption": "Status",
+        "format": "int",
+        "description": "",
+        "enumeration": "Enumeration values.Sales management.Accounts.Status",
+        "values": {
+            "Active": "0",
+            "Inactive": "1"
+        }
+    },
+    "invoiceNetOperator": {
+        "type": "string",
+        "caption": "Intermediator",
+        "description": "",
+        "enumeration": "Enumeration values.Sales management.Accounts.Invoice net operator_old",
+        "values": {
+            "TietoEvry Oyj (003701011385) - Finland": "003701011385",
+            "Aktia S\u00E4\u00E4st\u00F6pankki Oyj (HELSFIHH)": "150",
+            "Tradeshift (885060259470028) - Finland": "885060259470028",
+            "BasWare Oyj (BAWCFI22)": "30",
+            "Danske Bank Oyj (DABAFIHH) - Finland": "DABAFIHH",
+            "Pagero (PAGERO)": "230",
+            "CGI (003703575029)": "180",
+            "Tieto Oyj (003701011385)": "170",
+            "Maventa Oy (003721291126) - Finland": "003721291126",
+            "Telia Finland Oyj (003703575029)": "160",
+            "Maventa Oy (003721291126)": "190",
+            "PEPPOL network": "PEPPOL",
+            "Global EDI (GLOBAL) - Sweden": "GLOBAL"
+        }
+    },
+    "autoReplyRequestMails": {
+        "type": "string",
+        "caption": "Auto-reply request mails",
+        "format": "int",
+        "description": "",
+        "enumeration": "Enumeration values.Administration.Jobs.Enabled",
+        "values": {
+            "No": "0",
+            "Yes": "1"
+        }
+    },
+    "combineInvoices": {
+        "type": "string",
+        "caption": "Combine invoices",
+        "format": "int",
+        "description": "",
+        "enumeration": "Enumeration values.Administration.Jobs.Enabled",
+        "values": {
+            "No": "0",
+            "Yes": "1"
+        }
+    },
+    "reverseCharge": {
+        "type": "string",
+        "caption": "Reverse charge",
+        "format": "int",
+        "description": "",
+        "enumeration": "Enumeration values.Sales management.Accounts.Reverse charge",
+        "values": {
+            "0,0 % VAT Reverse charge": "10"
+        }
+    },
+    "phone": {
+        "type": "string",
+        "description": "e.g. +xxx-xx-xxxx",
+        "caption": "Phone",
+        "format": "phone",
+        "maxlength": "80",
+        "values": null
+    },
+    "billingPostalCode": {
+        "type": "string",
+        "caption": "Postal\/Zip code",
+        "format": "string",
+        "description": "",
+        "values": null
+    },
+    "billingReference": {
+        "type": "string",
+        "description": "Maximum length is 35 characters due to Finvoice standard limit",
+        "caption": "Billing Department\/Reference",
+        "maxlength": "35",
+        "values": null
+    },
+    "invoiceTemplate": {
+        "type": "string",
+        "description": "Additional currencies must be added by Power user in Administration settings.",
+        "caption": "Invoice language & currency",
+        "values": {
+            "German (EUR)": "planmill_de_eur.xsl",
+            "Swedish (EUR)": "planmill_sv_eur.xsl",
+            "planmill_de_eur.xsl": "German (EUR)",
+            "Dutch (EUR)": "planmill_nl_eur.xsl",
+            "planmill_fi_eur.xsl": "Finnish (EUR)",
+            "English (EUR)": "planmill_en_eur.xsl",
+            "Estonian (EUR)": "planmill_et_eur.xsl",
+            "planmill_en_eur.xsl": "English (EUR)",
+            "planmill_nl_eur.xsl": "Dutch (EUR)",
+            "planmill_sv_eur.xsl": "Swedish (EUR)",
+            "Finnish (EUR)": "planmill_fi_eur.xsl",
+            "planmill_et_eur.xsl": "Estonian (EUR)"
+        },
+        "maxlength": "50"
+    },
+    "shippingAddress": {
+        "type": "string",
+        "caption": "Address (shipping)",
+        "format": "string",
+        "description": "",
+        "values": null
+    },
+    "shippingState": {
+        "type": "string",
+        "caption": "State",
+        "format": "string",
+        "description": "",
+        "values": null
+    },
+    "billingAddress": {
+        "type": "string",
+        "description": "(billing or visiting)",
+        "caption": "Address",
+        "format": "string",
+        "values": null
+    },
+    "termsOfPayment": {
+        "type": "string",
+        "value": "14",
+        "caption": "Terms of payment",
+        "format": "int",
+        "description": "",
+        "enumeration": "Enumeration values.Sales management.Accounts.Terms of Payment",
+        "values": {
+            "180 days net": "180",
+            "40 days net": "40",
+            "14 days net": "14",
+            "Immediately": "0",
+            "75 days net": "75",
+            "50 days net": "50",
+            "30 days net": "30",
+            "37 days net": "37",
+            "120 days net": "120",
+            "31 days net": "31",
+            "90 days net": "90",
+            "21 days net": "21",
+            "35 days net": "35",
+            "32 days net": "32",
+            "45 days net": "45",
+            "28 days net": "28",
+            "20 days net": "20",
+            "7 days net": "7",
+            "60 days net": "60",
+            "70 days net": "70"
+        }
+    },
+    "billingCity": {
+        "type": "string",
+        "caption": "City",
+        "format": "string",
+        "description": "",
+        "values": null
+    }
+}

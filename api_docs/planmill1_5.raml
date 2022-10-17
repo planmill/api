@@ -2388,7 +2388,7 @@ resourceTypes:
         description: Get meta information for integrators. Includes resource's fields names and type
         get:
         type:
-          allMethodsCollectionItemCollectionItem:
+          allMethodsCollectionItem:
             exampleCollectionGetItem: !include integrator_meta.sample
       /{integrator_id}:
         get:
@@ -2411,7 +2411,7 @@ resourceTypes:
           get:
           type:
             allMethodsCollectionItem:
-              exampleCollectionGetItem: !include integrator_single_meta.sample
+              exampleCollectionGetItem: !include integrator_meta.sample
         /enabled:
           put:
             description: Enable integrator
@@ -2472,7 +2472,7 @@ resourceTypes:
         get:
         type:
           allMethodsCollectionItem:
-            exampleCollectionGetItem: !include integratortype_single_meta.sample
+            exampleCollectionGetItem: !include integratortype_meta.sample
 /capacitycalendars:
   type:
     readOnlyCollection:
