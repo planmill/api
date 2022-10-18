@@ -489,9 +489,15 @@ types:
       bankAccount3?: string | nil
       iban3?: string | nil
       bic3?: string | nil
-      factoringResponsibleId?: integer | nil
-      factoringPartyId?: integer | nil
-      agreementId?: string | nil
+      factoringResponsibleId?:
+        description: Update requires factoring settings editing access
+        type: integer | nil
+      factoringPartyId?:
+        description: Contact planmill for factoring. Update requires factoring settings editing access
+        type: integer | nil
+      agreementId?:
+        description: Update requires factoring settings editing access
+        type: string | nil
   company_post:
     type: company
     properties:
@@ -508,114 +514,6 @@ types:
     type: company
   company_getAll:
     type: company_getId[]
-  integrator_base:
-    additionalProperties: false
-    properties:
-      typeId?:
-        type: integer
-        description: Type Id of the type of the integrator
-      resourceType?:
-        type: string
-        description: Resource type of the integrator
-      name?:
-        type: string
-        description: Name of the integrator
-      enabled?:
-        type: integer | nil
-        description: Is integrator enabled or not
-      username?:
-        type: string | nil
-        description: Username of the integrator
-      startDate?:
-        type: datetime | nil
-        description: Start date of the operation of the integrator
-      target?:
-        type: string | nil
-        description: Target of the integrator
-      fileTemplate?:
-        type: string | nil
-        description: File template of the integrator
-      dimensionTemplate?:
-        type: string | nil
-        description: Dimension template of the integrator
-      language?:
-        type: string | nil
-        description: Language of the integrator
-      includePdf?:
-        type: integer | nil
-        description: Is PDF included or not
-      zipFiles?:
-        type: integer | nil
-        description: are zip files included or not
-      deferredSending?:
-        type: integer | nil
-        description: Is sendig deferred or not?
-      reportExports?:
-        type: string | nil
-        description: Are reports exported or not?
-      tableExports?:
-        type: string | nil
-        description: Are tables exported or not?
-      owner?:
-        type: string | nil
-        description: Owner of the integrator
-      includeElements?:
-        type: string | nil
-        description: Elements included in the Integrator
-  integrator_post:
-    type: integrator_base
-    properties:
-      password?:
-        type: string | nil
-        description: Password of the integrator
-  integrator_postId:
-    type: integrator_post
-  integrator:
-    type: integrator_base
-    properties:
-      id?:
-        type: integer
-        description: Id of integrator
-      accountId?:
-         type: integer
-         description: Account to which the integrator belongs
-  integrator_getAll:
-    type: integrator[]
-  integrator_getId:
-    type: integrator
-  integratorenable_postId:
-      additionalProperties: false
-      properties:
-        enabled?:
-          type: integer | nil
-          description: Is integrator enabled or not
-  integratortype_base:
-    additionalProperties: false
-    properties:
-      name?:
-        type: string
-        description: Name of integrator type
-      accessRight?:
-        type: string
-        description: Access right of integrator type
-      resourceType?:
-        type: string
-        description: Resource type of integrator type - expense, invoice etc.
-      countryId?:
-        type: integer
-        description: Country Id of integrator type
-  integratortype_getId:
-    type: integratortype_base
-    properties:
-      typeId?:
-        description: integrator type id
-        type: integer
-  integratortype_getAll:
-    type: integratortype_getId[]
-  integratortype_post:
-    type: integratortype_base
-  integratortype_postId:
-    type: integratortype_base
   capacitycalendar: !include user_capacitycalendars1_5.schema
   contact_base:
     additionalProperties: false
@@ -791,6 +689,114 @@ types:
     pattern: "^$"
   expense: !include expense1_5.schema
   hook: !include hook1_5.schema
+  integrator_base:
+    additionalProperties: false
+    properties:
+      typeId?:
+        type: integer
+        description: Type Id of the type of the integrator
+      resourceType?:
+        type: string
+        description: Resource type of the integrator
+      name?:
+        type: string
+        description: Name of the integrator
+      enabled?:
+        type: integer | nil
+        description: Is integrator enabled or not
+      username?:
+        type: string | nil
+        description: Username of the integrator
+      startDate?:
+        type: datetime | nil
+        description: Transfer from this date and later
+      target?:
+        type: string | nil
+        description: Target of the integrator, only for Netsuite
+      fileTemplate?:
+        type: string | nil
+        description: Only for Netsuite. Defines the naming of any files transfered. Available options - [InvoiceNumber], [CompanyId] Eg. s_[InvoiceNumber].
+      dimensionTemplate?:
+        type: string | nil
+        description: If defined then dimensions row is included according to this template. Available options depend on the integrator type.
+      language?:
+        type: string | nil
+        description: Language for Netvisor and Fortnox e.g. error messages
+      includePdf?:
+        type: integer | nil
+        description: Is PDF included or not
+      zipFiles?:
+        type: integer | nil
+        description: Are zip files included or not
+      deferredSending?:
+        type: integer | nil
+        description: Is sendig deferred or not
+      reportExports?:
+        type: string | nil
+        description: List of reports to be exported
+      tableExports?:
+        type: string | nil
+        description: List of tables to be exported
+      owner?:
+        type: string | nil
+        description: Owner of the integrator
+      includeElements?:
+        type: string | nil
+        description: Voucher lines should not be used when including Sales invoice accruals data
+  integrator_post:
+    type: integrator_base
+    properties:
+      password?:
+        type: string | nil
+        description: Password of the integrator
+  integrator_postId:
+    type: integrator_post
+  integrator:
+    type: integrator_base
+    properties:
+      id?:
+        type: integer
+        description: Id of the integrator
+      accountId?:
+         type: integer
+         description: Company to which the integrator belongs
+  integrator_getAll:
+    type: integrator[]
+  integrator_getId:
+    type: integrator
+  integratorenable_postId:
+      additionalProperties: false
+      properties:
+        enabled?:
+          type: integer | nil
+          description: Is integrator enabled or not
+  integratortype_base:
+    additionalProperties: false
+    properties:
+      name?:
+        type: string
+        description: Name of the integrator type
+      accessRight?:
+        type: string
+        description: Access right of the integrator type
+      resourceType?:
+        type: string
+        description: Resource type of the integrator type - expense, invoice etc.
+      countryId?:
+        type: integer
+        description: Country Id of the integrator type
+  integratortype_getId:
+    type: integratortype_base
+    properties:
+      typeId?:
+        description: Integrator type id
+        type: integer
+  integratortype_getAll:
+    type: integratortype_getId[]
+  integratortype_post:
+    type: integratortype_base
+  integratortype_postId:
+    type: integratortype_base
   invoice_base:
     additionalProperties: false
     properties:
