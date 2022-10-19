@@ -497,7 +497,7 @@ types:
         type: integer | nil
       agreementId?:
         description: Update requires factoring settings editing access
-        type: string | nil
+        type: string | integer | nil
   company_post:
     type: company
     properties:
@@ -789,7 +789,7 @@ types:
     type: integratortype_base
     properties:
       typeId?:
-        description: Integrator type id
+        description: Unique identificator for each integrator type
         type: integer
   integratortype_getAll:
     type: integratortype_getId[]
