@@ -18,6 +18,7 @@
   "visitingState": "",
   "domicile": "Helsinki",
   "firstInvoiceNumber": "100",
+  "receiveInvoices": 1,
   "einvoiceSenderId": "003704984967", 
   "einvoiceSenderOperator": 190,
   "einvoicePaymentInstruction": "Internetpalvelumaksu",
