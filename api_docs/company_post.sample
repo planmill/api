@@ -30,8 +30,8 @@
   "iban2": "GB33BUKB20201555555555",
   "bic2": "BUKBGB22",
   "bankAccount3": "Nordea",
-  "iban3": "NDEAFIHH,
-  "bic3": "FI1699854966354215",
+  "iban3":  "FI1699854966354215",
+  "bic3": "NDEAFIHH",
   "factoringResponsibleId": 100,
   "factoringPartyId": 353,
   "agreementId": "102"
