@@ -1,5 +1,5 @@
   { "id": 1770,
- "typeId": 10,
+  "typeId": 10,
   "accountId": 353,
   "resourceType": "invoice",
   "name": "Custom Finvoice based",
@@ -11,10 +11,10 @@
   "dimensionTemplate": "[ProductGroupId]",
   "language": "EN",
   "includePdf": 1,
-  "zipFiles": null,
-  "deferredSending": null,
-  "reportExports": null,
-  "tableExports": null,
-  "owner": null,
+  "zipFiles": 0,
+  "deferredSending": 0,
+  "reportExports": "Reports.Portal.03 Invoicing.41 Actual revenues monthly summary by customer,Reports.Portal.04 Time and expense.11 Time report analysis by person",
+  "tableExports": "Sales management.Sales orders,Sales management.Opportunities,Employee directory.Contact",
+  "owner": 356,
   "includeElements": null
 }
