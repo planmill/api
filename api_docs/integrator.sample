@@ -4,9 +4,9 @@
   "resourceType": "invoice",
   "name": "Custom Finvoice based",
   "enabled": 0,
-  "username": null,
+  "username": "PlanmillUser",
   "startDate": "2021-12-01T00:00:00.000+0200",
-  "target": null,	
+  "target": "/Bills",	
   "fileTemplate": "[InvoiceNumber]",
   "dimensionTemplate": "[ProductGroupId]",
   "language": "EN",
@@ -16,5 +16,5 @@
   "reportExports": "Reports.Portal.03 Invoicing.41 Actual revenues monthly summary by customer,Reports.Portal.04 Time and expense.11 Time report analysis by person",
   "tableExports": "Sales management.Sales orders,Sales management.Opportunities,Employee directory.Contact",
   "owner": 356,
-  "includeElements": null
+  "includeElements": "costcenters"
 }
