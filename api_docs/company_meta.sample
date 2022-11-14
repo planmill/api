@@ -1,0 +1,183 @@
+{
+    "filters": null,
+    "fields": {
+        "receiveInvoices": {
+            "format": "text",
+            "caption": null
+        },
+        "businessId": {
+            "format": "text",
+            "caption": "Business ID"
+        },
+        "vatId": {
+            "format": "text",
+            "caption": "VAT number"
+        },
+        "bankAccount3": {
+            "format": "text",
+            "caption": null
+        },
+        "bankAccount1": {
+            "format": "text",
+            "caption": null
+        },
+        "bankAccount2": {
+            "format": "text",
+            "caption": null
+        },
+        "einvoiceSenderId": {
+            "format": "text",
+            "caption": null
+        },
+        "ceo": {
+            "format": "text",
+            "caption": null
+        },
+        "visitingPostalCode": {
+            "format": "text",
+            "caption": "Shipping postal\/zip code"
+        },
+        "bic2": {
+            "format": "text",
+            "caption": null
+        },
+        "iban3": {
+            "format": "text",
+            "caption": null
+        },
+        "agreementId": {
+            "format": "text",
+            "caption": null
+        },
+        "billingCountry": {
+            "values": {
+                "0": "-",
+                "1": "Afghanistan",
+                "256": "Western Sahara",
+                "234": "Zimbabwe",
+                "236": "\u00C5land Islands",
+                "1000": "Other",
+                "73": "Finland",
+                "84": "Greenland",
+                "74": "France"
+            },
+            "format": "Enumeration values.Location.CountryId",
+            "caption": "Country"
+        },
+        "visitingAddress": {
+            "format": "text",
+            "caption": "Shipping street address"
+        },
+        "iban2": {
+            "format": "text",
+            "caption": null
+        },
+        "bic3": {
+            "format": "text",
+            "caption": null
+        },
+        "id": {
+            "format": "text",
+            "caption": "Account.Id"
+        },
+        "bic1": {
+            "format": "text",
+            "caption": null
+        },
+        "email": {
+            "format": "emaillink",
+            "caption": "Email"
+        },
+        "iban1": {
+            "format": "text",
+            "caption": null
+        },
+        "website": {
+            "format": "weblink",
+            "caption": "Website"
+        },
+        "bankInfo1": {
+            "format": "text",
+            "caption": null
+        },
+        "visitingState": {
+            "format": "",
+            "caption": null
+        },
+        "billingState": {
+            "format": "",
+            "caption": null
+        },
+        "passive": {
+            "values": {
+                "0": "Active",
+                "1": "Inactive"
+            },
+            "format": "Enumeration values.Sales management.Accounts.Status",
+            "caption": "Status"
+        },
+        "einvoicePaymentInstruction": {
+            "format": "text",
+            "caption": null
+        },
+        "factoringResponsibleId": {
+            "format": "text",
+            "caption": null
+        },
+        "visitingCity": {
+            "format": "text",
+            "caption": "Shipping city"
+        },
+        "einvoiceSenderOperator": {
+            "format": "text",
+            "caption": null
+        },
+        "phone": {
+            "format": "text",
+            "caption": "Phone"
+        },
+        "billingPostalCode": {
+            "format": "text",
+            "caption": "Postal\/Zip code"
+        },
+        "factoringPartyId": {
+            "format": "text",
+            "caption": null
+        },
+        "name": {
+            "format": "text",
+            "caption": "Account"
+        },
+        "firstInvoiceNumber": {
+            "format": "",
+            "caption": null
+        },
+        "domicile": {
+            "format": "",
+            "caption": null
+        },
+        "billingAddress": {
+            "format": "text",
+            "caption": "Street address"
+        },
+        "visitingCountry": {
+            "values": {
+                "0": "-",
+                "1": "Afghanistan",
+                "256": "Western Sahara",
+                "234": "Zimbabwe",
+                "236": "\u00C5land Islands",
+                "1000": "Other",
+                "73": "Finland",
+                "84": "Greenland",
+                "74": "France"
+            },
+            "format": "Enumeration values.Location.CountryId",
+            "caption": "Shipping country"
+        },
+        "billingCity": {
+            "format": "text",
+            "caption": "City"
+        }
+    }
+}

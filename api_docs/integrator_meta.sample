@@ -1,0 +1,146 @@
+{
+    "owner": {
+        "type": "string",
+        "values": null
+    },
+    "reportExports": {
+        "type": "string",
+        "values": null
+    },
+    "deferredSending": {
+        "type": "string",
+        "description": "Deferred Sending",
+        "values": {
+            "": "No (Use PlanMill as invoice distributor)",
+            "1": "Yes (Do not send invoices from PlanMill)"
+        }
+    },
+    "includeElements": {
+        "type": "string",
+        "description": "Voucher lines should not be used when including Sales invoice accruals data",
+        "values": {
+            "": "NULL"
+        }
+    },
+    "language": {
+        "type": "string",
+        "description": "Language for Netvisor and Fortnox e.g. error messages",
+        "values": {
+            "FI": "Finnish",
+            "EN": "English"
+        }
+    },
+    "userName": {
+        "type": "string",
+        "values": null
+    },
+    "enabled": {
+        "type": "string",
+        "format": "boolean",
+        "values": null
+    },
+    "target": {
+        "type": "string",
+        "values": null
+    },
+    "accountId": {
+        "type": "string",
+        "description": "Account Id",
+        "format": "int",
+        "values": null
+    },
+    "password": {
+        "type": "string",
+        "values": null
+    },
+    "fileTemplate": {
+        "type": "string",
+        "values": null
+    },
+    "dimensionTemplate": {
+        "type": "string",
+        "values": null
+    },
+    "name": {
+        "type": "string",
+        "values": null
+    },
+    "includePdf": {
+        "type": "string",
+        "values": {
+            "0": "No",
+            "1": "Yes",
+            "2": "Appendix only",
+            "-1": "-"
+        }
+    },
+    "tableExports": {
+        "type": "string",
+        "values": {
+            "Sales management.Accounts": "Accounts",
+            "Sales management.Contracts": "Contracts",
+            "Expense module.Expenses": "Expense",
+            "Sales management.Opportunities": "Opportunities",
+            "Sales management.Contacts": "Contacts",
+            "Sales management.Projects": "Projects",
+            "Sales management.Sales orders": "Sales orders",
+            "Employee directory.Contact": "Users",
+            "FinanceControl.InvoicePositions": "Invoices"
+        }
+    },
+    "typeId": {
+        "type": "string",
+        "values": {
+            "Custom Finvoice based 1": 10,
+            "Netvisor expense - Pro": 140,
+            "130": "Mepco Payroll Connector",
+            "Efina expense": 60,
+            "110": "BI Data",
+            "Netvisor invoice - Pro": 120,
+            "Microsoft NAV invoices": 20,
+            "BI Data": 110,
+            "90": "Populus connector",
+            "Populus connector": 90,
+            "70": "M-files sales data",
+            "50": "Netsuite expense",
+            "30": "Procountor invoice",
+            "10": "Custom Finvoice based 1",
+            "Mepco Payroll Connector": 130,
+            "M-files sales data": 70,
+            "140": "Netvisor expense - Pro",
+            "Netsuite expense": 50,
+            "120": "Netvisor invoice - Pro",
+            "100": "Fortnox invoice",
+            "Talenom invoice": 80,
+            "Procountor invoice": 30,
+            "Fortnox invoice": 100,
+            "80": "Talenom invoice",
+            "60": "Efina expense",
+            "40": "Procountor expense",
+            "20": "Microsoft NAV invoices",
+            "Procountor expense": 40
+        },
+        "format": "int"
+    },
+    "id": {
+        "type": "string",
+        "format": "int",
+        "values": null
+    },
+    "startDate": {
+        "type": "string",
+        "values": null
+    },
+    "zipFiles": {
+        "type": "string",
+        "values": {
+            "": "-",
+            "true": "Yes",
+            "false": "No"
+        }
+    },
+    "resourceType": {
+        "type": "string",
+        "values": null
+    }
+}

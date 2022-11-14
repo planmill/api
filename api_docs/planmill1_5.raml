@@ -463,13 +463,13 @@ types:
       visitingPostalCode?: string | nil
       visitingState?: string | nil
       domicile?: string | nil
-      firstInvoiceNumber?: integer | nil
+      firstInvoiceNumber?: integer | string | nil
       receiveInvoices?: 
         description:: Use for internal invoicing purposes. Enables company to appear under accounts list to manage any billing settings.
         type: integer | nil
       einvoiceSenderId?: string | integer | nil
-      einvoiceSenderOperator?: string | integer | nil
-      einvoicePaymentInstruction?: string | integer | nil
+      einvoiceSenderOperator?: integer | nil
+      einvoicePaymentInstruction?: string | nil
       ceo?: string | nil
       bankAccount1?:
         description: Bank name (and account number if no IBAN is used)
@@ -489,6 +489,15 @@ types:
       bankAccount3?: string | nil
       iban3?: string | nil
       bic3?: string | nil
+      factoringResponsibleId?:
+        description: Update requires factoring settings editing access
+        type: integer | nil
+      factoringPartyId?:
+        description: Contact planmill for factoring. Update requires factoring settings editing access
+        type: integer | nil
+      agreementId?:
+        description: Update requires factoring settings editing access
+        type: string | integer | nil
   company_post:
     type: company
     properties:
@@ -505,114 +514,6 @@ types:
     type: company
   company_getAll:
     type: company_getId[]
-  integrator_base:
-    additionalProperties: false
-    properties:
-      typeId?:
-        type: integer
-        description: Type Id of the type of the integrator
-      resourceType?:
-        type: string
-        description: Resource type of the integrator
-      name?:
-        type: string
-        description: Name of the integrator
-      enabled?:
-        type: integer | nil
-        description: Is integrator enabled or not
-      username?:
-        type: string | nil
-        description: Username of the integrator
-      startDate?:
-        type: datetime | nil
-        description: Start date of the operation of the integrator
-      target?:
-        type: string | nil
-        description: Target of the integrator
-      fileTemplate?:
-        type: string | nil
-        description: File template of the integrator
-      dimensionTemplate?:
-        type: string | nil
-        description: Dimension template of the integrator
-      language?:
-        type: string | nil
-        description: Language of the integrator
-      includePdf?:
-        type: integer | nil
-        description: Is PDF included or not
-      zipFiles?:
-        type: integer | nil
-        description: are zip files included or not
-      deferredSending?:
-        type: integer | nil
-        description: Is sendig deferred or not?
-      reportExports?:
-        type: string | nil
-        description: Are reports exported or not?
-      tableExports?:
-        type: string | nil
-        description: Are tables exported or not?
-      owner?:
-        type: string | nil
-        description: Owner of the integrator
-      includeElements?:
-        type: string | nil
-        description: Elements included in the Integrator
-  integrator_post:
-    type: integrator_base
-    properties:
-      password?:
-        type: string | nil
-        description: Password of the integrator
-  integrator_postId:
-    type: integrator_post
-  integrator:
-    type: integrator_base
-    properties:
-      id?:
-        type: integer
-        description: Id of integrator
-      accountId?:
-         type: integer
-         description: Account to which the integrator belongs
-  integrator_getAll:
-    type: integrator[]
-  integrator_getId:
-    type: integrator
-  integratorenable_postId:
-      additionalProperties: false
-      properties:
-        enabled?:
-          type: integer | nil
-          description: Is integrator enabled or not
-  integratortype_base:
-    additionalProperties: false
-    properties:
-      name?:
-        type: string
-        description: Name of integrator type
-      accessRight?:
-        type: string
-        description: Access right of integrator type
-      resourceType?:
-        type: string
-        description: Resource type of integrator type - expense, invoice etc.
-      countryId?:
-        type: integer
-        description: Country Id of integrator type
-  integratortype_getId:
-    type: integratortype_base
-    properties:
-      typeId?:
-        description: integrator type id
-        type: integer
-  integratortype_getAll:
-    type: integratortype_getId[]
-  integratortype_post:
-    type: integratortype_base
-  integratortype_postId:
-    type: integratortype_base
   capacitycalendar: !include user_capacitycalendars1_5.schema
   contact_base:
     additionalProperties: false
@@ -788,6 +689,114 @@ types:
     pattern: "^$"
   expense: !include expense1_5.schema
   hook: !include hook1_5.schema
+  integrator_base:
+    additionalProperties: false
+    properties:
+      typeId?:
+        type: integer
+        description: Type Id of the type of the integrator
+      resourceType?:
+        type: string
+        description: Resource type of the integrator
+      name?:
+        type: string
+        description: Name of the integrator
+      enabled?:
+        type: integer | nil
+        description: Is integrator enabled or not
+      username?:
+        type: string | nil
+        description: Username of the integrator
+      startDate?:
+        type: datetime | nil
+        description: Transfer from this date and later
+      target?:
+        type: string | nil
+        description: Target of the integrator, only for Netsuite
+      fileTemplate?:
+        type: string | nil
+        description: Only for Netsuite. Defines the naming of any files transfered. Available options - [InvoiceNumber], [CompanyId] Eg. s_[InvoiceNumber].
+      dimensionTemplate?:
+        type: string | nil
+        description: If defined then dimensions row is included according to this template. Available options depend on the integrator type.
+      language?:
+        type: string | nil
+        description: Language for Netvisor and Fortnox e.g. error messages
+      includePdf?:
+        type: integer | nil
+        description: Is PDF included or not
+      zipFiles?:
+        type: integer | nil
+        description: Are zip files included or not
+      deferredSending?:
+        type: integer | nil
+        description: Is sendig deferred or not
+      reportExports?:
+        type: string | nil
+        description: List of reports to be exported
+      tableExports?:
+        type: string | nil
+        description: List of tables to be exported
+      owner?:
+        type: integer | nil
+        description: Owner of the integrator
+      includeElements?:
+        type: string | nil
+        description: Voucher lines should not be used when including Sales invoice accruals data
+  integrator_post:
+    type: integrator_base
+    properties:
+      password?:
+        type: string | nil
+        description: Password of the integrator
+  integrator_postId:
+    type: integrator_post
+  integrator:
+    type: integrator_base
+    properties:
+      id?:
+        type: integer
+        description: Id of the integrator
+      accountId?:
+         type: integer
+         description: Company to which the integrator belongs
+  integrator_getAll:
+    type: integrator[]
+  integrator_getId:
+    type: integrator
+  integratorenable_postId:
+      additionalProperties: false
+      properties:
+        enabled?:
+          type: integer | nil
+          description: Is integrator enabled or not
+  integratortype_base:
+    additionalProperties: false
+    properties:
+      name?:
+        type: string
+        description: Name of the integrator type
+      accessRight?:
+        type: string
+        description: Access right of the integrator type
+      resourceType?:
+        type: string
+        description: Resource type of the integrator type - expense, invoice etc.
+      countryId?:
+        type: integer
+        description: Country Id of the integrator type
+  integratortype_getId:
+    type: integratortype_base
+    properties:
+      typeId?:
+        description: Unique identificator for each integrator type
+        type: integer
+  integratortype_getAll:
+    type: integratortype_getId[]
+  integratortype_post:
+    type: integratortype_base
+  integratortype_postId:
+    type: integratortype_base
   invoice_base:
     additionalProperties: false
     properties:
@@ -1871,6 +1880,8 @@ resourceTypes:
             example: |
               application/json;charset=UTF-8
         body:
+          application/json:
+            type: <<resourcePathName|!singularize>>
             example: <<exampleCollectionPutItem>>
         responses:
           204:
@@ -2301,6 +2312,12 @@ resourceTypes:
     collection:
        exampleCollectionItemArray: !include company_array1_5.sample
        exampleCollectionItem: !include company_post.sample
+  /meta:
+      description: Get meta information for companies. Includes resource's fields names and type.
+      get:
+      type:
+        allMethodsCollectionItem:
+          exampleCollectionGetItem: !include company_meta.sample
   /{company_id}:
     get:
       responses:
@@ -2314,21 +2331,34 @@ resourceTypes:
           type: company_postId
     delete:
     type:
-     allMethodsCollectionItem:
-      exampleCollectionGetItem: !include company_getId.sample
-      exampleCollectionPostItem: !include company_post.sample
+      allMethodsCollectionItem:
+        exampleCollectionGetItem: !include company_getId.sample
+        exampleCollectionPostItem: !include company_post.sample
+    /meta:
+        description: Get meta information for the updatable fields of the company
+        get:
+        type:
+          allMethodsCollectionItem:
+            exampleCollectionGetItem: !include company_single_meta.sample
     /logo:
       get:
         description: View details of the logo.
       delete:
       type:
         allMethodsCollectionItem:
-         exampleCollectionGetItem: Contents of file
+          exampleCollectionGetItem: Contents of file
       /{logo_id}:
         put:
           description: Attach existing file to user.( Tips use file id from api/1.5/tempfile )
         type:
-          allMethodsCollectionItem
+          allMethodsCollectionItem:
+            exampleCollectionPutItem: !include braces.sample
+    /einvoicing:
+      put:
+        description: Activate e-invoicing service
+      type: 
+        allMethodsCollectionItem:
+          exampleCollectionPutItem: !include braces.sample
     /integrators:
       get:
         queryParameters:
@@ -2361,6 +2391,12 @@ resourceTypes:
         collection:
           exampleCollectionItemArray: !include integrator_array1_5.sample
           exampleCollectionItem: !include integrator_postId.sample
+      /meta:
+        description: Get meta information for integrators. Includes resource's fields names and type
+        get:
+        type:
+          allMethodsCollectionItem:
+            exampleCollectionGetItem: !include integrator_meta.sample
       /{integrator_id}:
         get:
           responses:
@@ -2377,6 +2413,12 @@ resourceTypes:
           allMethodsCollectionItem:
             exampleCollectionGetItem: !include integrator.sample
             exampleCollectionPostItem: !include integrator_postId.sample
+        /meta:
+          description: Get meta information for the updatable fields of the integrator
+          get:
+          type:
+            allMethodsCollectionItem:
+              exampleCollectionGetItem: !include integrator_meta.sample
         /enabled:
           put:
             description: Enable integrator
@@ -2386,46 +2428,58 @@ resourceTypes:
           type:
             allMethodsCollectionItem:
               exampleCollectionPutItem: !include integrator_enable.sample
-    /integratortypes:
+  /integratortypes:
+    get:
+      responses:
+        200:
+          description: integratortype for the integration
+          body:
+            application/json:
+              type: integratortype_getAll
+    post:
+      body:
+        application/json:
+          type: integratortype_post
+    type:
+      allMethodsCollection:
+        exampleCollectionItemArray: !include integratortype_array1_5.sample
+        exampleCollectionItem: !include integratortype_postId.sample
+    /meta:
+      description: Get meta information for integratortypes. Includes resource's fields names and type
+      get:
+      type:
+        allMethodsCollectionItem:
+          exampleCollectionGetItem: !include integratortype_meta.sample
+    /{integratortype_id}:
       get:
         responses:
           200:
-            description: integratortype for the integration
             body:
               application/json:
-                type: integratortype_getAll
+                type: integratortype_getId
       post:
+        headers:
+          Content-Type:
+            type: string
+            required: true
+            default: |
+              application/json;charset=UTF-8 <div id="account1_5-datatype-post"></div>
+            example: |
+              application/json;charset=UTF-8
         body:
           application/json:
-            type: integratortype_post
+            type: integratortype_postId
+      delete:
       type:
-        allMethodsCollection:
-          exampleCollectionItemArray: !include integratortype_array1_5.sample
-          exampleCollectionItem: !include integratortype_postId.sample
-      /{integratortype_id}:
+        allMethodsCollectionItem:
+          exampleCollectionGetItem: !include integratortype.sample
+          exampleCollectionPostItem: !include integratortype_postId.sample
+      /meta:
+        description: Get meta information for the updatable fields of the integratortype
         get:
-          responses:
-            200:
-              body:
-                application/json:
-                  type: integratortype_getId
-        post:
-          headers:
-            Content-Type:
-              type: string
-              required: true
-              default: |
-                application/json;charset=UTF-8 <div id="account1_5-datatype-post"></div>
-              example: |
-                application/json;charset=UTF-8
-          body:
-            application/json:
-              type: integratortype_postId
-        delete:
         type:
           allMethodsCollectionItem:
-            exampleCollectionGetItem: !include integratortype.sample
-            exampleCollectionPostItem: !include integratortype_postId.sample
+            exampleCollectionGetItem: !include integratortype_meta.sample
 /capacitycalendars:
   type:
     readOnlyCollection:

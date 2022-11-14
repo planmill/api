@@ -1,0 +1,34 @@
+{
+    "accessRight": {
+        "type": "string",
+        "values": null
+    },
+    "name": {
+        "type": "string",
+        "values": null
+    },
+    "typeId": {
+        "type": "string",
+        "format": "int",
+        "values": null
+    },
+    "countryId": {
+        "type": "string",
+        "values": {
+            "0": "-",
+            "1": "Afghanistan",
+            "256": "Western Sahara",
+            "234": "Zimbabwe",
+            "236": "\u00C5land Islands",
+            "1000": "Other",
+            "73": "Finland",
+            "84": "Greenland",
+            "74": "France"
+        },
+        "format": "int"
+    },
+    "resourceType": {
+        "type": "string",
+        "values": null
+    }
+}
