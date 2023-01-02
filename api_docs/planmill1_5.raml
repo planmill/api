@@ -1715,7 +1715,7 @@ resourceTypes:
           interval?:
             type: string
             required: false
-            description: Interval type, e.g. start, finish, created, or modified. It is used in combination with intervalstart or intervalfinish
+            description: Interval type, e.g. start, finish, created, or modified. It is required in combination with intervalstart or intervalfinish
           intervalstart?:
             type: string
             required: false
@@ -1762,7 +1762,7 @@ resourceTypes:
           interval?:
             type: string
             required: false
-            description: Interval type, e.g. start, finish, created, or modified. It is used in combination with intervalstart or intervalfinish
+            description: Interval type, e.g. start, finish, created, or modified. It is required in combination with intervalstart or intervalfinish
           intervalstart?:
             type: string
             required: false
@@ -3668,7 +3668,7 @@ resourceTypes:
       billableStatus?:
         type: integer
         description: Used in enumeration of billableStatus
-      projectfilter?:
+      project?:
         type: integer
         description: Id of a project. It could be used for querying multiple projects' time reports by comma-separated id, e.g., "projectfilter=projectid_1,projectid_2"
     responses:
