@@ -27,12 +27,12 @@
   "homepage": "https://github.com/planmill/api#readme",
   "dependencies": {
     "downloadjs": "^1.4.7",
-    "express": "^4.17.1",
-    "json-schema-migrate": "^0.2.0",
-    "netlify-cli": "^8.0.16",
+    "express": "^4.18.2",
+    "json-schema-migrate": "^2.0.0",
+    "netlify-cli": "^13.1.6",
     "raml2html": "git+https://github.com/planmill/raml2html.git#develop",
     "raml2html-default-theme": "git+https://github.com/planmill/planmil-api-theme.git",
-    "ramldt2jsonschema": "^1.2.0"
+    "ramldt2jsonschema": "^1.2.3"
   },
   "resolutions": {
     "json-ptr": "~3.0.0",
