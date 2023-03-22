@@ -1,2 +1,2 @@
 [build]
-    command = "npm run build"
+    command = "ls ; pwd ; npm run build"
