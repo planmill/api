@@ -15,19 +15,20 @@ installation and for testing html.
  
 I) Local installation guide using node
 
-1. Install node.js http://nodejs.org/, if not yet installed.
+1. Install latest LTS version of node.js http://nodejs.org/, if not yet installed
 2. Download the project from Github in a folder on your computer
-3. Navigate to root folder in the downloaded folder from Github.
-4. Before running locally uncomment the below lines in /server.js:
+3. Before running locally uncomment the below lines in server.js:
 
      /* start the express web server listening on 3020
      app.listen(3020, () => {
        console.log("listening on 3020");
      });*/ 
 
-5. In the root directory Run Command "npm run build"
-6. Make sure index.html inside "api_docs" folder gets generated along with the new schema json files
-7. Go to http://localhost:3020 to see site. 
+4. Navigate to root folder in the downloaded folder from Github
+5. Run the command "npm install to install all the dependencies
+6. Run the command "npm run build" to biuld and run the application
+7. Make sure index.html gets generated inside "api_docs" folder along with the new schema json files
+8. Go to http://localhost:3020 to see the site.
 
 II) Netlify installation guide in deploying from git branch directly. 
 
