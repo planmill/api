@@ -19,14 +19,18 @@ I) Local installation guide using node
 2. Download the project from Github in a folder on your computer
 3. Before running locally uncomment the below lines in server.js:
 
-     /* start the express web server listening on 3020
-     app.listen(3020, () => {
-       console.log("listening on 3020");
-     });*/ 
+  ```javascript
+  /*
+  start the express web server listening on 3020
+  app.listen(3020, () => {
+    console.log("listening on 3020");
+  });
+  */
+  ```
 
 4. Navigate to root folder in the downloaded folder from Github
-5. Run the command "npm install to install all the dependencies
-6. Run the command "npm run build" to biuld and run the application
+5. Run the command ```npm install``` to install all the dependencies
+6. Run the command ```npm run build``` to biuld and run the application
 7. Make sure index.html gets generated inside "api_docs" folder along with the new schema json files
 8. Go to http://localhost:3020 to see the site.
 
@@ -49,8 +53,8 @@ you want to deploy. Usually this is master, but if you need to test a developmen
 III) Netlify installation guide in command line from local code
 
 1. Install node.js http://nodejs.org/, if not yet installed.
-2. Run command "npm install netlify-cli -g -force" as administrator
-3. Use command "netlify init" to initialize your site
+2. Run command ```npm install netlify-cli -g -force``` as administrator
+3. Use command ```netlify init``` to initialize your site
 4. Goto the root folder of the api doc and use "npm run deploy" to deploy the documentation in public site
 
 IV) Generating and investigating ramlt2html output html document:
