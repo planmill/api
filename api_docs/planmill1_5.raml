@@ -2237,7 +2237,7 @@ resourceTypes:
           putGetDeleteCollectionItem:
             exampleCollectionItem: Contents of file
 /batch: 
-  description: Submit multiple API requests as a batch operation. All available individual API requests are supported collected into a JSON array. Responses are also returned as an array in same order as posted. If any request fails, all subsequent requests fail. This is to support execution order inside the batch. All headers apply for all requests unless specific headers applied
+  description: Submit multiple API requests as a batch operation. All available individual API requests are supported collected into a JSON array. Responses are also returned as an array in same order as posted. If any request fails, all subsequent requests fail. This is to support execution order inside the batch. All headers apply for all requests unless specific headers applied. Default maximum number of requests per batch is 50, if you need more, contact administration. 
   type: 
     postOnlyCollection:       
        exampleCollectionItem: !include batch1_5.sample
