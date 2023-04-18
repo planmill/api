@@ -417,7 +417,7 @@ types:
         type: integer | nil
         description: Operational ID of an account
   action: !include action1_5.schema
-  batch:
+  batch_post:
     type: batch_single[]
     description: base schema for all batch entities.
   batch_single:
@@ -2268,7 +2268,7 @@ resourceTypes:
           application/json;charset=UTF-8
   body:
     application/json:
-      type: batch
+      type: batch_post
   type:
     allMethodsCollectionItem:
       exampleCollectionPostItem: !include batch_post.sample
