@@ -18,7 +18,7 @@ var linkItems = [
   "account_post",
   "account_postId",
   "account_getAll",
-  "batch",
+  "batch_post",
   "company_getAll",
   "company_getId",
   "company_post",
