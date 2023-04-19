@@ -3867,6 +3867,12 @@ resourceTypes:
         readOnlyCollection:
           schemaName: !include reportable_assignments1_5.schema
           exampleCollectionItemArray: !include reportable_assignments_array1_5.sample
+    /socialsecuritynumber:
+      put:
+        description: Add social security number of employee
+      type: 
+        allMethodsCollectionItem:
+          exampleCollectionPutItem: !include socialsecuritynumber.sample
     /timebalance:
       get:
         queryParameters:
