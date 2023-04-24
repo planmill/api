@@ -417,7 +417,26 @@ types:
         type: integer | nil
         description: Operational ID of an account
   action: !include action1_5.schema
-  batch: !include batch1_5.schema
+  batch_post:
+    type: batch_single[]
+    description: base schema for all batch entities.
+  batch_single:
+    additionalProperties: false
+    properties:
+      destination:
+        type: string
+        description: API Resource-URI, that might have the ID included.
+      method:
+        additionalProperties: false
+        type: string
+        enum: [POST, DELETE, GET]
+        description: HTTP-method that defines the execution implementation.
+      headers:
+        additionalProperties: false
+        type: object
+        description: JSON-Object includes all the individual header parameters needed for each request.
+      body?:
+        type: object[] | object
   campaign: !include campaign1_5.schema
   company:
     additionalProperties: false
@@ -2237,10 +2256,22 @@ resourceTypes:
           putGetDeleteCollectionItem:
             exampleCollectionItem: Contents of file
 /batch: 
-  description: Submit multiple API requests as a batch operation. All available individual API requests are supported collected into a JSON array. Responses are also returned as an array in same order as posted. If any request fails, all subsequent requests fail. This is to support execution order inside the batch. All headers apply for all requests unless specific headers applied
-  type: 
-    postOnlyCollection:       
-       exampleCollectionItem: !include batch1_5.sample
+  description: Submit multiple API requests as a batch operation. All available individual API requests are supported collected into a JSON array. Responses are also returned as an array in same order as posted. If any request fails, all subsequent requests fail. This is to support execution order inside the batch. All headers apply for all requests unless specific headers applied. Default maximum number of requests per batch is 50, if you need more, contact administration. 
+  post:
+    headers:
+      Content-Type:
+        type: string
+        required: true
+        default: |
+          application/json;charset=UTF-8 <div id="account1_5-datatype-post"></div> 	
+        example: |
+          application/json;charset=UTF-8
+  body:
+    application/json:
+      type: batch_post
+  type:
+    allMethodsCollectionItem:
+      exampleCollectionPostItem: !include batch_post.sample
 /boards:
   description: Kanban board from PlanMill
   type:

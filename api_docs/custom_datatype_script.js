@@ -10,6 +10,7 @@ var linkItems = [
   "accounts_post_request:account_post",
   "accounts__account_id__get_response:account_getId",
   "accounts__account_id__post_request:account_postId",
+  "batch_post_request:batch_post",
   "companies_get_response:company_getAll",
   "companies_post_request:company_post",
   "companies__company_id__get_response:company_getId",
