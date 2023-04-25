@@ -1,0 +1,118 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/absence_postId",
+  "definitions": {
+    "absence_postId": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "absenceType": {
+          "description": "Type of an absence",
+          "type": "integer"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Description of an absence"
+        },
+        "finish": {
+          "description": "Finish date of an absence",
+          "type": "string",
+          "format": "date-time"
+        },
+        "person": {
+          "description": "Absentee and user of a system",
+          "type": "integer"
+        },
+        "start": {
+          "description": "Start date of an absence",
+          "type": "string",
+          "format": "date-time"
+        },
+        "vacationYear": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Vacation year of the user"
+        },
+        "accepterPerson": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Superior of user who accepts an absence"
+        },
+        "interruptionDate": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Interruption date of an absence"
+        },
+        "vacationLength": {
+          "description": "Length of an absence represented in minutes",
+          "type": "integer"
+        },
+        "project": {
+          "type": "integer",
+          "description": "Id of absence parent in the task hierarchy"
+        },
+        "status": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Status of an absence"
+        },
+        "substitutePerson": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Superior of user who accepts an absence when actual superior of user is not available"
+        },
+        "created": {
+          "description": "Creation date of an absence",
+          "type": "string",
+          "format": "date-time"
+        },
+        "modified": {
+          "description": "Modification date of an absence",
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "integer",
+          "description": "Internal ID of an absence"
+        }
+      }
+    }
+  }
+}

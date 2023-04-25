@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "base schema for all batch entities",
+   "type": "array",
+   "items": { "$ref": "#/definitions/batch" },
+  "definitions": {
+    "batch": {
+      "type": [ "object", "null" ],
+      "required": [ "destination", "method", "headers" ],
+      "additionalProperties": false,
+      "properties": {
+        "destination": {
+          "type": "string",
+          "description": "API Resource-URI, that might have the ID included"
+        },
+        "method": {
+          "enum": [ "POST", "DELETE", "GET" ],
+          "description": "HTTP-method that defines the execution implementation"
+        },
+        "headers": {
+          "type": "object",
+          "description": "JSON-Object includes all the individual header parameters needed for each request"
+        },
+        "body": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": { "type": "object" }
+            },
+            {
+              "type": "object"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

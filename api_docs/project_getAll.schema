@@ -1,0 +1,290 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/project_getAll",
+  "definitions": {
+    "project_getAll": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Project's name."
+          },
+          "status": {
+            "type": "integer",
+            "description": "Enumeration of a project's status: 1=Draft, 2=Preliminary, 3=Execution,4=Aborted, 5=Closed, 6=On hold, 8=Archived"
+          },
+          "billableStatus": {
+            "type": "integer",
+            "description": "Used in enumeration of billableStatus"
+          },
+          "portfolio": {
+            "type": "integer",
+            "description": "Portfolio id of Project"
+          },
+          "category": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Enumeration of a project's category: -1=NULL , 10=Absence,20=Administration, 30=Development, 40=Delivery, 50=R & D, 60=Support, 70=Sales, 80=Marketing,90=Education, 100=Continuos service, 110=Maintenance"
+          },
+          "contact": {
+            "type": "number",
+            "description": "Contact's id that is related to a project, Required only if billable status is 1 or 2"
+          },
+          "invoiceReference": {
+            "type": "string",
+            "description": "Invoice reference of a project"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Description of a project"
+          },
+          "billingAccount": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Billing account  Id of a project - set if different to the account of the contact."
+          },
+          "autoAcceptTimeReports": {
+            "type": "integer",
+            "description": "Enumeration of autoAcceptTimeReports: 0=No, 1=Yes"
+          },
+          "requireBillableComment": {
+            "type": "integer",
+            "description": ""
+          },
+          "setRequestPerformerAsTeamMember": {
+            "type": "integer",
+            "description": "Enumeration of requestPerformerAsTeamMember: 0=No, 1=Yes"
+          },
+          "requireCommentForOvertime": {
+            "type": "integer",
+            "description": "Enumeration of requireBillableComment: 0=No, 1=For all billable tasks,2=For all tasks"
+          },
+          "allowNewTasksAndAssignmentsForAllUsers": {
+            "type": "integer",
+            "description": "Enumeration of allowNewTasksAndAssignmentsForAllUsers: 0=No, 1=Yes,butdonot add them as team members, 2=Yes,and add them as team members"
+          },
+          "autoAssignNewTeamMembers": {
+            "type": "integer",
+            "description": "Enumeration of autoAssignNewTeamMembers: 0=No, 1=Yes,but only tosubtasks, 2=Yes"
+          },
+          "invoiceAppendix": {
+            "type": "integer",
+            "description": "Invoice appendix of a project"
+          },
+          "effortUnit": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Effort unit of a project"
+          },
+          "currency": {
+            "type": "number",
+            "description": "Currency id of a project"
+          },
+          "fixedRevenue": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Revenue amount of a project"
+          },
+          "fixedWorkEffort": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Work effort hours of a project"
+          },
+          "fixedWork": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Work effort cost of a project"
+          },
+          "budgetedExpense": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Expense amount of a project"
+          },
+          "budgetedPurchase": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Purchase amount of a project"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Internal ID of a project"
+          },
+          "operationalId": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Operational ID of a project"
+          },
+          "account": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Contact's account Id"
+          },
+          "budgetedTotalCost": {
+            "type": "number",
+            "description": "Budgeted cost of a project"
+          },
+          "forecastedtotalCost": {
+            "type": "number",
+            "description": "Forecasted cost of a project"
+          },
+          "actualCost": {
+            "type": "number",
+            "description": "actual cost of a project"
+          },
+          "totalRevenue": {
+            "type": "number",
+            "description": "total revenue of a project"
+          },
+          "actualRevenue": {
+            "type": "number",
+            "description": "actual revenue of a project"
+          },
+          "invoicedRevenue": {
+            "type": "number",
+            "description": "invoiced revenue of a project"
+          },
+          "plannedEffort": {
+            "type": "number",
+            "description": "planned effort of a project"
+          },
+          "totalEffort": {
+            "type": "number",
+            "description": "total effort of a project"
+          },
+          "actualEffort": {
+            "type": "number",
+            "description": "actual effort of a project"
+          },
+          "remainingEffort": {
+            "type": "number",
+            "description": "remaining effort of a project"
+          },
+          "start": {
+            "type": "string",
+            "description": "start date related to template",
+            "format": "date-time"
+          },
+          "finish": {
+            "type": "string",
+            "description": "finsih date related to template",
+            "format": "date-time"
+          },
+          "workCompleteness": {
+            "type": "number",
+            "description": "Work completeness of a project"
+          },
+          "workCompletenessPercentage": {
+            "type": "number",
+            "description": "Work completeness percentage of a project"
+          },
+          "totalRemainingEffort": {
+            "type": "number",
+            "description": "Total remaining effort of a project"
+          },
+          "accountName": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "projectManager": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Id of the project manager"
+          },
+          "reportedHours": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Amount of hours (in minutes) reported to a project"
+          }
+        }
+      }
+    }
+  }
+}
