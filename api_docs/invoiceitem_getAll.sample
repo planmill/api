@@ -19,7 +19,7 @@
     "creditInvoicePositionId": null,
     "salesOrderItemId": 61987,
     "costCenter": 2,
-    "tasktId": 61988
+    "taskId": 61988
   },
     {
     "id": 61902,
@@ -41,6 +41,6 @@
     "creditInvoicePositionId": null,
     "salesOrderItemId": 60987,
     "costCenter": 2,
-    "tasktId": 61988
+    "taskId": 61988
   }
 ]
