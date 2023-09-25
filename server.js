@@ -37,6 +37,7 @@ var linkItems = [
   "contact_getAll",
   "invoice_getId",
   "invoice_getAll",
+  "invoiceitem_getAll",
   "project_getId",
   "project_post",
   "project_postId",
