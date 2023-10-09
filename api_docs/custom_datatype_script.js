@@ -30,6 +30,7 @@ var linkItems = [
   "invoices_get_response:invoice_getAll",
   "invoices__invoice_id__get_response:invoice_getId",
   "invoices_invoiceitems_get_response:invoiceitem_getAll",
+  "invoices_invoicepositions_get_response:invoiceposition_getAll",
   "projects_get_response:project_getAll",
   "projects_post_request:project_post",
   "projects__project_id__get_response:project_getId",

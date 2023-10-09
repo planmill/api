@@ -38,6 +38,7 @@ var linkItems = [
   "invoice_getId",
   "invoice_getAll",
   "invoiceitem_getAll",
+  "invoiceposition_getAll",
   "project_getId",
   "project_post",
   "project_postId",
