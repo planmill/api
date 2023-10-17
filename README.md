@@ -30,7 +30,7 @@ I) Local installation guide using node
 
 4. Navigate to root folder in the downloaded folder from Github
 5. Run the command ```npm install``` to install all the dependencies
-6. Run the command ```npm run build``` to biuld and run the application
+6. Run the command ```npm run build``` to build and run the application
 7. Make sure index.html gets generated inside "api_docs" folder along with the new schema json files
 8. Go to http://localhost:3020 to see the site.
 

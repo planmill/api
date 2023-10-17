@@ -928,6 +928,151 @@ types:
         description: Status of payment
   invoice_getAll:
     type: invoice[]
+  invoiceitem:
+    additionalProperties: false
+    properties:
+      id?:
+        type: integer
+        description: Unique identificator of invoice item.
+      invoiceId?:
+        type: integer
+        description: Unique identificator of the invoice of the item.
+      invoicePositionId?:
+        type: integer
+        description: Unique identificator of the corresponding invoice position.
+      vat?:
+        type: number | nil
+        description: VAT of the item.
+      status?:
+        type: integer | nil
+        description: Status of the item.
+      type?:
+        type: integer | nil
+        description: Type of the item.
+      amount?:
+        type: number | nil
+        description: Amount of the item.
+      unitPrice?:
+        type: number | nil
+        description: Unit price of the item.
+      account?:
+        type: integer | nil
+        description: Account of the item.
+      item?:
+        type: string | nil
+        description: Description of the item.
+      unit?:
+        type: integer | nil 
+        description: Unit of the item.
+      performer?:
+        type: string | nil
+        description: Depends on case. In case of expense, user who created the expense.
+      discount?:
+        type: number | nil
+        description: Discount of the item.
+      task?:
+        type: string | nil
+        description: Name of the task of the invoice.
+      revenueType?:
+        type: integer | nil
+        description: Revenue type of the item.
+      orderNumber?:
+        type: integer | nil
+        description: Number of the corresponding order.
+      creditInvoicePositionId?:
+        type: integer | nil
+        description: Invoice position of the corresponding credit note.
+      salesOrderItemId?:
+        type: integer | nil
+        description: Unique identificator of the corresponding sales order item.
+      costCenter?:
+        type: integer | nil
+        description: Cost center type of the item.
+      taskId?:
+        type: integer | nil
+        description: Unique identificator of the task of the invoice.
+  invoiceitem_getAll:
+    type: invoiceitem[]
+  invoiceposition:
+    additionalProperties: false
+    properties:
+      id?:
+        type: integer
+        description: Unique identificator of invoiceposition.
+      invoiceId?:
+        type: integer
+        description: Unique identificator of the invoice of the position.
+      name?:
+        type: string | nil
+        description: Name of the position.
+      plannedAmount?:
+        type: number | nil
+        description: Planned amount of the invoiceposition.
+      actualAmount?:
+        type: number | nil
+        description: Actual amount of the invoiceposition.
+      invoicedAmount?:
+        type: number | nil
+        description: Invoiced amount of the invoiceposition.
+      plannedEffort?:
+        type: number | nil
+        description: Planned effort of the invoiceposition.
+      actualEffort?:
+        type: number | nil
+        description: Actual effort of the invoiceposition.
+      unitPrice?:
+        type: number | nil
+        description: Unit price of the invoiceposition.
+      status?:
+        type: integer | nil
+        description: Status of the item.
+      plannedDate?:
+        type: string | nil
+        description: Planned date of the invoiceposition.
+      invoicingDate?:
+        type: string | nil
+        description: Invoicing date of the invoiceposition
+      description?:
+        type: string | nil
+        description: Description of the item.
+      billingRule?:
+        type: integer | nil
+        description: Billing rule of the item.
+      type?:
+        type: integer | nil
+        description: Type of the item.
+      comment?:
+        type: string | nil
+        description: Comment of the position.
+      periodStartDate?:
+        type: string | nil
+        description: Start date of the invoiceposition period
+      periodLength?:
+        type: integer | nil
+        description: length of the invoice position period.
+      invoiceReference?:
+        type: string | nil
+        description: Invoice reference of the position.
+      accountId?:
+        type: integer | nil
+        description: Account of the position.
+      quantity?:
+        type: number | nil
+        description: Quantity of the invoiceposition.
+      unit?:
+        type: integer | nil
+        description: Unit of the invoiceposition.
+      salesOrderItemId?:
+        type: integer | nil
+        description: Unique identificator of the corresponding sales order item.
+      projectId?:
+        type: integer | nil
+        description: Unique identificator of the project of the task.
+      costCenter?:
+        type: integer | nil
+        description: Cost center type of the position.	
+  invoiceposition_getAll:
+    type: invoiceposition[]
   mail: !include request_mail1_5.schema 
   opportunity_base:
     additionalProperties: false
@@ -1373,13 +1518,7 @@ types:
         description: "Language snd currency, is name of the corresponding xsl file f.e. planmill_en_eur.xsl"
       supplierContact?:
         type: string
-        description: "Name of a supplier contact person. Required if contact field is missing"
-      quoteDate?:
-        type: datetime
-        description: "Start date of a quote"
-      quoteUntil?:
-        type: datetime
-        description: "Finish date of a quote"
+        description: "Name of a supplier contact person.Required if contact field is missing
       shippingAccount?:
         type: integer | nil
         description: "Id of a shipping account" 
@@ -2903,6 +3042,26 @@ resourceTypes:
       type:
         readOnlyCollectionItem:
           exampleCollectionItem: !include invoice1_5.sample
+  /invoiceitems:
+    get:
+      responses:
+        200:
+          body:
+            application/json: 
+              type: invoiceitem_getAll
+    type:
+      readOnlyCollectionItem:
+        exampleCollectionItem: !include invoiceitem_getAll.sample
+  /invoicepositions:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              type: invoiceposition_getAll
+    type:
+      readOnlyCollectionItem:
+        exampleCollectionItem: !include invoiceposition_getAll.sample
 /languages:
   description: Language strings used for localization available in PlanMill
   get:
