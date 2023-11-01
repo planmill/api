@@ -66,8 +66,10 @@ Navigate to planmill1_5.raml file. This file uses RESTful API Modeling Language 
 Edit the file and save changes.
 Add or edit schema and sample files.
 
-Run following command in command prompt in api_docs subdirectory: raml2html -i planmill1_5.raml -o index.html. It will generate the HTML file in the same folder where RAML file is present.
+Install raml2html with command npm i -g raml2html. Run following command in command prompt in api_docs subdirectory: raml2html -i planmill1_5.raml -o index.html. It will generate the HTML file in the same folder where RAML file is present.
 Open the index.html in browser and you should see the API document (or parsing errors, if any).
+In order to debug conversion from RAML datatypes to JSON schemas, install tool dt2json with command  npm i -g ramldt2jsonschema, and run command dt2json planmill1_5.raml <your type>.
+
 
 V) API Testing
 
