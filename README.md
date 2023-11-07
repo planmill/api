@@ -17,7 +17,8 @@ I) Local installation guide using node
 
 1. Install latest LTS version of node.js http://nodejs.org/, if not yet installed
 2. Download the project from Github in a folder on your computer
-3. Before running locally uncomment the below lines in server.js:
+3. Install raml2html: npm i -g raml2html
+4. Before running locally uncomment the below lines in server.js:
 
   ```javascript
   /*
@@ -28,11 +29,11 @@ I) Local installation guide using node
   */
   ```
 
-4. Navigate to root folder in the downloaded folder from Github
-5. Run the command ```npm install``` to install all the dependencies
-6. Run the command ```npm run build``` to build and run the application
-7. Make sure index.html gets generated inside "api_docs" folder along with the new schema json files
-8. Go to http://localhost:3020 to see the site.
+5. Navigate to root folder in the downloaded folder from Github
+6. Run the command ```npm install``` to install all the dependencies
+7. Run the command ```npm run build``` to build and run the application
+8. Make sure index.html gets generated inside "api_docs" folder along with the new schema json files
+9. Go to http://localhost:3020 to see the site.
 
 II) Netlify installation guide in deploying from git branch directly. 
 
@@ -65,8 +66,10 @@ Navigate to planmill1_5.raml file. This file uses RESTful API Modeling Language 
 Edit the file and save changes.
 Add or edit schema and sample files.
 
-Run following command in command prompt in api_docs subdirectory: raml2html -i planmill1_5.raml -o index.html. It will generate the HTML file in the same folder where RAML file is present.
+Install raml2html with command npm i -g raml2html. Run following command in command prompt in api_docs subdirectory: raml2html -i planmill1_5.raml -o index.html. It will generate the HTML file in the same folder where RAML file is present.
 Open the index.html in browser and you should see the API document (or parsing errors, if any).
+In order to debug conversion from RAML datatypes to JSON schemas, install tool dt2json with command  npm i -g ramldt2jsonschema, and run command dt2json planmill1_5.raml <your type>.
+
 
 V) API Testing
 

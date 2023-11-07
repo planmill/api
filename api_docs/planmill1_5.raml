@@ -266,7 +266,7 @@ types:
         type: datetime
   absence_getAll:
     type: absence[]
-  account_postId: 
+  account_base: 
     additionalProperties: false
     properties:
       name?:
@@ -354,7 +354,6 @@ types:
       billingPostalCode?:
         description: Invoice billing postal code of an account
         type: string | nil
-      billingReference?: string | integer | nil
       billingState?: string | nil
       parentAccount?:
         description: Parent id of an account
@@ -371,13 +370,17 @@ types:
       shippingPostalCode?: 
         description: Invoice shipping postal code of an account
         type: string | nil
-      shippingReference?: string | nil
       shippingState?: string | nil
       invoiceAppendix?: integer | nil
       invoiceTemplate?: string | nil
       autoReplyRequestMails?:
         description: Auto-reply request mails
         type: integer | nil
+  account_postId:
+    type: account_base
+    properties:
+      billingReference?: string | integer | nil
+      shippingReference?: string | nil	
   account_getId:
     type: account_postId
     properties: 
@@ -390,8 +393,16 @@ types:
       parentAccountName?: 
         type: string | nil
   account:
-    type: account_getId
+    type: account_base
     properties:
+      id?:
+        type: integer
+        description: Internal ID of an account
+      operationalId?:         
+        type: integer | nil
+        description: Operational ID of an account
+      parentAccountName?: 
+        type: string | nil
       activeContacts?: integer
       created?: 
         type: datetime
