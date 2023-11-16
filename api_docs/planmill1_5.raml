@@ -1040,9 +1040,6 @@ types:
       plannedDate?:
         type: string | nil
         description: Planned date of the invoiceposition.
-      invoicingDate?:
-        type: string | nil
-        description: Invoicing date of the invoiceposition
       description?:
         type: string | nil
         description: Description of the item.
@@ -1061,9 +1058,6 @@ types:
       periodLength?:
         type: integer | nil
         description: length of the invoice position period.
-      invoiceReference?:
-        type: string | nil
-        description: Invoice reference of the position.
       accountId?:
         type: integer | nil
         description: Account of the position.
@@ -1076,12 +1070,18 @@ types:
       salesOrderItemId?:
         type: integer | nil
         description: Unique identificator of the corresponding sales order item.
+      salesOrderId?:
+        type: integer | nil
+        description: Unique identificator of the salesorder of the invoice position.
       projectId?:
         type: integer | nil
         description: Unique identificator of the project of the task.
       costCenter?:
         type: integer | nil
-        description: Cost center type of the position.	
+        description: Cost center of the position.
+      productOperationalId?:
+        type: integer | nil
+        description: Operational id of the product of the invoiceposition.
   invoiceposition_getAll:
     type: invoiceposition[]
   mail: !include request_mail1_5.schema 
