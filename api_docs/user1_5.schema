@@ -447,6 +447,10 @@
         "superior": {
           "type": ["integer", "null"],
           "description": "ID of the user's superior"
+        },
+		"externalIdentifier": {
+          "type": ["string", "integer", "null"],
+          "description": "External identifier of user"
         }
       }
     }
