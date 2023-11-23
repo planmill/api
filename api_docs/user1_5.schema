@@ -282,7 +282,7 @@
           "description": ""
         },
         "externalIdentifier": {
-          "type": ["string", "null"],
+          "type": ["string", "integer", "null"],
           "description": "External identifier of user"
         },
         "superior": {
