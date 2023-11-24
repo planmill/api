@@ -1,0 +1,14 @@
+[
+  {
+    "id": 62902,
+    "costCenterId": 3100,
+    "salesOrderItemId": 61988,
+	"percentage": 40.5
+  },
+  {
+    "id": 61902,
+    "costCenterId": 4100,
+    "salesOrderItemId": 61988,
+	"percentage": 59.5
+  }
+]
