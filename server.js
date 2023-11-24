@@ -23,6 +23,7 @@ var linkItems = [
   "company_getId",
   "company_post",
   "company_postId",
+  "costcentersplitting_getAll",
   "integrator_getAll",
   "integrator_post",
   "integrator_postId",
