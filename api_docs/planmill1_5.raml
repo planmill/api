@@ -1776,16 +1776,19 @@ types:
     properties:
       invoice?:
         type: integer | nil
-        description: Internal Invoice ID of  any invoiced billable time reports
+        description: Internal invoice ID of any the invoice of a billable report
       invoiceitem?:
         type: integer | nil
-        description: Internal Invoice Item ID of any invoiced billable time reports
+        description: Internal invoice item ID of one of the items related to the timereport
+      invoiceposition?:
+        type: integer | nil
+        description: Internal invoice position ID of the invoice position of a billable time report 
       salesorder?:
         type: integer | nil
-        description: Internal Salesorder ID of any invoiced billable time reports
+        description: Internal salesorder ID of the salesorder of a billable time report
       salesorderitem?:
         type: integer | nil
-        description: Internal Salesorder item ID of  any invoiced billable time reports
+        description: Internal salesorder item ID of the salesorder item of a billable time report
       dutyType?:
         type: integer | nil
         description: Type of duty
