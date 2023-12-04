@@ -36,7 +36,7 @@
     "finish": "2021-07-03T00:15:00.000+0300",
     "id": 1530,
     "invoice": null,
-    "invoiceitem": null,
+    "invoiceposition": null,
 	"created": "2021-07-02T10:35:03.477+0300",
     "modified": "2021-07-02T10:35:03.477+0300",
     "modifiedBy": 356,
