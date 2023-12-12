@@ -1683,7 +1683,111 @@ types:
         type: integer | nil
         description: "Id of a shipping account" 
   salesorder_getAll:
-    type: salesorder[]       
+    type: salesorder[]
+  salesorderitem:
+    additionalProperties: false
+    properties:
+      id?:
+        type: integer
+        description: "Unique identificator of a salesorder item"
+      name?:
+        type: string
+        description: "Name of a salesorder item"
+      product?:
+        type: string | nil
+        description: "Sales order item product id"
+      operationalId?:
+        type: integer | nil
+        description: "Sales order item operational id"
+      quantity?:
+        type: integer | nil
+        description: "Sales order item quantity"
+      unit:
+        type: integer | nil
+        description: "Sales order item unit value"
+      sellingPrice?:
+        type: number | nil
+        description: "Sales order item selling price"
+      selfCost?:
+        type: integer | nil
+        description: "Sales order item self cost"
+      discount?:
+        type: integer | nil
+        description: "Sales order item discount"
+      billingType?:
+        type: integer
+        description: "Sales order item billing type"
+      orderStatus?:
+        type: integer | nil
+        description: "Sales order item order status"
+      invoicingPeriod?:
+        type: integer | nil
+        description: "Sales order item invoicing period type"
+      warrantyPeriod?:
+        type: integer | nil
+        description: "Sales order item warranty period"
+      contractPeriod?:
+        type: integer | nil
+        description: "Period of the corresponding contract"
+      VAT?:
+        type: integer | nil
+        description: "Sales order item VAT value"
+      revenueType?:
+        type: integer | nil
+        description: "Sales order item revenue type: 0= Own New License, 1=Own Maintenance License, 2=3rd Party New License, 3=3rd Party Maintenance License, 4=Services, 5=Hoisting,6=Travel Expenses, 7=Other, 8=Subscription, 9=3rd Party Subscription"
+      validFrom?:
+        type: datetime
+        description: "Sales order item valid start date"
+      validUntil?:
+        type: datetime
+        description: "Sales order item ending valid date"
+      contractItem?:
+        type: integer | nil
+        description: "Sales order item contract item"
+      invoiceProcess?:
+        type: integer | nil
+        description: "Sales order item invoice process"
+      costCenter?:
+        type: integer | nil
+        description: "Sales order item cost center"
+      salesAccount?:
+        type: integer | nil
+        description: "Sales account of sales order item"
+      task?:
+        type: integer | nil
+        description: "Sales order item task id"
+      generatePriceType?:
+        type: integer | nil
+        description: "Sales order item price type"
+      competence?:
+        type: integer | nil
+        description:  "Sales order item competence"
+      person?:
+        type: integer | nil
+        description: "Sales order item person id"
+      description?:
+        type: string | nil
+        description: "Sales order item description"
+      salesorder?:
+        type: integer | nil
+        description: "Sales order that the sales order item belongs to"
+      createTask?:
+        type: integer | nil
+        description: "Create a corresponding task, for GET always 0"
+  salesorderitem_getId:
+    type: salesorderitem
+    properties: 
+      volumePrice?:
+        type:  integer | nil
+        description: "Id of highest quantity volume price"
+      volumePriceLimit?:
+        type:  integer | nil
+        description: "Volume price active from which quantity., iff null, highest quantity price"
+      volumePriceCeiling?:
+        type:  integer | nil
+        description: "Price of highest quantity volume price"
+  salesorderitem_getAll:
+    type: salesorderitem[]
   team: !include team1_5.schema
   resource: !include resource1_5.schema
   tempfile: !include tempfile1_5.schema 
@@ -3760,24 +3864,34 @@ resourceTypes:
           200:
             body:
               application/json:
-                type: !include salesorderitem1_5.schema
+                type: salesorderitem_getAll
       post:
         description: Add a new sales order item to PlanMill or update existing (if id is given). See salesorders/{sales_order_id}/items/meta for list of columns and formats
         body:
           application/json:
-            type: !include salesorderitem1_5.schema
+            type: salesorderitem_getId
       type:
         collection:
           exampleCollectionItemArray: !include salesorderitem_array1_5.sample
           exampleCollectionItem: !include salesorderitem1_5.sample
-      /{id}:
+      /{sales_order_item_id}:
         get:
           description: View details of single item of single sales order item. #See sales orders/{sales_order_id}/items/{sales_order_item_id}/meta for list of filters, columns and formats
+          responses:
+           200:
+              body:
+                application/json: 
+                  type: salesorderitem_getId
         post:
           description: Update an existing resource single item of single sales order to PlanMill. #See salesorders/{sales_order_id}/items/{sales_order_item_id}/meta for list of filters, columns and formats
-        type:
-          collectionItem:
-            exampleCollectionItem: !include salesorderitem1_5.sample
+          body:
+            application/json:
+              type: salesorderitem_getId 
+        delete:
+        type: 
+         allMethodsCollectionItem:
+            exampleCollectionGetItem: !include salesorderitem1_5.sample
+            exampleCollectionPostItem: !include salesorderitem1_5.sample
   /items/costcentersplittings:
     get:
       responses:
