@@ -753,7 +753,13 @@ types:
         description: Operational Id of the contract 
       opportunityId?: 
         type: integer | nil
-        description: Unique identifier of the opportunity of the contract		
+        description: Unique identifier of the opportunity of the contract
+      projectId?:
+        type: integer | nil
+        description: Unique identifier of the project of the contract
+      responsableId?:
+        type: integer | nil
+        description: Unique identifier of the responsable user of the contract
       status?: 
         type: integer | nil
         description: Status integer code of contract. 
@@ -4311,7 +4317,6 @@ resourceTypes:
              exampleCollectionItem: !include vacation1_5.sample
 
 # /competences:
-# /contracts:
 # /forecasts:
 # /revenues:
 # /sessions:
