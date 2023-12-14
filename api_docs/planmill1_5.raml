@@ -737,10 +737,10 @@ types:
         type: integer
         description: Unique identifier of the contact person of the contract
       customerId?:
-        type: integer 
+        type: integer | nil 
         description: Unique identifier of the customer of the contract
       customerName?:
-        type: string
+        type: string | nil
         description: Name of the customer of the contract
       description?: 
         type: string | nil
@@ -776,7 +776,7 @@ types:
         type: datetime
         description: Start of validity period of the contract
       validUntil?: 
-        type: datetime
+        type: datetime | nil
         description: End of validity period of the contract 	 		
   contract_post:
     type: contract_postId
@@ -800,7 +800,7 @@ types:
         type: datetime | nil
         description: When contract was last time modified
       modifiedBy?: 
-        type: integer
+        type: integer | nil
         description: Unique identificator of the user who modified contract last time
   contract_getAll:
     type: contract_getId[]
