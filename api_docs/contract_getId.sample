@@ -1,0 +1,14 @@
+{
+    "contactId": 356,
+    "description":  "<p>Test description</p>",
+    "name": "Test contract",
+    "operationalId": 834,
+    "opportunityId": 1546,
+    "projectId": 213,
+    "responsibleId": 356,
+    "status": 10,
+    "termOfNotice": 30,
+    "type": 3,
+    "validFrom": "2023-12-07T00:00:00.000+0200",
+    "validUntil": "2023-12-28T00:00:00.000+0200"
+}

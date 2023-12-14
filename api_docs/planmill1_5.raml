@@ -730,6 +730,74 @@ types:
         type: integer | nil 
   contact_getAll:
     type: contact[]
+  contract_postId:
+    additionalProperties: false
+    properties:
+      contactId?:
+        type: integer
+        description: Unique identifier of the contact person of the contract
+      customerId?:
+        type: integer 
+        description: Unique identifier of the customer of the contract
+      customerName?:
+        type: string
+        description: Name of the customer of the contract
+      description?: 
+        type: string | nil
+        description: Description of the contract
+      name?: 
+        type: string
+        description: Name of the contract 
+      operationalId?: 
+        type: integer | string |nil
+        description: Operational Id of the contract 
+      opportunityId?: 
+        type: integer | nil
+        description: Unique identifier of the opportunity of the contract		
+      status?: 
+        type: integer | nil
+        description: Status integer code of contract. 
+      supplierId?:
+        type: integer | nil
+        description: Unique identifier of the supplier of the contract    
+      termOfNotice?: 
+        type: integer | nil
+        description: Term of Notice integer code of contract in days
+      type?: 
+        type: integer | nil
+        description: Type integer code of the contract 
+      validFrom: 
+        type: datetime
+        description: Start of validity period of the contract
+      validUntil?: 
+        type: datetime
+        description: End of validity period of the contract 	 		
+  contract_post:
+    type: contract_postId
+    properties:
+      id?:
+        type: integer
+        description: Unique identifier of the contract 
+  contract_getId:
+    type: contract_postId
+    properties: 
+      id:
+        type: integer
+        description: Unique identificator of the contract
+      created: 
+        type: datetime
+        description: When contract was created
+      createdBy: 
+        type: integer
+        description: Unique identificator of the user who created the contract
+      modified?: 
+        type: datetime | nil
+        description: When contract was last time modified
+      modifiedBy?: 
+        type: integer
+        description: Unique identificator of the user who modified contract last time
+  contract_getAll:
+    type: contract_getId[]
   email:
     type: string  
     pattern: "^.+@.+\\..+$"
@@ -2779,6 +2847,59 @@ resourceTypes:
           description: Attach existing file to user.( Tips use file id from api/1.5/tempfile )
         type:
           putCollectionItem
+/contracts:
+  get:
+    responses:
+      200:
+        description: 
+        body:                  
+          application/json: 
+            type: contract_getAll 
+  post:
+    headers:
+      Content-Type:
+        type: string
+        required: true
+        default: |
+          application/json;charset=UTF-8
+        example: |
+          application/json;charset=UTF-8
+    body:
+      application/json:
+        type: contract_post
+    description: To add a new contract. See contracts/meta for list of columns and formats.
+  type:
+     intervalCollection:
+       exampleCollectionItemArray: !include contract_getAll.sample
+       exampleCollectionItem: !include contract_getId.sample
+  /meta:
+      description: Get meta information for contracts. Includes resource's fields names and type and related filters
+      get:
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include contract_meta.sample
+  /{contract_id}:
+    get:
+      responses:
+        200:
+          body:
+            application/json: 
+              type: contract_getId
+    post:
+      body:
+        application/json:
+          type: contract_postId
+    delete:
+    type: 
+     allMethodsCollectionItem:
+        exampleCollectionGetItem: !include contract_getId.sample
+        exampleCollectionPostItem: !include contract_postId.sample	
+    /meta:
+        description: Get meta information for the updatable fields of the contract
+        get:
+        type:
+          readOnlyCollectionItem:
+            exampleCollectionItem: !include contract_single_meta.sample
 /enumerations:
   description: Enumerations available in PlanMill
   get:
