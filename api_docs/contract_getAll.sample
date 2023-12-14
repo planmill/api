@@ -8,7 +8,7 @@
     "projectId": 213,
     "responsibleId": 356,
     "status": 10,
-	"supplierId": 353
+	"supplierId": 353,
     "termOfNotice": 30,
     "type": 3,
     "validFrom": "2023-12-07T00:00:00.000+0200",
@@ -23,7 +23,7 @@
     "projectId": 213,
     "responsibleId": 356,
     "status": 10,
-	"supplierId": 353
+	"supplierId": 353,
     "termOfNotice": 10,
     "type": 3,
     "validFrom": "2023-12-08T00:00:00.000+0200",
