@@ -1,0 +1,30 @@
+[
+{
+    "contactId": 356,
+    "description":  "<p>Test description</p>",
+    "name": "Test contract",
+    "operationalId": 834,
+    "opportunityId": 1546,
+    "projectId": 213,
+    "responsibleId": 356,
+    "status": 10,
+    "termOfNotice": 30,
+    "type": 3,
+    "validFrom": "2023-12-07T00:00:00.000+0200",
+    "validUntil": "2023-12-28T00:00:00.000+0200"
+},
+{
+    "contactId": 356,
+    "description":  "<p>Description of second contract</p>",
+    "name": "Second est contract",
+    "operationalId": 900,
+    "opportunityId": 1646,
+    "projectId": 213,
+    "responsibleId": 356,
+    "status": 10,
+    "termOfNotice": 10,
+    "type": 3,
+    "validFrom": "2023-12-08T00:00:00.000+0200",
+    "validUntil": "2023-12-27T00:00:00.000+0200"
+}
+]
