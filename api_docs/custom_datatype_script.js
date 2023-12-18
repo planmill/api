@@ -31,6 +31,7 @@ var linkItems = [
   "contracts_post_request:contract_post",
   "contracts__contract_id__get_response:contract_getId",
   "contracts__contract_id__post_request:contract_postId",
+  "contracts__contract_id__contractitems_request:contractitem_getAll",
   "invoices_get_response:invoice_getAll",
   "invoices__invoice_id__get_response:invoice_getId",
   "invoices_invoiceitems_get_response:invoiceitem_getAll",

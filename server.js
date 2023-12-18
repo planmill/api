@@ -40,6 +40,7 @@ var linkItems = [
   "contract_post",
   "contract_postId",
   "contract_getAll",
+  "contractitem_getAll",
   "invoice_getId",
   "invoice_getAll",
   "invoiceitem_getAll",
