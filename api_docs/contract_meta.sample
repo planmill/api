@@ -1,0 +1,227 @@
+{
+    "filters": [
+        {
+            "type": "string",
+            "name": "searchkey",
+            "caption": ""
+        },
+        {
+            "type": "string",
+            "name": "viewby",
+            "value": "0",
+            "caption": "View by",
+            "values": {
+                "0": "My contracts",
+                "1": "My team's contracts",
+                "2": "All contracts",
+                "3": "All valid contracts",
+                "4": "All invalid contracts"
+            }
+        },
+        {
+            "type": "interval",
+            "name": "interval",
+            "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+            "values": {
+                "Contract.ValidUntil": "Valid until",
+                "Contract.SignedDate": "Signed date",
+                "Contract.ValidFrom": "Valid from",
+                "Contract.Modified": "Modified",
+                "Contract.Created": "Created"
+            }
+        },
+        {
+            "type": "string",
+            "name": "rowcount",
+            "value": "100",
+            "caption": "Rows",
+            "values": {
+                "100": "100",
+                "25": "25",
+                "50": "50",
+                "150": "150",
+                "250": "250",
+                "75": "75"
+            }
+        },
+        {
+            "type": "multivalue",
+            "name": "Contract.ResponsibleId",
+            "value": "-1",
+            "caption": "Responsible person",
+            "values": {
+                "-1": "All",
+                "356": "User (update), First",
+                "50": "PlanMill, Maintenance-user (Inactive)"
+            }
+        },
+        {
+            "type": "multivalue",
+            "name": "status",
+            "value": "-1",
+            "caption": "Status",
+            "values": {
+                "-1": "All",
+                "10": "1. Draft"
+            }
+        },
+        {
+            "type": "multivalue",
+            "name": "customerId",
+            "value": "-1",
+            "caption": "Customer",
+            "values": {
+                "353": "Your organisation legal trading name (update)",
+                "-1": "All"
+            }
+        },
+        {
+            "type": "multivalue",
+            "name": "Supplier.Id",
+            "value": "-1",
+            "caption": "Supplier",
+            "values": {
+                "-1": "All",
+                "51": "PlanMill Oy"
+            }
+        },
+        {
+            "type": "multivalue",
+            "name": "type",
+            "value": "-1",
+            "caption": "Type",
+            "values": {
+                "3": "Sales contract",
+                "-1": "All"
+            }
+        },
+        {
+            "type": "multivalue",
+            "name": "ProductName",
+            "value": "-1",
+            "caption": "Product",
+            "values": {
+                "-1": "All"
+            }
+        }
+    ],
+    "fields": {
+        "supplierId": {
+            "format": "",
+            "caption": ""
+        },
+        "contactId": {
+            "format": "",
+            "caption": ""
+        },
+        "created": {
+            "format": "mediumdate",
+            "caption": "Created"
+        },
+        "description": {
+            "format": "",
+            "caption": ""
+        },
+        "validFrom": {
+            "format": "mediumdate",
+            "caption": "Valid from"
+        },
+        "type": {
+            "values": {
+                "1": "NDA",
+                "2": "SLA",
+                "3": "Sales contract",
+                "-1": "-",
+                "4": "Delivery contract",
+                "5": "Purchase agreement",
+                "6": "Continuous services",
+                "7": "Frame agreement",
+                "8": "Finance agreement"
+            },
+            "format": "Enumeration values.Sales management.Contracts.Type",
+            "caption": "Type"
+        },
+        "operationalId": {
+            "format": "text",
+            "caption": "Contract ID"
+        },
+        "termOfNotice": {
+            "values": {
+                "1080": "3 Years",
+                "14": "14 Days",
+                "-1": "-",
+                "1440": "4 Years",
+                "180": "6 Months",
+                "150": "5 Months",
+                "360": "12 Months",
+                "120": "4 Months",
+                "1800": "5 Years",
+                "540": "18 Months",
+                "720": "2 Years",
+                "7": "7 Days",
+                "90": "3 Months",
+                "60": "2 Months",
+                "30": "30 Days"
+            },
+            "format": "Enumeration values.Sales management.Contracts.TermOfNotice",
+            "caption": "Term of notice"
+        },
+        "customerName": {
+            "format": "text",
+            "caption": "Customer"
+        },
+        "opportunityId": {
+            "format": "",
+            "caption": ""
+        },
+        "createdBy": {
+            "format": "",
+            "caption": ""
+        },
+        "name": {
+            "format": "text",
+            "caption": "Name"
+        },
+        "customerId": {
+            "format": "",
+            "caption": "Customer Internal ID"
+        },
+        "validUntil": {
+            "format": "shortdate",
+            "caption": "Valid until"
+        },
+        "modified": {
+            "format": "mediumdate",
+            "caption": "Modified"
+        },
+        "responsibleId": {
+            "format": "",
+            "caption": "Responsible person Internal ID"
+        },
+        "modifiedBy": {
+            "format": "",
+            "caption": ""
+        },
+        "id": {
+            "format": "text",
+            "caption": "Contract.Id"
+        },
+        "projectId": {
+            "format": "",
+            "caption": ""
+        },
+        "status": {
+            "values": {
+                "70": "7. Terminated",
+                "60": "6. Unsigned",
+                "50": "5. Signed",
+                "40": "4. Rejected",
+                "30": "3. Accepted",
+                "20": "2. Ready for acceptance",
+                "10": "1. Draft"
+            },
+            "format": "Enumeration values.Sales management.Contracts.Status",
+            "caption": "Status"
+        }
+    }
+}

@@ -451,6 +451,7 @@ types:
       body?:
         type: object[] | object  
   campaign: !include campaign1_5.schema
+  capacitycalendar: !include user_capacitycalendars1_5.schema
   company:
     additionalProperties: false
     properties:
@@ -546,24 +547,6 @@ types:
     type: company
   company_getAll:
     type: company_getId[]
-  costcentersplitting:
-    additionalProperties: false
-    properties:
-      id:
-        type: integer
-        description: Unique identificator of a cost center splitting
-      salesOrderItemId:
-        type: integer
-        description: Sales order item of a cost center splitting
-      costCenterId:
-        type: integer
-        description: Cost center id of a cost center splitting
-      percentage:
-        type: number
-        description: Share of the cost center splitting (sum of shares over sales order item is 100)
-  costcentersplitting_getAll:
-    type: costcentersplitting[]
-  capacitycalendar: !include user_capacitycalendars1_5.schema
   contact_base:
     additionalProperties: false
     properties:
@@ -730,6 +713,192 @@ types:
         type: integer | nil 
   contact_getAll:
     type: contact[]
+  contract_postId:
+    additionalProperties: false
+    properties:
+      contactId?:
+        type: integer
+        description: Unique identifier of the contact person of the contract
+      customerId?:
+        type: integer | nil 
+        description: Unique identifier of the customer of the contract
+      customerName?:
+        type: string | nil
+        description: Name of the customer of the contract
+      description?: 
+        type: string | nil
+        description: Description of the contract
+      name?: 
+        type: string
+        description: Name of the contract 
+      operationalId?: 
+        type: integer | string |nil
+        description: Operational Id of the contract 
+      opportunityId?: 
+        type: integer | nil
+        description: Unique identifier of the opportunity of the contract
+      projectId?:
+        type: integer | nil
+        description: Unique identifier of the project of the contract
+      responsibleId?:
+        type: integer | nil
+        description: Unique identifier of the responsable user of the contract
+      status?: 
+        type: integer | nil
+        description: Status integer code of contract. 
+      supplierId?:
+        type: integer | nil
+        description: Unique identifier of the contact person of the supplier of the contract    
+      termOfNotice?: 
+        type: integer | nil
+        description: Term of Notice integer code of contract in days
+      type?: 
+        type: integer | nil
+        description: Type integer code of the contract 
+      validFrom: 
+        type: datetime
+        description: Start of validity period of the contract
+      validUntil?: 
+        type: datetime | nil
+        description: End of validity period of the contract 	 		
+  contract_post:
+    type: contract_postId
+    properties:
+      id?:
+        type: integer
+        description: Unique identifier of the contract 
+  contract_getId:
+    type: contract_postId
+    properties: 
+      id:
+        type: integer
+        description: Unique identifier of the contract
+      created: 
+        type: datetime
+        description: When contract was created
+      createdBy: 
+        type: integer
+        description: Unique identifier of the user who created the contract
+      modified?: 
+        type: datetime | nil
+        description: When contract was last time modified
+      modifiedBy?: 
+        type: integer | nil
+        description: Unique identifier of the user who modified contract last time
+  contract_getAll:
+    type: contract_getId[]
+  contractitem:
+    additionalProperties: false
+    properties:
+      billingType: 
+        type: integer | nil
+        description: Billing type of the contract item 
+      competenceId?: 
+        type: integer | nil
+        description: Unique identifier of a competence related to the contract item 
+      contractId: 
+        type: integer
+        description: Id of the contract of the item 
+      costCenter?: 
+        type: integer | nil
+        description: Unique identifier of the cost center of the contract item 
+      currency?: 
+        type: integer | nil
+        description: Currency conversion rate at the time of creation of the contract 
+      description?: 
+        type: string | nil
+        description: Description of the contract
+      discount?: 
+        type: number | nil
+        description: Discount rate of the contract item
+      id:
+        type: integer
+        description: Unique identifier of the contract
+      invoiceProcess?:
+        type: integer | nil
+        description: Invoice process of the contract item
+      invoicingPeriod?:
+        type: integer | nil
+        description: Invoicing period type of the contract item
+      name: 
+        type: string
+        description: Name of the contract item, usually product name 
+      operationalId?: 
+        type: integer | string |nil
+        description: Operational Id of the contract item
+      orderNumber?: 
+        type: integer | nil
+        description: Sales orde number of the contract item
+      orderStatus?: 
+        type: integer | nil
+        description: Status of the corresponding sales order 
+      personId?: 
+        type: integer | nil
+        description: Unique identifier of a person related to the contract item
+      productId?: 
+        type: integer | nil
+        description: Unique identifier of the product of the item
+      quantity?: 
+        type: number | nil
+        description: Quantity of the product in contract item
+      revenueType?: 
+        type: integer | nil
+        description: Revenue type of the contract item
+      salesAccount?: 
+        type: integer | nil
+        description: Sales account of the contract item
+      sellingPrice?: 
+        type: number | nil
+        description: Selling price of the contract item
+      taskId?: 
+        type: integer | nil
+        description: Unique identificator of the corresponding task
+      unit?: 
+        type: integer | nil
+        description: Unit of the product in contract item
+      validFrom: 
+        type: string
+        description: Start of validity period of the contract
+      validUntil?: 
+        type: string | nil
+        description: End of validity period of the contract 	 		
+      created?: 
+        type: string | nil
+        description: When contract was created
+      createdBy: 
+        type: integer
+        description: Unique identifier of the user who created the contract
+      modified?: 
+        type: string | nil
+        description: When contract was last time modified
+      modifiedBy?: 
+        type: integer | nil
+        description: Unique identifier of the user who modified contract last time
+      warrantyPeriod?: 
+        type: integer | nil
+        description: Warranty period of the contract item in days
+      vat?: 
+        type: integer | nil
+        description: VAT of the contract item
+  contractitem_getAll:
+    type: contractitem[]
+  costcentersplitting:
+    additionalProperties: false
+    properties:
+      id:
+        type: integer
+        description: Unique identifier of a cost center splitting
+      salesOrderItemId:
+        type: integer
+        description: Sales order item of a cost center splitting
+      costCenterId:
+        type: integer
+        description: Cost center id of a cost center splitting
+      percentage:
+        type: number
+        description: Share of the cost center splitting (sum of shares over sales order item is 100)
+  costcentersplitting_getAll:
+    type: costcentersplitting[]
   email:
     type: string  
     pattern: "^.+@.+\\..+$"
@@ -838,7 +1007,7 @@ types:
     type: integratortype_base
     properties:
       typeId?:
-        description: Unique identificator for each integrator type
+        description: Unique identifier for each integrator type
         type: integer
   integratortype_getAll:
     type: integratortype_getId[]
@@ -963,13 +1132,13 @@ types:
     properties:
       id?:
         type: integer
-        description: Unique identificator of invoice item.
+        description: Unique identifier of invoice item.
       invoiceId?:
         type: integer
-        description: Unique identificator of the invoice of the item.
+        description: Unique identifier of the invoice of the item.
       invoicePositionId?:
         type: integer
-        description: Unique identificator of the corresponding invoice position.
+        description: Unique identifier of the corresponding invoice position.
       vat?:
         type: number | nil
         description: VAT of the item.
@@ -1014,13 +1183,13 @@ types:
         description: Invoice position of the corresponding credit note.
       salesOrderItemId?:
         type: integer | nil
-        description: Unique identificator of the corresponding sales order item.
+        description: Unique identifier of the corresponding sales order item.
       costCenter?:
         type: integer | nil
         description: Cost center type of the item.
       taskId?:
         type: integer | nil
-        description: Unique identificator of the task of the invoice.
+        description: Unique identifier of the task of the invoice.
   invoiceitem_getAll:
     type: invoiceitem[]
   invoiceposition:
@@ -1028,10 +1197,10 @@ types:
     properties:
       id?:
         type: integer
-        description: Unique identificator of invoiceposition.
+        description: Unique identifier of invoiceposition.
       invoiceId?:
         type: integer
-        description: Unique identificator of the invoice of the position.
+        description: Unique identifier of the invoice of the position.
       name?:
         type: string | nil
         description: Name of the position.
@@ -1085,13 +1254,13 @@ types:
         description: Unit of the invoiceposition.
       salesOrderItemId?:
         type: integer | nil
-        description: Unique identificator of the corresponding sales order item.
+        description: Unique identifier of the corresponding sales order item.
       salesOrderId?:
         type: integer | nil
-        description: Unique identificator of the salesorder of the invoice position.
+        description: Unique identifier of the salesorder of the invoice position.
       projectId?:
         type: integer | nil
-        description: Unique identificator of the project of the task.
+        description: Unique identifier of the project of the task.
       costCenter?:
         type: integer | nil
         description: Cost center of the position.
@@ -2779,6 +2948,69 @@ resourceTypes:
           description: Attach existing file to user.( Tips use file id from api/1.5/tempfile )
         type:
           putCollectionItem
+/contracts:
+  get:
+    responses:
+      200:
+        description: 
+        body:                  
+          application/json: 
+            type: contract_getAll 
+  post:
+    headers:
+      Content-Type:
+        type: string
+        required: true
+        default: |
+          application/json;charset=UTF-8
+        example: |
+          application/json;charset=UTF-8
+    body:
+      application/json:
+        type: contract_post
+    description: To add a new contract. See contracts/meta for list of columns and formats.
+  type:
+     intervalCollection:
+       exampleCollectionItemArray: !include contract_getAll.sample
+       exampleCollectionItem: !include contract_getId.sample
+  /meta:
+      description: Get meta information for contracts. Includes resource's fields names and type and related filters
+      get:
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include contract_meta.sample
+  /{contract_id}:
+    get:
+      responses:
+        200:
+          body:
+            application/json: 
+              type: contract_getId
+    post:
+      body:
+        application/json:
+          type: contract_postId
+    delete:
+    type: 
+     allMethodsCollectionItem:
+        exampleCollectionGetItem: !include contract_getId.sample
+        exampleCollectionPostItem: !include contract_postId.sample	
+    /meta:
+        description: Get meta information for the updatable fields of the contract
+        get:
+        type:
+          readOnlyCollectionItem:
+            exampleCollectionItem: !include contract_single_meta.sample
+    /contractitems:
+      get:
+        responses:
+          200:
+            body:
+              application/json:
+                type: contractitem_getAll
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include contractitem_getAll.sample
 /enumerations:
   description: Enumerations available in PlanMill
   get:
@@ -4190,7 +4422,6 @@ resourceTypes:
              exampleCollectionItem: !include vacation1_5.sample
 
 # /competences:
-# /contracts:
 # /forecasts:
 # /revenues:
 # /sessions:
