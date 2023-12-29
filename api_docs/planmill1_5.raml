@@ -3859,14 +3859,14 @@ resourceTypes:
           exampleCollectionItem: !include salesorder_single_meta1_5.sample
     /items:
       get:
-        description: Get a list of sales order items. See salesorder/{sales_order_id}/items/meta for list of filters, columns and formats
+        description: Get a list of sales order items. See salesorder/{sales_order_id}/items/meta for list of filters, columns and formats. Sales order item values are returned in currency of the sales order, currency header does not apply. 
         responses:
           200:
             body:
               application/json:
                 type: salesorderitem_getAll
       post:
-        description: Add a new sales order item to PlanMill or update existing (if id is given). See salesorders/{sales_order_id}/items/meta for list of columns and formats
+        description: Add a new sales order item to PlanMill or update existing (if id is given). See salesorders/{sales_order_id}/items/meta for list of columns and formats. 
         body:
           application/json:
             type: salesorderitem_getId
