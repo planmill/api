@@ -1,152 +1,217 @@
 {
   "filters": [
     {
+      "type": "string",
       "name": "searchkey",
       "caption": ""
     },
     {
+      "type": "string",
       "name": "viewby",
+      "value": "-1",
       "caption": "View by",
       "values": {
-        "All recently created tasks - this month": "20",
-        "My tasks": "10",
-        "All tasks": "0",
-        "All recently completed tasks - this month": "40",
-        "All not completed milestones": "150",
-        "All completed tasks & requests": "100",
-        "All not completed requests": "140",
-        "All recently created tasks - last month": "30",
-        "All not completed tasks": "130",
-        "All not completed tasks & requests": "120",
-        "All recently completed tasks - last month": "50",
-        "All tasks in progress - late": "6",
-        "All completed requests": "110"
+        "-1": "All",
+        "150": "All not completed milestones",
+        "140": "All not completed requests",
+        "130": "All not completed tasks",
+        "120": "All not completed tasks & requests",
+        "110": "All completed requests",
+        "100": "All completed tasks & requests",
+        "6": "All tasks in progress - late",
+        "50": "All recently completed tasks - last month",
+        "40": "All recently completed tasks - this month",
+        "30": "All recently created tasks - last month",
+        "20": "All recently created tasks - this month",
+        "10": "My tasks"
       }
     },
     {
-      "name": "viewby2",
-      "caption": "Type",
-      "values": {
-        "All": "0",
-        "Tasks & milestones": "25",
-        "Tasks": "10",
-        "Milestones": "20",
-        "Requests": "30"
-      }
-    },
-    {
-      "name": "status",
-      "caption": "Status",
-      "values": {
-        "All": "-1"
-      }
-    },
-    {
-      "name": "billableStatus",
-      "caption": "Billing type",
-      "values": {
-        "All": "-1",
-        "Non-billable": "3",
-        "Time based": "2",
-        "Fixed": "1"
-      }
-    },
-    {
-      "name": "Assignment.PersonId",
-      "caption": "Performer",
-      "values": {
-        "All": "-1"
-      }
-    },
-    {
-      "name": "Team.Id",
-      "caption": "Team",
-      "values": {
-        "All": "-1"
-      }
-    },
-    {
-      "name": "parent",
-      "caption": "Parent",
-      "values": {
-        "All": "-1"
-      }
-    },
-    {
-      "name": "Baseline.Id",
-      "caption": "Baseline",
-      "values": {
-        "-": "-1"
-      }
-    },
-    {
+      "type": "interval",
       "name": "interval",
       "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
       "values": {
-        "Modified": "modified",
-        "Start": "start",
-        "Finish": "finish",
-        "Created": "created"
+        "Task.Modified": "Modified",
+        "Task.Start": "Start",
+        "Task.Created": "Created",
+        "Task.Finish": "Finish"
       }
     },
     {
+      "type": "multivalue",
       "name": "CreatedPerson.Id",
+      "value": "-1",
       "caption": "Created by",
       "values": {
-        "All": "-1",
-        "Mikkonen, Aalto": "2734",
-        "PlanMill, Admin": "1000"
+          "0": "System,",
+          "-1": "All",
+          "50": "PlanMill, Maintenance-user"
+      }
+    },
+    {
+      "type": "string",
+      "name": "viewby2",
+      "value": "-1",
+      "caption": "Type",
+      "values": {
+          "25": "Tasks & milestones",
+          "-1": "All",
+          "30": "Requests",
+          "20": "Milestones",
+          "10": "Tasks"
+      }
+    },
+    {
+      "type": "multivalue",
+      "name": "Task.Status",
+      "value": "-1",
+      "caption": "Status",
+      "values": {
+          "-1": "All",
+          "-99991": "Open (1,2,3)",
+          "-99992": "Open (1,2,3)",
+          "20": "2. Assigned"
+      }
+    },
+    {
+      "type": "multivalue",
+      "name": "billableStatus",
+      "value": "-1",
+      "caption": "Billing type",
+      "values": {
+          "1": "Fixed",
+          "2": "Time based",
+          "3": "Non-billable",
+          "-1": "All"
+      }
+    },
+    {
+      "type": "multivalue",
+      "name": "Assignment.PersonId",
+      "value": "-1",
+      "caption": "Performer",
+      "values": {
+          "-1": "All",
+          "356": "User (update), First",
+          "-1041": "Team: First team (update e.g. your company name)"
+      }
+    },
+    {
+      "type": "multivalue",
+      "name": "Team.Id",
+      "value": "-1",
+      "caption": "Team",
+      "values": {
+          "-1": "All",
+          "1041": "First team (update e.g. your company name)"
+      }
+    },
+    {
+      "type": "multivalue",
+      "name": "parent",
+      "caption": "Parent",
+      "values": {
+          "-1": "All"
+      }
+    },
+    {
+      "type": "multivalue",
+      "name": "Baseline.Id",
+      "caption": "Baseline",
+      "values": {
+          "-1": "-"
       }
     }
-  ],
+],
   "fields": {
-    "unitPrice": {
-      "format": "projectcurrency",
-      "caption": "Unit price"
-    },
     "dutyType": {
+      "values": {
+        "1080": "Overtime leave",
+        "2070": "HRM",
+        "2090": "Management",
+        "optgroup": "Administrative duty",
+        "1000": "Annual holiday",
+        "1165": "Saved leave",
+        "1220": "Parental leave other parent (unpaid)",
+        "1120": "Layoff",
+        "2110": "Office work",
+        "1020": "Sick leave due to child",
+        "1240": "Pregnancy and parental leave (paid)",
+        "2010": "Marketing",
+        "1140": "Study leave (unpaid)",
+        "2130": "Emergency duty < 22.00",
+        "1040": "Paternity leave (pre 4.9.22, unpaid)",
+        "1260": "Parental leave other person (paid)",
+        "2030": "Development",
+        "1160": "Other annual leave",
+        "1060": "Other unpaid leave",
+        "2050": "IT",
+        "1180": "Paternity leave (pre 4.9.22, paid)",
+        "1210": "Pregnancy and parental leave (unpaid)",
+        "9999": "Other",
+        "1190": "Maternity leave (pre 4.9.22, unpaid)",
+        "1090": "Balance leave",
+        "2080": "HRD",
+        "\/optgroup": "-",
+        "1110": "Military refresher",
+        "2100": "Internal events",
+        "1010": "Sick leave",
+        "1230": "Parental leave other person (unpaid)",
+        "2000": "Education",
+        "1130": "Child care leave",
+        "2120": "Customer service",
+        "1030": "Maternity leave (pre 4.9.22, paid)",
+        "1250": "Parental leave other parent (paid)",
+        "2020": "Presales",
+        "2140": "On call",
+        "1050": "Military leave",
+        "2040": "R&D",
+        "1170": "Parental leave (pre 4.9.22, unpaid)",
+        "1070": "Other paid leave",
+        "2060": "Finance",
+        "1025": "Sick leave by medical certificate",
+        "1200": "Parental leave",
+        "2135": "Emergency duty 22.00-06.00",
+        "1100": "Bonus holiday"
+      },
       "format": "Enumeration values.Task.Offduty",
       "caption": "Duty type"
+    },
+    "parent": {
+      "format": "text",
+      "caption": null
+    },
+    "attachments": {
+      "format": "number",
+      "caption": "Attachments"
     },
     "targetEffort": {
       "format": "projecteffortunit",
       "caption": "Estimated"
     },
-    "plannedEffort": {
-      "format": "projecteffortunit",
-      "caption": "Planned"
-    },
-    "created": {
-      "format": "mediumdate",
-      "caption": "Created"
-    },
-    "start": {
-      "format": "shortdate",
-      "caption": "Start"
-    },
     "wbs": {
       "format": "text",
       "caption": "WBS"
     },
-    "remainingEffort": {
-      "format": "projecteffortunit",
-      "caption": "Remain"
+    "description": {
+      "format": "text",
+      "caption": "Description"
     },
-    "totalEffort": {
-      "format": "projecteffortunit",
-      "caption": "Forecast"
-    },
-    "totalRemainingEffort": {
-      "format": "projecteffortunit",
-      "caption": "Total remain"
+    "predecessorTask": {
+      "format": "text",
+      "caption": "Depends on (Finish to Start)"
     },
     "type": {
+      "values": {
+        "1": "Project",
+        "100": "Task",
+        "2": "Portfolio",
+        "101": "Milestone",
+        "5": "Portfolio",
+        "150": "Request"
+      },
       "format": "Enumeration values.Task.Type",
       "caption": "Type"
-    },
-    "billableStatus": {
-      "format": "Enumeration values.Project.Billable status",
-      "caption": "Billing type"
     },
     "duration": {
       "format": "day",
@@ -156,9 +221,9 @@
       "format": "projecteffortunit",
       "caption": "Accepted"
     },
-    "name": {
-      "format": "text",
-      "caption": "_Task"
+    "reported": {
+      "format": "projecteffortunit",
+      "caption": "Reported"
     },
     "modified": {
       "format": "mediumdate",
@@ -176,9 +241,79 @@
       "format": "percent",
       "caption": "Completeness"
     },
-    "status": {
+    "unitPrice": {
+      "format": "projectcurrency",
+      "caption": "Unit price"
+    },
+    "performers": {
       "format": "text",
-      "caption": "Status"
+      "caption": "Performer(s)"
+    },
+    "plannedEffort": {
+      "format": "projecteffortunit",
+      "caption": "Planned"
+    },
+    "created": {
+      "format": "mediumdate",
+      "caption": "Created"
+    },
+    "start": {
+      "format": "shortdate",
+      "caption": "Start"
+    },
+    "remainingEffort": {
+      "format": "projecteffortunit",
+      "caption": "Remain"
+    },
+    "totalEffort": {
+      "format": "projecteffortunit",
+      "caption": "Forecast"
+    },
+    "totalRemainingEffort": {
+      "format": "projecteffortunit",
+      "caption": "Total remain"
+    },
+    "billableStatus": {
+      "values": {
+        "1": "Fixed",
+        "2": "Time based",
+        "3": "Non-billable"
+      },
+      "format": "Enumeration values.Project.Billable status",
+      "caption": "Billing type"
+    },
+    "actualFinish": {
+      "format": "mediumdate",
+      "caption": "Actual finish"
+    },
+    "name": {
+      "format": "text",
+      "caption": "Task"
+    },
+    "performersId": {
+      "format": "text",
+      "caption": null
+    },
+    "actualStart": {
+      "format": "mediumdate",
+      "caption": "Actual start"
+    },
+    "status": {
+      "values": {
+        "110": "Progressing",
+        "100": "On hold",
+        "160": "100% complete",
+        "40": "4. Completed",
+        "150": "75% complete",
+        "30": "3. In progress",
+        "140": "50% complete",
+        "20": "2. Assigned",
+        "130": "25% complete",
+        "10": "1. Not assigned",
+        "120": "Approved"
+      },
+      "format": "Enumeration values.Task.Status",
+      "caption": null
     }
   }
 }

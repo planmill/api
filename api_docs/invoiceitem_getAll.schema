@@ -1,0 +1,186 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/invoiceitem_getAll",
+  "definitions": {
+    "invoiceitem_getAll": {
+      "type": "array",
+      "items": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Unique identificator of invoice item."
+          },
+          "invoiceId": {
+            "type": "integer",
+            "description": "Unique identificator of the invoice of the item."
+          },
+          "invoicePositionId": {
+            "type": "integer",
+            "description": "Unique identificator of the corresponding invoice position."
+          },
+          "vat": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "VAT of the item."
+          },
+          "status": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Status of the item."
+          },
+          "type": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Type of the item."
+          },
+          "amount": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Amount of the item."
+          },
+          "unitPrice": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Unit price of the item."
+          },
+          "account": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Account of the item."
+          },
+          "item": {
+            "type": "string",
+            "description": "Description of the item."
+          },
+          "unit": {
+            "type": "string",
+            "description": "Unit of the item."
+          },
+          "performer": {
+            "type": "string",
+            "description": "Depends on case. In case of expense, user who created the expense."
+          },
+          "discount": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Discount of the item."
+          },
+          "task": {
+            "type": "string",
+            "description": "Name of the task of the invoice."
+          },
+          "revenueType": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Revenue type of the item."
+          },
+          "orderNumber": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Number of the corresponding order."
+          },
+          "creditInvoicePositionId": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Invoice position of the corresponding credit note."
+          },
+          "salesOrderItemId": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Unique identificator of the corresponding sales order item."
+          },
+          "costCenter": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Cost center type of the item."
+          },
+          "tasktId": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Unique identificator of the task of the invoice."
+          }
+        }
+      }
+    }
+  }
+}
