@@ -26,7 +26,7 @@
     "billableStatus": 3,
     "actualFinish": null,
     "name": "Test Task 1",
-    "performersId": "1041",
+    "performerIds": "1041",
     "actualStart": null,
     "status": 20
   },
@@ -57,7 +57,7 @@
     "billableStatus": 3,
     "actualFinish": null,
     "name": "Office work",
-    "performersId": "1061",
+    "performerIds": "1061",
     "actualStart": null,
     "status": 120
   }

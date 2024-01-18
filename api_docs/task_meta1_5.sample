@@ -290,7 +290,7 @@
       "format": "text",
       "caption": "Task"
     },
-    "performersId": {
+    "performerIds": {
       "format": "text",
       "caption": null
     },
