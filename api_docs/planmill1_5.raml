@@ -3482,7 +3482,7 @@ resourceTypes:
               type: invoiceitem_getAll
     type:
       readOnlyRowCountCollection:
-        exampleCollectionItem: !include invoiceitem_getAll.sample
+        exampleCollectionItemArray: !include invoiceitem_getAll.sample
   /invoicepositions:
     get:
       responses:
@@ -3492,7 +3492,7 @@ resourceTypes:
               type: invoiceposition_getAll
     type:
       readOnlyintervalCollection:
-        exampleCollectionItem: !include invoiceposition_getAll.sample
+        exampleCollectionItemArray: !include invoiceposition_getAll.sample
 /languages:
   description: Language strings used for localization available in PlanMill
   get:
