@@ -1267,6 +1267,18 @@ types:
       productOperationalId?:
         type: integer | nil
         description: Operational id of the product of the invoiceposition.
+      created?: 
+        type: datetime
+        description: Date when the invoice position was created.
+      createdBy?: 
+        type: string | integer | nil
+        description: Unique identifier of the person who created invoice position.
+      modified?: 
+        type: datetime | nil 
+        description: Date when the invoice position was modified last time.
+      modifiedBy?: 
+        type: string | integer | nil
+        description: Unique identifier of the person who did latest modification to invoice position.
   invoiceposition_getAll:
     type: invoiceposition[]
   mail: !include request_mail1_5.schema 
@@ -2112,6 +2124,28 @@ resourceTypes:
                   type: object
                   example: |
                     <<exampleCollectionItemArray>>
+  readOnlyRowCountCollection:
+      is: [all]
+      description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. This is a read-only collection.
+      get:
+        description: Get a list of <<resourcePathName>>
+        queryParameters:
+          rowcount?:
+            type: integer
+            minimum: 1
+            required: false
+            description: It limits the result set amount to the specified limit to avoid API call to return too many records. Default row count is 100
+          nextrows?:
+            type: integer
+            required: false
+            description: The number of the next starting row. It is dependent on rowcount. For example, for total 250 items, if rowcount is 100 and nextrows is 101, it return items 101-201
+        responses:
+            200:
+              body:
+                application/json:
+                  type: object
+                  example: |
+                    <<exampleCollectionItemArray>>
   readOnlyCollectionItem:
       is: [all]
       description: A single <<resourcePathName|!singularize>> in PlanMill. This is a read-only item.
@@ -2178,6 +2212,37 @@ resourceTypes:
   intervalCollection:
       is: [all]
       type: allMethodsCollection
+      description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
+      get?:
+        description: Get a list of <<resourcePathName>>. See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
+        queryParameters:
+          interval?:
+            type: string
+            required: false
+            description: Interval type, e.g. start, finish, created, or modified. It is required in combination with intervalstart or intervalfinish
+          intervalstart?:
+            type: string
+            required: false
+            description: Start date of the interval in UTC format, intervalfinish required 
+            example: 2019-03-01T00:00:00.000+0200
+          intervalfinish?:
+            type: string
+            required: false
+            description: Finish date of the interval in UTC format, intervalstart required
+            example: 2019-03-01T00:00:00.000+0200
+        responses:
+          200:
+            body:
+              application/json:
+                example: |
+                  <<exampleCollectionItemArray>>
+      post?:
+        body:
+          application/json:
+            example: <<exampleCollectionItem>>
+  readOnlyintervalCollection:
+      is: [all]
+      type: readOnlyRowCountCollection
       description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
       get?:
         description: Get a list of <<resourcePathName>>. See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
@@ -3416,7 +3481,7 @@ resourceTypes:
             application/json: 
               type: invoiceitem_getAll
     type:
-      readOnlyCollectionItem:
+      readOnlyRowCountCollection:
         exampleCollectionItem: !include invoiceitem_getAll.sample
   /invoicepositions:
     get:
@@ -3426,7 +3491,7 @@ resourceTypes:
             application/json:
               type: invoiceposition_getAll
     type:
-      readOnlyCollectionItem:
+      readOnlyintervalCollection:
         exampleCollectionItem: !include invoiceposition_getAll.sample
 /languages:
   description: Language strings used for localization available in PlanMill
