@@ -2,6 +2,7 @@
     "invoiceProcess": "1",
     "dutyType": 2,
 	"productType": 1,
+	"type": 100,
     "minimumAmountToBeSold": 10,
     "targetEffort": null,
     "searchKeywords": "",
