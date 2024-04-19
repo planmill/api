@@ -1865,12 +1865,9 @@ types:
         description: "Id of a shipping account" 
   salesorder_getAll:
     type: salesorder[]
-  salesorderitem:
+  salesorderitem_post:
     additionalProperties: false
     properties:
-      id?:
-        type: integer
-        description: "Unique identificator of a salesorder item"
       name?:
         type: string
         description: "Name of a salesorder item"
@@ -1955,8 +1952,14 @@ types:
       createTask?:
         type: integer | nil
         description: "Create a corresponding task, for GET always 0"
+  salesorderitem_get:
+    type: salesorderitem_post
+    properties: 
+      id?:
+        type: integer
+        description: "Unique identificator of a salesorder item"
   salesorderitem_getId:
-    type: salesorderitem
+    type: salesorderitem_post
     properties: 
       volumePrice?:
         type:  integer | nil
@@ -1968,7 +1971,7 @@ types:
         type:  integer | nil
         description: "Price of highest quantity volume price"
   salesorderitem_getAll:
-    type: salesorderitem[]
+    type: salesorderitem_get[]
   team: !include team1_5.schema
   resource: !include resource1_5.schema
   task_post:
@@ -4259,11 +4262,11 @@ resourceTypes:
         description: Add a new sales order item to PlanMill or update existing (if id is given). See salesorders/{sales_order_id}/items/meta for list of columns and formats. 
         body:
           application/json:
-            type: salesorderitem_getId
+            type: salesorderitem_post
       type:
         collection:
           exampleCollectionItemArray: !include salesorderitem_array1_5.sample
-          exampleCollectionItem: !include salesorderitem1_5.sample
+          exampleCollectionItem: !include salesorderitem_post.sample
       /{sales_order_item_id}:
         get:
           description: View details of single item of single sales order item. #See sales orders/{sales_order_id}/items/{sales_order_item_id}/meta for list of filters, columns and formats
@@ -4276,12 +4279,12 @@ resourceTypes:
           description: Update an existing resource single item of single sales order to PlanMill. #See salesorders/{sales_order_id}/items/{sales_order_item_id}/meta for list of filters, columns and formats
           body:
             application/json:
-              type: salesorderitem_getId 
+              type: salesorderitem_post
         delete:
         type: 
          allMethodsCollectionItem:
-            exampleCollectionGetItem: !include salesorderitem1_5.sample
-            exampleCollectionPostItem: !include salesorderitem1_5.sample
+            exampleCollectionGetItem: !include salesorderitem_getId.sample
+            exampleCollectionPostItem: !include salesorderitem_post.sample
   /items/costcentersplittings:
     get:
       responses:
