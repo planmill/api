@@ -35,6 +35,7 @@
   "handlingFee": 0,
   "handlingFeeVat": 0,
   "noticeTime": 0,
-  "description": "Test"
+  "description": "Test",
+  "contractDPS": null
 }
 
