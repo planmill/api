@@ -3890,7 +3890,7 @@ resourceTypes:
           200:
             body:
               application/json: 
-                type: project_getId  
+                type: project_getId
       post:
         body:
           application/json:
@@ -4326,18 +4326,20 @@ resourceTypes:
           exampleCollectionItem: !include task_meta1_5.sample
   /{task_id}:
     get:
+      responses:
+        200:
+          body:                  
+            application/json: 
+              type: task
     post:
+      body:
+        application/json:
+          type: task_post
     delete:
     type: 
       allMethodsCollectionItem:
         exampleCollectionGetItem: !include task1_5.sample
         exampleCollectionPostItem: !include task1_5_post.sample
-      /meta:
-        description: Get meta information for the updatable fields of the task
-        get:
-        type:
-          readOnlyCollectionItem:
-            exampleCollectionItem: !include task_single_meta1_5.sample
     /meta:
       description: Get meta information for the updatable fields of the task
       get:
