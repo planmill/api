@@ -2006,7 +2006,7 @@ types:
         description: Status of the task. 
       parent:
         type: integer | nil
-        description: Parent of the task.
+        description: Parent of the task. May be a task or project Id.
       predecessorTask?:
         type: integer | nil
         description: Previous task that should be finished first. 
@@ -2064,6 +2064,18 @@ types:
       id:
         type: integer
         description: Unique identificator of the task.
+      finishOld?:
+        type: datetime | nil
+        description: Old finish of the task. Currently unused legacy field.
+      originalFinish?:
+        type: datetime | nil
+        description: Original finish of the task. Currently unused legacy field.
+      originalStart?:
+        type: datetime | nil
+        description: Original start of the task. Currently unused legacy field.
+      tempFinish?:
+        type: datetime | nil
+        description: Temporary finish of the task. Currently unused legacy field..
   task_getAll:
     type: task_getId[]
   tempfile: !include tempfile1_5.schema 
