@@ -64,7 +64,7 @@ var linkItems = [
   "salesorderitem_post",
   "salesorderitem_getId",
   "task_post",
-  "task",
+  "task_getId",
   "task_getAll",
   "timereport_getId",
   "timereport_post",

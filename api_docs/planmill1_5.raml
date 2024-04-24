@@ -2058,15 +2058,14 @@ types:
       totalRemainingEffort?:
         type:  number | nil
         description: Total effort - actual effort of the task.
-  task:
+  task_getId:
     type: task_post
-    additionalProperties: false
     properties:
       id:
         type: integer
         description: Unique identificator of the task.
   task_getAll:
-    type: task[]
+    type: task_getId[]
   tempfile: !include tempfile1_5.schema 
   timereport_base:
     additionalProperties: false
@@ -4330,7 +4329,7 @@ resourceTypes:
         200:
           body:                  
             application/json: 
-              type: task
+              type: task_getId
     post:
       body:
         application/json:

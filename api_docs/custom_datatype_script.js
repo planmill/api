@@ -59,7 +59,7 @@ var linkItems = [
   "salesorders_items_costcentersplittings_get_response:costcentersplitting_getAll",
   "tasks_get_response:task_getAll",
   "tasks_post_request:task_post",
-  "tasks__task_id__get_response:task",
+  "tasks__task_id__get_response:task_getId",
   "tasks__task_id__post_request:task_post",
   "timereports_get_response:timereport_getAll",
   "timereports_post_request:timereport_post",
