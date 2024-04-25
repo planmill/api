@@ -4328,13 +4328,13 @@ resourceTypes:
   type:
     allMethodsCollection:
       exampleCollectionItemArray: !include task_array1_5.sample
-      exampleCollectionItem: !include task1_5_post.sample
+      exampleCollectionItem: !include task_post.sample
   /meta:
-      description: Get meta information for tasks. Includes resource's fields names and type and related filters.
-      get:
-      type:
-        readOnlyCollectionItem:
-          exampleCollectionItem: !include task_meta1_5.sample
+    description: Get meta information for tasks. Includes resource's fields names and type and related filters.
+    get:
+    type:
+      readOnlyCollectionItem:
+        exampleCollectionItem: !include task_meta1_5.sample
   /{task_id}:
     get:
       responses:
@@ -4349,8 +4349,8 @@ resourceTypes:
     delete:
     type: 
       allMethodsCollectionItem:
-        exampleCollectionGetItem: !include task1_5.sample
-        exampleCollectionPostItem: !include task1_5_post.sample
+        exampleCollectionGetItem: !include task_get.sample
+        exampleCollectionPostItem: !include task_post.sample
     /meta:
       description: Get meta information for the updatable fields of the task
       get:
