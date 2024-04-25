@@ -2076,6 +2076,9 @@ types:
       id:
         type: integer
         description: Unique identificator of the task.
+  task_get:
+    type: task_getId
+    properties:
       attachments:
         type: integer
         description: Amount of attachments in task.
@@ -2089,7 +2092,7 @@ types:
         type:  string | nil
         description: Sum of all reported time in minutes.
   task_getAll:
-    type: task_getId[]
+    type: task_get[]
   tempfile: !include tempfile1_5.schema 
   timereport_base:
     additionalProperties: false
