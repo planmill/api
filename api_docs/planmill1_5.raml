@@ -4009,19 +4009,14 @@ resourceTypes:
               schemaName:
               exampleCollectionItemArray: !include project_purchases_array_meta1_5.sample
       /tasks:
-        description: Please note that this data model might change and might be inconsistent with the schema right now
         get:
-          queryParameters:
-            rowcount:
-            nextrows:
-            order:
-            sort:    
-            interval:
-            intervalstart:
-            intervalfinish:
+          responses:
+            200:
+              body:                  
+                application/json: 
+                  type: task_getAll
         type:
-          readOnlyCollection:
-            schemaName: !include task1_5.schema
+          allMethodsCollection:
             exampleCollectionItemArray: !include task_array1_5.sample
         /meta:
           description: Get meta information for tasks. Includes resource's fields names and type and related filters
