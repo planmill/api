@@ -4308,6 +4308,10 @@ resourceTypes:
         exampleCollectionItem: !include costcentersplitting_getAll.sample
 /tasks:
   get:
+    queryParameters:
+      project:
+        description: Unique identifier of the project of the task.
+        type: integer
     responses:
       200:
         body:                  
