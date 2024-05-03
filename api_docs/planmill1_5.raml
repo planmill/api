@@ -2070,8 +2070,14 @@ types:
       tempFinish?:
         type: datetime | nil
         description: Temporary finish of the task. Currently unused legacy field.
+  task_post:
+    type: task_base
+    properties:
+      project:
+        type: integer
+        description: project of the task.
   task_getId:
-    type: task_post
+    type: task_base
     properties:
       id:
         type: integer
