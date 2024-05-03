@@ -2073,14 +2073,20 @@ types:
       project:
         type: integer
         description: project of the task.
-  task_getId:
+  task_getbase:
     type: task_base
     properties:
       id:
         type: integer
         description: Unique identificator of the task.
+  task_getId:
+    type: task_getbase
+    properties:
+      project:
+        type: integer
+        description: project of the task.
   task_get:
-    type: task_getId
+    type: task_getbase
     properties:
       attachments:
         type: integer
