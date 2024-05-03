@@ -1974,7 +1974,7 @@ types:
     type: salesorderitem_get[]
   team: !include team1_5.schema
   resource: !include resource1_5.schema
-  task_post:
+  task_base:
     additionalProperties: false
     properties:
       actualStart?:
@@ -1985,16 +1985,16 @@ types:
         description: Actual start of the task.
       name:
         type: string
-        description: Name of the task.
+        description: Name of the task. Has to be unique per project.
       type:
         type: integer | nil
         description: 100 = task (default), 101 = milestone, 200 = imported booking.
       start?:
         type: datetime | nil
-        description: Start of the task.
+        description: Start of the task. If not defined, is not set to January 1970.
       finish?:
         type: datetime | nil
-        description: Finish of the task.
+        description: Finish of the task. If not defined, is not set to January 1970.
       dutyType?:
         type: integer | nil
         description: Duty type of the task.
