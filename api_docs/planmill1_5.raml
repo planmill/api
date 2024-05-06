@@ -1865,12 +1865,9 @@ types:
         description: "Id of a shipping account" 
   salesorder_getAll:
     type: salesorder[]
-  salesorderitem:
+  salesorderitem_post:
     additionalProperties: false
     properties:
-      id?:
-        type: integer
-        description: "Unique identificator of a salesorder item"
       name?:
         type: string
         description: "Name of a salesorder item"
@@ -1955,8 +1952,14 @@ types:
       createTask?:
         type: integer | nil
         description: "Create a corresponding task, for GET always 0"
+  salesorderitem_get:
+    type: salesorderitem_post
+    properties: 
+      id?:
+        type: integer
+        description: "Unique identificator of a salesorder item"
   salesorderitem_getId:
-    type: salesorderitem
+    type: salesorderitem_post
     properties: 
       volumePrice?:
         type:  integer | nil
@@ -1968,9 +1971,137 @@ types:
         type:  integer | nil
         description: "Price of highest quantity volume price"
   salesorderitem_getAll:
-    type: salesorderitem[]
+    type: salesorderitem_get[]
   team: !include team1_5.schema
   resource: !include resource1_5.schema
+  task_base:
+    additionalProperties: false
+    properties:
+      actualStart?:
+        type: datetime | nil
+        description: Actual start of the task.
+      actualFinish?:
+        type: string | nil
+        description: Actual start of the task.
+      name:
+        type: string
+        description: Name of the task. Has to be unique per project.
+      type:
+        type: integer | nil
+        description: 100 = task (default), 101 = milestone, 200 = imported booking.
+      start?:
+        type: datetime | nil
+        description: Start of the task. If not defined, is not set to January 1970.
+      finish?:
+        type: datetime | nil
+        description: Finish of the task. If not defined, is not set to January 1970.
+      dutyType?:
+        type: integer | nil
+        description: Duty type of the task.
+      billableStatus?:
+        type: integer | nil
+        description: Billable status of the task.
+      status?:
+        type: integer | nil
+        description: Status of the task. 
+      parent:
+        type: integer
+        description: Parent of the task. May be a task or project Id.
+      predecessorTask?:
+        type: integer | nil
+        description: Previous task that should be finished first. 
+      targetEffort?:
+        type: integer | nil
+        description: Target effort of the task.
+      unitPrice?:
+        type: number | nil
+        description: Price of the unit of the task.
+      competence?:
+        type: integer | nil
+        description: Competence level of the task.
+      wbs?:
+        type: string | nil
+        description: Work breakdown structure of the task.
+      priceType?:
+        type: integer | nil
+        description: Price type of the task.
+      description?:
+        type: string | nil
+        description: Description of the task
+      created?:
+        type: datetime
+        description: Timestamp of the task creation.
+      modified?:
+        type: datetime | nil
+        description: When task was modified last time. 
+      plannedEffort?:
+        type: number | nil
+        description: Planned effort of the task.
+      actualEffort?:
+        type: number | nil
+        description: Actual effort of the task.
+      remainingEffort?:
+        type:  number | nil
+        description: Sum of the effort of the assignments.
+      totalEffort?: 
+        type:  number | nil
+        description: Actual + remaining effort of the task.
+      workCompleteness?:
+        type:  number | nil
+        description: Work completeness of the task.
+      duration?:
+        type: integer | nil
+        description: Duration of the task. 
+      totalRemainingEffort?:
+        type:  number | nil
+        description: Total effort - actual effort of the task.
+      finishOld?:
+        type: datetime | nil
+        description: Old finish of the task. Currently unused legacy field.
+      originalFinish?:
+        type: datetime | nil
+        description: Original finish of the task. Currently unused legacy field.
+      originalStart?:
+        type: datetime | nil
+        description: Original start of the task. Currently unused legacy field.
+      tempFinish?:
+        type: datetime | nil
+        description: Temporary finish of the task. Currently unused legacy field.
+  task_post:
+    type: task_base
+    properties:
+      project:
+        type: integer
+        description: project of the task.
+  task_getbase:
+    type: task_base
+    properties:
+      id:
+        type: integer
+        description: Unique identificator of the task.
+  task_getId:
+    type: task_getbase
+    properties:
+      project:
+        type: integer
+        description: project of the task.
+  task_get:
+    type: task_getbase
+    properties:
+      attachments:
+        type: integer
+        description: Amount of attachments in task.
+      performerIds?:
+        type:  string | nil
+        description: List of unique identificators of the performers of the task.
+      performers?:
+        type:  string | nil
+        description: List of names of performers of the task.
+      reported?:
+        type:  integer| nil
+        description: Sum of all reported time in minutes.
+  task_getAll:
+    type: task_get[]
   tempfile: !include tempfile1_5.schema 
   timereport_base:
     additionalProperties: false
@@ -3794,7 +3925,7 @@ resourceTypes:
           200:
             body:
               application/json: 
-                type: project_getId  
+                type: project_getId
       post:
         body:
           application/json:
@@ -3902,19 +4033,14 @@ resourceTypes:
               schemaName:
               exampleCollectionItemArray: !include project_purchases_array_meta1_5.sample
       /tasks:
-        description: Please note that this data model might change and might be inconsistent with the schema right now
         get:
-          queryParameters:
-            rowcount:
-            nextrows:
-            order:
-            sort:    
-            interval:
-            intervalstart:
-            intervalfinish:
+          responses:
+            200:
+              body:                  
+                application/json: 
+                  type: task_getAll
         type:
-          readOnlyCollection:
-            schemaName: !include task1_5.schema
+          allMethodsCollection:
             exampleCollectionItemArray: !include task_array1_5.sample
         /meta:
           description: Get meta information for tasks. Includes resource's fields names and type and related filters
@@ -4166,11 +4292,11 @@ resourceTypes:
         description: Add a new sales order item to PlanMill or update existing (if id is given). See salesorders/{sales_order_id}/items/meta for list of columns and formats. 
         body:
           application/json:
-            type: salesorderitem_getId
+            type: salesorderitem_post
       type:
         collection:
           exampleCollectionItemArray: !include salesorderitem_array1_5.sample
-          exampleCollectionItem: !include salesorderitem1_5.sample
+          exampleCollectionItem: !include salesorderitem_post.sample
       /{sales_order_item_id}:
         get:
           description: View details of single item of single sales order item. #See sales orders/{sales_order_id}/items/{sales_order_item_id}/meta for list of filters, columns and formats
@@ -4183,12 +4309,12 @@ resourceTypes:
           description: Update an existing resource single item of single sales order to PlanMill. #See salesorders/{sales_order_id}/items/{sales_order_item_id}/meta for list of filters, columns and formats
           body:
             application/json:
-              type: salesorderitem_getId 
+              type: salesorderitem_post
         delete:
         type: 
          allMethodsCollectionItem:
-            exampleCollectionGetItem: !include salesorderitem1_5.sample
-            exampleCollectionPostItem: !include salesorderitem1_5.sample
+            exampleCollectionGetItem: !include salesorderitem_getId.sample
+            exampleCollectionPostItem: !include salesorderitem_post.sample
   /items/costcentersplittings:
     get:
       responses:
@@ -4199,50 +4325,91 @@ resourceTypes:
     type:
       readOnlyCollectionItem:
         exampleCollectionItem: !include costcentersplitting_getAll.sample
-/tasks/{task_id}:
+/tasks:
   get:
+    queryParameters:
+      project:
+        description: Unique identifier of the project of the task.
+        type: integer
+    responses:
+      200:
+        body:                  
+          application/json: 
+            type: task_getAll
   post:
-  delete:
-  type: 
-    allMethodsCollectionItem:
-      exampleCollectionGetItem: !include task1_5.sample
-      exampleCollectionPostItem: !include task1_5_post.sample
+    headers:
+      Content-Type:
+        type: string
+        required: true
+        default: |
+          application/json;charset=UTF-8  
+        example: |
+          application/json;charset=UTF-8
+    body:
+      application/json:
+        type: task_post
+  type:
+    allMethodsCollection:
+      exampleCollectionItemArray: !include task_array1_5.sample
+      exampleCollectionItem: !include task_post.sample
   /meta:
-    description: Get meta information for the updatable fields of the task
+    description: Get meta information for tasks. Includes resource's fields names and type and related filters.
     get:
     type:
       readOnlyCollectionItem:
-        exampleCollectionItem: !include task_single_meta1_5.sample
-  /assignments:
-    type:
-      collection:
-        exampleCollectionItemArray: !include assignment_array1_5.sample
-        exampleCollectionItem: !include assignment1_5.sample
+        exampleCollectionItem: !include task_meta1_5.sample
+  /{task_id}:
+    get:
+      responses:
+        200:
+          body:                  
+            application/json: 
+              type: task_getId
+    post:
+      body:
+        application/json:
+          type: task_post
+    delete:
+    type: 
+      allMethodsCollectionItem:
+        exampleCollectionGetItem: !include task_get.sample
+        exampleCollectionPostItem: !include task_post.sample
     /meta:
-      description:
+      description: Get meta information for the updatable fields of the task
       get:
       type:
         readOnlyCollectionItem:
-          exampleCollectionItem: !include task_single_assignment_meta1_5.sample
-    /{assignment_id}:
+          exampleCollectionItem: !include task_single_meta1_5.sample
+    /assignments:
       type:
-        collectionItem:
+        collection:
+          exampleCollectionItemArray: !include assignment_array1_5.sample
           exampleCollectionItem: !include assignment1_5.sample
       /meta:
         description:
         get:
         type:
           readOnlyCollectionItem:
-            exampleCollectionItem: !include task_single_assignment_single_meta1_5.sample
-  /attachments:
-     type:
-       readOnlyCollection:
-         schemaName:
-         exampleCollectionItemArray: !include tempfile_array1_5.sample
-     /{attachment_id}:
+            exampleCollectionItem: !include task_single_assignment_meta1_5.sample
+      /{assignment_id}:
+        type:
+          collectionItem:
+            exampleCollectionItem: !include assignment1_5.sample
+        /meta:
+          description:
+          get:
+          type:
+            readOnlyCollectionItem:
+              exampleCollectionItem: !include task_single_assignment_single_meta1_5.sample
+    /attachments:
        type:
-         putGetDeleteCollectionItem:
-           exampleCollectionItem: Contents of file
+         readOnlyCollection:
+           schemaName:
+           exampleCollectionItemArray: !include tempfile_array1_5.sample
+       /{attachment_id}:
+         type:
+           putGetDeleteCollectionItem:
+             exampleCollectionItem: Contents of file
 /teams:
   get:
     queryParameters:
