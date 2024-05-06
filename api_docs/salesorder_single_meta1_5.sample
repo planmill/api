@@ -339,5 +339,9 @@
         "Draft sales order": "30",
         "-": "\/optgroup"
     }
+  },
+  "contractDPS": {
+    "format": "text",
+    "caption": "Contract DPS"
   }
 }
