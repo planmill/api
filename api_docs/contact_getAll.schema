@@ -56,14 +56,7 @@
             "description": "Account name of contact"
           },
           "languageCode": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
+            "type": "string",
             "description": "Language code"
           },
           "workPhone": {
