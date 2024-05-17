@@ -57,6 +57,7 @@ var linkItems = [
   "salesorders__sales_order_id__items__sales_order_item_id__get_response:salesorderitem_getId",
   "salesorders__sales_order_id__items__sales_order_item_id__post_request:salesorderitem_post",
   "salesorders_items_costcentersplittings_get_response:costcentersplitting_getAll",
+  "salesorders_items_volumeprices_get_response:volumeprice_getAll",
   "tasks_get_response:task_getAll",
   "tasks_post_request:task_post",
   "tasks__task_id__get_response:task_getId",

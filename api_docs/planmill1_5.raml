@@ -2224,6 +2224,26 @@ types:
     type: timereport_get[]
   user: !include user1_5.schema
   vacation: !include vacation1_5.schema
+  volumeprice:
+    additionalProperties: false
+    properties:
+      id:
+        type: integer
+        description: Unique identifier of a volume price.
+      salesOrderItemId:
+        type: integer
+        description: Sales order item of a volume price.
+      limit?:
+        type: integer
+        description: Upper volume limit of the application of the price
+      price:
+        type: number
+        description: Price in the range defined by the limit.
+      ceiling?:
+        type: number
+        description: 1 if this is the price of the highest volume, 0 otherwise.
+  volumeprice_getAll:
+    type: volumeprice[]
 
 # write name of the resource before to include and schema always in SINGULAR, i.e. hook not hooks otherwise the automatic includes won't work
 # write name of the resource before the include and schema always in SINGULAR, i.e. hook not hooks otherwise the automatic includes won't work
@@ -4328,6 +4348,16 @@ resourceTypes:
     type:
       readOnlyCollectionItem:
         exampleCollectionItem: !include costcentersplitting_getAll.sample
+  /items/volumeprices:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              type: volumeprice_getAll
+    type:
+      readOnlyCollectionItem:
+        exampleCollectionItem: !include volumeprice_getAll.sample
 /tasks:
   get:
     queryParameters:

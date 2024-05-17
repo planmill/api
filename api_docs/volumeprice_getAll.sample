@@ -1,0 +1,16 @@
+[
+  {
+    "id": 62902,
+    "salesOrderItemId": 61988,
+    "ceiling": 0,
+    "limit": 5,
+    "price": 3
+  },
+  {
+    "id": 62903,
+    "salesOrderItemId": 61988,
+    "ceiling": 1,
+    "price": 2.5
+
+  }
+]
