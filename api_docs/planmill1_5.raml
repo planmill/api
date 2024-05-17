@@ -2234,13 +2234,13 @@ types:
         type: integer
         description: Sales order item of a volume price.
       limit?:
-        type: integer
+        type: integer | nil
         description: Upper volume limit of the application of the price
       price:
         type: number
         description: Price in the range defined by the limit.
       ceiling?:
-        type: number
+        type: integer | nil
         description: 1 if this is the price of the highest volume, 0 otherwise.
   volumeprice_getAll:
     type: volumeprice[]
