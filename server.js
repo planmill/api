@@ -69,7 +69,8 @@ var linkItems = [
   "timereport_getId",
   "timereport_post",
   "timereport_postId",
-  "timereport_getAll"
+  "timereport_getAll",
+  "volumeprice_getAll"
 ];
 
 // serve files from the public directory
