@@ -1629,7 +1629,71 @@ types:
         description: "Amount of hours (in minutes) reported to a project"
   project_getAll:
     type: project[]
-  product: !include product_getAll.schema
+  product_base: 
+    additionalProperties: false
+    properties:
+      name?:
+        description: The name of the product
+        type: string
+      productGroup?:
+        description: product group
+        type: integer
+      project?:
+        description: Project id of the product
+        type: integer | nil
+      owner?:
+        description: owner of the product
+        type: integer | nil
+      customer?:
+        description: customer id 
+        type: integer | nil
+      invoiceProcess?:
+        description: The Invoice process state  of the product
+        type: string | nil
+      dutyType?:
+        description: duty Type
+        type: integer | nil
+      productType?:
+        description: product type
+        type: integer
+      minimumAmountToBeSold?:
+        description: minimum amount to be sold  of the product
+        type: number
+      targetEffort?:
+        description: targeted effort  of the product
+        type: integer
+      revenueType?:
+        description: revenue type  of the product
+        type: integer | nil
+      operationalId?:
+        description: operationalId of the product
+        type: integer | nil
+  product_postId:
+    type: product_base
+    properties:
+      productGroup:
+        description: product group
+        type: integer
+  product_getId:
+    type: product_base
+    properties: 
+      id?:
+        type: integer
+        description: Internal ID of product
+  product:
+    type: product_base
+    properties:
+      id?:
+        type: integer
+        description: Internal ID of product
+  product_getAll:
+     type: product[]
+  product_post:
+    type: product_postId
+    properties: 
+      name:
+        description: Name of the product
+        type: string
   pricebook: !include pricebook1_5.schema
   salesorder_base:
     additionalProperties: false
@@ -3863,20 +3927,38 @@ resourceTypes:
                 readOnlyCollectionItem:
                   exampleCollectionItem: !include pricebookitems_item_meta1_5.sample
 /products:
-  description: To manage and list all products in a company. See /meta -endpoint.
+																				 
   get:
     queryParameters:
-      id:
-          description: Filters products for a specified products id
-          type: integer
-          required: false
-          example: id={product id}
+      rowcount:
+      nextrows:
+      order:
+      sort:
+      interval:
+      intervalstart:
+      intervalfinish:
+    responses:
+      200:
+        description: 
+        body:                  
+          application/json: 
+            type: product_getAll              
   post:
-    description: To create the new product from the request body
+    headers:
+      Content-Type:
+        type: string
+        required: true
+        default: |
+          application/json;charset=UTF-8 <div id="product1_5-datatype-post"></div> 	
+        example: |
+          application/json;charset=UTF-8 		
+    body:
+      application/json:
+        type: product_post
   type:
     collection:
        exampleCollectionItemArray: !include product_array1_5.sample
-       exampleCollectionItem: !include product1_5.sample
+       exampleCollectionItem: !include product_postId.sample
   /meta:
       description: Get meta information for productss. Includes resource's fields names and type and related filters
       get:
@@ -3884,15 +3966,18 @@ resourceTypes:
         readOnlyCollectionItem:
           exampleCollectionItem: !include product_meta1_5.sample
   /{product_id}:
-    put:
-      description: To update the existing product from the request body with {product_id} in the url
-    type:
+    get:
+      responses:
+        200:
+          body:
+            application/json: 
+              type: product_getId
+    type: 
      putGetDeleteCollectionItem:
-        exampleCollectionItem: !include product1_5.sample
+        exampleCollectionItem: Contents of file
     /attachments:
       type:
-        readOnlyCollection:
-          schemaName:
+        readOnlyCollection:					 
           exampleCollectionItemArray: !include tempfile_array1_5.sample
       /{attachment_id}:
         type:
