@@ -1668,9 +1668,93 @@ types:
       operationalId?:
         description: operationalId of the product
         type: integer | nil
+      validFrom?:
+        type: datetime
+        description: "valid from date  of the product"
+      validUntil?:
+        type: datetime
+        description: "Modification date of an absence of the product"
+      competence?:
+        description: competence id of the product
+        type: integer
+      sellingPrice?:
+        description: selling price of the product
+        type: number
+      warrantyPeriod?:
+        description: warranty period of the product
+        type: integer
+      link1?:
+        description: link 1  of the product
+        type: string
+      link2?:
+        description: link 2  of the product
+        type: string
+      link3?:
+        description: link 3  of the product
+        type: string
+      link4?:
+        description: link 4  of the product
+        type: string
+      billingType?:
+        description: billing type of the product
+        type: integer
+      vendor?:
+        description: vendor id of the product
+        type: integer
+      supplier?:
+        description: supplier id of the product
+        type: integer
+      relatedToPerson?:
+        description: person id to whom product related to
+        type: integer
+      invoicingPeriod?:
+        description: invoicing period id of the product
+        type: integer
+      quantity?:
+        description: quantity of the product
+        type: integer
+      costCenter?:
+        description: cost center of the product
+        type: integer
+      vat?:
+        description: VAT of the product
+        type: integer
+      publishToStore?:
+        description: publish to store of the product
+        type: integer
+      passive?:
+        description: passive state of the product
+        type: integer
+      contractPeriod?:
+        description: contract period id of the product
+        type: integer
+      unit?:
+        description: unit of the product
+        type: integer
+      selfCost?:
+        description: self cost of the product
+        type: number
+      searchKeywords?:
+        description: search key words of the product
+        type: integer
+      description?:
+        description: product description of the product
+        type: string
+      shortDescription?:
+        description: short product description of the product
+        type: string
+      comment?:
+        description: comments about the product
+        type: string
   product_postId:
     type: product_base
     properties:
+      productType:
+        description: product type
+        type: integer
+      validFrom:
+        type: datetime
+        description: "valid from date of the product"
       productGroup:
         description: product group
         type: integer
@@ -1680,14 +1764,8 @@ types:
       id?:
         type: integer
         description: Internal ID of product
-  product:
-    type: product_base
-    properties:
-      id?:
-        type: integer
-        description: Internal ID of product
   product_getAll:
-     type: product[]
+     type: product_getId[]
   product_post:
     type: product_postId
     properties: 
@@ -3966,15 +4044,15 @@ resourceTypes:
         readOnlyCollectionItem:
           exampleCollectionItem: !include product_meta1_5.sample
   /{product_id}:
+    type: 
+     putGetDeleteCollectionItem:
+        exampleCollectionItem: Contents of file
     get:
       responses:
         200:
           body:
             application/json: 
               type: product_getId
-    type: 
-     putGetDeleteCollectionItem:
-        exampleCollectionItem: Contents of file
     /attachments:
       type:
         readOnlyCollection:					 
