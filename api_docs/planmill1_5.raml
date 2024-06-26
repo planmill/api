@@ -1658,7 +1658,7 @@ types:
         type: integer
       minimumAmountToBeSold?:
         description: minimum amount to be sold  of the product
-        type: number
+        type: number | nil
       targetEffort?:
         description: targeted effort  of the product
         type: integer
@@ -1672,17 +1672,17 @@ types:
         type: datetime
         description: "valid from date  of the product"
       validUntil?:
-        type: datetime
-        description: "Modification date of an absence of the product"
+        type: datetime | nil
+        description: "Valid until date of the product"
       competence?:
         description: competence id of the product
-        type: integer
+        type: integer | nil
       sellingPrice?:
         description: selling price of the product
         type: number
       warrantyPeriod?:
         description: warranty period of the product
-        type: integer
+        type: integer | nil
       link1?:
         description: link 1  of the product
         type: string
@@ -1703,19 +1703,19 @@ types:
         type: integer
       supplier?:
         description: supplier id of the product
-        type: integer
+        type: integer | nil
       relatedToPerson?:
         description: person id to whom product related to
-        type: integer
+        type: integer | nil
       invoicingPeriod?:
         description: invoicing period id of the product
         type: integer
       quantity?:
         description: quantity of the product
-        type: integer
+        type: integer | nil
       costCenter?:
         description: cost center of the product
-        type: integer
+        type: integer | nil
       vat?:
         description: VAT of the product
         type: integer
@@ -1736,7 +1736,13 @@ types:
         type: number
       searchKeywords?:
         description: search key words of the product
-        type: integer
+        type: string | integer
+      discount?:
+        type: integer | nil
+        description: "item discount"
+      type?:
+        type: integer | nil
+        description: "Type of product"
       description?:
         description: product description of the product
         type: string
@@ -1746,14 +1752,32 @@ types:
       comment?:
         description: comments about the product
         type: string
+      created?:
+        type: datetime | nil
+        description: Timestamp of the product creation.
+      createdBy?:
+        type: datetime | nil
+        description: When product was modified last time. 
+      task?:
+        description: task of the product
+        type: string | nil
+      salesAccount?:
+        type: integer | nil
+        description: "Sales account of product"
+      modified?:
+        type: datetime
+        description: Last modified date
+      modifiedBy?:
+        type: integer | nil
+        description: Last modified by this person
   product_postId:
     type: product_base
     properties:
       productType:
         description: product type
-        type: integer
+        type: integer | nil
       validFrom:
-        type: datetime
+        type: datetime | nil
         description: "valid from date of the product"
       productGroup:
         description: product group
@@ -4004,8 +4028,7 @@ resourceTypes:
               type:
                 readOnlyCollectionItem:
                   exampleCollectionItem: !include pricebookitems_item_meta1_5.sample
-/products:
-																				 
+/products:																				 
   get:
     queryParameters:
       rowcount:
