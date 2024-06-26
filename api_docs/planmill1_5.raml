@@ -1637,7 +1637,7 @@ types:
         type: string
       productGroup?:
         description: product group
-        type: integer
+        type: integer | nil
       project?:
         description: Project id of the product
         type: integer | nil
@@ -1655,13 +1655,13 @@ types:
         type: integer | nil
       productType?:
         description: product type
-        type: integer
+        type: integer 
       minimumAmountToBeSold?:
         description: minimum amount to be sold  of the product
         type: number | nil
       targetEffort?:
         description: targeted effort  of the product
-        type: integer
+        type: integer | nil
       revenueType?:
         description: revenue type  of the product
         type: integer | nil
@@ -1736,7 +1736,7 @@ types:
         type: number | nil
       searchKeywords?:
         description: search key words of the product
-        type: string | integer
+        type: string | string
       discount?:
         type: integer | nil
         description: "item discount"
@@ -1779,9 +1779,6 @@ types:
       validFrom:
         type: datetime
         description: "valid from date of the product"
-      productGroup:
-        description: product group
-        type: integer
   product_getId:
     type: product_base
     properties: 
