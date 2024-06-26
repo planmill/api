@@ -1709,7 +1709,7 @@ types:
         type: integer | nil
       invoicingPeriod?:
         description: invoicing period id of the product
-        type: integer
+        type: integer | nil
       quantity?:
         description: quantity of the product
         type: integer | nil
@@ -1733,7 +1733,7 @@ types:
         type: integer
       selfCost?:
         description: self cost of the product
-        type: number
+        type: number | nil
       searchKeywords?:
         description: search key words of the product
         type: string | integer
@@ -1745,13 +1745,13 @@ types:
         description: "Type of product"
       description?:
         description: product description of the product
-        type: string
+        type: string | nil
       shortDescription?:
         description: short product description of the product
-        type: string
+        type: string | nil
       comment?:
         description: comments about the product
-        type: string
+        type: string | nil
       created?:
         type: datetime | nil
         description: Timestamp of the product creation.
@@ -1765,7 +1765,7 @@ types:
         type: integer | nil
         description: "Sales account of product"
       modified?:
-        type: datetime
+        type: datetime | nil
         description: Last modified date
       modifiedBy?:
         type: integer | nil
