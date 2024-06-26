@@ -1736,7 +1736,7 @@ types:
         type: number | nil
       searchKeywords?:
         description: search key words of the product
-        type: string | string
+        type: string | null
       discount?:
         type: integer | nil
         description: "item discount"
@@ -1756,7 +1756,7 @@ types:
         type: datetime | nil
         description: Timestamp of the product creation.
       createdBy?:
-        type: datetime | nil
+        type: string | integer | nil
         description: When product was modified last time. 
       task?:
         description: task of the product
