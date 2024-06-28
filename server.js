@@ -52,6 +52,7 @@ var linkItems = [
   "portfolio_post",
   "portfolio_postId",
   "portfolio_getAll",
+  "publicholiday_getAll",
   "opportunity_getAll",
   "opportunity_post",
   "opportunity_postId",
