@@ -40,6 +40,7 @@ var linkItems = [
   "products_post_request:product_post",
   "products__product_id__get_response:product_getId",
   "products__product_id__post_request:product_postId",
+  "products__product_id__put_response:product_put",
   "projects_get_response:project_getAll",
   "projects_post_request:project_post",
   "projects__project_id__get_response:project_getId",

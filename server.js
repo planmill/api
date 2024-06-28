@@ -48,6 +48,7 @@ var linkItems = [
   "product_getId",
   "product_post",
   "product_postId",
+  "product_put",
   "product_getAll",
   "project_getId",
   "project_post",

@@ -1793,6 +1793,8 @@ types:
       name:
         description: Name of the product
         type: string
+  product_put:
+    type: product_post
   pricebook: !include pricebook1_5.schema
   salesorder_base:
     additionalProperties: false
@@ -4064,22 +4066,23 @@ resourceTypes:
         readOnlyCollectionItem:
           exampleCollectionItem: !include product_meta1_5.sample
   /{product_id}:
+    type:
+      allMethodsCollectionItem:
+        exampleCollectionGetItem: !include product_getId.sample
+        exampleCollectionPutItem: !include product_put.sample
     put:
       responses:
         200:
           body:
-            application/json: 
-              type: product_post
+            application/json:
+              type: product_put
     get:
       responses:
         200:
           body:
             application/json:
               type: product_getId
-    type:
-      allMethodsCollectionItem:
-        exampleCollectionGetItem: !include product_getId.sample
-        exampleCollectionPutItem: !include product_put.sample
+    post:
     /attachments:
       type:
         readOnlyCollection:					 
