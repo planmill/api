@@ -1631,6 +1631,23 @@ types:
     type: project[]
   product: !include product_getAll.schema
   pricebook: !include pricebook1_5.schema
+  publicholiday:
+    additionalProperties: false
+    properties:
+      id:
+        type: integer
+        description: Unique identifier of a public holiday.
+      capacityCalendarId:
+        type: integer
+        description: Capacity calendar of a public holiday. Each calendar has a separate holiday listing.
+      date:
+        type: string
+        description: Date of a public holiday.
+      description:
+        type: string
+        description: Description of a public holiday.
+  publicholiday_getAll:
+    type: publicholiday[]
   salesorder_base:
     additionalProperties: false
     properties:
@@ -3192,6 +3209,18 @@ resourceTypes:
       type:
         readOnlyCollectionItem:
           exampleCollectionItem: !include capacitycalendar_meta1_5.sample
+  /publicholidays:
+    type:
+      readOnlyCollection:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              type: publicholiday_getAll
+    type:
+      readOnlyCollectionItem:
+        exampleCollectionItem: !include publicholiday_getAll.sample
   /capacitycalendars/{id}/capacity/{date}:
     description: Set a single day's capacity for a capacity calendar
     uriParameters:
