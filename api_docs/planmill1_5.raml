@@ -3210,8 +3210,6 @@ resourceTypes:
         readOnlyCollectionItem:
           exampleCollectionItem: !include capacitycalendar_meta1_5.sample
   /publicholidays:
-    type:
-      readOnlyCollection:
     get:
       responses:
         200:
@@ -3219,8 +3217,8 @@ resourceTypes:
             application/json:
               type: publicholiday_getAll
     type:
-      readOnlyCollectionItem:
-        exampleCollectionItem: !include publicholiday_getAll.sample
+      readOnlyCollection:
+        exampleCollectionItemArray: !include publicholiday_getAll.sample
   /capacitycalendars/{id}/capacity/{date}:
     description: Set a single day's capacity for a capacity calendar
     uriParameters:
