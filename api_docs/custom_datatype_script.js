@@ -11,6 +11,7 @@ var linkItems = [
   "accounts__account_id__get_response:account_getId",
   "accounts__account_id__post_request:account_postId",
   "batch_post_request:batch_post",
+  "capacitycalendars_publicholidays_get_response:publicholiday_getAll",
   "companies_get_response:company_getAll",
   "companies_post_request:company_post",
   "companies__company_id__get_response:company_getId",
