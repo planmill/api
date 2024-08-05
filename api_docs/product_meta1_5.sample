@@ -12,14 +12,14 @@
             "caption": "View by",
             "values": {
                 "0": "All products",
-                "10": "All active products",
-                "20": "All inactive products",
-                "30": "All recently created products - last 7 days",
-                "40": "All recently created products - last 14 days",
-                "50": "All recently created product - last 30 days",
-                "60": "All recently modified products - last 7 days",
+                "80": "All recently modified product - last 30 days",
                 "70": "All recently modified products - last 14 days",
-                "80": "All recently modified product - last 30 days"
+                "60": "All recently modified products - last 7 days",
+                "50": "All recently created product - last 30 days",
+                "40": "All recently created products - last 14 days",
+                "30": "All recently created products - last 7 days",
+                "20": "All inactive products",
+                "10": "All active products"
             }
         },
         {
@@ -28,12 +28,12 @@
             "value": "100",
             "caption": "Rows",
             "values": {
+                "100": "100",
                 "25": "25",
                 "50": "50",
-                "75": "75",
-                "100": "100",
                 "150": "150",
-                "250": "250"
+                "250": "250",
+                "75": "75"
             }
         },
         {
@@ -123,10 +123,6 @@
             "format": "Enumeration values.Product catalog.Products.Type",
             "caption": "Type"
         },
-        "parentProduct": {
-            "format": "text",
-            "caption": "ParentProduct.Id"
-        },
         "competence": {
             "format": "text",
             "caption": "Product.CompetenceId"
@@ -137,20 +133,20 @@
         },
         "warrantyPeriod": {
             "values": {
-                "7": "7 Days",
+                "1080": "3 Years",
                 "14": "14 Days",
-                "30": "30 Days",
-                "60": "2 Months",
-                "90": "3 Months",
-                "120": "4 Months",
-                "150": "5 Months",
+                "1440": "4 Years",
                 "180": "6 Months",
+                "150": "5 Months",
                 "360": "12 Months",
+                "120": "4 Months",
+                "1800": "5 Years",
                 "540": "18 Months",
                 "720": "2 Years",
-                "1080": "3 Years",
-                "1440": "4 Years",
-                "1800": "5 Years"
+                "7": "7 Days",
+                "90": "3 Months",
+                "60": "2 Months",
+                "30": "30 Days"
             },
             "format": "Enumeration values.Product catalog.Products.Warranty period",
             "caption": "Warranty period"
@@ -191,6 +187,14 @@
             "format": "text",
             "caption": "Product.Id"
         },
+        "productType": {
+            "values": {
+                "1": "Service",
+                "2": "Goods"
+            },
+            "format": "Enumeration values.Product catalog.Products.ProductType",
+            "caption": "Product type"
+        },
         "owner": {
             "format": "text",
             "caption": "Product.ProductOwnerId"
@@ -213,35 +217,24 @@
         },
         "invoicingPeriod": {
             "values": {
-                "1": "1 week Postpaid",
-                "2": "1 month Postpaid",
-                "3": "1 month (last day) Postpaid",
-                "4": "2 months Postpaid",
-                "5": "2 months (last day) Postpaid",
-                "6": "3 months Postpaid",
-                "7": "3 months (last day) Postpaid",
-                "8": "4 months Postpaid",
-                "9": "4 months (last day) Postpaid",
-                "10": "6 months Postpaid",
-                "11": "6 months (last day) Postpaid",
-                "12": "12 months Postpaid",
-                "13": "2 weeks Postpaid",
-                "14": "12 months (last day) Postpaid",
                 "23": "2 weeks (15th and last day) Postpaid",
-                "37": "4 weeks Postpaid",
-                "100": "Advance payment",
-                "110": "Payment after delivery",
-                "120": "50 % advance/ 50 % after delivery",
                 "optgroup": "Postpaid",
                 "-10": "6 months Prepaid",
                 "-11": "6 months (last day) Prepaid",
                 "-12": "12 months Prepaid",
                 "-13": "2 weeks Prepaid",
+                "110": "Payment after delivery",
                 "-14": "12 months (last day) Prepaid",
                 "-15": "6 months (last day of first month) Prepaid",
                 "-16": "3 months (last day of first month) Prepaid",
                 "-17": "12 months (last day of first month) Prepaid",
-                "/optgroup": "-",
+                "10": "6 months Postpaid",
+                "11": "6 months (last day) Postpaid",
+                "12": "12 months Postpaid",
+                "13": "2 weeks Postpaid",
+                "14": "12 months (last day) Postpaid",
+                "\/optgroup": "-",
+                "37": "4 weeks Postpaid",
                 "-2": "1 month Prepaid",
                 "-3": "1 month (last day) Prepaid",
                 "-4": "2 months Prepaid",
@@ -252,7 +245,18 @@
                 "-9": "4 months (last day) Prepaid",
                 "-22": "1 months (1 month in advance) Prepaid",
                 "-23": "2 weeks (15th and last day) Prepaid",
-                "-24": "2 weeks (first and 15th day) Prepaid"
+                "120": "50 % advance\/ 50 % after delivery",
+                "-24": "2 weeks (first and 15th day) Prepaid",
+                "100": "Advance payment",
+                "1": "1 week Postpaid",
+                "2": "1 month Postpaid",
+                "3": "1 month (last day) Postpaid",
+                "4": "2 months Postpaid",
+                "5": "2 months (last day) Postpaid",
+                "6": "3 months Postpaid",
+                "7": "3 months (last day) Postpaid",
+                "8": "4 months Postpaid",
+                "9": "4 months (last day) Postpaid"
             },
             "format": "Enumeration values.Sales management.Sales orders.Sales order item.Invoicing period",
             "caption": "Inv. period"
@@ -263,8 +267,8 @@
         },
         "costCenter": {
             "values": {
-                "3100": "3100 Customer R&S Finland",
-                "4100": "4100 Customer R&S international"
+                "4100": "4100 Customer R&S international",
+                "3100": "3100 Customer R&S Finland"
             },
             "format": "Enumeration values.Finance control.Invoice position summary.Invoices.Cost center",
             "caption": "Cost center"
@@ -295,6 +299,12 @@
         },
         "unit": {
             "values": {
+                "11": "h\/month",
+                "12": "units\/months",
+                "13": "days\/month",
+                "14": "users\/month",
+                "15": "packets",
+                "16": "pcs\/month",
                 "1": "unit",
                 "2": "h",
                 "3": "pcs",
@@ -303,13 +313,7 @@
                 "6": "%",
                 "7": "users",
                 "8": "servers",
-                "10": "wk",
-                "11": "h/month",
-                "12": "units/months",
-                "13": "days/month",
-                "14": "users/month",
-                "15": "packets",
-                "16": "pcs/month"
+                "10": "wk"
             },
             "format": "Enumeration values.Pricing.Unit",
             "caption": "Unit"
@@ -321,6 +325,10 @@
         "createdBy": {
             "format": "text",
             "caption": "CreatedPerson.Id"
+        },
+        "productGroup": {
+            "format": "text",
+            "caption": "ParentProduct.Id"
         },
         "name": {
             "format": "text",
