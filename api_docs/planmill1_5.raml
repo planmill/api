@@ -1669,7 +1669,7 @@ types:
         description: operationalId of the product
         type: integer | nil | string
       validFrom?:
-        type: datetime
+        type: datetime | nil
         description: "valid from date  of the product"
       validUntil?:
         type: datetime | nil
@@ -1730,7 +1730,7 @@ types:
         type: integer | nil
       unit?:
         description: unit of the product
-        type: integer | nil
+        type: integer | string | nil
       selfCost?:
         description: self cost of the product
         type: number | nil
