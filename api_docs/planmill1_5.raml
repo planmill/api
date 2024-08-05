@@ -1668,9 +1668,6 @@ types:
       operationalId?:
         description: operationalId of the product
         type: integer | nil | string
-      validFrom?:
-        type: datetime | nil
-        description: "valid from date  of the product"
       validUntil?:
         type: datetime | nil
         description: "Valid until date of the product"
@@ -1785,6 +1782,9 @@ types:
       id?:
         type: integer
         description: Internal ID of product
+      validFrom?:
+        type: datetime | nil
+        description: "valid from date of the product"
   product_getAll:
      type: product_getId[]
   product_post:
