@@ -93,6 +93,10 @@
           "type": ["integer", "null"],
           "description": "calendar id of a user. It is required only when the contractType is any of the following: 0,2,3,4,8,9,10"
         },
+        "capacityCalendarId": {
+          "type": ["integer", "null"],
+          "description": "calendar id of a user."
+        },
         "goalType": {
           "type": ["integer", "null"],
           "description": "Enumeration of goal type of user. 1=Hours, 2=Percent 3=Revenue"
