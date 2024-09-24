@@ -381,6 +381,10 @@
         "calendars": {
           "type": ["string", "null"],
           "description": "List of all calendars the user has"
+        },       
+        "capacityCalendarId": {
+          "type": ["integer", "null"],
+          "description": "calendar id of a user."
         },
         "hireDate": {
           "type": ["string", "null"],
