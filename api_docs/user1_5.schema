@@ -383,7 +383,7 @@
           "description": "List of all calendars the user has"
         },       
         "capacityCalendarId": {
-          "type": ["integer", "null"],
+          "type": ["string", "null"],
           "description": "calendar id of a user."
         },
         "hireDate": {
