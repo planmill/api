@@ -4602,6 +4602,12 @@ resourceTypes:
       type: 
        putOnlyCollectionItem:
         exampleCollectionItem: !include braces.sample
+    /invoiced:
+      put:
+        description: Sets time reports invoiced. Only one time report may be marked at time. Project must have fixed income invoiced already, and there should not be open active salersorders or open uninvoiced revenues in the project. 
+      type: 
+       putOnlyCollectionItem:
+        exampleCollectionItem: !include braces.sample		
     /meta:
       description: Get meta information for the updatable fields of the timereport
       get:
