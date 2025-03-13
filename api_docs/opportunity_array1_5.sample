@@ -24,7 +24,8 @@
     "campaign": null,
     "attachmentCount": 0,
     "account": 51,
-    "status": 0
+    "status": 0,
+    "priority": 2
   }, 
   {
     "country": 73,
@@ -51,6 +52,7 @@
     "campaign": 1529,
     "attachmentCount": 1,
     "account": 51,
-    "status": 0
+    "status": 0,
+    "priority": 2
   }
 ]

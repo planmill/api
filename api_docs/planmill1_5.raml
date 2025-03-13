@@ -1323,7 +1323,10 @@ types:
         description: "Business type of an opportunity"
       competitor?:
         type: integer | nil
-        description: "competitor of an opportunity" 
+        description: "competitor of an opportunity"
+      priority?:
+        type: integer
+        description: "Priority level of an opportunity"
   opportunity_common:
     type: opportunity_base
     properties:
@@ -1336,9 +1339,6 @@ types:
       responsible?:
         type: integer
         description: "Responsible person id of an opportunity"
-      priority?:
-        type: integer
-        description: "Priority level of an opportunity"
       description?:
         type: string | nil
         description: "Description of an opportunity"
