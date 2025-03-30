@@ -1629,7 +1629,172 @@ types:
         description: "Amount of hours (in minutes) reported to a project"
   project_getAll:
     type: project[]
-  product: !include product_getAll.schema
+  product_base: 
+    additionalProperties: false
+    properties:
+      name?:
+        description: The name of the product
+        type: string
+      productGroup?:
+        description: product group
+        type: integer | nil
+      project?:
+        description: Project id of the product
+        type: integer | nil
+      owner?:
+        description: owner of the product
+        type: integer | nil
+      customer?:
+        description: customer id 
+        type: integer | nil
+      invoiceProcess?:
+        description: The Invoice process state  of the product
+        type: string | nil
+      dutyType?:
+        description: duty Type
+        type: integer | nil
+      productType?:
+        description: product type
+        type: integer 
+      minimumAmountToBeSold?:
+        description: minimum amount to be sold  of the product
+        type: number | nil
+      targetEffort?:
+        description: targeted effort  of the product
+        type: integer | nil
+      revenueType?:
+        description: revenue type  of the product
+        type: integer | nil
+      operationalId?:
+        description: operationalId of the product
+        type: integer | nil | string
+      validUntil?:
+        type: datetime | nil
+        description: "Valid until date of the product"
+      competence?:
+        description: competence id of the product
+        type: integer | nil
+      sellingPrice?:
+        description: selling price of the product
+        type: number
+      warrantyPeriod?:
+        description: warranty period of the product
+        type: integer | string | nil
+      link1?:
+        description: link 1  of the product
+        type: string | nil
+      link2?:
+        description: link 2  of the product
+        type: string | nil
+      link3?:
+        description: link 3  of the product
+        type: string | nil
+      link4?:
+        description: link 4  of the product
+        type: string | nil
+      billingType?:
+        description: billing type of the product
+        type: integer | nil
+      vendor?:
+        description: vendor id of the product
+        type: integer | nil
+      supplier?:
+        description: supplier id of the product
+        type: integer | nil
+      relatedToPerson?:
+        description: person id to whom product related to
+        type: integer | nil
+      invoicingPeriod?:
+        description: invoicing period id of the product
+        type: integer | nil
+      quantity?:
+        description: quantity of the product
+        type: integer | nil
+      costCenter?:
+        description: cost center of the product
+        type: integer | nil
+      vat?:
+        description: VAT of the product
+        type: integer | nil
+      publishToStore?:
+        description: publish to store of the product
+        type: integer | string | nil
+      passive?:
+        description: passive state of the product
+        type: integer | nil
+      contractPeriod?:
+        description: contract period id of the product
+        type: integer | nil
+      unit?:
+        description: unit of the product
+        type: integer | string | nil
+      selfCost?:
+        description: self cost of the product
+        type: number | nil
+      searchKeywords?:
+        description: search key words of the product
+        type: string | nil
+      discount?:
+        type: integer | nil
+        description: "item discount"
+      type?:
+        type: integer | nil
+        description: "Type of product"
+      description?:
+        description: product description of the product
+        type: string | nil
+      shortDescription?:
+        description: short product description of the product
+        type: string | nil
+      comment?:
+        description: comments about the product
+        type: string | nil
+      created?:
+        type: datetime | nil
+        description: Timestamp of the product creation.
+      createdBy?:
+        type: string | integer | nil
+        description: When product was modified last time. 
+      task?:
+        description: task of the product
+        type: string | nil
+      salesAccount?:
+        type: integer | nil
+        description: "Sales account of product"
+      modified?:
+        type: datetime | nil
+        description: Last modified date
+      modifiedBy?:
+        type: integer | nil
+        description: Last modified by this person
+  product_postId:
+    type: product_base
+    properties:
+      productType:
+        description: product type
+        type: integer
+      validFrom:
+        type: datetime
+        description: "valid from date of the product"
+  product_getId:
+    type: product_base
+    properties: 
+      id?:
+        type: integer
+        description: Internal ID of product
+      validFrom?:
+        type: datetime | nil
+        description: "valid from date of the product"
+  product_getAll:
+     type: product_getId[]
+  product_post:
+    type: product_postId
+    properties: 
+      name:
+        description: Name of the product
+        type: string
+  product_put:
+    type: product_post
   pricebook: !include pricebook1_5.schema
   publicholiday:
     additionalProperties: false
@@ -3889,17 +4054,34 @@ resourceTypes:
               type:
                 readOnlyCollectionItem:
                   exampleCollectionItem: !include pricebookitems_item_meta1_5.sample
-/products:
-  description: To manage and list all products in a company. See /meta -endpoint.
+/products:																				 
   get:
     queryParameters:
-      id:
-          description: Filters products for a specified products id
-          type: integer
-          required: false
-          example: id={product id}
+      rowcount:
+      nextrows:
+      order:
+      sort:
+      interval:
+      intervalstart:
+      intervalfinish:
+    responses:
+      200:
+        description: 
+        body:                  
+          application/json: 
+            type: product_getAll              
   post:
-    description: To create the new product from the request body
+    headers:
+      Content-Type:
+        type: string
+        required: true
+        default: |
+          application/json;charset=UTF-8 <div id="product1_5-datatype-post"></div> 	
+        example: |
+          application/json;charset=UTF-8 		
+    body:
+      application/json:
+        type: product_post
   type:
     collection:
        exampleCollectionItemArray: !include product_array1_5.sample
@@ -3911,15 +4093,26 @@ resourceTypes:
         readOnlyCollectionItem:
           exampleCollectionItem: !include product_meta1_5.sample
   /{product_id}:
-    put:
-      description: To update the existing product from the request body with {product_id} in the url
     type:
-     putGetDeleteCollectionItem:
-        exampleCollectionItem: !include product1_5.sample
+      allMethodsCollectionItem:
+        exampleCollectionGetItem: !include product_getId.sample
+        exampleCollectionPutItem: !include product_put.sample
+    put:
+      responses:
+        200:
+          body:
+            application/json:
+              type: product_put
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              type: product_getId
+    post:
     /attachments:
       type:
-        readOnlyCollection:
-          schemaName:
+        readOnlyCollection:					 
           exampleCollectionItemArray: !include tempfile_array1_5.sample
       /{attachment_id}:
         type:
@@ -3930,10 +4123,10 @@ resourceTypes:
   get:
     queryParameters:
       name:
-          description: Filters projects for a specified project name
-          type: string
-          required: false
-          example: name={existing_project_name}
+      description: Filters projects for a specified project name
+      type: string
+      required: false
+      example: name={existing_project_name}
       rowcount?:
       nextrows?:
       order?:
