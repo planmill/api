@@ -929,12 +929,14 @@ types:
       url:
         type: string
         description: Subscription URL that will be posted with data when event is triggered
-  hook_get:
+  hook_getId:
     type: hook_base
     properties:
       id?:
         type: integer
         description: Unique subscription identifier
+  hook_getAll:
+    type: hook[]  
   integrator_base:
     additionalProperties: false
     properties:
@@ -3587,7 +3589,7 @@ resourceTypes:
       200:
         body:
           application/json: 
-            type: hook_get[] 
+            type: hook_getAll 
   post:
     headers:
       Content-Type:
@@ -3611,7 +3613,7 @@ resourceTypes:
         200:
           body:
             application/json: 
-              type: hook_get 
+              type: hook_getId 
     post:
       body:
         application/json: 
@@ -3619,7 +3621,7 @@ resourceTypes:
     delete:
     type:
       fourExampleAllMethodsCollectionItem:
-        firstExampleCollectionItem: !include hook_get.sample
+        firstExampleCollectionItem: !include hook_getId.sample
         secondExampleCollectionItem: !include triggered_hook.sample
         exampleCollectionPostItem: !include hook_post.sample
 /integrations:
