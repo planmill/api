@@ -906,7 +906,35 @@ types:
     type: string  
     pattern: "^$"
   expense: !include expense1_5.schema
-  hook: !include hook1_5.schema
+  hook_base:
+    type: object
+    additionalProperties: false
+    properties:
+      hook?:
+        type: string
+        description: Event identifier
+      url?:
+        type: string
+        description: Subscription URL that will be posted with data when event is triggered
+      eventUser?:
+        type: integer | nil
+      eventProject?:
+        type: integer | nil
+  hook_post:
+    type: hook_base
+    properties:
+      hook:
+        type: string
+        description: Event identifier
+      url:
+        type: string
+        description: Subscription URL that will be posted with data when event is triggered
+  hook_get:
+    type: hook_base
+    properties:
+      id?:
+        type: integer
+        description: Unique subscription identifier
   integrator_base:
     additionalProperties: false
     properties:
@@ -2329,7 +2357,7 @@ resourceTypes:
                 type: object
                 example: |
                   <<exampleCollectionItem>>
-  allMethodsCollection:
+  allMethodsNoExamplesCollection:
       is: [all]
       description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
       get?:
@@ -2352,13 +2380,6 @@ resourceTypes:
             type: string
             required: false
             description: Sorts the results using string that is a JSON attribute
-        responses:
-          200:
-            body:
-              application/json:
-                type: <<resourcePathName|!singularize>>
-                example: |
-                  <<exampleCollectionItemArray>>
       post?:
         description: Add a new <<resourcePathName|!singularize>> to PlanMill. See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
         headers:
@@ -2369,10 +2390,6 @@ resourceTypes:
               application/json;charset=UTF-8
             example: |
               application/json;charset=UTF-8
-        body:
-          application/json:
-            type: <<resourcePathName|!singularize>>
-            example: <<exampleCollectionItem>>
         responses:
           201:
             body:
@@ -2380,12 +2397,26 @@ resourceTypes:
                 type: object
                 example: |
                  { "id" : 123456 }
+  allMethodsCollection:
+      is: [all]
+      type: allMethodsNoSamplesCollection      
+      get?:
+        responses:
+          200:
+            body:
+              application/json:
+                type: <<resourcePathName|!singularize>>
+                example: |
+                  <<exampleCollectionItemArray>>
+      post?:
+        body:
+          application/json:
+            type: <<resourcePathName|!singularize>>
+            example: <<exampleCollectionItem>>
   intervalCollection:
       is: [all]
       type: allMethodsCollection
-      description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
       get?:
-        description: Get a list of <<resourcePathName>>. See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
         queryParameters:
           interval?:
             type: string
@@ -2405,12 +2436,32 @@ resourceTypes:
           200:
             body:
               application/json:
+                type: <<resourcePathName|!singularize>>
                 example: |
                   <<exampleCollectionItemArray>>
       post?:
         body:
           application/json:
+            type: <<resourcePathName|!singularize>>
             example: <<exampleCollectionItem>>
+  threeExampleCollection:
+      is: [all]
+      type: allMethodsNoExamplesCollection      
+      get?:
+        responses:
+          200:
+            body:
+              application/json:
+                type: <<resourcePathName|!singularize>>
+                example: |
+                  <<exampleCollectionItemArray>>
+      post?:
+        body:
+          application/json:
+            type: <<resourcePathName|!singularize>>
+            examples:
+              Post body: <<firstExampleCollectionItem>>
+              Triggered hook would look as below: <<secondExampleCollectionItem>>
   readOnlyintervalCollection:
       is: [all]
       type: readOnlyRowCountCollection
@@ -2542,7 +2593,7 @@ resourceTypes:
         responses: 
           204:
             description: No HTTP body returned
-  allMethodsCollectionItem:
+  allMethodsCollectionNoExampleItem:
       is: [all]
       description: A single <<resourcePathName|!singularize>> in PlanMill.
       get?:
@@ -2552,8 +2603,6 @@ resourceTypes:
             body:
               application/json:
                 type: <<resourcePathName|!singularize>>
-                example: |
-                  <<exampleCollectionGetItem>>
       post?:
         description: Update an existing resource <<resourcePathName|!singularize>> to PlanMill.  See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
         headers:
@@ -2567,7 +2616,6 @@ resourceTypes:
         body:
           application/json: 
             type: <<resourcePathName|!singularize>>
-            example: <<exampleCollectionPostItem>>
         responses:
           204:
             description: No HTTP body returned
@@ -2588,10 +2636,53 @@ resourceTypes:
         body:
           application/json:
             type: <<resourcePathName|!singularize>>
-            example: <<exampleCollectionPutItem>>
         responses:
           204:
             description: No HTTP body returned
+  allMethodsCollectionItem:
+      is: [all]
+      type: allMethodsCollectionNoExampleItem
+      get?:
+        responses:
+          200:
+            body:
+              application/json:
+                type: <<resourcePathName|!singularize>>
+                example: |
+                  <<exampleCollectionGetItem>>
+      post?:
+        body:
+          application/json: 
+            type: <<resourcePathName|!singularize>>
+            example: <<exampleCollectionPostItem>>
+      put?:
+        body:
+          application/json:
+            type: <<resourcePathName|!singularize>>
+            example: <<exampleCollectionPutItem>>
+  fourExampleAllMethodsCollectionItem:
+      is: [all]
+      type: allMethodsCollectionNoExampleItem
+      get?:
+        responses:
+          200:
+            body:
+              application/json:
+                type: <<resourcePathName|!singularize>>
+                examples:
+                  Response body: <<firstExampleCollectionItem>>
+                  Triggered hook would look as below: <<secondExampleCollectionItem>>
+      post?:
+        body:
+          application/json: 
+            type: <<resourcePathName|!singularize>>
+            example: <<exampleCollectionPostItem>>
+      delete?: 
+      put?:
+        body:
+          application/json:
+            type: <<resourcePathName|!singularize>>
+            example: <<exampleCollectionPutItem>>
   postOnlyCollection:
       is: [all]
       post:
@@ -3483,23 +3574,54 @@ resourceTypes:
   description: The currently available subscribable events are listed here along with usage guidelines <p> https://github.com/planmill/api/wiki/WebHooks</p>
   get:
     queryParameters:   
-      hook: 
+      hook?: 
         type: string
         description: Event that is being triggered
-      eventUser:
+      eventUser?:
         type: integer
         description: User identifier that is triggering the event
-      eventProject:
+      eventProject?:
         type: integer
         description: Project identifier for which the event has been triggered
+    responses:
+      200:
+        body:
+          application/json: 
+            type: hook_get[] 
+  post:
+    headers:
+      Content-Type:
+        type: string
+        required: true
+        default: |
+          application/json;charset=UTF-8 
+        example: |
+          application/json;charset=UTF-8
+    body:
+      application/json: 
+        type: hook_post 
   type:
-    collection: 
+    threeExampleCollection:
       exampleCollectionItemArray: !include hook_array1_5.sample
-      exampleCollectionItem: !include hook1_5.sample
+      firstExampleCollectionItem: !include hook_post.sample
+      secondExampleCollectionItem: !include triggered_hook.sample
   /{hook_id}:
-    type: 
-      collectionItem:
-        exampleCollectionItem: !include hook1_5.sample
+    get:
+      responses:
+        200:
+          body:
+            application/json: 
+              type: hook_get 
+    post:
+      body:
+        application/json: 
+          type: hook_post  
+    delete:
+    type:
+      fourExampleAllMethodsCollectionItem:
+        firstExampleCollectionItem: !include hook_get.sample
+        secondExampleCollectionItem: !include triggered_hook.sample
+        exampleCollectionPostItem: !include hook_post.sample
 /integrations:
   get:
     description: Get a list of available integration templates and statuses.

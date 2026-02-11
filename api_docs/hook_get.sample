@@ -1,0 +1,7 @@
+{
+	"id": 1,
+	"hook": "account.update",
+	"url": "https://example.com/hook",
+	"eventUser": 123,
+	"eventProject": 456
+}
