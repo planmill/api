@@ -913,13 +913,21 @@ types:
       hook?:
         type: string
         description: Event identifier
-      url?:
-        type: string
-        description: Subscription URL that will be posted with data when event is triggered
       eventUser?:
         type: integer | nil
+        description: User who triggered the event. 
       eventProject?:
         type: integer | nil
+        description: Project in which event is triggered. 
+      includePayload?:
+        type: integer | nil
+        description: 0 - no payload, 1 - payload included.
+      type?:
+        type: integer | nil
+        description: 1 - Webhook, 2 - GCM hook. GCM hooks currently not supported. 
+      url?:
+        type: string
+        description: Subscription URL that will be posted with data when event is triggered 
   hook_post:
     type: hook_base
     properties:
