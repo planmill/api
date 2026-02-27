@@ -919,6 +919,10 @@ types:
       eventProject?:
         type: integer | nil
         description: Project in which event is triggered. 
+  hook_endpoint_base:
+    type: hook_base
+    additionalProperties: false
+    properties:
       includePayload?:
         type: integer | nil
         description: 0 - no payload, 1 - payload included.
@@ -927,9 +931,9 @@ types:
         description: 1 - Webhook, 2 - GCM hook. GCM hooks currently not supported. 
       url?:
         type: string
-        description: Subscription URL that will be posted with data when event is triggered 
+        description: Subscription URL that will be posted with data when event is triggered
   hook_post:
-    type: hook_base
+    type: hook_endpoint_base
     properties:
       hook:
         type: string
@@ -938,13 +942,25 @@ types:
         type: string
         description: Subscription URL that will be posted with data when event is triggered
   hook_getId:
-    type: hook_base
+    type: hook_endpoint_base
     properties:
       id?:
         type: integer
         description: Unique subscription identifier
   hook_getAll:
     type: hook_getId[]  
+  triggered_hook:
+    type: hook_base
+    properties:
+      id:
+        type: integer
+        description: Identifier of the object that triggered the hook
+      personName:
+        type: string
+        description: Name of user who triggered the hook
+      data?:
+        type: absence_getId | account_getId | timereport_getId
+        description: Payload
   integrator_base:
     additionalProperties: false
     properties:
@@ -3621,7 +3637,7 @@ resourceTypes:
         200:
           body:
             application/json: 
-              type: hook_getId 
+              type: hook_id 
     post:
       body:
         application/json: 

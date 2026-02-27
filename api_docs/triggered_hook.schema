@@ -10,8 +10,9 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
+        "personName",
         "id",
-        "resource"
+        "data"
       ],
       "properties": {
         "hook": {
@@ -42,9 +43,13 @@
         },
         "id": {
           "type": "integer",
-          "description": "Identifier of the object that triggered hook"
+          "description": "Identifier of the object that triggered the hook"
         },
-        "resource": {
+        "personName": {
+          "type": "string",
+          "description": "Name of user who triggered the hook"
+        },
+        "data": {
           "anyOf": [
             {
               "type": "object",
