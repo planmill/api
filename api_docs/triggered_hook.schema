@@ -3,16 +3,11 @@
   "$ref": "#/definitions/triggered_hook",
   "definitions": {
     "triggered_hook": {
-      "examples": [
-        "hook_getId.sample",
-        "triggered_hook.sample"
-      ],
       "type": "object",
       "additionalProperties": false,
       "required": [
         "personName",
-        "id",
-        "data"
+        "id"
       ],
       "properties": {
         "hook": {
@@ -57,7 +52,7 @@
               "properties": {
                 "absenceType": {
                   "description": "Type of an absence",
-                  "type": "integer"
+                  "type": "string"
                 },
                 "description": {
                   "anyOf": [
@@ -72,22 +67,20 @@
                 },
                 "finish": {
                   "description": "Finish date of an absence",
-                  "type": "string",
-                  "format": "date-time"
+                  "type": "string"
                 },
                 "person": {
                   "description": "Absentee and user of a system",
-                  "type": "integer"
+                  "type": "string"
                 },
                 "start": {
                   "description": "Start date of an absence",
-                  "type": "string",
-                  "format": "date-time"
+                  "type": "string"
                 },
                 "vacationYear": {
                   "anyOf": [
                     {
-                      "type": "integer"
+                      "type": "string"
                     },
                     {
                       "type": "null"
@@ -98,7 +91,7 @@
                 "accepterPerson": {
                   "anyOf": [
                     {
-                      "type": "integer"
+                      "type": "string"
                     },
                     {
                       "type": "null"
@@ -119,20 +112,20 @@
                 },
                 "vacationLength": {
                   "description": "Length of an absence represented in minutes",
-                  "type": "integer"
+                  "type": "string"
                 },
                 "project": {
-                  "type": "integer",
+                  "type": "string",
                   "description": "Id of absence parent in the task hierarchy"
                 },
                 "id": {
-                  "type": "integer",
+                  "type": "string",
                   "description": "Internal ID of an absence"
                 },
                 "status": {
                   "anyOf": [
                     {
-                      "type": "integer"
+                      "type": "string"
                     },
                     {
                       "type": "null"

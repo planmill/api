@@ -959,7 +959,7 @@ types:
         type: string
         description: Name of user who triggered the hook
       data?:
-        type: absence_getId | account_getId | timereport_getId
+        type: absence_getId_onlystring | account_getId | timereport_getId
         description: Payload
   integrator_base:
     additionalProperties: false
@@ -2315,6 +2315,48 @@ types:
         description: 1 if this is the price of the highest volume, 0 otherwise.
   volumeprice_getAll:
     type: volumeprice[]
+  absence_base_onlystring:
+    additionalProperties: false
+    properties:
+      absenceType?:
+        description: Type of an absence
+        type: string
+      description?:
+        type: string | nil
+        description: Description of an absence
+      finish?:
+        description: Finish date of an absence
+        type: string
+      person?:
+        description: Absentee and user of a system
+        type: string
+      start?:
+        description: Start date of an absence
+        type: string
+      vacationYear?: 
+        type: string | nil
+        description: Vacation year of the user
+      accepterPerson?:
+        type: string | nil
+        description: Superior of user who accepts an absence
+      interruptionDate?:
+        type: string | nil
+        description: Interruption date of an absence
+      vacationLength?:
+        description: Length of an absence represented in minutes
+        type: string
+      project?:
+        type: string
+        description: Id of absence parent in the task hierarchy 
+  absence_getId_onlystring:
+    type: absence_base_onlystring
+    properties:
+      id?:
+        type: string
+        description: Internal ID of an absence
+      status?:
+        type: string | nil
+        description: Status of an absence
 
 # write name of the resource before to include and schema always in SINGULAR, i.e. hook not hooks otherwise the automatic includes won't work
 # write name of the resource before the include and schema always in SINGULAR, i.e. hook not hooks otherwise the automatic includes won't work
