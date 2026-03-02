@@ -959,7 +959,7 @@ types:
         type: string
         description: Name of user who triggered the hook
       data?:
-        type: absence_getId_onlystring | account_getId | timereport_getId
+        type: absence_getId_onlystring | account_getId | timereport_getId_onlystring
         description: Payload
   integrator_base:
     additionalProperties: false
@@ -2357,6 +2357,72 @@ types:
       status?:
         type: string | nil
         description: Status of an absence
+  timereport_base_onlystring:
+    additionalProperties: false
+    properties:
+      project?:
+        description: Id of project having task to report the time
+        type: string | nil
+      person?:
+        type: string
+        description: User's id
+      start?:
+        type: datetime
+        description: Start time of time report. Only date part is used when amount is provided.(Unless clock-times mode is active in users role).     
+      amount?:
+        type: string
+        description: Reported normal time in minutes. 
+      finish?:
+        type: string
+        description: Finish time of a time report. May be used instead of amount for a time report. System will then calculate amount. Note for 'overtimeAmount' or 'travelAmount' you must provide an explicit length in minutes.
+      status?: 
+        type: string
+        description: Status of a time report
+      comment?:
+        type: string | nil
+        description: Comments of a time report
+      billingComment?:
+        type: string | nil
+        description: Billing comment of a time report
+      billableStatus?:
+        type: string | nil
+        description: If task's status is billable, time report's status can be either billable or non-billable
+      task?:
+        type: string
+        description: Id of task for which time is reported
+      overtimeAmount?:
+        type: string | nil
+        description: Overtime in minutes
+      overtimeComment?:
+        type: string | nil
+        description: Comment for overtime work
+      travelAmount?:
+        type: string | nil
+        description: Travel time in minutes
+      travelComment?:
+        type: string | nil
+        description: Travel time in minutes
+  timereport_single_onlystring:
+    type: timereport_base_onlystring
+    properties:
+      id?:
+        type: string
+        description: Internal ID of a time report
+      billableAmount?:
+        type: string | nil
+        description: Billable amount of time report
+  timereport_getId_onlystring:
+    type: timereport_single_onlystring
+    properties:
+      requireBillableComment?:
+        type: string | nil
+        description: Used in get requests to indicate if task requires a comment for timereport
+      remainingAmount?:
+        type: string | nil
+        description: Remaining amount of a time report 
+      totalReported?:
+        type: string | nil
+        description: Total reported time of time report
 
 # write name of the resource before to include and schema always in SINGULAR, i.e. hook not hooks otherwise the automatic includes won't work
 # write name of the resource before the include and schema always in SINGULAR, i.e. hook not hooks otherwise the automatic includes won't work

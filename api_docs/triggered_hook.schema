@@ -3,6 +3,10 @@
   "$ref": "#/definitions/triggered_hook",
   "definitions": {
     "triggered_hook": {
+      "examples": [
+        "hook_getId.sample",
+        "triggered_hook.sample"
+      ],
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -656,7 +660,7 @@
                 "project": {
                   "anyOf": [
                     {
-                      "type": "integer"
+                      "type": "string"
                     },
                     {
                       "type": "null"
@@ -665,7 +669,7 @@
                   "description": "Id of project having task to report the time"
                 },
                 "person": {
-                  "type": "integer",
+                  "type": "string",
                   "description": "User's id"
                 },
                 "start": {
@@ -674,16 +678,15 @@
                   "format": "date-time"
                 },
                 "amount": {
-                  "type": "number",
+                  "type": "string",
                   "description": "Reported normal time in minutes."
                 },
                 "finish": {
                   "type": "string",
-                  "description": "Finish time of a time report. May be used instead of amount for a time report. System will then calculate amount. Note for 'overtimeAmount' or 'travelAmount' you must provide an explicit length in minutes.",
-                  "format": "date-time"
+                  "description": "Finish time of a time report. May be used instead of amount for a time report. System will then calculate amount. Note for 'overtimeAmount' or 'travelAmount' you must provide an explicit length in minutes."
                 },
                 "status": {
-                  "type": "integer",
+                  "type": "string",
                   "description": "Status of a time report"
                 },
                 "comment": {
@@ -711,7 +714,7 @@
                 "billableStatus": {
                   "anyOf": [
                     {
-                      "type": "integer"
+                      "type": "string"
                     },
                     {
                       "type": "null"
@@ -720,13 +723,13 @@
                   "description": "If task's status is billable, time report's status can be either billable or non-billable"
                 },
                 "task": {
-                  "type": "integer",
+                  "type": "string",
                   "description": "Id of task for which time is reported"
                 },
                 "overtimeAmount": {
                   "anyOf": [
                     {
-                      "type": "integer"
+                      "type": "string"
                     },
                     {
                       "type": "null"
@@ -748,7 +751,7 @@
                 "travelAmount": {
                   "anyOf": [
                     {
-                      "type": "integer"
+                      "type": "string"
                     },
                     {
                       "type": "null"
@@ -768,13 +771,13 @@
                   "description": "Travel time in minutes"
                 },
                 "id": {
-                  "type": "integer",
+                  "type": "string",
                   "description": "Internal ID of a time report"
                 },
                 "billableAmount": {
                   "anyOf": [
                     {
-                      "type": "integer"
+                      "type": "string"
                     },
                     {
                       "type": "null"
@@ -785,7 +788,7 @@
                 "requireBillableComment": {
                   "anyOf": [
                     {
-                      "type": "integer"
+                      "type": "string"
                     },
                     {
                       "type": "null"
@@ -796,7 +799,7 @@
                 "remainingAmount": {
                   "anyOf": [
                     {
-                      "type": "integer"
+                      "type": "string"
                     },
                     {
                       "type": "null"
@@ -807,7 +810,7 @@
                 "totalReported": {
                   "anyOf": [
                     {
-                      "type": "integer"
+                      "type": "string"
                     },
                     {
                       "type": "null"
