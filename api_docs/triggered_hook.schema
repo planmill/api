@@ -23,6 +23,9 @@
               "type": "integer"
             },
             {
+              "type": "string"
+            },
+            {
               "type": "null"
             }
           ],
@@ -1005,6 +1008,346 @@
                       "type": "null"
                     }
                   ]
+                }
+              }
+            },
+            {
+              "description": "Payload",
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "parent",
+                "name",
+                "id",
+                "project",
+                "type"
+              ],
+              "properties": {
+                "actualStart": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Actual start of the task."
+                },
+                "actualFinish": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Actual start of the task."
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Name of the task. Has to be unique per project."
+                },
+                "type": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "100 = task (default), 101 = milestone, 200 = imported booking."
+                },
+                "start": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Start of the task. If not defined, is not set to January 1970."
+                },
+                "finish": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Finish of the task. If not defined, is not set to January 1970."
+                },
+                "dutyType": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Duty type of the task."
+                },
+                "billableStatus": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Billable status of the task."
+                },
+                "status": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Status of the task."
+                },
+                "parent": {
+                  "type": "string",
+                  "description": "Parent of the task. May be a task or project Id."
+                },
+                "predecessorTask": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Previous task that should be finished first."
+                },
+                "targetEffort": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Target effort of the task."
+                },
+                "unitPrice": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Price of the unit of the task."
+                },
+                "competence": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Competence level of the task."
+                },
+                "wbs": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Work breakdown structure of the task."
+                },
+                "priceType": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Price type of the task."
+                },
+                "description": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Description of the task"
+                },
+                "created": {
+                  "type": "string",
+                  "description": "Timestamp of the task creation.",
+                  "format": "date-time"
+                },
+                "modified": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "When task was modified last time."
+                },
+                "plannedEffort": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Planned effort of the task."
+                },
+                "actualEffort": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Actual effort of the task."
+                },
+                "remainingEffort": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Sum of the effort of the assignments."
+                },
+                "totalEffort": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Actual + remaining effort of the task."
+                },
+                "workCompleteness": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Work completeness of the task."
+                },
+                "duration": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Duration of the task."
+                },
+                "totalRemainingEffort": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Total effort - actual effort of the task."
+                },
+                "finishOld": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Old finish of the task. Currently unused legacy field."
+                },
+                "originalFinish": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Original finish of the task. Currently unused legacy field."
+                },
+                "originalStart": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Original start of the task. Currently unused legacy field."
+                },
+                "tempFinish": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Temporary finish of the task. Currently unused legacy field."
+                },
+                "id": {
+                  "type": "string",
+                  "description": "Unique identificator of the task."
+                },
+                "project": {
+                  "type": "string",
+                  "description": "project of the task."
                 }
               }
             },
