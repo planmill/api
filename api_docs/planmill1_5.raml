@@ -914,7 +914,7 @@ types:
         type: string
         description: Event identifier
       eventUser?:
-        type: integer | nil
+        type: integer | string |nil
         description: User who triggered the event. 
       eventProject?:
         type: integer | nil
@@ -962,7 +962,7 @@ types:
         type: string
         description: additional information about the hook object, used with account hooks       
       data?:
-        type: absence_getId_onlystring | account_getId_onlystring | opportunity_getId_onlystring | project_getId_onlystring | timereport_getId_onlystring
+        type: absence_getId_onlystring | account_getId_onlystring | opportunity_getId_onlystring | project_getId_onlystring | task_getId_onlystring | timereport_getId_onlystring
         description: Payload
   integrator_base:
     additionalProperties: false
@@ -2649,6 +2649,108 @@ types:
         type: string | nil
       editableByUser?:
         type: string | nil
+  task_base_onlystring:
+    additionalProperties: false
+    properties:
+      actualStart?:
+        type: datetime | nil
+        description: Actual start of the task.
+      actualFinish?:
+        type: string | nil
+        description: Actual start of the task.
+      name:
+        type: string
+        description: Name of the task. Has to be unique per project.
+      type:
+        type: string | nil
+        description: 100 = task (default), 101 = milestone, 200 = imported booking.
+      start?:
+        type: datetime | nil
+        description: Start of the task. If not defined, is not set to January 1970.
+      finish?:
+        type: datetime | nil
+        description: Finish of the task. If not defined, is not set to January 1970.
+      dutyType?:
+        type: string | nil
+        description: Duty type of the task.
+      billableStatus?:
+        type: string | nil
+        description: Billable status of the task.
+      status?:
+        type: string | nil
+        description: Status of the task. 
+      parent:
+        type: string
+        description: Parent of the task. May be a task or project Id.
+      predecessorTask?:
+        type: string | nil
+        description: Previous task that should be finished first. 
+      targetEffort?:
+        type: string | nil
+        description: Target effort of the task.
+      unitPrice?:
+        type: string | nil
+        description: Price of the unit of the task.
+      competence?:
+        type: string | nil
+        description: Competence level of the task.
+      wbs?:
+        type: string | nil
+        description: Work breakdown structure of the task.
+      priceType?:
+        type: string | nil
+        description: Price type of the task.
+      description?:
+        type: string | nil
+        description: Description of the task
+      created?:
+        type: datetime
+        description: Timestamp of the task creation.
+      modified?:
+        type: datetime | nil
+        description: When task was modified last time. 
+      plannedEffort?:
+        type: string | nil
+        description: Planned effort of the task.
+      actualEffort?:
+        type: string | nil
+        description: Actual effort of the task.
+      remainingEffort?:
+        type: string | nil
+        description: Sum of the effort of the assignments.
+      totalEffort?: 
+        type: string | nil
+        description: Actual + remaining effort of the task.
+      workCompleteness?:
+        type: string | nil
+        description: Work completeness of the task.
+      duration?:
+        type: string | nil
+        description: Duration of the task. 
+      totalRemainingEffort?:
+        type: string | nil
+        description: Total effort - actual effort of the task.
+      finishOld?:
+        type: datetime | nil
+        description: Old finish of the task. Currently unused legacy field.
+      originalFinish?:
+        type: datetime | nil
+        description: Original finish of the task. Currently unused legacy field.
+      originalStart?:
+        type: datetime | nil
+        description: Original start of the task. Currently unused legacy field.
+      tempFinish?:
+        type: datetime | nil
+        description: Temporary finish of the task. Currently unused legacy field.
+  task_getId_onlystring:
+    type: task_base_onlystring
+    properties:
+      id:
+        type: string
+        description: Unique identificator of the task.
+      project:
+        type: string
+        description: project of the task.
   timereport_base_onlystring:
     additionalProperties: false
     properties:
