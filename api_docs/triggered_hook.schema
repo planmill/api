@@ -1200,14 +1200,12 @@
                 },
                 "created": {
                   "type": "string",
-                  "description": "Timestamp of the task creation.",
-                  "format": "date-time"
+                  "description": "Timestamp of the task creation."
                 },
                 "modified": {
                   "anyOf": [
                     {
-                      "type": "string",
-                      "format": "date-time"
+                      "type": "string"
                     },
                     {
                       "type": "null"
