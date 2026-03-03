@@ -957,7 +957,10 @@ types:
         description: Identifier of the object that triggered the hook
       personName?:
         type: string
-        description: Name of user who triggered the hook
+        description: Name of user who triggered the hook, used with absence hooks
+      subject?:
+        type: string
+        description: additional information about the hook object, used with account hooks       
       data?:
         type: absence_getId_onlystring | account_getId_onlystring | timereport_getId_onlystring
         description: Payload
