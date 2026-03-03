@@ -660,6 +660,139 @@
               "type": "object",
               "additionalProperties": false,
               "properties": {
+                "subject": {
+                  "type": "string",
+                  "description": "Name of an opportunity"
+                },
+                "closed": {
+                  "type": "string",
+                  "description": "Closed date of an opportunity",
+                  "format": "date-time"
+                },
+                "probability": {
+                  "type": "string",
+                  "description": "Probability to win an opportunity"
+                },
+                "status": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Status of an opportunity"
+                },
+                "stage": {
+                  "type": "string",
+                  "description": "Stage of an opportunity"
+                },
+                "source": {
+                  "type": "string",
+                  "description": "Source of an opportunity"
+                },
+                "reason": {
+                  "type": "string",
+                  "description": "Reason of an opportunity"
+                },
+                "partnerContact": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Partner contact name / Account "
+                },
+                "nextStep": {
+                  "type": "string",
+                  "description": "Nextstep of an opportunity"
+                },
+                "request": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Request of an opportunity"
+                },
+                "campaign": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Campaign of an opportunity"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "Business type of an opportunity"
+                },
+                "competitor": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "competitor of an opportunity"
+                },
+                "priority": {
+                  "type": "string",
+                  "description": "Priority level of an opportunity"
+                },
+                "project": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Project id of an opportunity"
+                },
+                "contact": {
+                  "type": "string",
+                  "description": "Contact person id of an opportunity"
+                },
+                "responsible": {
+                  "type": "string",
+                  "description": "Responsible person id of an opportunity"
+                },
+                "description": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Description of an opportunity"
+                },
+                "id": {
+                  "type": "string",
+                  "description": "Internal ID of opportunity"
+                }
+              }
+            },
+            {
+              "description": "Payload",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
                 "project": {
                   "anyOf": [
                     {

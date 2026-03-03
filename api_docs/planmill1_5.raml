@@ -962,7 +962,7 @@ types:
         type: string
         description: additional information about the hook object, used with account hooks       
       data?:
-        type: absence_getId_onlystring | account_getId_onlystring | timereport_getId_onlystring
+        type: absence_getId_onlystring | account_getId_onlystring | opportunity_getId_onlystring | timereport_getId_onlystring
         description: Payload
   integrator_base:
     additionalProperties: false
@@ -2486,6 +2486,72 @@ types:
         description: Operational ID of an account
       parentAccountName?: 
         type: string | nil
+  opportunity_base_onlystring:
+    additionalProperties: false
+    properties:
+      subject?:
+        type: string
+        description: "Name of an opportunity"
+      closed?:
+        type: datetime
+        description: "Closed date of an opportunity"
+      probability?:
+        type: string
+        description: "Probability to win an opportunity"
+      status?:
+        type: string | nil
+        description: "Status of an opportunity"
+      stage?:
+        type: string
+        description: "Stage of an opportunity"
+      source?:
+        type: string
+        description: "Source of an opportunity"
+      reason?:
+        type: string
+        description: "Reason of an opportunity"
+      partnerContact?:
+        type: string | nil
+        description: "Partner contact name / Account "
+      nextStep?:
+        type: string
+        description: "Nextstep of an opportunity"
+      request?:
+        type: string | nil
+        description: "Request of an opportunity"  
+      campaign?:
+        type: string | nil
+        description: "Campaign of an opportunity"
+      type?:
+        type: string
+        description: "Business type of an opportunity"
+      competitor?:
+        type: string | nil
+        description: "competitor of an opportunity"
+      priority?:
+        type: string
+        description: "Priority level of an opportunity"
+  opportunity_common_onlystring:
+    type: opportunity_base_onlystring
+    properties:
+      project?:
+        type: string | nil
+        description: "Project id of an opportunity"
+      contact?:
+        type: string
+        description: "Contact person id of an opportunity"
+      responsible?:
+        type: string
+        description: "Responsible person id of an opportunity"
+      description?:
+        type: string | nil
+        description: "Description of an opportunity"
+  opportunity_getId_onlystring:
+    type: opportunity_common_onlystring
+    properties:
+      id?:
+        type: string
+        description: "Internal ID of opportunity"
   timereport_base_onlystring:
     additionalProperties: false
     properties:
