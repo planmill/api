@@ -959,7 +959,7 @@ types:
         type: string
         description: Name of user who triggered the hook
       data?:
-        type: absence_getId_onlystring | account_getId | timereport_getId_onlystring
+        type: absence_getId_onlystring | account_getId_onlystring | timereport_getId_onlystring
         description: Payload
   integrator_base:
     additionalProperties: false
@@ -2357,6 +2357,132 @@ types:
       status?:
         type: string | nil
         description: Status of an absence
+  account_base_onlystring: 
+    additionalProperties: false
+    properties:
+      name?:
+        description: Name of Account
+        type: string
+      passive?:
+        description: Active or passive state of account (Default value 0 - Inactive)
+        type: string
+      owner?:
+        description: Responsible id of an account (Default value - Creator of an account)
+        type: string
+      type?:
+        description: Type of an account (Default value 8 - Prospect)
+        type: string | nil
+      vatId?:
+        description: VAT id of an account
+        type: string | nil
+      businessId?:
+        description: Business id of an account
+        type: string | nil
+      termsOfPayment?:
+        description: Terms of payment of an invoice (Default value 14 - 14 days)
+        type: string | nil
+      eInvoicingAddress?:
+        description: eInvoicing address
+        type: string | nil
+      phone?:
+        description: Phone number of an account
+        pattern: "^[0-9|-]+$"
+        type: string | nil
+      website?:
+        description: Website of an account
+        type: string | nil
+      email?:
+        description: Email address of an account
+        type: email | emptystring | nil
+      industry?: string | nil
+      serviceLevel?:
+        description: Service level provided to real company linked to an account
+        type: string | nil
+      customerSatisfaction?: string | nil
+      description?:
+        description: Description of an account
+        type: string | nil
+      invoiceChannel?:
+        description: Methods of delivery of invoices
+        type: string | nil
+      invoiceVat?:
+        description: VAT on an invoice of an account (Default value 24 - 24%)
+        type: string | nil
+      invoiceNetOperator?: string | nil
+      handlingFee?:
+        description: Handling fee of an account
+        type: string | nil
+      invoiceEmail?:
+        description: Invoice delivery email
+        type: email | emptystring | nil
+      supplierAccount?:
+        description: Supplier id of an account
+        type: string | nil
+      reverseCharge?: string | nil
+      twitter?:
+        description: Twitter name of an account
+        type: string | nil
+      facebook?:
+        description: Facebook name of an account
+        type: string | nil
+      blog?:
+        description: Blog address of an account
+        type: string | nil
+      combineInvoices?: string | nil
+      rfReferenceNumber?: string | nil
+      lineOfBusiness?: string | nil
+      staff?: string | nil
+      turnover?: string | nil
+      billingAddress?:
+        description: Invoice billing address of an account
+        type: string | nil
+      billingCity?:
+        description: Invoice billing city of an account
+        type: string | nil
+      billingCountry?:
+        description: Invoice billing country of an account
+        type: string | nil
+      billingPostalCode?:
+        description: Invoice billing postal code of an account
+        type: string | nil
+      billingState?: string | nil
+      parentAccount?:
+        description: Parent id of an account
+        type: string | nil
+      shippingAddress?:
+        description: Invoice shipping address of an account
+        type: string | nil
+      shippingCity?:
+        description: Invoice shipping city of an account
+        type: string | nil
+      shippingCountry?:
+        description: Invoice shipping country of an account
+        type: string | nil
+      shippingPostalCode?: 
+        description: Invoice shipping postal code of an account
+        type: string | nil
+      shippingState?: string | nil
+      invoiceAppendix?: string | nil
+      invoiceTemplate?: string | nil
+      autoReplyRequestMails?:
+        description: Auto-reply request mails
+        type: string | nil
+  account_postId_onlystring:
+    type: account_base_onlystring
+    properties:
+      billingReference?: string | nil
+      shippingReference?: string | nil	
+  account_getId_onlystring:
+    type: account_postId_onlystring
+    properties: 
+      id?:
+        type: string
+        description: Internal ID of an account
+      operationalId?:         
+        type: string | nil
+        description: Operational ID of an account
+      parentAccountName?: 
+        type: string | nil
   timereport_base_onlystring:
     additionalProperties: false
     properties:

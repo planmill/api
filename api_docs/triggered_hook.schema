@@ -50,6 +50,7 @@
         "data": {
           "anyOf": [
             {
+              "description": "Payload",
               "type": "object",
               "additionalProperties": false,
               "properties": {
@@ -139,6 +140,7 @@
               }
             },
             {
+              "description": "Payload",
               "type": "object",
               "additionalProperties": false,
               "properties": {
@@ -148,16 +150,16 @@
                 },
                 "passive": {
                   "description": "Active or passive state of account (Default value 0 - Inactive)",
-                  "type": "integer"
+                  "type": "string"
                 },
                 "owner": {
                   "description": "Responsible id of an account (Default value - Creator of an account)",
-                  "type": "integer"
+                  "type": "string"
                 },
                 "type": {
                   "anyOf": [
                     {
-                      "type": "integer"
+                      "type": "string"
                     },
                     {
                       "type": "null"
@@ -190,7 +192,7 @@
                 "termsOfPayment": {
                   "anyOf": [
                     {
-                      "type": "integer"
+                      "type": "string"
                     },
                     {
                       "type": "null"
@@ -250,7 +252,7 @@
                 "industry": {
                   "anyOf": [
                     {
-                      "type": "integer"
+                      "type": "string"
                     },
                     {
                       "type": "null"
@@ -260,7 +262,7 @@
                 "serviceLevel": {
                   "anyOf": [
                     {
-                      "type": "integer"
+                      "type": "string"
                     },
                     {
                       "type": "null"
@@ -271,7 +273,7 @@
                 "customerSatisfaction": {
                   "anyOf": [
                     {
-                      "type": "integer"
+                      "type": "string"
                     },
                     {
                       "type": "null"
@@ -292,7 +294,7 @@
                 "invoiceChannel": {
                   "anyOf": [
                     {
-                      "type": "integer"
+                      "type": "string"
                     },
                     {
                       "type": "null"
@@ -303,7 +305,7 @@
                 "invoiceVat": {
                   "anyOf": [
                     {
-                      "type": "number"
+                      "type": "string"
                     },
                     {
                       "type": "null"
@@ -324,7 +326,7 @@
                 "handlingFee": {
                   "anyOf": [
                     {
-                      "type": "number"
+                      "type": "string"
                     },
                     {
                       "type": "null"
@@ -351,7 +353,7 @@
                 "supplierAccount": {
                   "anyOf": [
                     {
-                      "type": "integer"
+                      "type": "string"
                     },
                     {
                       "type": "null"
@@ -362,7 +364,7 @@
                 "reverseCharge": {
                   "anyOf": [
                     {
-                      "type": "integer"
+                      "type": "string"
                     },
                     {
                       "type": "null"
@@ -405,7 +407,7 @@
                 "combineInvoices": {
                   "anyOf": [
                     {
-                      "type": "integer"
+                      "type": "string"
                     },
                     {
                       "type": "null"
@@ -415,7 +417,7 @@
                 "rfReferenceNumber": {
                   "anyOf": [
                     {
-                      "type": "integer"
+                      "type": "string"
                     },
                     {
                       "type": "null"
@@ -425,7 +427,7 @@
                 "lineOfBusiness": {
                   "anyOf": [
                     {
-                      "type": "integer"
+                      "type": "string"
                     },
                     {
                       "type": "null"
@@ -435,7 +437,7 @@
                 "staff": {
                   "anyOf": [
                     {
-                      "type": "integer"
+                      "type": "string"
                     },
                     {
                       "type": "null"
@@ -445,7 +447,7 @@
                 "turnover": {
                   "anyOf": [
                     {
-                      "type": "integer"
+                      "type": "string"
                     },
                     {
                       "type": "null"
@@ -477,7 +479,7 @@
                 "billingCountry": {
                   "anyOf": [
                     {
-                      "type": "integer"
+                      "type": "string"
                     },
                     {
                       "type": "null"
@@ -509,7 +511,7 @@
                 "parentAccount": {
                   "anyOf": [
                     {
-                      "type": "integer"
+                      "type": "string"
                     },
                     {
                       "type": "null"
@@ -542,7 +544,7 @@
                 "shippingCountry": {
                   "anyOf": [
                     {
-                      "type": "integer"
+                      "type": "string"
                     },
                     {
                       "type": "null"
@@ -574,7 +576,7 @@
                 "invoiceAppendix": {
                   "anyOf": [
                     {
-                      "type": "integer"
+                      "type": "string"
                     },
                     {
                       "type": "null"
@@ -594,7 +596,7 @@
                 "autoReplyRequestMails": {
                   "anyOf": [
                     {
-                      "type": "integer"
+                      "type": "string"
                     },
                     {
                       "type": "null"
@@ -606,9 +608,6 @@
                   "anyOf": [
                     {
                       "type": "string"
-                    },
-                    {
-                      "type": "integer"
                     },
                     {
                       "type": "null"
@@ -626,13 +625,13 @@
                   ]
                 },
                 "id": {
-                  "type": "integer",
+                  "type": "string",
                   "description": "Internal ID of an account"
                 },
                 "operationalId": {
                   "anyOf": [
                     {
-                      "type": "integer"
+                      "type": "string"
                     },
                     {
                       "type": "null"
@@ -653,6 +652,7 @@
               }
             },
             {
+              "description": "Payload",
               "type": "object",
               "additionalProperties": false,
               "properties": {
