@@ -1019,8 +1019,7 @@
                 "parent",
                 "name",
                 "id",
-                "project",
-                "type"
+                "project"
               ],
               "properties": {
                 "actualStart": {
