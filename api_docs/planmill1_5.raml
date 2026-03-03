@@ -962,7 +962,7 @@ types:
         type: string
         description: additional information about the hook object, used with account hooks       
       data?:
-        type: absence_getId_onlystring | account_getId_onlystring | opportunity_getId_onlystring | timereport_getId_onlystring
+        type: absence_getId_onlystring | account_getId_onlystring | opportunity_getId_onlystring | project_getId_onlystring | timereport_getId_onlystring
         description: Payload
   integrator_base:
     additionalProperties: false
@@ -2552,6 +2552,103 @@ types:
       id?:
         type: string
         description: "Internal ID of opportunity"
+  project_base_onlystring:
+    additionalProperties: false
+    properties:
+      name?:
+        type: string
+        description: "Project's name."
+      status?:
+        type: string
+        description: "Enumeration of a project's status: 1=Draft, 2=Preliminary, 3=Execution,4=Aborted, 5=Closed, 6=On hold, 8=Archived"
+      billableStatus?:
+        type: string
+        description: "Used in enumeration of billableStatus"
+      portfolio?:
+        type: string
+        description: "Portfolio id of Project"
+      category?:
+        type: string | nil
+        description: "Enumeration of a project's category: -1=NULL , 10=Absence,20=Administration, 30=Development, 40=Delivery, 50=R & D, 60=Support, 70=Sales, 80=Marketing,90=Education, 100=Continuous service, 110=Maintenance"
+      contact?:
+        type: string
+        description: "Contact's id that is related to a project, Required only if billable status is 1 or 2"
+      invoiceReference?:
+        type: string
+        description: "Invoice reference of a project"
+      description?:
+        type: string | nil
+        description: "Description of a project"
+      billingAccount?:
+        type: string | nil
+        description: "Billing account  Id of a project - set if different to the account of the contact."
+      autoAcceptTimeReports?:
+        type: string
+        description: "Enumeration of autoAcceptTimeReports: 0=No, 1=Yes"
+      requireBillableComment?:
+        type: string
+        description: "Enumeration of requireBillableComment: 0=No, 1=For all billabletasks,2=For all tasks"
+      setRequestPerformerAsTeamMember?:
+        type: string
+        description: "Enumeration of requestPerformerAsTeamMember: 0=No, 1=Yes"
+      requireCommentForOvertime?:
+        type: string
+        description: "Enumeration of requireBillableComment: 0=No, 1=For all billable tasks,2=For all tasks"
+      allowNewTasksAndAssignmentsForAllUsers?:
+        type: string
+        description: "Enumeration of allowNewTasksAndAssignmentsForAllUsers: 0=No, 1=Yes,butdonot add them as team members, 2=Yes,and add them as team members"
+      autoAssignNewTeamMembers?:
+        type: string
+        description: "Enumeration of autoAssignNewTeamMembers: 0=No, 1=Yes,but only tosubtasks, 2=Yes"
+      invoiceAppendix?:
+        type: string
+        description: "Invoice appendix of a project"
+      effortUnit?:
+        type: string | nil
+        description: "Effort unit of a project"  
+      currency?:
+        type: string
+        description: "Currency id of a project"
+      fixedRevenue?:
+        type: string | nil
+        description: "Revenue amount of a project"
+      fixedWorkEffort?:
+        type: string | nil
+        description: "Work effort hours of a project"
+      fixedWork?:
+        type: string | nil
+        description: "Work effort cost of a project"
+      budgetedExpense?:
+        type: string | nil
+        description: "Expense amount of a project"
+      budgetedPurchase?:
+        type: string | nil
+        description: "Purchase amount of a project"
+  project_getId_onlystring:
+    type: project_base_onlystring
+    properties:
+      id?:
+        type: string
+        description: Internal ID of a project
+      operationalId?:
+        type: string | nil
+        description: "Operational ID of a project"
+      account?:
+        type: string | nil
+        description: "Contact's account Id"
+      budgetedTotalCost?:
+        type: string
+        description: "Budgeted cost of a project"
+      forecastedTotalCost?:
+        type: string
+        description: "Forecasted cost of a project"
+      type?:
+        type: string
+        description: "Enumeration of a project's type: 1=Project, 3=Template"
+      dutyType?:
+        type: string | nil
+      editableByUser?:
+        type: string | nil
   timereport_base_onlystring:
     additionalProperties: false
     properties:
