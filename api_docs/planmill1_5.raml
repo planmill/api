@@ -2757,10 +2757,10 @@ types:
       project?:
         description: Id of project having task to report the time
         type: string | nil
-      person?:
+      person:
         type: string
         description: User's id
-      start?:
+      start:
         type: datetime
         description: Start time of time report. Only date part is used when amount is provided.(Unless clock-times mode is active in users role).     
       amount?:
@@ -2799,7 +2799,7 @@ types:
   timereport_single_onlystring:
     type: timereport_base_onlystring
     properties:
-      id?:
+      id:
         type: string
         description: Internal ID of a time report
       billableAmount?:
