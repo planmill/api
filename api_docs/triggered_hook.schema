@@ -43,8 +43,18 @@
           "description": "Project in which event is triggered."
         },
         "id": {
-          "type": "integer",
-          "description": "Identifier of the object that triggered the hook"
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            }
+          ],
+          "description": "Identifier of the object that triggered the hook. May be array in case of delete hook, in which case no data."
         },
         "personName": {
           "type": "string",
@@ -52,12 +62,12 @@
         },
         "subject": {
           "type": "string",
-          "description": "additional information about the hook object, used with account hooks"
+          "description": "Additional information about the hook object, used with account hooks"
         },
         "data": {
           "anyOf": [
             {
-              "description": "Payload",
+              "description": "Payload - JSON of the triggered object. Not supported for all delete cases.",
               "type": "object",
               "additionalProperties": false,
               "properties": {
@@ -147,7 +157,7 @@
               }
             },
             {
-              "description": "Payload",
+              "description": "Payload - JSON of the triggered object. Not supported for all delete cases.",
               "type": "object",
               "additionalProperties": false,
               "properties": {
@@ -659,7 +669,7 @@
               }
             },
             {
-              "description": "Payload",
+              "description": "Payload - JSON of the triggered object. Not supported for all delete cases.",
               "type": "object",
               "additionalProperties": false,
               "properties": {
@@ -792,7 +802,7 @@
               }
             },
             {
-              "description": "Payload",
+              "description": "Payload - JSON of the triggered object. Not supported for all delete cases.",
               "type": "object",
               "additionalProperties": false,
               "properties": {
@@ -1012,7 +1022,7 @@
               }
             },
             {
-              "description": "Payload",
+              "description": "Payload - JSON of the triggered object. Not supported for all delete cases.",
               "type": "object",
               "additionalProperties": false,
               "required": [
@@ -1349,9 +1359,14 @@
               }
             },
             {
-              "description": "Payload",
+              "description": "Payload - JSON of the triggered object. Not supported for all delete cases.",
               "type": "object",
               "additionalProperties": false,
+              "required": [
+                "person",
+                "id",
+                "start"
+              ],
               "properties": {
                 "project": {
                   "anyOf": [
@@ -1517,7 +1532,7 @@
               }
             }
           ],
-          "description": "Payload"
+          "description": "Payload - JSON of the triggered object. Not supported for all delete cases."
         }
       }
     }
