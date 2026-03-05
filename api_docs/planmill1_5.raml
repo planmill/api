@@ -953,17 +953,17 @@ types:
     type: hook_base
     properties:
       id:
-        type: integer
-        description: Identifier of the object that triggered the hook
+        type: integer | integer[]
+        description: Identifier of the object that triggered the hook. May be array in case of delete hook, in which case no data. 
       personName?:
         type: string
         description: Name of user who triggered the hook, used with absence hooks
       subject?:
         type: string
-        description: additional information about the hook object, used with account hooks       
+        description: Additional information about the hook object, used with account hooks       
       data?:
         type: absence_getId_onlystring | account_getId_onlystring | opportunity_getId_onlystring | project_getId_onlystring | task_getId_onlystring | timereport_getId_onlystring
-        description: Payload
+        description: Payload - JSON of the triggered object. Not supported for all delete cases.  
   integrator_base:
     additionalProperties: false
     properties:
