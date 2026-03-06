@@ -2757,12 +2757,12 @@ types:
       project?:
         description: Id of project having task to report the time
         type: string | nil
-      person:
+      person?:
         type: string
-        description: User's id
-      start:
+        description: User's id. Always returned with add hook payload. 
+      start?:
         type: datetime
-        description: Start time of time report. Only date part is used when amount is provided.(Unless clock-times mode is active in users role).     
+        description: Start time of time report. Only date part is used when amount is provided (unless clock-times mode is active in users role). Always returned with add hook payload.     
       amount?:
         type: string
         description: Reported normal time in minutes. 
