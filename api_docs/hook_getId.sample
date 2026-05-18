@@ -1,0 +1,9 @@
+{
+ "hook": "account.update",
+ "eventUser": 123,
+ "id": 1,
+ "eventProject": 456,
+ "includePayload": 0,
+ "type": 1,
+ "url": "https://example.com/hook"
+}

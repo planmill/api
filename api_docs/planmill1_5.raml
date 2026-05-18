@@ -906,7 +906,64 @@ types:
     type: string  
     pattern: "^$"
   expense: !include expense1_5.schema
-  hook: !include hook1_5.schema
+  hook_base:
+    type: object
+    additionalProperties: false
+    properties:
+      hook?:
+        type: string
+        description: Event identifier
+      eventUser?:
+        type: integer | string |nil
+        description: User who triggered the event. 
+      eventProject?:
+        type: integer | nil
+        description: Project in which event is triggered. 
+  hook_endpoint_base:
+    type: hook_base
+    additionalProperties: false
+    properties:
+      includePayload?:
+        type: integer | nil
+        description: 0 - no payload, 1 - payload included.
+      type?:
+        type: integer | nil
+        description: 1 - Webhook, 2 - GCM hook. GCM hooks currently not supported. 
+      url?:
+        type: string
+        description: Subscription URL that will be posted with data when event is triggered
+  hook_post:
+    type: hook_endpoint_base
+    properties:
+      hook:
+        type: string
+        description: Event identifier
+      url:
+        type: string
+        description: Subscription URL that will be posted with data when event is triggered
+  hook_getId:
+    type: hook_endpoint_base
+    properties:
+      id?:
+        type: integer
+        description: Unique subscription identifier
+  hook_getAll:
+    type: hook_getId[]  
+  triggered_hook:
+    type: hook_base
+    properties:
+      id:
+        type: integer | integer[]
+        description: Identifier of the object that triggered the hook. May be array in case of delete hook, in which case no data. 
+      personName?:
+        type: string
+        description: Name of user who triggered the hook, used with absence hooks
+      subject?:
+        type: string
+        description: Additional information about the hook object, used with account hooks       
+      data?:
+        type: absence_getId_onlystring | account_getId_onlystring | opportunity_getId_onlystring | project_getId_onlystring | task_getId_onlystring | timereport_getId_onlystring
+        description: Payload - JSON of the triggered object. Not supported for all delete cases.  
   integrator_base:
     additionalProperties: false
     properties:
@@ -2261,6 +2318,505 @@ types:
         description: 1 if this is the price of the highest volume, 0 otherwise.
   volumeprice_getAll:
     type: volumeprice[]
+  absence_base_onlystring:
+    additionalProperties: false
+    properties:
+      absenceType?:
+        description: Type of an absence
+        type: string
+      description?:
+        type: string | nil
+        description: Description of an absence
+      finish?:
+        description: Finish date of an absence
+        type: string
+      person?:
+        description: Absentee and user of a system
+        type: string
+      start?:
+        description: Start date of an absence
+        type: string
+      vacationYear?: 
+        type: string | nil
+        description: Vacation year of the user
+      accepterPerson?:
+        type: string | nil
+        description: Superior of user who accepts an absence
+      interruptionDate?:
+        type: string | nil
+        description: Interruption date of an absence
+      vacationLength?:
+        description: Length of an absence represented in minutes
+        type: string
+      project?:
+        type: string
+        description: Id of absence parent in the task hierarchy 
+  absence_getId_onlystring:
+    type: absence_base_onlystring
+    properties:
+      id?:
+        type: string
+        description: Internal ID of an absence
+      status?:
+        type: string | nil
+        description: Status of an absence
+  account_base_onlystring: 
+    additionalProperties: false
+    properties:
+      name?:
+        description: Name of Account
+        type: string
+      passive?:
+        description: Active or passive state of account (Default value 0 - Inactive)
+        type: string
+      owner?:
+        description: Responsible id of an account (Default value - Creator of an account)
+        type: string
+      type?:
+        description: Type of an account (Default value 8 - Prospect)
+        type: string | nil
+      vatId?:
+        description: VAT id of an account
+        type: string | nil
+      businessId?:
+        description: Business id of an account
+        type: string | nil
+      termsOfPayment?:
+        description: Terms of payment of an invoice (Default value 14 - 14 days)
+        type: string | nil
+      eInvoicingAddress?:
+        description: eInvoicing address
+        type: string | nil
+      phone?:
+        description: Phone number of an account
+        pattern: "^[0-9|-]+$"
+        type: string | nil
+      website?:
+        description: Website of an account
+        type: string | nil
+      email?:
+        description: Email address of an account
+        type: email | emptystring | nil
+      industry?: string | nil
+      serviceLevel?:
+        description: Service level provided to real company linked to an account
+        type: string | nil
+      customerSatisfaction?: string | nil
+      description?:
+        description: Description of an account
+        type: string | nil
+      invoiceChannel?:
+        description: Methods of delivery of invoices
+        type: string | nil
+      invoiceVat?:
+        description: VAT on an invoice of an account (Default value 24 - 24%)
+        type: string | nil
+      invoiceNetOperator?: string | nil
+      handlingFee?:
+        description: Handling fee of an account
+        type: string | nil
+      invoiceEmail?:
+        description: Invoice delivery email
+        type: email | emptystring | nil
+      supplierAccount?:
+        description: Supplier id of an account
+        type: string | nil
+      reverseCharge?: string | nil
+      twitter?:
+        description: Twitter name of an account
+        type: string | nil
+      facebook?:
+        description: Facebook name of an account
+        type: string | nil
+      blog?:
+        description: Blog address of an account
+        type: string | nil
+      combineInvoices?: string | nil
+      rfReferenceNumber?: string | nil
+      lineOfBusiness?: string | nil
+      staff?: string | nil
+      turnover?: string | nil
+      billingAddress?:
+        description: Invoice billing address of an account
+        type: string | nil
+      billingCity?:
+        description: Invoice billing city of an account
+        type: string | nil
+      billingCountry?:
+        description: Invoice billing country of an account
+        type: string | nil
+      billingPostalCode?:
+        description: Invoice billing postal code of an account
+        type: string | nil
+      billingState?: string | nil
+      parentAccount?:
+        description: Parent id of an account
+        type: string | nil
+      shippingAddress?:
+        description: Invoice shipping address of an account
+        type: string | nil
+      shippingCity?:
+        description: Invoice shipping city of an account
+        type: string | nil
+      shippingCountry?:
+        description: Invoice shipping country of an account
+        type: string | nil
+      shippingPostalCode?: 
+        description: Invoice shipping postal code of an account
+        type: string | nil
+      shippingState?: string | nil
+      invoiceAppendix?: string | nil
+      invoiceTemplate?: string | nil
+      autoReplyRequestMails?:
+        description: Auto-reply request mails
+        type: string | nil
+  account_postId_onlystring:
+    type: account_base_onlystring
+    properties:
+      billingReference?: string | nil
+      shippingReference?: string | nil	
+  account_getId_onlystring:
+    type: account_postId_onlystring
+    properties: 
+      id?:
+        type: string
+        description: Internal ID of an account
+      operationalId?:         
+        type: string | nil
+        description: Operational ID of an account
+      parentAccountName?: 
+        type: string | nil
+  opportunity_base_onlystring:
+    additionalProperties: false
+    properties:
+      subject?:
+        type: string
+        description: "Name of an opportunity"
+      closed?:
+        type: datetime
+        description: "Closed date of an opportunity"
+      probability?:
+        type: string
+        description: "Probability to win an opportunity"
+      status?:
+        type: string | nil
+        description: "Status of an opportunity"
+      stage?:
+        type: string
+        description: "Stage of an opportunity"
+      source?:
+        type: string
+        description: "Source of an opportunity"
+      reason?:
+        type: string
+        description: "Reason of an opportunity"
+      partnerContact?:
+        type: string | nil
+        description: "Partner contact name / Account "
+      nextStep?:
+        type: string
+        description: "Nextstep of an opportunity"
+      request?:
+        type: string | nil
+        description: "Request of an opportunity"  
+      campaign?:
+        type: string | nil
+        description: "Campaign of an opportunity"
+      type?:
+        type: string
+        description: "Business type of an opportunity"
+      competitor?:
+        type: string | nil
+        description: "competitor of an opportunity"
+      priority?:
+        type: string
+        description: "Priority level of an opportunity"
+  opportunity_common_onlystring:
+    type: opportunity_base_onlystring
+    properties:
+      project?:
+        type: string | nil
+        description: "Project id of an opportunity"
+      contact?:
+        type: string
+        description: "Contact person id of an opportunity"
+      responsible?:
+        type: string
+        description: "Responsible person id of an opportunity"
+      description?:
+        type: string | nil
+        description: "Description of an opportunity"
+  opportunity_getId_onlystring:
+    type: opportunity_common_onlystring
+    properties:
+      id?:
+        type: string
+        description: "Internal ID of opportunity"
+  project_base_onlystring:
+    additionalProperties: false
+    properties:
+      name?:
+        type: string
+        description: "Project's name."
+      status?:
+        type: string
+        description: "Enumeration of a project's status: 1=Draft, 2=Preliminary, 3=Execution,4=Aborted, 5=Closed, 6=On hold, 8=Archived"
+      billableStatus?:
+        type: string
+        description: "Used in enumeration of billableStatus"
+      portfolio?:
+        type: string
+        description: "Portfolio id of Project"
+      category?:
+        type: string | nil
+        description: "Enumeration of a project's category: -1=NULL , 10=Absence,20=Administration, 30=Development, 40=Delivery, 50=R & D, 60=Support, 70=Sales, 80=Marketing,90=Education, 100=Continuous service, 110=Maintenance"
+      contact?:
+        type: string
+        description: "Contact's id that is related to a project, Required only if billable status is 1 or 2"
+      invoiceReference?:
+        type: string
+        description: "Invoice reference of a project"
+      description?:
+        type: string | nil
+        description: "Description of a project"
+      billingAccount?:
+        type: string | nil
+        description: "Billing account  Id of a project - set if different to the account of the contact."
+      autoAcceptTimeReports?:
+        type: string
+        description: "Enumeration of autoAcceptTimeReports: 0=No, 1=Yes"
+      requireBillableComment?:
+        type: string
+        description: "Enumeration of requireBillableComment: 0=No, 1=For all billabletasks,2=For all tasks"
+      setRequestPerformerAsTeamMember?:
+        type: string
+        description: "Enumeration of requestPerformerAsTeamMember: 0=No, 1=Yes"
+      requireCommentForOvertime?:
+        type: string
+        description: "Enumeration of requireBillableComment: 0=No, 1=For all billable tasks,2=For all tasks"
+      allowNewTasksAndAssignmentsForAllUsers?:
+        type: string
+        description: "Enumeration of allowNewTasksAndAssignmentsForAllUsers: 0=No, 1=Yes,butdonot add them as team members, 2=Yes,and add them as team members"
+      autoAssignNewTeamMembers?:
+        type: string
+        description: "Enumeration of autoAssignNewTeamMembers: 0=No, 1=Yes,but only tosubtasks, 2=Yes"
+      invoiceAppendix?:
+        type: string
+        description: "Invoice appendix of a project"
+      effortUnit?:
+        type: string | nil
+        description: "Effort unit of a project"  
+      currency?:
+        type: string
+        description: "Currency id of a project"
+      fixedRevenue?:
+        type: string | nil
+        description: "Revenue amount of a project"
+      fixedWorkEffort?:
+        type: string | nil
+        description: "Work effort hours of a project"
+      fixedWork?:
+        type: string | nil
+        description: "Work effort cost of a project"
+      budgetedExpense?:
+        type: string | nil
+        description: "Expense amount of a project"
+      budgetedPurchase?:
+        type: string | nil
+        description: "Purchase amount of a project"
+  project_getId_onlystring:
+    type: project_base_onlystring
+    properties:
+      id?:
+        type: string
+        description: Internal ID of a project
+      operationalId?:
+        type: string | nil
+        description: "Operational ID of a project"
+      account?:
+        type: string | nil
+        description: "Contact's account Id"
+      budgetedTotalCost?:
+        type: string
+        description: "Budgeted cost of a project"
+      forecastedTotalCost?:
+        type: string
+        description: "Forecasted cost of a project"
+      type?:
+        type: string
+        description: "Enumeration of a project's type: 1=Project, 3=Template"
+      dutyType?:
+        type: string | nil
+      editableByUser?:
+        type: string | nil
+  task_base_onlystring:
+    additionalProperties: false
+    properties:
+      actualStart?:
+        type: datetime | nil
+        description: Actual start of the task.
+      actualFinish?:
+        type: string | nil
+        description: Actual start of the task.
+      name:
+        type: string
+        description: Name of the task. Has to be unique per project.
+      type?:
+        type: string | nil
+        description: 100 = task (default), 101 = milestone, 200 = imported booking.
+      start?:
+        type: datetime | nil
+        description: Start of the task. If not defined, is not set to January 1970.
+      finish?:
+        type: datetime | nil
+        description: Finish of the task. If not defined, is not set to January 1970.
+      dutyType?:
+        type: string | nil
+        description: Duty type of the task.
+      billableStatus?:
+        type: string | nil
+        description: Billable status of the task.
+      status?:
+        type: string | nil
+        description: Status of the task. 
+      parent:
+        type: string
+        description: Parent of the task. May be a task or project Id.
+      predecessorTask?:
+        type: string | nil
+        description: Previous task that should be finished first. 
+      targetEffort?:
+        type: string | nil
+        description: Target effort of the task.
+      unitPrice?:
+        type: string | nil
+        description: Price of the unit of the task.
+      competence?:
+        type: string | nil
+        description: Competence level of the task.
+      wbs?:
+        type: string | nil
+        description: Work breakdown structure of the task.
+      priceType?:
+        type: string | nil
+        description: Price type of the task.
+      description?:
+        type: string | nil
+        description: Description of the task
+      created?:
+        type: string
+        description: Timestamp of the task creation.
+      modified?:
+        type: string | nil
+        description: When task was modified last time. 
+      plannedEffort?:
+        type: string | nil
+        description: Planned effort of the task.
+      actualEffort?:
+        type: string | nil
+        description: Actual effort of the task.
+      remainingEffort?:
+        type: string | nil
+        description: Sum of the effort of the assignments.
+      totalEffort?: 
+        type: string | nil
+        description: Actual + remaining effort of the task.
+      workCompleteness?:
+        type: string | nil
+        description: Work completeness of the task.
+      duration?:
+        type: string | nil
+        description: Duration of the task. 
+      totalRemainingEffort?:
+        type: string | nil
+        description: Total effort - actual effort of the task.
+      finishOld?:
+        type: datetime | nil
+        description: Old finish of the task. Currently unused legacy field.
+      originalFinish?:
+        type: datetime | nil
+        description: Original finish of the task. Currently unused legacy field.
+      originalStart?:
+        type: datetime | nil
+        description: Original start of the task. Currently unused legacy field.
+      tempFinish?:
+        type: datetime | nil
+        description: Temporary finish of the task. Currently unused legacy field.
+  task_getId_onlystring:
+    type: task_base_onlystring
+    properties:
+      id:
+        type: string
+        description: Unique identificator of the task.
+      project:
+        type: string
+        description: project of the task.
+  timereport_base_onlystring:
+    additionalProperties: false
+    properties:
+      project?:
+        description: Id of project having task to report the time
+        type: string | nil
+      person?:
+        type: string
+        description: User's id. Always returned with add hook payload. 
+      start?:
+        type: datetime
+        description: Start time of time report. Only date part is used when amount is provided (unless clock-times mode is active in users role). Always returned with add hook payload.     
+      amount?:
+        type: string
+        description: Reported normal time in minutes. 
+      finish?:
+        type: string
+        description: Finish time of a time report. May be used instead of amount for a time report. System will then calculate amount. Note for 'overtimeAmount' or 'travelAmount' you must provide an explicit length in minutes.
+      status?: 
+        type: string
+        description: Status of a time report
+      comment?:
+        type: string | nil
+        description: Comments of a time report
+      billingComment?:
+        type: string | nil
+        description: Billing comment of a time report
+      billableStatus?:
+        type: string | nil
+        description: If task's status is billable, time report's status can be either billable or non-billable
+      task?:
+        type: string
+        description: Id of task for which time is reported
+      overtimeAmount?:
+        type: string | nil
+        description: Overtime in minutes
+      overtimeComment?:
+        type: string | nil
+        description: Comment for overtime work
+      travelAmount?:
+        type: string | nil
+        description: Travel time in minutes
+      travelComment?:
+        type: string | nil
+        description: Travel time in minutes
+  timereport_single_onlystring:
+    type: timereport_base_onlystring
+    properties:
+      id:
+        type: string
+        description: Internal ID of a time report
+      billableAmount?:
+        type: string | nil
+        description: Billable amount of time report
+  timereport_getId_onlystring:
+    type: timereport_single_onlystring
+    properties:
+      requireBillableComment?:
+        type: string | nil
+        description: Used in get requests to indicate if task requires a comment for timereport
+      remainingAmount?:
+        type: string | nil
+        description: Remaining amount of a time report 
+      totalReported?:
+        type: string | nil
+        description: Total reported time of time report
 
 # write name of the resource before to include and schema always in SINGULAR, i.e. hook not hooks otherwise the automatic includes won't work
 # write name of the resource before the include and schema always in SINGULAR, i.e. hook not hooks otherwise the automatic includes won't work
@@ -2329,7 +2885,7 @@ resourceTypes:
                 type: object
                 example: |
                   <<exampleCollectionItem>>
-  allMethodsCollection:
+  allMethodsNoExamplesCollection:
       is: [all]
       description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
       get?:
@@ -2352,13 +2908,6 @@ resourceTypes:
             type: string
             required: false
             description: Sorts the results using string that is a JSON attribute
-        responses:
-          200:
-            body:
-              application/json:
-                type: <<resourcePathName|!singularize>>
-                example: |
-                  <<exampleCollectionItemArray>>
       post?:
         description: Add a new <<resourcePathName|!singularize>> to PlanMill. See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
         headers:
@@ -2369,10 +2918,6 @@ resourceTypes:
               application/json;charset=UTF-8
             example: |
               application/json;charset=UTF-8
-        body:
-          application/json:
-            type: <<resourcePathName|!singularize>>
-            example: <<exampleCollectionItem>>
         responses:
           201:
             body:
@@ -2380,12 +2925,26 @@ resourceTypes:
                 type: object
                 example: |
                  { "id" : 123456 }
+  allMethodsCollection:
+      is: [all]
+      type: allMethodsNoSamplesCollection      
+      get?:
+        responses:
+          200:
+            body:
+              application/json:
+                type: <<resourcePathName|!singularize>>
+                example: |
+                  <<exampleCollectionItemArray>>
+      post?:
+        body:
+          application/json:
+            type: <<resourcePathName|!singularize>>
+            example: <<exampleCollectionItem>>
   intervalCollection:
       is: [all]
       type: allMethodsCollection
-      description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
       get?:
-        description: Get a list of <<resourcePathName>>. See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
         queryParameters:
           interval?:
             type: string
@@ -2405,12 +2964,32 @@ resourceTypes:
           200:
             body:
               application/json:
+                type: <<resourcePathName|!singularize>>
                 example: |
                   <<exampleCollectionItemArray>>
       post?:
         body:
           application/json:
+            type: <<resourcePathName|!singularize>>
             example: <<exampleCollectionItem>>
+  threeExampleCollection:
+      is: [all]
+      type: allMethodsNoExamplesCollection      
+      get?:
+        responses:
+          200:
+            body:
+              application/json:
+                type: <<resourcePathName|!singularize>>
+                example: |
+                  <<exampleCollectionItemArray>>
+      post?:
+        body:
+          application/json:
+            type: <<resourcePathName|!singularize>>
+            examples:
+              Post body: <<firstExampleCollectionItem>>
+              Triggered hook would look as below: <<secondExampleCollectionItem>>
   readOnlyintervalCollection:
       is: [all]
       type: readOnlyRowCountCollection
@@ -2542,7 +3121,7 @@ resourceTypes:
         responses: 
           204:
             description: No HTTP body returned
-  allMethodsCollectionItem:
+  allMethodsCollectionNoExampleItem:
       is: [all]
       description: A single <<resourcePathName|!singularize>> in PlanMill.
       get?:
@@ -2552,8 +3131,6 @@ resourceTypes:
             body:
               application/json:
                 type: <<resourcePathName|!singularize>>
-                example: |
-                  <<exampleCollectionGetItem>>
       post?:
         description: Update an existing resource <<resourcePathName|!singularize>> to PlanMill.  See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
         headers:
@@ -2567,7 +3144,6 @@ resourceTypes:
         body:
           application/json: 
             type: <<resourcePathName|!singularize>>
-            example: <<exampleCollectionPostItem>>
         responses:
           204:
             description: No HTTP body returned
@@ -2588,10 +3164,53 @@ resourceTypes:
         body:
           application/json:
             type: <<resourcePathName|!singularize>>
-            example: <<exampleCollectionPutItem>>
         responses:
           204:
             description: No HTTP body returned
+  allMethodsCollectionItem:
+      is: [all]
+      type: allMethodsCollectionNoExampleItem
+      get?:
+        responses:
+          200:
+            body:
+              application/json:
+                type: <<resourcePathName|!singularize>>
+                example: |
+                  <<exampleCollectionGetItem>>
+      post?:
+        body:
+          application/json: 
+            type: <<resourcePathName|!singularize>>
+            example: <<exampleCollectionPostItem>>
+      put?:
+        body:
+          application/json:
+            type: <<resourcePathName|!singularize>>
+            example: <<exampleCollectionPutItem>>
+  fourExampleAllMethodsCollectionItem:
+      is: [all]
+      type: allMethodsCollectionNoExampleItem
+      get?:
+        responses:
+          200:
+            body:
+              application/json:
+                type: <<resourcePathName|!singularize>>
+                examples:
+                  Response body: <<firstExampleCollectionItem>>
+                  Triggered hook would look as below: <<secondExampleCollectionItem>>
+      post?:
+        body:
+          application/json: 
+            type: <<resourcePathName|!singularize>>
+            example: <<exampleCollectionPostItem>>
+      delete?: 
+      put?:
+        body:
+          application/json:
+            type: <<resourcePathName|!singularize>>
+            example: <<exampleCollectionPutItem>>
   postOnlyCollection:
       is: [all]
       post:
@@ -3480,26 +4099,58 @@ resourceTypes:
           putGetDeleteCollectionItem:
             exampleCollectionItem: Contents of file
 /hooks:
-  description: The currently available subscribable events are listed here along with usage guidelines <p> https://github.com/planmill/api/wiki/WebHooks</p>
+  description: The currently available subscribable events are listed here, along with usage guidelines and a JSON Schema of a triggered hook:  chttps://github.com/planmill/api/wiki/WebHooks</p> 
+
   get:
     queryParameters:   
-      hook: 
+      hook?: 
         type: string
         description: Event that is being triggered
-      eventUser:
+      eventUser?:
         type: integer
         description: User identifier that is triggering the event
-      eventProject:
+      eventProject?:
         type: integer
         description: Project identifier for which the event has been triggered
+    responses:
+      200:
+        body:
+          application/json: 
+            type: hook_getAll 
+  post:
+    headers:
+      Content-Type:
+        type: string
+        required: true
+        default: |
+          application/json;charset=UTF-8 
+        example: |
+          application/json;charset=UTF-8
+    body:
+      application/json: 
+        type: hook_post 
   type:
-    collection: 
-      exampleCollectionItemArray: !include hook_array1_5.sample
-      exampleCollectionItem: !include hook1_5.sample
+    threeExampleCollection:
+      exampleCollectionItemArray: !include hook_getAll.sample
+      firstExampleCollectionItem: !include hook_post.sample
+      secondExampleCollectionItem: !include triggered_hook.sample
   /{hook_id}:
-    type: 
-      collectionItem:
-        exampleCollectionItem: !include hook1_5.sample
+    get:
+      responses:
+        200:
+          body:
+            application/json: 
+              type: hook_id 
+    post:
+      body:
+        application/json: 
+          type: hook_post  
+    delete:
+    type:
+      fourExampleAllMethodsCollectionItem:
+        firstExampleCollectionItem: !include hook_getId.sample
+        secondExampleCollectionItem: !include triggered_hook.sample
+        exampleCollectionPostItem: !include hook_post.sample
 /integrations:
   get:
     description: Get a list of available integration templates and statuses.

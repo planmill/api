@@ -1,0 +1,1540 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/triggered_hook",
+  "definitions": {
+    "triggered_hook": {
+      "examples": [
+        "hook_getId.sample",
+        "triggered_hook.sample"
+      ],
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "hook": {
+          "type": "string",
+          "description": "Event identifier"
+        },
+        "eventUser": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "User who triggered the event."
+        },
+        "eventProject": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Project in which event is triggered."
+        },
+        "id": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            }
+          ],
+          "description": "Identifier of the object that triggered the hook. May be array in case of delete hook, in which case no data."
+        },
+        "personName": {
+          "type": "string",
+          "description": "Name of user who triggered the hook, used with absence hooks"
+        },
+        "subject": {
+          "type": "string",
+          "description": "Additional information about the hook object, used with account hooks"
+        },
+        "data": {
+          "anyOf": [
+            {
+              "description": "Payload - JSON of the triggered object. Not supported for all delete cases.",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "absenceType": {
+                  "description": "Type of an absence",
+                  "type": "string"
+                },
+                "description": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Description of an absence"
+                },
+                "finish": {
+                  "description": "Finish date of an absence",
+                  "type": "string"
+                },
+                "person": {
+                  "description": "Absentee and user of a system",
+                  "type": "string"
+                },
+                "start": {
+                  "description": "Start date of an absence",
+                  "type": "string"
+                },
+                "vacationYear": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Vacation year of the user"
+                },
+                "accepterPerson": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Superior of user who accepts an absence"
+                },
+                "interruptionDate": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Interruption date of an absence"
+                },
+                "vacationLength": {
+                  "description": "Length of an absence represented in minutes",
+                  "type": "string"
+                },
+                "project": {
+                  "type": "string",
+                  "description": "Id of absence parent in the task hierarchy"
+                },
+                "id": {
+                  "type": "string",
+                  "description": "Internal ID of an absence"
+                },
+                "status": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Status of an absence"
+                }
+              }
+            },
+            {
+              "description": "Payload - JSON of the triggered object. Not supported for all delete cases.",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "name": {
+                  "description": "Name of Account",
+                  "type": "string"
+                },
+                "passive": {
+                  "description": "Active or passive state of account (Default value 0 - Inactive)",
+                  "type": "string"
+                },
+                "owner": {
+                  "description": "Responsible id of an account (Default value - Creator of an account)",
+                  "type": "string"
+                },
+                "type": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Type of an account (Default value 8 - Prospect)"
+                },
+                "vatId": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "VAT id of an account"
+                },
+                "businessId": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Business id of an account"
+                },
+                "termsOfPayment": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Terms of payment of an invoice (Default value 14 - 14 days)"
+                },
+                "eInvoicingAddress": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "eInvoicing address"
+                },
+                "phone": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Phone number of an account"
+                },
+                "website": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Website of an account"
+                },
+                "email": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "pattern": "^.+@.+\\..+$"
+                    },
+                    {
+                      "type": "string",
+                      "pattern": "^$"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Email address of an account"
+                },
+                "industry": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "serviceLevel": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Service level provided to real company linked to an account"
+                },
+                "customerSatisfaction": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "description": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Description of an account"
+                },
+                "invoiceChannel": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Methods of delivery of invoices"
+                },
+                "invoiceVat": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "VAT on an invoice of an account (Default value 24 - 24%)"
+                },
+                "invoiceNetOperator": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "handlingFee": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Handling fee of an account"
+                },
+                "invoiceEmail": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "pattern": "^.+@.+\\..+$"
+                    },
+                    {
+                      "type": "string",
+                      "pattern": "^$"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Invoice delivery email"
+                },
+                "supplierAccount": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Supplier id of an account"
+                },
+                "reverseCharge": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "twitter": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Twitter name of an account"
+                },
+                "facebook": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Facebook name of an account"
+                },
+                "blog": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Blog address of an account"
+                },
+                "combineInvoices": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "rfReferenceNumber": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "lineOfBusiness": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "staff": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "turnover": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "billingAddress": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Invoice billing address of an account"
+                },
+                "billingCity": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Invoice billing city of an account"
+                },
+                "billingCountry": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Invoice billing country of an account"
+                },
+                "billingPostalCode": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Invoice billing postal code of an account"
+                },
+                "billingState": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "parentAccount": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Parent id of an account"
+                },
+                "shippingAddress": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Invoice shipping address of an account"
+                },
+                "shippingCity": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Invoice shipping city of an account"
+                },
+                "shippingCountry": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Invoice shipping country of an account"
+                },
+                "shippingPostalCode": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Invoice shipping postal code of an account"
+                },
+                "shippingState": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "invoiceAppendix": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "invoiceTemplate": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "autoReplyRequestMails": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Auto-reply request mails"
+                },
+                "billingReference": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "shippingReference": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "id": {
+                  "type": "string",
+                  "description": "Internal ID of an account"
+                },
+                "operationalId": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Operational ID of an account"
+                },
+                "parentAccountName": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "description": "Payload - JSON of the triggered object. Not supported for all delete cases.",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "subject": {
+                  "type": "string",
+                  "description": "Name of an opportunity"
+                },
+                "closed": {
+                  "type": "string",
+                  "description": "Closed date of an opportunity",
+                  "format": "date-time"
+                },
+                "probability": {
+                  "type": "string",
+                  "description": "Probability to win an opportunity"
+                },
+                "status": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Status of an opportunity"
+                },
+                "stage": {
+                  "type": "string",
+                  "description": "Stage of an opportunity"
+                },
+                "source": {
+                  "type": "string",
+                  "description": "Source of an opportunity"
+                },
+                "reason": {
+                  "type": "string",
+                  "description": "Reason of an opportunity"
+                },
+                "partnerContact": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Partner contact name / Account "
+                },
+                "nextStep": {
+                  "type": "string",
+                  "description": "Nextstep of an opportunity"
+                },
+                "request": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Request of an opportunity"
+                },
+                "campaign": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Campaign of an opportunity"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "Business type of an opportunity"
+                },
+                "competitor": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "competitor of an opportunity"
+                },
+                "priority": {
+                  "type": "string",
+                  "description": "Priority level of an opportunity"
+                },
+                "project": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Project id of an opportunity"
+                },
+                "contact": {
+                  "type": "string",
+                  "description": "Contact person id of an opportunity"
+                },
+                "responsible": {
+                  "type": "string",
+                  "description": "Responsible person id of an opportunity"
+                },
+                "description": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Description of an opportunity"
+                },
+                "id": {
+                  "type": "string",
+                  "description": "Internal ID of opportunity"
+                }
+              }
+            },
+            {
+              "description": "Payload - JSON of the triggered object. Not supported for all delete cases.",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Project's name."
+                },
+                "status": {
+                  "type": "string",
+                  "description": "Enumeration of a project's status: 1=Draft, 2=Preliminary, 3=Execution,4=Aborted, 5=Closed, 6=On hold, 8=Archived"
+                },
+                "billableStatus": {
+                  "type": "string",
+                  "description": "Used in enumeration of billableStatus"
+                },
+                "portfolio": {
+                  "type": "string",
+                  "description": "Portfolio id of Project"
+                },
+                "category": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Enumeration of a project's category: -1=NULL , 10=Absence,20=Administration, 30=Development, 40=Delivery, 50=R & D, 60=Support, 70=Sales, 80=Marketing,90=Education, 100=Continuous service, 110=Maintenance"
+                },
+                "contact": {
+                  "type": "string",
+                  "description": "Contact's id that is related to a project, Required only if billable status is 1 or 2"
+                },
+                "invoiceReference": {
+                  "type": "string",
+                  "description": "Invoice reference of a project"
+                },
+                "description": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Description of a project"
+                },
+                "billingAccount": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Billing account  Id of a project - set if different to the account of the contact."
+                },
+                "autoAcceptTimeReports": {
+                  "type": "string",
+                  "description": "Enumeration of autoAcceptTimeReports: 0=No, 1=Yes"
+                },
+                "requireBillableComment": {
+                  "type": "string",
+                  "description": "Enumeration of requireBillableComment: 0=No, 1=For all billabletasks,2=For all tasks"
+                },
+                "setRequestPerformerAsTeamMember": {
+                  "type": "string",
+                  "description": "Enumeration of requestPerformerAsTeamMember: 0=No, 1=Yes"
+                },
+                "requireCommentForOvertime": {
+                  "type": "string",
+                  "description": "Enumeration of requireBillableComment: 0=No, 1=For all billable tasks,2=For all tasks"
+                },
+                "allowNewTasksAndAssignmentsForAllUsers": {
+                  "type": "string",
+                  "description": "Enumeration of allowNewTasksAndAssignmentsForAllUsers: 0=No, 1=Yes,butdonot add them as team members, 2=Yes,and add them as team members"
+                },
+                "autoAssignNewTeamMembers": {
+                  "type": "string",
+                  "description": "Enumeration of autoAssignNewTeamMembers: 0=No, 1=Yes,but only tosubtasks, 2=Yes"
+                },
+                "invoiceAppendix": {
+                  "type": "string",
+                  "description": "Invoice appendix of a project"
+                },
+                "effortUnit": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Effort unit of a project"
+                },
+                "currency": {
+                  "type": "string",
+                  "description": "Currency id of a project"
+                },
+                "fixedRevenue": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Revenue amount of a project"
+                },
+                "fixedWorkEffort": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Work effort hours of a project"
+                },
+                "fixedWork": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Work effort cost of a project"
+                },
+                "budgetedExpense": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Expense amount of a project"
+                },
+                "budgetedPurchase": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Purchase amount of a project"
+                },
+                "id": {
+                  "type": "string",
+                  "description": "Internal ID of a project"
+                },
+                "operationalId": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Operational ID of a project"
+                },
+                "account": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Contact's account Id"
+                },
+                "budgetedTotalCost": {
+                  "type": "string",
+                  "description": "Budgeted cost of a project"
+                },
+                "forecastedTotalCost": {
+                  "type": "string",
+                  "description": "Forecasted cost of a project"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "Enumeration of a project's type: 1=Project, 3=Template"
+                },
+                "dutyType": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "editableByUser": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "description": "Payload - JSON of the triggered object. Not supported for all delete cases.",
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "parent",
+                "name",
+                "id",
+                "project"
+              ],
+              "properties": {
+                "actualStart": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Actual start of the task."
+                },
+                "actualFinish": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Actual start of the task."
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Name of the task. Has to be unique per project."
+                },
+                "type": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "100 = task (default), 101 = milestone, 200 = imported booking."
+                },
+                "start": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Start of the task. If not defined, is not set to January 1970."
+                },
+                "finish": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Finish of the task. If not defined, is not set to January 1970."
+                },
+                "dutyType": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Duty type of the task."
+                },
+                "billableStatus": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Billable status of the task."
+                },
+                "status": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Status of the task."
+                },
+                "parent": {
+                  "type": "string",
+                  "description": "Parent of the task. May be a task or project Id."
+                },
+                "predecessorTask": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Previous task that should be finished first."
+                },
+                "targetEffort": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Target effort of the task."
+                },
+                "unitPrice": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Price of the unit of the task."
+                },
+                "competence": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Competence level of the task."
+                },
+                "wbs": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Work breakdown structure of the task."
+                },
+                "priceType": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Price type of the task."
+                },
+                "description": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Description of the task"
+                },
+                "created": {
+                  "type": "string",
+                  "description": "Timestamp of the task creation."
+                },
+                "modified": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "When task was modified last time."
+                },
+                "plannedEffort": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Planned effort of the task."
+                },
+                "actualEffort": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Actual effort of the task."
+                },
+                "remainingEffort": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Sum of the effort of the assignments."
+                },
+                "totalEffort": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Actual + remaining effort of the task."
+                },
+                "workCompleteness": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Work completeness of the task."
+                },
+                "duration": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Duration of the task."
+                },
+                "totalRemainingEffort": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Total effort - actual effort of the task."
+                },
+                "finishOld": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Old finish of the task. Currently unused legacy field."
+                },
+                "originalFinish": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Original finish of the task. Currently unused legacy field."
+                },
+                "originalStart": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Original start of the task. Currently unused legacy field."
+                },
+                "tempFinish": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Temporary finish of the task. Currently unused legacy field."
+                },
+                "id": {
+                  "type": "string",
+                  "description": "Unique identificator of the task."
+                },
+                "project": {
+                  "type": "string",
+                  "description": "project of the task."
+                }
+              }
+            },
+            {
+              "description": "Payload - JSON of the triggered object. Not supported for all delete cases.",
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "person",
+                "id",
+                "start"
+              ],
+              "properties": {
+                "project": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Id of project having task to report the time"
+                },
+                "person": {
+                  "type": "string",
+                  "description": "User's id"
+                },
+                "start": {
+                  "type": "string",
+                  "description": "Start time of time report. Only date part is used when amount is provided.(Unless clock-times mode is active in users role).",
+                  "format": "date-time"
+                },
+                "amount": {
+                  "type": "string",
+                  "description": "Reported normal time in minutes."
+                },
+                "finish": {
+                  "type": "string",
+                  "description": "Finish time of a time report. May be used instead of amount for a time report. System will then calculate amount. Note for 'overtimeAmount' or 'travelAmount' you must provide an explicit length in minutes."
+                },
+                "status": {
+                  "type": "string",
+                  "description": "Status of a time report"
+                },
+                "comment": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Comments of a time report"
+                },
+                "billingComment": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Billing comment of a time report"
+                },
+                "billableStatus": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "If task's status is billable, time report's status can be either billable or non-billable"
+                },
+                "task": {
+                  "type": "string",
+                  "description": "Id of task for which time is reported"
+                },
+                "overtimeAmount": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Overtime in minutes"
+                },
+                "overtimeComment": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Comment for overtime work"
+                },
+                "travelAmount": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Travel time in minutes"
+                },
+                "travelComment": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Travel time in minutes"
+                },
+                "id": {
+                  "type": "string",
+                  "description": "Internal ID of a time report"
+                },
+                "billableAmount": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Billable amount of time report"
+                },
+                "requireBillableComment": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Used in get requests to indicate if task requires a comment for timereport"
+                },
+                "remainingAmount": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Remaining amount of a time report"
+                },
+                "totalReported": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Total reported time of time report"
+                }
+              }
+            }
+          ],
+          "description": "Payload - JSON of the triggered object. Not supported for all delete cases."
+        }
+      }
+    }
+  }
+}

@@ -1,17 +1,6 @@
 {
-    "hook": "account.update",
-    "eventUser": -1,
-    "id": 1409,
-    "eventProject": -1,
-    "type": 1,
-    "url": "https://endurable-hound.glitch.me/hook"
-}
-
-Triggered hook would look as below 
-
-{
 	"hook": "account.update",
-	"resource": {
+	"data": {
 		"lineOfBusiness": null,
 		"shippingCity": "",
 		"businessId": "",
@@ -63,7 +52,8 @@ Triggered hook would look as below
 		"billingAddress": "",
 		"billingCity": ""
 	},
-	"subject": "Your first prospect name (update)",
+	"personName": "John Smith",
 	"eventUser": 50,
-	"Id": 1320
+	"eventProject": -1,
+	"id": 1320
 }
