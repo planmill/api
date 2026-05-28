@@ -39,7 +39,6 @@ var linkItems = [
   "products_get_response:product_getAll",
   "products_post_request:product_post",
   "products__product_id__get_response:product_getId",
-  "products__product_id__post_request:product_postId",
   "products__product_id__put_request:product_put",
   "projects_get_response:project_getAll",
   "projects_post_request:project_post",
