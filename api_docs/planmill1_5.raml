@@ -2967,6 +2967,33 @@ types:
       billableAmount?:
         type: string | nil
         description: Billable amount of time report
+      invoice?:
+        type: string | nil
+        description: Internal invoice ID of any the invoice of a billable report
+      invoiceposition?:
+        type: string | nil
+        description: Internal invoice position ID of the invoice position of a billable time report
+      salesorder?:
+        type: string | nil
+        description: Internal salesorder ID of the salesorder of a billable time report
+      salesorderitem?:
+        type: string | nil
+        description: Internal salesorder item ID of the salesorder item of a billable time report
+      dutyType?:
+        type: string | nil
+        description: Type of duty
+      unitPrice?:
+        type: string | nil
+        description: Price per unit (hour)
+      created?:
+        type: datetime
+        description: Created date
+      modified?:
+        type: datetime | nil
+        description: Last modified date
+      modifiedBy?:
+        type: string | nil
+        description: Last modified by this person
   timereport_getId_onlystring:
     type: timereport_single_onlystring
     properties:
