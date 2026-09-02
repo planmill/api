@@ -1496,6 +1496,100 @@
                   ],
                   "description": "Billable amount of time report"
                 },
+                "invoice": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Internal invoice ID of any the invoice of a billable report"
+                },
+                "invoiceposition": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Internal invoice position ID of the invoice position of a billable time report"
+                },
+                "salesorder": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Internal salesorder ID of the salesorder of a billable time report"
+                },
+                "salesorderitem": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Internal salesorder item ID of the salesorder item of a billable time report"
+                },
+                "dutyType": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Type of duty"
+                },
+                "unitPrice": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Price per unit (hour)"
+                },
+                "created": {
+                  "type": "string",
+                  "description": "Created date",
+                  "format": "date-time"
+                },
+                "modified": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Last modified date"
+                },
+                "modifiedBy": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Last modified by this person"
+                },
                 "requireBillableComment": {
                   "anyOf": [
                     {
