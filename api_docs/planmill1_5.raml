@@ -2408,7 +2408,7 @@ types:
       amount?:
         type: number
         description: Required if finish is not provided. Reported normal time in minutes. 
-  timereport_single:
+  timereport_get:
     type: timereport_base
     properties:
       id?:
@@ -2417,27 +2417,12 @@ types:
       billableAmount?:
         type: integer | nil
         description: Billable amount of time report
-  timereport_getId:
-    type: timereport_single
-    properties:
-      requireBillableComment?:
-        type: integer | nil
-        description: Used in get requests to indicate if task requires a comment for timereport
-      remainingAmount?:
-        type: integer | nil
-        description: Remaining amount of a time report 
-      totalReported?:
-        type: integer | nil
-        description: Total reported time of time report
-  timereport_get:
-    type: timereport_single
-    properties:
       invoice?:
         type: integer | nil
         description: Internal invoice ID of any the invoice of a billable report
       invoiceposition?:
         type: integer | nil
-        description: Internal invoice position ID of the invoice position of a billable time report 
+        description: Internal invoice position ID of the invoice position of a billable time report
       salesorder?:
         type: integer | nil
         description: Internal salesorder ID of the salesorder of a billable time report
@@ -2454,11 +2439,23 @@ types:
         type: datetime
         description: Created date
       modified?:
-        type: datetime
+        type: datetime | nil
         description: Last modified date
       modifiedBy?:
         type: integer | nil
         description: Last modified by this person
+  timereport_getId:
+    type: timereport_get
+    properties:
+      requireBillableComment?:
+        type: integer | nil
+        description: Used in get requests to indicate if task requires a comment for timereport
+      remainingAmount?:
+        type: integer | nil
+        description: Remaining amount of a time report
+      totalReported?:
+        type: integer | nil
+        description: Total reported time of time report
   timereport_getAll:
     type: timereport_get[]
   user: !include user1_5.schema
@@ -2970,6 +2967,33 @@ types:
       billableAmount?:
         type: string | nil
         description: Billable amount of time report
+      invoice?:
+        type: string | nil
+        description: Internal invoice ID of any the invoice of a billable report
+      invoiceposition?:
+        type: string | nil
+        description: Internal invoice position ID of the invoice position of a billable time report
+      salesorder?:
+        type: string | nil
+        description: Internal salesorder ID of the salesorder of a billable time report
+      salesorderitem?:
+        type: string | nil
+        description: Internal salesorder item ID of the salesorder item of a billable time report
+      dutyType?:
+        type: string | nil
+        description: Type of duty
+      unitPrice?:
+        type: string | nil
+        description: Price per unit (hour)
+      created?:
+        type: datetime
+        description: Created date
+      modified?:
+        type: datetime | nil
+        description: Last modified date
+      modifiedBy?:
+        type: string | nil
+        description: Last modified by this person
   timereport_getId_onlystring:
     type: timereport_single_onlystring
     properties:
