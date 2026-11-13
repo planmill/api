@@ -2440,7 +2440,7 @@ types:
         description: Created date
       modified?:
         type: datetime | nil
-        description: Last modified date
+        description: Last modified date. Also updated when only joined data of the time report changes, such as its unit price, billable status, sales order, sales order item or invoice position
       modifiedBy?:
         type: integer | nil
         description: Last modified by this person
@@ -2990,7 +2990,7 @@ types:
         description: Created date
       modified?:
         type: datetime | nil
-        description: Last modified date
+        description: Last modified date. Also updated when only joined data of the time report changes, such as its unit price, billable status, sales order, sales order item or invoice position
       modifiedBy?:
         type: string | nil
         description: Last modified by this person
