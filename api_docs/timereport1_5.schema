@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "base schema for all timereport entities",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "dutyType": {
+      "type": "string"
+    },
+    "project": {
+      "type": "integer"
+    },
+    "salesorder": {
+      "type": "string"
+    },
+    "billableAmount": {
+      "type": "integer"
+    },
+    "modified": {
+      "type": "string"
+    },
+    "finish": {
+      "type": "string"
+    },
+    "modifiedBy": {
+      "type": "string"
+    },
+    "id": {
+      "type": "integer"
+    },
+    "travelAmount": {
+      "type": "string"
+    },
+    "unitPrice": {
+      "type": "number"
+    },
+    "amount": {
+      "type": "string"
+    },
+    "created": {
+      "type": "string"
+    },
+    "start": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "invoiceposition": {
+      "type": "string"
+    },
+    "billableStatus": {
+      "type": "integer"
+    },
+    "overtimeAmount": {
+      "type": "string"
+    },
+    "task": {
+      "type": "string"
+    },
+    "billingComment": {
+      "type": "string"
+    },
+    "person": {
+      "type": "string"
+    },
+    "salesorderitem": {
+      "type": "string"
+    },
+    "comment": {
+      "type": "string"
+    },
+    "overtimeComment": {
+      "type": "string"
+    },
+    "invoice": {
+      "type": "number"
+    },
+    "travelComment": {
+      "type": "string"
+    },
+    "status": {
+      "type": "integer"
+    }
+  }
+}
