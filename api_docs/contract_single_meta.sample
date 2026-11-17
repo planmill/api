@@ -1,0 +1,187 @@
+{
+    "supplierId": {
+        "type": "string",
+        "caption": "",
+        "format": "int",
+        "description": "",
+        "values": null
+    },
+    "contactId": {
+        "type": "string",
+        "caption": "",
+        "format": "int",
+        "description": "",
+        "values": null
+    },
+    "created": {
+        "type": "string",
+        "caption": "",
+        "format": "string",
+        "description": "",
+        "values": null
+    },
+    "description": {
+        "type": "string",
+        "caption": "",
+        "format": "string",
+        "description": "",
+        "values": null
+    },
+    "validFrom": {
+        "type": "string",
+        "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+        "caption": "Valid from",
+        "format": "string",
+        "description": "",
+        "values": null
+    },
+    "operationalId": {
+        "type": "string",
+        "caption": "Contract ID",
+        "format": "string",
+        "description": "",
+        "maxlength": "100",
+        "values": null
+    },
+    "type": {
+        "type": "string",
+        "caption": "Type",
+        "format": "int",
+        "description": "",
+        "enumeration": "Enumeration values.Sales management.Contracts.Type",
+        "values": {
+            "Continuous services": "6",
+            "SLA": "2",
+            "NDA": "1",
+            "Frame agreement": "7",
+            "Sales contract": "3",
+            "-": "-1",
+            "Purchase agreement": "5",
+            "Finance agreement": "8",
+            "Delivery contract": "4"
+        }
+    },
+    "termOfNotice": {
+        "type": "string",
+        "value": "30",
+        "caption": "Term of notice",
+        "format": "int",
+        "description": "",
+        "enumeration": "Enumeration values.Sales management.Contracts.TermOfNotice",
+        "values": {
+            "2 Years": "720",
+            "12 Months": "360",
+            "14 Days": "14",
+            "5 Months": "150",
+            "6 Months": "180",
+            "4 Months": "120",
+            "3 Years": "1080",
+            "-": "-1",
+            "5 Years": "1800",
+            "30 Days": "30",
+            "2 Months": "60",
+            "3 Months": "90",
+            "18 Months": "540",
+            "7 Days": "7",
+            "4 Years": "1440"
+        }
+    },
+    "customerName": {
+        "type": "string",
+        "caption": "Customer",
+        "format": "string",
+        "description": "",
+        "values": null
+    },
+    "opportunityId": {
+        "type": "string",
+        "caption": "",
+        "format": "int",
+        "description": "",
+        "values": null
+    },
+    "createdBy": {
+        "type": "string",
+        "caption": "",
+        "format": "int",
+        "description": "",
+        "values": null
+    },
+    "name": {
+        "type": "string",
+        "caption": "Name",
+        "format": "string",
+        "description": "",
+        "maxlength": "255",
+        "values": null
+    },
+    "customerId": {
+        "type": "string",
+        "caption": "",
+        "format": "int",
+        "description": "",
+        "values": null
+    },
+    "validUntil": {
+        "type": "string",
+        "calendar": "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+        "caption": "Valid until",
+        "format": "string",
+        "description": "",
+        "values": null
+    },
+    "modified": {
+        "type": "string",
+        "caption": "",
+        "format": "string",
+        "description": "",
+        "values": null
+    },
+    "responsibleId": {
+        "type": "string",
+        "caption": "Responsible person",
+        "values": {
+            "356": "User (update), First",
+            "User (update), First": 356
+        },
+        "format": "int",
+        "description": ""
+    },
+    "modifiedBy": {
+        "type": "string",
+        "caption": "",
+        "format": "int",
+        "description": "",
+        "values": null
+    },
+    "id": {
+        "type": "string",
+        "caption": "",
+        "format": "int",
+        "description": "",
+        "values": null
+    },
+    "projectId": {
+        "type": "string",
+        "caption": "",
+        "format": "int",
+        "description": "",
+        "values": null
+    },
+    "status": {
+        "type": "string",
+        "caption": "Status",
+        "format": "int",
+        "description": "",
+        "enumeration": "Enumeration values.Sales management.Contracts.Status",
+        "values": {
+            "5. Signed": "50",
+            "3. Accepted": "30",
+            "2. Ready for acceptance": "20",
+            "1. Draft": "10",
+            "6. Unsigned": "60",
+            "7. Terminated": "70",
+            "4. Rejected": "40"
+        }
+    }
+}

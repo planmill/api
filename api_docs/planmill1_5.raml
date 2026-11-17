@@ -47,7 +47,9 @@ documentation:
 
       Clone us in Github https://github.com/planmill/api.git
 
-      Refer https://github.com/planmill/api/wiki/WebHooks for how to register hooks 
+      Refer https://github.com/planmill/api/wiki/WebHooks for how to register hooks.
+
+      When posting datetime-fields, time must be according to local time in default timezone of the instance.	  
 
 traits:
   all:
@@ -266,7 +268,7 @@ types:
         type: datetime
   absence_getAll:
     type: absence[]
-  account_postId: 
+  account_base: 
     additionalProperties: false
     properties:
       name?:
@@ -354,7 +356,6 @@ types:
       billingPostalCode?:
         description: Invoice billing postal code of an account
         type: string | nil
-      billingReference?: string | integer | nil
       billingState?: string | nil
       parentAccount?:
         description: Parent id of an account
@@ -371,13 +372,17 @@ types:
       shippingPostalCode?: 
         description: Invoice shipping postal code of an account
         type: string | nil
-      shippingReference?: string | nil
       shippingState?: string | nil
       invoiceAppendix?: integer | nil
       invoiceTemplate?: string | nil
       autoReplyRequestMails?:
         description: Auto-reply request mails
         type: integer | nil
+  account_postId:
+    type: account_base
+    properties:
+      billingReference?: string | integer | nil
+      shippingReference?: string | nil	
   account_getId:
     type: account_postId
     properties: 
@@ -390,8 +395,16 @@ types:
       parentAccountName?: 
         type: string | nil
   account:
-    type: account_getId
+    type: account_base
     properties:
+      id?:
+        type: integer
+        description: Internal ID of an account
+      operationalId?:         
+        type: integer | nil
+        description: Operational ID of an account
+      parentAccountName?: 
+        type: string | nil
       activeContacts?: integer
       created?: 
         type: datetime
@@ -417,8 +430,28 @@ types:
         type: integer | nil
         description: Operational ID of an account
   action: !include action1_5.schema
-  batch: !include batch1_5.schema
+  batch_post:
+    type: batch_single[]
+    description: base schema for all batch entities.
+  batch_single:
+    additionalProperties: false
+    properties:
+      destination:
+        type: string
+        description: API Resource-URI, that might have the ID included.
+      method:
+        additionalProperties: false
+        type: string
+        enum: [POST, DELETE, GET]
+        description: HTTP-method that defines the execution implementation.
+      headers:
+        additionalProperties: false
+        type: object
+        description: JSON-Object includes all the individual header parameters needed for each request.
+      body?:
+        type: object[] | object  
   campaign: !include campaign1_5.schema
+  capacitycalendar: !include user_capacitycalendars1_5.schema
   company:
     additionalProperties: false
     properties:
@@ -514,7 +547,6 @@ types:
     type: company
   company_getAll:
     type: company_getId[]
-  capacitycalendar: !include user_capacitycalendars1_5.schema
   contact_base:
     additionalProperties: false
     properties:
@@ -681,6 +713,192 @@ types:
         type: integer | nil 
   contact_getAll:
     type: contact[]
+  contract_postId:
+    additionalProperties: false
+    properties:
+      contactId?:
+        type: integer
+        description: Unique identifier of the contact person of the contract
+      customerId?:
+        type: integer | nil 
+        description: Unique identifier of the customer of the contract
+      customerName?:
+        type: string | nil
+        description: Name of the customer of the contract
+      description?: 
+        type: string | nil
+        description: Description of the contract
+      name?: 
+        type: string
+        description: Name of the contract 
+      operationalId?: 
+        type: integer | string |nil
+        description: Operational Id of the contract 
+      opportunityId?: 
+        type: integer | nil
+        description: Unique identifier of the opportunity of the contract
+      projectId?:
+        type: integer | nil
+        description: Unique identifier of the project of the contract
+      responsibleId?:
+        type: integer | nil
+        description: Unique identifier of the responsable user of the contract
+      status?: 
+        type: integer | nil
+        description: Status integer code of contract. 
+      supplierId?:
+        type: integer | nil
+        description: Unique identifier of the contact person of the supplier of the contract    
+      termOfNotice?: 
+        type: integer | nil
+        description: Term of Notice integer code of contract in days
+      type?: 
+        type: integer | nil
+        description: Type integer code of the contract 
+      validFrom: 
+        type: datetime
+        description: Start of validity period of the contract
+      validUntil?: 
+        type: datetime | nil
+        description: End of validity period of the contract 	 		
+  contract_post:
+    type: contract_postId
+    properties:
+      id?:
+        type: integer
+        description: Unique identifier of the contract 
+  contract_getId:
+    type: contract_postId
+    properties: 
+      id:
+        type: integer
+        description: Unique identifier of the contract
+      created: 
+        type: datetime
+        description: When contract was created
+      createdBy: 
+        type: integer
+        description: Unique identifier of the user who created the contract
+      modified?: 
+        type: datetime | nil
+        description: When contract was last time modified
+      modifiedBy?: 
+        type: integer | nil
+        description: Unique identifier of the user who modified contract last time
+  contract_getAll:
+    type: contract_getId[]
+  contractitem:
+    additionalProperties: false
+    properties:
+      billingType: 
+        type: integer | nil
+        description: Billing type of the contract item 
+      competenceId?: 
+        type: integer | nil
+        description: Unique identifier of a competence related to the contract item 
+      contractId: 
+        type: integer
+        description: Id of the contract of the item 
+      costCenter?: 
+        type: integer | nil
+        description: Unique identifier of the cost center of the contract item 
+      currency?: 
+        type: integer | nil
+        description: Currency conversion rate at the time of creation of the contract 
+      description?: 
+        type: string | nil
+        description: Description of the contract
+      discount?: 
+        type: number | nil
+        description: Discount rate of the contract item
+      id:
+        type: integer
+        description: Unique identifier of the contract
+      invoiceProcess?:
+        type: integer | nil
+        description: Invoice process of the contract item
+      invoicingPeriod?:
+        type: integer | nil
+        description: Invoicing period type of the contract item
+      name: 
+        type: string
+        description: Name of the contract item, usually product name 
+      operationalId?: 
+        type: integer | string |nil
+        description: Operational Id of the contract item
+      orderNumber?: 
+        type: integer | nil
+        description: Sales orde number of the contract item
+      orderStatus?: 
+        type: integer | nil
+        description: Status of the corresponding sales order 
+      personId?: 
+        type: integer | nil
+        description: Unique identifier of a person related to the contract item
+      productId?: 
+        type: integer | nil
+        description: Unique identifier of the product of the item
+      quantity?: 
+        type: number | nil
+        description: Quantity of the product in contract item
+      revenueType?: 
+        type: integer | nil
+        description: Revenue type of the contract item
+      salesAccount?: 
+        type: integer | nil
+        description: Sales account of the contract item
+      sellingPrice?: 
+        type: number | nil
+        description: Selling price of the contract item
+      taskId?: 
+        type: integer | nil
+        description: Unique identificator of the corresponding task
+      unit?: 
+        type: integer | nil
+        description: Unit of the product in contract item
+      validFrom: 
+        type: string
+        description: Start of validity period of the contract
+      validUntil?: 
+        type: string | nil
+        description: End of validity period of the contract 	 		
+      created?: 
+        type: string | nil
+        description: When contract was created
+      createdBy: 
+        type: integer
+        description: Unique identifier of the user who created the contract
+      modified?: 
+        type: string | nil
+        description: When contract was last time modified
+      modifiedBy?: 
+        type: integer | nil
+        description: Unique identifier of the user who modified contract last time
+      warrantyPeriod?: 
+        type: integer | nil
+        description: Warranty period of the contract item in days
+      vat?: 
+        type: integer | nil
+        description: VAT of the contract item
+  contractitem_getAll:
+    type: contractitem[]
+  costcentersplitting:
+    additionalProperties: false
+    properties:
+      id:
+        type: integer
+        description: Unique identifier of a cost center splitting
+      salesOrderItemId:
+        type: integer
+        description: Sales order item of a cost center splitting
+      costCenterId:
+        type: integer
+        description: Cost center id of a cost center splitting
+      percentage:
+        type: number
+        description: Share of the cost center splitting (sum of shares over sales order item is 100)
+  costcentersplitting_getAll:
+    type: costcentersplitting[]
   email:
     type: string  
     pattern: "^.+@.+\\..+$"
@@ -688,7 +906,64 @@ types:
     type: string  
     pattern: "^$"
   expense: !include expense1_5.schema
-  hook: !include hook1_5.schema
+  hook_base:
+    type: object
+    additionalProperties: false
+    properties:
+      hook?:
+        type: string
+        description: Event identifier
+      eventUser?:
+        type: integer | string |nil
+        description: User who triggered the event. 
+      eventProject?:
+        type: integer | nil
+        description: Project in which event is triggered. 
+  hook_endpoint_base:
+    type: hook_base
+    additionalProperties: false
+    properties:
+      includePayload?:
+        type: integer | nil
+        description: 0 - no payload, 1 - payload included.
+      type?:
+        type: integer | nil
+        description: 1 - Webhook, 2 - GCM hook. GCM hooks currently not supported. 
+      url?:
+        type: string
+        description: Subscription URL that will be posted with data when event is triggered
+  hook_post:
+    type: hook_endpoint_base
+    properties:
+      hook:
+        type: string
+        description: Event identifier
+      url:
+        type: string
+        description: Subscription URL that will be posted with data when event is triggered
+  hook_getId:
+    type: hook_endpoint_base
+    properties:
+      id?:
+        type: integer
+        description: Unique subscription identifier
+  hook_getAll:
+    type: hook_getId[]  
+  triggered_hook:
+    type: hook_base
+    properties:
+      id:
+        type: integer | integer[]
+        description: Identifier of the object that triggered the hook. May be array in case of delete hook, in which case no data. 
+      personName?:
+        type: string
+        description: Name of user who triggered the hook, used with absence hooks
+      subject?:
+        type: string
+        description: Additional information about the hook object, used with account hooks       
+      data?:
+        type: absence_getId_onlystring | account_getId_onlystring | opportunity_getId_onlystring | project_getId_onlystring | task_getId_onlystring | timereport_getId_onlystring
+        description: Payload - JSON of the triggered object. Not supported for all delete cases.  
   integrator_base:
     additionalProperties: false
     properties:
@@ -789,7 +1064,7 @@ types:
     type: integratortype_base
     properties:
       typeId?:
-        description: Unique identificator for each integrator type
+        description: Unique identifier for each integrator type
         type: integer
   integratortype_getAll:
     type: integratortype_getId[]
@@ -909,6 +1184,160 @@ types:
         description: Status of payment
   invoice_getAll:
     type: invoice[]
+  invoiceitem:
+    additionalProperties: false
+    properties:
+      id?:
+        type: integer
+        description: Unique identifier of invoice item.
+      invoiceId?:
+        type: integer
+        description: Unique identifier of the invoice of the item.
+      invoicePositionId?:
+        type: integer
+        description: Unique identifier of the corresponding invoice position.
+      vat?:
+        type: number | nil
+        description: VAT of the item.
+      status?:
+        type: integer | nil
+        description: Status of the item.
+      type?:
+        type: integer | nil
+        description: Type of the item.
+      amount?:
+        type: number | nil
+        description: Amount of the item.
+      unitPrice?:
+        type: number | nil
+        description: Unit price of the item.
+      account?:
+        type: integer | nil
+        description: Account of the item.
+      item?:
+        type: string | nil
+        description: Description of the item.
+      unit?:
+        type: integer | nil 
+        description: Unit of the item.
+      performer?:
+        type: string | nil
+        description: Depends on case. In case of expense, user who created the expense.
+      discount?:
+        type: number | nil
+        description: Discount of the item.
+      task?:
+        type: string | nil
+        description: Name of the task of the invoice.
+      revenueType?:
+        type: integer | nil
+        description: Revenue type of the item.
+      orderNumber?:
+        type: integer | nil
+        description: Number of the corresponding order.
+      creditInvoicePositionId?:
+        type: integer | nil
+        description: Invoice position of the corresponding credit note.
+      salesOrderItemId?:
+        type: integer | nil
+        description: Unique identifier of the corresponding sales order item.
+      costCenter?:
+        type: integer | nil
+        description: Cost center type of the item.
+      taskId?:
+        type: integer | nil
+        description: Unique identifier of the task of the invoice.
+  invoiceitem_getAll:
+    type: invoiceitem[]
+  invoiceposition:
+    additionalProperties: false
+    properties:
+      id?:
+        type: integer
+        description: Unique identifier of invoiceposition.
+      invoiceId?:
+        type: integer
+        description: Unique identifier of the invoice of the position.
+      name?:
+        type: string | nil
+        description: Name of the position.
+      plannedAmount?:
+        type: number | nil
+        description: Planned amount of the invoiceposition.
+      actualAmount?:
+        type: number | nil
+        description: Actual amount of the invoiceposition.
+      invoicedAmount?:
+        type: number | nil
+        description: Invoiced amount of the invoiceposition.
+      plannedEffort?:
+        type: number | nil
+        description: Planned effort of the invoiceposition.
+      actualEffort?:
+        type: number | nil
+        description: Actual effort of the invoiceposition.
+      unitPrice?:
+        type: number | nil
+        description: Unit price of the invoiceposition.
+      status?:
+        type: integer | nil
+        description: Status of the item.
+      plannedDate?:
+        type: string | nil
+        description: Planned date of the invoiceposition.
+      description?:
+        type: string | nil
+        description: Description of the item.
+      billingRule?:
+        type: integer | nil
+        description: Billing rule of the item.
+      type?:
+        type: integer | nil
+        description: Type of the item.
+      comment?:
+        type: string | nil
+        description: Comment of the position.
+      periodStartDate?:
+        type: string | nil
+        description: Start date of the invoiceposition period
+      periodLength?:
+        type: integer | nil
+        description: length of the invoice position period.
+      quantity?:
+        type: number | nil
+        description: Quantity of the invoiceposition.
+      unit?:
+        type: integer | nil
+        description: Unit of the invoiceposition.
+      salesOrderItemId?:
+        type: integer | nil
+        description: Unique identifier of the corresponding sales order item.
+      salesOrderId?:
+        type: integer | nil
+        description: Unique identifier of the salesorder of the invoice position.
+      projectId?:
+        type: integer | nil
+        description: Unique identifier of the project of the task.
+      costCenter?:
+        type: integer | nil
+        description: Cost center of the position.
+      productOperationalId?:
+        type: integer | nil
+        description: Operational id of the product of the invoiceposition.
+      created?: 
+        type: string
+        description: Date when the invoice position was created.
+      createdBy?: 
+        type: string | integer | nil
+        description: Unique identifier of the person who created invoice position.
+      modified?: 
+        type: string | nil 
+        description: Date when the invoice position was modified last time.
+      modifiedBy?: 
+        type: string | integer | nil
+        description: Unique identifier of the person who did latest modification to invoice position.
+  invoiceposition_getAll:
+    type: invoiceposition[]
   mail: !include request_mail1_5.schema 
   opportunity_base:
     additionalProperties: false
@@ -951,7 +1380,10 @@ types:
         description: "Business type of an opportunity"
       competitor?:
         type: integer | nil
-        description: "competitor of an opportunity" 
+        description: "competitor of an opportunity"
+      priority?:
+        type: integer
+        description: "Priority level of an opportunity"
   opportunity_common:
     type: opportunity_base
     properties:
@@ -964,9 +1396,6 @@ types:
       responsible?:
         type: integer
         description: "Responsible person id of an opportunity"
-      priority?:
-        type: integer
-        description: "Priority level of an opportunity"
       description?:
         type: string | nil
         description: "Description of an opportunity"
@@ -1257,8 +1686,190 @@ types:
         description: "Amount of hours (in minutes) reported to a project"
   project_getAll:
     type: project[]
-  product: !include product_getAll.schema
+  product_base: 
+    additionalProperties: false
+    properties:
+      name?:
+        description: The name of the product
+        type: string
+      productGroup?:
+        description: product group
+        type: integer | nil
+      project?:
+        description: Project id of the product
+        type: integer | nil
+      owner?:
+        description: owner of the product
+        type: integer | nil
+      customer?:
+        description: customer id 
+        type: integer | nil
+      invoiceProcess?:
+        description: The Invoice process state  of the product
+        type: string | nil
+      dutyType?:
+        description: duty Type
+        type: integer | nil
+      productType?:
+        description: product type
+        type: integer 
+      minimumAmountToBeSold?:
+        description: minimum amount to be sold  of the product
+        type: number | nil
+      targetEffort?:
+        description: targeted effort  of the product
+        type: integer | nil
+      revenueType?:
+        description: revenue type  of the product
+        type: integer | nil
+      operationalId?:
+        description: operationalId of the product
+        type: integer | nil | string
+      validUntil?:
+        type: datetime | nil
+        description: "Valid until date of the product"
+      competence?:
+        description: competence id of the product
+        type: integer | nil
+      sellingPrice?:
+        description: selling price of the product
+        type: number
+      warrantyPeriod?:
+        description: warranty period of the product
+        type: integer | string | nil
+      link1?:
+        description: link 1  of the product
+        type: string | nil
+      link2?:
+        description: link 2  of the product
+        type: string | nil
+      link3?:
+        description: link 3  of the product
+        type: string | nil
+      link4?:
+        description: link 4  of the product
+        type: string | nil
+      billingType?:
+        description: billing type of the product
+        type: integer | nil
+      vendor?:
+        description: vendor id of the product
+        type: integer | nil
+      supplier?:
+        description: supplier id of the product
+        type: integer | nil
+      relatedToPerson?:
+        description: person id to whom product related to
+        type: integer | nil
+      invoicingPeriod?:
+        description: invoicing period id of the product
+        type: integer | nil
+      quantity?:
+        description: quantity of the product
+        type: integer | nil
+      costCenter?:
+        description: cost center of the product
+        type: integer | nil
+      vat?:
+        description: VAT of the product
+        type: number | nil
+      publishToStore?:
+        description: publish to store of the product
+        type: integer | string | nil
+      passive?:
+        description: passive state of the product
+        type: integer | nil
+      contractPeriod?:
+        description: contract period id of the product
+        type: integer | nil
+      unit?:
+        description: unit of the product
+        type: integer | string | nil
+      selfCost?:
+        description: self cost of the product
+        type: number | nil
+      searchKeywords?:
+        description: search key words of the product
+        type: string | nil
+      discount?:
+        type: integer | nil
+        description: "item discount"
+      type?:
+        type: integer | nil
+        description: "Type of product"
+      description?:
+        description: product description of the product
+        type: string | nil
+      shortDescription?:
+        description: short product description of the product
+        type: string | nil
+      comment?:
+        description: comments about the product
+        type: string | nil
+      created?:
+        type: datetime | nil
+        description: Timestamp of the product creation.
+      createdBy?:
+        type: string | integer | nil
+        description: When product was modified last time. 
+      task?:
+        description: task of the product
+        type: string | nil
+      salesAccount?:
+        type: integer | nil
+        description: "Sales account of product"
+      modified?:
+        type: datetime | nil
+        description: Last modified date
+      modifiedBy?:
+        type: integer | nil
+        description: Last modified by this person
+  product_postId:
+    type: product_base
+    properties:
+      productType:
+        description: product type
+        type: integer
+      validFrom:
+        type: datetime
+        description: "valid from date of the product"
+  product_getId:
+    type: product_base
+    properties: 
+      id?:
+        type: integer
+        description: Internal ID of product
+      validFrom?:
+        type: datetime | nil
+        description: "valid from date of the product"
+  product_getAll:
+     type: product_getId[]
+  product_post:
+    type: product_postId
+    properties: 
+      name:
+        description: Name of the product
+        type: string
+  product_put:
+    type: product_post
   pricebook: !include pricebook1_5.schema
+  publicholiday:
+    additionalProperties: false
+    properties:
+      id:
+        type: integer
+        description: Unique identifier of a public holiday.
+      capacityCalendarId:
+        type: integer
+        description: Capacity calendar of a public holiday. Each calendar has a separate holiday listing.
+      date:
+        type: string
+        description: Date of a public holiday.
+      description:
+        type: string
+        description: Description of a public holiday.
+  publicholiday_getAll:
+    type: publicholiday[]
   salesorder_base:
     additionalProperties: false
     properties:
@@ -1292,6 +1903,9 @@ types:
       billingAccount?:
         type: integer | nil
         description: "Billing account id of a customer's account"
+      contractDPS?:
+        type: integer | nil
+        description: "Contract DPS field for Hansel agreements"
   salesorder_common:
     type: salesorder_base
     properties:
@@ -1312,7 +1926,7 @@ types:
         description: "Id of a related project"
       languageAndCurrency?:
         type: string
-        description: "language And Currency"
+        description: "Language snd currency, is name of the corresponding xsl file f.e. planmill_en_eur.xsl"
       request?:
         type: integer | nil
         description: "Id of a related request"
@@ -1351,16 +1965,10 @@ types:
         description: "Contact person of a customer's account"
       languageAndCurrency:
         type: string
-        description: "language And Currency"
+        description: "Language snd currency, is name of the corresponding xsl file f.e. planmill_en_eur.xsl"
       supplierContact?:
         type: string
-        description: "Name of a supplier contact person.Required if contact field is missing"
-      quoteDate?:
-        type: datetime
-        description: "Start date of a quote"
-      quoteUntil?:
-        type: datetime
-        description: "Finish date of a quote"
+        description: "Name of a supplier contact person.Required if contact field is missing
       shippingAccount?:
         type: integer | nil
         description: "Id of a shipping account" 
@@ -1498,9 +2106,244 @@ types:
         type: integer | nil
         description: "Id of a shipping account" 
   salesorder_getAll:
-    type: salesorder[]       
+    type: salesorder[]
+  salesorderitem_post:
+    additionalProperties: false
+    properties:
+      name?:
+        type: string
+        description: "Name of a salesorder item"
+      product?:
+        type: string | nil
+        description: "Sales order item product id"
+      operationalId?:
+        type: integer | nil
+        description: "Sales order item operational id"
+      quantity?:
+        type: integer | nil
+        description: "Sales order item quantity"
+      unit?:
+        type: integer | nil
+        description: "Sales order item unit value"
+      sellingPrice?:
+        type: number | nil
+        description: "Sales order item selling price"
+      selfCost?:
+        type: integer | nil
+        description: "Sales order item self cost"
+      discount?:
+        type: integer | nil
+        description: "Sales order item discount"
+      billingType?:
+        type: integer
+        description: "Sales order item billing type"
+      orderStatus?:
+        type: integer | nil
+        description: "Sales order item order status"
+      invoicingPeriod?:
+        type: integer | nil
+        description: "Sales order item invoicing period type"
+      warrantyPeriod?:
+        type: integer | nil
+        description: "Sales order item warranty period"
+      contractPeriod?:
+        type: integer | nil
+        description: "Period of the corresponding contract"
+      VAT?:
+        type: integer | nil
+        description: "Sales order item VAT value"
+      revenueType?:
+        type: integer | nil
+        description: "Sales order item revenue type: 0= Own New License, 1=Own Maintenance License, 2=3rd Party New License, 3=3rd Party Maintenance License, 4=Services, 5=Hoisting,6=Travel Expenses, 7=Other, 8=Subscription, 9=3rd Party Subscription"
+      validFrom?:
+        type: datetime
+        description: "Sales order item valid start date"
+      validUntil?:
+        type: datetime
+        description: "Sales order item ending valid date"
+      contractItem?:
+        type: integer | nil
+        description: "Sales order item contract item"
+      invoiceProcess?:
+        type: integer | nil
+        description: "Sales order item invoice process"
+      costCenter?:
+        type: integer | nil
+        description: "Sales order item cost center"
+      salesAccount?:
+        type: integer | nil
+        description: "Sales account of sales order item"
+      task?:
+        type: integer | nil
+        description: "Sales order item task id"
+      generatePriceType?:
+        type: integer | nil
+        description: "Sales order item price type"
+      competence?:
+        type: integer | nil
+        description:  "Sales order item competence"
+      person?:
+        type: integer | nil
+        description: "Sales order item person id"
+      description?:
+        type: string | nil
+        description: "Sales order item description"
+      salesorder?:
+        type: integer | nil
+        description: "Sales order that the sales order item belongs to"
+      createTask?:
+        type: integer | nil
+        description: "Create a corresponding task, for GET always 0"
+  salesorderitem_get:
+    type: salesorderitem_post
+    properties: 
+      id?:
+        type: integer
+        description: "Unique identificator of a salesorder item"
+  salesorderitem_getId:
+    type: salesorderitem_post
+    properties: 
+      volumePrice?:
+        type:  integer | nil
+        description: "Id of highest quantity volume price"
+      volumePriceLimit?:
+        type:  integer | nil
+        description: "Volume price active from which quantity., iff null, highest quantity price"
+      volumePriceCeiling?:
+        type:  integer | nil
+        description: "Price of highest quantity volume price"
+  salesorderitem_getAll:
+    type: salesorderitem_get[]
   team: !include team1_5.schema
   resource: !include resource1_5.schema
+  task_base:
+    additionalProperties: false
+    properties:
+      actualStart?:
+        type: datetime | nil
+        description: Actual start of the task.
+      actualFinish?:
+        type: string | nil
+        description: Actual start of the task.
+      name:
+        type: string
+        description: Name of the task. Has to be unique per project.
+      type:
+        type: integer | nil
+        description: 100 = task (default), 101 = milestone, 200 = imported booking.
+      start?:
+        type: datetime | nil
+        description: Start of the task. If not defined, is not set to January 1970.
+      finish?:
+        type: datetime | nil
+        description: Finish of the task. If not defined, is not set to January 1970.
+      dutyType?:
+        type: integer | nil
+        description: Duty type of the task.
+      billableStatus?:
+        type: integer | nil
+        description: Billable status of the task.
+      status?:
+        type: integer | nil
+        description: Status of the task. 
+      parent:
+        type: integer
+        description: Parent of the task. May be a task or project Id.
+      predecessorTask?:
+        type: integer | nil
+        description: Previous task that should be finished first. 
+      targetEffort?:
+        type: integer | nil
+        description: Target effort of the task.
+      unitPrice?:
+        type: number | nil
+        description: Price of the unit of the task.
+      competence?:
+        type: integer | nil
+        description: Competence level of the task.
+      wbs?:
+        type: string | nil
+        description: Work breakdown structure of the task.
+      priceType?:
+        type: integer | nil
+        description: Price type of the task.
+      description?:
+        type: string | nil
+        description: Description of the task
+      created?:
+        type: datetime
+        description: Timestamp of the task creation.
+      modified?:
+        type: datetime | nil
+        description: When task was modified last time. 
+      plannedEffort?:
+        type: number | nil
+        description: Planned effort of the task.
+      actualEffort?:
+        type: number | nil
+        description: Actual effort of the task.
+      remainingEffort?:
+        type:  number | nil
+        description: Sum of the effort of the assignments.
+      totalEffort?: 
+        type:  number | nil
+        description: Actual + remaining effort of the task.
+      workCompleteness?:
+        type:  number | nil
+        description: Work completeness of the task.
+      duration?:
+        type: integer | nil
+        description: Duration of the task. 
+      totalRemainingEffort?:
+        type:  number | nil
+        description: Total effort - actual effort of the task.
+      finishOld?:
+        type: datetime | nil
+        description: Old finish of the task. Currently unused legacy field.
+      originalFinish?:
+        type: datetime | nil
+        description: Original finish of the task. Currently unused legacy field.
+      originalStart?:
+        type: datetime | nil
+        description: Original start of the task. Currently unused legacy field.
+      tempFinish?:
+        type: datetime | nil
+        description: Temporary finish of the task. Currently unused legacy field.
+  task_post:
+    type: task_base
+    properties:
+      project:
+        type: integer
+        description: project of the task.
+  task_getbase:
+    type: task_base
+    properties:
+      id:
+        type: integer
+        description: Unique identificator of the task.
+  task_getId:
+    type: task_getbase
+    properties:
+      project:
+        type: integer
+        description: project of the task.
+  task_get:
+    type: task_getbase
+    properties:
+      attachments:
+        type: integer
+        description: Amount of attachments in task.
+      performerIds?:
+        type:  string | nil
+        description: List of unique identificators of the performers of the task.
+      performers?:
+        type:  string | nil
+        description: List of names of performers of the task.
+      reported?:
+        type:  integer| nil
+        description: Sum of all reported time in minutes.
+  task_getAll:
+    type: task_get[]
   tempfile: !include tempfile1_5.schema 
   timereport_base:
     additionalProperties: false
@@ -1565,7 +2408,7 @@ types:
       amount?:
         type: number
         description: Required if finish is not provided. Reported normal time in minutes. 
-  timereport_single:
+  timereport_get:
     type: timereport_base
     properties:
       id?:
@@ -1574,40 +2417,595 @@ types:
       billableAmount?:
         type: integer | nil
         description: Billable amount of time report
-  timereport_getId:
-    type: timereport_single
-    properties:
-      requireBillableComment?:
-        type: integer | nil
-        description: Used in get requests to indicate if task requires a comment for timereport
-      remainingAmount?:
-        type: integer | nil
-        description: Remaining amount of a time report 
-      totalReported?:
-        type: integer | nil
-        description: Total reported time of time report
-  timereport_get:
-    type: timereport_single
-    properties:
       invoice?:
         type: integer | nil
-        description: Internal Invoice ID of  any invoiced billable time reports
+        description: Internal invoice ID of any the invoice of a billable report
+      invoiceposition?:
+        type: integer | nil
+        description: Internal invoice position ID of the invoice position of a billable time report
+      salesorder?:
+        type: integer | nil
+        description: Internal salesorder ID of the salesorder of a billable time report
+      salesorderitem?:
+        type: integer | nil
+        description: Internal salesorder item ID of the salesorder item of a billable time report
       dutyType?:
         type: integer | nil
         description: Type of duty
       unitPrice?:
         type: integer | nil
         description: Price per unit (hour)
-      modified?:
+      created?:
         type: datetime
+        description: Created date
+      modified?:
+        type: datetime | nil
         description: Last modified date
       modifiedBy?:
         type: integer | nil
         description: Last modified by this person
+  timereport_getId:
+    type: timereport_get
+    properties:
+      requireBillableComment?:
+        type: integer | nil
+        description: Used in get requests to indicate if task requires a comment for timereport
+      remainingAmount?:
+        type: integer | nil
+        description: Remaining amount of a time report
+      totalReported?:
+        type: integer | nil
+        description: Total reported time of time report
   timereport_getAll:
     type: timereport_get[]
   user: !include user1_5.schema
   vacation: !include vacation1_5.schema
+  volumeprice:
+    additionalProperties: false
+    properties:
+      id:
+        type: integer
+        description: Unique identifier of a volume price.
+      salesOrderItemId:
+        type: integer
+        description: Sales order item of a volume price.
+      limit?:
+        type: integer | nil
+        description: Upper volume limit of the application of the price
+      price:
+        type: number
+        description: Price in the range defined by the limit.
+      ceiling?:
+        type: integer | nil
+        description: 1 if this is the price of the highest volume, 0 otherwise.
+  volumeprice_getAll:
+    type: volumeprice[]
+  absence_base_onlystring:
+    additionalProperties: false
+    properties:
+      absenceType?:
+        description: Type of an absence
+        type: string
+      description?:
+        type: string | nil
+        description: Description of an absence
+      finish?:
+        description: Finish date of an absence
+        type: string
+      person?:
+        description: Absentee and user of a system
+        type: string
+      start?:
+        description: Start date of an absence
+        type: string
+      vacationYear?: 
+        type: string | nil
+        description: Vacation year of the user
+      accepterPerson?:
+        type: string | nil
+        description: Superior of user who accepts an absence
+      interruptionDate?:
+        type: string | nil
+        description: Interruption date of an absence
+      vacationLength?:
+        description: Length of an absence represented in minutes
+        type: string
+      project?:
+        type: string
+        description: Id of absence parent in the task hierarchy 
+  absence_getId_onlystring:
+    type: absence_base_onlystring
+    properties:
+      id?:
+        type: string
+        description: Internal ID of an absence
+      status?:
+        type: string | nil
+        description: Status of an absence
+  account_base_onlystring: 
+    additionalProperties: false
+    properties:
+      name?:
+        description: Name of Account
+        type: string
+      passive?:
+        description: Active or passive state of account (Default value 0 - Inactive)
+        type: string
+      owner?:
+        description: Responsible id of an account (Default value - Creator of an account)
+        type: string
+      type?:
+        description: Type of an account (Default value 8 - Prospect)
+        type: string | nil
+      vatId?:
+        description: VAT id of an account
+        type: string | nil
+      businessId?:
+        description: Business id of an account
+        type: string | nil
+      termsOfPayment?:
+        description: Terms of payment of an invoice (Default value 14 - 14 days)
+        type: string | nil
+      eInvoicingAddress?:
+        description: eInvoicing address
+        type: string | nil
+      phone?:
+        description: Phone number of an account
+        pattern: "^[0-9|-]+$"
+        type: string | nil
+      website?:
+        description: Website of an account
+        type: string | nil
+      email?:
+        description: Email address of an account
+        type: email | emptystring | nil
+      industry?: string | nil
+      serviceLevel?:
+        description: Service level provided to real company linked to an account
+        type: string | nil
+      customerSatisfaction?: string | nil
+      description?:
+        description: Description of an account
+        type: string | nil
+      invoiceChannel?:
+        description: Methods of delivery of invoices
+        type: string | nil
+      invoiceVat?:
+        description: VAT on an invoice of an account (Default value 24 - 24%)
+        type: string | nil
+      invoiceNetOperator?: string | nil
+      handlingFee?:
+        description: Handling fee of an account
+        type: string | nil
+      invoiceEmail?:
+        description: Invoice delivery email
+        type: email | emptystring | nil
+      supplierAccount?:
+        description: Supplier id of an account
+        type: string | nil
+      reverseCharge?: string | nil
+      twitter?:
+        description: Twitter name of an account
+        type: string | nil
+      facebook?:
+        description: Facebook name of an account
+        type: string | nil
+      blog?:
+        description: Blog address of an account
+        type: string | nil
+      combineInvoices?: string | nil
+      rfReferenceNumber?: string | nil
+      lineOfBusiness?: string | nil
+      staff?: string | nil
+      turnover?: string | nil
+      billingAddress?:
+        description: Invoice billing address of an account
+        type: string | nil
+      billingCity?:
+        description: Invoice billing city of an account
+        type: string | nil
+      billingCountry?:
+        description: Invoice billing country of an account
+        type: string | nil
+      billingPostalCode?:
+        description: Invoice billing postal code of an account
+        type: string | nil
+      billingState?: string | nil
+      parentAccount?:
+        description: Parent id of an account
+        type: string | nil
+      shippingAddress?:
+        description: Invoice shipping address of an account
+        type: string | nil
+      shippingCity?:
+        description: Invoice shipping city of an account
+        type: string | nil
+      shippingCountry?:
+        description: Invoice shipping country of an account
+        type: string | nil
+      shippingPostalCode?: 
+        description: Invoice shipping postal code of an account
+        type: string | nil
+      shippingState?: string | nil
+      invoiceAppendix?: string | nil
+      invoiceTemplate?: string | nil
+      autoReplyRequestMails?:
+        description: Auto-reply request mails
+        type: string | nil
+  account_postId_onlystring:
+    type: account_base_onlystring
+    properties:
+      billingReference?: string | nil
+      shippingReference?: string | nil	
+  account_getId_onlystring:
+    type: account_postId_onlystring
+    properties: 
+      id?:
+        type: string
+        description: Internal ID of an account
+      operationalId?:         
+        type: string | nil
+        description: Operational ID of an account
+      parentAccountName?: 
+        type: string | nil
+  opportunity_base_onlystring:
+    additionalProperties: false
+    properties:
+      subject?:
+        type: string
+        description: "Name of an opportunity"
+      closed?:
+        type: datetime
+        description: "Closed date of an opportunity"
+      probability?:
+        type: string
+        description: "Probability to win an opportunity"
+      status?:
+        type: string | nil
+        description: "Status of an opportunity"
+      stage?:
+        type: string
+        description: "Stage of an opportunity"
+      source?:
+        type: string
+        description: "Source of an opportunity"
+      reason?:
+        type: string
+        description: "Reason of an opportunity"
+      partnerContact?:
+        type: string | nil
+        description: "Partner contact name / Account "
+      nextStep?:
+        type: string
+        description: "Nextstep of an opportunity"
+      request?:
+        type: string | nil
+        description: "Request of an opportunity"  
+      campaign?:
+        type: string | nil
+        description: "Campaign of an opportunity"
+      type?:
+        type: string
+        description: "Business type of an opportunity"
+      competitor?:
+        type: string | nil
+        description: "competitor of an opportunity"
+      priority?:
+        type: string
+        description: "Priority level of an opportunity"
+  opportunity_common_onlystring:
+    type: opportunity_base_onlystring
+    properties:
+      project?:
+        type: string | nil
+        description: "Project id of an opportunity"
+      contact?:
+        type: string
+        description: "Contact person id of an opportunity"
+      responsible?:
+        type: string
+        description: "Responsible person id of an opportunity"
+      description?:
+        type: string | nil
+        description: "Description of an opportunity"
+  opportunity_getId_onlystring:
+    type: opportunity_common_onlystring
+    properties:
+      id?:
+        type: string
+        description: "Internal ID of opportunity"
+  project_base_onlystring:
+    additionalProperties: false
+    properties:
+      name?:
+        type: string
+        description: "Project's name."
+      status?:
+        type: string
+        description: "Enumeration of a project's status: 1=Draft, 2=Preliminary, 3=Execution,4=Aborted, 5=Closed, 6=On hold, 8=Archived"
+      billableStatus?:
+        type: string
+        description: "Used in enumeration of billableStatus"
+      portfolio?:
+        type: string
+        description: "Portfolio id of Project"
+      category?:
+        type: string | nil
+        description: "Enumeration of a project's category: -1=NULL , 10=Absence,20=Administration, 30=Development, 40=Delivery, 50=R & D, 60=Support, 70=Sales, 80=Marketing,90=Education, 100=Continuous service, 110=Maintenance"
+      contact?:
+        type: string
+        description: "Contact's id that is related to a project, Required only if billable status is 1 or 2"
+      invoiceReference?:
+        type: string
+        description: "Invoice reference of a project"
+      description?:
+        type: string | nil
+        description: "Description of a project"
+      billingAccount?:
+        type: string | nil
+        description: "Billing account  Id of a project - set if different to the account of the contact."
+      autoAcceptTimeReports?:
+        type: string
+        description: "Enumeration of autoAcceptTimeReports: 0=No, 1=Yes"
+      requireBillableComment?:
+        type: string
+        description: "Enumeration of requireBillableComment: 0=No, 1=For all billabletasks,2=For all tasks"
+      setRequestPerformerAsTeamMember?:
+        type: string
+        description: "Enumeration of requestPerformerAsTeamMember: 0=No, 1=Yes"
+      requireCommentForOvertime?:
+        type: string
+        description: "Enumeration of requireBillableComment: 0=No, 1=For all billable tasks,2=For all tasks"
+      allowNewTasksAndAssignmentsForAllUsers?:
+        type: string
+        description: "Enumeration of allowNewTasksAndAssignmentsForAllUsers: 0=No, 1=Yes,butdonot add them as team members, 2=Yes,and add them as team members"
+      autoAssignNewTeamMembers?:
+        type: string
+        description: "Enumeration of autoAssignNewTeamMembers: 0=No, 1=Yes,but only tosubtasks, 2=Yes"
+      invoiceAppendix?:
+        type: string
+        description: "Invoice appendix of a project"
+      effortUnit?:
+        type: string | nil
+        description: "Effort unit of a project"  
+      currency?:
+        type: string
+        description: "Currency id of a project"
+      fixedRevenue?:
+        type: string | nil
+        description: "Revenue amount of a project"
+      fixedWorkEffort?:
+        type: string | nil
+        description: "Work effort hours of a project"
+      fixedWork?:
+        type: string | nil
+        description: "Work effort cost of a project"
+      budgetedExpense?:
+        type: string | nil
+        description: "Expense amount of a project"
+      budgetedPurchase?:
+        type: string | nil
+        description: "Purchase amount of a project"
+  project_getId_onlystring:
+    type: project_base_onlystring
+    properties:
+      id?:
+        type: string
+        description: Internal ID of a project
+      operationalId?:
+        type: string | nil
+        description: "Operational ID of a project"
+      account?:
+        type: string | nil
+        description: "Contact's account Id"
+      budgetedTotalCost?:
+        type: string
+        description: "Budgeted cost of a project"
+      forecastedTotalCost?:
+        type: string
+        description: "Forecasted cost of a project"
+      type?:
+        type: string
+        description: "Enumeration of a project's type: 1=Project, 3=Template"
+      dutyType?:
+        type: string | nil
+      editableByUser?:
+        type: string | nil
+  task_base_onlystring:
+    additionalProperties: false
+    properties:
+      actualStart?:
+        type: datetime | nil
+        description: Actual start of the task.
+      actualFinish?:
+        type: string | nil
+        description: Actual start of the task.
+      name:
+        type: string
+        description: Name of the task. Has to be unique per project.
+      type?:
+        type: string | nil
+        description: 100 = task (default), 101 = milestone, 200 = imported booking.
+      start?:
+        type: datetime | nil
+        description: Start of the task. If not defined, is not set to January 1970.
+      finish?:
+        type: datetime | nil
+        description: Finish of the task. If not defined, is not set to January 1970.
+      dutyType?:
+        type: string | nil
+        description: Duty type of the task.
+      billableStatus?:
+        type: string | nil
+        description: Billable status of the task.
+      status?:
+        type: string | nil
+        description: Status of the task. 
+      parent:
+        type: string
+        description: Parent of the task. May be a task or project Id.
+      predecessorTask?:
+        type: string | nil
+        description: Previous task that should be finished first. 
+      targetEffort?:
+        type: string | nil
+        description: Target effort of the task.
+      unitPrice?:
+        type: string | nil
+        description: Price of the unit of the task.
+      competence?:
+        type: string | nil
+        description: Competence level of the task.
+      wbs?:
+        type: string | nil
+        description: Work breakdown structure of the task.
+      priceType?:
+        type: string | nil
+        description: Price type of the task.
+      description?:
+        type: string | nil
+        description: Description of the task
+      created?:
+        type: string
+        description: Timestamp of the task creation.
+      modified?:
+        type: string | nil
+        description: When task was modified last time. 
+      plannedEffort?:
+        type: string | nil
+        description: Planned effort of the task.
+      actualEffort?:
+        type: string | nil
+        description: Actual effort of the task.
+      remainingEffort?:
+        type: string | nil
+        description: Sum of the effort of the assignments.
+      totalEffort?: 
+        type: string | nil
+        description: Actual + remaining effort of the task.
+      workCompleteness?:
+        type: string | nil
+        description: Work completeness of the task.
+      duration?:
+        type: string | nil
+        description: Duration of the task. 
+      totalRemainingEffort?:
+        type: string | nil
+        description: Total effort - actual effort of the task.
+      finishOld?:
+        type: datetime | nil
+        description: Old finish of the task. Currently unused legacy field.
+      originalFinish?:
+        type: datetime | nil
+        description: Original finish of the task. Currently unused legacy field.
+      originalStart?:
+        type: datetime | nil
+        description: Original start of the task. Currently unused legacy field.
+      tempFinish?:
+        type: datetime | nil
+        description: Temporary finish of the task. Currently unused legacy field.
+  task_getId_onlystring:
+    type: task_base_onlystring
+    properties:
+      id:
+        type: string
+        description: Unique identificator of the task.
+      project:
+        type: string
+        description: project of the task.
+  timereport_base_onlystring:
+    additionalProperties: false
+    properties:
+      project?:
+        description: Id of project having task to report the time
+        type: string | nil
+      person?:
+        type: string
+        description: User's id. Always returned with add hook payload. 
+      start?:
+        type: datetime
+        description: Start time of time report. Only date part is used when amount is provided (unless clock-times mode is active in users role). Always returned with add hook payload.     
+      amount?:
+        type: string
+        description: Reported normal time in minutes. 
+      finish?:
+        type: string
+        description: Finish time of a time report. May be used instead of amount for a time report. System will then calculate amount. Note for 'overtimeAmount' or 'travelAmount' you must provide an explicit length in minutes.
+      status?: 
+        type: string
+        description: Status of a time report
+      comment?:
+        type: string | nil
+        description: Comments of a time report
+      billingComment?:
+        type: string | nil
+        description: Billing comment of a time report
+      billableStatus?:
+        type: string | nil
+        description: If task's status is billable, time report's status can be either billable or non-billable
+      task?:
+        type: string
+        description: Id of task for which time is reported
+      overtimeAmount?:
+        type: string | nil
+        description: Overtime in minutes
+      overtimeComment?:
+        type: string | nil
+        description: Comment for overtime work
+      travelAmount?:
+        type: string | nil
+        description: Travel time in minutes
+      travelComment?:
+        type: string | nil
+        description: Travel time in minutes
+  timereport_single_onlystring:
+    type: timereport_base_onlystring
+    properties:
+      id:
+        type: string
+        description: Internal ID of a time report
+      billableAmount?:
+        type: string | nil
+        description: Billable amount of time report
+      invoice?:
+        type: string | nil
+        description: Internal invoice ID of any the invoice of a billable report
+      invoiceposition?:
+        type: string | nil
+        description: Internal invoice position ID of the invoice position of a billable time report
+      salesorder?:
+        type: string | nil
+        description: Internal salesorder ID of the salesorder of a billable time report
+      salesorderitem?:
+        type: string | nil
+        description: Internal salesorder item ID of the salesorder item of a billable time report
+      dutyType?:
+        type: string | nil
+        description: Type of duty
+      unitPrice?:
+        type: string | nil
+        description: Price per unit (hour)
+      created?:
+        type: datetime
+        description: Created date
+      modified?:
+        type: datetime | nil
+        description: Last modified date
+      modifiedBy?:
+        type: string | nil
+        description: Last modified by this person
+  timereport_getId_onlystring:
+    type: timereport_single_onlystring
+    properties:
+      requireBillableComment?:
+        type: string | nil
+        description: Used in get requests to indicate if task requires a comment for timereport
+      remainingAmount?:
+        type: string | nil
+        description: Remaining amount of a time report 
+      totalReported?:
+        type: string | nil
+        description: Total reported time of time report
 
 # write name of the resource before to include and schema always in SINGULAR, i.e. hook not hooks otherwise the automatic includes won't work
 # write name of the resource before the include and schema always in SINGULAR, i.e. hook not hooks otherwise the automatic includes won't work
@@ -1642,6 +3040,28 @@ resourceTypes:
                   type: object
                   example: |
                     <<exampleCollectionItemArray>>
+  readOnlyRowCountCollection:
+      is: [all]
+      description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. This is a read-only collection.
+      get:
+        description: Get a list of <<resourcePathName>>
+        queryParameters:
+          rowcount?:
+            type: integer
+            minimum: 1
+            required: false
+            description: It limits the result set amount to the specified limit to avoid API call to return too many records. Default row count is 100
+          nextrows?:
+            type: integer
+            required: false
+            description: The number of the next starting row. It is dependent on rowcount. For example, for total 250 items, if rowcount is 100 and nextrows is 101, it return items 101-201
+        responses:
+            200:
+              body:
+                application/json:
+                  type: object
+                  example: |
+                    <<exampleCollectionItemArray>>
   readOnlyCollectionItem:
       is: [all]
       description: A single <<resourcePathName|!singularize>> in PlanMill. This is a read-only item.
@@ -1654,7 +3074,7 @@ resourceTypes:
                 type: object
                 example: |
                   <<exampleCollectionItem>>
-  allMethodsCollection:
+  allMethodsNoExamplesCollection:
       is: [all]
       description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
       get?:
@@ -1677,13 +3097,6 @@ resourceTypes:
             type: string
             required: false
             description: Sorts the results using string that is a JSON attribute
-        responses:
-          200:
-            body:
-              application/json:
-                type: <<resourcePathName|!singularize>>
-                example: |
-                  <<exampleCollectionItemArray>>
       post?:
         description: Add a new <<resourcePathName|!singularize>> to PlanMill. See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
         headers:
@@ -1694,10 +3107,6 @@ resourceTypes:
               application/json;charset=UTF-8
             example: |
               application/json;charset=UTF-8
-        body:
-          application/json:
-            type: <<resourcePathName|!singularize>>
-            example: <<exampleCollectionItem>>
         responses:
           201:
             body:
@@ -1705,9 +3114,74 @@ resourceTypes:
                 type: object
                 example: |
                  { "id" : 123456 }
+  allMethodsCollection:
+      is: [all]
+      type: allMethodsNoSamplesCollection      
+      get?:
+        responses:
+          200:
+            body:
+              application/json:
+                type: <<resourcePathName|!singularize>>
+                example: |
+                  <<exampleCollectionItemArray>>
+      post?:
+        body:
+          application/json:
+            type: <<resourcePathName|!singularize>>
+            example: <<exampleCollectionItem>>
   intervalCollection:
       is: [all]
       type: allMethodsCollection
+      get?:
+        queryParameters:
+          interval?:
+            type: string
+            required: false
+            description: Interval type, e.g. start, finish, created, or modified. It is required in combination with intervalstart or intervalfinish
+          intervalstart?:
+            type: string
+            required: false
+            description: Start date of the interval in UTC format, intervalfinish required 
+            example: 2019-03-01T00:00:00.000+0200
+          intervalfinish?:
+            type: string
+            required: false
+            description: Finish date of the interval in UTC format, intervalstart required
+            example: 2019-03-01T00:00:00.000+0200
+        responses:
+          200:
+            body:
+              application/json:
+                type: <<resourcePathName|!singularize>>
+                example: |
+                  <<exampleCollectionItemArray>>
+      post?:
+        body:
+          application/json:
+            type: <<resourcePathName|!singularize>>
+            example: <<exampleCollectionItem>>
+  threeExampleCollection:
+      is: [all]
+      type: allMethodsNoExamplesCollection      
+      get?:
+        responses:
+          200:
+            body:
+              application/json:
+                type: <<resourcePathName|!singularize>>
+                example: |
+                  <<exampleCollectionItemArray>>
+      post?:
+        body:
+          application/json:
+            type: <<resourcePathName|!singularize>>
+            examples:
+              Post body: <<firstExampleCollectionItem>>
+              Triggered hook would look as below: <<secondExampleCollectionItem>>
+  readOnlyintervalCollection:
+      is: [all]
+      type: readOnlyRowCountCollection
       description: Collection of available <<resourcePathName|!pluralize>> in PlanMill. See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
       get?:
         description: Get a list of <<resourcePathName>>. See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
@@ -1715,7 +3189,7 @@ resourceTypes:
           interval?:
             type: string
             required: false
-            description: Interval type, e.g. start, finish, created, or modified. It is required in combination with intervalstart or intervalfinish
+            description: Interval type, created, modified, periodStartDate or plannedDate. It is required in combination with intervalstart or intervalfinish
           intervalstart?:
             type: string
             required: false
@@ -1836,7 +3310,7 @@ resourceTypes:
         responses: 
           204:
             description: No HTTP body returned
-  allMethodsCollectionItem:
+  allMethodsCollectionNoExampleItem:
       is: [all]
       description: A single <<resourcePathName|!singularize>> in PlanMill.
       get?:
@@ -1846,8 +3320,6 @@ resourceTypes:
             body:
               application/json:
                 type: <<resourcePathName|!singularize>>
-                example: |
-                  <<exampleCollectionGetItem>>
       post?:
         description: Update an existing resource <<resourcePathName|!singularize>> to PlanMill.  See <<resourcePathName|!pluralize>>/meta for a full set of query parameters (filters) and enumeration lists for integer key properties (fields).
         headers:
@@ -1861,7 +3333,6 @@ resourceTypes:
         body:
           application/json: 
             type: <<resourcePathName|!singularize>>
-            example: <<exampleCollectionPostItem>>
         responses:
           204:
             description: No HTTP body returned
@@ -1882,10 +3353,53 @@ resourceTypes:
         body:
           application/json:
             type: <<resourcePathName|!singularize>>
-            example: <<exampleCollectionPutItem>>
         responses:
           204:
             description: No HTTP body returned
+  allMethodsCollectionItem:
+      is: [all]
+      type: allMethodsCollectionNoExampleItem
+      get?:
+        responses:
+          200:
+            body:
+              application/json:
+                type: <<resourcePathName|!singularize>>
+                example: |
+                  <<exampleCollectionGetItem>>
+      post?:
+        body:
+          application/json: 
+            type: <<resourcePathName|!singularize>>
+            example: <<exampleCollectionPostItem>>
+      put?:
+        body:
+          application/json:
+            type: <<resourcePathName|!singularize>>
+            example: <<exampleCollectionPutItem>>
+  fourExampleAllMethodsCollectionItem:
+      is: [all]
+      type: allMethodsCollectionNoExampleItem
+      get?:
+        responses:
+          200:
+            body:
+              application/json:
+                type: <<resourcePathName|!singularize>>
+                examples:
+                  Response body: <<firstExampleCollectionItem>>
+                  Triggered hook would look as below: <<secondExampleCollectionItem>>
+      post?:
+        body:
+          application/json: 
+            type: <<resourcePathName|!singularize>>
+            example: <<exampleCollectionPostItem>>
+      delete?: 
+      put?:
+        body:
+          application/json:
+            type: <<resourcePathName|!singularize>>
+            example: <<exampleCollectionPutItem>>
   postOnlyCollection:
       is: [all]
       post:
@@ -2237,10 +3751,22 @@ resourceTypes:
           putGetDeleteCollectionItem:
             exampleCollectionItem: Contents of file
 /batch: 
-  description: Submit multiple API requests as a batch operation. All available individual API requests are supported collected into a JSON array. Responses are also returned as an array in same order as posted. If any request fails, all subsequent requests fail. This is to support execution order inside the batch. All headers apply for all requests unless specific headers applied
-  type: 
-    postOnlyCollection:       
-       exampleCollectionItem: !include batch1_5.sample
+  description: Submit multiple API requests as a batch operation. All available individual API requests are supported collected into a JSON array. Responses are also returned as an array in same order as posted. If any request fails, all subsequent requests fail. This is to support execution order inside the batch. All headers apply for all requests unless specific headers applied. Default maximum number of requests per batch is 50, if you need more, contact administration. 
+  post:
+    headers:
+      Content-Type:
+        type: string
+        required: true
+        default: |
+          application/json;charset=UTF-8 <div id="account1_5-datatype-post"></div> 	
+        example: |
+          application/json;charset=UTF-8
+  body:
+    application/json:
+      type: batch_post
+  type:
+    allMethodsCollectionItem:
+      exampleCollectionPostItem: !include batch_post.sample
 /boards:
   description: Kanban board from PlanMill
   type:
@@ -2491,6 +4017,16 @@ resourceTypes:
       type:
         readOnlyCollectionItem:
           exampleCollectionItem: !include capacitycalendar_meta1_5.sample
+  /publicholidays:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              type: publicholiday_getAll
+    type:
+      readOnlyCollection:
+        exampleCollectionItemArray: !include publicholiday_getAll.sample
   /capacitycalendars/{id}/capacity/{date}:
     description: Set a single day's capacity for a capacity calendar
     uriParameters:
@@ -2570,6 +4106,69 @@ resourceTypes:
           description: Attach existing file to user.( Tips use file id from api/1.5/tempfile )
         type:
           putCollectionItem
+/contracts:
+  get:
+    responses:
+      200:
+        description: 
+        body:                  
+          application/json: 
+            type: contract_getAll 
+  post:
+    headers:
+      Content-Type:
+        type: string
+        required: true
+        default: |
+          application/json;charset=UTF-8
+        example: |
+          application/json;charset=UTF-8
+    body:
+      application/json:
+        type: contract_post
+    description: To add a new contract. See contracts/meta for list of columns and formats.
+  type:
+     intervalCollection:
+       exampleCollectionItemArray: !include contract_getAll.sample
+       exampleCollectionItem: !include contract_getId.sample
+  /meta:
+      description: Get meta information for contracts. Includes resource's fields names and type and related filters
+      get:
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include contract_meta.sample
+  /{contract_id}:
+    get:
+      responses:
+        200:
+          body:
+            application/json: 
+              type: contract_getId
+    post:
+      body:
+        application/json:
+          type: contract_postId
+    delete:
+    type: 
+     allMethodsCollectionItem:
+        exampleCollectionGetItem: !include contract_getId.sample
+        exampleCollectionPostItem: !include contract_postId.sample	
+    /meta:
+        description: Get meta information for the updatable fields of the contract
+        get:
+        type:
+          readOnlyCollectionItem:
+            exampleCollectionItem: !include contract_single_meta.sample
+    /contractitems:
+      get:
+        responses:
+          200:
+            body:
+              application/json:
+                type: contractitem_getAll
+      type:
+        readOnlyCollectionItem:
+          exampleCollectionItem: !include contractitem_getAll.sample
 /enumerations:
   description: Enumerations available in PlanMill
   get:
@@ -2689,26 +4288,58 @@ resourceTypes:
           putGetDeleteCollectionItem:
             exampleCollectionItem: Contents of file
 /hooks:
-  description: The currently available subscribable events are listed here along with usage guidelines <p> https://github.com/planmill/api/wiki/WebHooks</p>
+  description: The currently available subscribable events are listed here, along with usage guidelines and a JSON Schema of a triggered hook:  chttps://github.com/planmill/api/wiki/WebHooks</p> 
+
   get:
     queryParameters:   
-      hook: 
+      hook?: 
         type: string
         description: Event that is being triggered
-      eventUser:
+      eventUser?:
         type: integer
         description: User identifier that is triggering the event
-      eventProject:
+      eventProject?:
         type: integer
         description: Project identifier for which the event has been triggered
+    responses:
+      200:
+        body:
+          application/json: 
+            type: hook_getAll 
+  post:
+    headers:
+      Content-Type:
+        type: string
+        required: true
+        default: |
+          application/json;charset=UTF-8 
+        example: |
+          application/json;charset=UTF-8
+    body:
+      application/json: 
+        type: hook_post 
   type:
-    collection: 
-      exampleCollectionItemArray: !include hook_array1_5.sample
-      exampleCollectionItem: !include hook1_5.sample
+    threeExampleCollection:
+      exampleCollectionItemArray: !include hook_getAll.sample
+      firstExampleCollectionItem: !include hook_post.sample
+      secondExampleCollectionItem: !include triggered_hook.sample
   /{hook_id}:
-    type: 
-      collectionItem:
-        exampleCollectionItem: !include hook1_5.sample
+    get:
+      responses:
+        200:
+          body:
+            application/json: 
+              type: hook_id 
+    post:
+      body:
+        application/json: 
+          type: hook_post  
+    delete:
+    type:
+      fourExampleAllMethodsCollectionItem:
+        firstExampleCollectionItem: !include hook_getId.sample
+        secondExampleCollectionItem: !include triggered_hook.sample
+        exampleCollectionPostItem: !include hook_post.sample
 /integrations:
   get:
     description: Get a list of available integration templates and statuses.
@@ -2863,6 +4494,26 @@ resourceTypes:
       type:
         readOnlyCollectionItem:
           exampleCollectionItem: !include invoice1_5.sample
+  /invoiceitems:
+    get:
+      responses:
+        200:
+          body:
+            application/json: 
+              type: invoiceitem_getAll
+    type:
+      readOnlyRowCountCollection:
+        exampleCollectionItemArray: !include invoiceitem_getAll.sample
+  /invoicepositions:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              type: invoiceposition_getAll
+    type:
+      readOnlyintervalCollection:
+        exampleCollectionItemArray: !include invoiceposition_getAll.sample
 /languages:
   description: Language strings used for localization available in PlanMill
   get:
@@ -3078,17 +4729,34 @@ resourceTypes:
               type:
                 readOnlyCollectionItem:
                   exampleCollectionItem: !include pricebookitems_item_meta1_5.sample
-/products:
-  description: To manage and list all products in a company. See /meta -endpoint.
+/products:																				 
   get:
     queryParameters:
-      id:
-          description: Filters products for a specified products id
-          type: integer
-          required: false
-          example: id={product id}
+      rowcount:
+      nextrows:
+      order:
+      sort:
+      interval:
+      intervalstart:
+      intervalfinish:
+    responses:
+      200:
+        description: 
+        body:                  
+          application/json: 
+            type: product_getAll              
   post:
-    description: To create the new product from the request body
+    headers:
+      Content-Type:
+        type: string
+        required: true
+        default: |
+          application/json;charset=UTF-8 <div id="product1_5-datatype-post"></div> 	
+        example: |
+          application/json;charset=UTF-8 		
+    body:
+      application/json:
+        type: product_post
   type:
     collection:
        exampleCollectionItemArray: !include product_array1_5.sample
@@ -3100,15 +4768,25 @@ resourceTypes:
         readOnlyCollectionItem:
           exampleCollectionItem: !include product_meta1_5.sample
   /{product_id}:
-    put:
-      description: To update the existing product from the request body with {product_id} in the url
     type:
-     putGetDeleteCollectionItem:
-        exampleCollectionItem: !include product1_5.sample
+      allMethodsCollectionItem:
+        exampleCollectionGetItem: !include product_getId.sample
+        exampleCollectionPutItem: !include product_put.sample
+    put:
+      responses:
+        200:
+          body:
+            application/json:
+              type: product_put
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              type: product_getId
     /attachments:
       type:
-        readOnlyCollection:
-          schemaName:
+        readOnlyCollection:					 
           exampleCollectionItemArray: !include tempfile_array1_5.sample
       /{attachment_id}:
         type:
@@ -3119,10 +4797,10 @@ resourceTypes:
   get:
     queryParameters:
       name:
-          description: Filters projects for a specified project name
-          type: string
-          required: false
-          example: name={existing_project_name}
+      description: Filters projects for a specified project name
+      type: string
+      required: false
+      example: name={existing_project_name}
       rowcount?:
       nextrows?:
       order?:
@@ -3164,7 +4842,7 @@ resourceTypes:
           200:
             body:
               application/json: 
-                type: project_getId  
+                type: project_getId
       post:
         body:
           application/json:
@@ -3272,19 +4950,14 @@ resourceTypes:
               schemaName:
               exampleCollectionItemArray: !include project_purchases_array_meta1_5.sample
       /tasks:
-        description: Please note that this data model might change and might be inconsistent with the schema right now
         get:
-          queryParameters:
-            rowcount:
-            nextrows:
-            order:
-            sort:    
-            interval:
-            intervalstart:
-            intervalfinish:
+          responses:
+            200:
+              body:                  
+                application/json: 
+                  type: task_getAll
         type:
-          readOnlyCollection:
-            schemaName: !include task1_5.schema
+          allMethodsCollection:
             exampleCollectionItemArray: !include task_array1_5.sample
         /meta:
           description: Get meta information for tasks. Includes resource's fields names and type and related filters
@@ -3526,73 +5199,144 @@ resourceTypes:
           exampleCollectionItem: !include salesorder_single_meta1_5.sample
     /items:
       get:
-        description: Get a list of sales order items. See salesorder/{sales_order_id}/items/meta for list of filters, columns and formats
+        description: Get a list of sales order items. See salesorder/{sales_order_id}/items/meta for list of filters, columns and formats. Sales order item values are returned in currency of the sales order, currency header does not apply. 
         responses:
           200:
             body:
               application/json:
-                type: !include salesorderitem1_5.schema
+                type: salesorderitem_getAll
       post:
-        description: Add a new sales order item to PlanMill or update existing (if id is given). See salesorders/{sales_order_id}/items/meta for list of columns and formats
+        description: Add a new sales order item to PlanMill or update existing (if id is given). See salesorders/{sales_order_id}/items/meta for list of columns and formats. 
         body:
           application/json:
-            type: !include salesorderitem1_5.schema
+            type: salesorderitem_post
       type:
         collection:
           exampleCollectionItemArray: !include salesorderitem_array1_5.sample
-          exampleCollectionItem: !include salesorderitem1_5.sample
-      /{id}:
+          exampleCollectionItem: !include salesorderitem_post.sample
+      /{sales_order_item_id}:
         get:
           description: View details of single item of single sales order item. #See sales orders/{sales_order_id}/items/{sales_order_item_id}/meta for list of filters, columns and formats
+          responses:
+           200:
+              body:
+                application/json: 
+                  type: salesorderitem_getId
         post:
           description: Update an existing resource single item of single sales order to PlanMill. #See salesorders/{sales_order_id}/items/{sales_order_item_id}/meta for list of filters, columns and formats
-        type:
-          collectionItem:
-            exampleCollectionItem: !include salesorderitem1_5.sample
-/tasks/{task_id}:
+          body:
+            application/json:
+              type: salesorderitem_post
+        delete:
+        type: 
+         allMethodsCollectionItem:
+            exampleCollectionGetItem: !include salesorderitem_getId.sample
+            exampleCollectionPostItem: !include salesorderitem_post.sample
+  /items/costcentersplittings:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              type: costcentersplitting_getAll
+    type:
+      readOnlyCollectionItem:
+        exampleCollectionItem: !include costcentersplitting_getAll.sample
+  /items/volumeprices:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              type: volumeprice_getAll
+    type:
+      readOnlyCollectionItem:
+        exampleCollectionItem: !include volumeprice_getAll.sample
+/tasks:
   get:
+    queryParameters:
+      project:
+        description: Unique identifier of the project of the task.
+        type: integer
+    responses:
+      200:
+        body:                  
+          application/json: 
+            type: task_getAll
   post:
-  delete:
-  type: 
-    allMethodsCollectionItem:
-      exampleCollectionGetItem: !include task1_5.sample
-      exampleCollectionPostItem: !include task1_5_post.sample
+    headers:
+      Content-Type:
+        type: string
+        required: true
+        default: |
+          application/json;charset=UTF-8  
+        example: |
+          application/json;charset=UTF-8
+    body:
+      application/json:
+        type: task_post
+  type:
+    allMethodsCollection:
+      exampleCollectionItemArray: !include task_array1_5.sample
+      exampleCollectionItem: !include task_post.sample
   /meta:
-    description: Get meta information for the updatable fields of the task
+    description: Get meta information for tasks. Includes resource's fields names and type and related filters.
     get:
     type:
       readOnlyCollectionItem:
-        exampleCollectionItem: !include task_single_meta1_5.sample
-  /assignments:
-    type:
-      collection:
-        exampleCollectionItemArray: !include assignment_array1_5.sample
-        exampleCollectionItem: !include assignment1_5.sample
+        exampleCollectionItem: !include task_meta1_5.sample
+  /{task_id}:
+    get:
+      responses:
+        200:
+          body:                  
+            application/json: 
+              type: task_getId
+    post:
+      body:
+        application/json:
+          type: task_post
+    delete:
+    type: 
+      allMethodsCollectionItem:
+        exampleCollectionGetItem: !include task_get.sample
+        exampleCollectionPostItem: !include task_post.sample
     /meta:
-      description:
+      description: Get meta information for the updatable fields of the task
       get:
       type:
         readOnlyCollectionItem:
-          exampleCollectionItem: !include task_single_assignment_meta1_5.sample
-    /{assignment_id}:
+          exampleCollectionItem: !include task_single_meta1_5.sample
+    /assignments:
       type:
-        collectionItem:
+        collection:
+          exampleCollectionItemArray: !include assignment_array1_5.sample
           exampleCollectionItem: !include assignment1_5.sample
       /meta:
         description:
         get:
         type:
           readOnlyCollectionItem:
-            exampleCollectionItem: !include task_single_assignment_single_meta1_5.sample
-  /attachments:
-     type:
-       readOnlyCollection:
-         schemaName:
-         exampleCollectionItemArray: !include tempfile_array1_5.sample
-     /{attachment_id}:
+            exampleCollectionItem: !include task_single_assignment_meta1_5.sample
+      /{assignment_id}:
+        type:
+          collectionItem:
+            exampleCollectionItem: !include assignment1_5.sample
+        /meta:
+          description:
+          get:
+          type:
+            readOnlyCollectionItem:
+              exampleCollectionItem: !include task_single_assignment_single_meta1_5.sample
+    /attachments:
        type:
-         putGetDeleteCollectionItem:
-           exampleCollectionItem: Contents of file
+         readOnlyCollection:
+           schemaName:
+           exampleCollectionItemArray: !include tempfile_array1_5.sample
+       /{attachment_id}:
+         type:
+           putGetDeleteCollectionItem:
+             exampleCollectionItem: Contents of file
 /teams:
   get:
     queryParameters:
@@ -3725,6 +5469,18 @@ resourceTypes:
       type: 
        putOnlyCollectionItem:
         exampleCollectionItem: !include braces.sample
+    /invoiced:
+      put:
+        description: Sets time reports invoiced. Only one time report may be marked at time. Project must have fixed income invoiced already, and there should not be open active salersorders or open uninvoiced revenues in the project. 
+      type: 
+       putOnlyCollectionItem:
+        exampleCollectionItem: !include braces.sample		
+    /invoiceposition/{invoiceposition_id}/invoiced:
+      put:
+        description: Sets time reports invoiced and attaches to arbitrary invoiceposition. Only one time report may be marked at time. Project must have fixed income invoiced already, and there should not be open active salersorders or open uninvoiced revenues in the project. 
+      type: 
+       putOnlyCollectionItem:
+        exampleCollectionItem: !include braces.sample	
     /meta:
       description: Get meta information for the updatable fields of the timereport
       get:
@@ -3867,6 +5623,12 @@ resourceTypes:
         readOnlyCollection:
           schemaName: !include reportable_assignments1_5.schema
           exampleCollectionItemArray: !include reportable_assignments_array1_5.sample
+    /socialsecuritynumber:
+      put:
+        description: Add social security number of user.
+      type: 
+        allMethodsCollectionItem:
+          exampleCollectionPutItem: !include socialsecuritynumber.sample
     /timebalance:
       get:
         queryParameters:
@@ -3945,7 +5707,6 @@ resourceTypes:
              exampleCollectionItem: !include vacation1_5.sample
 
 # /competences:
-# /contracts:
 # /forecasts:
 # /revenues:
 # /sessions:

@@ -330,6 +330,10 @@
       "totalExcludeVAT": {
         "format": "currency",
         "caption": "Total contract value (TCV)"
+      },
+      "contractDPS": {
+        "format": "text",
+        "caption": "Contract DPS"
       }
     }
 }
