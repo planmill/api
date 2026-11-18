@@ -2349,7 +2349,7 @@ types:
     additionalProperties: false
     properties:
       project?:
-        description: Id of project having task to report the time
+        description: Id of project having task to report the time. Empty in responses for time reports on absence projects
         type: integer | nil
       person?:
         type: integer
@@ -2395,7 +2395,7 @@ types:
     properties:
       billableAmount?:
         type: integer | nil
-        description: Billable amount of time report can be given separately, if reported amount affecting person's balance is different
+        description: Billable amount of time report can be given separately, if reported amount affecting person's balance is different. When updating, the value read from GET sent back unchanged while it still equals the reported total keeps the billable amount following the reported amounts; any other value fixes it
   timereport_post:
     type: timereport_postId
     properties:
@@ -2408,7 +2408,7 @@ types:
       amount?:
         type: number
         description: Required if finish is not provided. Reported normal time in minutes. 
-  timereport_get:
+  timereport_getId:
     type: timereport_base
     properties:
       id?:
@@ -2416,7 +2416,7 @@ types:
         description: Internal ID of a time report
       billableAmount?:
         type: integer | nil
-        description: Billable amount of time report
+        description: Billable amount of time report in minutes, as stored. It follows the reported total (amount + overtimeAmount + travelAmount) unless a different billable amount has been set
       invoice?:
         type: integer | nil
         description: Internal invoice ID of any the invoice of a billable report
@@ -2438,15 +2438,15 @@ types:
       created?:
         type: datetime
         description: Created date
+      createdBy?:
+        type: integer | nil
+        description: Id of the person who created the time report
       modified?:
         type: datetime | nil
-        description: Last modified date
+        description: Date of the latest change to the time report or to the data returned with it - the time report itself, also when an update does not stamp it (such as the repricing of its unit price and billable amount); its link to an invoice position; the invoice position's link to a sales order item; the invoice position being added to or removed from an invoice; the duty type of its task; and its task moving to another project. The same in GET /timereports and GET /timereports/{timereport_id}, and interval=modified filters by this date
       modifiedBy?:
         type: integer | nil
-        description: Last modified by this person
-  timereport_getId:
-    type: timereport_get
-    properties:
+        description: Id of the person who made the change in modified. A change that records no person (such as repricing by the system or a task moving to another project) is credited to the person who last saved the time report when it came within 5 minutes of that save, otherwise to 0, the system
       requireBillableComment?:
         type: integer | nil
         description: Used in get requests to indicate if task requires a comment for timereport
@@ -2457,7 +2457,7 @@ types:
         type: integer | nil
         description: Total reported time of time report
   timereport_getAll:
-    type: timereport_get[]
+    type: timereport_getId[]
   user: !include user1_5.schema
   vacation: !include vacation1_5.schema
   volumeprice:
@@ -2917,7 +2917,7 @@ types:
     additionalProperties: false
     properties:
       project?:
-        description: Id of project having task to report the time
+        description: Id of project having task to report the time. Empty in responses for time reports on absence projects
         type: string | nil
       person?:
         type: string
@@ -2988,12 +2988,15 @@ types:
       created?:
         type: datetime
         description: Created date
+      createdBy?:
+        type: string | nil
+        description: Id of the person who created the time report
       modified?:
         type: datetime | nil
-        description: Last modified date
+        description: Date of the latest change to the time report or to the data returned with it - the time report itself, also when an update does not stamp it (such as the repricing of its unit price and billable amount); its link to an invoice position; the invoice position's link to a sales order item; the invoice position being added to or removed from an invoice; the duty type of its task; and its task moving to another project. The same in GET /timereports and GET /timereports/{timereport_id}, and interval=modified filters by this date
       modifiedBy?:
         type: string | nil
-        description: Last modified by this person
+        description: Id of the person who made the change in modified. A change that records no person (such as repricing by the system or a task moving to another project) is credited to the person who last saved the time report when it came within 5 minutes of that save, otherwise to 0, the system
   timereport_getId_onlystring:
     type: timereport_single_onlystring
     properties:
