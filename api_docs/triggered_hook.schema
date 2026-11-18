@@ -1377,7 +1377,7 @@
                       "type": "null"
                     }
                   ],
-                  "description": "Id of project having task to report the time"
+                  "description": "Id of project having task to report the time. Empty in responses for time reports on absence projects"
                 },
                 "person": {
                   "type": "string",
@@ -1567,6 +1567,17 @@
                   "description": "Created date",
                   "format": "date-time"
                 },
+                "createdBy": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Id of the person who created the time report"
+                },
                 "modified": {
                   "anyOf": [
                     {
@@ -1577,7 +1588,7 @@
                       "type": "null"
                     }
                   ],
-                  "description": "Last modified date"
+                  "description": "Date of the latest change to the time report or to the data returned with it - the time report itself, also when an update does not stamp it (such as the repricing of its unit price and billable amount); its link to an invoice position; the invoice position's link to a sales order item; the invoice position being added to or removed from an invoice; the duty type of its task; and its task moving to another project. The same in GET /timereports and GET /timereports/{timereport_id}, and interval=modified filters by this date"
                 },
                 "modifiedBy": {
                   "anyOf": [
@@ -1588,7 +1599,7 @@
                       "type": "null"
                     }
                   ],
-                  "description": "Last modified by this person"
+                  "description": "Id of the person who made the change in modified. A change that records no person (such as repricing by the system or a task moving to another project) is credited to the person who last saved the time report when it came within 5 minutes of that save, otherwise to 0, the system"
                 },
                 "requireBillableComment": {
                   "anyOf": [
